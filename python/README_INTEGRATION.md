@@ -31,7 +31,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-└── tests/                       # clinical / unit / integration (150 tests, 0 skipped)
+└── tests/                       # clinical / unit / integration (177 tests, 0 skipped)
 ```
 
 ---
@@ -121,14 +121,14 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 150 tests
+pytest                 # all 177 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
 pytest -k C04 -v       # a single clinical case by id
 ```
 
-Three layers: **clinical** (35 SaMD reference cases — failures block rule_pack
+Three layers: **clinical** (60 SaMD reference cases — failures block rule_pack
 release), **unit** (DSL eval safety/correctness), **integration** (TestClient against
 an isolated SQLite DB per test).
 
