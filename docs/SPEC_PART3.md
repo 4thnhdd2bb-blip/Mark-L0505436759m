@@ -21,6 +21,13 @@ TS/Firebase (Part 1–2) остаётся целевой платформой н
 - `main.py` — standalone-приложение + пример монтирования в v4 (`include_router`).
 - Part 2 (агент, БД, контент, i18n, миграция Alembic) — материализованы рядом.
 
+**UI (Part 3b) — `python/ui/index.html`:**
+- Single-file React (CDN, без сборки), трёхъязычный RU/EN/HE + RTL для иврита,
+  слои clinical/admin, режимы demo (`file://`) и live (`?api=` или same-origin).
+- Раздаётся из FastAPI: `main.py` монтирует `/ui/*` и отдаёт `index.html` на `/`
+  (same-origin → `/glp1/*` без CORS). Контракт совпадает с `/glp1/assess` и
+  `/glp1/sign-off` один в один. Встроенные JSON-блоки валидны, 89 i18n-ключей × 3 локали.
+
 **Тест-харнесс (Part 3c) — `python/tests/`:**
 - `clinical/` — **15 SaMD reference-кейсов** (по правилу + edge cases) + meta-тесты
   (покрытие правил, дубликаты id, наличие источников/обоснования).

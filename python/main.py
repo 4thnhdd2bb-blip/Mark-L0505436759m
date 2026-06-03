@@ -31,11 +31,17 @@ from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from database import init_db
 from routers.glp1 import router as glp1_router
 from services.i18n import i18n_cache
 from services.resources import resources_cache
+
+# Single-file React UI (Part 3b). Served same-origin so it can call /glp1/* with
+# no CORS configuration. Lives under python/ui/.
+UI_DIR = Path(__file__).parent / "ui"
 
 
 # ----- Path resolution -----
@@ -101,11 +107,23 @@ app.add_middleware(
 # Mount the GLP-1 router
 app.include_router(glp1_router)
 
+# Serve the single-file UI same-origin (no CORS needed): / -> index.html, /ui/* assets.
+if UI_DIR.exists():
+    app.mount("/ui", StaticFiles(directory=str(UI_DIR), html=True), name="ui")
 
-# ----- Root health probe -----
+
+# ----- Root: serve the UI (falls back to health JSON if the UI is absent) -----
 
 @app.get("/")
-def root() -> dict:
+def root():
+    index = UI_DIR / "index.html"
+    if index.exists():
+        return FileResponse(str(index), media_type="text/html")
+    return healthz()
+
+
+@app.get("/healthz")
+def healthz() -> dict:
     bundle = resources_cache.bundle
     return {
         "service": "METACOD GLP-1 Complication Prevention",
