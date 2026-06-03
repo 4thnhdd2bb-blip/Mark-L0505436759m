@@ -1,0 +1,16 @@
+# METACOD GLP-1 v5 wiring — runtime dependencies
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.5
+SQLAlchemy>=2.0
+# Optional — server-side PDF rendering. If absent, /report.pdf returns 501 and
+# the client falls back to browser print-to-PDF of /report.html.
+# weasyprint>=61
+# Production DB driver (PostgreSQL). SQLite (stdlib) is used by default in dev.
+# psycopg[binary]>=3.1
+# Migrations (production). Dev can use database.py init_db().
+# alembic>=1.13
+
+# Dev / test
+pytest>=8.0
+httpx>=0.27

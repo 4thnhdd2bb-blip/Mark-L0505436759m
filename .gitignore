@@ -6,3 +6,12 @@ dist/
 .env.*
 .DS_Store
 coverage/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.db
+metacod_glp1.db
+.coverage

@@ -1,0 +1,152 @@
+# METACOD GLP-1 v5 — Python wiring (FastAPI) integration guide
+
+This package adds the GLP-1 Complication Prevention surface to the existing v4
+METACOD FastAPI app **without touching v4 endpoints**. It mounts as a router at
+`/glp1/*` and shares nothing with v4 except optionally the SQLAlchemy engine.
+
+> **Layout note.** In this repository everything is **flat under `python/`** —
+> source modules, the clinical content JSON, the i18n JSON, and the `tests/` tree
+> all live together. The original guide assumed three sibling directories; here a
+> single `PYTHONPATH=python` is all that's needed.
+
+---
+
+## File layout (this repo)
+
+```
+python/
+├── main.py                      # Standalone / reference app (mount pattern below)
+├── pharmacist_agent.py          # Part 2 — agent + rule DSL + Pydantic models
+├── database.py                  # Part 2 — SQLAlchemy models + persistence helpers
+├── rule_pack_v1.json            # 15 rules (verbatim, version-pinned)
+├── drug_master_v1.json          # 21 molecular drug profiles
+├── i18n_glp1_ru.json / en / he  # locale dictionaries (_meta carries direction)
+├── alembic_versions/
+│   └── 001_initial_glp1.py      # initial migration (production)
+├── routers/glp1.py              # the router — main deliverable
+├── services/
+│   ├── i18n.py                  # locale loader + recursive resolver
+│   └── resources.py             # rule_pack + drug_db singleton cache
+├── schemas/glp1_api.py          # Pydantic request/response models
+├── reports/html_renderer.py     # HTML report (print-to-PDF)
+├── requirements.txt
+├── pytest.ini
+└── tests/                       # clinical / unit / integration (51 tests)
+```
+
+---
+
+## Endpoints
+
+| Method | Path | Purpose |
+|--------|------|---------|
+| `POST` | `/glp1/assess` | Run a new pharmacist assessment, persist as a Visit |
+| `POST` | `/glp1/sign-off` | White Coat Rule — physician sign-off |
+| `GET` | `/glp1/visit/{id}` | Fetch visit + sign-off history (i18n resolved) |
+| `GET` | `/glp1/visit/{id}/report.html` | Printable report (locale, layer=clinical\|admin) |
+| `GET` | `/glp1/visit/{id}/report.pdf` | Server-side PDF (WeasyPrint; 501 + fallback if absent) |
+| `GET` | `/glp1/audit-log` | Filterable audit trail |
+| `GET` | `/glp1/rules` | Introspect loaded rule_pack |
+| `GET` | `/glp1/drugs` | Introspect drug DB |
+| `GET` | `/glp1/_info` | Startup sanity probe (versions, counts) |
+
+OpenAPI at `/docs` and `/redoc`.
+
+---
+
+## Run standalone (dev / Oleg)
+
+```bash
+cd python
+python3 -m venv .venv && . .venv/bin/activate
+pip install -r requirements.txt
+METACOD_GLP1_INIT_DB=1 python main.py     # creates SQLite tables on first run
+# open http://localhost:8001/docs
+```
+
+## Integrate into the v4 FastAPI app (non-invasive)
+
+```python
+# In your v4 app setup — add python/ to PYTHONPATH first.
+from routers.glp1 import router as glp1_router
+from services.resources import resources_cache
+from services.i18n import i18n_cache
+from pathlib import Path
+
+DATA_DIR = Path("/path/to/python")  # holds rule_pack_v1.json, drug_master_v1.json, i18n_glp1_*.json
+
+# v4 startup (lifespan or @app.on_event("startup")):
+resources_cache.load(DATA_DIR / "rule_pack_v1.json", DATA_DIR / "drug_master_v1.json")
+i18n_cache.load_all(base_dir=DATA_DIR)
+
+app.include_router(glp1_router)   # existing v4 routes untouched; live at /glp1/*
+```
+
+### Env-var driven startup
+
+```bash
+export METACOD_GLP1_DATA_DIR=/opt/metacod/python
+export METACOD_GLP1_DATABASE_URL=postgresql+psycopg://metacod:****@db/metacod
+export METACOD_GLP1_CORS_ORIGINS=https://app.metacod.health
+export METACOD_GLP1_INIT_DB=1   # dev only — production uses Alembic
+```
+
+---
+
+## Database
+
+- **Share v4's engine**: replace `SessionLocal` in `routers/glp1.py` with v4's session factory.
+- **Dedicated GLP-1 DB**: set `METACOD_GLP1_DATABASE_URL`. Tables are namespaced and
+  won't collide with v4 schema.
+- First dev run: `METACOD_GLP1_INIT_DB=1 python main.py` (or `python database.py`).
+- Production: `alembic upgrade head` (migration in `alembic_versions/`).
+
+---
+
+## i18n
+
+Every clinical string leaves the agent as an i18n **key** (e.g. `action.lt4_check_tsh_4w`).
+`resolve_i18n()` walks the assessment and adds sibling `*_i18n_text` fields for the
+requested locale; the original keys are preserved (so audit stays locale-independent
+and the same assessment can be re-rendered in another language). The `_meta.direction`
+(`ltr`/`rtl`) is surfaced on the response so the frontend mirrors layout for Hebrew.
+
+---
+
+## Tests
+
+```bash
+cd python
+. .venv/bin/activate
+pip install -r requirements.txt
+pytest                 # all 51 tests
+pytest -m clinical     # SaMD reference cases only
+pytest -m unit         # rule DSL safety + correctness
+pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
+pytest -k C04 -v       # a single clinical case by id
+```
+
+Three layers: **clinical** (15 SaMD reference cases — failures block rule_pack
+release), **unit** (DSL eval safety/correctness), **integration** (TestClient against
+an isolated SQLite DB per test).
+
+> The clinical coverage meta-test **skips** (does not fail) while 3 rules
+> (`CATION_CHELATION_TETRACYCLINE`, `EGFR_LOW_DIGOXIN`,
+> `GLP1_GASTROPARESIS_TMAX_SENSITIVE`) still lack a positive case. Add cases in
+> `tests/clinical/cases.py` to close the gap.
+
+---
+
+## Versioning contract (SaMD traceability)
+
+Every Visit pins `rule_pack_version`, `drug_db_version`, `agent_version` (`2.0.0`),
+so past assessments remain reproducible when rules or drug profiles change.
+
+---
+
+## Deferred
+
+- Server-side PDF (WeasyPrint) — endpoint returns 501 + browser-print fallback until installed.
+- React UI on top of these endpoints.
+- Extended rule_pack (30+) / drug_db (50+).
+- HL7 FHIR / EHR push of signed visits.

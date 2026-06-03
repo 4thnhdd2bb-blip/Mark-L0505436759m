@@ -41,5 +41,19 @@ overexposure / free fraction misleading).
   (15 правил), `drug_master_v1` (21 профиль), полные i18n RU/EN/HE, Firestore-модель
   (Visit/RuleTrigger/SignOff/AuditLog), серверный API. Паритет с v4 demo подтверждён
   (5/5 тестов). См. [`docs/SPEC_PART2.md`](docs/SPEC_PART2.md).
-- **Part 3** — Expo-RN UI (RTL/trilingual), PDF, security rules, evidence rubric,
-  тестовая матрица кейсов, roadmap.
+- **Part 3a/3c ✅ (Python, приоритетный трек)** — рабочая FastAPI-интеграция поверх v4:
+  router `/glp1/*` (assess, sign-off, visit, report.html, audit-log, rules, drugs),
+  серверный i18n-резолвер, HTML-отчёт (clinical/admin, RTL), SQLAlchemy-персистентность,
+  и тест-харнесс (**51 тест**: 15 клинических SaMD-кейсов + unit DSL + integration HTTP).
+  Всё в [`python/`](python/README_INTEGRATION.md).
+- **Part 3 (TS, позже)** — Expo-RN UI (RTL/trilingual), PDF, security rules,
+  evidence rubric, расширение rule_pack/drug_db.
+
+## Два трека (гибрид)
+
+| Трек | Где | Статус |
+|---|---|---|
+| **Python FastAPI** (приоритет сейчас, для интеграции с v4 / Oleg) | [`python/`](python/) | ✅ рабочий, 51 тест зелёный |
+| **TS / Expo-React-Native / Firebase** (целевая платформа) | `packages/`, `functions/` | ✅ Part 1–2 (движок + API), UI позже |
+
+Клиническое ядро (rule_pack, drug_master, i18n) **идентично** в обоих треках.
