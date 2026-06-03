@@ -1,14 +1,14 @@
 {
   "_meta": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "last_updated": "2026-06-03",
     "description": "METACOD bridge: mapping каждого rule_id из rule_pack_v2.json на TCM energy + quantity вклады.",
-    "review_status": "baseline_by_claude_pending_mark_review",
+    "review_status": "heat_phase_confirmed_by_mark_2026-06-03 (Heat→Normotonia per canon ch.4.2); treatment_sequence_order_pending_mark",
     "schema_documentation": {
       "rule_id": "string — должен совпадать с rule_pack_v2.rules[].rule_id",
       "energy_contributions": "list of {axis: cold|damp|dry|heat|wind, magnitude: 1-3}; обычно 1, максимум 2 оси на правило",
       "quantity_contributions": "list of {axis: excess|deficiency|stagnation|collapse|fluid_retention|overloss, magnitude: 1-3}",
-      "phase_route_hint": "Прогнозируемый phase route если это правило доминирует. Computed downstream через fixed mapping (Cold→CA, Damp→PCL-A, Wind→Epikrizis, Dry→PCL-B, Heat→PCL-A/Normotonia)",
+      "phase_route_hint": "Прогнозируемый phase route если это правило доминирует. Computed downstream через fixed mapping (Cold→CA, Damp→PCL-A, Wind→Epikrizis, Dry→PCL-B, Heat→Normotonia)",
       "collecting_tubules_priority": "boolean — true если правило указывает на refugee/existential conflict pattern. Для drug-interaction правил всегда false; для symptom-driven engines может быть true",
       "treatment_priority_order": "1-5: позиция в treatment sequence (1=wind, 2=damp, 3=cold, 4=dry, 5=heat). Computed from primary energy axis",
       "rationale_ru": "клиническое обоснование на русском для ревью"
@@ -19,7 +19,7 @@
       "damp": "PCL-A",
       "wind": "epicrisis",
       "dry": "PCL-B",
-      "heat": "PCL-A_or_normotonia"
+      "heat": "Normotonia"
     }
   },
 
@@ -73,7 +73,7 @@
       "rule_id": "EGFR_LOW_DOAC",
       "energy_contributions": [{"axis": "heat", "magnitude": 2}],
       "quantity_contributions": [{"axis": "excess", "magnitude": 3}],
-      "phase_route_hint": "PCL-A_or_normotonia",
+      "phase_route_hint": "Normotonia",
       "collecting_tubules_priority": false,
       "treatment_priority_order": 5,
       "rationale_ru": "Накопление DOAC → риск кровотечения = heat в крови. Drug excess из-за нарушения почечного клиренса. Heat + excess."
@@ -91,7 +91,7 @@
       "rule_id": "INFLAMMATION_CYP_SUBSTRATE",
       "energy_contributions": [{"axis": "heat", "magnitude": 3}],
       "quantity_contributions": [{"axis": "excess", "magnitude": 2}],
-      "phase_route_hint": "PCL-A_or_normotonia",
+      "phase_route_hint": "Normotonia",
       "collecting_tubules_priority": false,
       "treatment_priority_order": 5,
       "rationale_ru": "Цитокиновая буря = heat excess; CYP супрессия → накопление субстрата. Heat (доминантно) + excess."
@@ -100,7 +100,7 @@
       "rule_id": "CATION_CHELATION_FLUOROQUINOLONE",
       "energy_contributions": [{"axis": "heat", "magnitude": 2}],
       "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
-      "phase_route_hint": "PCL-A_or_normotonia",
+      "phase_route_hint": "Normotonia",
       "collecting_tubules_priority": false,
       "treatment_priority_order": 5,
       "rationale_ru": "Антибиотик не всасывается → инфекция не лечится = heat (патоген) excess НО основной флаг для METACOD — drug deficiency. Heat + deficiency (антимикробный препарат дефицитен против патогенного жара)."
@@ -109,7 +109,7 @@
       "rule_id": "CATION_CHELATION_TETRACYCLINE",
       "energy_contributions": [{"axis": "heat", "magnitude": 2}],
       "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
-      "phase_route_hint": "PCL-A_or_normotonia",
+      "phase_route_hint": "Normotonia",
       "collecting_tubules_priority": false,
       "treatment_priority_order": 5,
       "rationale_ru": "То же что fluoroquinolone — антибиотик не всасывается. Heat + deficiency."
@@ -136,7 +136,7 @@
       "rule_id": "EGFR_LOW_DIGOXIN",
       "energy_contributions": [{"axis": "heat", "magnitude": 2}],
       "quantity_contributions": [{"axis": "excess", "magnitude": 3}],
-      "phase_route_hint": "PCL-A_or_normotonia",
+      "phase_route_hint": "Normotonia",
       "collecting_tubules_priority": false,
       "treatment_priority_order": 5,
       "rationale_ru": "Дигоксин накапливается → cardiac toxicity = heat в сердце. Heat + excess (drug toxin excess)."
@@ -154,7 +154,7 @@
       "rule_id": "HYPOALBUMINEMIA_HIGH_PROTEIN_BINDING",
       "energy_contributions": [{"axis": "heat", "magnitude": 2}],
       "quantity_contributions": [{"axis": "excess", "magnitude": 2}],
-      "phase_route_hint": "PCL-A_or_normotonia",
+      "phase_route_hint": "Normotonia",
       "collecting_tubules_priority": false,
       "treatment_priority_order": 5,
       "rationale_ru": "Свободная фракция препарата ↑ из-за дефицита альбумина = drug heat excess через binding deficiency. Heat + excess."
@@ -190,7 +190,7 @@
       "rule_id": "QT_PROLONGATION_COMBO",
       "energy_contributions": [{"axis": "heat", "magnitude": 3}],
       "quantity_contributions": [{"axis": "excess", "magnitude": 3}],
-      "phase_route_hint": "PCL-A_or_normotonia",
+      "phase_route_hint": "Normotonia",
       "collecting_tubules_priority": false,
       "treatment_priority_order": 5,
       "rationale_ru": "Удлинение QT, torsades = cardiac fire dysrhythmic = heat excess в сердце. Сильный heat + сильный excess."
@@ -199,7 +199,7 @@
       "rule_id": "TACROLIMUS_CYP3A_PERTURBATION",
       "energy_contributions": [{"axis": "heat", "magnitude": 2}],
       "quantity_contributions": [{"axis": "excess", "magnitude": 3}],
-      "phase_route_hint": "PCL-A_or_normotonia",
+      "phase_route_hint": "Normotonia",
       "collecting_tubules_priority": false,
       "treatment_priority_order": 5,
       "rationale_ru": "Накопление CNI → нефро/нейротоксичность = drug toxin excess. Heat + excess."
@@ -226,7 +226,7 @@
       "rule_id": "MMF_BILE_SEQUESTRANT",
       "energy_contributions": [{"axis": "heat", "magnitude": 2}],
       "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
-      "phase_route_hint": "PCL-A_or_normotonia",
+      "phase_route_hint": "Normotonia",
       "collecting_tubules_priority": false,
       "treatment_priority_order": 5,
       "rationale_ru": "Иммуносупрессия дефицитна → отторжение = immune heat (HLA-driven). Drug deficiency. Heat + deficiency."
@@ -235,7 +235,7 @@
       "rule_id": "CARBAMAZEPINE_CYP3A_INDUCER",
       "energy_contributions": [{"axis": "heat", "magnitude": 1}],
       "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
-      "phase_route_hint": "PCL-A_or_normotonia",
+      "phase_route_hint": "Normotonia",
       "collecting_tubules_priority": false,
       "treatment_priority_order": 5,
       "rationale_ru": "Индуктор CYP3A → ускоренный клиренс субстрата → drug effect deficient. Множественные субстраты страдают. Heat (легко, как мета-категория для drug under-effect) + сильный deficiency."

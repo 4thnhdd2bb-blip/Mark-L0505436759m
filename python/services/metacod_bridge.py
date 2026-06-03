@@ -43,7 +43,7 @@ ENERGY_TO_PHASE: dict[str, str] = {
     "damp": "PCL-A",
     "wind": "epicrisis",
     "dry": "PCL-B",
-    "heat": "PCL-A_or_normotonia",
+    "heat": "Normotonia",  # canon ch.4.2: Heat = Normotonia (confirmed by Mark 2026-06-03)
 }
 
 # Treatment sequence — wind first, then damp, cold, dry, heat

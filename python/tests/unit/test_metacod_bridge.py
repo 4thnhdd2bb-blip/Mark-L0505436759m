@@ -100,7 +100,10 @@ def _assessment(interactions, **over):
 
 def test_catalog_loads_all_31(catalog):
     assert len(catalog) == 31
-    assert catalog.meta.get("review_status") == "baseline_by_claude_pending_mark_review"
+    # Heat→Normotonia confirmed by Mark; treatment_sequence ordering still pending review.
+    review = catalog.meta.get("review_status", "")
+    assert "heat_phase_confirmed" in review
+    assert "pending" in review
 
 
 def test_every_rule_pack_rule_has_a_mapping(catalog, resources):
@@ -330,7 +333,7 @@ def test_collecting_tubules_findings_go_first(tmp_path):
                 "rule_id": "CT_RULE",
                 "energy_contributions": [{"axis": "heat", "magnitude": 1}],
                 "quantity_contributions": [],
-                "phase_route_hint": "PCL-A_or_normotonia",
+                "phase_route_hint": "Normotonia",
                 "collecting_tubules_priority": True,
                 "treatment_priority_order": 5,  # last by energy, but CT overrides
                 "rationale_ru": "тест",
