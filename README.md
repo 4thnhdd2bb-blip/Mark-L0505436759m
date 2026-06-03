@@ -38,14 +38,14 @@ overexposure / free fraction misleading).
   METACOD-интеграция (trilingual, White Coat Rule, audit, dual-layer). См.
   [`docs/SPEC_PART1.md`](docs/SPEC_PART1.md).
 - **Part 2 ✅** — порт клинического ядра v4 → TS: Pharmacist Agent, `rule_pack_v1`
-  (15 правил), `drug_master_v1` (21 профиль), полные i18n RU/EN/HE, Firestore-модель
+  (15 правил), `drug_master_v2` (60 профилей), полные i18n RU/EN/HE, Firestore-модель
   (Visit/RuleTrigger/SignOff/AuditLog), серверный API. Паритет с v4 demo подтверждён
   (5/5 тестов). См. [`docs/SPEC_PART2.md`](docs/SPEC_PART2.md).
 - **Part 3a/3b/3c ✅ (Python, приоритетный трек)** — рабочая FastAPI-интеграция поверх v4:
   router `/glp1/*` (assess, sign-off, visit, report.html, audit-log, rules, drugs),
   серверный i18n-резолвер, HTML-отчёт (clinical/admin, RTL), SQLAlchemy-персистентность,
   **single-file React UI** (RU/EN/HE + RTL, clinical/admin, demo+live; раздаётся из
-  FastAPI на `/`), и тест-харнесс (**52 теста**: 15 клинических SaMD-кейсов + unit DSL +
+  FastAPI на `/`), и тест-харнесс (**57 тестов, 0 skip**: 19 клинических SaMD-кейсов + unit DSL +
   integration HTTP + UI). Всё в [`python/`](python/README_INTEGRATION.md).
 - **Part 3 (TS, позже)** — Expo-RN UI (RTL/trilingual), PDF, security rules,
   evidence rubric, расширение rule_pack/drug_db.

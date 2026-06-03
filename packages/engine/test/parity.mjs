@@ -14,8 +14,8 @@ const { rulePack, drugMaster } = loadContent();
 test("clinical content loads and validates", () => {
   assert.equal(rulePack.rule_pack_version, "1.0.0");
   assert.equal(rulePack.rules.length, 15);
-  assert.equal(drugMaster.schema_version, "1.0.0");
-  assert.equal(drugMaster.profiles.length, 21);
+  assert.equal(drugMaster.schema_version, "2.0.0");
+  assert.equal(drugMaster.profiles.length, 60);
 });
 
 // Reference demo patient from the v4 agent's __main__ block.

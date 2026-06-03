@@ -616,6 +616,138 @@ CASE_15_HYPOALBUMINEMIA_WARFARIN = ClinicalCase(
 )
 
 
+CASE_16_TETRACYCLINE_CATION = ClinicalCase(
+    case_id="C16_DOXYCYCLINE_CATION_CHELATION",
+    description="48F, semaglutide week 18, doxycycline for infection + concurrent calcium/iron product.",
+    clinical_rationale=(
+        "Tetracyclines form non-absorbable chelates with multivalent cations → "
+        "reduced absorption and therapy failure. Fire CATION_CHELATION_TETRACYCLINE "
+        "(Grade A); enforce separation from minerals/dairy."
+    ),
+    sources=[
+        "FDA Doxycycline prescribing information",
+        "Neuvonen PJ — tetracycline-cation PK literature",
+    ],
+    patient_input=_patient(
+        patient_id="P-CASE-16",
+        age_years=48,
+        sex="female",
+        glp1_agent="semaglutide_sc",
+        glp1_weeks_since_start=18,
+        glp1_weeks_since_last_dose_increase=12,
+        calcium_iron_magnesium_aluminum_products=True,
+        labs={"egfr_ml_min": 82},
+        medications=[
+            {"name": "Doxycycline 100 mg bid", "profile_id": "doxycycline", "route": "oral"},
+        ],
+    ),
+    expected=ExpectedOutcomes(
+        triage_color="green",
+        glp1_decision="CONTINUE",
+        rules_that_must_fire=["CATION_CHELATION_TETRACYCLINE"],
+        min_grade_a_rules=1,
+    ),
+)
+
+CASE_17_DIGOXIN_LOW_EGFR = ClinicalCase(
+    case_id="C17_DIGOXIN_LOW_EGFR",
+    description="74M, semaglutide week 26, digoxin for rate control + eGFR 40 (CKD-3b).",
+    clinical_rationale=(
+        "Digoxin is renally cleared with a narrow therapeutic index; falling eGFR "
+        "predictably raises levels → toxicity. Fire EGFR_LOW_DIGOXIN (Grade A); "
+        "check level and consider dose reduction."
+    ),
+    sources=["FDA Digoxin prescribing information"],
+    patient_input=_patient(
+        patient_id="P-CASE-17",
+        age_years=74,
+        sex="male",
+        glp1_agent="semaglutide_sc",
+        glp1_weeks_since_start=26,
+        glp1_weeks_since_last_dose_increase=20,
+        labs={"egfr_ml_min": 40, "creatinine_mg_dl": 1.7},
+        medications=[
+            {"name": "Digoxin 0.125 mg daily", "profile_id": "digoxin", "route": "oral", "is_essential": True},
+        ],
+    ),
+    expected=ExpectedOutcomes(
+        triage_color="green",
+        glp1_decision="CONTINUE",
+        rules_that_must_fire=["EGFR_LOW_DIGOXIN"],
+        rules_that_must_not_fire=["EGFR_LOW_DOAC"],
+        min_grade_a_rules=1,
+    ),
+)
+
+CASE_18_GLP1_TMAX_SENSITIVE = ClinicalCase(
+    case_id="C18_GLP1_TMAX_SENSITIVE_DRUG",
+    description="52F, semaglutide week 22, ciprofloxacin (Tmax-sensitive) without concurrent cations.",
+    clinical_rationale=(
+        "GLP-1-induced delayed gastric emptying right-shifts Tmax for drugs that "
+        "depend on a rapid peak. Fire GLP1_GASTROPARESIS_TMAX_SENSITIVE (Grade C, "
+        "mechanistic). With no cations present, the chelation rule must NOT fire."
+    ),
+    sources=[
+        "Ozempic / Mounjaro prescribing information — delayed gastric emptying",
+        "Camilleri M — GI motility pharmacology",
+    ],
+    patient_input=_patient(
+        patient_id="P-CASE-18",
+        age_years=52,
+        sex="female",
+        glp1_agent="semaglutide_sc",
+        glp1_weeks_since_start=22,
+        glp1_weeks_since_last_dose_increase=16,
+        calcium_iron_magnesium_aluminum_products=False,
+        labs={"egfr_ml_min": 88},
+        medications=[
+            {"name": "Ciprofloxacin 500 mg bid", "profile_id": "ciprofloxacin", "route": "oral"},
+        ],
+    ),
+    expected=ExpectedOutcomes(
+        triage_color="green",
+        glp1_decision="CONTINUE",
+        rules_that_must_fire=["GLP1_GASTROPARESIS_TMAX_SENSITIVE"],
+        rules_that_must_not_fire=["CATION_CHELATION_FLUOROQUINOLONE"],
+    ),
+)
+
+CASE_19_POSACONAZOLE_PPI = ClinicalCase(
+    case_id="C19_POSACONAZOLE_PPI_V2",
+    description="61M, semaglutide week 30, posaconazole oral suspension (drug_master v2) + omeprazole.",
+    clinical_rationale=(
+        "Validates v2 drug_master: posaconazole oral suspension requires acidic pH "
+        "for absorption, so PPI co-administration causes under-exposure. The existing "
+        "mechanism-first PPI_AZOLE_PH_SENSITIVE rule fires on the new drug profile "
+        "without any rule change — proves additive drug_master expansion works."
+    ),
+    sources=[
+        "FDA Noxafil prescribing information",
+        "Krishna G et al. posaconazole absorption pH/fat dependence",
+    ],
+    patient_input=_patient(
+        patient_id="P-CASE-19",
+        age_years=61,
+        sex="male",
+        glp1_agent="semaglutide_sc",
+        glp1_weeks_since_start=30,
+        glp1_weeks_since_last_dose_increase=24,
+        ppi_or_h2_blocker=True,
+        labs={"egfr_ml_min": 76, "alt_u_l": 24},
+        medications=[
+            {"name": "Posaconazole suspension 200 mg", "profile_id": "posaconazole_oral_suspension", "route": "oral"},
+            {"name": "Omeprazole 20 mg", "profile_id": "omeprazole", "route": "oral"},
+        ],
+    ),
+    expected=ExpectedOutcomes(
+        triage_color="green",
+        glp1_decision="CONTINUE",
+        rules_that_must_fire=["PPI_AZOLE_PH_SENSITIVE"],
+        min_grade_a_rules=1,
+    ),
+)
+
+
 # ============================================================================
 # Export
 # ============================================================================
@@ -636,4 +768,8 @@ ALL_CASES: list[ClinicalCase] = [
     CASE_13_GREEN_BASELINE_STABLE,
     CASE_14_MULTI_RULE_COMPLEX,
     CASE_15_HYPOALBUMINEMIA_WARFARIN,
+    CASE_16_TETRACYCLINE_CATION,
+    CASE_17_DIGOXIN_LOW_EGFR,
+    CASE_18_GLP1_TMAX_SENSITIVE,
+    CASE_19_POSACONAZOLE_PPI,
 ]

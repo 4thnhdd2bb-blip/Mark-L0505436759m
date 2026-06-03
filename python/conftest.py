@@ -47,7 +47,7 @@ def resources(data_dir: Path):
     from services.resources import resources_cache
     resources_cache.load(
         rule_pack_path=data_dir / "rule_pack_v1.json",
-        drug_db_path=data_dir / "drug_master_v1.json",
+        drug_db_path=data_dir / "drug_master_v2.json",
     )
     return resources_cache.bundle
 

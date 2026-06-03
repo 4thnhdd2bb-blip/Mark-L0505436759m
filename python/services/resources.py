@@ -36,7 +36,7 @@ ENV_RULE_PACK = "METACOD_GLP1_RULE_PACK"
 ENV_DRUG_DB = "METACOD_GLP1_DRUG_DB"
 
 DEFAULT_RULE_PACK_NAME = "rule_pack_v1.json"
-DEFAULT_DRUG_DB_NAME = "drug_master_v1.json"
+DEFAULT_DRUG_DB_NAME = "drug_master_v2.json"
 
 
 @dataclass

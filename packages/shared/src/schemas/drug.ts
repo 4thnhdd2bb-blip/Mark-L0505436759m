@@ -56,6 +56,8 @@ export const DrugProfile = z
     oral_contraceptive: z.boolean().optional(),
     is_perpetrator_cation: z.boolean().optional(),
     is_perpetrator_acid_suppression: z.boolean().optional(),
+    /** QT-prolongation risk (drug_master v2+); combinations warrant ECG monitoring. */
+    qt_prolongation_risk: z.boolean().optional(),
 
     // Metadata
     monitor: z.array(z.string()).optional(),

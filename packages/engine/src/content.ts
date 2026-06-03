@@ -28,7 +28,7 @@ export function loadRulePack(): RulePackT {
 
 export function loadDrugMaster(): DrugMasterT {
   if (!drugMasterCache) {
-    drugMasterCache = DrugMaster.parse(require("../content/drug_master_v1.json"));
+    drugMasterCache = DrugMaster.parse(require("../content/drug_master_v2.json"));
   }
   return drugMasterCache;
 }
