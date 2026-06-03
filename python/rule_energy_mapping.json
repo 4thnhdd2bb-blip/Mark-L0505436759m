@@ -1,0 +1,307 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "last_updated": "2026-06-03",
+    "description": "METACOD bridge: mapping каждого rule_id из rule_pack_v2.json на TCM energy + quantity вклады.",
+    "review_status": "baseline_by_claude_pending_mark_review",
+    "schema_documentation": {
+      "rule_id": "string — должен совпадать с rule_pack_v2.rules[].rule_id",
+      "energy_contributions": "list of {axis: cold|damp|dry|heat|wind, magnitude: 1-3}; обычно 1, максимум 2 оси на правило",
+      "quantity_contributions": "list of {axis: excess|deficiency|stagnation|collapse|fluid_retention|overloss, magnitude: 1-3}",
+      "phase_route_hint": "Прогнозируемый phase route если это правило доминирует. Computed downstream через fixed mapping (Cold→CA, Damp→PCL-A, Wind→Epikrizis, Dry→PCL-B, Heat→PCL-A/Normotonia)",
+      "collecting_tubules_priority": "boolean — true если правило указывает на refugee/existential conflict pattern. Для drug-interaction правил всегда false; для symptom-driven engines может быть true",
+      "treatment_priority_order": "1-5: позиция в treatment sequence (1=wind, 2=damp, 3=cold, 4=dry, 5=heat). Computed from primary energy axis",
+      "rationale_ru": "клиническое обоснование на русском для ревью"
+    },
+    "treatment_sequence_global": ["wind", "damp", "cold", "dry", "heat"],
+    "energy_to_phase_mapping": {
+      "cold": "CA",
+      "damp": "PCL-A",
+      "wind": "epicrisis",
+      "dry": "PCL-B",
+      "heat": "PCL-A_or_normotonia"
+    }
+  },
+
+  "mappings": [
+    {
+      "rule_id": "LT4_TABLET_PPI",
+      "energy_contributions": [{"axis": "cold", "magnitude": 3}],
+      "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
+      "phase_route_hint": "CA",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 3,
+      "rationale_ru": "Левотироксин не всасывается → гипотиреоз → охлаждение организма, замедление метаболизма. Cold + deficiency (дефицит щитовидного гормона)."
+    },
+    {
+      "rule_id": "LT4_TABLET_CATION",
+      "energy_contributions": [{"axis": "cold", "magnitude": 3}],
+      "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
+      "phase_route_hint": "CA",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 3,
+      "rationale_ru": "Тот же физиологический endpoint что LT4_PPI — гипотиреоз через невсасывание. Cold + deficiency."
+    },
+    {
+      "rule_id": "ORAL_IRON_PPI",
+      "energy_contributions": [{"axis": "cold", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
+      "phase_route_hint": "CA",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 3,
+      "rationale_ru": "Анемия → дефицит крови → холод от плохой циркуляции. Cold (умеренно) + deficiency (выраженно)."
+    },
+    {
+      "rule_id": "GLP1_TIRZEPATIDE_OC_EARLY",
+      "energy_contributions": [{"axis": "damp", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "stagnation", "magnitude": 2}],
+      "phase_route_hint": "PCL-A",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 2,
+      "rationale_ru": "GLP-1 замедление эвакуации желудка = damp/stagnation; пероральные гормоны не всасываются. Damp + stagnation."
+    },
+    {
+      "rule_id": "FUROSEMIDE_GUT_EDEMA",
+      "energy_contributions": [{"axis": "damp", "magnitude": 3}],
+      "quantity_contributions": [{"axis": "fluid_retention", "magnitude": 3}],
+      "phase_route_hint": "PCL-A",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 2,
+      "rationale_ru": "Сердечная недостаточность + отёк кишечной стенки = классическая damp excess картина. Петлевой не работает → застой жидкости. Damp + fluid_retention (excess формы)."
+    },
+    {
+      "rule_id": "EGFR_LOW_DOAC",
+      "energy_contributions": [{"axis": "heat", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "excess", "magnitude": 3}],
+      "phase_route_hint": "PCL-A_or_normotonia",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 5,
+      "rationale_ru": "Накопление DOAC → риск кровотечения = heat в крови. Drug excess из-за нарушения почечного клиренса. Heat + excess."
+    },
+    {
+      "rule_id": "CIRRHOSIS_HIGH_FIRST_PASS",
+      "energy_contributions": [{"axis": "damp", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "excess", "magnitude": 3}],
+      "phase_route_hint": "PCL-A",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 2,
+      "rationale_ru": "Цирроз = damp obstruction печени → коллапс first-pass → накопление препаратов. Damp + excess."
+    },
+    {
+      "rule_id": "INFLAMMATION_CYP_SUBSTRATE",
+      "energy_contributions": [{"axis": "heat", "magnitude": 3}],
+      "quantity_contributions": [{"axis": "excess", "magnitude": 2}],
+      "phase_route_hint": "PCL-A_or_normotonia",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 5,
+      "rationale_ru": "Цитокиновая буря = heat excess; CYP супрессия → накопление субстрата. Heat (доминантно) + excess."
+    },
+    {
+      "rule_id": "CATION_CHELATION_FLUOROQUINOLONE",
+      "energy_contributions": [{"axis": "heat", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
+      "phase_route_hint": "PCL-A_or_normotonia",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 5,
+      "rationale_ru": "Антибиотик не всасывается → инфекция не лечится = heat (патоген) excess НО основной флаг для METACOD — drug deficiency. Heat + deficiency (антимикробный препарат дефицитен против патогенного жара)."
+    },
+    {
+      "rule_id": "CATION_CHELATION_TETRACYCLINE",
+      "energy_contributions": [{"axis": "heat", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
+      "phase_route_hint": "PCL-A_or_normotonia",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 5,
+      "rationale_ru": "То же что fluoroquinolone — антибиотик не всасывается. Heat + deficiency."
+    },
+    {
+      "rule_id": "PPI_AZOLE_PH_SENSITIVE",
+      "energy_contributions": [{"axis": "damp", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
+      "phase_route_hint": "PCL-A",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 2,
+      "rationale_ru": "Грибки = damp; антифунгальный не всасывается → damp не дренируется. Damp + deficiency (антигрибковый препарат дефицитен)."
+    },
+    {
+      "rule_id": "GLP1_GASTROPARESIS_TMAX_SENSITIVE",
+      "energy_contributions": [{"axis": "damp", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "stagnation", "magnitude": 3}],
+      "phase_route_hint": "PCL-A",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 2,
+      "rationale_ru": "GLP-1 замедляет эвакуацию = damp/stagnation; tmax-sensitive препарат имеет erratic эффект. Damp + stagnation."
+    },
+    {
+      "rule_id": "EGFR_LOW_DIGOXIN",
+      "energy_contributions": [{"axis": "heat", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "excess", "magnitude": 3}],
+      "phase_route_hint": "PCL-A_or_normotonia",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 5,
+      "rationale_ru": "Дигоксин накапливается → cardiac toxicity = heat в сердце. Heat + excess (drug toxin excess)."
+    },
+    {
+      "rule_id": "BARIATRIC_EARLY_DOAC",
+      "energy_contributions": [{"axis": "wind", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "stagnation", "magnitude": 2}],
+      "phase_route_hint": "epicrisis",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 1,
+      "rationale_ru": "Антикоагуляция нестабильна = blood movement disturbed = wind disorder; flow stagnant. Wind + stagnation."
+    },
+    {
+      "rule_id": "HYPOALBUMINEMIA_HIGH_PROTEIN_BINDING",
+      "energy_contributions": [{"axis": "heat", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "excess", "magnitude": 2}],
+      "phase_route_hint": "PCL-A_or_normotonia",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 5,
+      "rationale_ru": "Свободная фракция препарата ↑ из-за дефицита альбумина = drug heat excess через binding deficiency. Heat + excess."
+    },
+    {
+      "rule_id": "PPI_TKI_PH_SENSITIVE",
+      "energy_contributions": [{"axis": "heat", "magnitude": 2}, {"axis": "dry", "magnitude": 1}],
+      "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
+      "phase_route_hint": "PCL-B",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 4,
+      "rationale_ru": "ТКИ не всасывается → онкологическая терапия дефицитна. Опухоль = heat/dry excess но drug deficiency доминирует здесь. Heat + dry (онкология) + deficiency."
+    },
+    {
+      "rule_id": "LITHIUM_LOOP_DIURETIC_TOXICITY",
+      "energy_contributions": [{"axis": "cold", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "collapse", "magnitude": 3}],
+      "phase_route_hint": "CA",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 3,
+      "rationale_ru": "Литий = вода/cold терапия. Петлевой → сокращение объёма → реабсорбция Li → CNS toxicity (тремор, спутанность). Cold + collapse."
+    },
+    {
+      "rule_id": "INSULIN_SU_GLP1_HYPOGLYCEMIA",
+      "energy_contributions": [{"axis": "cold", "magnitude": 3}],
+      "quantity_contributions": [{"axis": "collapse", "magnitude": 3}],
+      "phase_route_hint": "CA",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 3,
+      "rationale_ru": "Гипогликемия = низкоэнергетическое состояние, тремор, потливость, бледность = cold collapse. Классическая cold + collapse картина."
+    },
+    {
+      "rule_id": "QT_PROLONGATION_COMBO",
+      "energy_contributions": [{"axis": "heat", "magnitude": 3}],
+      "quantity_contributions": [{"axis": "excess", "magnitude": 3}],
+      "phase_route_hint": "PCL-A_or_normotonia",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 5,
+      "rationale_ru": "Удлинение QT, torsades = cardiac fire dysrhythmic = heat excess в сердце. Сильный heat + сильный excess."
+    },
+    {
+      "rule_id": "TACROLIMUS_CYP3A_PERTURBATION",
+      "energy_contributions": [{"axis": "heat", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "excess", "magnitude": 3}],
+      "phase_route_hint": "PCL-A_or_normotonia",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 5,
+      "rationale_ru": "Накопление CNI → нефро/нейротоксичность = drug toxin excess. Heat + excess."
+    },
+    {
+      "rule_id": "PHENYTOIN_HYPOALBUMINEMIA",
+      "energy_contributions": [{"axis": "wind", "magnitude": 3}],
+      "quantity_contributions": [{"axis": "excess", "magnitude": 2}],
+      "phase_route_hint": "epicrisis",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 1,
+      "rationale_ru": "Свободный фенитоин → CNS токсичность (атаксия, нистагм, спутанность) = wind disorder. Drug excess вызывает wind. Wind + excess."
+    },
+    {
+      "rule_id": "VALPROATE_HYPOALBUMINEMIA",
+      "energy_contributions": [{"axis": "wind", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "excess", "magnitude": 2}],
+      "phase_route_hint": "epicrisis",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 1,
+      "rationale_ru": "Свободный вальпроат → сонливость, тремор, нейротоксичность = wind disorder с drug excess. Wind + excess."
+    },
+    {
+      "rule_id": "MMF_BILE_SEQUESTRANT",
+      "energy_contributions": [{"axis": "heat", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
+      "phase_route_hint": "PCL-A_or_normotonia",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 5,
+      "rationale_ru": "Иммуносупрессия дефицитна → отторжение = immune heat (HLA-driven). Drug deficiency. Heat + deficiency."
+    },
+    {
+      "rule_id": "CARBAMAZEPINE_CYP3A_INDUCER",
+      "energy_contributions": [{"axis": "heat", "magnitude": 1}],
+      "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
+      "phase_route_hint": "PCL-A_or_normotonia",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 5,
+      "rationale_ru": "Индуктор CYP3A → ускоренный клиренс субстрата → drug effect deficient. Множественные субстраты страдают. Heat (легко, как мета-категория для drug under-effect) + сильный deficiency."
+    },
+    {
+      "rule_id": "CLOZAPINE_INFLAMMATION_TOXICITY",
+      "energy_contributions": [{"axis": "wind", "magnitude": 3}],
+      "quantity_contributions": [{"axis": "excess", "magnitude": 2}],
+      "phase_route_hint": "epicrisis",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 1,
+      "rationale_ru": "Клозапин ↑ → CNS депрессия, седация, слюнотечение, риск судорог = wind disorder (СНС). Drug excess из-за inflammation suppression CYP1A2. Wind + excess."
+    },
+    {
+      "rule_id": "LAMOTRIGINE_OC_CLEARANCE",
+      "energy_contributions": [{"axis": "wind", "magnitude": 3}],
+      "quantity_contributions": [{"axis": "deficiency", "magnitude": 2}],
+      "phase_route_hint": "epicrisis",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 1,
+      "rationale_ru": "Ламотриджин не работает → прорывные приступы = wind excess (судороги). Drug deficient. Wind + deficiency (анти-wind препарат дефицитен)."
+    },
+    {
+      "rule_id": "BARIATRIC_MODIFIED_RELEASE",
+      "energy_contributions": [{"axis": "damp", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "stagnation", "magnitude": 2}],
+      "phase_route_hint": "PCL-A",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 2,
+      "rationale_ru": "После бариатрии — изменённая анатомия → MR-формы выходят erratic. GI стагнация/неравномерность. Damp + stagnation."
+    },
+    {
+      "rule_id": "GLP1_WEIGHT_LOSS_ANTIHYPERTENSIVE_TAPER",
+      "energy_contributions": [{"axis": "cold", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "collapse", "magnitude": 2}],
+      "phase_route_hint": "CA",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 3,
+      "rationale_ru": "Потеря веса + антигипертензивная → ортостаз = BP collapse, cold/обморочное состояние. Cold + collapse."
+    },
+    {
+      "rule_id": "PSYCHOTROPIC_GASTROPARESIS_TMAX",
+      "energy_contributions": [{"axis": "damp", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "stagnation", "magnitude": 2}],
+      "phase_route_hint": "PCL-A",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 2,
+      "rationale_ru": "GLP-1 гастропарез + tmax-sensitive psychotropic = damp/stagnation в GI с непредсказуемым плазменным профилем. Damp + stagnation."
+    },
+    {
+      "rule_id": "SHORT_BOWEL_BILE_DEPENDENT",
+      "energy_contributions": [{"axis": "damp", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "deficiency", "magnitude": 3}],
+      "phase_route_hint": "PCL-A",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 2,
+      "rationale_ru": "Снижение пула желчных кислот = bile (damp drainage система) deficient → липофильные препараты не всасываются. Damp + deficiency."
+    },
+    {
+      "rule_id": "BARIATRIC_PROTEIN_BINDING_NTI",
+      "energy_contributions": [{"axis": "wind", "magnitude": 2}],
+      "quantity_contributions": [{"axis": "stagnation", "magnitude": 2}],
+      "phase_route_hint": "epicrisis",
+      "collecting_tubules_priority": false,
+      "treatment_priority_order": 1,
+      "rationale_ru": "После бариатрии PK NTI-препаратов нестабильна, blood-drug movement disturbed = wind disorder. Stagnation в смысле непредсказуемого flow. Wind + stagnation."
+    }
+  ]
+}

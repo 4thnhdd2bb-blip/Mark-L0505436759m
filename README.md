@@ -48,9 +48,11 @@ overexposure / free fraction misleading).
   FastAPI на `/`), Pharmacist Agent **v3.0** (DoseIndividualization / InteractionMatrix /
   BayesianLabProjector / Pharmacogenomics), **HL7 FHIR R4 экспорт** (`/glp1/visit/{id}/fhir-bundle`,
   детерминированный Bundle), **active learning** (захват врачебных правок при sign-off +
-  аналитика паттернов `/glp1/learning/patterns`), и тест-харнесс (**177 тестов, 0 skip**: 60 клинических
-  SaMD-кейсов + 24 v3-subsystem + unit DSL + i18n-покрытие +
-  integration HTTP + UI). Всё в [`python/`](python/README_INTEGRATION.md).
+  аналитика паттернов `/glp1/learning/patterns`), **METACOD TCM-мост** (adapter:
+  rule_id → energy/quantity axes → three-layer output patient/physician/hidden_admin;
+  baseline-маппинг 31 правила, pending Mark's review), и тест-харнесс (**201 тест, 0 skip**:
+  60 клинических SaMD-кейсов + 24 v3-subsystem + 24 metacod-bridge + unit DSL +
+  i18n-покрытие + integration HTTP + UI). Всё в [`python/`](python/README_INTEGRATION.md).
 - **Part 3 (TS, позже)** — Expo-RN UI (RTL/trilingual), PDF, security rules,
   evidence rubric, расширение rule_pack/drug_db.
 

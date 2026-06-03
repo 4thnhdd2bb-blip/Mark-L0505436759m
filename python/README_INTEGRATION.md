@@ -20,18 +20,22 @@ python/
 ├── database.py                  # Part 2 — SQLAlchemy models + persistence helpers
 ├── rule_pack_v2.json            # 31 rules (verbatim, version-pinned)
 ├── drug_master_v2.json          # 60 molecular drug profiles (v2)
+├── rule_energy_mapping.json     # METACOD TCM bridge: rule_id → energy/quantity axes (baseline, pending Mark's review)
 ├── i18n_glp1_ru.json / en / he  # locale dictionaries (_meta carries direction)
 ├── alembic_versions/
 │   └── 001_initial_glp1.py      # initial migration (production)
 ├── routers/glp1.py              # the router — main deliverable
 ├── services/
 │   ├── i18n.py                  # locale loader + recursive resolver
-│   └── resources.py             # rule_pack + drug_db singleton cache
+│   ├── resources.py             # rule_pack + drug_db singleton cache
+│   ├── metacod_bridge.py        # METACOD TCM bridge: assessment → energy/quantity synthesis + three-layer output
+│   └── treatment_sequence.py    # reorder findings by TCM treatment sequence (wind→damp→cold→dry→heat)
 ├── schemas/glp1_api.py          # Pydantic request/response models
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-└── tests/                       # clinical / unit / integration (177 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (201 tests, 0 skipped)
+└── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
 ---
@@ -121,7 +125,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 177 tests
+pytest                 # all 201 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
