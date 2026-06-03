@@ -242,3 +242,41 @@ def test_list_drugs_filter_by_class(client):
     drugs = resp.json()
     assert len(drugs) > 0
     assert all(d["class"] == "DOAC" for d in drugs)
+
+
+# ============================================================================
+# GET /glp1/visit/{id}/fhir-bundle
+# ============================================================================
+
+@pytest.mark.integration
+def test_fhir_bundle_endpoint(client):
+    visit_id = client.post("/glp1/assess", json=_basic_payload()).json()["visit_id"]
+
+    resp = client.get(f"/glp1/visit/{visit_id}/fhir-bundle?locale=en")
+    assert resp.status_code == 200
+    assert resp.headers["content-type"].startswith("application/fhir+json")
+    assert "ETag" in resp.headers
+
+    bundle = resp.json()
+    assert bundle["resourceType"] == "Bundle"
+    assert bundle["language"] == "en"
+    assert bundle["total"] == len(bundle["entry"])
+    types = {e["resource"]["resourceType"] for e in bundle["entry"]}
+    # LT4 + PPI assessment → at least triage Observation, a rule Observation,
+    # a MedicationStatement, ServiceRequests, and the ClinicalImpression.
+    assert {"Observation", "ClinicalImpression"} <= types
+
+
+@pytest.mark.integration
+def test_fhir_bundle_deterministic_etag(client):
+    visit_id = client.post("/glp1/assess", json=_basic_payload()).json()["visit_id"]
+    a = client.get(f"/glp1/visit/{visit_id}/fhir-bundle?locale=en")
+    b = client.get(f"/glp1/visit/{visit_id}/fhir-bundle?locale=en")
+    assert a.text == b.text  # byte-identical
+    assert a.headers["ETag"] == b.headers["ETag"]
+
+
+@pytest.mark.integration
+def test_fhir_bundle_unknown_visit_404(client):
+    resp = client.get("/glp1/visit/VIS-nope/fhir-bundle")
+    assert resp.status_code == 404

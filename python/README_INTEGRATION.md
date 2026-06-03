@@ -31,7 +31,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-└── tests/                       # clinical / unit / integration (73 tests, 0 skipped)
+└── tests/                       # clinical / unit / integration (124 tests, 0 skipped)
 ```
 
 ---
@@ -48,6 +48,7 @@ python/
 | `GET` | `/glp1/audit-log` | Filterable audit trail |
 | `GET` | `/glp1/rules` | Introspect loaded rule_pack |
 | `GET` | `/glp1/drugs` | Introspect drug DB |
+| `GET` | `/glp1/visit/{id}/fhir-bundle` | HL7 FHIR R4 Bundle export (deterministic, `application/fhir+json`) |
 | `GET` | `/glp1/_info` | Startup sanity probe (versions, counts) |
 
 OpenAPI at `/docs` and `/redoc`.
@@ -119,7 +120,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 73 tests
+pytest                 # all 124 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
@@ -137,7 +138,7 @@ an isolated SQLite DB per test).
 
 ## Versioning contract (SaMD traceability)
 
-Every Visit pins `rule_pack_version`, `drug_db_version`, `agent_version` (`2.0.0`),
+Every Visit pins `rule_pack_version`, `drug_db_version`, `agent_version` (`3.0.0`),
 so past assessments remain reproducible when rules or drug profiles change.
 
 ---
@@ -148,4 +149,4 @@ so past assessments remain reproducible when rules or drug profiles change.
 - React UI on top of these endpoints.
 - Extended rule_pack (30+) to exercise the new drug classes in drug_master v2
   (TKI/PPI, QT-combination, immunosuppressant, etc.). drug_db is already at 60 profiles.
-- HL7 FHIR / EHR push of signed visits.
+- HL7 FHIR R4 export — DONE (/glp1/visit/{id}/fhir-bundle, Bundle: MedicationStatement / ServiceRequest / Observation / ClinicalImpression). EHR transaction-submit (POST) and FHIR profile validation remain future work.

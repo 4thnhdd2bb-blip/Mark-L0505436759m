@@ -55,7 +55,10 @@ from schemas.glp1_api import (
     VisitSummary,
 )
 from services.i18n import i18n_cache, resolve_i18n
+from services.fhir_mapper import assessment_to_fhir_bundle
 from services.resources import ResourceBundle, get_resources
+
+import json as _json
 
 
 router = APIRouter(
@@ -315,6 +318,49 @@ def get_visit_report_pdf(
         content=pdf_bytes,
         media_type="application/pdf",
         headers={"Content-Disposition": f'inline; filename="visit_{visit_id}.pdf"'},
+    )
+
+
+# ============================================================================
+# GET /glp1/visit/{visit_id}/fhir-bundle — HL7 FHIR R4 export
+# ============================================================================
+
+@router.get("/visit/{visit_id}/fhir-bundle", response_class=Response)
+def get_visit_fhir_bundle(
+    visit_id: str,
+    locale: str = Query("ru", description="Locale for the resolved FHIR text: ru | en | he"),
+    db: Session = Depends(get_db),
+) -> Response:
+    """Return the FHIR R4 Bundle representation of the saved assessment.
+
+    Read-only and deterministic for a given (visit_id, locale): every resource
+    has a uuid5-derived id, so repeated calls produce byte-identical JSON (good
+    for ETag and EHR-side deduplication). Maps the stored (admin-layer) assessment;
+    push the physician-signed visit to the EHR.
+    """
+    visit = db.get(Visit, visit_id)
+    if visit is None:
+        raise HTTPException(status_code=404, detail=f"Visit not found: {visit_id}")
+
+    # The stored output_payload carries i18n keys; resolve to text for the locale
+    # so the FHIR resources carry human-readable strings.
+    resolved = resolve_i18n(visit.output_payload, locale=locale)
+    authored_on = visit.created_at.isoformat() if visit.created_at else None
+
+    bundle = assessment_to_fhir_bundle(
+        assessment=resolved,
+        visit_id=str(visit.id),
+        locale=locale,
+        authored_on=authored_on,
+    )
+
+    payload = bundle.model_dump(exclude_none=True)
+    body = _json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+    etag = f'W/"{hash((visit_id, locale, len(body))) & 0xFFFFFFFF:08x}"'
+    return Response(
+        content=body,
+        media_type="application/fhir+json",
+        headers={"ETag": etag, "Cache-Control": "private, max-age=300"},
     )
 
 
