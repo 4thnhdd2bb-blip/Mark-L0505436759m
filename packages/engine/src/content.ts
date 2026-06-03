@@ -21,7 +21,7 @@ let drugMasterCache: DrugMasterT | null = null;
 
 export function loadRulePack(): RulePackT {
   if (!rulePackCache) {
-    rulePackCache = RulePack.parse(require("../content/rule_pack_v1.json"));
+    rulePackCache = RulePack.parse(require("../content/rule_pack_v2.json"));
   }
   return rulePackCache;
 }

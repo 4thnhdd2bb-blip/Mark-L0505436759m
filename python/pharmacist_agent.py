@@ -1,7 +1,11 @@
 """
-METACOD GLP-1 Complication Prevention — Pharmacist Agent v2
+METACOD GLP-1 Complication Prevention — Pharmacist Agent v2.1
 
-Refactored from Gemini prototype. Pure-logic decision-support agent that:
+Refactored from Gemini prototype, extended in v2.1 to support drug-drug rule
+conditions through a derived `med_summary` context plus DSL `contains` and
+`any_in` operators. Backward compatible with v1 rule_pack.
+
+Responsibilities:
   - Evaluates drug-patient interactions against the rule_pack
   - Triages patient state (green / yellow / red)
   - Generates clinical forecasts (DOSE HOLD logic, future risks, chronic med adjustments)
@@ -276,6 +280,12 @@ class RuleEvaluator:
             return value != condition["neq"]
         if "in" in condition:
             return value in condition["in"]
+        if "contains" in condition:
+            # field is a list; check whether the expected value is in it
+            return isinstance(value, list) and condition["contains"] in value
+        if "any_in" in condition:
+            # field is a list; check whether any of the expected values are in it
+            return isinstance(value, list) and any(v in value for v in condition["any_in"])
 
         # Numeric comparisons (None safe)
         if value is None:
@@ -382,6 +392,7 @@ class PharmacistAgent:
     def _analyze_interactions(self) -> list[InteractionFinding]:
         findings: list[InteractionFinding] = []
         patient_dict = self.patient.model_dump()
+        patient_dict["med_summary"] = self._compute_medication_summary()
 
         for med in self.patient.medications:
             profile = self.drug_db_index.get(med.profile_id)
@@ -397,6 +408,101 @@ class PharmacistAgent:
                 findings.append(self._build_finding(rule, med, profile))
 
         return findings
+
+    # ---------- Medication summary (for drug-drug rule context) ----------
+
+    # Static class membership lists (extend as drug_db grows)
+    _CYP3A_STRONG_INDUCERS = {"carbamazepine", "phenytoin", "rifampin", "rifampicin"}
+    _CYP3A_STRONG_INHIBITORS = {
+        "itraconazole_capsule", "voriconazole",
+        "posaconazole_oral_suspension", "fluconazole",
+        "clarithromycin", "ritonavir",
+    }
+    _BILE_SEQUESTRANT_IDS = {"cholestyramine", "colesevelam", "colestipol", "sevelamer"}
+    _LITHIUM_IDS = {"lithium_carbonate", "lithium_citrate"}
+    _NTI_HEPATIC = {"warfarin", "phenytoin", "valproate_sodium", "tacrolimus",
+                    "cyclosporine", "amiodarone", "carbamazepine"}
+    _HYPOGLYCEMIC_NON_INSULIN = {"sulfonylurea", "meglitinide"}
+    _HYPOGLYCEMIC_INSULIN = {"insulin_basal", "insulin_rapid"}
+
+    def _compute_medication_summary(self) -> dict:
+        """Pre-compute drug-drug context flags from the patient's medication list.
+
+        Exposed to the rule DSL as patient.med_summary.* — lets rules check
+        combinations (e.g. lithium + loop diuretic, ≥2 QT-prolonging drugs)
+        without each rule walking the medication list itself.
+        """
+        classes: list[str] = []
+        profile_ids: list[str] = []
+        qt_count = 0
+        bile_dependent_count = 0
+
+        has_acid_suppression = False
+        has_cation_perpetrator = False
+        has_loop_diuretic = False
+        has_oral_contraceptive = False
+        has_lithium = False
+        has_dependent_lt4 = False
+        has_glp1 = self.patient.glp1_agent != "none"
+        has_bile_sequestrant = self.patient.bile_acid_sequestrants
+        has_cyp3a_strong_inducer = False
+        has_cyp3a_strong_inhibitor = False
+        has_hypoglycemic_secretagogue = False
+        has_insulin = False
+
+        for med in self.patient.medications:
+            profile = self.drug_db_index.get(med.profile_id, {})
+            cls = profile.get("class", "")
+            classes.append(cls)
+            profile_ids.append(med.profile_id)
+
+            if profile.get("qt_prolongation_risk"):
+                qt_count += 1
+            if profile.get("bile_dependent"):
+                bile_dependent_count += 1
+            if profile.get("is_perpetrator_acid_suppression"):
+                has_acid_suppression = True
+            if profile.get("is_perpetrator_cation"):
+                has_cation_perpetrator = True
+            if profile.get("oral_contraceptive"):
+                has_oral_contraceptive = True
+
+            if cls == "loop_diuretic":
+                has_loop_diuretic = True
+            if cls in self._HYPOGLYCEMIC_NON_INSULIN:
+                has_hypoglycemic_secretagogue = True
+            if cls in self._HYPOGLYCEMIC_INSULIN:
+                has_insulin = True
+
+            if med.profile_id in self._LITHIUM_IDS:
+                has_lithium = True
+            if med.profile_id.startswith("levothyroxine"):
+                has_dependent_lt4 = True
+            if med.profile_id in self._CYP3A_STRONG_INDUCERS:
+                has_cyp3a_strong_inducer = True
+            if med.profile_id in self._CYP3A_STRONG_INHIBITORS:
+                has_cyp3a_strong_inhibitor = True
+            if med.profile_id in self._BILE_SEQUESTRANT_IDS:
+                has_bile_sequestrant = True
+
+        return {
+            "classes": classes,
+            "profile_ids": profile_ids,
+            "qt_prolonging_med_count": qt_count,
+            "bile_dependent_med_count": bile_dependent_count,
+            "has_acid_suppression": has_acid_suppression,
+            "has_cation_perpetrator": has_cation_perpetrator,
+            "has_loop_diuretic": has_loop_diuretic,
+            "has_oral_contraceptive": has_oral_contraceptive,
+            "has_lithium": has_lithium,
+            "has_levothyroxine": has_dependent_lt4,
+            "has_glp1": has_glp1,
+            "has_bile_sequestrant": has_bile_sequestrant,
+            "has_cyp3a_strong_inducer": has_cyp3a_strong_inducer,
+            "has_cyp3a_strong_inhibitor": has_cyp3a_strong_inhibitor,
+            "has_hypoglycemic_secretagogue": has_hypoglycemic_secretagogue,
+            "has_insulin": has_insulin,
+        }
 
     def _build_finding(
         self,
@@ -687,8 +793,8 @@ def load_resources(
 if __name__ == "__main__":
     import sys
 
-    rule_pack_path = sys.argv[1] if len(sys.argv) > 1 else "rule_pack_v1.json"
-    drug_db_path = sys.argv[2] if len(sys.argv) > 2 else "drug_master_v1.json"
+    rule_pack_path = sys.argv[1] if len(sys.argv) > 1 else "rule_pack_v2.json"
+    drug_db_path = sys.argv[2] if len(sys.argv) > 2 else "drug_master_v2.json"
 
     rule_pack, drug_db = load_resources(rule_pack_path, drug_db_path)
 
@@ -702,6 +808,7 @@ if __name__ == "__main__":
         glp1_weeks_since_start=2,
         glp1_weeks_since_last_dose_increase=2,
         ppi_or_h2_blocker=True,
+        calcium_iron_magnesium_aluminum_products=False,
         symptoms=GISymptoms(
             nausea_score=7,
             vomiting_episodes_24h=1,
@@ -709,12 +816,7 @@ if __name__ == "__main__":
             early_satiety=True,
             weaker_effect_of_regular_meds=True,
         ),
-        labs=Labs(
-            egfr_ml_min=52,
-            crp_mg_l=8,
-            tsh_miu_l=6.4,
-            albumin_g_dl=3.5,
-        ),
+        labs=Labs(egfr_ml_min=52, crp_mg_l=8, tsh_miu_l=6.4, albumin_g_dl=3.5),
         medications=[
             MedicationInput(name="Levothyroxine 100 mcg", profile_id="levothyroxine_tablet", route="oral", is_essential=True),
             MedicationInput(name="Apixaban 5 mg bid", profile_id="apixaban", route="oral", is_essential=True),

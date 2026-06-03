@@ -749,6 +749,324 @@ CASE_19_POSACONAZOLE_PPI = ClinicalCase(
 
 
 # ============================================================================
+# v2 rule_pack — drug-drug rules (med_summary derived context)
+# ============================================================================
+
+CASE_20_PPI_TKI = ClinicalCase(
+    case_id="C20_PPI_TKI_PH",
+    description="64M, semaglutide week 20, erlotinib (EGFR TKI) for NSCLC + omeprazole.",
+    clinical_rationale=(
+        "EGFR TKIs need acidic pH for dissolution; PPI reduces AUC 30–60% → "
+        "subtherapeutic exposure and resistance. Fire PPI_TKI_PH_SENSITIVE (Grade A)."
+    ),
+    sources=["FDA Tarceva label — PPI warning", "Hilberg O et al."],
+    patient_input=_patient(
+        patient_id="P-CASE-20", age_years=64, sex="male",
+        glp1_agent="semaglutide_sc", glp1_weeks_since_start=20, glp1_weeks_since_last_dose_increase=14,
+        ppi_or_h2_blocker=True, labs={"egfr_ml_min": 78},
+        medications=[
+            {"name": "Erlotinib 150 mg", "profile_id": "erlotinib", "route": "oral", "is_essential": True},
+            {"name": "Omeprazole 20 mg", "profile_id": "omeprazole", "route": "oral"},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["PPI_TKI_PH_SENSITIVE"], min_grade_a_rules=1),
+)
+
+CASE_21_LITHIUM_LOOP = ClinicalCase(
+    case_id="C21_LITHIUM_LOOP_DIURETIC",
+    description="58F, bipolar on lithium, started oral furosemide for edema (no GLP-1).",
+    clinical_rationale=(
+        "Loop diuretic volume contraction raises proximal tubular Li reabsorption → "
+        "lithium toxicity. Fire LITHIUM_LOOP_DIURETIC_TOXICITY (Grade A); check level in 1w."
+    ),
+    sources=["FDA Lithium prescribing information", "Finley PR et al."],
+    patient_input=_patient(
+        patient_id="P-CASE-21", age_years=58, sex="female", glp1_agent="none",
+        labs={"egfr_ml_min": 72},
+        medications=[
+            {"name": "Lithium carbonate 600 mg", "profile_id": "lithium_carbonate", "route": "oral", "is_essential": True},
+            {"name": "Furosemide 40 mg", "profile_id": "furosemide_oral", "route": "oral"},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["LITHIUM_LOOP_DIURETIC_TOXICITY"], min_grade_a_rules=1),
+)
+
+CASE_22_INSULIN_SU_GLP1 = ClinicalCase(
+    case_id="C22_SULFONYLUREA_GLP1_HYPO",
+    description="60M, semaglutide week 14, glipizide for T2DM — additive hypoglycemia risk.",
+    clinical_rationale=(
+        "GLP-1 plus an insulin secretagogue amplifies hypoglycemia risk. Fire "
+        "INSULIN_SU_GLP1_HYPOGLYCEMIA (Grade A); proactively reduce SU and intensify monitoring."
+    ),
+    sources=["FDA GLP-1 labels — hypoglycemia warnings with SU/insulin"],
+    patient_input=_patient(
+        patient_id="P-CASE-22", age_years=60, sex="male",
+        glp1_agent="semaglutide_sc", glp1_weeks_since_start=14, glp1_weeks_since_last_dose_increase=10,
+        labs={"egfr_ml_min": 80},
+        medications=[
+            {"name": "Glipizide 5 mg", "profile_id": "glipizide", "route": "oral"},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["INSULIN_SU_GLP1_HYPOGLYCEMIA"], min_grade_a_rules=1),
+)
+
+CASE_23_QT_COMBO = ClinicalCase(
+    case_id="C23_QT_PROLONGATION_COMBO",
+    description="70M, amiodarone + sotalol (two QT-prolonging antiarrhythmics).",
+    clinical_rationale=(
+        "Two concurrent QT-prolonging drugs give additive QT prolongation → torsades "
+        "risk. Fire QT_PROLONGATION_COMBO (Grade A); baseline ECG, correct K/Mg."
+    ),
+    sources=["CredibleMeds QT lists", "AHA/ACC drug-induced QT statement"],
+    patient_input=_patient(
+        patient_id="P-CASE-23", age_years=70, sex="male", glp1_agent="none",
+        labs={"egfr_ml_min": 68},
+        medications=[
+            {"name": "Amiodarone 200 mg", "profile_id": "amiodarone", "route": "oral", "is_essential": True},
+            {"name": "Sotalol 80 mg bid", "profile_id": "sotalol", "route": "oral", "is_essential": True},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["QT_PROLONGATION_COMBO"], min_grade_a_rules=1),
+)
+
+CASE_24_TACROLIMUS_CYP3A = ClinicalCase(
+    case_id="C24_TACROLIMUS_INFECTION_CYP3A",
+    description="48F kidney transplant on tacrolimus, presents with acute infection.",
+    clinical_rationale=(
+        "Cytokine-driven CYP3A suppression during infection (or a strong CYP3A inhibitor) "
+        "raises tacrolimus exposure → nephro/neurotoxicity. Fire TACROLIMUS_CYP3A_PERTURBATION (A)."
+    ),
+    sources=["FDA Prograf label", "Brunet M et al. tacrolimus TDM consensus"],
+    patient_input=_patient(
+        patient_id="P-CASE-24", age_years=48, sex="female", glp1_agent="none",
+        acute_infection=True, labs={"egfr_ml_min": 62, "crp_mg_l": 70},
+        medications=[
+            {"name": "Tacrolimus 2 mg bid", "profile_id": "tacrolimus", "route": "oral", "is_essential": True},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["TACROLIMUS_CYP3A_PERTURBATION"], min_grade_a_rules=1),
+)
+
+CASE_25_PHENYTOIN_HYPOALB = ClinicalCase(
+    case_id="C25_PHENYTOIN_HYPOALBUMINEMIA",
+    description="55M on phenytoin with albumin 3.2 g/dL — free fraction rises.",
+    clinical_rationale=(
+        "Phenytoin is ~90% albumin-bound with saturable kinetics; low albumin raises free "
+        "phenytoin while total looks reassuring. Fire PHENYTOIN_HYPOALBUMINEMIA (A); measure free level."
+    ),
+    sources=["FDA Dilantin prescribing information", "Patsalos PN et al."],
+    patient_input=_patient(
+        patient_id="P-CASE-25", age_years=55, sex="male", glp1_agent="none",
+        labs={"egfr_ml_min": 75, "albumin_g_dl": 3.2},
+        medications=[
+            {"name": "Phenytoin 100 mg tid", "profile_id": "phenytoin", "route": "oral", "is_essential": True},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["PHENYTOIN_HYPOALBUMINEMIA"], min_grade_a_rules=1),
+)
+
+CASE_26_VALPROATE_HYPOALB = ClinicalCase(
+    case_id="C26_VALPROATE_HYPOALBUMINEMIA",
+    description="62F on valproate with albumin 3.2 g/dL.",
+    clinical_rationale=(
+        "Valproate is highly albumin-bound; low albumin raises free fraction, total may "
+        "underestimate exposure. Fire VALPROATE_HYPOALBUMINEMIA (Grade B)."
+    ),
+    sources=["FDA Depakote prescribing information"],
+    patient_input=_patient(
+        patient_id="P-CASE-26", age_years=62, sex="female", glp1_agent="none",
+        labs={"egfr_ml_min": 70, "albumin_g_dl": 3.2},
+        medications=[
+            {"name": "Valproate 500 mg bid", "profile_id": "valproate_sodium", "route": "oral", "is_essential": True},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["VALPROATE_HYPOALBUMINEMIA"]),
+)
+
+CASE_27_MMF_SEQUESTRANT = ClinicalCase(
+    case_id="C27_MMF_BILE_SEQUESTRANT",
+    description="40M transplant on mycophenolate mofetil + bile acid sequestrant.",
+    clinical_rationale=(
+        "MPA relies on enterohepatic recirculation; a bile acid sequestrant interrupts the "
+        "loop → reduced AUC → under-immunosuppression. Fire MMF_BILE_SEQUESTRANT (Grade B)."
+    ),
+    sources=["FDA CellCept prescribing information"],
+    patient_input=_patient(
+        patient_id="P-CASE-27", age_years=40, sex="male", glp1_agent="none",
+        bile_acid_sequestrants=True, labs={"egfr_ml_min": 66},
+        medications=[
+            {"name": "Mycophenolate mofetil 1 g bid", "profile_id": "mycophenolate_mofetil", "route": "oral", "is_essential": True},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["MMF_BILE_SEQUESTRANT"]),
+)
+
+CASE_28_CARBAMAZEPINE_INDUCER = ClinicalCase(
+    case_id="C28_CARBAMAZEPINE_CYP3A_INDUCER",
+    description="66M on apixaban who is also taking carbamazepine (strong CYP3A inducer).",
+    clinical_rationale=(
+        "Carbamazepine strongly induces CYP3A → accelerated DOAC clearance → subtherapeutic "
+        "anticoagulation and thrombosis risk. Fire CARBAMAZEPINE_CYP3A_INDUCER (Grade A) on the DOAC."
+    ),
+    sources=["FDA Tegretol prescribing information — DDI section"],
+    patient_input=_patient(
+        patient_id="P-CASE-28", age_years=66, sex="male", glp1_agent="none",
+        labs={"egfr_ml_min": 80},
+        medications=[
+            {"name": "Apixaban 5 mg bid", "profile_id": "apixaban", "route": "oral", "is_essential": True},
+            {"name": "Carbamazepine 200 mg bid", "profile_id": "carbamazepine", "route": "oral", "is_essential": True},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["CARBAMAZEPINE_CYP3A_INDUCER"], min_grade_a_rules=1),
+)
+
+CASE_29_CLOZAPINE_INFLAMMATION = ClinicalCase(
+    case_id="C29_CLOZAPINE_INFLAMMATION",
+    description="45M on clozapine, presents with acute infection (CRP 80).",
+    clinical_rationale=(
+        "Inflammation suppresses CYP1A2 → clozapine levels can double within days → "
+        "sedation, seizures, ileus. Fire CLOZAPINE_INFLAMMATION_TOXICITY (Grade B); check level now."
+    ),
+    sources=["Ruan CJ et al.", "de Leon J et al."],
+    patient_input=_patient(
+        patient_id="P-CASE-29", age_years=45, sex="male", glp1_agent="none",
+        acute_infection=True, labs={"egfr_ml_min": 85, "crp_mg_l": 80},
+        medications=[
+            {"name": "Clozapine 300 mg", "profile_id": "clozapine", "route": "oral", "is_essential": True},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["CLOZAPINE_INFLAMMATION_TOXICITY"]),
+)
+
+CASE_30_LAMOTRIGINE_OC = ClinicalCase(
+    case_id="C30_LAMOTRIGINE_OC_CLEARANCE",
+    description="29F on lamotrigine who starts a combined oral contraceptive.",
+    clinical_rationale=(
+        "Estrogen induces UGT1A4 → lamotrigine clearance rises ~50%, with rebound in the "
+        "pill-free week → breakthrough seizures. Fire LAMOTRIGINE_OC_CLEARANCE (Grade A)."
+    ),
+    sources=["FDA Lamictal prescribing information", "Sabers A et al."],
+    patient_input=_patient(
+        patient_id="P-CASE-30", age_years=29, sex="female", glp1_agent="none",
+        labs={"egfr_ml_min": 95},
+        medications=[
+            {"name": "Lamotrigine 200 mg", "profile_id": "lamotrigine", "route": "oral", "is_essential": True},
+            {"name": "Combined OC", "profile_id": "combined_oral_contraceptive", "route": "oral"},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["LAMOTRIGINE_OC_CLEARANCE"], min_grade_a_rules=1),
+)
+
+CASE_31_BARIATRIC_MR = ClinicalCase(
+    case_id="C31_BARIATRIC_MODIFIED_RELEASE",
+    description="44F, 3 months post-RYGB, on metoprolol succinate ER (no GLP-1).",
+    clinical_rationale=(
+        "Altered transit after bariatric surgery degrades the tuned ER release profile → "
+        "erratic levels. Fire BARIATRIC_MODIFIED_RELEASE (Grade B); switch to IR/alternative."
+    ),
+    sources=["Yska JP et al. PK post-bariatric review"],
+    patient_input=_patient(
+        patient_id="P-CASE-31", age_years=44, sex="female", glp1_agent="none",
+        bariatric_type="RYGB", months_since_bariatric=3, labs={"egfr_ml_min": 88},
+        medications=[
+            {"name": "Metoprolol succinate 50 mg", "profile_id": "metoprolol_succinate", "route": "oral"},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["BARIATRIC_MODIFIED_RELEASE"]),
+)
+
+CASE_32_GLP1_ANTIHYPERTENSIVE = ClinicalCase(
+    case_id="C32_GLP1_ANTIHYPERTENSIVE_TAPER",
+    description="59M, semaglutide week 12, metoprolol succinate — anticipate BP fall.",
+    clinical_rationale=(
+        "Sustained GLP-1 weight loss lowers BP by week 8–12; without proactive antihypertensive "
+        "taper, orthostatic hypotension and falls follow. Fire GLP1_WEIGHT_LOSS_ANTIHYPERTENSIVE_TAPER (B)."
+    ),
+    sources=["FDA Wegovy / Mounjaro / Zepbound labels — BP reduction"],
+    patient_input=_patient(
+        patient_id="P-CASE-32", age_years=59, sex="male",
+        glp1_agent="semaglutide_sc", glp1_weeks_since_start=12, glp1_weeks_since_last_dose_increase=8,
+        labs={"egfr_ml_min": 82},
+        medications=[
+            {"name": "Metoprolol succinate 100 mg", "profile_id": "metoprolol_succinate", "route": "oral"},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["GLP1_WEIGHT_LOSS_ANTIHYPERTENSIVE_TAPER"]),
+)
+
+CASE_33_PSYCHOTROPIC_TMAX = ClinicalCase(
+    case_id="C33_PSYCHOTROPIC_TMAX",
+    description="53F, semaglutide week 16, repaglinide (rapid meglitinide) — Tmax shift.",
+    clinical_rationale=(
+        "GLP-1 gastric-emptying delay right-shifts Tmax of rapid-action agents → uneven "
+        "plasma profile and postprandial hypoglycemia. Fire PSYCHOTROPIC_GASTROPARESIS_TMAX (Grade C)."
+    ),
+    sources=["FDA GLP-1 labels — gastric emptying", "Camilleri M"],
+    patient_input=_patient(
+        patient_id="P-CASE-33", age_years=53, sex="female",
+        glp1_agent="semaglutide_sc", glp1_weeks_since_start=16, glp1_weeks_since_last_dose_increase=12,
+        labs={"egfr_ml_min": 84},
+        medications=[
+            {"name": "Repaglinide 1 mg", "profile_id": "repaglinide", "route": "oral"},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["PSYCHOTROPIC_GASTROPARESIS_TMAX"]),
+)
+
+CASE_34_SHORT_BOWEL_BILE = ClinicalCase(
+    case_id="C34_SHORT_BOWEL_BILE_DEPENDENT",
+    description="50M with short bowel syndrome on cyclosporine (bile-dependent).",
+    clinical_rationale=(
+        "Short bowel reduces the bile acid pool and ileal reabsorption; bile-dependent "
+        "lipophilic drugs absorb erratically. Fire SHORT_BOWEL_BILE_DEPENDENT (Grade B)."
+    ),
+    sources=["Mendes-Braz M et al.", "Brunet M et al."],
+    patient_input=_patient(
+        patient_id="P-CASE-34", age_years=50, sex="male", glp1_agent="none",
+        short_bowel=True, labs={"egfr_ml_min": 70},
+        medications=[
+            {"name": "Cyclosporine 100 mg bid", "profile_id": "cyclosporine", "route": "oral", "is_essential": True},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["SHORT_BOWEL_BILE_DEPENDENT"]),
+)
+
+CASE_35_BARIATRIC_NTI = ClinicalCase(
+    case_id="C35_BARIATRIC_PROTEIN_BINDING_NTI",
+    description="46F, 8 months post-RYGB, on warfarin (high protein binding + NTI).",
+    clinical_rationale=(
+        "Post-bariatric malabsorption + altered transit destabilize narrow-TI highly "
+        "protein-bound drugs — variance is high even before symptoms. Fire BARIATRIC_PROTEIN_BINDING_NTI (C)."
+    ),
+    sources=["Yska JP et al.", "ISTH 2021 anticoagulation post-bariatric"],
+    patient_input=_patient(
+        patient_id="P-CASE-35", age_years=46, sex="female", glp1_agent="none",
+        bariatric_type="RYGB", months_since_bariatric=8, labs={"egfr_ml_min": 86, "albumin_g_dl": 3.8, "inr": 2.4},
+        medications=[
+            {"name": "Warfarin 5 mg", "profile_id": "warfarin", "route": "oral", "is_essential": True},
+        ],
+    ),
+    expected=ExpectedOutcomes(triage_color="green", glp1_decision="CONTINUE",
+        rules_that_must_fire=["BARIATRIC_PROTEIN_BINDING_NTI"]),
+)
+
+
+# ============================================================================
 # Export
 # ============================================================================
 
@@ -772,4 +1090,20 @@ ALL_CASES: list[ClinicalCase] = [
     CASE_17_DIGOXIN_LOW_EGFR,
     CASE_18_GLP1_TMAX_SENSITIVE,
     CASE_19_POSACONAZOLE_PPI,
+    CASE_20_PPI_TKI,
+    CASE_21_LITHIUM_LOOP,
+    CASE_22_INSULIN_SU_GLP1,
+    CASE_23_QT_COMBO,
+    CASE_24_TACROLIMUS_CYP3A,
+    CASE_25_PHENYTOIN_HYPOALB,
+    CASE_26_VALPROATE_HYPOALB,
+    CASE_27_MMF_SEQUESTRANT,
+    CASE_28_CARBAMAZEPINE_INDUCER,
+    CASE_29_CLOZAPINE_INFLAMMATION,
+    CASE_30_LAMOTRIGINE_OC,
+    CASE_31_BARIATRIC_MR,
+    CASE_32_GLP1_ANTIHYPERTENSIVE,
+    CASE_33_PSYCHOTROPIC_TMAX,
+    CASE_34_SHORT_BOWEL_BILE,
+    CASE_35_BARIATRIC_NTI,
 ]

@@ -60,7 +60,7 @@ async def lifespan(app: FastAPI):
     # Startup
     print(f"[METACOD GLP-1] Loading resources from {BASE_DATA_DIR}")
     resources_cache.load(
-        rule_pack_path=BASE_DATA_DIR / "rule_pack_v1.json",
+        rule_pack_path=BASE_DATA_DIR / "rule_pack_v2.json",
         drug_db_path=BASE_DATA_DIR / "drug_master_v2.json",
     )
     bundle = resources_cache.bundle

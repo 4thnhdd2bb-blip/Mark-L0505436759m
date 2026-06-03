@@ -18,7 +18,7 @@ python/
 ├── main.py                      # Standalone / reference app (mount pattern below)
 ├── pharmacist_agent.py          # Part 2 — agent + rule DSL + Pydantic models
 ├── database.py                  # Part 2 — SQLAlchemy models + persistence helpers
-├── rule_pack_v1.json            # 15 rules (verbatim, version-pinned)
+├── rule_pack_v2.json            # 31 rules (verbatim, version-pinned)
 ├── drug_master_v2.json          # 60 molecular drug profiles (v2)
 ├── i18n_glp1_ru.json / en / he  # locale dictionaries (_meta carries direction)
 ├── alembic_versions/
@@ -31,7 +31,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-└── tests/                       # clinical / unit / integration (57 tests, 0 skipped)
+└── tests/                       # clinical / unit / integration (73 tests, 0 skipped)
 ```
 
 ---
@@ -73,10 +73,10 @@ from services.resources import resources_cache
 from services.i18n import i18n_cache
 from pathlib import Path
 
-DATA_DIR = Path("/path/to/python")  # holds rule_pack_v1.json, drug_master_v2.json, i18n_glp1_*.json
+DATA_DIR = Path("/path/to/python")  # holds rule_pack_v2.json, drug_master_v2.json, i18n_glp1_*.json
 
 # v4 startup (lifespan or @app.on_event("startup")):
-resources_cache.load(DATA_DIR / "rule_pack_v1.json", DATA_DIR / "drug_master_v2.json")
+resources_cache.load(DATA_DIR / "rule_pack_v2.json", DATA_DIR / "drug_master_v2.json")
 i18n_cache.load_all(base_dir=DATA_DIR)
 
 app.include_router(glp1_router)   # existing v4 routes untouched; live at /glp1/*
@@ -119,18 +119,18 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 57 tests
+pytest                 # all 73 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
 pytest -k C04 -v       # a single clinical case by id
 ```
 
-Three layers: **clinical** (19 SaMD reference cases — failures block rule_pack
+Three layers: **clinical** (35 SaMD reference cases — failures block rule_pack
 release), **unit** (DSL eval safety/correctness), **integration** (TestClient against
 an isolated SQLite DB per test).
 
-> Coverage is complete: every rule in `rule_pack_v1.json` now has at least one
+> Coverage is complete: every rule in `rule_pack_v2.json` now has at least one
 > positive clinical case, so the coverage meta-test passes (no skips).
 
 ---

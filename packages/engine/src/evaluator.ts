@@ -34,6 +34,12 @@ export function evaluate(condition: Condition, context: EvalContext): boolean {
   if ("eq" in leaf && leaf.eq !== undefined) return value === leaf.eq;
   if ("neq" in leaf && leaf.neq !== undefined) return value !== leaf.neq;
   if ("in" in leaf && leaf.in !== undefined) return leaf.in.includes(value);
+  // field is a list; expected value present in it
+  if ("contains" in leaf && leaf.contains !== undefined)
+    return Array.isArray(value) && value.includes(leaf.contains);
+  // field is a list; any of the expected values present in it
+  if ("any_in" in leaf && leaf.any_in !== undefined)
+    return Array.isArray(value) && leaf.any_in.some((v) => value.includes(v));
 
   // Numeric comparisons (null/non-number safe)
   if (typeof value !== "number") return false;

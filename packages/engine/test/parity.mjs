@@ -12,8 +12,8 @@ import { assess, project, evaluate, loadContent } from "../dist/index.js";
 const { rulePack, drugMaster } = loadContent();
 
 test("clinical content loads and validates", () => {
-  assert.equal(rulePack.rule_pack_version, "1.0.0");
-  assert.equal(rulePack.rules.length, 15);
+  assert.equal(rulePack.rule_pack_version, "2.0.0");
+  assert.equal(rulePack.rules.length, 31);
   assert.equal(drugMaster.schema_version, "2.0.0");
   assert.equal(drugMaster.profiles.length, 60);
 });
@@ -90,6 +90,20 @@ test("dual-layer projection hides admin/clinical detail from the patient", () =>
   assert.equal(patient.interactions[0].rule_id, "");
   assert.equal(patient.forecast.future_risks.length, 0);
   for (const a of patient.interactions[0].patient_actions) assert.equal(a.rule_id, undefined);
+});
+
+test("v2 drug-drug rule fires via med_summary (lithium + loop diuretic)", () => {
+  const p = PatientContext.parse({
+    patient_id: "case-li", age_years: 58, sex: "female", glp1_agent: "none",
+    labs: { egfr_ml_min: 72 },
+    medications: [
+      { name: "Lithium carbonate", profile_id: "lithium_carbonate", route: "oral" },
+      { name: "Furosemide", profile_id: "furosemide_oral", route: "oral" },
+    ],
+  });
+  const out = assess(p, rulePack, drugMaster);
+  const fired = out.interactions.map((f) => f.rule_id);
+  assert.ok(fired.includes("LITHIUM_LOOP_DIURETIC_TOXICITY"), `fired: ${fired}`);
 });
 
 test("evaluate() resolves dotted paths against {patient, drug}", () => {

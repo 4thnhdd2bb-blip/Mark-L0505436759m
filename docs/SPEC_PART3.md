@@ -1,7 +1,7 @@
 # Part 3 (Python трек) — FastAPI wiring + reporting + testing harness
 
-Статус: **реализован и запущен. 51 тест зелёный** (50 passed по факту + 15 клинических
-кейсов параметризованы; 1 meta-тест покрытия — skip по дизайну).
+Статус: **реализован и запущен. 73 теста зелёных, 0 skip** (35 клинических SaMD-кейсов
+параметризованы — покрывают все 31 правило rule_pack v2).
 
 Решение по архитектуре (ваш выбор): **гибрид — приоритет Python-интеграции сейчас**,
 TS/Firebase (Part 1–2) остаётся целевой платформой на потом.
@@ -29,7 +29,7 @@ TS/Firebase (Part 1–2) остаётся целевой платформой н
   `/glp1/sign-off` один в один. Встроенные JSON-блоки валидны, 89 i18n-ключей × 3 локали.
 
 **Тест-харнесс (Part 3c) — `python/tests/`:**
-- `clinical/` — **15 SaMD reference-кейсов** (по правилу + edge cases) + meta-тесты
+- `clinical/` — **35 SaMD reference-кейсов** (по правилу + edge cases) + meta-тесты
   (покрытие правил, дубликаты id, наличие источников/обоснования).
 - `unit/` — безопасность DSL (нет eval/exec/`__import__`/compile; неизвестные операторы
   и отсутствующие поля → False, без исключений) + корректность операторов/комбинаторов.
@@ -45,7 +45,7 @@ TS/Firebase (Part 1–2) остаётся целевой платформой н
 cd python
 python3 -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt
-pytest -q        # 51 passed, 1 skipped
+pytest -q        # 73 passed, 0 skipped
 ```
 
 51 passed / 1 skipped. Skip — meta-тест покрытия: 3 правила

@@ -24,6 +24,8 @@ export type Condition =
       eq?: unknown;
       neq?: unknown;
       in?: unknown[] | undefined;
+      contains?: unknown;
+      any_in?: unknown[] | undefined;
       lt?: number | undefined;
       lte?: number | undefined;
       gt?: number | undefined;
@@ -35,6 +37,8 @@ const LeafCondition = z.object({
   eq: z.unknown().optional(),
   neq: z.unknown().optional(),
   in: z.array(z.unknown()).optional(),
+  contains: z.unknown().optional(),
+  any_in: z.array(z.unknown()).optional(),
   lt: z.number().optional(),
   lte: z.number().optional(),
   gt: z.number().optional(),

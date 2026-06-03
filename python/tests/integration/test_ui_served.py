@@ -34,4 +34,4 @@ def test_ui_served_at_root_and_ui_path():
         assert r3.status_code == 200
         body = r3.json()
         assert body["status"] == "ok"
-        assert body["rule_pack_version"] == "1.0.0"
+        assert body["rule_pack_version"] == "2.0.0"

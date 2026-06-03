@@ -117,11 +117,14 @@ export class PharmacistAgent {
   private analyzeInteractions(): InteractionFinding[] {
     const findings: InteractionFinding[] = [];
 
+    // Derived drug-drug context (rule_pack v2 reads patient.med_summary.*).
+    const patientCtx = { ...this.patient, med_summary: this.buildMedSummary() };
+
     for (const med of this.patient.medications) {
       const profile = this.drugIndex.get(med.profile_id);
       if (!profile) continue;
 
-      const context: EvalContext = { patient: this.patient, drug: profile };
+      const context: EvalContext = { patient: patientCtx, drug: profile };
 
       for (const rule of this.rulePack.rules) {
         if (!evaluate(rule.when, context)) continue;
@@ -130,6 +133,82 @@ export class PharmacistAgent {
     }
 
     return findings;
+  }
+
+  /**
+   * Pre-computed drug-drug context flags, mirroring pharmacist_agent v2.1's
+   * med_summary. Lets v2 rules check combinations (lithium+loop, ≥2 QT drugs,
+   * CYP3A inducer/inhibitor present, OC / bile sequestrant in the list) without
+   * each rule walking the medication list.
+   */
+  private buildMedSummary(): Record<string, unknown> {
+    const CYP3A_STRONG_INDUCERS = new Set(["carbamazepine", "phenytoin", "rifampin", "rifampicin"]);
+    const CYP3A_STRONG_INHIBITORS = new Set([
+      "itraconazole_capsule", "voriconazole", "posaconazole_oral_suspension",
+      "fluconazole", "clarithromycin", "ritonavir",
+    ]);
+    const BILE_SEQUESTRANT_IDS = new Set(["cholestyramine", "colesevelam", "colestipol", "sevelamer"]);
+    const LITHIUM_IDS = new Set(["lithium_carbonate", "lithium_citrate"]);
+    const HYPOGLYCEMIC_NON_INSULIN = new Set(["sulfonylurea", "meglitinide"]);
+    const HYPOGLYCEMIC_INSULIN = new Set(["insulin_basal", "insulin_rapid"]);
+
+    const classes: string[] = [];
+    const profileIds: string[] = [];
+    let qtCount = 0;
+    let bileDependentCount = 0;
+    let hasAcidSuppression = false;
+    let hasCationPerpetrator = false;
+    let hasLoopDiuretic = false;
+    let hasOralContraceptive = false;
+    let hasLithium = false;
+    let hasLevothyroxine = false;
+    let hasBileSequestrant = this.patient.bile_acid_sequestrants;
+    let hasCyp3aStrongInducer = false;
+    let hasCyp3aStrongInhibitor = false;
+    let hasHypoglycemicSecretagogue = false;
+    let hasInsulin = false;
+
+    for (const med of this.patient.medications) {
+      const profile = this.drugIndex.get(med.profile_id);
+      const cls = profile?.class ?? "";
+      classes.push(cls);
+      profileIds.push(med.profile_id);
+
+      if (profile?.qt_prolongation_risk) qtCount++;
+      if (profile?.bile_dependent) bileDependentCount++;
+      if (profile?.is_perpetrator_acid_suppression) hasAcidSuppression = true;
+      if (profile?.is_perpetrator_cation) hasCationPerpetrator = true;
+      if (profile?.oral_contraceptive) hasOralContraceptive = true;
+
+      if (cls === "loop_diuretic") hasLoopDiuretic = true;
+      if (HYPOGLYCEMIC_NON_INSULIN.has(cls)) hasHypoglycemicSecretagogue = true;
+      if (HYPOGLYCEMIC_INSULIN.has(cls)) hasInsulin = true;
+
+      if (LITHIUM_IDS.has(med.profile_id)) hasLithium = true;
+      if (med.profile_id.startsWith("levothyroxine")) hasLevothyroxine = true;
+      if (CYP3A_STRONG_INDUCERS.has(med.profile_id)) hasCyp3aStrongInducer = true;
+      if (CYP3A_STRONG_INHIBITORS.has(med.profile_id)) hasCyp3aStrongInhibitor = true;
+      if (BILE_SEQUESTRANT_IDS.has(med.profile_id)) hasBileSequestrant = true;
+    }
+
+    return {
+      classes,
+      profile_ids: profileIds,
+      qt_prolonging_med_count: qtCount,
+      bile_dependent_med_count: bileDependentCount,
+      has_acid_suppression: hasAcidSuppression,
+      has_cation_perpetrator: hasCationPerpetrator,
+      has_loop_diuretic: hasLoopDiuretic,
+      has_oral_contraceptive: hasOralContraceptive,
+      has_lithium: hasLithium,
+      has_levothyroxine: hasLevothyroxine,
+      has_glp1: this.patient.glp1_agent !== "none",
+      has_bile_sequestrant: hasBileSequestrant,
+      has_cyp3a_strong_inducer: hasCyp3aStrongInducer,
+      has_cyp3a_strong_inhibitor: hasCyp3aStrongInhibitor,
+      has_hypoglycemic_secretagogue: hasHypoglycemicSecretagogue,
+      has_insulin: hasInsulin,
+    };
   }
 
   private buildFinding(rule: Rule, med: MedicationInput): InteractionFinding {
