@@ -1,31 +1,126 @@
 /**
- * English dictionary — STRUCTURAL keys only for Part 1 (triage, dispositions,
- * risk axes, lab names). Per-rule clinical strings are added alongside the
- * rule_pack in Part 2; full UI copy in Part 3.
+ * English dictionary (locale "en", LTR). Full clinical strings for v5.
+ * admin.* keys appear only in the physician/admin overlay, never in patient view.
  */
 import type { Dictionary } from "../keys.js";
 
 export const en: Dictionary = {
-  // Triage levels
-  "triage.RED": "Emergency",
-  "triage.YELLOW": "Caution",
-  "triage.GREEN": "Stable",
-  // Dispositions
-  "disposition.er_now": "Go to the emergency department now.",
-  "disposition.hold_glp1_reassess": "Hold the GLP-1 dose and reassess oral medications.",
-  "disposition.continue": "Stable — continue current plan with monitoring.",
-  // Risk axes
-  "risk.underexposure": "Under-exposure (reduced absorption)",
-  "risk.delayed_onset": "Delayed onset (right-shifted Tmax)",
-  "risk.overexposure": "Over-exposure (reduced clearance)",
-  "risk.free_fraction_misleading": "Misleading total level (raised free fraction)",
-  // Lab names
-  "lab.egfr": "eGFR",
-  "lab.crp": "C-reactive protein (CRP)",
-  "lab.tsh": "TSH",
-  "lab.ferritin": "Ferritin",
-  "lab.tsat": "Transferrin saturation",
-  "lab.alt_ast": "ALT / AST",
-  "lab.inr": "INR",
-  "lab.albumin": "Albumin",
+  "triage.red.emergency": "Red — emergency evaluation required (ER)",
+  "triage.yellow.hold_and_reassess": "Yellow — hold GLP-1 escalation and reassess oral therapy",
+  "triage.green.stable": "Green — stable, continue monitoring",
+
+  "action.lt4_check_tsh_4w": "Check TSH at 4 weeks while on PPI",
+  "action.lt4_consider_liquid_formulation": "Consider switching to liquid or softgel levothyroxine (less pH-dependent)",
+  "action.lt4_review_cation_spacing": "Verify ≥4-hour separation from calcium / iron / magnesium / aluminium products",
+  "action.lt4_enforce_4h_separation": "Enforce ≥4-hour separation between levothyroxine and multivalent cations",
+  "patient.lt4_separate_from_ppi": "Take levothyroxine fasting 30–60 minutes before PPI and breakfast",
+  "patient.lt4_fasting_30min_morning": "Levothyroxine — morning on an empty stomach; nothing but water for 30–60 minutes",
+  "patient.lt4_separate_from_minerals_4h": "Calcium, iron, magnesium, aluminium products — at least 4 hours after levothyroxine",
+  "lab.tsh_4w": "TSH at 4 weeks",
+  "lab.ft4_4w": "Free T4 at 4 weeks",
+  "admin.lt4_tablet_ph_dissolution_failure": "[admin] LT4 tablet dissolution failure at elevated gastric pH",
+  "admin.lt4_cation_chelation": "[admin] Luminal LT4–multivalent cation chelation",
+
+  "action.iron_check_ferritin_tsat_crp": "Monitor ferritin, transferrin saturation and CRP at 8 weeks",
+  "action.iron_consider_iv_if_poor_response": "Consider IV iron if response is inadequate at 8 weeks",
+  "action.iron_consider_bisglycinate": "Consider ferrous bisglycinate — better tolerated and less pH-dependent",
+  "patient.iron_with_vitamin_c": "Take oral iron with vitamin C (100 mg) to enhance absorption",
+  "patient.iron_separate_from_calcium_dairy": "Avoid co-administration with dairy, coffee, tea, or calcium products",
+  "lab.hb_8w": "Hemoglobin at 8 weeks",
+  "lab.ferritin_8w": "Ferritin at 8 weeks",
+  "lab.tsat_8w": "Transferrin saturation at 8 weeks",
+  "lab.crp_8w": "CRP at 8 weeks",
+  "admin.iron_ph_failure": "[admin] Fe³⁺→Fe²⁺ solubilization failure at elevated pH",
+
+  "action.oc_recommend_nonoral_or_barrier_4w": "Recommend non-oral or barrier contraception for the first 4 weeks after tirzepatide initiation and each dose escalation (per FDA label)",
+  "patient.oc_use_backup_4w_after_start_and_each_escalation": "Use backup contraception (condom or IUD) for the first 4 weeks after starting tirzepatide and after every dose increase",
+  "admin.glp1_oc_absorption_drop": "[admin] Gastric emptying delay → drop in oral hormone absorption",
+
+  "action.furosemide_consider_iv_or_switch": "Consider IV furosemide or switch to torsemide / bumetanide (more predictable bioavailability)",
+  "action.furosemide_assess_congestion_objectively": "Objective congestion assessment: weight, urine output, chest X-ray, NT-proBNP, lung ultrasound",
+  "patient.daily_weight_log": "Daily weight at the same time; report gain >1 kg in 24 hours or >2 kg over 3 days",
+  "lab.creat_1w": "Creatinine at 1 week",
+  "lab.na_1w": "Sodium at 1 week",
+  "lab.k_1w": "Potassium at 1 week",
+  "admin.furosemide_gut_edema": "[admin] Oral furosemide bioavailability loss with gut-wall edema",
+
+  "action.doac_check_label_renal_dose": "Check label: DOAC dose adjustment for reduced eGFR is mandatory",
+  "action.doac_consider_vka_if_egfr_below_30": "At eGFR <30 mL/min, consider switching to warfarin with INR monitoring",
+  "patient.bleeding_signs_education": "Report bleeding immediately: gums, nose, blood in urine/stool, unexplained bruising",
+  "lab.egfr_4w": "eGFR at 4 weeks",
+  "admin.doac_renal_accumulation": "[admin] Renal accumulation of DOAC with bleeding risk",
+
+  "action.cirrhosis_consider_dose_reduction": "Child-Pugh B/C cirrhosis — consider dose reduction for high-first-pass drugs",
+  "action.cirrhosis_check_label_hepatic_section": "Review label hepatic-impairment section",
+  "patient.report_sedation_confusion_immediately": "Report drowsiness, confusion, or slowed reactions immediately",
+  "lab.alt_4w": "ALT at 4 weeks",
+  "lab.ast_4w": "AST at 4 weeks",
+  "lab.inr_4w": "INR at 4 weeks",
+  "lab.albumin_4w": "Albumin at 4 weeks",
+  "admin.cirrhosis_first_pass": "[admin] First-pass extraction collapse in cirrhosis → bioavailability rise",
+
+  "action.inflammation_watch_for_toxicity": "Watch for toxicity of CYP substrates during active inflammation",
+  "action.inflammation_reassess_after_resolution": "Reassess CYP-substrate dosing after inflammation resolves (risk of under-dosing)",
+  "patient.report_unusual_drowsiness_or_side_effects": "Report unusual drowsiness or new side effects",
+  "lab.crp_2w": "CRP at 2 weeks",
+  "admin.inflammation_cyp_suppression": "[admin] Cytokine-induced CYP suppression → substrate accumulation",
+
+  "action.fq_enforce_2_to_6h_separation": "Separate fluoroquinolone from cation-containing products by at least 2–6 hours",
+  "patient.fq_separate_from_minerals_4h": "Do not take the fluoroquinolone with calcium, iron, magnesium, or aluminium — separate by at least 4 hours",
+  "admin.fq_cation_chelation": "[admin] Fluoroquinolone–multivalent cation chelation",
+
+  "action.tetra_enforce_separation": "Separate tetracycline from cation-containing products / dairy",
+  "patient.tetra_separate_from_minerals_dairy": "Doxycycline — separately from dairy, calcium, iron, magnesium, and aluminium products",
+  "admin.tetra_cation_chelation": "[admin] Tetracycline–multivalent cation chelation",
+
+  "action.azole_consider_solution_or_iv": "Consider switching to itraconazole oral solution or IV formulation",
+  "action.azole_check_trough_level": "Monitor azole trough level (therapeutic drug monitoring)",
+  "patient.azole_take_with_acidic_drink": "If itraconazole capsules — take with an acidic beverage (e.g., cola)",
+  "lab.itra_trough_2w": "Itraconazole trough level at 2 weeks",
+  "admin.azole_ph_failure": "[admin] Azole capsule dissolution failure at elevated pH",
+
+  "action.tmax_warn_delayed_onset": "Warn about potential delayed onset of Tmax-sensitive drugs on GLP-1",
+  "patient.tmax_drug_may_act_later": "The medication may take longer than usual to act due to slowed gastric emptying",
+  "admin.glp1_tmax_shift": "[admin] Tmax shift due to delayed gastric emptying",
+
+  "action.digoxin_check_level": "Check digoxin level",
+  "action.digoxin_consider_dose_reduction": "Consider digoxin dose reduction when eGFR falls",
+  "patient.digoxin_toxicity_signs_education": "Digoxin toxicity signs: nausea, visual disturbances (yellow halos), arrhythmia — report immediately",
+  "lab.dig_level_2w": "Digoxin level at 2 weeks",
+  "lab.egfr_2w": "eGFR at 2 weeks",
+  "lab.k_2w": "Potassium at 2 weeks",
+  "admin.digoxin_renal_accumulation": "[admin] Renal accumulation of digoxin (narrow therapeutic index)",
+
+  "action.bariatric_doac_specialist_review": "Anticoagulation specialist review if <6 months post-bariatric",
+  "action.bariatric_doac_consider_lmwh_vka": "Consider LMWH or warfarin with INR monitoring until post-bariatric stabilization",
+  "patient.thrombosis_signs_education": "Thrombosis signs: swelling and pain in one leg, shortness of breath, chest pain — seek care immediately",
+  "lab.anti_xa_2w": "Anti-Xa activity at 2 weeks (where available)",
+  "admin.bariatric_doac_unpredictable": "[admin] Altered anatomy → unpredictable DOAC exposure",
+
+  "action.protein_binding_consider_free_level": "Hypoalbuminemia — consider free fraction measurement; total level may be misleading",
+  "action.protein_binding_clinical_response_priority": "Prioritize clinical response over total drug level",
+  "admin.hypoalbuminemia_free_fraction": "[admin] Elevated free fraction at low albumin",
+
+  "forecast.glp1.hold_no_escalation": "GLP-1: HOLD dose escalation until GI symptoms resolve",
+  "forecast.glp1.review_recent_escalation": "GLP-1: REVIEW — recent escalation, gastric emptying delay at maximum",
+  "forecast.glp1.continue_standard_titration": "GLP-1: CONTINUE standard titration",
+  "forecast.glp1.rationale.gi_intolerance": "GI intolerance (nausea / vomiting / unable to keep meds or fluids)",
+  "forecast.glp1.rationale.first_4_weeks_attenuates": "Gastric emptying delay is maximal in the first 4 weeks after initiation and each escalation, then attenuates",
+  "forecast.glp1.rationale.stable_tolerance": "Stable tolerance, no red or yellow markers",
+
+  "forecast.risk.aki_dehydration": "AKI risk from dehydration with ongoing losses — review fluid balance and nephrotoxic medications",
+  "forecast.risk.doac_accumulation_low_egfr": "DOAC accumulation risk as eGFR falls — monitor at 8 weeks",
+  "forecast.risk.orthostatic_weight_loss": "Orthostatic hypotension risk with weight loss on antihypertensives — review dose at 8 weeks",
+  "forecast.risk.lt4_drift_ppi": "Risk of TSH drift on PPI — recheck at 6 weeks",
+  "forecast.risk.cyp_substrate_toxicity_in_inflammation": "Risk of CYP-substrate toxicity during sustained inflammation",
+  "forecast.risk.stable_profile": "Stable profile — routine review at 4 weeks",
+
+  "adjust.doac_reduce_at_egfr_30": "Reduce DOAC dose at eGFR <30 (consult drug-specific label)",
+  "adjust.antihypertensive_taper_25_50": "Taper antihypertensive dose by 25–50% as weight decreases",
+  "adjust.lt4_review_dose_weight_loss": "Review levothyroxine dose — weight loss may require adjustment",
+  "adjust.antidiabetic_review_for_hypoglycemia": "Review antidiabetic therapy — hypoglycemia risk when GLP-1 is added",
+
+  "trigger.egfr_falling": "Falling eGFR",
+  "trigger.expected_weight_loss": "Expected weight loss on GLP-1",
+  "trigger.glp1_glycemic_effect": "GLP-1 glycemic effect in addition to existing therapy",
 };

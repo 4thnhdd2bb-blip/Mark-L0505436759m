@@ -37,7 +37,9 @@ overexposure / free fraction misleading).
 - **Part 1 ✅** — Scope, Architecture, Data Schemas, Drug Profile Schema, API surface,
   METACOD-интеграция (trilingual, White Coat Rule, audit, dual-layer). См.
   [`docs/SPEC_PART1.md`](docs/SPEC_PART1.md).
-- **Part 2** — `rule_pack_v1.json`, `drug_master_v1.json`, рефактор Pharmacist Agent,
-  Firestore-схема/migrations. *(нужны v4-файлы)*
-- **Part 3** — Expo-RN UI (RTL/trilingual), PDF, тестовая стратегия, evidence rubric,
-  roadmap.
+- **Part 2 ✅** — порт клинического ядра v4 → TS: Pharmacist Agent, `rule_pack_v1`
+  (15 правил), `drug_master_v1` (21 профиль), полные i18n RU/EN/HE, Firestore-модель
+  (Visit/RuleTrigger/SignOff/AuditLog), серверный API. Паритет с v4 demo подтверждён
+  (5/5 тестов). См. [`docs/SPEC_PART2.md`](docs/SPEC_PART2.md).
+- **Part 3** — Expo-RN UI (RTL/trilingual), PDF, security rules, evidence rubric,
+  тестовая матрица кейсов, roadmap.

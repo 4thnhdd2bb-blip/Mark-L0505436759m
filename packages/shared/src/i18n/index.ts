@@ -1,4 +1,4 @@
-import type { Locale } from "../schemas/common.js";
+import type { Locale } from "../schemas/enums.js";
 import type { Dictionary } from "./keys.js";
 import { ru } from "./locales/ru.js";
 import { en } from "./locales/en.js";

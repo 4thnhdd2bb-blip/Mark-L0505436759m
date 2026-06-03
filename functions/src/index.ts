@@ -1,22 +1,20 @@
 /**
  * Firebase Cloud Functions binding — the ONLY place that touches infrastructure.
- * It builds the Deps from Firestore + node crypto and exposes the three callable
- * endpoints. Pure logic lives in api.ts; engine logic in @metacod/engine.
+ * Builds Deps from Firestore + node crypto and exposes the three callable
+ * endpoints. Pure logic lives in api.ts; clinical logic in @metacod/engine.
  *
- * PART 1 STATUS: wiring + Firestore-backed ports. Firestore security rules,
- * content seeding (rule_pack/drug_master docs) and indexes are finalised in Part 2.
+ * Firestore collections:
+ *   visits/{visit_id}      — full input+output snapshot, version-pinned, sign-off state
+ *   audit_log/{id}         — append-only event log
+ * Security rules + content management UI are finalised alongside the admin app.
  */
 import { createHash, randomUUID } from "node:crypto";
 import { initializeApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { onCall, HttpsError, type CallableRequest } from "firebase-functions/v2/https";
-import { RulePack, DrugProfile, type SignOffRecord } from "@metacod/shared";
-import {
-  handleAssess,
-  handleSignOff,
-  handleGetReport,
-} from "./api.js";
-import type { Actor, Deps, AssessmentRecord, AuditSink } from "./ports.js";
+import type { Visit, SignOffRecord } from "@metacod/shared";
+import { handleAssess, handleSignOff, handleGetReport } from "./api.js";
+import type { Actor, Deps } from "./ports.js";
 
 initializeApp();
 const db = getFirestore();
@@ -31,57 +29,42 @@ function canonical(value: unknown): string {
 }
 
 const deps: Deps = {
-  content: {
-    async getActiveRulePack() {
-      const snap = await db.collection("content").doc("active_rule_pack").get();
-      const data = snap.data();
-      if (!data) throw new HttpsError("failed-precondition", "No active rule pack configured.");
-      return { pack: RulePack.parse(data.pack), version: String(data.version) };
-    },
-    async getDrugMaster() {
-      const snap = await db.collection("content").doc("active_drug_master").get();
-      const data = snap.data();
-      if (!data) throw new HttpsError("failed-precondition", "No active drug master configured.");
-      return { profiles: z_parseProfiles(data.profiles), version: String(data.version) };
-    },
-  },
   store: {
-    async save(record: AssessmentRecord) {
-      await db.collection("assessments").doc(record.assessment_id).set(record);
+    async save(visit: Visit) {
+      await db.collection("visits").doc(visit.visit_id).set(visit);
     },
-    async get(id: string) {
-      const snap = await db.collection("assessments").doc(id).get();
-      return (snap.data() as AssessmentRecord | undefined) ?? null;
+    async get(visit_id: string) {
+      const snap = await db.collection("visits").doc(visit_id).get();
+      return (snap.data() as Visit | undefined) ?? null;
     },
-    async updateSignOff(id: string, signOff: SignOffRecord) {
-      await db.collection("assessments").doc(id).update({ "output.meta.sign_off": signOff });
+    async updateSignOff(visit_id: string, signOff: SignOffRecord) {
+      await db.collection("visits").doc(visit_id).update({
+        sign_off: signOff,
+        "output_payload.sign_off_status": signOff.status,
+      });
     },
   },
   audit: {
     async append(entry) {
       await db.collection("audit_log").doc(entry.id).set(entry);
     },
-  } satisfies AuditSink,
+  },
   clock: { nowIso: () => new Date().toISOString() },
-  ids: { newId: () => randomUUID() },
+  ids: { newId: (prefix: string) => `${prefix}-${randomUUID()}` },
   hasher: { sha256: (v: unknown) => createHash("sha256").update(canonical(v)).digest("hex") },
 };
-
-function z_parseProfiles(raw: unknown): DrugProfile[] {
-  if (!Array.isArray(raw)) throw new HttpsError("failed-precondition", "drug_master must be an array.");
-  return raw.map((p) => DrugProfile.parse(p));
-}
 
 /** Extract the authenticated actor (role from custom claims). */
 function actorOf(request: CallableRequest): Actor {
   const auth = request.auth;
   if (!auth) throw new HttpsError("unauthenticated", "Authentication required.");
-  const role = (auth.token.role as Actor["role"] | undefined) ?? undefined;
+  const role = auth.token.role as Actor["role"] | undefined;
   if (!role) throw new HttpsError("permission-denied", "No role claim on user.");
-  return { user_id: auth.uid, role };
+  const name = auth.token.name as string | undefined;
+  return { user_id: auth.uid, role, ...(name ? { user_name: name } : {}) };
 }
 
-/** Translate handler errors (string-coded) into typed HttpsError responses. */
+/** Translate string-coded handler errors into typed HttpsError responses. */
 function wrap<T>(fn: () => Promise<T>): Promise<T> {
   return fn().catch((e: unknown) => {
     const msg = e instanceof Error ? e.message : String(e);
@@ -93,14 +76,6 @@ function wrap<T>(fn: () => Promise<T>): Promise<T> {
   });
 }
 
-export const assessPatient = onCall((request) =>
-  wrap(() => handleAssess(request.data, deps, actorOf(request))),
-);
-
-export const signOffAssessment = onCall((request) =>
-  wrap(() => handleSignOff(request.data, deps, actorOf(request))),
-);
-
-export const getReport = onCall((request) =>
-  wrap(() => handleGetReport(request.data, deps, actorOf(request))),
-);
+export const assessPatient = onCall((request) => wrap(() => handleAssess(request.data, deps, actorOf(request))));
+export const signOffAssessment = onCall((request) => wrap(() => handleSignOff(request.data, deps, actorOf(request))));
+export const getReport = onCall((request) => wrap(() => handleGetReport(request.data, deps, actorOf(request))));

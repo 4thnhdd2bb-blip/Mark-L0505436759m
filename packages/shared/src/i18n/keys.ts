@@ -4,7 +4,7 @@
  * Every user-facing string is a KEY resolved per-locale at the edge (Expo client
  * or PDF generator). The engine never emits localized prose. Hebrew is RTL.
  */
-import { Locale } from "../schemas/common.js";
+import { Locale } from "../schemas/enums.js";
 
 export const LOCALES = ["ru", "en", "he"] as const;
 

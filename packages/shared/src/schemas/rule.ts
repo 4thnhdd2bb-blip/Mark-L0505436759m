@@ -1,150 +1,109 @@
 /**
- * Rule schema — one entry of rule_pack_v1.json (Part 2 fills ~15-20 of these).
+ * Rule schema — one entry of rule_pack_v1.json.
  *
- * Design goals:
- *  - Mechanism-first: a rule fires on PK properties, not on disease names.
- *  - Fully declarative condition AST so the rule_pack is data, not code, and can
- *    be versioned, audited and (later) reviewed by clinicians without a deploy.
- *  - Every rule carries evidence_grade + sources + a mechanism_trace for the
- *    admin/research layer, and i18n action keys for both clinician and patient.
+ * Ported from the v4 DSL. A rule's `when` is a structured condition evaluated
+ * safely (no eval/exec) against a context of { patient, drug } — see the engine's
+ * RuleEvaluator. Leaf predicates address a dotted `field` path and apply one
+ * comparison operator. Logical nodes are `and` / `or` (arrays) and `not` (single).
  */
 import { z } from "zod";
-import { EvidenceGrade, Severity, Source, LocalizedText } from "./common.js";
-import { RiskType } from "./risk.js";
-import { Route, DrugForm } from "./drug.js";
-
-/** Comparison operators usable in a patient-fact predicate. */
-export const ComparisonOp = z.enum(["eq", "ne", "lt", "lte", "gt", "gte", "in", "exists"]);
-export type ComparisonOp = z.infer<typeof ComparisonOp>;
+import { EvidenceGrade, RiskLevel } from "./enums.js";
 
 /**
- * Matches a single current medication joined with its DrugProfile.
- * All present sub-fields must hold for the medication to match.
- * `has_properties` are dot-paths into DrugProfile that must be boolean-true,
- * e.g. "properties.chelation_sensitive", "absorption.gastric_emptying_sensitive".
- */
-export const DrugMatch = z.object({
-  drug_id: z.string().optional(),
-  drug_class: z.string().optional(),
-  route: Route.optional(),
-  form: DrugForm.optional(),
-  has_properties: z.array(z.string()).optional(),
-});
-export type DrugMatch = z.infer<typeof DrugMatch>;
-
-/** Leaf predicate over a patient fact (dot-path into PatientInput). */
-export const PatientPredicate = z.object({
-  kind: z.literal("patient"),
-  path: z.string().min(1),           // e.g. "labs.egfr", "conditions.gut_edema"
-  op: ComparisonOp,
-  value: z.union([z.string(), z.number(), z.boolean(), z.array(z.union([z.string(), z.number()]))]).optional(),
-});
-
-/** Leaf predicate: current GLP-1 agent is in a set. */
-export const Glp1Predicate = z.object({
-  kind: z.literal("glp1_agent"),
-  in: z.array(z.string()).min(1),
-  /** Optional: only when within the high-risk start/escalation window (<weeks). */
-  within_weeks_of_change: z.number().positive().optional(),
-});
-
-/** Leaf predicate: at least one current medication matches. */
-export const HasMedicationPredicate = z.object({
-  kind: z.literal("has_medication"),
-  match: DrugMatch,
-});
-
-/** Leaf predicate: two medications co-administered (both present concurrently). */
-export const ConcurrentPredicate = z.object({
-  kind: z.literal("concurrent"),
-  a: DrugMatch,
-  b: DrugMatch,
-  /** For the cation-separation rule: flag if doses are within N hours of each other. */
-  within_hours: z.number().positive().optional(),
-});
-
-export const LeafPredicate = z.discriminatedUnion("kind", [
-  PatientPredicate,
-  Glp1Predicate,
-  HasMedicationPredicate,
-  ConcurrentPredicate,
-]);
-export type LeafPredicate = z.infer<typeof LeafPredicate>;
-
-/**
- * Recursive boolean condition tree. zod needs an explicit type annotation for
- * recursion, so we declare the TS type first, then the lazy schema.
+ * Recursive condition DSL. Declared as a TS type first so zod's z.lazy can be
+ * given an explicit annotation (zod cannot infer recursive types on its own).
+ * A leaf is `{ field, <op>: value }`; the value is intentionally `unknown`
+ * (the operator decides how to compare).
  */
 export type Condition =
-  | LeafPredicate
-  | { all: Condition[] }
-  | { any: Condition[] }
-  | { not: Condition };
+  | { and: Condition[] }
+  | { or: Condition[] }
+  | { not: Condition }
+  | {
+      field: string;
+      eq?: unknown;
+      neq?: unknown;
+      in?: unknown[] | undefined;
+      lt?: number | undefined;
+      lte?: number | undefined;
+      gt?: number | undefined;
+      gte?: number | undefined;
+    };
+
+const LeafCondition = z.object({
+  field: z.string(),
+  eq: z.unknown().optional(),
+  neq: z.unknown().optional(),
+  in: z.array(z.unknown()).optional(),
+  lt: z.number().optional(),
+  lte: z.number().optional(),
+  gt: z.number().optional(),
+  gte: z.number().optional(),
+});
 
 export const Condition: z.ZodType<Condition> = z.lazy(() =>
   z.union([
-    LeafPredicate,
-    z.object({ all: z.array(Condition) }),
-    z.object({ any: z.array(Condition) }),
+    z.object({ and: z.array(Condition) }),
+    z.object({ or: z.array(Condition) }),
     z.object({ not: Condition }),
+    LeafCondition,
   ]),
 );
 
-/** An action emitted when a rule fires, addressed to one audience. */
-export const RuleAction = z.object({
-  /** i18n key for the action text. */
-  text: LocalizedText,
-  /** Optional structured hint the UI/PDF can use (e.g. "switch_to_liquid"). */
-  code: z.string().optional(),
+/** An i18n-keyed action with its own evidence grade (defaults to the rule's). */
+export const RuleI18nAction = z.object({
+  i18n_key: z.string(),
+  evidence_grade: EvidenceGrade.optional(),
 });
-export type RuleAction = z.infer<typeof RuleAction>;
+export type RuleI18nAction = z.infer<typeof RuleI18nAction>;
 
-/** A lab the rule recommends ordering, as a stable code resolved to i18n later. */
-export const LabRecommendation = z.enum([
-  "egfr",
-  "crp",
-  "tsh",
-  "ferritin",
-  "tsat",
-  "alt_ast",
-  "inr",
-  "albumin",
-]);
-export type LabRecommendation = z.infer<typeof LabRecommendation>;
+/** A lab order the rule recommends. */
+export const RuleLabPlan = z.object({
+  test: z.string(),
+  interval_weeks: z.number().int(),
+  i18n_key: z.string(),
+});
+export type RuleLabPlan = z.infer<typeof RuleLabPlan>;
+
+/** Risk-axis profile a rule contributes (any axis may be omitted -> low). */
+export const RuleRisk = z.object({
+  underexposure_risk: RiskLevel.optional(),
+  overexposure_risk: RiskLevel.optional(),
+  delayed_onset_risk: RiskLevel.optional(),
+  net_pk_variability: RiskLevel.optional(),
+});
+export type RuleRisk = z.infer<typeof RuleRisk>;
+
+/** Admin/research-only layer: METACOD-internal pattern terminology. */
+export const RuleAdminLayer = z.object({
+  pattern: z.string(),
+  i18n_key_internal: z.string(),
+});
+export type RuleAdminLayer = z.infer<typeof RuleAdminLayer>;
 
 export const Rule = z.object({
-  /** Stable, human-readable id, e.g. "PPI-LT4-UNDEREXPOSURE-001". */
-  rule_id: z.string().min(1),
-  /** rule_pack version this entry shipped in — copied into every audit record. */
-  pack_version: z.string().min(1),
-  enabled: z.boolean().default(true),
-
-  /** What PK failure mode this rule represents and how hard it bites. */
-  risk_type: RiskType,
-  severity: Severity,
-
-  /** Declarative trigger. Fires when this evaluates true against (patient, drugs). */
+  rule_id: z.string(),
+  name: z.string().default(""),
+  severity: z.enum(["high", "moderate", "low"]).default("moderate"),
+  evidence_grade: EvidenceGrade.default("C"),
+  mechanism: z.string().default(""),
   when: Condition,
-
-  /** Evidence + provenance (admin/research layer + audit). */
-  evidence_grade: EvidenceGrade,
-  sources: z.array(Source).min(1),
-  /** Plain-language "why", admin/clinical only — never shown to the patient. */
-  mechanism_trace: LocalizedText,
-  /** Internal pattern name, admin-only, never patient-facing. */
-  internal_pattern_name: z.string().optional(),
-
-  /** Outputs, split by audience (dual-layer). */
-  clinician_actions: z.array(RuleAction).default([]),
-  patient_actions: z.array(RuleAction).default([]),
-  lab_plan: z.array(LabRecommendation).default([]),
+  risk: RuleRisk.default({}),
+  physician_actions: z.array(RuleI18nAction).default([]),
+  patient_actions: z.array(RuleI18nAction).default([]),
+  lab_plan: z.array(RuleLabPlan).default([]),
+  admin_layer: RuleAdminLayer,
+  sources: z.array(z.string()).default([]),
 });
 export type Rule = z.infer<typeof Rule>;
 
-/** The whole pack: validated as a unit so version + ids stay consistent. */
-export const RulePack = z.object({
-  version: z.string().min(1),
-  generated_at: z.string().optional(),
-  rules: z.array(Rule),
-});
+export const RulePack = z
+  .object({
+    rule_pack_version: z.string(),
+    last_updated: z.string().optional(),
+    description: z.string().optional(),
+    dsl_documentation: z.record(z.string(), z.string()).optional(),
+    rules: z.array(Rule),
+  })
+  .passthrough();
 export type RulePack = z.infer<typeof RulePack>;

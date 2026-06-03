@@ -1,17 +1,25 @@
 /**
  * API handlers — pure, transport-agnostic. index.ts binds these to Firebase
- * callable functions. Each handler validates input with zod, enforces the
- * White Coat Rule / authz, writes an audit record, and returns a role-projected
- * result. Persistence/clock/crypto come via Deps (ports.ts).
+ * callable functions. Each handler validates input with zod, enforces the White
+ * Coat Rule / authz, writes audit records, and returns a role-projected result.
+ * Clinical content is bundled + version-pinned with the engine (loadContent).
  */
 import { z } from "zod";
-import { PatientInput, Locale, ViewLayer } from "@metacod/shared";
-import type { EngineOutput, SignOffRecord, ViewLayer as ViewLayerT } from "@metacod/shared";
-import { assess, project } from "@metacod/engine";
+import { PatientContext, Locale, ViewLayer } from "@metacod/shared";
+import type {
+  Visit,
+  SignOffRecord,
+  ViewLayer as ViewLayerT,
+  UserRole,
+  PharmacistAssessment,
+  MedicationSnapshot,
+  RuleTrigger,
+} from "@metacod/shared";
+import { assess, project, loadContent, AGENT_VERSION } from "@metacod/engine";
 import type { Actor, Deps } from "./ports.js";
 
 /** Map an actor role to the default projection layer. */
-function roleToLayer(role: Actor["role"]): ViewLayerT {
+function roleToLayer(role: UserRole): ViewLayerT {
   switch (role) {
     case "admin":
       return "admin";
@@ -25,175 +33,184 @@ function roleToLayer(role: Actor["role"]): ViewLayerT {
 
 // ---------- assessPatient ----------
 
-export const AssessRequest = z.object({
-  input: PatientInput,
-});
+export const AssessRequest = z.object({ input: PatientContext });
 export type AssessRequest = z.infer<typeof AssessRequest>;
 
 export interface AssessResponse {
-  assessment_id: string;
+  visit_id: string;
   view: ViewLayerT;
-  output: EngineOutput; // already projected for the caller's role
+  assessment: PharmacistAssessment; // projected for the caller's role
 }
 
 export async function handleAssess(raw: unknown, deps: Deps, actor: Actor): Promise<AssessResponse> {
   const { input } = AssessRequest.parse(raw);
+  const { rulePack, drugMaster } = loadContent();
 
-  const [{ pack, version: ruleVersion }, { profiles, version: drugVersion }] = await Promise.all([
-    deps.content.getActiveRulePack(),
-    deps.content.getDrugMaster(),
-  ]);
+  const full = assess(input, rulePack, drugMaster);
+  const visit_id = deps.ids.newId("VIS");
+  const now = deps.clock.nowIso();
 
-  const assessment_id = deps.ids.newId();
-  const generated_at = deps.clock.nowIso();
+  const medication_snapshots: MedicationSnapshot[] = input.medications.map((m) => ({
+    name: m.name,
+    profile_id: m.profile_id,
+    route: m.route,
+    ...(m.dose != null ? { dose: m.dose } : {}),
+    is_essential: m.is_essential,
+  }));
 
-  const full = assess(input, pack, profiles, {
-    assessment_id,
-    generated_at,
-    rule_pack_version: ruleVersion,
-    drug_master_version: drugVersion,
-  });
+  const rule_triggers: RuleTrigger[] = full.interactions.map((f) => ({
+    rule_id: f.rule_id,
+    rule_pack_version: full.rule_pack_version,
+    medication_name: f.medication_name,
+    medication_profile_id: f.medication_profile_id,
+    severity: f.severity,
+    evidence_grade: f.evidence_grade,
+    triggered_at: now,
+  }));
 
-  await deps.store.save({
-    assessment_id,
-    case_id: input.case_id,
-    input,
-    output: full, // store the FULL admin-layer output; project on read
-    created_at: generated_at,
-  });
+  const visit: Visit = {
+    visit_id,
+    patient_id: input.patient_id,
+    input_payload: input,
+    output_payload: full, // store FULL admin-layer output; project on read
+    triage_color: full.triage_color,
+    glp1_decision: full.forecast.glp1_dosing.decision,
+    sign_off: { status: "pending_sign_off" },
+    rule_pack_version: full.rule_pack_version,
+    drug_db_version: full.drug_db_version,
+    agent_version: AGENT_VERSION,
+    medication_snapshots,
+    rule_triggers,
+    created_at: now,
+  };
 
+  await deps.store.save(visit);
   await deps.audit.append({
-    id: deps.ids.newId(),
-    assessment_id,
-    case_id: input.case_id,
-    timestamp: generated_at,
-    user_id: actor.user_id,
-    role: actor.role,
-    action: "assess",
-    rule_pack_version: ruleVersion,
-    drug_master_version: drugVersion,
-    input_hash: deps.hasher.sha256(input),
-    output_hash: deps.hasher.sha256(full),
+    id: deps.ids.newId("AUD"),
+    event_type: "assessment_created",
+    actor_id: actor.user_id,
+    actor_role: actor.role,
+    target_table: "visits",
+    target_id: visit_id,
+    payload: {
+      triage: full.triage_color,
+      rule_count: full.interactions.length,
+      rule_pack_version: full.rule_pack_version,
+      drug_db_version: full.drug_db_version,
+      input_hash: deps.hasher.sha256(input),
+      output_hash: deps.hasher.sha256(full),
+    },
+    occurred_at: now,
   });
 
   const view = roleToLayer(actor.role);
-  return { assessment_id, view, output: project(full, view) };
+  return { visit_id, view, assessment: project(full, view) };
 }
 
 // ---------- signOffAssessment (White Coat Rule) ----------
 
 export const SignOffRequest = z.object({
-  assessment_id: z.string().min(1),
-  decision: z.enum(["sign", "reject"]),
-  method: z.enum(["password", "biometric", "sso", "manual"]),
-  rejection_reason: z.string().min(1).optional(),
+  visit_id: z.string().min(1),
+  decision: z.enum(["sign", "reject", "amend"]),
+  notes: z.string().optional(),
+  amended_payload: z.unknown().optional(),
 });
 export type SignOffRequest = z.infer<typeof SignOffRequest>;
 
 export interface SignOffResponse {
-  assessment_id: string;
+  visit_id: string;
   sign_off: SignOffRecord;
 }
 
 export async function handleSignOff(raw: unknown, deps: Deps, actor: Actor): Promise<SignOffResponse> {
   const req = SignOffRequest.parse(raw);
 
-  // Authz: only a physician may sign off (White Coat Rule).
+  // White Coat Rule: only a physician may sign off / amend / reject.
   if (actor.role !== "physician") {
     throw new Error("FORBIDDEN: only a physician may sign off an assessment.");
   }
-  if (req.decision === "reject" && !req.rejection_reason) {
-    throw new Error("INVALID_ARGUMENT: rejection_reason is required when rejecting.");
+  if (req.decision === "reject" && !req.notes) {
+    throw new Error("INVALID_ARGUMENT: notes (reason) required when rejecting.");
   }
 
-  const record = await deps.store.get(req.assessment_id);
-  if (!record) throw new Error("NOT_FOUND: assessment does not exist.");
-
-  // Transition is only legal from pending_sign_off.
-  if (record.output.meta.sign_off.state !== "pending_sign_off") {
-    throw new Error(`FAILED_PRECONDITION: assessment is already ${record.output.meta.sign_off.state}.`);
+  const visit = await deps.store.get(req.visit_id);
+  if (!visit) throw new Error("NOT_FOUND: visit does not exist.");
+  if (visit.sign_off.status !== "pending_sign_off") {
+    throw new Error(`FAILED_PRECONDITION: visit is already ${visit.sign_off.status}.`);
   }
 
   const now = deps.clock.nowIso();
-  const sign_off: SignOffRecord =
-    req.decision === "sign"
-      ? { state: "signed", physician_id: actor.user_id, signed_at: now, method: req.method }
-      : {
-          state: "rejected",
-          physician_id: actor.user_id,
-          signed_at: now,
-          method: req.method,
-          rejection_reason: req.rejection_reason!,
-        };
+  const status = req.decision === "sign" ? "signed" : req.decision === "amend" ? "amended" : "rejected";
+  const sign_off: SignOffRecord = {
+    status,
+    physician_id: actor.user_id,
+    ...(actor.user_name ? { physician_name: actor.user_name } : {}),
+    signed_at: now,
+    ...(req.notes != null ? { notes: req.notes } : {}),
+    ...(req.decision === "amend" && req.amended_payload !== undefined
+      ? { amended_payload: req.amended_payload }
+      : {}),
+  };
 
-  await deps.store.updateSignOff(req.assessment_id, sign_off);
-
+  await deps.store.updateSignOff(req.visit_id, sign_off);
   await deps.audit.append({
-    id: deps.ids.newId(),
-    assessment_id: req.assessment_id,
-    case_id: record.case_id,
-    timestamp: now,
-    user_id: actor.user_id,
-    role: actor.role,
-    action: req.decision === "sign" ? "sign_off" : "reject",
-    rule_pack_version: record.output.meta.rule_pack_version,
-    drug_master_version: record.output.meta.drug_master_version,
-    input_hash: deps.hasher.sha256(record.input),
-    output_hash: deps.hasher.sha256(record.output),
+    id: deps.ids.newId("AUD"),
+    event_type: req.decision === "reject" ? "sign_off_rejected" : "sign_off_completed",
+    actor_id: actor.user_id,
+    actor_role: actor.role,
+    target_table: "visits",
+    target_id: req.visit_id,
+    payload: { status, notes: req.notes ?? null },
+    occurred_at: now,
   });
 
-  return { assessment_id: req.assessment_id, sign_off };
+  return { visit_id: req.visit_id, sign_off };
 }
 
 // ---------- getReport ----------
 
 export const GetReportRequest = z.object({
-  assessment_id: z.string().min(1),
+  visit_id: z.string().min(1),
   locale: Locale,
-  /** Requested audience. Patient handouts require a signed assessment. */
   view: ViewLayer,
 });
 export type GetReportRequest = z.infer<typeof GetReportRequest>;
 
 export interface GetReportResponse {
-  assessment_id: string;
+  visit_id: string;
   locale: z.infer<typeof Locale>;
   view: ViewLayerT;
-  output: EngineOutput; // projected; client/PDF layer resolves i18n keys
+  assessment: PharmacistAssessment; // projected; client/PDF layer resolves i18n keys
 }
 
 export async function handleGetReport(raw: unknown, deps: Deps, actor: Actor): Promise<GetReportResponse> {
   const req = GetReportRequest.parse(raw);
-  const record = await deps.store.get(req.assessment_id);
-  if (!record) throw new Error("NOT_FOUND: assessment does not exist.");
+  const visit = await deps.store.get(req.visit_id);
+  if (!visit) throw new Error("NOT_FOUND: visit does not exist.");
 
   // A patient-facing report may only be produced from a SIGNED assessment.
-  if (req.view === "patient" && record.output.meta.sign_off.state !== "signed") {
+  if (req.view === "patient" && visit.sign_off.status !== "signed") {
     throw new Error("FAILED_PRECONDITION: patient report requires a signed assessment.");
   }
-  // Research/admin layers require the matching role.
   if ((req.view === "admin" || req.view === "research") && !(actor.role === "admin" || actor.role === "researcher")) {
     throw new Error("FORBIDDEN: insufficient role for this view.");
   }
 
   await deps.audit.append({
-    id: deps.ids.newId(),
-    assessment_id: req.assessment_id,
-    case_id: record.case_id,
-    timestamp: deps.clock.nowIso(),
-    user_id: actor.user_id,
-    role: actor.role,
-    action: "view",
-    rule_pack_version: record.output.meta.rule_pack_version,
-    drug_master_version: record.output.meta.drug_master_version,
-    input_hash: deps.hasher.sha256(record.input),
-    output_hash: deps.hasher.sha256(record.output),
+    id: deps.ids.newId("AUD"),
+    event_type: "report_exported",
+    actor_id: actor.user_id,
+    actor_role: actor.role,
+    target_table: "visits",
+    target_id: req.visit_id,
+    payload: { view: req.view, locale: req.locale },
+    occurred_at: deps.clock.nowIso(),
   });
 
   return {
-    assessment_id: req.assessment_id,
+    visit_id: req.visit_id,
     locale: req.locale,
     view: req.view,
-    output: project(record.output, req.view),
+    assessment: project(visit.output_payload, req.view),
   };
 }

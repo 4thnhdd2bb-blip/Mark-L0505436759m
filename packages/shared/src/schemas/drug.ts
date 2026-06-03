@@ -1,114 +1,80 @@
 /**
- * Drug Profile Schema — the molecular profile that feeds the rule engine.
+ * Drug Profile Schema — molecular PK profile consumed by the rule DSL.
  *
- * Rules do NOT hard-code drug names. A rule asks questions like "is this drug
- * gastric-emptying sensitive AND chelation-sensitive?" and the answers come from
- * this profile. That keeps the rule_pack small and lets new drugs inherit
- * existing rules just by filling in their properties.
+ * Ported from the v4 drug_master_v1.json field set. The rule engine reads these
+ * fields by dotted path (e.g. "drug.class", "drug.high_first_pass",
+ * "drug.requires_acidic_pH", "drug.protein_binding"), so names are preserved.
  *
- * drug_master_v1.json (Part 2) is an array of objects validated by `DrugProfile`.
+ * The schema is intentionally permissive (.passthrough(), most fields optional):
+ * profiles vary field-by-field and the clinical team extends them drug-by-drug.
+ * Only the identity fields are required.
  */
 import { z } from "zod";
-import { Source } from "./common.js";
+import { EvidenceGrade, Locale } from "./enums.js";
 
-/** Route of administration for a given product/order. */
-export const Route = z.enum([
-  "oral",
-  "sublingual",
-  "buccal",
-  "iv",
-  "im",
-  "subcutaneous",
-  "transdermal",
-  "inhaled",
-  "rectal",
-  "other",
-]);
-export type Route = z.infer<typeof Route>;
+const Tristate = z.enum(["none", "low", "moderate", "high"]);
 
-/** Galenic form — matters for gastric-emptying sensitivity and NTI risk. */
-export const DrugForm = z.enum([
-  "tablet",
-  "capsule",
-  "modified_release", // MR / ER / XR / SR — high risk under altered GI transit
-  "liquid",           // solution/suspension — often the mitigation for absorption issues
-  "orodispersible",
-  "injectable",
-  "patch",
-  "other",
-]);
-export type DrugForm = z.infer<typeof DrugForm>;
+/** Trilingual display name. */
+export const DisplayName = z.record(Locale, z.string());
+export type DisplayName = z.infer<typeof DisplayName>;
 
-/** Absorption characteristics — the upstream half of the underexposure/delay axes. */
-export const Absorption = z.object({
-  /** Oral bioavailability fraction 0..1 (null if not orally absorbed). */
-  oral_bioavailability: z.number().min(0).max(1).nullable().default(null),
-  /** True if absorption depends materially on gastric emptying / GI transit. */
-  gastric_emptying_sensitive: z.boolean().default(false),
-  /** Typical Tmax in hours under normal physiology (for delayed-onset reasoning). */
-  tmax_hours: z.number().positive().nullable().default(null),
-  /** Absorption requires acidic stomach (e.g. weak-base salts) — PPI-sensitive. */
-  acid_dependent_absorption: z.boolean().default(false),
-  food_effect: z.enum(["none", "increases", "decreases", "variable"]).default("none"),
-});
+export const DrugProfile = z
+  .object({
+    profile_id: z.string(),
+    display_name: DisplayName,
+    class: z.string(),
+    route: z.string().default("oral"),
 
-/** First-pass / distribution — drivers of overexposure and free-fraction axes. */
-export const Distribution = z.object({
-  /** High hepatic first-pass: clearance drops sharply in cirrhosis -> overexposure. */
-  high_first_pass: z.boolean().default(false),
-  /** Hepatic extraction ratio 0..1 (informs first-pass magnitude). */
-  hepatic_extraction_ratio: z.number().min(0).max(1).nullable().default(null),
-  /** Plasma protein binding fraction 0..1. */
-  protein_binding: z.number().min(0).max(1).nullable().default(null),
-  /** Predominantly albumin-bound -> low albumin raises free fraction (misleading totals). */
-  albumin_bound: z.boolean().default(false),
-});
+    // Absorption sensitivities
+    requires_acidic_pH: Tristate.optional(),
+    cation_binding_sensitive: z.boolean().optional(),
+    proximal_absorption_critical: z.boolean().optional(),
+    bile_dependent: z.boolean().optional(),
+    food_effect: z.enum(["none", "with_food", "fasting", "specific"]).optional(),
 
-/** Metabolism — CYP fingerprint for cytokine-driven suppression reasoning (CRP rule). */
-export const Metabolism = z.object({
-  cyp_substrate: z.array(z.string()).default([]), // e.g. ["CYP3A4", "CYP2C9"]
-  cyp_inhibitor: z.array(z.string()).default([]),
-  cyp_inducer: z.array(z.string()).default([]),
-});
+    // First-pass / hepatic
+    high_first_pass: z.boolean().optional(),
+    hepatic_extraction: Tristate.optional(),
+    inflammation_sensitive_clearance: z.boolean().optional(),
 
-/** Elimination — renal vs hepatic split + half-life for accumulation reasoning. */
-export const Elimination = z.object({
-  renal_clearance_fraction: z.number().min(0).max(1).nullable().default(null),
-  hepatic_clearance_fraction: z.number().min(0).max(1).nullable().default(null),
-  half_life_hours: z.number().positive().nullable().default(null),
-});
+    // Elimination
+    renal_clearance_fraction: z.enum(["low", "moderate", "high", "variable"]).optional(),
+    active_metabolites_renally_cleared: z.boolean().optional(),
 
-/** Boolean property bag the rule conditions match against. */
-export const DrugProperties = z.object({
-  narrow_therapeutic_index: z.boolean().default(false),
-  modified_release: z.boolean().default(false),
-  /** Binds di/trivalent cations (Ca/Fe/Mg/Al) -> needs >=4h separation. */
-  chelation_sensitive: z.boolean().default(false),
-  /** Is itself a polyvalent cation source (Ca/Fe/Mg/Al antacids, supplements). */
-  polyvalent_cation_source: z.boolean().default(false),
-  /** Anticoagulant subclass flags used by eGFR/bariatric rules. */
-  doac: z.boolean().default(false),
-  vka: z.boolean().default(false),
-});
+    // Binding / index
+    protein_binding: Tristate.optional(),
+    narrow_therapeutic_index: z.boolean().optional(),
+    tdm_available: z.union([z.boolean(), z.string()]).optional(),
 
-export const DrugProfile = z.object({
-  drug_id: z.string().min(1), // stable slug, e.g. "levothyroxine"
-  inn: z.string().min(1),     // international non-proprietary name
-  brand_names: z.array(z.string()).default([]),
-  drug_class: z.string().min(1),
-  atc_code: z.string().optional(),
+    // GI-motility / anatomy sensitivity
+    tmax_sensitive: z.boolean().optional(),
+    modified_release: z.boolean().optional(),
+    post_bariatric_variability: Tristate.optional(),
+    gut_edema_sensitive: z.boolean().optional(),
 
-  absorption: Absorption,
-  distribution: Distribution,
-  metabolism: Metabolism,
-  elimination: Elimination,
-  properties: DrugProperties,
+    // Special flags
+    oral_contraceptive: z.boolean().optional(),
+    is_perpetrator_cation: z.boolean().optional(),
+    is_perpetrator_acid_suppression: z.boolean().optional(),
 
-  /** Forms available on market — used to suggest mitigations (e.g. liquid LT4, IV iron). */
-  forms_available: z.array(DrugForm).default([]),
-  /** Non-oral / alternative routes available, for "switch route" actions. */
-  routes_available: z.array(Route).default([]),
-
-  sources: z.array(Source).default([]),
-});
+    // Metadata
+    monitor: z.array(z.string()).optional(),
+    alternative_formulations: z.array(z.string()).optional(),
+    evidence_grade: EvidenceGrade.optional(),
+    last_reviewed: z.string().optional(),
+    sources: z.array(z.string()).optional(),
+  })
+  .passthrough();
 export type DrugProfile = z.infer<typeof DrugProfile>;
+
+/** The whole drug master file: version + profiles. */
+export const DrugMaster = z
+  .object({
+    schema_version: z.string(),
+    last_updated: z.string().optional(),
+    description: z.string().optional(),
+    field_definitions: z.record(z.string(), z.string()).optional(),
+    profiles: z.array(DrugProfile),
+  })
+  .passthrough();
+export type DrugMaster = z.infer<typeof DrugMaster>;
