@@ -225,5 +225,36 @@
 
   "trigger.egfr_falling": "Declining eGFR",
   "trigger.expected_weight_loss": "Expected weight loss on GLP-1",
-  "trigger.glp1_glycemic_effect": "GLP-1 glucose-lowering effect on top of existing therapy"
+  "trigger.glp1_glycemic_effect": "GLP-1 glucose-lowering effect on top of existing therapy",
+
+  "dose.amiodarone_bmi_vd_redistribution": "Amiodarone: with rapid weight loss (>2%/month) consider a ~15% dose reduction — drug accumulates in adipose tissue and redistributes as fat is mobilized",
+  "dose.lithium_tbw_dependent_recheck": "Lithium: any total body water change (weight loss, dehydration, diuretics) requires urgent level monitoring — Vd ≈ TBW",
+  "dose.digoxin_lean_body_mass": "Digoxin: dosing is based on lean body mass — substantial weight loss requires recalculation",
+
+  "dose.pgx_cyp2d6_poor_metoprolol_succinate": "Metoprolol + CYP2D6 poor: drug accumulation, bradycardia risk — consider 25–50% dose reduction or switch to bisoprolol / carvedilol",
+  "dose.pgx_cyp2d6_poor_fluoxetine": "Fluoxetine + CYP2D6 poor: elevated fluoxetine and norfluoxetine exposure — consider dose reduction or alternative (sertraline)",
+  "dose.pgx_cyp2d6_ultra_rapid_metoprolol_succinate": "Metoprolol + CYP2D6 ultra-rapid: possible subtherapeutic exposure — monitor HR/BP, consider bisoprolol",
+  "dose.pgx_cyp2c19_poor_voriconazole": "Voriconazole + CYP2C19 poor: elevated exposure expected — reduce starting dose 25–50%, accelerated TDM at 5–7 days",
+  "dose.pgx_cyp2c19_poor_escitalopram": "Escitalopram + CYP2C19 poor: elevated QT prolongation risk — reduce dose, baseline ECG, monitor QTc",
+  "dose.pgx_cyp2c19_ultra_rapid_voriconazole": "Voriconazole + CYP2C19 ultra-rapid: subtherapeutic exposure expected — accelerated TDM, consider an alternative azole (isavuconazole)",
+  "dose.pgx_cyp3a5_expresser_tacrolimus": "Tacrolimus + CYP3A5 expresser: increased clearance — starting dose 1.5–2× standard, TDM at 3–5 days",
+  "dose.pgx_hla_b1502_carbamazepine": "Carbamazepine + HLA-B*1502 positive: CONTRAINDICATED — high risk of Stevens-Johnson syndrome / TEN. Switch to a non-cross-reactive anticonvulsant (levetiracetam, lamotrigine)",
+
+  "ddi.ppi_lt4_dissolution": "PPI raises gastric pH → LT4 tablet dissolution failure → reduced bioavailability",
+  "ddi.ppi_tki_dissolution": "PPI raises gastric pH → pH-dependent TKI dissolution failure → AUC drops 30–60%",
+  "ddi.ppi_azole_dissolution": "PPI raises gastric pH → azole capsule/suspension dissolution failure",
+  "ddi.ppi_dabigatran_reduced_auc": "PPI may reduce dabigatran AUC by ~12–30% — moderate clinical significance, monitor for thrombotic events",
+  "ddi.cyp3a_inducer_doac": "Strong CYP3A4 inducer accelerates DOAC clearance → subtherapeutic anticoagulation → thrombosis risk",
+  "ddi.cyp3a_inducer_cni": "Strong CYP3A4 inducer accelerates tacrolimus / cyclosporine clearance → rejection",
+  "ddi.cyp3a_inducer_oc": "Strong CYP3A4 inducer accelerates ethinylestradiol metabolism → loss of contraceptive efficacy",
+  "ddi.cyp3a_inhibitor_cni": "Strong CYP3A4 inhibitor (azole) suppresses CNI clearance → toxicity (nephro/neuro) within days",
+  "ddi.cyp_inhibitor_warfarin": "Strong CYP inhibitor (fluconazole: CYP2C9) suppresses warfarin clearance → INR rise, bleeding risk",
+  "ddi.loop_lithium_toxicity": "Loop diuretic → volume contraction → proximal-tubule Li reabsorption → toxicity",
+  "ddi.oc_lamotrigine_ugt": "OC induces UGT1A4 → accelerated lamotrigine clearance → potential breakthrough seizures",
+  "ddi.sequestrant_mmf_ehc": "Bile acid sequestrant / sevelamer disrupts MPA enterohepatic recirculation → AUC drops 30–40%",
+  "ddi.qt_additive": "QT-prolonging drug combination → additive QTc prolongation → torsades de pointes risk",
+  "ddi.cation_fq_chelation": "Multivalent cation forms a non-absorbable chelate with fluoroquinolone",
+  "ddi.cation_lt4_chelation": "Multivalent cation forms a non-absorbable chelate with LT4 → reduced bioavailability",
+
+  "projection.linear_regression_disclaimer": "Projection based on ≤4 historical points — interpret as orientation rather than precise prediction; confidence interval reflects statistical uncertainty of the linear model only"
 }

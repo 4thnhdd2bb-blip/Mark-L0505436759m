@@ -1,5 +1,5 @@
 /**
- * מילון עברית (locale "he", RTL) — v2, כל מפתחות rule_pack_v2.
+ * מילון עברית (locale "he", RTL) — v2+v3.
  * Generated from python/i18n_glp1_he.json (source of truth).
  */
 import type { Dictionary } from "../keys.js";
@@ -189,5 +189,32 @@ export const he: Dictionary = {
   "adjust.antidiabetic_review_for_hypoglycemia": "בחינת טיפול אנטי-סוכרתי — סיכון להיפוגליקמיה בהוספת GLP-1",
   "trigger.egfr_falling": "ירידה ב-eGFR",
   "trigger.expected_weight_loss": "ירידה צפויה במשקל בנוכחות GLP-1",
-  "trigger.glp1_glycemic_effect": "השפעת GLP-1 מפחיתת סוכר בנוסף לטיפול הנוכחי"
+  "trigger.glp1_glycemic_effect": "השפעת GLP-1 מפחיתת סוכר בנוסף לטיפול הנוכחי",
+  "dose.amiodarone_bmi_vd_redistribution": "אמיודרון: בירידה מהירה במשקל (>2% לחודש) לשקול הפחתת מינון ב-~15% — התרופה מצטברת ברקמת השומן ומשתחררת מחדש בעת שריפת שומן",
+  "dose.lithium_tbw_dependent_recheck": "ליתיום: כל שינוי במים הכלליים של הגוף (ירידה במשקל, התייבשות, משתנים) מחייב בדיקה דחופה של הרמה — Vd ≈ TBW",
+  "dose.digoxin_lean_body_mass": "דיגוקסין: המינון מחושב לפי מסת גוף רזה — בירידה משמעותית במשקל נדרש חישוב מחדש",
+  "dose.pgx_cyp2d6_poor_metoprolol_succinate": "מטופרולול + CYP2D6 poor: הצטברות התרופה, סיכון לברדיקרדיה — לשקול הפחתת מינון ב-25–50% או מעבר לביסופרולול / קרבדילול",
+  "dose.pgx_cyp2d6_poor_fluoxetine": "פלואוקסטין + CYP2D6 poor: חשיפה מוגברת לפלואוקסטין ולנורפלואוקסטין — לשקול הפחתת מינון או חלופה (סרטרלין)",
+  "dose.pgx_cyp2d6_ultra_rapid_metoprolol_succinate": "מטופרולול + CYP2D6 ultra-rapid: חשיפה תת-טיפולית אפשרית — מעקב דופק/לחץ דם, לשקול ביסופרולול",
+  "dose.pgx_cyp2c19_poor_voriconazole": "ווריקונזול + CYP2C19 poor: צפויה חשיפה מוגברת — הפחתת מינון התחלתי ב-25–50%, TDM מואץ לאחר 5–7 ימים",
+  "dose.pgx_cyp2c19_poor_escitalopram": "אסציטלופרם + CYP2C19 poor: סיכון מוגבר להארכת QT — הפחתת מינון, ECG בסיסי, מעקב QTc",
+  "dose.pgx_cyp2c19_ultra_rapid_voriconazole": "ווריקונזול + CYP2C19 ultra-rapid: חשיפה תת-טיפולית צפויה — TDM מואץ, לשקול אזול חלופי (איזאבוקונזול)",
+  "dose.pgx_cyp3a5_expresser_tacrolimus": "טקרולימוס + CYP3A5 expresser: פינוי מוגבר — מינון התחלתי פי 1.5–2 מהסטנדרטי, TDM לאחר 3–5 ימים",
+  "dose.pgx_hla_b1502_carbamazepine": "קרבמזפין + HLA-B*1502 positive: התווית נגד — סיכון גבוה לתסמונת סטיבנס-ג'ונסון / TEN. להחליף לנוגד פרכוסים שאינו צולב (לבטיראצטם, למוטריג'ין)",
+  "ddi.ppi_lt4_dissolution": "PPI מעלה pH קיבתי → כשל המסת טבליית LT4 → ירידה בזמינות הביולוגית",
+  "ddi.ppi_tki_dissolution": "PPI מעלה pH קיבתי → כשל המסת TKI תלוית-pH → ירידה של 30–60% ב-AUC",
+  "ddi.ppi_azole_dissolution": "PPI מעלה pH קיבתי → כשל המסת קפסולות/סוספנסיית אזול",
+  "ddi.ppi_dabigatran_reduced_auc": "PPI עלול להפחית AUC של דביגטרן ב-12–30% — משמעות קלינית מתונה, מעקב אירועים תרומבוטיים",
+  "ddi.cyp3a_inducer_doac": "משרה CYP3A4 חזק מאיץ פינוי DOAC → אנטיקואגולציה תת-טיפולית → סיכון פקקת",
+  "ddi.cyp3a_inducer_cni": "משרה CYP3A4 חזק מאיץ פינוי טקרולימוס/ציקלוספורין → דחייה",
+  "ddi.cyp3a_inducer_oc": "משרה CYP3A4 חזק מאיץ מטבוליזם של אתיניל-אסטרדיול → איבוד יעילות אמצעי המניעה",
+  "ddi.cyp3a_inhibitor_cni": "מעכב CYP3A4 חזק (אזול) מדכא פינוי CNI → רעילות (נפרו/נוירו) תוך ימים",
+  "ddi.cyp_inhibitor_warfarin": "מעכב CYP חזק (פלוקונזול: CYP2C9) מדכא פינוי וורפרין → עליית INR, סיכון דימום",
+  "ddi.loop_lithium_toxicity": "משתן לולאה → התכווצות נפח → ספיגה חוזרת של Li בצינור הפרוקסימלי → רעילות",
+  "ddi.oc_lamotrigine_ugt": "גלולה משולבת משרה UGT1A4 → פינוי מואץ של למוטריג'ין → אפשרות לפרכוסים פורצים",
+  "ddi.sequestrant_mmf_ehc": "סופח מלחי מרה / סוולמר משבש את המחזור האנטרו-הפטי של MPA → ירידה של 30–40% ב-AUC",
+  "ddi.qt_additive": "שילוב תרופות מאריכות QT → הארכה אדיטיבית של QTc → סיכון לטורסאד דה פואנט",
+  "ddi.cation_fq_chelation": "קטיון רב-ערכי יוצר קומפלקס בלתי-נספג עם פלואורוקינולון",
+  "ddi.cation_lt4_chelation": "קטיון רב-ערכי יוצר קומפלקס בלתי-נספג עם LT4 → ירידה בזמינות הביולוגית",
+  "projection.linear_regression_disclaimer": "התחזית מתבססת על ≤4 נקודות היסטוריות — לפרש כהכוונה ולא כתחזית מדויקת; רווח הסמך משקף רק את אי-הוודאות הסטטיסטית של המודל הלינארי"
 };

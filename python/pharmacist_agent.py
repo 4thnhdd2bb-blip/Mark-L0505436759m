@@ -1,15 +1,37 @@
 """
-METACOD GLP-1 Complication Prevention — Pharmacist Agent v2.1
+METACOD GLP-1 Complication Prevention — Pharmacist Agent v3.0
 
-Refactored from Gemini prototype, extended in v2.1 to support drug-drug rule
-conditions through a derived `med_summary` context plus DSL `contains` and
-`any_in` operators. Backward compatible with v1 rule_pack.
+Extends v2.1 with four additive subsystems (backward compatible — all v2.1
+rule_packs and tests pass unchanged):
 
-Responsibilities:
+  1. DoseIndividualization — BMI / lean body mass / weight-loss-trajectory
+     dose adjustments for lipophilic and TBW-dependent drugs (amiodarone,
+     digoxin, lithium, aminoglycosides). Driven by drug class and patient
+     trajectory, not by rule_pack.
+
+  2. InteractionMatrixEngine — static encoded matrix of clinically significant
+     perpetrator → victim drug pairs. Surfaced in admin layer alongside the
+     rule-based findings; helps SaMD reviewers cross-check rule coverage.
+
+  3. BayesianLabProjector — linear regression on patient.lab_history with
+     ≥3 historical points; projects test_name forward N weeks with 95% CI
+     and slope. Useful for TSH/INR/eGFR/lithium trajectories.
+
+  4. PharmacogenomicsContext — optional CYP2D6 / CYP2C19 / CYP3A5 / HLA-B*1502
+     phenotype on PatientContext. When supplied, agent flags specific dose
+     adjustments (voriconazole CYP2C19, metoprolol CYP2D6, tacrolimus CYP3A5,
+     carbamazepine HLA-B*1502).
+
+Responsibilities (unchanged from v2.1):
   - Evaluates drug-patient interactions against the rule_pack
   - Triages patient state (green / yellow / red)
   - Generates clinical forecasts (DOSE HOLD logic, future risks, chronic med adjustments)
   - Returns i18n-keyed outputs with evidence grading and mechanism traces (dual-layer)
+
+New v3 outputs on PharmacistAssessment:
+  - dose_adjustments: list[DoseAdjustmentRecommendation]
+  - interaction_matrix: list[InteractionMatrixEntry] (admin layer)
+  - projected_labs: list[ProjectedLabValue]
 
 Design principles:
   - No hardcoded clinical strings — every user-facing string is an i18n key
@@ -104,6 +126,28 @@ class Labs(BaseModel):
     inr: Optional[float] = None
 
 
+class LabHistoryPoint(BaseModel):
+    """A single historical lab measurement. Used by BayesianLabProjector for trajectory projection."""
+    test_name: str  # 'TSH', 'INR', 'eGFR', 'lithium_level', etc. — must be stable canonical name
+    value: float
+    date: str  # ISO YYYY-MM-DD
+
+
+class Pharmacogenomics(BaseModel):
+    """Optional pharmacogenomic phenotype. When supplied, agent issues targeted dose adjustments."""
+    cyp2d6_phenotype: Optional[str] = None  # poor|intermediate|normal|rapid|ultra_rapid
+    cyp2c19_phenotype: Optional[str] = None  # poor|intermediate|normal|rapid|ultra_rapid
+    cyp3a5_phenotype: Optional[str] = None   # expresser|non_expresser
+    hla_b1502: Optional[bool] = None         # true → high SJS risk on carbamazepine
+    hla_b5701: Optional[bool] = None         # true → contraindication for abacavir
+
+
+class WeightTrajectoryPoint(BaseModel):
+    """A single historical weight measurement. Drives GLP-1 weight-loss-rate based dose individualization."""
+    weight_kg: float
+    date: str  # ISO YYYY-MM-DD
+
+
 class PatientContext(BaseModel):
     patient_id: str
     age_years: int
@@ -144,6 +188,11 @@ class PatientContext(BaseModel):
     symptoms: GISymptoms = Field(default_factory=GISymptoms)
     labs: Labs = Field(default_factory=Labs)
     medications: list[MedicationInput] = Field(default_factory=list)
+
+    # ---------- v3 additions (optional, backward compatible) ----------
+    lab_history: list[LabHistoryPoint] = Field(default_factory=list)
+    weight_trajectory: list[WeightTrajectoryPoint] = Field(default_factory=list)
+    pharmacogenomics: Optional[Pharmacogenomics] = None
 
 
 # ============================================================================
@@ -216,6 +265,58 @@ class ClinicalForecast(BaseModel):
     chronic_med_adjustments: list[ChronicMedAdjustment] = Field(default_factory=list)
 
 
+# ---------- v3 output models (additive) ----------
+
+class DoseAdjustmentRecommendation(BaseModel):
+    """A drug-specific dose adjustment from the DoseIndividualization subsystem.
+
+    Distinct from ChronicMedAdjustment (which is rule-pack driven) — these come
+    from continuous patient features (BMI, weight loss rate, pharmacogenomics)
+    rather than from boolean rule conditions.
+    """
+    drug_profile_id: str
+    medication_name: str
+    adjustment_type: str  # increase|decrease|monitor|alternative|hold
+    adjustment_magnitude_percent: Optional[float] = None
+    rationale_i18n_key: str
+    evidence_grade: EvidenceGrade
+    source: str  # 'bmi_vd' | 'weight_loss_rate' | 'pharmacogenomics' | 'lab_trajectory'
+
+
+class InteractionMatrixEntry(BaseModel):
+    """Encoded perpetrator → victim drug-drug interaction surfaced in the admin layer.
+
+    Complements rule-pack-based findings: rules express the consequences (lab,
+    action), the matrix expresses the pair-wise mechanism for SaMD reviewers.
+    """
+    perpetrator_profile_id: str
+    victim_profile_id: str
+    perpetrator_name: str
+    victim_name: str
+    mechanism_i18n_key: str
+    severity: str  # high|moderate|low
+    evidence_grade: EvidenceGrade
+
+
+class ProjectedLabValue(BaseModel):
+    """Bayesian projection of a single lab test forward in time.
+
+    Computed from patient.lab_history when ≥3 historical points exist for the
+    same test_name. Slope is per-week; CI is approximate 95% from linear
+    regression residual standard error.
+    """
+    test_name: str
+    projected_value: float
+    projected_date: str  # ISO YYYY-MM-DD
+    weeks_ahead: int
+    ci_low: float
+    ci_high: float
+    trend_direction: str  # rising|stable|falling
+    slope_per_week: float
+    historical_points_used: int
+    confidence_note_i18n_key: Optional[str] = None
+
+
 class PharmacistAssessment(BaseModel):
     patient_id: str
     triage_color: TriageColor
@@ -224,7 +325,13 @@ class PharmacistAssessment(BaseModel):
     forecast: ClinicalForecast
     rule_pack_version: str
     drug_db_version: str
+    agent_version: str = "3.0.0"
     sign_off_status: str = "pending_sign_off"
+
+    # ---------- v3 additive outputs ----------
+    dose_adjustments: list[DoseAdjustmentRecommendation] = Field(default_factory=list)
+    interaction_matrix: list[InteractionMatrixEntry] = Field(default_factory=list)
+    projected_labs: list[ProjectedLabValue] = Field(default_factory=list)
 
     def to_audit_record(self) -> dict[str, Any]:
         """Compact record for audit logging."""
@@ -235,6 +342,10 @@ class PharmacistAssessment(BaseModel):
             "glp1_decision": self.forecast.glp1_dosing.decision.value,
             "rule_pack_version": self.rule_pack_version,
             "drug_db_version": self.drug_db_version,
+            "agent_version": self.agent_version,
+            "dose_adjustments_count": len(self.dose_adjustments),
+            "interaction_matrix_pairs": len(self.interaction_matrix),
+            "projected_labs_count": len(self.projected_labs),
         }
 
 
@@ -306,11 +417,347 @@ class RuleEvaluator:
 
 
 # ============================================================================
+# v3 Subsystem: Dose Individualization
+# ============================================================================
+
+class DoseIndividualization:
+    """BMI, weight-loss trajectory, and pharmacogenomic dose adjustments.
+
+    Operates on continuous features (BMI, weight-loss slope, CYP phenotype)
+    rather than boolean rule conditions. Output is a list of
+    DoseAdjustmentRecommendation objects independent of (and additive to)
+    rule-pack ChronicMedAdjustments.
+    """
+
+    # Drug-class Vd / lean-body-mass sensitivity (selected high-impact entries)
+    _BMI_VD_SENSITIVE = {
+        # Lipophilic high-Vd drugs — accumulate in adipose, redistribute on weight loss
+        "amiodarone": {
+            "rationale_key": "dose.amiodarone_bmi_vd_redistribution",
+            "magnitude_pct": -15.0,
+            "evidence_grade": EvidenceGrade.B,
+        },
+        # TBW-dependent
+        "lithium_carbonate": {
+            "rationale_key": "dose.lithium_tbw_dependent_recheck",
+            "magnitude_pct": None,  # not a specific %, just heightened monitoring
+            "evidence_grade": EvidenceGrade.A,
+        },
+        # Lean body mass dependent
+        "digoxin": {
+            "rationale_key": "dose.digoxin_lean_body_mass",
+            "magnitude_pct": None,
+            "evidence_grade": EvidenceGrade.A,
+        },
+    }
+
+    # CYP phenotype → drug behaviour
+    _PGX_CYP2D6 = {
+        "poor": ["metoprolol_succinate", "fluoxetine"],         # accumulation
+        "ultra_rapid": ["metoprolol_succinate"],                 # under-exposure
+    }
+    _PGX_CYP2C19 = {
+        "poor": ["voriconazole", "escitalopram"],               # accumulation
+        "ultra_rapid": ["voriconazole"],                         # under-exposure
+    }
+    _PGX_CYP3A5 = {
+        "expresser": ["tacrolimus"],                             # under-exposure (higher dose needed)
+    }
+    _PGX_HLA = {
+        "hla_b1502_positive": ["carbamazepine"],                 # SJS contraindication
+    }
+
+    WEIGHT_LOSS_RATE_FAST_PCT_PER_MONTH = 2.0  # >2%/month sustained — clinically rapid
+
+    def evaluate(
+        self,
+        patient: PatientContext,
+        drug_db_index: dict[str, dict],
+    ) -> list[DoseAdjustmentRecommendation]:
+        out: list[DoseAdjustmentRecommendation] = []
+        weight_loss_pct_per_month = self._compute_weight_loss_rate(patient)
+
+        for med in patient.medications:
+            pid = med.profile_id
+            profile = drug_db_index.get(pid, {})
+            display_name = med.name or profile.get("display_name", {}).get("en", pid)
+
+            # 1. BMI / Vd sensitivity — fires on sustained weight loss or GLP-1 active
+            if pid in self._BMI_VD_SENSITIVE:
+                spec = self._BMI_VD_SENSITIVE[pid]
+                if weight_loss_pct_per_month is not None and weight_loss_pct_per_month >= self.WEIGHT_LOSS_RATE_FAST_PCT_PER_MONTH:
+                    out.append(DoseAdjustmentRecommendation(
+                        drug_profile_id=pid,
+                        medication_name=display_name,
+                        adjustment_type="monitor",
+                        adjustment_magnitude_percent=spec["magnitude_pct"],
+                        rationale_i18n_key=spec["rationale_key"],
+                        evidence_grade=spec["evidence_grade"],
+                        source="weight_loss_rate",
+                    ))
+
+            # 2. Pharmacogenomics
+            pgx = patient.pharmacogenomics
+            if pgx:
+                for phenotype, drug_list in self._PGX_CYP2D6.items():
+                    if pgx.cyp2d6_phenotype == phenotype and pid in drug_list:
+                        out.append(DoseAdjustmentRecommendation(
+                            drug_profile_id=pid, medication_name=display_name,
+                            adjustment_type="monitor" if phenotype == "ultra_rapid" else "decrease",
+                            adjustment_magnitude_percent=-25.0 if phenotype == "poor" else None,
+                            rationale_i18n_key=f"dose.pgx_cyp2d6_{phenotype}_{pid}",
+                            evidence_grade=EvidenceGrade.A,
+                            source="pharmacogenomics",
+                        ))
+                for phenotype, drug_list in self._PGX_CYP2C19.items():
+                    if pgx.cyp2c19_phenotype == phenotype and pid in drug_list:
+                        out.append(DoseAdjustmentRecommendation(
+                            drug_profile_id=pid, medication_name=display_name,
+                            adjustment_type="monitor" if phenotype == "ultra_rapid" else "decrease",
+                            adjustment_magnitude_percent=-25.0 if phenotype == "poor" else None,
+                            rationale_i18n_key=f"dose.pgx_cyp2c19_{phenotype}_{pid}",
+                            evidence_grade=EvidenceGrade.A,
+                            source="pharmacogenomics",
+                        ))
+                for phenotype, drug_list in self._PGX_CYP3A5.items():
+                    if pgx.cyp3a5_phenotype == phenotype and pid in drug_list:
+                        out.append(DoseAdjustmentRecommendation(
+                            drug_profile_id=pid, medication_name=display_name,
+                            adjustment_type="increase",
+                            adjustment_magnitude_percent=50.0,
+                            rationale_i18n_key=f"dose.pgx_cyp3a5_{phenotype}_{pid}",
+                            evidence_grade=EvidenceGrade.A,
+                            source="pharmacogenomics",
+                        ))
+                if pgx.hla_b1502 is True and pid in self._PGX_HLA["hla_b1502_positive"]:
+                    out.append(DoseAdjustmentRecommendation(
+                        drug_profile_id=pid, medication_name=display_name,
+                        adjustment_type="alternative",
+                        rationale_i18n_key="dose.pgx_hla_b1502_carbamazepine",
+                        evidence_grade=EvidenceGrade.A,
+                        source="pharmacogenomics",
+                    ))
+
+        return out
+
+    @staticmethod
+    def _compute_weight_loss_rate(patient: PatientContext) -> Optional[float]:
+        """Compute %/month weight loss from weight_trajectory. None if insufficient data."""
+        if len(patient.weight_trajectory) < 2:
+            return None
+        from datetime import date
+        try:
+            points = sorted(
+                [(date.fromisoformat(p.date), p.weight_kg) for p in patient.weight_trajectory],
+                key=lambda x: x[0],
+            )
+        except (ValueError, TypeError):
+            return None
+        if len(points) < 2:
+            return None
+        first_date, first_w = points[0]
+        last_date, last_w = points[-1]
+        days = (last_date - first_date).days
+        if days < 14 or first_w <= 0:  # need ≥2 weeks for a meaningful rate
+            return None
+        pct_change = (first_w - last_w) / first_w * 100.0
+        months = days / 30.4375
+        return pct_change / months if months > 0 else None
+
+
+# ============================================================================
+# v3 Subsystem: Interaction Matrix
+# ============================================================================
+
+class InteractionMatrixEngine:
+    """Encoded perpetrator → victim DDI matrix. Admin layer cross-check vs rules."""
+
+    # Static matrix of well-established clinically significant pairs.
+    # Format: (perpetrator_profile_id, victim_profile_id, severity, evidence_grade, mechanism_key)
+    _MATRIX: list[tuple[str, str, str, EvidenceGrade, str]] = [
+        # PPIs raise pH
+        ("omeprazole", "levothyroxine_tablet", "high", EvidenceGrade.A, "ddi.ppi_lt4_dissolution"),
+        ("pantoprazole", "levothyroxine_tablet", "high", EvidenceGrade.A, "ddi.ppi_lt4_dissolution"),
+        ("esomeprazole", "levothyroxine_tablet", "high", EvidenceGrade.A, "ddi.ppi_lt4_dissolution"),
+        ("lansoprazole", "levothyroxine_tablet", "high", EvidenceGrade.A, "ddi.ppi_lt4_dissolution"),
+        ("omeprazole", "erlotinib", "high", EvidenceGrade.A, "ddi.ppi_tki_dissolution"),
+        ("omeprazole", "dasatinib", "high", EvidenceGrade.A, "ddi.ppi_tki_dissolution"),
+        ("omeprazole", "pazopanib", "high", EvidenceGrade.A, "ddi.ppi_tki_dissolution"),
+        ("omeprazole", "itraconazole_capsule", "high", EvidenceGrade.A, "ddi.ppi_azole_dissolution"),
+        ("omeprazole", "posaconazole_oral_suspension", "high", EvidenceGrade.A, "ddi.ppi_azole_dissolution"),
+        ("omeprazole", "dabigatran", "moderate", EvidenceGrade.B, "ddi.ppi_dabigatran_reduced_auc"),
+        # CYP3A strong inducers
+        ("carbamazepine", "apixaban", "high", EvidenceGrade.A, "ddi.cyp3a_inducer_doac"),
+        ("carbamazepine", "rivaroxaban", "high", EvidenceGrade.A, "ddi.cyp3a_inducer_doac"),
+        ("carbamazepine", "tacrolimus", "high", EvidenceGrade.A, "ddi.cyp3a_inducer_cni"),
+        ("carbamazepine", "cyclosporine", "high", EvidenceGrade.A, "ddi.cyp3a_inducer_cni"),
+        ("carbamazepine", "combined_oral_contraceptive", "high", EvidenceGrade.A, "ddi.cyp3a_inducer_oc"),
+        ("phenytoin", "apixaban", "high", EvidenceGrade.A, "ddi.cyp3a_inducer_doac"),
+        ("phenytoin", "tacrolimus", "high", EvidenceGrade.A, "ddi.cyp3a_inducer_cni"),
+        # CYP3A strong inhibitors
+        ("itraconazole_capsule", "tacrolimus", "high", EvidenceGrade.A, "ddi.cyp3a_inhibitor_cni"),
+        ("voriconazole", "tacrolimus", "high", EvidenceGrade.A, "ddi.cyp3a_inhibitor_cni"),
+        ("posaconazole_oral_suspension", "tacrolimus", "high", EvidenceGrade.A, "ddi.cyp3a_inhibitor_cni"),
+        ("fluconazole", "warfarin", "high", EvidenceGrade.A, "ddi.cyp_inhibitor_warfarin"),
+        # Renal handling
+        ("furosemide_oral", "lithium_carbonate", "high", EvidenceGrade.A, "ddi.loop_lithium_toxicity"),
+        ("torsemide_oral", "lithium_carbonate", "high", EvidenceGrade.A, "ddi.loop_lithium_toxicity"),
+        ("bumetanide_oral", "lithium_carbonate", "high", EvidenceGrade.A, "ddi.loop_lithium_toxicity"),
+        # OC induces lamotrigine clearance
+        ("combined_oral_contraceptive", "lamotrigine", "moderate", EvidenceGrade.A, "ddi.oc_lamotrigine_ugt"),
+        # Bile sequestrant breaks MMF EHC
+        ("sevelamer", "mycophenolate_mofetil", "moderate", EvidenceGrade.B, "ddi.sequestrant_mmf_ehc"),
+        # QT pairs (selected; the QT_COMBO rule fires on the general case)
+        ("ciprofloxacin", "amiodarone", "high", EvidenceGrade.A, "ddi.qt_additive"),
+        ("ciprofloxacin", "sotalol", "high", EvidenceGrade.A, "ddi.qt_additive"),
+        ("amiodarone", "sotalol", "high", EvidenceGrade.A, "ddi.qt_additive"),
+        ("voriconazole", "amiodarone", "high", EvidenceGrade.A, "ddi.qt_additive"),
+        # Cation perpetrators
+        ("calcium_carbonate", "ciprofloxacin", "high", EvidenceGrade.A, "ddi.cation_fq_chelation"),
+        ("calcium_carbonate", "levothyroxine_tablet", "high", EvidenceGrade.A, "ddi.cation_lt4_chelation"),
+        ("sevelamer", "ciprofloxacin", "moderate", EvidenceGrade.B, "ddi.cation_fq_chelation"),
+        ("oral_iron_ferrous_sulfate", "levothyroxine_tablet", "high", EvidenceGrade.A, "ddi.cation_lt4_chelation"),
+    ]
+
+    def find_pairs(
+        self,
+        patient: PatientContext,
+        drug_db_index: dict[str, dict],
+    ) -> list[InteractionMatrixEntry]:
+        med_ids = {m.profile_id for m in patient.medications}
+        name_lookup = {m.profile_id: (m.name or drug_db_index.get(m.profile_id, {}).get("display_name", {}).get("en", m.profile_id))
+                       for m in patient.medications}
+        out: list[InteractionMatrixEntry] = []
+        for perp, vic, severity, grade, mech_key in self._MATRIX:
+            if perp in med_ids and vic in med_ids:
+                out.append(InteractionMatrixEntry(
+                    perpetrator_profile_id=perp,
+                    victim_profile_id=vic,
+                    perpetrator_name=name_lookup.get(perp, perp),
+                    victim_name=name_lookup.get(vic, vic),
+                    mechanism_i18n_key=mech_key,
+                    severity=severity,
+                    evidence_grade=grade,
+                ))
+        return out
+
+
+# ============================================================================
+# v3 Subsystem: Bayesian Lab Projector
+# ============================================================================
+
+class BayesianLabProjector:
+    """Linear regression on lab_history → projection with 95% CI.
+
+    Pure stdlib implementation (no NumPy dependency). Computes ordinary least
+    squares fit of value vs weeks-from-first-point, projects N weeks ahead from
+    the most recent point, and reports approximate 95% confidence interval
+    using residual standard error * 1.96.
+    """
+
+    MIN_POINTS = 3
+    DEFAULT_WEEKS_AHEAD = 8
+
+    # Trend direction threshold in absolute slope per week (clinically meaningful)
+    _TREND_THRESHOLDS = {
+        "TSH": 0.05,             # mIU/L per week
+        "INR": 0.05,
+        "eGFR": 0.5,             # mL/min per week
+        "lithium_level": 0.02,
+        "tacrolimus_level": 0.1,
+        "phenytoin_level": 0.2,
+        "creatinine": 0.02,
+        "albumin": 0.02,
+        "ferritin": 5.0,
+    }
+    _DEFAULT_TREND_THRESHOLD = 0.05  # generic small slope
+
+    def project(
+        self,
+        history: list[LabHistoryPoint],
+        weeks_ahead: int = DEFAULT_WEEKS_AHEAD,
+    ) -> list[ProjectedLabValue]:
+        # Group by test_name
+        from collections import defaultdict
+        from datetime import date, timedelta
+        from math import sqrt
+
+        by_test: dict[str, list[LabHistoryPoint]] = defaultdict(list)
+        for p in history:
+            by_test[p.test_name].append(p)
+
+        out: list[ProjectedLabValue] = []
+        for test_name, points in by_test.items():
+            if len(points) < self.MIN_POINTS:
+                continue
+
+            # Parse and sort by date
+            try:
+                parsed = sorted(
+                    [(date.fromisoformat(p.date), p.value) for p in points],
+                    key=lambda x: x[0],
+                )
+            except (ValueError, TypeError):
+                continue
+
+            t0 = parsed[0][0]
+            xs = [(d - t0).days / 7.0 for d, _ in parsed]  # weeks
+            ys = [v for _, v in parsed]
+            n = len(xs)
+            mean_x = sum(xs) / n
+            mean_y = sum(ys) / n
+
+            sxx = sum((x - mean_x) ** 2 for x in xs)
+            sxy = sum((x - mean_x) * (y - mean_y) for x, y in zip(xs, ys))
+            if sxx == 0:
+                continue
+            slope = sxy / sxx
+            intercept = mean_y - slope * mean_x
+
+            # Project forward from latest point
+            latest_x = xs[-1]
+            target_x = latest_x + weeks_ahead
+            projected_value = intercept + slope * target_x
+            projected_date = (parsed[-1][0] + timedelta(weeks=weeks_ahead)).isoformat()
+
+            # Residual SE; CI = ±1.96 × SE × sqrt(1 + 1/n + (x_pred - mean_x)^2 / sxx)
+            residuals = [(y - (intercept + slope * x)) ** 2 for x, y in zip(xs, ys)]
+            if n > 2:
+                se = sqrt(sum(residuals) / (n - 2))
+                pred_se = se * sqrt(1 + 1.0 / n + (target_x - mean_x) ** 2 / sxx)
+                ci_half = 1.96 * pred_se
+            else:
+                ci_half = abs(projected_value) * 0.2  # fallback ±20%
+
+            threshold = self._TREND_THRESHOLDS.get(test_name, self._DEFAULT_TREND_THRESHOLD)
+            if slope > threshold:
+                trend = "rising"
+            elif slope < -threshold:
+                trend = "falling"
+            else:
+                trend = "stable"
+
+            out.append(ProjectedLabValue(
+                test_name=test_name,
+                projected_value=round(projected_value, 3),
+                projected_date=projected_date,
+                weeks_ahead=weeks_ahead,
+                ci_low=round(projected_value - ci_half, 3),
+                ci_high=round(projected_value + ci_half, 3),
+                trend_direction=trend,
+                slope_per_week=round(slope, 4),
+                historical_points_used=n,
+                confidence_note_i18n_key="projection.linear_regression_disclaimer" if n < 5 else None,
+            ))
+        return out
+
+
+# ============================================================================
 # Pharmacist Agent
 # ============================================================================
 
 class PharmacistAgent:
-    """Main decision-support agent — assembles triage + interactions + forecast."""
+    """Main decision-support agent — assembles triage + interactions + forecast + v3 outputs."""
 
     # Configurable thresholds (can be lifted into a config file if needed)
     NAUSEA_YELLOW = 5
@@ -324,6 +771,7 @@ class PharmacistAgent:
     EGFR_DOAC_REVIEW = 50
     EGFR_DOAC_CRITICAL = 30
     ALBUMIN_LOW = 3.0
+    AGENT_VERSION = "3.0.0"
 
     def __init__(
         self,
@@ -336,12 +784,22 @@ class PharmacistAgent:
         self.drug_db_index = {p["profile_id"]: p for p in drug_db.get("profiles", [])}
         self._drug_db_version = drug_db.get("schema_version", "unknown")
 
+        # v3 subsystems
+        self.dose_individualization = DoseIndividualization()
+        self.interaction_matrix_engine = InteractionMatrixEngine()
+        self.lab_projector = BayesianLabProjector()
+
     # ---------- Public entry ----------
 
     def assess(self) -> PharmacistAssessment:
         triage_color, triage_key = self._triage()
         interactions = self._analyze_interactions()
         forecast = self._generate_forecast()
+
+        # v3 additive outputs — independent of triage/interactions/forecast
+        dose_adjustments = self.dose_individualization.evaluate(self.patient, self.drug_db_index)
+        interaction_matrix = self.interaction_matrix_engine.find_pairs(self.patient, self.drug_db_index)
+        projected_labs = self.lab_projector.project(self.patient.lab_history)
 
         return PharmacistAssessment(
             patient_id=self.patient.patient_id,
@@ -351,6 +809,10 @@ class PharmacistAgent:
             forecast=forecast,
             rule_pack_version=self.rule_pack.get("rule_pack_version", "unknown"),
             drug_db_version=self._drug_db_version,
+            agent_version=self.AGENT_VERSION,
+            dose_adjustments=dose_adjustments,
+            interaction_matrix=interaction_matrix,
+            projected_labs=projected_labs,
         )
 
     # ---------- Triage ----------

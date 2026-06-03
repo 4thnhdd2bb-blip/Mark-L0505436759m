@@ -313,6 +313,7 @@ def persist_assessment(
         glp1_decision=GLP1DecisionEnum(assessment["forecast"]["glp1_dosing"]["decision"]),
         rule_pack_version=assessment["rule_pack_version"],
         drug_db_version=assessment["drug_db_version"],
+        agent_version=assessment.get("agent_version", "2.0.0"),
     )
     session.add(visit)
     session.flush()

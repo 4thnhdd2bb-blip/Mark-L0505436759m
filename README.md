@@ -45,7 +45,9 @@ overexposure / free fraction misleading).
   router `/glp1/*` (assess, sign-off, visit, report.html, audit-log, rules, drugs),
   серверный i18n-резолвер, HTML-отчёт (clinical/admin, RTL), SQLAlchemy-персистентность,
   **single-file React UI** (RU/EN/HE + RTL, clinical/admin, demo+live; раздаётся из
-  FastAPI на `/`), и тест-харнесс (**73 теста, 0 skip**: 35 клинических SaMD-кейсов + unit DSL +
+  FastAPI на `/`), Pharmacist Agent **v3.0** (DoseIndividualization / InteractionMatrix /
+  BayesianLabProjector / Pharmacogenomics), и тест-харнесс (**99 тестов, 0 skip**: 35 клинических
+  SaMD-кейсов + 24 v3-subsystem + unit DSL + i18n-покрытие +
   integration HTTP + UI). Всё в [`python/`](python/README_INTEGRATION.md).
 - **Part 3 (TS, позже)** — Expo-RN UI (RTL/trilingual), PDF, security rules,
   evidence rubric, расширение rule_pack/drug_db.

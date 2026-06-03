@@ -56,3 +56,41 @@ def test_every_rule_pack_key_resolves_in_all_locales(data_dir):
         present = set(_load_locale(data_dir, loc))
         missing = needed - present
         assert not missing, f"[{loc}] missing rule_pack i18n keys: {sorted(missing)}"
+
+
+def _v3_keys() -> set[str]:
+    """Every i18n key the v3 subsystems can emit (dose / pgx / ddi / projection)."""
+    from pharmacist_agent import DoseIndividualization, InteractionMatrixEngine
+
+    keys: set[str] = set()
+    di = DoseIndividualization
+    # BMI / Vd rationale keys
+    for spec in di._BMI_VD_SENSITIVE.values():
+        keys.add(spec["rationale_key"])
+    # Pharmacogenomics keys (constructed exactly as the agent does)
+    for phenotype, drugs in di._PGX_CYP2D6.items():
+        for pid in drugs:
+            keys.add(f"dose.pgx_cyp2d6_{phenotype}_{pid}")
+    for phenotype, drugs in di._PGX_CYP2C19.items():
+        for pid in drugs:
+            keys.add(f"dose.pgx_cyp2c19_{phenotype}_{pid}")
+    for phenotype, drugs in di._PGX_CYP3A5.items():
+        for pid in drugs:
+            keys.add(f"dose.pgx_cyp3a5_{phenotype}_{pid}")
+    keys.add("dose.pgx_hla_b1502_carbamazepine")
+    # Interaction matrix mechanism keys
+    for _perp, _vic, _sev, _grade, mech_key in InteractionMatrixEngine._MATRIX:
+        keys.add(mech_key)
+    # Projection disclaimer
+    keys.add("projection.linear_regression_disclaimer")
+    return keys
+
+
+@pytest.mark.unit
+def test_every_v3_subsystem_key_resolves_in_all_locales(data_dir):
+    needed = _v3_keys()
+    assert needed, "no v3 keys collected — check pharmacist_agent v3 subsystems"
+    for loc in LOCALES:
+        present = set(_load_locale(data_dir, loc))
+        missing = needed - present
+        assert not missing, f"[{loc}] missing v3 subsystem i18n keys: {sorted(missing)}"
