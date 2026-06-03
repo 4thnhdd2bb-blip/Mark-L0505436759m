@@ -58,6 +58,8 @@ class SignOffResponse(BaseModel):
     visit_id: str
     status: str
     signed_at: datetime
+    # d2.5 active learning: present when status='amended' with an amended_payload.
+    amendments_captured: Optional[dict] = None
 
 
 # ============================================================================

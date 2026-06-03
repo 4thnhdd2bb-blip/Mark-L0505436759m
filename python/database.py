@@ -26,13 +26,16 @@ from typing import Optional
 from sqlalchemy import (
     JSON,
     Boolean,
+    Column,
     DateTime,
     Enum as SAEnum,
     Float,
     ForeignKey,
+    Index,
     Integer,
     String,
     Text,
+    UniqueConstraint,
     create_engine,
 )
 from sqlalchemy.orm import (
@@ -258,6 +261,51 @@ class AuditLog(Base):
     payload: Mapped[Optional[dict]] = mapped_column(JSON, nullable=True)
 
     occurred_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow, index=True, nullable=False)
+
+
+class LearningAmendment(Base):
+    """A single typed difference between the agent's original assessment and the
+    physician-amended version, captured at sign-off (active learning substrate).
+
+    One sign-off amendment may produce many rows — one per change-type per rule_id.
+    Decomposed structure makes pattern queries cheap, e.g.:
+
+        SELECT rule_id, COUNT(*) FROM learning_amendments
+        WHERE amendment_type = 'rule_removed' GROUP BY rule_id ORDER BY 2 DESC;
+    """
+
+    __tablename__ = "learning_amendments"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    visit_id = Column(String(64), nullable=False, index=True)
+    sign_off_id = Column(Integer, ForeignKey("sign_offs.id"), nullable=False, index=True)
+
+    rule_id = Column(String(128), nullable=True, index=True)
+    amendment_type = Column(String(32), nullable=False, index=True)
+
+    original_value_json = Column(Text, nullable=True)
+    amended_value_json = Column(Text, nullable=True)
+
+    physician_id = Column(String(64), nullable=False, index=True)
+    physician_notes = Column(Text, nullable=True)
+
+    # Pinned versions at sign-off — critical for SaMD trace
+    rule_pack_version = Column(String(16), nullable=True)
+    drug_db_version = Column(String(16), nullable=True)
+    agent_version = Column(String(16), nullable=True)
+
+    created_at = Column(DateTime(timezone=True), nullable=False, default=_utcnow)
+
+    __table_args__ = (
+        UniqueConstraint(
+            "visit_id", "sign_off_id", "rule_id", "amendment_type",
+            name="uq_learning_amendments_dedupe",
+        ),
+        Index(
+            "ix_learning_amendments_rule_type_created",
+            "rule_id", "amendment_type", "created_at",
+        ),
+    )
 
 
 # ============================================================================

@@ -56,6 +56,7 @@ from schemas.glp1_api import (
 )
 from services.i18n import i18n_cache, resolve_i18n
 from services.fhir_mapper import assessment_to_fhir_bundle
+from services.learning import AMENDMENT_TYPES, aggregate_patterns, capture_amendment
 from services.resources import ResourceBundle, get_resources
 
 import json as _json
@@ -185,11 +186,29 @@ def sign_off(
     except ValueError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
 
+    # Active learning (d2.5): when a physician AMENDS the assessment, decompose the
+    # diff against the agent's original (stored output_payload) into typed amendment
+    # rows for pattern analytics. No-op for plain signed/rejected.
+    amendments_summary = None
+    if status_enum == SignOffStatusEnum.AMENDED and payload.amended_payload is not None:
+        visit = db.get(Visit, payload.visit_id)
+        if visit is not None:
+            amendments_summary = capture_amendment(
+                db_session=db,
+                visit_id=payload.visit_id,
+                sign_off_id=sign_off_id,
+                original_assessment=visit.output_payload,
+                amended_assessment=payload.amended_payload,
+                physician_id=payload.physician_id,
+                physician_notes=payload.notes,
+            )
+
     return SignOffResponse(
         sign_off_id=sign_off_id,
         visit_id=payload.visit_id,
         status=status_enum.value,
         signed_at=datetime.utcnow(),
+        amendments_captured=amendments_summary,
     )
 
 
@@ -408,6 +427,37 @@ def get_audit_log(
     ]
 
     return AuditLogResponse(total=total, page=page, page_size=page_size, entries=entries)
+
+
+# ============================================================================
+# GET /glp1/learning/patterns — active-learning amendment analytics
+# ============================================================================
+
+@router.get("/learning/patterns")
+def get_learning_patterns(
+    rule_id: Optional[str] = Query(None, description="Filter to a specific rule_id"),
+    amendment_type: Optional[str] = Query(None, description=f"One of: {sorted(AMENDMENT_TYPES)}"),
+    since: Optional[datetime] = Query(None, description="ISO 8601 — amendments at or after this time"),
+    until: Optional[datetime] = Query(None, description="ISO 8601 — amendments at or before this time"),
+    top_n: int = Query(10, ge=1, le=100),
+    db: Session = Depends(get_db),
+) -> dict:
+    """Aggregate physician-amendment patterns (counts only, no patient identifiers).
+
+    Use cases: which rules are most often removed, which severity downgrades recur,
+    which physicians amend most. Read-only; safe to cache ~5 min.
+    """
+    try:
+        return aggregate_patterns(
+            db_session=db,
+            rule_id=rule_id,
+            amendment_type=amendment_type,
+            since=since,
+            until=until,
+            top_n=top_n,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
 # ============================================================================

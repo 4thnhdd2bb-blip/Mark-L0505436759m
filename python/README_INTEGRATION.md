@@ -31,7 +31,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-└── tests/                       # clinical / unit / integration (124 tests, 0 skipped)
+└── tests/                       # clinical / unit / integration (150 tests, 0 skipped)
 ```
 
 ---
@@ -49,6 +49,7 @@ python/
 | `GET` | `/glp1/rules` | Introspect loaded rule_pack |
 | `GET` | `/glp1/drugs` | Introspect drug DB |
 | `GET` | `/glp1/visit/{id}/fhir-bundle` | HL7 FHIR R4 Bundle export (deterministic, `application/fhir+json`) |
+| `GET` | `/glp1/learning/patterns` | Active-learning amendment analytics (counts, no PHI) |
 | `GET` | `/glp1/_info` | Startup sanity probe (versions, counts) |
 
 OpenAPI at `/docs` and `/redoc`.
@@ -120,7 +121,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 124 tests
+pytest                 # all 150 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)

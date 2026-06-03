@@ -47,7 +47,8 @@ overexposure / free fraction misleading).
   **single-file React UI** (RU/EN/HE + RTL, clinical/admin, demo+live; раздаётся из
   FastAPI на `/`), Pharmacist Agent **v3.0** (DoseIndividualization / InteractionMatrix /
   BayesianLabProjector / Pharmacogenomics), **HL7 FHIR R4 экспорт** (`/glp1/visit/{id}/fhir-bundle`,
-  детерминированный Bundle), и тест-харнесс (**124 теста, 0 skip**: 35 клинических
+  детерминированный Bundle), **active learning** (захват врачебных правок при sign-off +
+  аналитика паттернов `/glp1/learning/patterns`), и тест-харнесс (**150 тестов, 0 skip**: 35 клинических
   SaMD-кейсов + 24 v3-subsystem + unit DSL + i18n-покрытие +
   integration HTTP + UI). Всё в [`python/`](python/README_INTEGRATION.md).
 - **Part 3 (TS, позже)** — Expo-RN UI (RTL/trilingual), PDF, security rules,

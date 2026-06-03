@@ -9,6 +9,8 @@ Each test is a real HTTP round-trip — no mocks of the router or the agent.
 
 from __future__ import annotations
 
+import json
+
 import pytest
 
 
@@ -280,3 +282,61 @@ def test_fhir_bundle_deterministic_etag(client):
 def test_fhir_bundle_unknown_visit_404(client):
     resp = client.get("/glp1/visit/VIS-nope/fhir-bundle")
     assert resp.status_code == 404
+
+
+# ============================================================================
+# Active learning — amended sign-off capture + /glp1/learning/patterns
+# ============================================================================
+
+@pytest.mark.integration
+def test_amended_signoff_captures_amendments_and_patterns(client):
+    assess = client.post("/glp1/assess", json=_basic_payload()).json()
+    visit_id = assess["visit_id"]
+    assessment = assess["assessment"]
+
+    # Physician disagrees: downgrade the LT4_TABLET_PPI severity high -> moderate.
+    amended = json.loads(json.dumps(assessment))  # deep copy
+    lt4 = next(f for f in amended["interactions"] if f["rule_id"] == "LT4_TABLET_PPI")
+    lt4["severity"] = "moderate"
+
+    resp = client.post("/glp1/sign-off", json={
+        "visit_id": visit_id,
+        "physician_id": "DR-AMEND",
+        "physician_name": "Dr. Amend",
+        "status": "amended",
+        "notes": "Severity overstated for this stable patient",
+        "amended_payload": amended,
+    })
+    assert resp.status_code == 200
+    captured = resp.json()["amendments_captured"]
+    assert captured is not None
+    assert captured["amendments_persisted"] >= 1
+    assert "severity_changed" in captured["amendment_types"]
+
+    # Analytics endpoint should now report the severity_changed on LT4_TABLET_PPI.
+    patterns = client.get("/glp1/learning/patterns?amendment_type=severity_changed").json()
+    assert patterns["total_amendments"] >= 1
+    assert any(
+        r["rule_id"] == "LT4_TABLET_PPI" and r["amendment_type"] == "severity_changed"
+        for r in patterns["top_by_rule_type"]
+    )
+
+
+@pytest.mark.integration
+def test_signed_without_amendment_captures_nothing(client):
+    visit_id = client.post("/glp1/assess", json=_basic_payload()).json()["visit_id"]
+    resp = client.post("/glp1/sign-off", json={
+        "visit_id": visit_id,
+        "physician_id": "DR-OK",
+        "physician_name": "Dr. OK",
+        "status": "signed",
+        "notes": "Approved",
+    })
+    assert resp.status_code == 200
+    assert resp.json()["amendments_captured"] is None
+
+
+@pytest.mark.integration
+def test_learning_patterns_invalid_type_400(client):
+    resp = client.get("/glp1/learning/patterns?amendment_type=bogus")
+    assert resp.status_code == 400
