@@ -90,8 +90,29 @@ class RFDrug:
         return self._d.get("name_ru", "")
 
     @property
-    def mark_validated(self) -> bool:
-        return bool(self._d.get("status_flags", {}).get("mark_validated", False))
+    def mark_validated(self):
+        """Raw status_flags.mark_validated value.
+
+        Tri-state, set by Mark only:
+          False     — not yet reviewed
+          "PARTIAL" — clinical pattern observations recorded, NOT full validation
+          True       — fully validated (requires formal sign-off; not auto-set)
+        """
+        return self._d.get("status_flags", {}).get("mark_validated", False)
+
+    @property
+    def validation_state(self) -> str:
+        """Normalized: 'none' | 'partial' | 'full'."""
+        v = self.mark_validated
+        if v is True:
+            return "full"
+        if isinstance(v, str) and v.strip().upper().startswith("PARTIAL"):
+            return "partial"
+        return "none"
+
+    @property
+    def is_fully_validated(self) -> bool:
+        return self.validation_state == "full"
 
     def get(self, key: str, default: Any = None) -> Any:
         return self._d.get(key, default)

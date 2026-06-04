@@ -174,9 +174,16 @@ def test_batch_is_flagged_research_only(catalog):
     assert "not clinical guidance" in catalog.meta["status"].lower()
 
 
-def test_no_drug_is_mark_validated_yet(catalog):
+def test_no_drug_is_fully_validated(catalog):
+    # Governance gate: a record may be 'none' or 'partial' (Mark recorded
+    # observations) but must never be silently promoted to FULL validation
+    # without formal sign-off. 'partial' is allowed and tracked.
     for drug in catalog:
-        assert drug.mark_validated is False, f"{drug.drug_id} unexpectedly mark_validated"
+        assert not drug.is_fully_validated, (
+            f"{drug.drug_id} is marked FULLY validated (mark_validated is True) — "
+            f"full validation requires explicit sign-off, not a batch edit."
+        )
+        assert drug.validation_state in {"none", "partial"}
 
 
 # ---------------------------------------------------------------------------
@@ -249,8 +256,10 @@ def test_drug_ids_are_globally_unique(batch_paths):
 # ---------------------------------------------------------------------------
 
 def test_obs_mark_placeholders_preserved(batch_paths):
-    # Spot-check one agent per known batch keeps its empty [OBS-Mark] markers.
-    spot = {"01-GLP1": "DRG-001", "02-SGLT2": "DRG-007"}
+    # Spot-check one still-unfilled agent per known batch keeps its empty
+    # [OBS-Mark] markers. (DRG-001 was intentionally filled by Mark in rev1, so
+    # batch 01 is spot-checked via DRG-002, which remains a placeholder.)
+    spot = {"01-GLP1": "DRG-002", "02-SGLT2": "DRG-007"}
     for p in batch_paths:
         cat = RFDrugCatalog(p)
         drug_id = spot.get(cat.meta["batch_id"])
@@ -264,6 +273,25 @@ def test_obs_mark_placeholders_preserved(batch_paths):
 # ---------------------------------------------------------------------------
 # Helper unit coverage
 # ---------------------------------------------------------------------------
+
+def test_semaglutide_rev1_observation_recorded(batch_paths):
+    """Lock in Mark's rev1 [OBS-Mark] for semaglutide: PARTIAL validation state,
+    the canonical wax-wane pattern, and the untested-hypothesis separation."""
+    cat = next(RFDrugCatalog(p) for p in batch_paths
+               if RFDrugCatalog(p).meta["batch_id"] == "01-GLP1")
+    sema = cat.get("DRG-001")
+    assert sema.validation_state == "partial"
+    assert not sema.is_fully_validated
+    pattern = sema.get("mark_observations", {}).get("obs_mark_001_pattern", {})
+    assert pattern.get("pattern_id") == "OBS-Mark-001"
+    assert "Wax-Wane" in pattern.get("name", "")
+    # Hypotheses must stay explicitly flagged as untested (no silent promotion).
+    hyp = pattern.get("open_clinical_questions_untested_hypotheses", {})
+    assert "untested" in hyp["cholestyramine_for_constipation"]["status"].lower()
+    assert "no validated protocols" in hyp["prolongation_of_therapeutic_effect"]["status"].lower()
+    # Batch remains research-only despite the partial observation.
+    assert cat.ready_for_clinical_use is False
+
 
 def test_first_tag_parsing():
     assert first_tag("[RF] Damp-reducing") == "RF"

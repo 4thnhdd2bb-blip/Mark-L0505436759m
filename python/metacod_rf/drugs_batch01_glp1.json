@@ -2,7 +2,10 @@
   "_meta": {
     "schema": "metacod_rf_drug_db",
     "batch_id": "01-GLP1",
-    "version": "RF-2026-06-batch01",
+    "version": "RF-2026-06-batch01-rev1",
+    "revision_log": [
+      "rev1: added Mark's first [OBS-Mark] for semaglutide (DRG-001) — canonical pattern OBS-Mark-001 'Titration Peak / Wax-Wane / Efficacy Decay Tradeoff'; DRG-001 mark_validated set to PARTIAL by Mark; untested hypotheses (cholestyramine for constipation, efficacy-prolongation strategies) recorded with explicit untested status."
+    ],
     "status": "METACOD-RF — Research Framework, not clinical guidance",
     "group": "Антидиабетические — GLP-1 receptor agonists",
     "preparations_count": 6,
@@ -137,14 +140,47 @@
         ]
       },
       "mark_observations": {
-        "mark_clinical_observations": "[OBS-Mark] [TBD — заполнить из практики: какие пациенты лучше отвечают? какие хуже? patterns of GI tolerance vs constitution? long-term muscle mass observations?]",
-        "n_cases_observed": "[TBD]",
+        "obs_mark_001_pattern": {
+          "pattern_id": "OBS-Mark-001",
+          "name": "Titration Peak / Wax-Wane / Efficacy Decay Tradeoff",
+          "validation_status": "Mark canonical clinical pattern (validated observation, under Mark's observational authority)",
+          "description": {
+            "1_titration_peak_phase": "При каждом повышении дозы (0.25 → 0.5 → 1.0 → 2.0 mg) — резкое усиление всех побочных эффектов одновременно: nausea, GI discomfort, иногда vomiting, taste changes.",
+            "2_adaptation_phase_wax_wane": "За 2-4 недели побочные эффекты постепенно снижаются. Пациент достигает relative tolerability.",
+            "3_critical_observation": "Одновременно со снижением побочек снижается и терапевтический эффект. Адаптация — это не только GI tolerance, но и attenuation of intended pharmacological action (appetite, gastric emptying).",
+            "4_late_phase_constipation": "После того как nausea/vomiting проходят, constipation становится доминирующей побочкой — контраст с ранней фазой (nausea/diarrhea)."
+          },
+          "clinical_dilemma_mark_canonical": [
+            "Compromise between efficacy and tolerability:",
+            "Higher doses = more side effects, but also more therapeutic effect",
+            "Lower doses = better tolerance, but inadequate clinical impact",
+            "Time-stable middle dose: tolerability good but efficacy attenuated",
+            "Need to find personalized sweet spot, varies by patient."
+          ],
+          "open_clinical_questions_untested_hypotheses": {
+            "cholestyramine_for_constipation": {
+              "hypothesis": "Mark гипотезирует, что cholestyramine (anion exchange resin) может быть полезен в late-phase constipation. Mechanism rationale: bile acid binding → может modulate GLP-1-induced bile acid changes, или просто improve stool consistency через alternative pathway.",
+              "status": "untested hypothesis, requires careful consideration"
+            },
+            "prolongation_of_therapeutic_effect": {
+              "hypothesis": "Как избежать adaptation/attenuation? Возможные strategies (все гипотетические): dose holidays/drug rotation; combination с agents через различные mechanisms; cyclical dosing patterns; adjustment of food intake patterns to maintain GI signal.",
+              "status": "emerging research area, no validated protocols yet"
+            }
+          }
+        },
+        "n_cases_observed_mark": "[TBD — Mark, можешь оценить approximate?]",
         "typical_response_window": {
           "glycemic": "4-12 weeks",
           "weight": "16-24 weeks (Wegovy doses)",
           "obs_mark": "[OBS-Mark] [Mark's typical timeline observations]"
         }
       },
+      "questions_raised_by_mark_observation": [
+        "Можно ли литературно подтвердить wax-wane efficacy pattern (помимо tolerance)?",
+        "Cholestyramine + GLP-1 — есть ли published data или это чистая гипотеза?",
+        "Существуют ли validated strategies для пролонгирования GLP-1 efficacy?",
+        "Различается ли pattern между semaglutide / liraglutide / tirzepatide?"
+      ],
       "safety": {
         "ddi_critical_2_star": [
           "[LBL] Sulfonylurea — severe hypoglycemia, требует ↓ dose сульфонилмочевины 50%",
@@ -220,7 +256,7 @@
         "ESC 2023 Diabetes Guidelines"
       ],
       "status_flags": {
-        "mark_validated": false,
+        "mark_validated": "PARTIAL (clinical pattern observations recorded — OBS-Mark-001; NOT full validation, NOT clinical-ready)",
         "class_extrapolation_used": true,
         "external_sources_complete": true,
         "ready_for_clinical_research_use": "pending Mark validation"
