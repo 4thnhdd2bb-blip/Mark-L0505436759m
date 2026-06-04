@@ -52,12 +52,15 @@ python/
 │   ├── symptom_registry_v3_0.json         # METACOD-RF symptom registry: 35 detailed of 172 (histogenetic layer × 6-Ki × phase × membrane drift)
 │   ├── nosology_registry_metabolic_cv_renal_v3_11.json # METACOD-RF nosology registry: diabetic + cardiovascular + nephro contours (21 patterns)
 │   ├── nosology_registry_respiratory_v6_0.json         # METACOD-RF nosology registry: respiratory (tracheobronchial/alveolar/pleural, 30 patterns)
-│   └── nosology_registry_nephro_urinal_v3_12.json      # METACOD-RF nosology registry: nephro-urinal contour (11 patterns)
+│   ├── nosology_registry_nephro_urinal_v3_12.json      # METACOD-RF nosology registry: nephro-urinal contour (11 patterns)
+│   ├── nosology_registry_hepatobiliary_v6_0.json       # METACOD-RF nosology registry: hepatobiliary (13 patterns + lab panel)
+│   ├── nosology_registry_cardiology_v6_0.json          # METACOD-RF nosology registry: cardiology (13 patterns)
+│   └── nosology_registry_spleen_pancreas_v6_0.json     # METACOD-RF nosology registry: spleen + pancreas (21 patterns + lab panel)
 ├── schemas/glp1_api.py          # Pydantic request/response models
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (363 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (384 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -148,7 +151,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 363 tests
+pytest                 # all 384 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
