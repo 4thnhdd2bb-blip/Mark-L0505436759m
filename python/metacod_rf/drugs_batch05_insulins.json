@@ -217,27 +217,244 @@
       "drug_id": "DRG-025",
       "name_inn": "Insulin lispro",
       "name_ru": "Инсулин лизпро",
-      "name_brand": "Humalog (US), Lyumjev (ultra-rapid formulation)",
+      "name_brand": "Humalog (US/global, Eli Lilly) — standard rapid-acting; Humalog U-200 (concentrated, high-dose users); Lyumjev (ultra-rapid, \"Lispro-aabc\"); Admelog (US biosimilar, Sanofi); Insulin Lispro Sanofi (EU biosimilar)",
       "status": "METACOD-RF",
       "batch": "05-Insulins-Rapid",
-      "class_interchangeable_stub": true,
+      "expanded_from_stub": "RF-2026-06-batch05-addendum-DRG025 — оригинальная запись была сокращена через class-equivalence с aspart; этот addendum даёт полную запись эквивалентного объёма.",
       "molecular": {
-        "chemical_class": "Rapid-acting insulin analog",
-        "molecular_modification": "Reversed lysine-proline в positions B28-B29 → reduced self-association",
-        "onset": "10-15 min (standard), 5 min (Lyumjev)",
+        "chemical_class": "Rapid-acting insulin analog (human insulin analog)",
+        "molecular_modification": "[LBL] Reversal of lysine-proline в positions B28-B29 of human insulin (Human B28=Pro, B29=Lys → Lispro B28=Lys, B29=Pro) → reduced self-association of hexamers → faster dissociation to monomers → faster SC absorption",
+        "mechanism_primary": [
+          "[LBL] Binds insulin receptor → glucose uptake, glycogen synthesis, protein synthesis, lipogenesis"
+        ],
+        "distinct_from_aspart": [
+          "[LBL] Aspart: proline B28 → aspartate (different modification, same goal of monomer dissociation)",
+          "[LBL] Both achieve similar pharmacokinetics через разные molecular modifications"
+        ],
+        "historical_position": [
+          "[CLASS] First rapid-acting insulin analog approved (1996 US, Humalog)",
+          "[CLASS] Aspart approved 1999, glulisine 2004"
+        ],
+        "onset": "10-15 min (standard Humalog), 5 min (Lyumjev ultra-rapid)",
         "peak": "1-2 hours",
-        "duration": "3-5 hours"
+        "duration": "3-5 hours",
+        "half_life": "~80 min",
+        "absorption_sites": [
+          "[LBL] Fastest: abdomen; slower: thigh, arm, buttock",
+          "[LBL] Rotation важна для предотвращения lipohypertrophy"
+        ]
       },
-      "indications_dosing_energy": "[Same as aspart — class interchangeable]",
+      "indications": {
+        "approved": [
+          "[LBL] T1DM, T2DM — prandial coverage",
+          "[LBL] Basal-bolus regimens",
+          "[LBL] Insulin pumps (CSII) — heavily used в pump therapy",
+          "[LBL] Pediatric ≥3y (Humalog), ≥1y (Lyumjev в some markets)"
+        ],
+        "distinct": [
+          "[LBL] Lyumjev formulation специально для closed-loop systems и tight postprandial control",
+          "[LBL] U-200 (концентрированная) для patients с insulin requirements >200 units daily"
+        ]
+      },
+      "dosing": {
+        "dose": "Highly individualized",
+        "typical_starting": [
+          "[GL] T2DM basal-bolus initiation: add prandial 4 units AC largest meal → titrate",
+          "[GL] T1DM: 0.5-1 U/g carbohydrate (carb ratio) + correction factor для high glucose",
+          "[GL] Insulin pump: basal rate + boluses"
+        ],
+        "administration": [
+          "[LBL] SC 5-15 min before meal (standard Humalog)",
+          "[LBL] SC при начале еды или сразу после (Lyumjev)",
+          "[LBL] U-200 — same units as U-100, but 1/2 volume (some pen confusion risk)",
+          "[LBL] Pumps: continuous SC basal + boluses",
+          "[LBL] IV use possible (in hospital, для DKA management, hyperkalemia)"
+        ]
+      },
+      "energy_vectors_rf": {
+        "energy_primary": [
+          "[RF] Strong anabolic pulse synchronized с meal intake",
+          "[RF] Rapid yang surge для glucose disposal в short window"
+        ],
+        "energy_secondary": [
+          "[RF] Less damp accumulation чем long-acting basal (pulsed, не sustained)",
+          "[RF] Closer to physiological postprandial insulin secretion pattern",
+          "[RF] Lyumjev — даже более physiological match (faster onset = better match to natural first-phase secretion)"
+        ],
+        "constitution_best_match": [
+          "[RF] Yang-Earth с postprandial spikes (когда oral agents не достаточны)",
+          "[RF] T1DM любая constitution (replacement physiology — constitution-agnostic при правильной dosing)",
+          "[RF] Pump users — high flexibility class позволяет personalization beyond constitution categories"
+        ],
+        "constitution_caution": [
+          "[RF] Frail elderly — hypoglycemia risk высокий из-за timing demands",
+          "[RF] Yin patterns с low energetic reserve — rapid yang push может precipitate post-prandial energy crash",
+          "[RF] Cognitive impairment — incorrect timing/dosing risk"
+        ],
+        "constitution_neutral": [
+          "[RF] Most patients с stable carb intake — class works predictably"
+        ],
+        "phase_match": [
+          "[RF] Acute glucose management в любой phase",
+          "[RF] PCL-A (recovery process) когда glucose stability needs restoration"
+        ],
+        "phase_caution": [
+          "[RF] PCL-B fibrotic — anabolic push может worsen fibrotic tendency",
+          "[RF] CA с hypoperfusion — careful dosing"
+        ]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": [
+          "[RF] M-A push (anabolic) — predictable, pulsed not sustained",
+          "[RF] Sarcopenia: paradoxically помогает muscle synthesis при adequate protein intake + resistance exercise",
+          "[RF] Better для maintaining muscle mass чем long-acting basal alone (pulsed mimics physiological pattern)"
+        ],
+        "membrane_caution": [
+          "[RF] Overdose → severe M-A2 → M-A3 trajectory если без careful glucose monitoring",
+          "[RF] In already obese M-A2 — careful titration to avoid further accumulation"
+        ]
+      },
+      "comparisons": {
+        "lispro_vs_aspart": [
+          "[LBL] Largely interchangeable pharmacologically",
+          "[LBL] Choice часто driven by: insurance/cost; available pen devices; pump compatibility; patient preference based on injection sensation",
+          "[OBS-Mark] [Mark, у тебя есть predictable preferences между lispro и aspart, или interchangeable в practice?]"
+        ],
+        "lispro_vs_glulisine": [
+          "[LBL] All three (lispro, aspart, glulisine) clinically equivalent в standard use",
+          "[LBL] Some pharmacokinetic differences в obese patients (glulisine sometimes preferred)",
+          "[LBL] Less commercial penetration of glulisine globally"
+        ],
+        "lispro_vs_regular_insulin": [
+          "[LBL] Lispro: faster onset, shorter duration, fewer hypoglycemia events",
+          "[LBL] Regular: cheaper, IV use, mandatory pre-meal lag (30 min)",
+          "[GL] In outpatient setting — lispro/aspart strongly preferred over regular"
+        ],
+        "lyumjev_distinct": [
+          "[LBL] Formulation с treprostinil + niacinamide",
+          "[LBL] Faster onset (5 min vs 15 min for standard Humalog)",
+          "[LBL] Higher early-phase exposure → better postprandial control",
+          "[LBL] Particularly valuable в: closed-loop systems (algorithm response time); patients с persistent postprandial hyperglycemia despite optimized timing; insulin pumps в advanced configurations",
+          "[OBS-Mark] [Mark, Lyumjev в твоей practice — используется или standard Humalog adequate?]"
+        ]
+      },
       "mark_observations": {
-        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+        "mark_clinical_observations": "[OBS-Mark] [TBD] [Mark, основные вопросы: 1. Lispro vs aspart — interchangeable или preferences по phenotype? 2. Lyumjev experience в closed-loop pump systems? 3. Constitution-response patterns с rapid-acting insulin? 4. Pump therapy patients — lispro standard choice?]",
+        "n_cases_observed": "[TBD]",
+        "typical_response_profile": [
+          "[GL] Postprandial glucose: 1-3 hours after meal — peak action window",
+          "[GL] Most patients learn timing within 2-4 weeks",
+          "[GL] Carb counting + correction factor takes 3-6 months mastery"
+        ]
       },
-      "note": "Lispro и aspart часто interchangeable. Choice often based on availability, insurance, или patient preference. Lyumjev (ultra-rapid lispro) — emerging для closed-loop systems.",
+      "safety": {
+        "ddi_critical_2_star": [
+          "[LBL] Sulfonylureas — severe hypoglycemia synergy",
+          "[LBL] GLP-1 agonists — careful titration required (additive effects)",
+          "[LBL] Pramlintide — concurrent use requires major insulin dose reduction",
+          "[LBL] Alcohol — unpredictable glycemia, hypoglycemia risk"
+        ],
+        "ddi_critical_1_star": [
+          "[LBL] Beta-blockers — mask hypoglycemia symptoms, prolong recovery",
+          "[LBL] Quinolones (especially gatifloxacin) — dysglycemia signal",
+          "[LBL] Corticosteroids — counter insulin effect, require dose increase",
+          "[LBL] Salicylates high-dose — potentiate hypoglycemia"
+        ],
+        "ddi_chrono": [
+          "[LBL] Strict timing relative to meals — 5-15 min pre-meal",
+          "[LBL] Lyumjev — может at start of meal или within 20 min after",
+          "[LBL] Pumps: programmed delivery + manual boluses"
+        ],
+        "contraindications": [
+          "[LBL] Active hypoglycemia",
+          "[LBL] Hypersensitivity to lispro or excipients"
+        ],
+        "relative_contraindications": [
+          "[GL] Hypoglycemia unawareness",
+          "[GL] Erratic eating patterns без diabetes education",
+          "[GL] Cognitive impairment severe без caregiver support"
+        ],
+        "pregnancy": [
+          "[LBL] Category B",
+          "[GL] Compatible с pregnancy — well-studied",
+          "[GL] Often preferred prandial insulin в pregnancy DM"
+        ],
+        "breastfeeding": "compatible",
+        "pediatric": "[LBL] Humalog approved ≥3y; Lyumjev approved ≥1y в some markets",
+        "geriatric": [
+          "[GL] Caution — hypoglycemia risk",
+          "[RF Mark canonical] HbA1c target 7.5-8.5%, не <7% в frail elderly",
+          "[RF] Cognitive assessment перед prescribing"
+        ],
+        "renal": [
+          "[LBL] Reduced insulin clearance в CKD → may need dose reduction",
+          "[LBL] Especially eGFR <30 — careful titration",
+          "[LBL] No specific dose adjustments в labeling, clinical adjustment based на glucose patterns"
+        ],
+        "hepatic": [
+          "[LBL] Reduced clearance possible в severe hepatic disease",
+          "[LBL] Clinical monitoring guides dosing"
+        ]
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Hypoglycemia (very common, primary concern)",
+          "[LBL] Weight gain (predictable, 2-4 kg первый год)",
+          "[LBL] Injection site reactions",
+          "[LBL] Lipohypertrophy если без rotation",
+          "[RF energy interpretation] hypoglycemia = sudden yang collapse, hypokalemia component"
+        ],
+        "serious": [
+          "[LBL] Severe hypoglycemia → coma, seizures, falls, fractures",
+          "[LBL] Hypokalemia (insulin shifts K intracellular — concern in cardiac patients)",
+          "[LBL] Allergic reactions (rare с modern analogs)",
+          "[LBL] Lipohypertrophy → erratic absorption → glycemic variability"
+        ],
+        "rare_critical": [
+          "[LBL] Severe hypoglycemia с neurological consequences",
+          "[LBL] Anaphylaxis (very rare)",
+          "[LBL] Insulin antibody formation (rare с analogs vs older insulins)",
+          "[LBL] Generalized edema (rare, при initiation)"
+        ]
+      },
+      "patient_education": {
+        "mandatory": [
+          "Hypoglycemia recognition (sweating, tremor, confusion, hunger)",
+          "Glucose tablets / quick-acting carbs always available",
+          "Glucagon emergency kit prescription для severe events",
+          "Driving safety — glucose check before driving",
+          "Sick day rules — increase monitoring, may need basal adjustment",
+          "Exercise considerations — pre-exercise carbs, reduced post-exercise insulin",
+          "Alcohol — moderation, food intake, careful evening drinks",
+          "Travel — time zone adjustments, supply backup",
+          "Injection technique, site rotation",
+          "Storage (refrigerated unopened, room temp opened up to 28 days)"
+        ]
+      },
+      "monitoring": {
+        "mandatory": [
+          "HbA1c quarterly (target individualized)",
+          "CGM strongly recommended для: T1DM all; T2DM на basal-bolus; elderly с insulin; hypoglycemia history; pregnancy с insulin",
+          "Injection site rotation review",
+          "Insulin technique reviews quarterly первый год, then yearly"
+        ]
+      },
       "references": [
-        "FDA label Humalog, Lyumjev",
-        "Same evidence base как aspart"
+        "FDA label Humalog",
+        "FDA label Lyumjev",
+        "ADA Standards of Medical Care (annual updates)",
+        "AACE/ACE consensus statement on insulin therapy",
+        "ACOG/ADA pregnancy guidelines",
+        "Pediatric Endocrine Society guidelines (pediatric T1DM)",
+        "DCCT/EDIC long-term follow-up (T1DM benefits of intensive control)"
       ],
-      "status_flags": {"mark_validated": false}
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": "minimal (well-characterized drug)",
+        "external_sources_complete": true,
+        "ready_for_clinical_research_use": "pending Mark validation of OBS sections",
+        "priority_for_mark_review": "HIGH (foundational T1DM drug, important T2DM in basal-bolus)"
+      }
     },
     {
       "drug_id": "DRG-026",
