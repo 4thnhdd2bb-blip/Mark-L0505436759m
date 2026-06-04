@@ -36,7 +36,8 @@ python/
 │   ├── predictive_matrix.py     # METACOD-RF predictive matrix loader (drug × constitutional triad → response prediction)
 │   ├── three_axis_framework.py  # METACOD-RF three-axis framework loader (Constitution × Membrane × Phase)
 │   ├── topographic_atlas.py     # METACOD-RF topographic atlas loader (tissue × 6-Ki × redox → ICD-10 + membrane code)
-│   └── symptom_registry.py      # METACOD-RF symptom registry loader (SYM × histogenetic layer × 6-Ki × phase × membrane drift)
+│   ├── symptom_registry.py      # METACOD-RF symptom registry loader (SYM × histogenetic layer × 6-Ki × phase × membrane drift)
+│   └── nosology_registry.py     # METACOD-RF nosology registry loader (nosology/ICD-10 × 6-Ki × redox × SYM × membrane drift)
 ├── metacod_rf/
 │   ├── drugs_batch01_glp1.json  # METACOD-RF research drug DB — batch 01 (6 GLP-1 agents, pending Mark validation)
 │   ├── drugs_batch02_sglt2.json # METACOD-RF research drug DB — batch 02 (4 SGLT2 inhibitors, pending Mark validation)
@@ -48,12 +49,15 @@ python/
 │   ├── predictive_matrix_01_semaglutide.json # METACOD-RF predictive matrix #1: semaglutide × 8 constitutional triads (hypotheses)
 │   ├── three_axis_framework_v1_0.json     # METACOD-RF three-axis diagnostic framework (Constitution × Membrane × Phase; research)
 │   ├── topographic_atlas_v6_0.json        # METACOD-RF topographic atlas: 10 systems / 14 organs / 140 tissue-reactivity patterns (6-Ki, research)
-│   └── symptom_registry_v3_0.json         # METACOD-RF symptom registry: 35 detailed of 172 (histogenetic layer × 6-Ki × phase × membrane drift)
+│   ├── symptom_registry_v3_0.json         # METACOD-RF symptom registry: 35 detailed of 172 (histogenetic layer × 6-Ki × phase × membrane drift)
+│   ├── nosology_registry_metabolic_cv_renal_v3_11.json # METACOD-RF nosology registry: diabetic + cardiovascular + nephro contours (21 patterns)
+│   ├── nosology_registry_respiratory_v6_0.json         # METACOD-RF nosology registry: respiratory (tracheobronchial/alveolar/pleural, 30 patterns)
+│   └── nosology_registry_nephro_urinal_v3_12.json      # METACOD-RF nosology registry: nephro-urinal contour (11 patterns)
 ├── schemas/glp1_api.py          # Pydantic request/response models
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (341 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (363 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -144,7 +148,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 341 tests
+pytest                 # all 363 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
