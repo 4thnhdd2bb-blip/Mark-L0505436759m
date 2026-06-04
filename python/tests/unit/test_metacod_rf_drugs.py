@@ -1,18 +1,25 @@
 """
-METACOD-RF drug database — batch 01 (GLP-1) structure + provenance tests.
+METACOD-RF drug database — structure + provenance tests (all batches).
 
 This validates the SHAPE and PROVENANCE of the research dataset, never the
 clinical correctness of its content (that is Mark-owned and pending his
-validation). Guards:
-  - the batch loads, indexes 6 drugs with the expected DRG ids
+validation). Batches are auto-discovered from python/metacod_rf/*.json, so new
+batches are covered without editing this file; per-batch identity (expected
+DRG ids / INNs) is asserted from the EXPECTED registry below.
+
+Guards (per batch):
+  - the batch loads and indexes its drugs by DRG id
   - every record carries the required structural keys
   - the batch is honestly flagged research-only (ready_for_clinical_use False,
     every drug mark_validated False)
-  - every provenance-tagged statement uses a tag from the legend (no drift)
-  - [OBS-Mark] placeholders are preserved (not silently invented/filled)
+  - the legend matches the known provenance tags
+  - every provenance-tagged statement uses a legend tag (no drift)
+  - every drug has at least one [LBL]-sourced anchor (not pure [RF])
 """
 
 from __future__ import annotations
+
+from pathlib import Path
 
 import pytest
 
@@ -26,84 +33,129 @@ from services.metacod_rf import (
 
 pytestmark = pytest.mark.unit
 
-EXPECTED_IDS = {"DRG-001", "DRG-002", "DRG-003", "DRG-004", "DRG-005", "DRG-006"}
-EXPECTED_INNS = {
-    "DRG-001": "Semaglutide",
-    "DRG-002": "Liraglutide",
-    "DRG-003": "Dulaglutide",
-    "DRG-004": "Exenatide",
-    "DRG-005": "Lixisenatide",
-    "DRG-006": "Tirzepatide",
+# Per-batch expected identity. Keyed by _meta.batch_id. New batches should add
+# an entry here; the registry test below enforces that no shipped batch is left
+# unregistered.
+EXPECTED: dict[str, dict[str, str]] = {
+    "01-GLP1": {
+        "DRG-001": "Semaglutide",
+        "DRG-002": "Liraglutide",
+        "DRG-003": "Dulaglutide",
+        "DRG-004": "Exenatide",
+        "DRG-005": "Lixisenatide",
+        "DRG-006": "Tirzepatide",
+    },
+    "02-SGLT2": {
+        "DRG-007": "Empagliflozin",
+        "DRG-008": "Dapagliflozin",
+        "DRG-009": "Canagliflozin",
+        "DRG-010": "Ertugliflozin",
+    },
 }
 
 
+def _batch_paths(data_dir: Path) -> list[Path]:
+    return sorted((data_dir / "metacod_rf").glob("*.json"))
+
+
+def _catalog(path: Path) -> RFDrugCatalog:
+    return RFDrugCatalog(path)
+
+
 @pytest.fixture(scope="module")
-def rf_catalog(data_dir):
-    return RFDrugCatalog(data_dir / "metacod_rf" / "drugs_batch01_glp1.json")
+def batch_paths(data_dir):
+    paths = _batch_paths(data_dir)
+    assert paths, "no METACOD-RF batch files found under metacod_rf/"
+    return paths
+
+
+def _parametrize_batches():
+    # Resolve batch files at collection time relative to this test file's repo.
+    here = Path(__file__).resolve()
+    # python/tests/unit/ -> python/
+    src = here.parents[2]
+    paths = sorted((src / "metacod_rf").glob("*.json"))
+    return paths
+
+
+BATCH_FILES = _parametrize_batches()
+
+
+@pytest.fixture(params=BATCH_FILES, ids=lambda p: p.stem)
+def catalog(request):
+    return _catalog(request.param)
 
 
 # ---------------------------------------------------------------------------
-# Structure
+# Per-batch structure + identity
 # ---------------------------------------------------------------------------
 
-def test_batch_loads_six_drugs(rf_catalog):
-    assert len(rf_catalog) == 6
-    assert rf_catalog.all_ids() == EXPECTED_IDS
-    assert rf_catalog.meta["batch_id"] == "01-GLP1"
+def test_batch_id_is_registered(catalog):
+    batch_id = catalog.meta["batch_id"]
+    assert batch_id in EXPECTED, (
+        f"batch {batch_id!r} is not registered in EXPECTED — add its expected "
+        f"DRG ids/INNs so identity is pinned."
+    )
 
 
-def test_expected_inns_and_lookup(rf_catalog):
-    for drug_id, inn in EXPECTED_INNS.items():
-        drug = rf_catalog.get(drug_id)
-        assert drug is not None
-        assert drug.name_inn == inn
-        # case-insensitive INN lookup round-trips to the same record
-        assert rf_catalog.by_inn(inn.lower()).drug_id == drug_id
-    assert rf_catalog.get("DRG-999") is None
+def test_expected_ids_and_inns(catalog):
+    batch_id = catalog.meta["batch_id"]
+    expected = EXPECTED[batch_id]
+    assert catalog.all_ids() == set(expected), (
+        f"[{batch_id}] ids {sorted(catalog.all_ids())} != expected {sorted(expected)}"
+    )
+    for drug_id, inn in expected.items():
+        drug = catalog.get(drug_id)
+        assert drug is not None and drug.name_inn == inn
+        # case-insensitive INN lookup round-trips
+        assert catalog.by_inn(inn.lower()).drug_id == drug_id
 
 
-def test_every_drug_has_required_keys(rf_catalog):
-    required = {"drug_id", "name_inn", "name_ru", "name_brand", "status", "batch",
-                "molecular", "status_flags"}
-    for drug in rf_catalog:
+def test_every_drug_has_required_keys(catalog):
+    batch_id = catalog.meta["batch_id"]
+    required = {"drug_id", "name_inn", "name_ru", "name_brand", "status",
+                "batch", "molecular", "status_flags"}
+    for drug in catalog:
         missing = required - set(drug.as_dict().keys())
         assert not missing, f"{drug.drug_id} missing keys: {sorted(missing)}"
-        assert drug.get("batch") == "01-GLP1"
+        assert drug.get("batch") == batch_id
         assert drug.get("status") == "METACOD-RF"
+
+
+def test_count_matches_meta(catalog):
+    declared = catalog.meta.get("preparations_count")
+    assert declared == len(catalog), (
+        f"[{catalog.meta['batch_id']}] preparations_count={declared} but "
+        f"{len(catalog)} drug records present"
+    )
 
 
 # ---------------------------------------------------------------------------
 # Honest research-only flagging (safety / governance)
 # ---------------------------------------------------------------------------
 
-def test_batch_is_flagged_research_only(rf_catalog):
-    assert rf_catalog.ready_for_clinical_use is False
-    assert "not clinical guidance" in rf_catalog.meta["status"].lower()
+def test_batch_is_flagged_research_only(catalog):
+    assert catalog.ready_for_clinical_use is False
+    assert "not clinical guidance" in catalog.meta["status"].lower()
 
 
-def test_no_drug_is_mark_validated_yet(rf_catalog):
-    # The batch ships with mark_validated False everywhere; this gate prevents
-    # a record being silently promoted to "validated" without Mark's sign-off.
-    for drug in rf_catalog:
+def test_no_drug_is_mark_validated_yet(catalog):
+    for drug in catalog:
         assert drug.mark_validated is False, f"{drug.drug_id} unexpectedly mark_validated"
-
-
-def test_obs_mark_placeholders_preserved(rf_catalog):
-    # Semaglutide carries several [OBS-Mark] placeholders that must stay as
-    # authored (empty/TBD), never fabricated.
-    sema = rf_catalog.get("DRG-001")
-    obs = sema.get("mark_observations", {})
-    assert "[OBS-Mark]" in obs["mark_clinical_observations"]
-    assert obs["n_cases_observed"] == "[TBD]"
 
 
 # ---------------------------------------------------------------------------
 # Provenance integrity
 # ---------------------------------------------------------------------------
 
-def test_all_tagged_statements_use_known_tags(rf_catalog):
+def test_legend_matches_known_tags(catalog):
+    legend = set(catalog.meta.get("source_tag_legend", {}).keys())
+    assert legend == set(KNOWN_SOURCE_TAGS)
+
+
+def test_all_tagged_statements_use_known_tags(catalog):
     bad: list[tuple[str, str]] = []
-    for drug in rf_catalog:
+    for drug in catalog:
         for stmt in drug.tagged_statements():
             tag = first_tag(stmt)
             if tag not in KNOWN_SOURCE_TAGS and tag not in PLACEHOLDER_TAGS:
@@ -111,17 +163,48 @@ def test_all_tagged_statements_use_known_tags(rf_catalog):
     assert not bad, f"statements with unknown provenance tag: {bad[:5]}"
 
 
-def test_legend_matches_known_tags(rf_catalog):
-    legend = set(rf_catalog.meta.get("source_tag_legend", {}).keys())
-    assert legend == set(KNOWN_SOURCE_TAGS)
-
-
-def test_every_drug_has_at_least_one_label_sourced_statement(rf_catalog):
-    # Each agent should have at least one [LBL] (FDA/EMA) anchor — i.e. the
-    # record isn't purely theoretical [RF] content.
-    for drug in rf_catalog:
+def test_every_drug_has_at_least_one_label_sourced_statement(catalog):
+    for drug in catalog:
         tags = {first_tag(s) for s in drug.tagged_statements()}
         assert "LBL" in tags, f"{drug.drug_id} has no [LBL]-sourced statement"
+
+
+# ---------------------------------------------------------------------------
+# Cross-batch invariants
+# ---------------------------------------------------------------------------
+
+def test_all_shipped_batches_are_registered(batch_paths):
+    shipped = {RFDrugCatalog(p).meta["batch_id"] for p in batch_paths}
+    unregistered = shipped - set(EXPECTED)
+    assert not unregistered, f"shipped but unregistered batches: {sorted(unregistered)}"
+
+
+def test_drug_ids_are_globally_unique(batch_paths):
+    seen: dict[str, str] = {}
+    for p in batch_paths:
+        cat = RFDrugCatalog(p)
+        for drug_id in cat.all_ids():
+            assert drug_id not in seen, (
+                f"{drug_id} appears in both {seen[drug_id]} and {p.name}"
+            )
+            seen[drug_id] = p.name
+
+
+# ---------------------------------------------------------------------------
+# OBS-Mark placeholder preservation (no fabrication)
+# ---------------------------------------------------------------------------
+
+def test_obs_mark_placeholders_preserved(batch_paths):
+    # Spot-check one agent per known batch keeps its empty [OBS-Mark] markers.
+    spot = {"01-GLP1": "DRG-001", "02-SGLT2": "DRG-007"}
+    for p in batch_paths:
+        cat = RFDrugCatalog(p)
+        drug_id = spot.get(cat.meta["batch_id"])
+        if not drug_id:
+            continue
+        obs = cat.get(drug_id).get("mark_observations", {})
+        assert "[OBS-Mark]" in obs["mark_clinical_observations"]
+        assert obs["n_cases_observed"] == "[TBD]"
 
 
 # ---------------------------------------------------------------------------
@@ -131,6 +214,7 @@ def test_every_drug_has_at_least_one_label_sourced_statement(rf_catalog):
 def test_first_tag_parsing():
     assert first_tag("[RF] Damp-reducing") == "RF"
     assert first_tag("[RF energy interpretation] heat_GI...") == "RF"
+    assert first_tag("[RF Mark canonical] phase angle") == "RF"
     assert first_tag("[OBS-Mark] [TBD]") == "OBS-Mark"
     assert first_tag("[RF note: discontinued]") == "RF"
     assert first_tag("no tag here") is None
