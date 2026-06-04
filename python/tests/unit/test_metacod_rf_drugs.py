@@ -59,6 +59,15 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-015": "Linagliptin",
         "DRG-016": "Saxagliptin",
     },
+    "04-Old_School_Antidiabetics": {
+        "DRG-017": "Glipizide",
+        "DRG-018": "Glimepiride",
+        "DRG-019": "Gliclazide",
+        "DRG-020": "Pioglitazone",
+        "DRG-021": "Repaglinide",
+        "DRG-022": "Nateglinide",
+        "DRG-023": "Acarbose",
+    },
 }
 
 
