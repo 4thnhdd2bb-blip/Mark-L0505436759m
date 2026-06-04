@@ -1,0 +1,403 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_three_axis_framework",
+    "document_id": "METACOD_RF_Three_Axis_Framework",
+    "title": "Three-Axis Diagnostic Framework",
+    "version": "1.0",
+    "date": "2026-06",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "subtitle": "First complete integration of three diagnostic axes (Constitution × Membrane × Phase)",
+    "author": "Mark Litvak (formalization with AI-assistance)",
+    "based_on": [
+      "Constitutional Model v0.1, v0.2 (this project)",
+      "Membranes Diagnostic v0.5 (Mark, 15 May 2026)",
+      "Pregnancy/Oncology Membranes Link (Mark, 23 May 2026)",
+      "Treatment Module v1.0 (Mark, 23 May 2026)",
+      "Mark canonical: 31-May-2026 two-axis independence, 01-Jun-2026 5-energy canon"
+    ],
+    "supersedes_partially": "Constitutional Model v0.1, v0.2 (those remain valid)",
+    "extends": "Membranes Diagnostic v0.5 (deepens M-A2/A3/D2/D3 stubs)",
+    "integrates": ["Pregnancy_oncology_membranes_link", "Treatment Module v1.0"],
+    "mark_validated": "pending review",
+    "external_sources_complete": true,
+    "ready_for_research_use": true,
+    "ready_for_clinical_use": false,
+    "architecture_principle": [
+      "Три независимые диагностические оси: Constitution (slow), Membrane (medium), Phase (fast).",
+      "Лечение должно адресовать каждую ось: конституциональное направление (long-term), мембранную коррекцию (medium-term), phase-appropriate timing (short-term).",
+      "Препарат, «правильный» по конституции но «неправильный» по мембранному направлению — неэффективен или вреден."
+    ],
+    "independence_principle": "Три оси независимы (Mark canonical 31-May-2026). 8 × 8 × 5 = 320 комбинаций теоретически; clinically значимы ~30-50 типичных pattern-комбинаций.",
+    "critical_constants": {
+      "energies": ["wind", "heat", "damp", "dry", "cold"],
+      "energies_note": "5 energies (post 01-Jun-2026 canon): Wind, Heat, Damp, Dry, Cold",
+      "membranes": ["M-0", "M-A1", "M-A2", "M-A3", "M-S", "M-D1", "M-D2", "M-D3"],
+      "phases": ["CA", "PCL-A", "Epicrisis", "PCL-B", "Normotonia"],
+      "two_axis_independence": "pH = ENERGY axis, NOT membrane axis (canonical 31-May-2026)"
+    },
+    "next_steps": [
+      "Mark review and validation",
+      "Retrospective case documentation using three-axis assessment",
+      "Update predictive matrices to include membrane axis",
+      "Full development of M-A2/A3/D2/D3 ten-section deployment",
+      "Integration with drug database (each drug needs 3-axis profile)"
+    ]
+  },
+  "axes": {
+    "constitutional": {
+      "principle": "Конституция = композиция трёх энергий из 5-element framework; ведущая энергия = последняя в последовательности, определяет type name. Slow-changing baseline.",
+      "yin_yang_dominance": {
+        "yin_dominant": "3 strong Yin energies (incl. leading) + 2 weak Yin; compensatorily 2 strong Yang + 3 weak Yang",
+        "yang_dominant": "3 strong Yang energies (incl. leading) + 2 weak Yang; compensatorily 2 strong Yin + 3 weak Yin",
+        "note": "Это две разные архитектуры, не варианты одной."
+      },
+      "baseline_thermal_asymmetry": "Yang-energies всегда несколько теплее baseline чем Yin. Сильное нарушение baseline асимметрии = manifest pathology marker.",
+      "quantity": {
+        "definition": "Total flow энергии = Yin-component + Yang-component (метафора реки).",
+        "quantity_quality_combinations": [
+          "Strong quantity + clean quality (optimal)",
+          "Strong quantity + dirty quality (excess + dysfunction)",
+          "Weak quantity + clean quality (deficient но functional)",
+          "Weak quantity + dirty quality (deficient + dysfunction)"
+        ]
+      },
+      "quality": "Physiological correctness энергии через biomarkers с optimal range (не unipolar). Слишком высокая quality = pathology (Hb 18 = polycythemia). Полная система — constitutional_model_v0_2.json.",
+      "temporal_layers": [
+        "Congenital constitution (inherited)",
+        "Age-modified constitution (decades-scale shifts)",
+        "Time-modified constitution (years-scale, environment/lifestyle)",
+        "Biorhythmic layer (organ-specific cycles) — acknowledged, NOT formalized in v1.0"
+      ],
+      "open_problem": "Constitutional assessment через clinical gestalt опытного клинициста (Mark). Стандартизированного алгоритма нет. НЕ решения: Hamer phase as proxy, single biomarker panel, multi-hundred-question survey.",
+      "triads_detail_ref": "8 triads detailed in predictive_matrix_01_semaglutide.json (triads[]) and below (compact).",
+      "triads": [
+        {"id": "T1", "name": "Yang-Earth", "yin_yang": "Yang-dom", "phenotype": "Abdominal obesity, T2DM, NAFLD, damp tongue"},
+        {"id": "T2", "name": "Yin-Earth", "yin_yang": "Yin-dom", "phenotype": "Slow obesity, hypothyroid tendency, fluid retention"},
+        {"id": "T3", "name": "Yin-Fire (Mark phenotype)", "yin_yang": "Yin-dom", "phenotype": "Hidden Heat, gout, metabolic inflammation"},
+        {"id": "T4", "name": "Yang-Water (Anna phenotype)", "yin_yang": "Yang-dom", "phenotype": "Brittle CV, gastroparesis history, hypotension"},
+        {"id": "T5", "name": "Yin-Water frail elderly", "yin_yang": "Yin-dom", "phenotype": "Cold + Yang deficit, sarcopenic, low reserve"},
+        {"id": "T6", "name": "Yin-Metal chronic", "yin_yang": "Yin-dom", "phenotype": "Fibrotic tendencies, autoimmune patterns"},
+        {"id": "T7", "name": "Yang-Wood active", "yin_yang": "Yang-dom", "phenotype": "Hypertension, migraine, hepatobiliary"},
+        {"id": "T8", "name": "Mixed multi-pattern", "yin_yang": "Either", "phenotype": "Polypathology, no clear dominant"}
+      ]
+    },
+    "membrane": {
+      "principle": "Функциональное состояние тканей на шкале anabolic-catabolic. Revici 7 levels → METACOD-RF (Mark) 8 levels including stagnant M-S. Medium-changing (weeks-months). Независим от constitution.",
+      "semantic_M_S": "M-S — пограничный патологический режим, НЕ «balanced». Игнорирование M-S — главная причина клинической неудачи (Mark canonical).",
+      "levels": {
+        "M-0": {
+          "name": "Healthy Equilibrium",
+          "definition": "Нормальный turnover, alkaline-acid ratio 4:1, blood pH 7.4, balanced K-shift.",
+          "biomarkers": ["Urine pH 6.2-6.8 (slight diurnal variation)", "Tissue pH neutral", "Skin pH 4.5-5.5", "Serum K 4.0-4.5", "Phase angle BIA 6-7°", "ECW/TBW 0.38-0.40"],
+          "clinical_signature": ["Pain: no specific diurnal pattern / absent", "Sleep normal 7-9h restful", "Appetite stable, appropriate"]
+        },
+        "M-A1": {
+          "name": "Early Anabolic Membrane",
+          "definition": "Lipid sterol excess starting; мембраны становятся rigid; tissue alkalosis beginning.",
+          "biomarkers": ["Urine pH >6.4 (alkaline, internal zone)", "Skin pH more acidic (external zone — opposite, Mark canonical)", "Serum K ↓ (intracell K↑, H+ exits)", "Tissue alkalosis", "Cholesterol trending up", "Ferritin normal or rising"],
+          "clinical_signature": ["Sleep: hypersomnia tendency", "Pain timing: утренние боли (morning)", "Appetite ↑", "Likes cold", "Vagal dominance", "Climate match: warm + damp"]
+        },
+        "M-A2": {
+          "name": "Progressive Anabolic Membrane",
+          "definition": "Mid-depth anabolic.",
+          "biomarkers": ["Urine pH 6.5-7.0 (more alkaline)", "Cholesterol elevated", "Triglycerides elevated", "HOMA-IR >2.5", "HbA1c 5.7-6.5%", "hsCRP low or normal", "Albumin well-preserved/high-normal", "Phase angle BIA 7-8° (high but rigid)"],
+          "clinical_signature": ["Visible damp accumulation (edema, weight gain)", "Morning stiffness > M-A1", "Heavy sensation in limbs", "Tongue thick coating", "Pulse slippery (TCM)", "Constitution match: T1, T2 often in M-A2"],
+          "disease_patterns": ["Metabolic syndrome", "T2DM (early-moderate)", "NAFLD", "Hypertension (volume-overload)", "Obesity (visceral)", "PCOS"],
+          "flagship_case_note": "Mariana: chronic bronchiectasis + NTM — M-A2 системно + S-flag in bronchial walls."
+        },
+        "M-A3": {
+          "name": "Deep Anabolic Membrane",
+          "definition": "Severe anabolic, nephrotic pattern, mass anabolic accumulation.",
+          "biomarkers": ["Urine pH >7.0", "Massive proteinuria", "Severe hypoalbuminemia", "Massive edema, anasarca", "Cholesterol very high", "Lymphedema patterns"],
+          "clinical_signature": ["Generalised severe edema", "Nephrotic syndrome pattern", "Pleural effusion, ascites possible"],
+          "disease_patterns": ["Nephrotic syndrome (any cause)", "Severe HF with anasarca", "Late pregnancy preeclampsia with anasarca", "Severe primary hyperaldosteronism"]
+        },
+        "M-D1": {
+          "name": "Early Catabolic Membrane",
+          "definition": "Mirror of M-A1 — fatty acid excess + peroxidation start; мембраны становятся leaky.",
+          "biomarkers": ["Urine pH <6.2 (acidic, internal zone)", "Skin pH more alkaline (external opposite)", "Serum K ↑ (intracell K↓, H+ enters)", "Tissue acidosis", "Sterol depletion signs", "MDA starting to rise", "4-HNE starting to rise"],
+          "clinical_signature": ["Sleep: insomnia tendency", "Pain timing: вечерние боли (evening)", "Appetite ↓", "Likes warmth", "Sympathetic dominance", "Climate match: cold + dry"]
+        },
+        "M-D2": {
+          "name": "Progressive Catabolic Membrane",
+          "definition": "Active ferroptosis, weakened membranes, oxidative damage progression.",
+          "biomarkers": ["Ferritin >250 (Fenton catalyst)", "MDA elevated", "4-HNE elevated", "8-OHdG elevated", "GSH/GSSG <50", "Albumin declining", "Phase angle BIA <5°", "Sterol depleted"],
+          "clinical_signature": ["Visible weight loss", "Pronounced PM pain", "Sarcopenia developing", "Frailty markers", "Autoimmune markers may appear", "Skin thinning, healing slowed"],
+          "disease_patterns": ["Cancer cachexia", "Severe HF (cachectic phase)", "CKD late stage", "Active autoimmune flare", "ADT-induced state (Mark canonical predictable catastrophe)", "Long-term GLP-1 therapy in vulnerable patients"]
+        },
+        "M-D3": {
+          "name": "Deep Catabolic Membrane",
+          "definition": "Massive lipid peroxidation, multi-organ ferroptosis, autoimmune patterns, severe oxidative stress, subnuclear damage.",
+          "biomarkers": ["Ferritin very high or paradoxically low (depletion phase)", "Severe oxidative stress markers", "Multi-organ dysfunction labs", "Autoimmune markers active", "Albumin <3.0", "Phase angle BIA <4°", "Severe muscle mass loss"],
+          "clinical_signature": ["Cachexia", "Multi-organ involvement", "Often terminal patterns", "Refractory to standard interventions"],
+          "disease_patterns": ["End-stage cancer", "End-stage HF", "Severe sepsis recovery phase", "Severe multi-system autoimmune disease"]
+        },
+        "M-S": {
+          "name": "Stagnant Pathological Equilibrium",
+          "definition": "НЕ «balanced» — патологический residual, где anabolic и catabolic forces заблокировали друг друга в frozen pathology (Mark canonical).",
+          "biomarkers": ["KEY PATTERN: Sterol + MDA или 4-HNE одновременно повышены (paired markers)", "Fibrosis: TGF-β1, Galectin-3, Hydroxyproline urine", "DNA oxidation: 8-OHdG", "Supporting: LDH, fibrinogen, hsCRP, GSH, Selenium whole blood", "Cole-Cole α (multifrequency BIA) — PRIMARY M-S indicator", "ECW/TBW mixed"],
+          "biomarkers_note": "M-S markers new by Mark 18 May 2026.",
+          "clinical_signature": ["Disease stable but progressive", "Treatment-resistant patterns", "Fibrotic localisation possible", "Often masked as «stable chronic disease»", "Mixed M-A and M-D signs simultaneously"],
+          "flagship_case_note": "Mariana: M-A2 системно + S-flag (M-S модификатор) localised in bronchial walls — M-S can be localised in one compartment when systemic state is M-A."
+        }
+      },
+      "M_A1_vs_M_D1_differential": {
+        "anabolic_catabolic": {"M-A1": "anabolic", "M-D1": "catabolic"},
+        "sterol_balance": {"M-A1": "excess", "M-D1": "depletion"},
+        "membrane_property": {"M-A1": "rigid", "M-D1": "leaky"},
+        "urine_ph": {"M-A1": "alkaline (>6.4)", "M-D1": "acidic (<6.2)"},
+        "skin_ph": {"M-A1": "acidic", "M-D1": "alkaline"},
+        "pain_timing": {"M-A1": "morning", "M-D1": "evening"},
+        "sleep": {"M-A1": "hypersomnia", "M-D1": "insomnia"},
+        "climate_preference": {"M-A1": "cold", "M-D1": "warm"},
+        "appetite": {"M-A1": "increased", "M-D1": "decreased"},
+        "ans_tone": {"M-A1": "vagal", "M-D1": "sympathetic"},
+        "energy_character": {"M-A1": "damp + heat", "M-D1": "cold + dry"},
+        "therapeutic_direction": "OPPOSITE — M-A1 → catabolic agents (Se, S, Mg, omega-3); M-D1 → anabolic agents (cholesterol, lipid alcohols, Zn, Fe, caffeine)"
+      },
+      "bridge_axis": {
+        "note": "Differentiating membrane direction (anabolic vs catabolic)",
+        "parameters": [
+          {"parameter": "Urine SG", "M-A": "< 1.015", "M-D": "> 1.025"},
+          {"parameter": "Serum K", "M-A": "low (intracell K↑)", "M-D": "high (intracell K↓)"},
+          {"parameter": "Pain timing", "M-A": "AM dominance", "M-D": "PM dominance"},
+          {"parameter": "WBC", "M-A": "normal or elevated", "M-D": "leukopenia tendency"},
+          {"parameter": "hsCRP", "M-A": "low or normal", "M-D": "elevated in active processes"},
+          {"parameter": "Tissue pH", "M-A": "alkalosis", "M-D": "acidosis"},
+          {"parameter": "Cholesterol", "M-A": "elevated", "M-D": "depleted"}
+        ]
+      },
+      "ph_4point_urine_system": {
+        "note": "Урина — внутренняя зона (revised в v0.5 from v0.4 error). Mark canonical.",
+        "measurements": ["Утром (fasting, first morning) — baseline tissue state", "После завтрака (postprandial) — digestion response", "Перед обедом (mid-day) — circadian peak", "Вечером (evening) — recovery trajectory"],
+        "interpretation": ["All four >6.4 = systemic alkalosis = M-A pattern", "All four <6.2 = systemic acidosis = M-D pattern", "Variable pattern = transition state or unstable membrane", "6.2-6.4 throughout = M-0 equilibrium"],
+        "energy_axis_connection": ["Acid urine = Heat energy excess (Park «Огонь»)", "Alkaline urine = Cold + Dry energy excess", "This is ENERGY axis, NOT membrane axis (Mark canonical 31-May-2026)"],
+        "critical": "pH connection to membrane is EMPIRICAL CORRELATION, not definitional. Drug-induced dissociation possible."
+      },
+      "bia_parameters": {
+        "phase_angle_50khz": ["6° = healthy cellular integrity", "5-6° = borderline", "<5° = M-D direction or M-S indication", "<4° = severe membrane dysfunction"],
+        "ecw_tbw_ratio": ["0.40 = M-A edema pattern", "<0.36 = M-D dry pattern", "0.38-0.40 = normal"],
+        "cole_cole_alpha": "NEW primary M-S indicator (Mark 18 May 2026); reflects ECM stiffness; elevated α suggests fibrotic remodeling = M-S signal",
+        "other": ["Z200/Z5 ratio — cellular integrity", "Segmental BIA — local membrane state", "BIVA vector — directional analysis"]
+      }
+    },
+    "phase": {
+      "principle": "Temporal organization активного процесса. Fast-changing. Независим от constitution и membrane; несколько одновременных процессов в разных фазах возможны.",
+      "inspired_by": "Hamer's phase observations, STRIPPED of specific psychogenic claims.",
+      "sequence": ["CA (Conflict-Active)", "PCL-A (Post-Conflict-Lysis A)", "Epicrisis", "PCL-B (Post-Conflict-Lysis B)", "Normotonia"],
+      "trigger_inclusive": ["Инфекция (bacterial, viral)", "Травма", "Переохлаждение", "Метаболический stress", "Гормональные изменения", "Toxic exposure", "Psychological stress (via psychoneuroimmunology)"],
+      "trigger_note": "Намеренное отделение от specific Hamer-claims, что каждая болезнь начинается с specific эмоционального конфликта.",
+      "phase_signatures": {
+        "CA": {"polarity": "Yang-Cold", "signature": ["Sympathetic dominance", "Cold extremities, vasoconstriction", "Insomnia, agitation", "Weight loss tendency", "High cortisol", "↑ glucose", "Yang energy mobilization"], "membrane_direction": "shifting toward M-D"},
+        "PCL-A": {"polarity": "Yin-Damp", "signature": ["Parasympathetic rebound", "Inflammation, swelling, edema", "Increased need for sleep", "Weight gain possible", "↑ inflammatory markers", "Yin energy with damp accumulation"], "membrane_direction": "shifting toward M-A"},
+        "Epicrisis": {"polarity": "Yang-Wind", "signature": ["Peak of resolution crisis", "Brief sympathetic surge in parasympathetic context", "Symptomatic crisis (fever spike, severe pain, dramatic event)", "Yang surge in Yin context"], "membrane_direction": "may swing"},
+        "PCL-B": {"polarity": "Yin-Dry", "signature": ["Continued parasympathetic dominance", "Fibrotic remodeling", "Tissue consolidation", "Dry-Metal energy character"], "membrane_direction": "M-D or M-S risk"},
+        "Normotonia": {"polarity": "Yang-Heat", "signature": ["Return to autonomic balance", "Healed/integrated state", "Yang-Heat balanced energy"], "membrane_direction": "returning to M-0"}
+      },
+      "ko_cycle_progression": ["CA → PCL-A: strengthen Yang-Damp", "PCL-A → Epicrisis: strengthen Yang-Wind", "Epicrisis → PCL-B: strengthen Yang-Dry", "PCL-B → Normotonia: strengthen Yang-Heat"],
+      "phase_regression_open_problem": ["True phase regression (backward в same cycle)", "New cycle starting (CA fresh после Normotonia)", "Parallel cycles в разных systems", "DPM mismatch (phase doesn't match expected progression)", "Status: criteria not yet finalized"],
+      "phase_skipping": "Strong conflict + low reserve → direct jump к PCL-A/Epicrisis/PCL-B. Explains sudden fibrosis in elderly, rapid progression in frail, need for preventive multi-Yang support.",
+      "multi_system_parallelism": "Один пациент = несколько одновременных processes в разных systems. Priority hierarchy: acute CA > active inflammatory PCL > chronic PCL-B > maintenance."
+    }
+  },
+  "two_axis_interactions": {
+    "constitution_x_membrane": [
+      {"constitution": "T1 Yang-Earth", "baseline": "M-A1 → M-A2", "tendency": "Drift toward M-A3 if untreated"},
+      {"constitution": "T2 Yin-Earth", "baseline": "M-A1 stable", "tendency": "Slow drift, sometimes M-D1 in late life"},
+      {"constitution": "T3 Yin-Fire (Mark)", "baseline": "Variable, often M-A2 with inflammatory overlay", "tendency": "Drift to M-D2 in active inflammation periods"},
+      {"constitution": "T4 Yang-Water (Anna)", "baseline": "M-D1 tendency", "tendency": "Risk M-D2 with stress; gastroparesis = local M-D pattern"},
+      {"constitution": "T5 Yin-Water frail elderly", "baseline": "M-D1 → M-D2", "tendency": "Rapid drift M-D2/D3 with any stressor"},
+      {"constitution": "T6 Yin-Metal chronic", "baseline": "M-S risk", "tendency": "Often «stuck» in fibrotic M-S"},
+      {"constitution": "T7 Yang-Wood active", "baseline": "M-A1 with hepatobiliary stagnation", "tendency": "M-A2 metabolic syndrome pattern"},
+      {"constitution": "T8 Mixed", "baseline": "Variable", "tendency": "Often M-S due to competing forces"}
+    ],
+    "ph_energy_vs_membrane_independence": {
+      "canonical": "Mark 31-May-2026",
+      "ph_is_energy_axis": "acid urine/tissue/blood = Heat (Park Огонь); alkaline = Cold + Dry",
+      "membrane_is_separate": "determined by SG, K, pain timing, WBC",
+      "correlation": "EMPIRICAL, NOT DEFINITIONAL",
+      "examples": ["Mark: M-D + Heat (acid pH) — catabolic с Heat energy excess", "Anna: M-D + Cold + Dry (alkaline pH) — catabolic от gastroparesis с Cold energy"]
+    },
+    "drug_induced_dissociation": {
+      "canonical": "Mark 31-May-2026",
+      "principle": "Препараты со strong energetic signature могут dissociate systemic membrane axis от local energy state.",
+      "dissociators": [
+        "GLP-1 agonists — pull M-A1/A2 → M-0 normally, но в Yin patterns могут precipitate M-D drift",
+        "Corticosteroids — push M-A1 in tissue locally + Yang-Heat systemically; but suppression of natural M-A → eventual M-D",
+        "Beta-blockers — Yang reduction systemically + Cold local pattern; membrane effects complex",
+        "ADT — predictable M-A → M-D2/D3 catastrophe"
+      ],
+      "clinical_implication": "When patient on these drugs, assess BOTH axes independently (energy state via pH/symptoms/thermal preference; membrane state via SG/K/pain timing/WBC). Don't assume correlation."
+    },
+    "constitution_x_phase": {
+      "yang_dominant": ["CA: more violent expression", "PCL-A: more pronounced inflammation", "Epicrisis: dramatic, может быть dangerous", "Recovery faster but more turbulent"],
+      "yin_dominant": ["CA: hidden, prolonged, less obvious", "PCL-A: slow, deep accumulation", "Epicrisis: muted, may not have clear crisis point", "Recovery slow, often incomplete (M-S risk)"],
+      "frail_elderly_T5": ["Phase-skipping common", "Direct jumps to PCL-B fibrosis without clear CA", "Need preventive multi-Yang support"]
+    },
+    "membrane_x_phase": {
+      "phase_on_membrane_drift": ["CA → M-D direction (sympathetic catabolism)", "PCL-A → M-A direction (parasympathetic anabolism)", "Epicrisis → swing either way", "PCL-B → fibrosis (M-S risk)", "Normotonia → baseline membrane"],
+      "membrane_modulates_phase": ["M-A states slow phase progression", "M-D states accelerate phase progression (faster CA→PCL → exhaustion)", "M-S states «freeze» phases (stuck patterns)"]
+    }
+  },
+  "special_patterns": {
+    "lesion_systemic_paradox": {
+      "canonical": "Revici-derived, Mark canonical",
+      "observation": "pH опухолевой ткани часто противоположен системному pH. Опухоль имеет inverse local membrane vs systemic state.",
+      "example": "Systemic M-A2 (anabolic, alkaline urine) + lesion locally acidic (catabolic at tumor site) → treatment direction conflict; cannot be done with single agent.",
+      "implications": ["ALWAYS measure both systemic and lesion pH where possible", "Treatment direction must flip based on measurement point", "Single-direction therapy can worsen one compartment while helping other", "Standard «alkalinize for cancer» advice can be harmful in some cases"],
+      "approach": "Systemic: based on systemic pH/membrane. Local: based on lesion pH/local membrane. Often requires multi-agent approach addressing both compartments differently."
+    },
+    "adt_catastrophe": {
+      "canonical": "Mark canonical",
+      "observation": "Любой пациент с раком простаты, начинающий ADT, ГАРАНТИРОВАННО переходит из системного M-A в M-D2/D3 за 6-12 месяцев. Это факт METACOD-канона.",
+      "mechanism": "Testosterone суппрессия = removal of major anabolic driver + cancer cachexia tendency → inevitable sarcopenia + multi-system M-D drift.",
+      "mandatory_support_stack_day_one": ["Креатин моногидрат 5 г/день", "Лейцин 3 г на каждый приём пищи", "Витамин D 4000-5000 МЕ (если 25-OH <40 ng/mL)", "Омега-3 EPA 2-4 г/день", "Resistance training 3 раза/неделю (нелекарственный, mandatory)", "Phase angle BIA каждые 4 недели", "DEXA baseline + каждые 2 года", "PHQ-9 каждые 3 месяца (depression у 30-50%)"],
+      "critical_avoid": ["GLP-1 chronic (additional catabolic push)", "High-dose statins", "Chronic PPI"]
+    },
+    "pregnancy_m_a_shift": {
+      "observation": "Беременность = физиологический M-A shift, не патология.",
+      "trimester_progression": [
+        {"trimester": "I (1-12w)", "membrane": "M-A1", "biomarkers": "ХГЧ rise, prolactin↑, insulin sensitivity preserved"},
+        {"trimester": "II (13-26w)", "membrane": "M-A1 → M-A2", "biomarkers": "Cortisol×3, insulin resistance↑, progesterone↑↑"},
+        {"trimester": "III (27-40w)", "membrane": "M-A2 → M-A3 boundary", "biomarkers": "Aldosterone↑, plasma volume +50%, K-shift, mild edema normal"},
+        {"trimester": "Postpartum", "membrane": "Rapid M-A → M-D", "biomarkers": "Explains postpartum depression"}
+      ],
+      "pathological_deviations": [
+        {"deviation": "Gestational diabetes (GDM)", "membrane_shift": "M-A2 → M-A3 (excessive damp)", "treatment": "Metformin, insulin"},
+        {"deviation": "Preeclampsia", "membrane_shift": "M-A2-stuck + endothelial damp+heat", "treatment": "Aspirin 12-36w"},
+        {"deviation": "Gestational HTN", "membrane_shift": "M-A2-hot + liver yang", "treatment": "Labetalol/methyldopa"},
+        {"deviation": "Hypothyroid pregnancy", "membrane_shift": "M-A1 doesn't deepen → cold risk", "treatment": "Levothyroxine +25-30%"},
+        {"deviation": "Thromboembolic", "membrane_shift": "M-A2 stasis", "treatment": "LMWH"},
+        {"deviation": "Antenatal depression", "membrane_shift": "M-A1-stuck + liver qi", "treatment": "Sertraline"}
+      ],
+      "absolutely_contraindicated_by_membrane_principle": [
+        "GLP-1 agonists — energetic logic cold/dry (M-D shift) conflicts with required M-A",
+        "Statins — cholesterol ESSENTIAL для feto-placental steroidogenesis; M-A не должна нарушаться истощением sterol pool",
+        "ACE/ARB — absolute CI T2/T3 — renal fetal damage = destruction of M-A renal program",
+        "Testosterone — masculinizes female fetus",
+        "Methotrexate — anti-folate, teratogenic",
+        "NSAID T3 — premature ductus arteriosus closure",
+        "Isotretinoin — severe teratogenicity"
+      ]
+    },
+    "postpartum_transition": {
+      "observation": "Rapid postpartum transition from M-A2/A3 (pregnancy peak) to M-D state.",
+      "significance": ["Explains postpartum depression (Yin-side catabolic shift)", "Explains postpartum thyroid issues", "Mandatory support: nutrition, sleep, gradual return to activity", "Breastfeeding maintains some M-A character"]
+    },
+    "surgical_trauma": {
+      "trajectory": ["Initial CA phase (sympathetic, M-D drift)", "PCL-A in days-weeks (anabolic healing)", "Normal: return to M-0 within months", "Pathological: stuck in PCL-A (chronic inflammation) or PCL-B (excessive fibrosis)"]
+    },
+    "mariana_flagship_case": {
+      "case": "Chronic bronchiectasis + NTM + Aspergillus + hemoptysis",
+      "classification": {"constitution": "not fully documented in v1.0 (open)", "membrane": "M-A2 системно + S-flag (M-S модификатор) локально in bronchial walls", "phase": "chronic PCL-B with intermittent CA flares (hemoptysis episodes)"},
+      "active_protocol": ["Jun (君): Azithromycin 250 mg × 3/неделю", "Chen (臣): Clofazimine + Amikacin cycles", "Zuo (佐): NAC 1200 + серратиопептидаза + эктоин", "Shi (使): timing optimization"],
+      "current_result": "Bleeding stopped, мембрана восстановлена (Q3-12 validated).",
+      "pending_refinement": ["Усиление серратиопептидазы до 30мг×3, добавление glycine + collagen + Vit K2 + Mg + curcumin", "Multifrequency BIA + segmental analysis, Cole-Cole α, sterol + MDA + TGF-β1 для финализации S-flag", "Long-term follow-up 6-12 months"],
+      "illustrates": "Constitutional + Membrane (M-A2 systemic + S-flag local) + Phase (PCL-B chronic with CA flares). Single-axis assessment would miss S-flag localised within global M-A."
+    }
+  },
+  "integrated_biomarker_panels": {
+    "constitution_markers_ref": "Full 5-energy × quality panels in constitutional_model_v0_2.json (Part 6.1 here duplicates them; kept single-source there).",
+    "membrane_markers": {
+      "bridge_axis": [
+        {"parameter": "Urine SG", "M-A": "< 1.015", "M-D": "> 1.025"},
+        {"parameter": "Serum K", "M-A": "low", "M-D": "high"},
+        {"parameter": "Pain timing", "M-A": "AM dominance", "M-D": "PM dominance"},
+        {"parameter": "WBC", "M-A": "normal/elevated", "M-D": "leukopenia"},
+        {"parameter": "Tissue pH", "M-A": "alkalosis", "M-D": "acidosis"},
+        {"parameter": "Cholesterol", "M-A": "elevated", "M-D": "depleted"}
+      ],
+      "M_A_specific": ["Sterol panel elevated", "Triglycerides elevated", "HOMA-IR >2.5", "Cortisol AM normal-elevated", "Edema markers", "ECW/TBW >0.40"],
+      "M_D_specific": ["MDA, 4-HNE elevated", "8-OHdG elevated", "Ferritin >250 (if iron-overload)", "GSH/GSSG <50", "Albumin declining", "Phase angle BIA <5°"],
+      "M_S_specific": ["Paired: Sterol + MDA или 4-HNE одновременно ↑ (key pattern)", "TGF-β1", "Galectin-3", "Hydroxyproline urine", "8-OHdG", "Cole-Cole α (primary M-S indicator)", "LDH, fibrinogen, hsCRP, GSH, Selenium"],
+      "ph_4point": ["Утром (fasting)", "После завтрака", "Перед обедом", "Вечером", "Pattern analysis: уровень + variability"]
+    },
+    "phase_markers": {
+      "CA": ["Elevated cortisol AM", "↑ glucose", "↑ catecholamines", "Lymphopenia (acute)", "Sympathetic dominance HRV", "Cold extremities", "Insomnia"],
+      "PCL-A": ["↑ inflammatory cytokines", "↑ ESR, CRP", "Eosinophilia possible", "Lymphocyte recovery", "Edema markers", "Parasympathetic HRV", "Need for sleep"],
+      "Epicrisis": ["Brief inflammatory surge", "Fever spike possible", "Acute symptom worsening", "Brief sympathetic re-emergence"],
+      "PCL-B": ["Fibrosis markers (TGF-β, hydroxyproline)", "KL-6 if pulmonary", "Galectin-3", "Tissue stiffness markers", "Quiet inflammation"],
+      "Normotonia": ["All markers normalizing", "HRV balanced", "Sleep restorative", "Inflammatory markers at baseline"]
+    },
+    "multi_axis_markers": [
+      {"marker": "Phase angle BIA", "interpretation": "Constitution (Heat × Damp) + Membrane direction"},
+      {"marker": "Albumin", "interpretation": "Constitution (Heat × Damp × Cold) + Membrane status"},
+      {"marker": "24h urine pH 4-point", "interpretation": "Energy axis (acid=Heat, alkaline=Cold/Dry) + indirect membrane"},
+      {"marker": "Lymphocyte count", "interpretation": "Constitution (Wind × Cold) + Phase indicator"},
+      {"marker": "Eosinophil count", "interpretation": "Constitution (Wind × Heat) + Inflammatory phase"},
+      {"marker": "Lipid ratios (LDL/HDL, TG/HDL)", "interpretation": "Constitution (Damp × Wind) + Membrane direction"},
+      {"marker": "Uric acid", "interpretation": "Constitution (Heat × Damp) + Yin-Fire phenotype marker (Mark personal relevance)"},
+      {"marker": "Homocysteine", "interpretation": "Constitution (Wind × Heat) + B-vitamin status"},
+      {"marker": "TGF-β1", "interpretation": "Membrane (M-S indicator) + Phase (PCL-B fibrosis)"},
+      {"marker": "Cole-Cole α", "interpretation": "Membrane (M-S specific) — requires multifrequency BIA"}
+    ]
+  },
+  "three_axis_integration": {
+    "scenarios": {
+      "A_t2dm_new": {"constitution": "T1 Yang-Earth или T2 Yin-Earth", "membrane": "M-A1 → M-A2", "phase": "Normotonia или mild PCL-A (chronic)", "direction": "damp-reducing, M-A → M-0", "drugs": "metformin (gentle), SGLT2 (cooling damp-reduce), GLP-1 if no sarcopenia risk"},
+      "B_heart_failure": {"constitution": "variable, often T1/T4/T7", "membrane": "M-A2 → M-A3 (fluid overload) or M-D с cachexia", "phase": "chronic PCL-A + acute decompensation CA flares", "direction": "variable based on membrane state", "drugs": "ARNi (anti-anabolic), SGLT2 (M-A → M-0), diuretics (acute M-A3), careful с inotropes"},
+      "C_active_oncology": {"constitution": "variable", "membrane": "lesion-systemic paradox active — local opposite to systemic", "phase": "depends on cancer phase + treatment phase", "direction": "multi-compartment", "note": "Mark canonical: assess systemic AND lesion separately"},
+      "D_pregnancy": {"constitution": "variable, mostly stable", "membrane": "physiological M-A1 → M-A2 → M-A3 boundary by trimester", "phase": "not classical disease phase — pregnancy is its own process", "drugs": "see special_patterns.pregnancy_m_a_shift contraindication list"},
+      "E_frail_elderly_poly": {"constitution": "T5 Yin-Water или T8 Mixed", "membrane": "M-D1 → M-D2 vulnerable", "phase": "multiple parallel cycles", "direction": "conservative, support multi-Yang, avoid aggressive intervention", "drugs": "minimal effective doses, watch для phase-skipping events"},
+      "F_pre_oncology_screening": {"constitution": "T3 Yin-Fire potential", "membrane": "M-A2 with inflammatory overlay", "phase": "chronic CA-low-grade", "markers": "high uric acid, hsCRP, normal-borderline hemoglobin, gout episodes", "strategy": "anti-inflammatory + metabolic optimization"},
+      "G_adt_initiation": {"constitution": "variable", "membrane": "starting from any baseline → predictable shift к M-D2/D3", "phase": "usually chronic — но ADT precipitates M-D shift over 6-12mo", "note": "Mandatory support stack from day 1 (special_patterns.adt_catastrophe)"},
+      "H_major_surgery_recovery": {"constitution": "baseline", "membrane": "trauma → acute M-D shift → PCL-A → M-A recovery", "phase": "classical CA → PCL-A → recovery", "treatment": "support adequate recovery, prevent stuck PCL-A or PCL-B"}
+    },
+    "treatment_direction_steps": [
+      "Step 1: Identify constitutional pattern",
+      "Step 2: Identify membrane state",
+      "Step 3: Identify current phase of active processes",
+      "Step 4: Check для special patterns",
+      "Step 5: Build treatment addressing all axes"
+    ],
+    "three_layer_architecture": {
+      "source": "Treatment Module v1.0",
+      "layer_1": "Base alkalinization (universal) — maintain blood pH 7.4, ratio 4:1 alkali:acid; diet/lifestyle/minerals; static (always applied)",
+      "layer_2": "Membrane-specific therapy — correct membrane state toward M-0; Revici principles + modern pharma with energy mapping; dynamic (revise every 30 days)",
+      "layer_3": "Phase-appropriate intervention — timing-correct based on current phase; phase-matching pharma + non-pharmacologic; variable timing"
+    },
+    "drug_selection_algorithm": [
+      "Energy profile match with constitution",
+      "Membrane direction match (M-A→M-0 vs M-D→M-0 vs M-0 maintenance)",
+      "Phase appropriateness (CA needs different drugs than PCL-A)",
+      "Special pattern flags (pregnancy, ADT, oncology lesion-systemic)",
+      "Safety check (DDI, PGx, contraindications, age/renal/hepatic)"
+    ],
+    "drug_selection_note": "Conceptual в v1.0. Operationalization requires validated constitutional/membrane/phase assessment + drug database with all three axis profiles."
+  },
+  "open_problems_validation": {
+    "core_open_problems": [
+      "Constitution determination algorithm — currently clinical gestalt (Mark); not transferable; no validated questionnaire/biomarker panel",
+      "Membrane assessment standardization — pH 4-point + bridge axis established, но needs standard collection protocols, reference ranges by age/gender, cross-validation",
+      "M-A2/A3/D2/D3 full development — v1.0 fixes basic signatures from v0.5 stubs; full 10-section deployment pending; especially M-S detailed signatures",
+      "Phase determination from clinical data — signatures described, but assigning phase to complex multi-system patient is interpretive; need decision tree/scoring",
+      "Quality dimension biomarker validation — panels are hypotheses; optimal ranges = standard refs + Mark canonical adjustments; need case-based validation"
+    ],
+    "validation_path": [
+      "Step 1: Retrospective case documentation (50-100 Mark cases with three-axis assessment + outcomes)",
+      "Step 2: Pattern emergence (which axis combinations predict which responses)",
+      "Step 3: Inter-rater reliability (train second clinician, blinded cases)",
+      "Step 4: Prospective recording (pre-treatment assessment, predicted response, actual outcome)",
+      "Step 5: Formal validation studies (IRB, pre-specified protocol)"
+    ],
+    "known_limitations": [
+      "Subjective elements — clinical gestalt component significant",
+      "Single-clinician validation — Mark's experience only",
+      "No formal RCT support для constitutional matching predictions",
+      "Theoretical extrapolations for membrane levels not yet fully validated",
+      "Biorhythmic dimension acknowledged but not incorporated",
+      "Multi-system phase parallelism handling not yet operationalized"
+    ],
+    "not_a_replacement_for": ["Clinical judgment", "Standard evidence-based medicine", "Specific guidelines (ESC, ADA, NICE, etc.)", "IRB protocols for research", "Multidisciplinary consultation in complex cases"],
+    "path_to_v2": ["Validated constitutional determination algorithm", "Full M-A2/A3/D2/D3 ten-section deployment", "Operationalized phase assessment scoring", "Treatment matrix integration (drug × constitution × membrane × phase)", "Validation data from documented cases"]
+  },
+  "quick_reference": {
+    "axis_1_constitution": "Triad of 3 energies with leading; Yin- or Yang-dominant; Quantity × Quality; 8 triads (T1-T8); slow/baseline",
+    "axis_2_membrane": "M-0, M-A1/A2/A3, M-S, M-D1/D2/D3; M-A vs M-D opposite treatment directions; pH = ENERGY axis NOT membrane; drug-induced dissociation possible; medium/weeks-months",
+    "axis_3_phase": "CA → PCL-A → Epicrisis → PCL-B → Normotonia; Yang/Yin alternation; KO-cycle progression; multi-system parallelism; fast",
+    "special_patterns": ["Lesion-systemic paradox (oncology)", "ADT predictable M-A → M-D catastrophe", "Pregnancy physiological M-A shift by trimester", "Phase-skipping in frail/elderly"],
+    "treatment": ["Layer 1: Base alkalinization (universal)", "Layer 2: Membrane-specific (dynamic)", "Layer 3: Phase-appropriate (variable timing)"],
+    "validation_status": ["Constitutional assessment: gestalt-based (open problem)", "Membrane direction: bridge axis biomarkers established", "Phase assessment: signatures described, scoring open", "Drug-axis matching: hypothesis-level (Matrix #1 first attempt)", "Full RCT validation: not yet done"],
+    "critical_constants": ["5 energies: Wind, Heat, Damp, Dry, Cold", "8 membranes: M-0, M-A1/2/3, M-S, M-D1/2/3", "5 phases: CA, PCL-A, Epicrisis, PCL-B, Normotonia", "Two-axis independence (pH vs Membrane): canonical 31-May-2026"]
+  }
+}
