@@ -34,7 +34,8 @@ python/
 │   ├── metacod_rf.py            # METACOD-RF drug DB loader/catalog (engine-internal, research-only, provenance-tagged)
 │   ├── constitutional_model.py  # METACOD-RF constitutional model loader (energy → biomarker quality panels)
 │   ├── predictive_matrix.py     # METACOD-RF predictive matrix loader (drug × constitutional triad → response prediction)
-│   └── three_axis_framework.py  # METACOD-RF three-axis framework loader (Constitution × Membrane × Phase)
+│   ├── three_axis_framework.py  # METACOD-RF three-axis framework loader (Constitution × Membrane × Phase)
+│   └── topographic_atlas.py     # METACOD-RF topographic atlas loader (tissue × 6-Ki × redox → ICD-10 + membrane code)
 ├── metacod_rf/
 │   ├── drugs_batch01_glp1.json  # METACOD-RF research drug DB — batch 01 (6 GLP-1 agents, pending Mark validation)
 │   ├── drugs_batch02_sglt2.json # METACOD-RF research drug DB — batch 02 (4 SGLT2 inhibitors, pending Mark validation)
@@ -44,12 +45,13 @@ python/
 │   ├── drugs_batch07_psychiatric.json     # METACOD-RF research drug DB — batch 07 (22 psychiatric, three-axis profiled; batch 06 cardio not in repo)
 │   ├── constitutional_model_v0_2.json     # METACOD-RF constitutional model: 5-energy biomarker quality panels (research, hypotheses)
 │   ├── predictive_matrix_01_semaglutide.json # METACOD-RF predictive matrix #1: semaglutide × 8 constitutional triads (hypotheses)
-│   └── three_axis_framework_v1_0.json     # METACOD-RF three-axis diagnostic framework (Constitution × Membrane × Phase; research)
+│   ├── three_axis_framework_v1_0.json     # METACOD-RF three-axis diagnostic framework (Constitution × Membrane × Phase; research)
+│   └── topographic_atlas_v6_0.json        # METACOD-RF topographic atlas: 6 systems / 10 organs / 100 tissue-reactivity patterns (6-Ki, research)
 ├── schemas/glp1_api.py          # Pydantic request/response models
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (323 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (331 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -140,7 +142,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 323 tests
+pytest                 # all 331 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
