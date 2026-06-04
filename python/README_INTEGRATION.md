@@ -36,12 +36,13 @@ python/
 │   ├── drugs_batch01_glp1.json  # METACOD-RF research drug DB — batch 01 (6 GLP-1 agents, pending Mark validation)
 │   ├── drugs_batch02_sglt2.json # METACOD-RF research drug DB — batch 02 (4 SGLT2 inhibitors, pending Mark validation)
 │   ├── drugs_batch03_biguanides_dpp4.json # METACOD-RF research drug DB — batch 03 (3 biguanides + 3 DPP-4, pending validation)
-│   └── drugs_batch04_old_school.json      # METACOD-RF research drug DB — batch 04 (SU/TZD/glinides/α-glucosidase, 7 agents)
+│   ├── drugs_batch04_old_school.json      # METACOD-RF research drug DB — batch 04 (SU/TZD/glinides/α-glucosidase, 7 agents)
+│   └── drugs_batch05_insulins.json        # METACOD-RF research drug DB — batch 05 (9 insulins + pramlintide — antidiabetic group complete)
 ├── schemas/glp1_api.py          # Pydantic request/response models
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (276 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (285 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -132,7 +133,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 276 tests
+pytest                 # all 285 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
