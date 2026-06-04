@@ -30,12 +30,15 @@ python/
 │   ├── resources.py             # rule_pack + drug_db singleton cache
 │   ├── metacod_bridge.py        # METACOD TCM bridge: assessment → energy/quantity synthesis + three-layer output
 │   ├── treatment_sequence.py    # reorder findings by TCM treatment sequence (wind→damp→cold→dry→heat)
-│   └── patient_facing_filter.py # Patient-Facing Filter: detect proprietary/internal terms leaking to patients
+│   ├── patient_facing_filter.py # Patient-Facing Filter: detect proprietary/internal terms leaking to patients
+│   └── metacod_rf.py            # METACOD-RF drug DB loader/catalog (engine-internal, research-only, provenance-tagged)
+├── metacod_rf/
+│   └── drugs_batch01_glp1.json  # METACOD-RF research drug DB — batch 01 (6 GLP-1 agents, pending Mark validation)
 ├── schemas/glp1_api.py          # Pydantic request/response models
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (235 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (246 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -126,7 +129,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 235 tests
+pytest                 # all 246 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)

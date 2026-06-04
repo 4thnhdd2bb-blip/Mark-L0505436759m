@@ -1,0 +1,682 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_drug_db",
+    "batch_id": "01-GLP1",
+    "version": "RF-2026-06-batch01",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Антидиабетические — GLP-1 receptor agonists",
+    "preparations_count": 6,
+    "author": "Mark Litvak (с AI-assistance)",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "source_tag_legend": {
+      "LBL": "FDA / EMA label",
+      "GL": "Clinical guideline (ESC/ADA/AACE/etc)",
+      "RCT": "конкретное RCT",
+      "CLASS": "class pattern extrapolation",
+      "OBS-Mark": "клиническое наблюдение Mark (требует заполнения)",
+      "RF": "METACOD research framework (theoretical)"
+    },
+    "class_notes": {
+      "obs_mark_to_fill": [
+        "Клинические наблюдения — какие пациенты лучше отвечают?",
+        "n_cases_observed — приблизительное количество пациентов на этом препарате в практике",
+        "Constitution-response patterns — конкретные observations",
+        "Comparative observations — semaglutide vs liraglutide vs tirzepatide в твоей практике"
+      ],
+      "sarcopenia_warning_mark_canonical": [
+        "Класс GLP-1 при длительном применении создаёт risk of sarcopenia через несколько механизмов:",
+        "1. Weight loss без proportional resistance training",
+        "2. Reduced protein intake через decreased appetite",
+        "3. Possible direct muscle effects (под изучением)"
+      ],
+      "metacod_rf_recommendation_any_glp1": [
+        "Baseline phase angle BIA если возможно",
+        "Protein intake target 1.2-1.5 g/kg",
+        "Resistance training 2-3x/week",
+        "Quarterly muscle mass monitoring при длительной therapy",
+        "Avoid в active oncological sarcopenia"
+      ],
+      "class_energy_pattern": [
+        "GLP-1 как класс — damp-reducing с drying tendency.",
+        "Эффективность при Yang-Earth и Yin-Earth (damp accumulation patterns).",
+        "Caution при Yin-Water (yang deficit) и Yin-Metal (existing dryness/fibrosis).",
+        "Класс хорошо работает в PCL-A phase (damp resolution), но может быть проблематичен в PCL-B (consolidation/fibrosis) из-за drying.",
+        "Это гипотеза, не валидированная RCT. Записано в [RF] статусе."
+      ],
+      "excluded_from_batch": [
+        "Combinations (например, IDegLira — degludec + liraglutide)",
+        "Newer agents в разработке (cagrilintide combinations, retatrutide triple agonist)",
+        "Historical agents (albiglutide — discontinued)"
+      ]
+    }
+  },
+  "drugs": [
+    {
+      "drug_id": "DRG-001",
+      "name_inn": "Semaglutide",
+      "name_ru": "Семаглутид",
+      "name_brand": "Ozempic (SC weekly), Rybelsus (oral daily), Wegovy (SC weekly, obesity dose)",
+      "status": "METACOD-RF",
+      "batch": "01-GLP1",
+      "molecular": {
+        "chemical_class": "GLP-1 receptor agonist (human GLP-1 analog with modifications)",
+        "mechanism_primary": [
+          "[LBL] Глюкозо-зависимая стимуляция инсулиновой секреции β-клетками + подавление глюкагона + замедление gastric emptying + центральное снижение аппетита"
+        ],
+        "mechanism_secondary": [
+          "[RCT] Cardioprotection (SUSTAIN-6, PIONEER-6) — снижение MACE",
+          "[RCT] Renoprotection (FLOW trial, 2024) — снижение CKD progression",
+          "[CLASS] Weight loss через сочетание appetite suppression + gastric emptying delay",
+          "[OBS-Mark] [пусто — заполнить из практики]"
+        ],
+        "half_life": {
+          "SC": "~7 дней (позволяет weekly dosing)",
+          "Oral": "~7 дней"
+        },
+        "excretion": "Метаболизируется через neutral endopeptidase, минимальный почечный клиренс",
+        "metabolism": "Не CYP-зависим, минимальный DDI потенциал через CYP"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults (Ozempic, Rybelsus)",
+          "[LBL] Chronic weight management adults BMI ≥30 или ≥27 with comorbidity (Wegovy)",
+          "[LBL] CV risk reduction в T2DM с CV disease (Ozempic, 2020)",
+          "[LBL] Pediatric obesity ≥12 yrs (Wegovy, 2022)"
+        ],
+        "emerging": [
+          "[RCT] NASH (SELECT-NASH ongoing)",
+          "[RCT] Alzheimer disease (evoke и evoke+ trials)",
+          "[GL] Включён в ESC 2023 guidelines для CV prevention в T2DM"
+        ]
+      },
+      "dosing": {
+        "dose_SC_diabetes": "Start 0.25mg weekly × 4w → 0.5mg → 1.0mg → max 2.0mg",
+        "dose_SC_obesity": "Start 0.25mg → titrate to 2.4mg weekly",
+        "dose_oral": "3mg × 30d → 7mg → max 14mg daily",
+        "dose_oral_administration": "[LBL] Натощак, утром, 1 стакан воды (не больше 120 мл), 30 минут до первой еды/питья/препаратов"
+      },
+      "energy_vectors_rf": {
+        "energy_primary": [
+          "[RF] Damp-reducing (сильный) — через снижение accumulation, weight loss, замедление пищеварения"
+        ],
+        "energy_secondary": [
+          "[RF] Cool (mild) — через anti-inflammatory effects",
+          "[RF] Drying tendency (caution) — при длительном применении возможна Yin depletion"
+        ],
+        "constitution_best_match": [
+          "[RF] Yang-Earth (metabolic excess, accumulation)",
+          "[RF] Yin-Earth (chronic damp accumulation) — но с осторожностью к Yin depletion"
+        ],
+        "constitution_caution": [
+          "[RF] Yin-Water (cold + yang deficit) — может усилить cold через gastric stasis",
+          "[RF] Yin-Metal (chronic dryness/fibrosis) — drying tendency усугубит",
+          "[RF] Yin-Fire (chronic Heat) — относительно нейтрально, обычно безопасно"
+        ],
+        "constitution_avoid": [
+          "[OBS-Mark] [Sarcopenic Yin types] — катаболический эффект на мышечную массу"
+        ],
+        "phase_match": [
+          "[RF] PCL-A (damp resolution phase) — естественная синергия",
+          "[RF] Normotonia maintenance — для веса"
+        ],
+        "phase_caution": [
+          "[RF] CA (active conflict, sympathetic state) — gastric stasis ухудшит уже сниженный аппетит",
+          "[RF] PCL-B (consolidation, fibrosis) — drying tendency усугубит"
+        ]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": [
+          "[RF] M-A → M-0 (anabolic correction toward balance) — при ожирении/метабсиндроме",
+          "[RF] При длительном применении: риск дрейфа в M-D direction (катаболический shift)"
+        ],
+        "membrane_caution": [
+          "[RF] AVOID в M-D2/M-D3 — катаболическое усиление",
+          "[OBS-Mark] [Active oncological sarcopenia] — критическая зона избегания"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD — заполнить из практики: какие пациенты лучше отвечают? какие хуже? patterns of GI tolerance vs constitution? long-term muscle mass observations?]",
+        "n_cases_observed": "[TBD]",
+        "typical_response_window": {
+          "glycemic": "4-12 weeks",
+          "weight": "16-24 weeks (Wegovy doses)",
+          "obs_mark": "[OBS-Mark] [Mark's typical timeline observations]"
+        }
+      },
+      "safety": {
+        "ddi_critical_2_star": [
+          "[LBL] Sulfonylurea — severe hypoglycemia, требует ↓ dose сульфонилмочевины 50%",
+          "[LBL] Rapid-acting insulin — severe hypoglycemia, careful titration"
+        ],
+        "ddi_critical_1_star": [
+          "[GL] Warfarin (oral semaglutide может изменить absorption других препаратов)",
+          "[LBL] Любые препараты с узким therapeutic window требуют monitoring (gastric emptying effect)"
+        ],
+        "ddi_chrono": [
+          "[LBL] Oral semaglutide: 30 минут до любых препаратов, иначе reduced absorption",
+          "[LBL] Levothyroxine: разделять с oral semaglutide минимум 30 минут (preferably больше)"
+        ],
+        "contraindications": [
+          "[LBL] Medullary thyroid carcinoma personal/family history",
+          "[LBL] MEN2 syndrome",
+          "[LBL] Severe gastroparesis (Mark canonical: расширить до moderate gastroparesis)",
+          "[LBL] Active acute pancreatitis",
+          "[OBS-Mark] [Active oncologic sarcopenia — Mark canonical]",
+          "[GL] Pregnancy (FDA category — discontinue 2 months before planned conception)"
+        ],
+        "relative_contraindications": [
+          "[GL] History of pancreatitis (без активного процесса)",
+          "[GL] Severe GERD",
+          "[GL] Active biliary disease",
+          "[GL] Eating disorder history",
+          "[OBS-Mark] [Moderate sarcopenia/frailty — Mark canonical caution]"
+        ],
+        "pregnancy": "[LBL] Avoid; discontinue 2 months before planned conception due to long half-life",
+        "breastfeeding": "[LBL] No data; avoid",
+        "pediatric": "[LBL] Wegovy approved ≥12y for obesity; Ozempic не одобрен <18y",
+        "geriatric": [
+          "[GL] Caution; risk of dehydration, falls; начинать с минимальной дозы",
+          "[GL] Pre-treatment phase angle BIA рекомендуется (Mark canonical)"
+        ],
+        "renal": [
+          "[LBL] eGFR <15: avoid",
+          "[LBL] eGFR 15-30: caution, начинать с минимальной дозы",
+          "[LBL] eGFR >30: стандартное dosing"
+        ],
+        "hepatic": "[LBL] No specific adjustment; caution severe hepatic disease"
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Nausea (very common, 15-40%, dose-dependent)",
+          "[LBL] Diarrhea, vomiting",
+          "[LBL] Constipation",
+          "[LBL] Decreased appetite (часто желательный effect)",
+          "[RF energy interpretation] heat_GI_stagnation_rising для nausea"
+        ],
+        "serious": [
+          "[LBL] Acute pancreatitis (uncommon, severe)",
+          "[LBL] Biliary disease, cholecystitis (uncommon)",
+          "[LBL] AKI (related to dehydration from vomiting)",
+          "[LBL] Diabetic retinopathy worsening при быстром HbA1c drop",
+          "[LBL] Severe gastrointestinal disease (включая ileus)"
+        ],
+        "rare_critical": [
+          "[LBL] Anaphylaxis",
+          "[LBL] Medullary thyroid carcinoma (signal в животных, не подтверждён у людей, но class warning)",
+          "[LBL] Suicidal ideation (post-marketing signals, активно изучается)"
+        ]
+      },
+      "references": [
+        "FDA label Ozempic (current)",
+        "FDA label Wegovy (current)",
+        "FDA label Rybelsus (current)",
+        "SUSTAIN-6 (Marso et al, NEJM 2016) — CV outcomes",
+        "PIONEER trials series",
+        "STEP trials (obesity)",
+        "SELECT trial (CV outcomes in obesity без T2DM, 2023)",
+        "FLOW trial (CKD outcomes, 2024)",
+        "ESC 2023 Diabetes Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true,
+        "external_sources_complete": true,
+        "ready_for_clinical_research_use": "pending Mark validation"
+      }
+    },
+    {
+      "drug_id": "DRG-002",
+      "name_inn": "Liraglutide",
+      "name_ru": "Лираглутид",
+      "name_brand": "Victoza (T2DM), Saxenda (obesity)",
+      "status": "METACOD-RF",
+      "batch": "01-GLP1",
+      "molecular": {
+        "chemical_class": "GLP-1 receptor agonist (human GLP-1 analog with C16 fatty acid chain)",
+        "mechanism_primary": [
+          "[LBL] Аналогичен семаглутиду — стимуляция инсулина glucose-dependent, подавление глюкагона, замедление gastric emptying, центральное снижение аппетита"
+        ],
+        "mechanism_secondary": [
+          "[RCT] LEADER trial (2016) — CV benefit в T2DM с CV risk",
+          "[CLASS] Weight loss, но менее выражен чем semaglutide или tirzepatide"
+        ],
+        "half_life": "~13 hours (daily dosing required)",
+        "excretion": "Метаболизируется через DPP-4 и neutral endopeptidase",
+        "metabolism": "Не CYP-зависим"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults (Victoza)",
+          "[LBL] T2DM pediatric ≥10y (Victoza, 2019)",
+          "[LBL] Chronic weight management adults BMI ≥30 или ≥27 with comorbidity (Saxenda)",
+          "[LBL] Pediatric obesity ≥12y (Saxenda)",
+          "[LBL] CV risk reduction в T2DM с established CVD (Victoza)"
+        ],
+        "emerging": [
+          "[RCT] NASH studies, более ранние чем semaglutide"
+        ]
+      },
+      "dosing": {
+        "dose_SC_diabetes": "Start 0.6mg daily × 1w → 1.2mg → 1.8mg max",
+        "dose_SC_obesity": "Start 0.6mg → titrate weekly to 3.0mg daily",
+        "administration": "SC, любое время дня, с едой или без"
+      },
+      "energy_vectors_rf": {
+        "energy_primary": [
+          "[RF] Damp-reducing (умеренный, менее выраженный чем semaglutide)"
+        ],
+        "energy_secondary": [
+          "[RF] Cool (mild)",
+          "[RF] Drying tendency (caution при длительном применении)"
+        ],
+        "constitution_best_match": [
+          "[RF] Yang-Earth, Yin-Earth — те же что semaglutide, но с меньшей силой эффекта"
+        ],
+        "constitution_caution": [
+          "[RF] Yin-Water, Yin-Metal — как класс"
+        ],
+        "constitution_avoid": [
+          "[OBS-Mark] [Sarcopenic Yin types] — class warning"
+        ],
+        "phase_match": [
+          "[RF] PCL-A, Normotonia"
+        ],
+        "phase_caution": [
+          "[RF] CA, PCL-B"
+        ]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": [
+          "[RF] M-A → M-0 при ожирении/метабсиндроме"
+        ],
+        "membrane_caution": [
+          "[RF] AVOID в M-D2/M-D3",
+          "[OBS-Mark] [Active oncological sarcopenia]"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "n_cases_observed": "[TBD]",
+        "liraglutide_vs_semaglutide_obs": "[OBS-Mark] [Mark, как ты различаешь когда выбрать какой? Это важная клиническая нюансировка]"
+      },
+      "safety": {
+        "ddi_critical_2_star": [
+          "[LBL] Sulfonylurea — severe hypoglycemia",
+          "[LBL] Insulin — severe hypoglycemia"
+        ],
+        "ddi_chrono": [
+          "[LBL] Less critical chrono issues чем oral semaglutide"
+        ],
+        "contraindications": [
+          "[LBL] MTC personal/family, MEN2",
+          "[LBL] Severe gastroparesis",
+          "[LBL] Active pancreatitis",
+          "[LBL] Pregnancy",
+          "[OBS-Mark] [Active oncologic sarcopenia]"
+        ],
+        "pregnancy": "avoid",
+        "breastfeeding": "limited data, avoid",
+        "pediatric": [
+          "[LBL] T2DM ≥10y (Victoza)",
+          "[LBL] Obesity ≥12y (Saxenda)"
+        ],
+        "geriatric": "caution, dose-adjust",
+        "renal": [
+          "[LBL] eGFR <15: avoid (some labels)",
+          "[LBL] eGFR 15-30: limited data, caution",
+          "[LBL] eGFR >30: стандартное"
+        ],
+        "hepatic": "caution severe"
+      },
+      "adverse_events": {
+        "common": [
+          "nausea, vomiting, diarrhea, constipation (как класс)"
+        ],
+        "serious": [
+          "pancreatitis, biliary, AKI, diabetic retinopathy"
+        ],
+        "rare_critical": [
+          "anaphylaxis, MTC (class warning), suicidal ideation signals"
+        ]
+      },
+      "references": [
+        "FDA label Victoza",
+        "FDA label Saxenda",
+        "LEADER trial (Marso et al, NEJM 2016)",
+        "SCALE trials series (obesity)",
+        "ESC 2023 Diabetes Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true,
+        "external_sources_complete": true
+      }
+    },
+    {
+      "drug_id": "DRG-003",
+      "name_inn": "Dulaglutide",
+      "name_ru": "Дулаглутид",
+      "name_brand": "Trulicity",
+      "status": "METACOD-RF",
+      "batch": "01-GLP1",
+      "molecular": {
+        "chemical_class": "GLP-1 receptor agonist (Fc-fusion protein, modified GLP-1 attached to IgG4 Fc)",
+        "mechanism_primary": [
+          "[LBL] Класс-эффекты GLP-1"
+        ],
+        "mechanism_distinct": "Fc-fusion даёт длительный half-life и weekly dosing с менее быстрой titration чем semaglutide",
+        "half_life": "~5 days (weekly dosing)",
+        "excretion": "Протеолитический catabolism",
+        "metabolism": "Не CYP, не renal"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults",
+          "[LBL] T2DM pediatric ≥10y",
+          "[LBL] CV risk reduction в T2DM с established CVD or multiple CV risk factors (REWIND, 2019)"
+        ],
+        "emerging": [
+          "[RCT] Stroke prevention в T2DM (REWIND showed signal)"
+        ]
+      },
+      "dosing": {
+        "dose": "0.75mg weekly start → 1.5mg → 3.0mg → 4.5mg max",
+        "administration": "SC weekly, любое время дня, с едой или без, любой день недели"
+      },
+      "energy_vectors_rf": {
+        "energy_primary": ["[RF] Damp-reducing (умеренный)"],
+        "energy_secondary": ["[RF] Cool, mild drying"],
+        "constitution_best_match": ["[RF] Yang-Earth, Yin-Earth"],
+        "constitution_caution": ["[RF] Yin-Water, Yin-Metal (class pattern)"],
+        "phase_match": ["[RF] PCL-A, Normotonia"],
+        "phase_caution": ["[RF] CA, PCL-B (class pattern)"]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": ["[RF] M-A → M-0 (class pattern)"],
+        "membrane_caution": ["[RF] M-D2/M-D3 avoid (class pattern)"]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "dulaglutide_distinct_features": "[OBS-Mark] [Mark, твоё впечатление: dulaglutide tolerability vs semaglutide?]"
+      },
+      "safety": {
+        "ddi_critical_2_star": ["sulfonylurea, insulin (class)"],
+        "ddi_chrono": ["minimal (weekly SC injection)"],
+        "contraindications": ["MTC/MEN2, severe gastroparesis, pancreatitis, pregnancy"],
+        "renal": "eGFR no specific adjustment; caution severe",
+        "hepatic": "caution severe",
+        "pediatric": "≥10y approved (T2DM)",
+        "geriatric": "caution"
+      },
+      "adverse_events": {
+        "common": ["nausea, diarrhea, vomiting (mild-to-moderate, часто проходит)"],
+        "serious": ["pancreatitis, biliary, AKI, retinopathy"],
+        "rare_critical": ["anaphylaxis, MTC class warning"]
+      },
+      "references": [
+        "FDA label Trulicity",
+        "REWIND trial (Gerstein et al, Lancet 2019)",
+        "AWARD trials series",
+        "ESC 2023 Diabetes Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true
+      }
+    },
+    {
+      "drug_id": "DRG-004",
+      "name_inn": "Exenatide",
+      "name_ru": "Эксенатид",
+      "name_brand": "Byetta (immediate release), Bydureon (extended release weekly)",
+      "status": "METACOD-RF",
+      "batch": "01-GLP1",
+      "molecular": {
+        "chemical_class": "GLP-1 receptor agonist (synthetic exendin-4, from Gila monster saliva)",
+        "mechanism_primary": ["[LBL] Class GLP-1 effects"],
+        "mechanism_distinct": [
+          "[LBL] Exendin-4 derived (not human GLP-1 analog) — несколько отличный binding profile",
+          "[CLASS] Higher immunogenicity (anti-drug antibodies) чем human-analog GLP-1"
+        ],
+        "half_life": {
+          "IR": "2.4 hours (BID dosing required)",
+          "ER": "~2 weeks effective duration (weekly)"
+        },
+        "excretion": "Renal (glomerular filtration) — significant",
+        "metabolism": "Renal"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults (Byetta, Bydureon)"
+        ],
+        "not_approved": [
+          "NO obesity approval",
+          "NO CV indication (EXSCEL trial neutral on primary endpoint)"
+        ]
+      },
+      "dosing": {
+        "dose_IR": "5 mcg SC BID × 1 month → 10 mcg BID; within 60 min before morning + evening meals",
+        "dose_ER": "2 mg SC once weekly, any time"
+      },
+      "energy_vectors_rf": {
+        "energy_primary": ["[RF] Damp-reducing (как класс)"],
+        "energy_secondary": [
+          "[RF] Higher immunogenicity may cause mild Wind-Heat reaction (injection site)",
+          "[RF] Renal excretion → caution renal yin pattern"
+        ],
+        "constitution_best_match": ["[RF] Yang-Earth (class)"],
+        "constitution_caution": [
+          "[RF] Yin-Water (especially with renal sensitivity)",
+          "[RF] Yin-Metal (class)"
+        ],
+        "constitution_avoid": ["[OBS-Mark] [Sarcopenic Yin types]"]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": ["[RF] M-A → M-0 (class)"],
+        "phase_match": ["[RF] PCL-A, Normotonia (class)"]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "exenatide_vs_other_GLP1": [
+          "[OBS-Mark] [Mark, есть ли клиническая причина выбирать exenatide vs newer agents в современной практике?]",
+          "[RF note: в современной практике exenatide чаще вытесняется semaglutide/dulaglutide; включён в базу для полноты]"
+        ]
+      },
+      "safety": {
+        "ddi_critical_2_star": ["sulfonylurea, insulin (class)"],
+        "ddi_chrono": [
+          "[LBL] IR: gastric emptying delay особенно выражен — может affect absorption любых препаратов",
+          "[LBL] Warfarin: monitor INR"
+        ],
+        "contraindications": [
+          "[LBL] eGFR <30 (renal excretion) — критическое ограничение vs other GLP-1",
+          "[LBL] Severe gastroparesis",
+          "[LBL] MTC/MEN2 (class)",
+          "[LBL] Pregnancy"
+        ],
+        "pregnancy": "avoid",
+        "renal": [
+          "[LBL] eGFR <30: CONTRAINDICATED (важное отличие от semaglutide/dulaglutide)",
+          "[LBL] eGFR 30-50: caution"
+        ]
+      },
+      "adverse_events": {
+        "common": ["nausea (более выражен чем semaglutide), injection site reactions"],
+        "serious": ["pancreatitis, AKI (особенно при существующем CKD), severe injection site reactions"],
+        "rare_critical": ["anaphylaxis, MTC class warning"]
+      },
+      "references": [
+        "FDA label Byetta, Bydureon",
+        "EXSCEL trial (Holman et al, NEJM 2017) — CV neutral",
+        "ESC 2023 Diabetes Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true,
+        "note": "Exenatide часто менее предпочтителен в современной практике чем semaglutide/dulaglutide из-за renal limitation и более высокого immunogenicity."
+      }
+    },
+    {
+      "drug_id": "DRG-005",
+      "name_inn": "Lixisenatide",
+      "name_ru": "Ликсисенатид",
+      "name_brand": "Adlyxin (US), Lyxumia (EU)",
+      "status": "METACOD-RF",
+      "batch": "01-GLP1",
+      "molecular": {
+        "chemical_class": "GLP-1 receptor agonist (exendin-4 derivative, modified)",
+        "mechanism_primary": ["[LBL] Class GLP-1 effects"],
+        "mechanism_distinct": [
+          "[LBL] Short-acting GLP-1 — выраженный postprandial glucose effect через gastric emptying delay",
+          "[CLASS] Less significant on fasting glucose чем long-acting agents"
+        ],
+        "half_life": "~3 hours",
+        "excretion": "Renal",
+        "metabolism": "Renal"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults (limited markets — discontinued в US в 2023, но still available EU)"
+        ]
+      },
+      "dosing": {
+        "dose": "10 mcg SC once daily × 14d → 20 mcg daily, within 1 hour before breakfast (or main meal)"
+      },
+      "energy_vectors_rf": {
+        "energy_primary": ["[RF] Damp-reducing (postprandial focus)"],
+        "constitution_best_match": ["[RF] Yang-Earth с postprandial spikes"],
+        "constitution_caution": ["[RF] Yin-Water (class), renal sensitivity"]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "note": "Limited current relevance — lixisenatide вытесняется longer-acting agents"
+      },
+      "safety": {
+        "ddi_critical_2_star": ["sulfonylurea, insulin (class)"],
+        "ddi_chrono": [
+          "[LBL] Significant gastric emptying delay → affects absorption of other oral meds"
+        ],
+        "contraindications": [
+          "[LBL] eGFR <30",
+          "[LBL] Severe gastroparesis (especially relevant — short-acting effect выраженный)",
+          "[LBL] MTC/MEN2 (class)",
+          "[LBL] Pregnancy"
+        ]
+      },
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true,
+        "note": "Включён для полноты класса; clinically less used."
+      }
+    },
+    {
+      "drug_id": "DRG-006",
+      "name_inn": "Tirzepatide",
+      "name_ru": "Тирзепатид",
+      "name_brand": "Mounjaro (T2DM), Zepbound (obesity)",
+      "status": "METACOD-RF",
+      "batch": "01-GLP1",
+      "note": "Technically dual GIP/GLP-1 agonist, not pure GLP-1 — но включён в этот batch как клинически ближайший родственник",
+      "molecular": {
+        "chemical_class": "Dual GIP and GLP-1 receptor agonist (synthetic peptide)",
+        "mechanism_primary": [
+          "[LBL] Активация и GLP-1, и GIP receptors. GIP component добавляет improved insulin sensitivity и additional weight effect."
+        ],
+        "mechanism_secondary": [
+          "[RCT] SURPASS trials series — больший weight loss чем semaglutide head-to-head",
+          "[RCT] SURMOUNT trials series — obesity outcomes",
+          "[RCT] Emerging CV signal (SURPASS-CVOT ongoing)"
+        ],
+        "half_life": "~5 days (weekly dosing)",
+        "excretion": "Протеолитический catabolism, как dulaglutide",
+        "metabolism": "Не CYP, не renal"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults (Mounjaro)",
+          "[LBL] Chronic weight management (Zepbound, 2023)",
+          "[LBL] OSA in adults with obesity (Zepbound, 2024 expansion)"
+        ],
+        "emerging": [
+          "[RCT] HFpEF (SUMMIT trial, 2024 — позитивный)",
+          "[RCT] NASH (synergistic mechanism через GIP)"
+        ]
+      },
+      "dosing": {
+        "dose": "2.5mg weekly × 4w → 5mg → titrate up to 15mg max",
+        "administration": "SC weekly, any day, any time"
+      },
+      "energy_vectors_rf": {
+        "energy_primary": [
+          "[RF] Damp-reducing (сильнее чем semaglutide из-за dual mechanism)"
+        ],
+        "energy_secondary": [
+          "[RF] Cool effect более выражен",
+          "[RF] Drying tendency более выражена при длительном применении (caution)"
+        ],
+        "constitution_best_match": [
+          "[RF] Yang-Earth excess (наиболее выраженный effect)",
+          "[RF] Yin-Earth — с особой осторожностью к Yin depletion при длительной терапии"
+        ],
+        "constitution_caution": [
+          "[RF] Yin-Water — strong damp-reducing effect может разрушить fragile yin balance",
+          "[RF] Yin-Metal — drying усиление"
+        ],
+        "constitution_avoid": [
+          "[OBS-Mark] [Active sarcopenia — особенно critical due to more potent weight effect]"
+        ]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": [
+          "[RF] M-A → M-0 (более быстрый и выраженный чем semaglutide)",
+          "[RF] Higher risk of overshoot to M-D при длительной high-dose therapy"
+        ],
+        "membrane_caution": [
+          "[RF] AVOID в любой M-D direction",
+          "[OBS-Mark] [Active oncological sarcopenia — категорически]"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "tirzepatide_vs_semaglutide_obs": "[OBS-Mark] [Mark, у тебя уже есть клинический опыт? Какие пациенты лучше отвечают на dual mechanism?]"
+      },
+      "safety": {
+        "ddi_critical_2_star": ["sulfonylurea, insulin (class)"],
+        "ddi_chrono": ["similar to semaglutide weekly"],
+        "contraindications": [
+          "[LBL] MTC/MEN2 (class)",
+          "[LBL] Severe gastroparesis",
+          "[LBL] Active pancreatitis",
+          "[LBL] Pregnancy",
+          "[OBS-Mark] [Active sarcopenia — Mark canonical, сильнее чем для semaglutide из-за potency]"
+        ],
+        "pregnancy": "avoid",
+        "renal": "[LBL] No specific dose adjustment, caution severe",
+        "hepatic": "[LBL] No specific adjustment"
+      },
+      "adverse_events": {
+        "common": ["nausea (как класс), vomiting, diarrhea, constipation (slightly higher rate чем semaglutide в head-to-head)"],
+        "serious": ["pancreatitis, gallbladder disease, AKI, retinopathy, severe GI"],
+        "rare_critical": ["anaphylaxis, MTC class warning, suicidal ideation signals (под наблюдением)"],
+        "distinct_concerns": [
+          "[RCT] SURMOUNT trials: weight loss больше чем semaglutide → больший риск sarcopenia при отсутствии resistance training + protein"
+        ]
+      },
+      "references": [
+        "FDA label Mounjaro",
+        "FDA label Zepbound",
+        "SURPASS trials series (T2DM)",
+        "SURMOUNT trials series (obesity)",
+        "SUMMIT trial (HFpEF, 2024)",
+        "ESC 2023 Diabetes Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true,
+        "note": "Newest in class, наиболее активная зона разработки. Mark canonical sarcopenia caution особенно relevant из-за potency."
+      }
+    }
+  ]
+}
