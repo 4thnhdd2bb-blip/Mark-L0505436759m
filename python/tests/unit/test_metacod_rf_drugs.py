@@ -104,6 +104,28 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-117": "Diazepam",
         "DRG-118": "Clonazepam",
     },
+    "11-Gastroenterology": {
+        "DRG-180": "Omeprazole",
+        "DRG-181": "Pantoprazole",
+        "DRG-182": "Esomeprazole",
+        "DRG-183": "Lansoprazole",
+        "DRG-184": "Rabeprazole",
+        "DRG-185": "Famotidine",
+        "DRG-186": "Ranitidine",
+        "DRG-187": "Aluminum hydroxide + magnesium hydroxide",
+        "DRG-188": "Sucralfate",
+        "DRG-189": "Metoclopramide",
+        "DRG-190": "Domperidone",
+        "DRG-191": "Ondansetron",
+        "DRG-192": "Granisetron",
+        "DRG-193": "Prochlorperazine",
+        "DRG-194": "Mesalamine / Mesalazine (5-aminosalicylic acid)",
+        "DRG-195": "Vedolizumab",
+        "DRG-196": "Ustekinumab",
+        "DRG-197": "Loperamide",
+        "DRG-198": "Polyethylene glycol 3350",
+        "DRG-199": "Lactulose",
+    },
 }
 
 
