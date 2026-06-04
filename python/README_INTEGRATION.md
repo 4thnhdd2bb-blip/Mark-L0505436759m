@@ -47,7 +47,7 @@ python/
 │   ├── constitutional_model_v0_2.json     # METACOD-RF constitutional model: 5-energy biomarker quality panels (research, hypotheses)
 │   ├── predictive_matrix_01_semaglutide.json # METACOD-RF predictive matrix #1: semaglutide × 8 constitutional triads (hypotheses)
 │   ├── three_axis_framework_v1_0.json     # METACOD-RF three-axis diagnostic framework (Constitution × Membrane × Phase; research)
-│   ├── topographic_atlas_v6_0.json        # METACOD-RF topographic atlas: 6 systems / 10 organs / 100 tissue-reactivity patterns (6-Ki, research)
+│   ├── topographic_atlas_v6_0.json        # METACOD-RF topographic atlas: 10 systems / 14 organs / 140 tissue-reactivity patterns (6-Ki, research)
 │   └── symptom_registry_v3_0.json         # METACOD-RF symptom registry: 35 detailed of 172 (histogenetic layer × 6-Ki × phase × membrane drift)
 ├── schemas/glp1_api.py          # Pydantic request/response models
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)

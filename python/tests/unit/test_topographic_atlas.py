@@ -19,7 +19,10 @@ from services.topographic_atlas import (
 
 pytestmark = pytest.mark.unit
 
-EXPECTED_SYSTEMS = {"endocrine", "nervous", "reproductive", "kinetic", "immune", "sensory"}
+EXPECTED_SYSTEMS = {
+    "endocrine", "nervous", "reproductive", "kinetic", "immune", "sensory",
+    "integumentary", "male_reproductive", "adrenal", "musculo_fascial",
+}
 
 
 @pytest.fixture(scope="module")
@@ -41,17 +44,19 @@ def test_six_systems_complete(atlas):
     assert atlas.meta.get("systems_pending") == []
 
 
-def test_ten_organs_present(atlas):
-    # endocrine(2) + nervous(1) + reproductive(1) + kinetic(1) + immune(3) + sensory(2)
+def test_fourteen_organs_present(atlas):
+    # endocrine(2) + nervous(1) + reproductive(1) + kinetic(1) + immune(3) +
+    # sensory(2) + integumentary(1) + male_reproductive(1) + adrenal(1) +
+    # musculo_fascial(1) = 14
     organs = atlas.organs()
-    assert len(organs) == 10
+    assert len(organs) == 14
     for o in organs:
         assert o.get("label") and o.get("patterns")
 
 
 def test_every_pattern_has_full_structure(atlas):
     patterns = list(atlas.patterns())
-    assert len(patterns) == 100  # 10 organs × 10 energy/redox rows
+    assert len(patterns) == 140  # 14 organs × 10 energy/redox rows
     for p in patterns:
         missing = set(PATTERN_KEYS) - set(p.keys())
         assert not missing, f"pattern missing {sorted(missing)}: {p.get('energy_redox')}"
