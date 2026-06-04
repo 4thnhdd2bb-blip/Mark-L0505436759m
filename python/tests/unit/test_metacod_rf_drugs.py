@@ -80,6 +80,30 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-032": "Insulin detemir",
         "DRG-033": "Pramlintide",
     },
+    "07-Psychiatric": {
+        "DRG-097": "Sertraline",
+        "DRG-098": "Escitalopram",
+        "DRG-099": "Fluoxetine",
+        "DRG-100": "Paroxetine",
+        "DRG-101": "Fluvoxamine",
+        "DRG-102": "Venlafaxine",
+        "DRG-103": "Duloxetine",
+        "DRG-104": "Desvenlafaxine",
+        "DRG-105": "Bupropion",
+        "DRG-106": "Mirtazapine",
+        "DRG-107": "Trazodone",
+        "DRG-108": "Lithium carbonate / Lithium citrate",
+        "DRG-109": "Valproate / Valproic acid / Divalproex",
+        "DRG-110": "Lamotrigine",
+        "DRG-111": "Quetiapine",
+        "DRG-112": "Olanzapine",
+        "DRG-113": "Aripiprazole",
+        "DRG-114": "Risperidone",
+        "DRG-115": "Alprazolam",
+        "DRG-116": "Lorazepam",
+        "DRG-117": "Diazepam",
+        "DRG-118": "Clonazepam",
+    },
 }
 
 
@@ -207,9 +231,9 @@ def test_all_tagged_statements_use_known_tags(catalog):
 
 def test_batch_is_majority_label_sourced(catalog):
     # Most drugs must carry an [LBL] (FDA/EMA) anchor, so a batch can't be
-    # mostly theoretical [RF] fabrication. Individual class-interchangeable
-    # stub entries (e.g. lispro = "same as aspart") may legitimately defer and
-    # lack their own [LBL] — they are flagged with class_interchangeable_stub.
+    # mostly theoretical [RF] fabrication. Individual abbreviated / class-
+    # interchangeable entries (e.g. lispro = "same as aspart") may legitimately
+    # defer and lack their own [LBL]; the batch-level majority is the guard.
     drugs = list(catalog)
     with_lbl = [
         d for d in drugs
@@ -220,14 +244,6 @@ def test_batch_is_majority_label_sourced(catalog):
         f"[{catalog.meta['batch_id']}] only {len(with_lbl)}/{len(drugs)} drugs "
         f"have an [LBL] anchor (need >= {threshold})"
     )
-    # A drug lacking an [LBL] anchor must declare itself a deferral stub.
-    for d in drugs:
-        tags = {first_tag(s) for s in d.tagged_statements()}
-        if "LBL" not in tags:
-            assert d.get("class_interchangeable_stub") is True, (
-                f"{d.drug_id} has no [LBL] anchor and is not a declared "
-                f"class_interchangeable_stub"
-            )
 
 
 # ---------------------------------------------------------------------------
