@@ -1,0 +1,170 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_constitutional_model_v0_1",
+    "document": "METACOD Constitutional Model",
+    "version": "0.1",
+    "subtitle": "Минимальная честная фиксация двухосевой модели (Constitution × Process/Phase)",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "author": "Mark Litvak, MD (formalization with AI-assistance)",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "relationship_to_v0_2": "v0.1 содержит концептуальные части A-E (constitutional axis / process-phase axis / clinical scenarios / limitations / open research questions). v0.2 НЕ переписывает их — добавляет части F (biomarker panels) и G (cross-reference). Обе валидны.",
+    "methodological_principle": "Constitution и Process/Phase — две независимые оси. Phase описывает текущий процесс; Constitution описывает baseline характер пациента. Каждая ось оценивается independently, treatment учитывает обе.",
+    "based_on": [
+      "Park 6-energy framework (стрипнут до 5 после канонической корректировки 2026)",
+      "Mark's clinical experience",
+      "Дискуссии в development sessions"
+    ],
+    "not_based_on": [
+      "Hamer specific psychogenic claims",
+      "Revici-style universal mechanism claims"
+    ],
+    "compatible_with": [
+      "Mainstream inflammation resolution biology",
+      "Modern precision medicine principles"
+    ],
+    "interpretation_note": [
+      "Минимальная честная фиксация v0.1 — сознательное избегание overspecification.",
+      "Premature formalization creates false precision; лучше честный v0.1 с явными «open problem» пометками, чем красивая таблица с pretend solutions.",
+      "Не для клинического применения. Применение к пациентам требует: validated algorithm для constitutional determination (не существует), pre-specified study protocol, IRB approval, documentation в Case Registry."
+    ],
+    "critical_constants": {
+      "energies": ["wind", "heat", "damp", "dry", "cold"],
+      "phases": ["CA", "PCL-A", "Epicrisis", "PCL-B", "Normotonia"]
+    }
+  },
+  "part_A_constitutional_axis": {
+    "triad_principle": {
+      "definition": "Конституция = композиция трёх энергий (не одна), из канонической 5-element системы (Wind, Heat, Damp, Dry, Cold).",
+      "structure": [
+        "3 энергии, упорядоченные по силе",
+        "Ведущая энергия = последняя в последовательности, она именует constitutional type",
+        "Пример: «Yin-Cold strong + Yin-Wind strong + Yin-Heat strong (leading)» = type «Yin-Heat»"
+      ]
+    },
+    "yin_yang_dominance": {
+      "principle": "Конституция организуется по основному полюсу: Yin-dominant ИЛИ Yang-dominant. Это две разные структуры, не варианты одной.",
+      "yin_dominant": "3 strong Yin energies (incl. ведущая) + 2 weak Yin; compensatorily 2 strong Yang + 3 weak Yang",
+      "yang_dominant": "3 strong Yang energies (incl. ведущая) + 2 weak Yang; compensatorily 2 strong Yin + 3 weak Yin"
+    },
+    "baseline_thermal_asymmetry": "Yang-energies всегда несколько теплее baseline чем Yin. Yin содержит и тёплые, и холодные аспекты, но в целом холоднее Yang. Сильное нарушение baseline асимметрии = manifest pathology marker.",
+    "quantity": {
+      "definition": "Total flow конкретной энергии = sum of Yin-component + Yang-component (метафора реки: много воды/мощный поток vs мало воды/медленный поток).",
+      "four_variants": [
+        "Strong quantity + clean quality",
+        "Strong quantity + dirty quality",
+        "Weak quantity + clean quality",
+        "Weak quantity + dirty quality"
+      ],
+      "therapeutic_implication": "Излишнее quantity обычно подлежит снижению independent of quality."
+    },
+    "quality": {
+      "definition": "Physiological correctness энергии, manifested через конкретные biomarkers.",
+      "working_example": "Высокий гемоглобин = high quality Heat; низкий = low quality Heat.",
+      "properties": [
+        "Quality имеет optimal range (не unipolar) — слишком высокая quality тоже патологична (polycythemia)",
+        "Каждая энергия имеет свой набор quality markers (гемоглобин — пример только для Heat)",
+        "Quality и quantity независимы — можно иметь strong quantity с low quality, и т.д."
+      ],
+      "therapeutic_implication": "Quality correction требует other interventions чем quantity correction. Снижение quantity не автоматически улучшает quality.",
+      "v0_2_extension_note": "Полные biomarker panels для всех 5 энергий — в constitutional_model_v0_2.json (Part F)."
+    },
+    "temporal_dimensions": {
+      "status": "acknowledged как реальные dimensions, но НЕ формализованы в v0.1 (требует данных, которых пока нет).",
+      "layers": [
+        "Врождённая конституция — base inherited pattern",
+        "Возрастная модификация — изменения с decades",
+        "Временная модификация — изменения с условиями жизни, environment",
+        "Biorhythmic layer — organ-specific cycles (menstrual 28-day, cellular division rates и т.д.)"
+      ]
+    },
+    "open_problem_constitution_algorithm": {
+      "centrality": "Центральная methodological problem v0.1.",
+      "current_state": "Определение constitution происходит через clinical gestalt опытного клинициста (Mark). Нет валидированного алгоритма, который позволил бы стандартизировать assessment, передать его другому клиницисту, объективизировать через questionnaire/labs.",
+      "not_a_solution": [
+        "Hamer phase mapping как proxy для constitution — methodologically incorrect (см. Part B)",
+        "Multi-hundred-question survey — практически невозможно",
+        "Single biomarker panel — недостаточно"
+      ],
+      "possible_path": [
+        "Documentation of cases с одновременной записью constitution assessment и outcomes",
+        "Retrospective pattern analysis",
+        "Inter-rater reliability studies между опытными клиницистами",
+        "Prospective validation на documented cases"
+      ],
+      "status": "Open research problem, не решённое."
+    }
+  },
+  "part_B_process_phase_axis": {
+    "fundamental_principle": "Любой active process имеет temporal organization: activation → resolution → consolidation → return to baseline. Pattern описан в mainstream inflammation resolution biology (Cohnheim, Metchnikoff, современная работа Serhan по resolvins).",
+    "five_phases": {
+      "inspired_by": "Hamer's phase observations, STRIPPED of specific psychogenic claims",
+      "sequence": [
+        {"phase": "CA (Conflict-Active)", "description": "sympathetic activation phase, активная реакция на trigger"},
+        {"phase": "PCL-A (Post-Conflict-Lysis A)", "description": "ранняя resolution, инфламматорная reorganization"},
+        {"phase": "Epicrisis", "description": "peak crisis в resolution process"},
+        {"phase": "PCL-B (Post-Conflict-Lysis B)", "description": "late resolution, consolidation"},
+        {"phase": "Normotonia", "description": "return to baseline / maintenance state"}
+      ]
+    },
+    "trigger_inclusive": {
+      "principle": "«Conflict» в METACOD-RF interpretation включает любой trigger, не только эмоциональный.",
+      "triggers": [
+        "Инфекция (бактериальная, вирусная)",
+        "Травма",
+        "Переохлаждение",
+        "Метаболический stress",
+        "Гормональные изменения",
+        "Toxic exposure",
+        "Psychological stress (mainstream признаёт через psychoneuroimmunology)"
+      ],
+      "note": "Намеренное отделение от specific Hamer-claims, что каждая болезнь начинается с specific эмоционального конфликта."
+    },
+    "multi_system_simultaneity": {
+      "principle": "Один пациент может находиться в разных фазах в разных системах одновременно.",
+      "example": "Острая инфекция (CA) + хронический gastritis (PCL-A) + старая травма с фиброзом (PCL-B)",
+      "status": "acknowledged, но handling multiple parallel phases — open problem."
+    },
+    "phase_not_constitution": {
+      "separation": "Phase описывает ГДЕ находится процесс; Constitution описывает КАКОЙ характер у пациента.",
+      "consequence": "Два пациента в одинаковой phase (PCL-A после pneumonia) могут иметь совершенно разные конституции; их PCL-A будет протекать по-разному.",
+      "rule": "Phase нельзя использовать как proxy для constitution."
+    }
+  },
+  "part_C_clinical_scenarios": {
+    "scenario_A_goal_driven": {
+      "description": "Пациент пришёл с goal, не острой жалобой (похудеть, energy levels, CV-профилактика, долголетие).",
+      "primary_axis": "Constitution + chronic conditions",
+      "logic": "Нет активного процесса требующего immediate intervention. Therapeutic direction ориентируется на baseline pattern и hronic disease landscape."
+    },
+    "scenario_B_symptom_driven": {
+      "description": "Пациент пришёл с конкретной жалобой (боль, воспаление, изменения в анализах, острое ухудшение хронического condition).",
+      "primary_axis": "Process/Phase + current symptoms",
+      "logic": "Активный процесс требует понимания где он находится в temporal organization для timing-appropriate intervention."
+    },
+    "mixed_scenarios": {
+      "reality": "Большинство реальных пациентов имеют обе компоненты — острый симптом на фоне хронического pattern.",
+      "approach": [
+        "Phase axis guides immediate intervention timing",
+        "Constitution axis guides drug selection nuance",
+        "Both are documented, both inform decision"
+      ]
+    }
+  },
+  "part_D_acknowledged_limitations": [
+    "Constitution determination algorithm — отсутствует. Работает через clinical gestalt; не передаваемо в текущей форме.",
+    "Quality assessment markers — частично специфицированы. Гемоглобин для Heat — пример; полная таблица в v0.2 Part F.",
+    "Biorhythm integration — не формализована (acknowledged как важная dimension).",
+    "Multi-system parallel phases — handling не специфицирован.",
+    "Quantity-quality interactions — не fully mapped. 4 variants описаны, clinical implications каждого требуют наблюдения.",
+    "Mark's stated 5-10 parallel projections of clinical thinking — не полностью оцифрованы; документ — approximation, не полный capture."
+  ],
+  "part_E_open_research_questions": [
+    "Как объективизировать constitution determination beyond опытного gestalt?",
+    "Как параметризовать biorhythm contributions к constitutional assessment?",
+    "Как handle paradoxes когда constitution suggests one direction, а phase suggests opposite?",
+    "Какие biomarker panels соответствуют quality assessment каждой из 5 energies? (частично отвечено в v0.2 Part F)",
+    "Reliability check: будут ли два опытных METACOD-trained клинициста соглашаться в constitutional assessment одного пациента?",
+    "Therapeutic value test: улучшает ли constitutional-matched prescription outcomes относительно standard care, в retrospective analysis Mark's cases?"
+  ]
+}

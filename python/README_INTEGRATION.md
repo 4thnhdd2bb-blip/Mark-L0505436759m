@@ -46,6 +46,7 @@ python/
 │   ├── drugs_batch05_insulins.json        # METACOD-RF research drug DB — batch 05 (9 insulins + pramlintide — antidiabetic group complete)
 │   ├── drugs_batch07_psychiatric.json     # METACOD-RF research drug DB — batch 07 (22 psychiatric, three-axis profiled; batch 06 cardio not in repo)
 │   ├── drugs_batch11_gastroenterology.json # METACOD-RF research drug DB — batch 11 (20 GI: PPI/H2/antacid/prokinetic/antiemetic/5-ASA/IBD-biologic/laxative; Mark primary specialty; batches 06/08/09/10 not in repo, IDs jump 118→180)
+│   ├── constitutional_model_v0_1.json     # METACOD-RF constitutional model v0.1: conceptual two-axis framework (Parts A-E; constitution × process/phase)
 │   ├── constitutional_model_v0_2.json     # METACOD-RF constitutional model: 5-energy biomarker quality panels (research, hypotheses)
 │   ├── predictive_matrix_01_semaglutide.json # METACOD-RF predictive matrix #1: semaglutide × 8 constitutional triads (hypotheses)
 │   ├── three_axis_framework_v1_0.json     # METACOD-RF three-axis diagnostic framework (Constitution × Membrane × Phase; research)
@@ -64,7 +65,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (414 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (423 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -155,7 +156,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 414 tests
+pytest                 # all 423 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)

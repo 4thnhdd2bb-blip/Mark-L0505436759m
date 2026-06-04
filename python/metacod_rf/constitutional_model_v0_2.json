@@ -10,7 +10,7 @@
     "date": "2026-06",
     "ready_for_clinical_use": false,
     "changes_from_v0_1": "Added Part F (Biomarker Panels for Quality Assessment) and Part G (Quality Markers Cross-Reference); multi-energy markers section.",
-    "parts_not_included": "Parts A-E (constitutional axis / process-phase axis / clinical scenarios / limitations / open research questions) live in Constitutional_Model_v0.1 — NOT provided to this repo, not transcribed here.",
+    "parts_not_included": "Parts A-E (constitutional axis / process-phase axis / clinical scenarios / limitations / open research questions) live in v0.1 — now materialized in this repo as constitutional_model_v0_1.json (gap closed Jun-2026). v0.2 only adds Parts F-G; A-E are not re-transcribed here.",
     "validation_status": {
       "conceptual_framework": "agreed in discussion (Mark + AI assistant)",
       "biomarker_selections": "HYPOTHESES, not validated correlations",

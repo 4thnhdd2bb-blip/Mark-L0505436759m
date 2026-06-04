@@ -63,3 +63,43 @@ class ConstitutionalModel:
     @property
     def validation_status(self) -> dict[str, Any]:
         return self.meta.get("validation_status", {})
+
+
+# The 5 phases of the process/phase axis (mirrors the three-axis framework /
+# the TCM bridge phase vocabulary).
+PHASE_KEYS = ("CA", "PCL-A", "Epicrisis", "PCL-B", "Normotonia")
+
+
+class ConstitutionalModelV01:
+    """Read-only view over the conceptual v0.1 document (Parts A-E).
+
+    v0.1 is the conceptual framework (constitutional axis / process-phase axis /
+    scenarios / limitations / open questions) and has NO biomarker panels — those
+    were added in v0.2. This loader only indexes the prose structure and exposes
+    the critical_constants for cross-guarding against the canon.
+    """
+
+    def __init__(self, path: Path | str):
+        self.path = Path(path)
+        with open(self.path, encoding="utf-8") as f:
+            self._data = json.load(f)
+        self.meta: dict = self._data.get("_meta", {})
+
+    def section(self, key: str) -> Any:
+        return self._data.get(key)
+
+    @property
+    def version(self) -> str:
+        return str(self.meta.get("version", ""))
+
+    @property
+    def ready_for_clinical_use(self) -> bool:
+        return bool(self.meta.get("ready_for_clinical_use", False))
+
+    @property
+    def energies(self) -> tuple[str, ...]:
+        return tuple(self.meta.get("critical_constants", {}).get("energies", []))
+
+    @property
+    def phases(self) -> tuple[str, ...]:
+        return tuple(self.meta.get("critical_constants", {}).get("phases", []))
