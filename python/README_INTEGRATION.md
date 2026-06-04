@@ -31,18 +31,20 @@ python/
 │   ├── metacod_bridge.py        # METACOD TCM bridge: assessment → energy/quantity synthesis + three-layer output
 │   ├── treatment_sequence.py    # reorder findings by TCM treatment sequence (wind→damp→cold→dry→heat)
 │   ├── patient_facing_filter.py # Patient-Facing Filter: detect proprietary/internal terms leaking to patients
-│   └── metacod_rf.py            # METACOD-RF drug DB loader/catalog (engine-internal, research-only, provenance-tagged)
+│   ├── metacod_rf.py            # METACOD-RF drug DB loader/catalog (engine-internal, research-only, provenance-tagged)
+│   └── constitutional_model.py  # METACOD-RF constitutional model loader (energy → biomarker quality panels)
 ├── metacod_rf/
 │   ├── drugs_batch01_glp1.json  # METACOD-RF research drug DB — batch 01 (6 GLP-1 agents, pending Mark validation)
 │   ├── drugs_batch02_sglt2.json # METACOD-RF research drug DB — batch 02 (4 SGLT2 inhibitors, pending Mark validation)
 │   ├── drugs_batch03_biguanides_dpp4.json # METACOD-RF research drug DB — batch 03 (3 biguanides + 3 DPP-4, pending validation)
 │   ├── drugs_batch04_old_school.json      # METACOD-RF research drug DB — batch 04 (SU/TZD/glinides/α-glucosidase, 7 agents)
-│   └── drugs_batch05_insulins.json        # METACOD-RF research drug DB — batch 05 (9 insulins + pramlintide — antidiabetic group complete)
+│   ├── drugs_batch05_insulins.json        # METACOD-RF research drug DB — batch 05 (9 insulins + pramlintide — antidiabetic group complete)
+│   └── constitutional_model_v0_2.json     # METACOD-RF constitutional model: 5-energy biomarker quality panels (research, hypotheses)
 ├── schemas/glp1_api.py          # Pydantic request/response models
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (286 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (295 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -133,7 +135,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 286 tests
+pytest                 # all 295 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)

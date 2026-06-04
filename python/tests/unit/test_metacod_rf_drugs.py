@@ -84,7 +84,7 @@ EXPECTED: dict[str, dict[str, str]] = {
 
 
 def _batch_paths(data_dir: Path) -> list[Path]:
-    return sorted((data_dir / "metacod_rf").glob("*.json"))
+    return sorted((data_dir / "metacod_rf").glob("drugs_batch*.json"))
 
 
 def _catalog(path: Path) -> RFDrugCatalog:
@@ -103,7 +103,7 @@ def _parametrize_batches():
     here = Path(__file__).resolve()
     # python/tests/unit/ -> python/
     src = here.parents[2]
-    paths = sorted((src / "metacod_rf").glob("*.json"))
+    paths = sorted((src / "metacod_rf").glob("drugs_batch*.json"))
     return paths
 
 
