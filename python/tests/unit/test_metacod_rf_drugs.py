@@ -51,6 +51,14 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-009": "Canagliflozin",
         "DRG-010": "Ertugliflozin",
     },
+    "03-Biguanides+DPP4": {
+        "DRG-011": "Metformin",
+        "DRG-012": "Metformin extended-release",
+        "DRG-013": "Metformin + saxagliptin",
+        "DRG-014": "Sitagliptin",
+        "DRG-015": "Linagliptin",
+        "DRG-016": "Saxagliptin",
+    },
 }
 
 
@@ -113,12 +121,18 @@ def test_expected_ids_and_inns(catalog):
 
 def test_every_drug_has_required_keys(catalog):
     batch_id = catalog.meta["batch_id"]
+    # Universal keys present on every record. Note: formulation-only entries
+    # (extended-release, fixed-dose combinations) legitimately lack a
+    # "molecular" section in the source, so it is not required here.
     required = {"drug_id", "name_inn", "name_ru", "name_brand", "status",
-                "batch", "molecular", "status_flags"}
+                "batch", "status_flags"}
+    batch_num = batch_id.split("-")[0]
     for drug in catalog:
         missing = required - set(drug.as_dict().keys())
         assert not missing, f"{drug.drug_id} missing keys: {sorted(missing)}"
-        assert drug.get("batch") == batch_id
+        # A batch may span sub-groups (e.g. "03-Biguanides" / "03-DPP4" under
+        # batch_id "03-Biguanides+DPP4"); require the shared batch-number prefix.
+        assert str(drug.get("batch", "")).split("-")[0] == batch_num
         assert drug.get("status") == "METACOD-RF"
 
 

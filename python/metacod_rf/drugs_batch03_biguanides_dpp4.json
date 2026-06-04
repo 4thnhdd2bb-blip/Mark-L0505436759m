@@ -1,0 +1,602 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_drug_db",
+    "batch_id": "03-Biguanides+DPP4",
+    "version": "RF-2026-06-batch03",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Антидиабетические — Biguanides (3) + DPP-4 inhibitors (3)",
+    "preparations_count": 6,
+    "author": "Mark Litvak (с AI-assistance)",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "source_tag_legend": {
+      "LBL": "FDA / EMA label",
+      "GL": "Clinical guideline (ESC/ADA/AACE/etc)",
+      "RCT": "конкретное RCT",
+      "CLASS": "class pattern extrapolation",
+      "OBS-Mark": "клиническое наблюдение Mark (требует заполнения)",
+      "RF": "METACOD research framework (theoretical)"
+    },
+    "class_notes": {
+      "biguanides_intro": [
+        "Бигуаниды — старейший активно используемый класс; metformin держится первой линией с 1957 (EU)/1995 (US).",
+        "Не вызывает гипогликемии в монотерапии (sensitization, не stimulation).",
+        "Weight-neutral или small loss; AMPK activation как central mechanism (перекликается с CR/exercise/IF).",
+        "Anti-aging signal (TAME active); mechanism неполностью ясен даже после 70 лет."
+      ],
+      "biguanides_energy": [
+        "Metformin: не drying (нет diuretic/gastric stasis); mild damp-reducing через improved insulin sensitivity.",
+        "GI effects = clearing intestinal damp; lactic acid concern = cold accumulation в muscle/kidney (у предрасположенных)."
+      ],
+      "dpp4_intro": [
+        "DPP-4 (gliptins): блокада DPP-4 → умеренное усиление эндогенной incretin activity (слабее direct GLP-1 agonists).",
+        "Glucose-dependent insulin secretion → low hypoglycemia; weight-neutral; oral daily; modest HbA1c (-0.5..-0.8%).",
+        "No CV benefit (в отличие от GLP-1/SGLT2); some HF signal (saxagliptin)."
+      ],
+      "dpp4_energy": [
+        "DPP-4 — mild, balanced, energetically neutral: «gentle middle path».",
+        "Подходят пациентам, которым не показаны активные классы; elderly с polypharmacy; мягкие диабетики; сложные конституции."
+      ],
+      "biguanides_vs_dpp4": [
+        "Metformin: сильнее (AMPK), anti-aging signal, cost-effective, нужен renal monitoring, GI side effects.",
+        "DPP-4: мягче, low hypoglycemia, weight-neutral, well-tolerated, renal/HF considerations per agent."
+      ],
+      "when_metformin_first": [
+        "Newly diagnosed T2DM без CI; pre-diabetes prevention; PCOS; пациент tolerate GI effects."
+      ],
+      "when_dpp4_first": [
+        "eGFR <30 (metformin CI); severe GI sensitivity; elderly frail (gentle); уже на multiple meds (меньше monitoring burden)."
+      ],
+      "combinatorial_considerations": {
+        "metformin_plus_dpp4": [
+          "Sensible если metformin alone не достигает HbA1c; weight-neutral; predict-able как сумма; no CV benefit в HF/CKD (для этого SGLT2/GLP-1)."
+        ],
+        "dpp4_plus_sglt2": [
+          "Broader glycemic + CV/renal protection; weight-neutral + mild loss; synergy on HbA1c; cost considerations."
+        ],
+        "dpp4_plus_glp1_not_combined": [
+          "Both work on incretin axis — no additional benefit; class redundancy."
+        ]
+      },
+      "obs_mark_to_fill": [
+        "Metformin GI tolerance patterns — какие конституции tolerate лучше?",
+        "B12 deficiency timing — наблюдения по incidence?",
+        "DPP-4 niche selection — когда DPP-4 vs metformin combinations?",
+        "Linagliptin in CKD — клиническое преимущество?"
+      ]
+    },
+    "project_progress_note": "Antidiabetic after batch 03: GLP-1 6/6, SGLT2 4/4, Biguanides 3/3, DPP-4 3/3 — total 16/32 (50%)."
+  },
+  "drugs": [
+    {
+      "drug_id": "DRG-011",
+      "name_inn": "Metformin",
+      "name_ru": "Метформин",
+      "name_brand": "Glucophage (original), Glucophage XR, Fortamet, Glumetza, Riomet (liquid)",
+      "combinations": "Множество — Janumet, Synjardy, Kombiglyze, Glyxambi, etc.",
+      "status": "METACOD-RF",
+      "batch": "03-Biguanides",
+      "molecular": {
+        "chemical_class": "Biguanide",
+        "mechanism_primary": [
+          "[LBL] Точный mechanism не полностью ясен после 70 лет. Известно: подавление hepatic gluconeogenesis (primary), активация AMPK (downstream), ингибирование mitochondrial complex I (контроверсиально), влияние на gut microbiome (emerging), изменение bile acid metabolism"
+        ],
+        "mechanism_secondary": [
+          "[RCT] Improved insulin sensitivity periphery (mild)",
+          "[RCT] Cardiovascular protection (UKPDS) — historic first",
+          "[RCT] Cancer reduction signal в обсервационных данных",
+          "[RCT] Anti-aging signal — TAME trial active",
+          "[RCT] PCOS — improved ovulation, weight, insulin sensitivity"
+        ],
+        "half_life": {"IR": "6.2 hours", "XR": "~17 hours effective"},
+        "excretion": "[LBL] 90% renal unchanged — критически важно для dose adjustment",
+        "metabolism": "[LBL] Не metabolized в печени, не CYP-involved; минимальный DDI potential через metabolism"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults — first-line по всем гайдлайнам (ADA, EASD, ESC, NICE)",
+          "[LBL] T2DM pediatric ≥10y",
+          "[LBL] PCOS (off-label но широко используется, GL recommended)"
+        ],
+        "emerging": [
+          "[RCT] Pre-diabetes prevention (DPP study — 31% diabetes reduction)",
+          "[RCT] Anti-aging (TAME trial)",
+          "[RCT] Cancer adjunct (multiple ongoing trials)",
+          "[RCT] Cognitive protection signal",
+          "[RCT] NAFLD/MASH (mild benefit)"
+        ]
+      },
+      "dosing": {
+        "dose": "Start 500 mg BID с едой → titrate up to 1000 mg BID over 4-8 weeks; max 2550 mg/day (IR), 2000 mg/day (XR)",
+        "administration": [
+          "[LBL] IR: with meals для GI tolerance",
+          "[LBL] XR: with evening meal (modulates overnight hepatic glucose output)",
+          "[RF chrono] XR PM timing синергична с overnight hepatic gluconeogenesis suppression"
+        ]
+      },
+      "energy_vectors_rf": {
+        "energy_primary": [
+          "[RF] Mild damp-reducing через improved insulin sensitivity → less anabolic storage"
+        ],
+        "energy_secondary": [
+          "[RF] Intestinal damp-clearing (через GI side effects — diarrhea/loose stools)",
+          "[RF] Neutral на heat/cold axis",
+          "[RF] Не drying (no diuretic effect)"
+        ],
+        "energy_paradox": [
+          "[RF] При накоплении lactic acid (rare) — cold accumulation в muscle/kidney pattern"
+        ],
+        "constitution_best_match": [
+          "[RF] Yang-Earth (metabolic accumulation, GI fullness, damp tongue) — classic best responder",
+          "[RF] Yin-Earth (chronic accumulation, sluggish digestion)",
+          "[RF] PCOS Yang-Earth pattern especially"
+        ],
+        "constitution_caution": [
+          "[RF] Yin-Water (cold accumulation) — risk of lactic acid в hypoperfused states",
+          "[RF] Frail elderly — renal accumulation risk"
+        ],
+        "constitution_neutral": [
+          "[RF] Yang-Fire, Yin-Fire — neutral, обычно tolerable"
+        ],
+        "phase_match": [
+          "[RF] PCL-A (damp resolution) — best",
+          "[RF] Normotonia maintenance — может использоваться long-term",
+          "[RF] Любая phase в pre-diabetes prevention"
+        ],
+        "phase_caution": [
+          "[RF] CA с hypoperfusion — lactic acid risk"
+        ]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": [
+          "[RF] M-A → M-0 gradual, gentle correction",
+          "[RF] Mild action — не overshoots в M-D direction (в отличие от GLP-1 или SGLT2)"
+        ],
+        "membrane_neutral": [
+          "[RF] M-S (stagnant) — может быть useful через AMPK activation = mobilization"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "n_cases_observed": "[TBD]",
+        "typical_response_window": {
+          "glycemic": "4-8 weeks начало, full effect 12 weeks",
+          "weight": "-1 to -3 kg over 6 months (modest)",
+          "pcos": "3-6 months for ovulation restoration"
+        },
+        "metformin_first_line_observations": "[OBS-Mark] [Mark, у тебя огромный опыт с metformin — кто отвечает хорошо, кто плохо?]",
+        "GI_tolerance_patterns": "[OBS-Mark] [GI side effects часто constitution-dependent. Твои observations?]"
+      },
+      "safety": {
+        "ddi_critical_2_star": [
+          "[LBL] Iodinated contrast — lactic acidosis risk через AKI (hold metformin 48 hours pre/post contrast если eGFR <60)",
+          "[LBL] Carbonic anhydrase inhibitors (topiramate, acetazolamide) — metabolic acidosis synergy"
+        ],
+        "ddi_critical_1_star": [
+          "[LBL] Alcohol excessive — lactic acidosis risk",
+          "[LBL] Cimetidine — может повысить metformin levels (rare clinical concern)"
+        ],
+        "ddi_chrono": [
+          "[LBL] B12 absorption — long-term metformin → B12 deficiency (monitor yearly, supplement если low)",
+          "[RF] B12 supplementation как routine после 5 лет metformin"
+        ],
+        "contraindications": [
+          "[LBL] eGFR <30 — CONTRAINDICATED",
+          "[LBL] Acute metabolic acidosis (DKA, sepsis, severe illness)",
+          "[LBL] Severe heart failure decompensated (lactic acid concern)",
+          "[LBL] Severe hepatic disease"
+        ],
+        "relative_contraindications": [
+          "[GL] eGFR 30-45 — caution, reduced dose (max 1000 mg/day)",
+          "[GL] Heavy alcohol use",
+          "[GL] Age >80 с frailty"
+        ],
+        "pregnancy": [
+          "[LBL] Category B — generally safe, used в PCOS-related infertility",
+          "[GL] GDM — alternative to insulin (controversy, но widely used)"
+        ],
+        "breastfeeding": "[LBL] Compatible (small amounts in milk, no infant effects observed)",
+        "pediatric": "[LBL] ≥10y T2DM approved",
+        "geriatric": [
+          "[GL] Caution >80y due to renal function decline",
+          "[GL] eGFR-based dosing critical"
+        ],
+        "renal": [
+          "[LBL] eGFR >45: full dose",
+          "[LBL] eGFR 30-45: max 1000 mg/day, monitor",
+          "[LBL] eGFR <30: contraindicated"
+        ],
+        "hepatic": "[LBL] Avoid severe hepatic disease"
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] GI: diarrhea, nausea, abdominal discomfort, metallic taste (15-30% initially, часто resolves за 2-4 недели или с XR formulation)",
+          "[RF energy interpretation] GI effects = intestinal damp clearing — часто desirable в Yang-Earth"
+        ],
+        "serious": [
+          "[LBL] Lactic acidosis (rare, ~3-9 per 100,000 patient-years) — но life-threatening. Risk factors: AKI, severe HF, hypoxia, alcohol, contrast",
+          "[LBL] B12 deficiency (gradual, after 5+ years use) → can cause neuropathy",
+          "[LBL] Megaloblastic anemia from B12 deficiency"
+        ],
+        "rare_critical": [
+          "[LBL] Severe lactic acidosis — mortality 30-50% если occurs"
+        ]
+      },
+      "mandatory_monitoring": [
+        "eGFR baseline + annually (more often if borderline)",
+        "B12 baseline + every 1-2 years",
+        "HbA1c per diabetes monitoring",
+        "Hold перед contrast procedures (>48h)",
+        "Hold при acute illness с potential for AKI"
+      ],
+      "references": [
+        "FDA label Glucophage",
+        "UKPDS (Lancet 1998) — historic CV benefit",
+        "DPP study (NEJM 2002) — prevention of T2DM",
+        "ADA Standards of Medical Care (annual)",
+        "ESC 2023 Diabetes Guidelines",
+        "TAME trial (ongoing) — anti-aging"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": "limited (well-characterized drug)",
+        "external_sources_complete": true,
+        "ready_for_clinical_research_use": "pending Mark validation",
+        "priority_for_mark_review": "HIGH (most-prescribed drug, fundamental to T2DM management)"
+      }
+    },
+    {
+      "drug_id": "DRG-012",
+      "name_inn": "Metformin extended-release",
+      "name_ru": "Метформин XR/SR",
+      "name_brand": "Glucophage XR, Fortamet, Glumetza, Riomet ER",
+      "status": "METACOD-RF",
+      "batch": "03-Biguanides",
+      "note": "Same molecule as DRG-011, but distinct clinical use pattern",
+      "formulation_mechanism": [
+        "[LBL] Diffusion-controlled или osmotic-controlled release",
+        "[LBL] Gradual release over 6-8 hours",
+        "[LBL] Lower peak concentration → fewer GI side effects",
+        "[LBL] Once-daily dosing usually adequate"
+      ],
+      "xr_vs_ir": {
+        "xr_preferred_when": [
+          "[GL] GI intolerance to IR",
+          "[GL] Compliance concerns (BID → QD)",
+          "[GL] Elderly patients",
+          "[GL] Already on multiple medications"
+        ],
+        "ir_preferred_when": [
+          "[GL] Cost (XR более expensive)",
+          "[GL] Higher doses needed (XR max ~2000mg vs IR 2550mg)",
+          "[GL] PCOS treatment (some evidence IR slightly more effective)"
+        ]
+      },
+      "dosing": {
+        "dose": "500 mg PM with evening meal start → titrate up to 2000 mg PM",
+        "administration": "PM with evening meal (chrono-optimized для overnight gluconeogenesis)"
+      },
+      "energy_vectors_rf": {
+        "energy_pattern": "Same as metformin IR (same molecule)",
+        "chrono_distinct": [
+          "[RF] PM timing синергична с natural circadian cortisol decline и overnight hepatic glucose output",
+          "[RF mark canonical] PM dosing для anti-anabolic effect overnight"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "xr_vs_ir_preference": "[OBS-Mark] [Mark, кому ты предпочитаешь XR, кому IR?]"
+      },
+      "safety": {
+        "note": "All safety profile identical к metformin IR (DRG-011); формулировка только меняет release pattern"
+      },
+      "references": "same as metformin IR plus Glucophage XR specific clinical studies",
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-013",
+      "name_inn": "Metformin + saxagliptin",
+      "name_ru": "Метформин + саксаглиптин",
+      "name_brand": "Kombiglyze XR",
+      "status": "METACOD-RF",
+      "batch": "03-Biguanides",
+      "note": "Fixed-dose combination, listed под biguanides из-за base component",
+      "components": {
+        "component_1": "Metformin (see DRG-011/012)",
+        "component_2": "Saxagliptin (see DRG-016)"
+      },
+      "indication": {
+        "indication": [
+          "[LBL] T2DM not adequately controlled on metformin monotherapy",
+          "[GL] Simplification when patient already stable on both"
+        ],
+        "combinatorial_logic": [
+          "[LBL] Metformin baseline + DPP-4 для additional glucose control с low hypoglycemia risk",
+          "[LBL] Weight-neutral combination",
+          "[GL] Полезно когда GLP-1/SGLT2 не показаны или не доступны"
+        ]
+      },
+      "dosing": {
+        "strengths": "5/500, 5/1000, 2.5/1000 mg saxagliptin/metformin XR",
+        "administration": "PM (metformin XR timing dictates)"
+      },
+      "energy_vectors_rf": {
+        "energy_pattern": [
+          "[RF] Damp-reducing (metformin component dominant)",
+          "[RF] Mild incretin support (saxagliptin component)",
+          "[RF] No drying, no cooling overshoot"
+        ],
+        "constitution_best_match": [
+          "[RF] Yang-Earth с moderate diabetes, weight-neutral preference"
+        ]
+      },
+      "safety": {
+        "note": "combines safety profiles of both components",
+        "ddi_critical_2_star": [
+          "[LBL] Sulfonylurea — hypoglycemia (DPP-4 component)",
+          "[LBL] Iodinated contrast — metformin lactic acid risk"
+        ],
+        "contraindications": [
+          "[LBL] eGFR <45 (metformin) или <50 (saxagliptin renal adjustment) — strict"
+        ],
+        "saxagliptin_distinct_concern": [
+          "[LBL] Heart failure hospitalization signal (SAVOR-TIMI 53) — avoid в established HF",
+          "→ Если HF, prefer alogliptin/linagliptin combination instead"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "combination_preference": "[OBS-Mark] [Mark, есть ли клиническое преимущество vs separate prescription?]"
+      },
+      "references": [
+        "FDA label Kombiglyze XR",
+        "SAVOR-TIMI 53 (saxagliptin HF signal)"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "Combination listed для completeness. В практике часто predict-able как сумма компонентов. Detailed saxagliptin profile — см. DRG-016."
+      }
+    },
+    {
+      "drug_id": "DRG-014",
+      "name_inn": "Sitagliptin",
+      "name_ru": "Ситаглиптин",
+      "name_brand": "Januvia",
+      "combinations": "Janumet (+metformin), Janumet XR, Juvisync (+simvastatin, discontinued)",
+      "status": "METACOD-RF",
+      "batch": "03-DPP4",
+      "molecular": {
+        "chemical_class": "DPP-4 inhibitor (selective)",
+        "mechanism_primary": [
+          "[LBL] Ингибирует DPP-4 → пролонгирует активность endogenous GLP-1, GIP → increased glucose-dependent insulin secretion + decreased glucagon"
+        ],
+        "mechanism_distinct": [
+          "[CLASS] First-in-class approved (2006)",
+          "[CLASS] Most prescribed DPP-4 globally"
+        ],
+        "half_life": "12.4 hours",
+        "excretion": "~80% renal unchanged",
+        "metabolism": "Минимальное CYP"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults",
+          "[LBL] T2DM pediatric ≥10y (recently extended)"
+        ],
+        "emerging": [
+          "No CV benefit (TECOS, 2015 — neutral)",
+          "No HF signal — neutral profile (better чем saxagliptin)"
+        ]
+      },
+      "dosing": {
+        "dose": "100 mg AM once daily",
+        "renal_adjusted": "eGFR ≥45: 100 mg; eGFR 30-45: 50 mg; eGFR <30: 25 mg; ESRD/dialysis: 25 mg"
+      },
+      "energy_vectors_rf": {
+        "energy_primary": ["[RF] Mild damp-reducing (gentle, через endogenous incretin support)"],
+        "energy_secondary": ["[RF] Energetically neutral на heat/cold/dry axes"],
+        "constitution_best_match": [
+          "[RF] Mild Yang-Earth — где не нужна агрессивная therapy",
+          "[RF] Elderly с polypharmacy — gentle profile",
+          "[RF] Complex constitutions где directional therapy contraindicated"
+        ],
+        "constitution_caution": [
+          "[RF] Sarcopenic patterns где weight neutrality предпочтительна над weight loss (preferred over GLP-1 для sarcopenic elderly)"
+        ],
+        "phase_match": [
+          "[RF] Любая phase — gentle profile",
+          "[RF] Особенно useful когда pacient в complex multi-phase state"
+        ]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": [
+          "[RF] M-A → M-0 (very gentle, gradual)",
+          "[RF] Safe в M-D directions — не overshoots",
+          "[RF] M-S (stagnant) — neutral, не enough action чтобы overcome stagnation"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "sitagliptin_clinical_niche": "[OBS-Mark] [Mark, в современной практике sitagliptin часто используется когда GLP-1/SGLT2 не показаны или CI. Твой опыт?]"
+      },
+      "safety": {
+        "ddi_critical_2_star": "minimal",
+        "ddi_critical_1_star": [
+          "[LBL] Insulin/sulfonylurea — additive hypoglycemia (mild risk)"
+        ],
+        "contraindications": [
+          "[LBL] History of severe hypersensitivity to sitagliptin",
+          "[LBL] T1DM, DKA",
+          "[RF] No absolute renal CI (только dose adjustment)"
+        ],
+        "relative_contraindications": [
+          "[GL] History of pancreatitis (class signal, controversial)"
+        ],
+        "pregnancy": "avoid, limited data",
+        "breastfeeding": "avoid",
+        "pediatric": "≥10y approved",
+        "geriatric": "well-tolerated, renal dose adjust",
+        "renal": "dose-adjusted (см. выше)",
+        "hepatic": "no specific adjustment"
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Nasopharyngitis, headache (mild)",
+          "[LBL] Hypoglycemia только с insulin/sulfonylurea combination",
+          "[LBL] Generally very well tolerated"
+        ],
+        "serious": [
+          "[LBL] Acute pancreatitis (uncommon, class signal — controversial)",
+          "[LBL] Severe joint pain (rare, class effect)",
+          "[LBL] Bullous pemphigoid (rare, class effect)",
+          "[LBL] Acute renal failure (rare)"
+        ],
+        "rare_critical": [
+          "[LBL] Stevens-Johnson syndrome (very rare)",
+          "[LBL] Anaphylaxis (rare)"
+        ]
+      },
+      "references": [
+        "FDA label Januvia",
+        "TECOS (Green et al, NEJM 2015) — CV neutral",
+        "ADA/EASD guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true
+      }
+    },
+    {
+      "drug_id": "DRG-015",
+      "name_inn": "Linagliptin",
+      "name_ru": "Линаглиптин",
+      "name_brand": "Tradjenta",
+      "combinations": "Jentadueto (+metformin), Glyxambi (+empagliflozin), Trijardy XR",
+      "status": "METACOD-RF",
+      "batch": "03-DPP4",
+      "molecular": {
+        "chemical_class": "DPP-4 inhibitor",
+        "mechanism_primary": ["[LBL] Class DPP-4 mechanism"],
+        "mechanism_distinct": [
+          "[LBL] Predominantly biliary excretion — unique для класса",
+          "[LBL] Не требует renal dose adjustment (особое clinical значение)"
+        ],
+        "half_life": "~12 hours",
+        "excretion": "~80% biliary/fecal (distinct from sitagliptin)",
+        "metabolism": "Минимальное CYP"
+      },
+      "indications": {
+        "approved": ["[LBL] T2DM adults"],
+        "emerging": [
+          "[RCT] CARMELINA (2018) — CV neutral, renal safe",
+          "[RCT] CAROLINA (2019) vs glimepiride — CV equivalent"
+        ]
+      },
+      "dosing": {
+        "dose": "5 mg once daily, AM or PM",
+        "renal_adjustment": "NONE (key distinction)",
+        "hepatic_adjustment": "NONE"
+      },
+      "energy_vectors_rf": {
+        "energy_pattern": "same as class (mild damp-reducing, gentle)",
+        "distinct_clinical_advantage": [
+          "[LBL] Best DPP-4 choice в CKD из-за no renal adjustment",
+          "[RF] Preferred для elderly с multiple renal concerns"
+        ],
+        "constitution_best_match": [
+          "[RF] Same as class, with особо useful в Yin-Water constitutions (renal sensitivity protection)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "linagliptin_niche": "[OBS-Mark] [Mark, linagliptin клиническое преимущество — CKD pacients?]"
+      },
+      "safety": {
+        "ddi": "minimal, no CYP issues",
+        "contraindications": "T1DM, DKA, hypersensitivity",
+        "pregnancy": "avoid",
+        "geriatric": "well-tolerated, no dose adjustment",
+        "renal": "NO dose adjustment (advantage)",
+        "hepatic": "NO dose adjustment"
+      },
+      "adverse_events": {
+        "common": ["similar to class"],
+        "note": "no HF signal (advantage over saxagliptin); no specific cancer signal"
+      },
+      "references": [
+        "FDA label Tradjenta",
+        "CARMELINA (Rosenstock et al, JAMA 2019)",
+        "CAROLINA (Rosenstock et al, JAMA 2019)"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true,
+        "note": "В CKD population — preferred DPP-4 choice."
+      }
+    },
+    {
+      "drug_id": "DRG-016",
+      "name_inn": "Saxagliptin",
+      "name_ru": "Саксаглиптин",
+      "name_brand": "Onglyza",
+      "combinations": "Kombiglyze XR (+metformin) — see DRG-013",
+      "status": "METACOD-RF",
+      "batch": "03-DPP4",
+      "molecular": {
+        "chemical_class": "DPP-4 inhibitor",
+        "mechanism_primary": ["[LBL] Class DPP-4 mechanism"],
+        "half_life": "2.5 hours (parent), 3.1 hours (active metabolite)",
+        "excretion": "~75% renal",
+        "metabolism": "CYP3A4/5 (active metabolite)"
+      },
+      "indications": {
+        "approved": ["[LBL] T2DM adults"]
+      },
+      "dosing": {
+        "dose": "5 mg once daily",
+        "renal": "2.5 mg if eGFR ≤45"
+      },
+      "energy_vectors_rf": {
+        "energy_pattern": "same as class",
+        "distinct_concern": [
+          "[RCT] SAVOR-TIMI 53 (2013) — HF hospitalization signal",
+          "[RF] AVOID в established HF or high HF risk"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "saxagliptin_clinical_position": "[OBS-Mark] [Mark, saxagliptin в твоей практике используется реже из-за HF signal?]"
+      },
+      "safety": {
+        "ddi_critical_1_star": [
+          "[LBL] Strong CYP3A4 inhibitors (ketoconazole, clarithromycin) — dose reduce to 2.5 mg"
+        ],
+        "ddi_critical_1_star_clinical": [
+          "[LBL] AVOID в established HF"
+        ],
+        "contraindications": "T1DM, DKA, hypersensitivity, established HF (relative)",
+        "pregnancy": "avoid",
+        "geriatric": "caution, renal dose adjust",
+        "renal": "2.5 mg if eGFR ≤45",
+        "hepatic": "caution severe"
+      },
+      "adverse_events": {
+        "common": ["similar to class"],
+        "distinct": "HF hospitalization signal (SAVOR-TIMI 53)",
+        "note": "pancreatitis signal (class)"
+      },
+      "references": [
+        "FDA label Onglyza",
+        "SAVOR-TIMI 53 (Scirica et al, NEJM 2013) — HF signal"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true,
+        "note": "HF signal делает saxagliptin менее предпочтительным выбором среди класса. Linagliptin или sitagliptin обычно preferred."
+      }
+    }
+  ]
+}
