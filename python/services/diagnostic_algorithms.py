@@ -40,8 +40,10 @@ class DiagnosticAlgorithms:
         return self.meta.get("governance_safety_annotation", {})
 
     @property
-    def unresolved_discrepancies(self) -> dict:
-        return self.meta.get("unresolved_discrepancies", {})
+    def discrepancies(self) -> dict:
+        """Membrane/marker discrepancies, whether still open or Mark-resolved."""
+        return self.meta.get("resolved_discrepancies",
+                             self.meta.get("unresolved_discrepancies", {}))
 
     @property
     def algorithms(self) -> list[dict]:

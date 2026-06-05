@@ -15,7 +15,8 @@
     "errata_v1_0_to_v1_1": {
       "error": "v1.0 characterized M-A1/A2 as 'inflammation' (4 places).",
       "correction": "[OBS-Mark CANONICAL, Том I + Module 02] M-A = ANABOLIC membrane (sterol excess, rigidity, HMGCR active) — NOT inflammation. Inflammation lives elsewhere: acute=Phase 2; hidden-chronic=M-D1; chronic-autoimmune=M-D2; chronic non-healing+fibrosis=M-S.",
-      "repo_alignment": "[2026-06] Repo content corrected to v1.1: removed/erroneous 'M-A=inflammation/edema/effusion/ground-glass' wordings in three_axis_framework, diagnostic_foundation, dx imaging batches (12/13/14/16/20), batch-02, batch-26 → acute fluid/inflammation reframed to Phase-2/fluid-retention; M-A reserved for anabolic sterol-excess."
+      "repo_alignment": "[2026-06] Repo content corrected to v1.1: removed/erroneous 'M-A=inflammation/edema/effusion/ground-glass' wordings in three_axis_framework, diagnostic_foundation, dx imaging batches (12/13/14/16/20), batch-02, batch-26 → acute fluid/inflammation reframed to Phase-2/fluid-retention; M-A reserved for anabolic sterol-excess.",
+      "urine_pH_correction": "[OBS-Mark CANONICAL, ruling 2026-06: 'M-A щелочная, M-D кислая'] v1.1 initially recorded the urine-pH direction BACKWARDS (M-A acidic / M-D alkaline). CORRECTED to: M-A (anabolic) = ALKALINE urine (internal zone; skin/external pH acidic — opposite); M-D (catabolic) = ACIDIC urine (internal zone; skin alkaline). This matches three_axis_framework (which was correct). Case example pH AM updated 5.4→6.8. Resolves diagnostic_algorithms ALG-3 urine-pH flag."
     },
     "governance_safety_annotation": {
       "_authored_by": "METACOD-RF governance layer",
@@ -29,13 +30,13 @@
   "membrane_canon_v1_1": {
     "_note": "[OBS-Mark CANONICAL] Corrected membrane model. Functional anabolic↔catabolic scale (Revici 7 → METACOD 8 incl. stagnant M-S). Medium-changing (weeks-months); independent of constitution.",
     "M-A_anabolic": {
-      "definition": "Sterol excess, rigidity, sterol-incorporation > FA-mobilization, HMGCR active. Energy: sterol-Heat + rigidity-Damp ('anabolic accumulation'). Feels better EVENING. Urine pH morning <5.5 (acidic).",
+      "definition": "Sterol excess, rigidity, sterol-incorporation > FA-mobilization, HMGCR active. Energy: sterol-Heat + rigidity-Damp ('anabolic accumulation'). Feels better EVENING. Urine pH ALKALINE (>6.4 internal zone; skin pH more acidic — opposite, Mark canonical). [Mark 2026-06: M-A=alkaline urine.]",
       "M-A1": "Membrane cholesterol upper-border, mild phase-angle drop → early HTN, ↑LDL, mild insulin resistance, prediabetes",
-      "M-A2": "Developed sterol excess, HMGCR active, peripheral resistance ↑↑ → metabolic syndrome, T2DM, stable HTN, central obesity (markers: Warburg/tissue-acidity, low serum-K + high intracell-K, urine pH AM <5.5, membrane cholesterol >260, phase angle <5.5). NOT inflammation.",
+      "M-A2": "Developed sterol excess, HMGCR active, peripheral resistance ↑↑ → metabolic syndrome, T2DM, stable HTN, central obesity (markers: Warburg/intracellular-tissue-acidity, low serum-K + high intracell-K, urine pH AM ALKALINE >6.4, membrane cholesterol >260, phase angle <5.5). NOT inflammation. [Note: urine alkaline, tissue/Warburg acidity are different compartments.]",
       "M-A3": "Decompensation: sterols accumulated, adaptive capacity exhausted → atherosclerosis w/ complications, IHD, onset sclerosis"
     },
     "M-D_catabolic": {
-      "definition": "Oxidized FA excess, peroxidation, MDA↑, GPX4↓, FA-mobilization predominates. Feels better MORNING. Urine pH evening >6.5 (alkaline). Serum K 5.0+.",
+      "definition": "Oxidized FA excess, peroxidation, MDA↑, GPX4↓, FA-mobilization predominates. Feels better MORNING. Urine pH ACIDIC (<6.2 internal zone; skin pH more alkaline — opposite). Serum K 5.0+. [Mark 2026-06: M-D=acidic urine.]",
       "M-D1": "Mild GPX4↓, early peroxidation, MDA upper-border → chronic fatigue, mild hypotension, HIDDEN inflammation",
       "M-D2": "Developed peroxidation, marked oxidative stress, sarcopenia → AUTOIMMUNE disease, CHRONIC inflammation, muscle loss",
       "M-D3": "Decompensation: antioxidant defense exhausted, multi-organ → cachexia, multi-organ dysfunction, terminal"
@@ -88,7 +89,7 @@
   },
   "case_example_corrected": {
     "patient": "62M, T2DM 12y/HTN 8y/mild-CKD(eGFR55)/depression; metformin+lisinopril+atorvastatin+sertraline; BMI 32; attended alone; spouse died 2y ago",
-    "membrane": "M-A2 (anabolic metabolic-syndrome) — 5 confirmatory (urine pH AM 5.4, K 3.2, WBC 11.2, phase-angle 4.8, cholesterol 280). hsCRP 6.2 = POSSIBLE M-D1 component / Phase-2 ongoing — NOT inflammatory nature of M-A2 itself",
+    "membrane": "M-A2 (anabolic metabolic-syndrome) — 5 confirmatory (urine pH AM 6.8 ALKALINE, K 3.2, WBC 11.2, phase-angle 4.8, cholesterol 280). hsCRP 6.2 = POSSIBLE M-D1 component / Phase-2 ongoing — NOT inflammatory nature of M-A2 itself",
     "phase": "chronic Phase 2 (non-resolving — KCTS-characteristic)",
     "kcts": "Active (alone + bereavement + chronic>10y + treatment-refractory + flat cortisol + ECW/TBW↑)",
     "treatment_direction": "M-A2 → CATABOLIC SHIFT (continue metformin/atorvastatin; add SGLT2/omega-3/Se/Mg/Vit-D/low-carb; finerenone as anti-fibrotic M-S-prevention NOT anti-inflammatory) + Layer-0 bereavement support (primary breakthrough)"

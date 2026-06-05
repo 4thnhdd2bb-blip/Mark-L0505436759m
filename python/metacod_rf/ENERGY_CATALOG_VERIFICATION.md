@@ -88,6 +88,17 @@ Loader: `services/unified_energy_catalog.py`. Tests: `tests/unit/test_unified_en
 
 ---
 
+## 4a. RESOLVED — urine-pH ↔ membrane direction (Mark ruling 2026-06)
+
+Mark ruled: **«M-A щелочная, M-D кислая»** → **M-A (anabolic) = ALKALINE urine; M-D
+(catabolic) = ACIDIC urine** (internal zone; skin/external pH is OPPOSITE). This
+matches `three_axis_framework` (which was correct); `master_integration_v1_1` had
+the direction backwards and has been corrected (errata.urine_pH_correction; case
+example pH AM 5.4→6.8). `diagnostic_algorithms` ALG-3 now uses urine-pH as a valid
+confirmatory marker (still under the ≥3-confirmatory rule).
+
+---
+
 ## 5. Open questions for Mark
 
 1. **Q1 (energy mapping):** confirm the six→five collapse rule (Тепло+Жар→heat)

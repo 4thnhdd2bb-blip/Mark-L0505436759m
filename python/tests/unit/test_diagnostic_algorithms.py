@@ -51,17 +51,21 @@ def test_each_algorithm_complete(alg):
         assert isinstance(a["steps"], list) and a["steps"]
 
 
-def test_membrane_algorithm_flags_ph_discrepancy(alg):
-    # The urine-pH membrane-direction contradiction must be recorded and ALG-3
-    # must defer to it (not silently pick a direction).
-    disc = alg.unresolved_discrepancies.get("urine_pH_membrane_direction", {})
+def test_membrane_ph_discrepancy_resolved(alg):
+    # Mark resolved the urine-pH↔membrane direction (2026-06): M-A alkaline,
+    # M-D acidic. The record must reflect resolution and ALG-3 must use it.
+    disc = alg.discrepancies.get("urine_pH_membrane_direction", {})
     assert disc, "missing urine_pH discrepancy record"
     blob = json.dumps(disc, ensure_ascii=False).lower()
+    assert "resolved" in blob
     assert "three_axis" in blob and "master_integration" in blob
-    assert "flag-for-mark" in blob or "flag" in blob
+    # Direction: M-A alkaline, M-D acidic.
+    canon = disc.get("canonical", "").lower()
+    assert "m-a" in canon and "alkaline" in canon
+    assert "m-d" in canon and "acidic" in canon
     a3 = alg.algorithm("ALG-3")
     steps_blob = json.dumps(a3["steps"], ensure_ascii=False).lower()
-    assert "flag" in steps_blob or "indeterminate" in steps_blob
+    assert "resolved" in steps_blob and "m-a" in steps_blob
 
 
 def test_membrane_directions_opposite_in_synthesis(alg):
