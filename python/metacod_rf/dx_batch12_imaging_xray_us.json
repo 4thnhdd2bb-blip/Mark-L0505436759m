@@ -1,0 +1,753 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-12-ImagingXrayUS",
+    "version": "RF-2026-06-DX12",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — imaging: plain X-ray + ultrasound",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 14,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Modality/indications/findings = [GL/LBL]. Energy/membrane/phase interpretation = [RF]. Imaging/procedures REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care; radiation/contrast/invasiveness flagged.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/imaging guideline (ACR/specialty)",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "IMG-001",
+      "name_full": "Chest X-ray",
+      "name_ru": "Рентгенография грудной клетки",
+      "name_alternative_codes": "CXR",
+      "status": "METACOD-RF",
+      "batch": "DX-12-Xray",
+      "test_type": "Imaging",
+      "methodology": "[GL] Plain radiograph (PA/lateral)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] dyspnea/cough/fever, cardiomegaly, effusion, lines/tubes, screening"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] body habitus, calcification history"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] effusion=M-A; fibrosis/scarring=M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute infiltrate=Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] low radiation; limited soft-tissue detail; misses small lesions"
+      ],
+      "related_tests": [
+        "IMG-016 CT chest",
+        "FUN-021 spirometry"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-002",
+      "name_full": "Abdominal X-ray (KUB)",
+      "name_ru": "Обзорная рентгенография брюшной полости",
+      "name_alternative_codes": "KUB",
+      "status": "METACOD-RF",
+      "batch": "DX-12-Xray",
+      "test_type": "Imaging",
+      "methodology": "[GL] Plain radiograph",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] obstruction/perforation (free air), stones, foreign body"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute obstruction=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] low sensitivity; CT preferred for acute abdomen"
+      ],
+      "related_tests": [
+        "IMG-018 CT abdomen"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-003",
+      "name_full": "Skeletal / extremity X-ray",
+      "name_ru": "Рентгенография костей/конечностей",
+      "name_alternative_codes": "plain film",
+      "status": "METACOD-RF",
+      "batch": "DX-12-Xray",
+      "test_type": "Imaging",
+      "methodology": "[GL] Plain radiograph",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] fracture, arthritis, bone lesions, alignment"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] skeletal constitution"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] erosion/sclerosis=joint M-S; lytic=M-D"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute fracture=Phase 1/3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] misses early stress fx/marrow (MRI better)"
+      ],
+      "related_tests": [
+        "IMG-030 MRI MSK",
+        "FUN-002 DEXA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-004",
+      "name_full": "Spine X-ray",
+      "name_ru": "Рентгенография позвоночника",
+      "name_alternative_codes": "spine film",
+      "status": "METACOD-RF",
+      "batch": "DX-12-Xray",
+      "test_type": "Imaging",
+      "methodology": "[GL] Plain radiograph (± flexion/extension)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] alignment/instability, fracture, degenerative, scoliosis"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] skeletal axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] osteophytes/sclerosis=M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] MRI for cord/disc/marrow"
+      ],
+      "related_tests": [
+        "IMG-029 MRI spine"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-005",
+      "name_full": "Abdominal ultrasound",
+      "name_ru": "УЗИ брюшной полости",
+      "name_alternative_codes": "abd US",
+      "status": "METACOD-RF",
+      "batch": "DX-12-US",
+      "test_type": "Imaging",
+      "methodology": "[GL] B-mode ± Doppler (no radiation)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] liver/gallbladder/biliary/kidney/aorta; RUQ pain, LFT abnormal, ascites"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] organ habitus/steatosis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fibrosis/cirrhosis echotexture=M-S; ascites=M-A/fluid"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute cholecystitis=Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] operator/body-habitus/bowel-gas dependent"
+      ],
+      "related_tests": [
+        "IMG-018 CT abdomen",
+        "DRG-431 UDCA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-006",
+      "name_full": "Pelvic / transvaginal ultrasound",
+      "name_ru": "УЗИ малого таза / трансвагинальное",
+      "name_alternative_codes": "TVUS",
+      "status": "METACOD-RF",
+      "batch": "DX-12-US",
+      "test_type": "Imaging",
+      "methodology": "[GL] B-mode (transabdominal/transvaginal)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] gyn (uterus/ovaries/fibroids), early pregnancy, pelvic pain/bleeding"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fibroid/adenomyosis=tissue M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] operator-dependent"
+      ],
+      "related_tests": [
+        "TST-047 AMH",
+        "IMG-032 pelvic MRI"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-007",
+      "name_full": "Thyroid ultrasound",
+      "name_ru": "УЗИ щитовидной железы",
+      "name_alternative_codes": "thyroid US",
+      "status": "METACOD-RF",
+      "batch": "DX-12-US",
+      "test_type": "Imaging",
+      "methodology": "[GL] B-mode; TI-RADS nodule risk",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] thyroid nodules (TI-RADS), goiter, FNA guidance"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] incidentalomas common; FNA per TI-RADS/size"
+      ],
+      "related_tests": [
+        "TST-026 TSH",
+        "PRO-011 FNA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR TI-RADS"
+      ]
+    },
+    {
+      "test_id": "IMG-008",
+      "name_full": "Renal / urinary tract ultrasound",
+      "name_ru": "УЗИ почек/мочевыводящих путей",
+      "name_alternative_codes": "renal US",
+      "status": "METACOD-RF",
+      "batch": "DX-12-US",
+      "test_type": "Imaging",
+      "methodology": "[GL] B-mode ± Doppler",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] hydronephrosis, stones, cysts/masses, CKD size/echogenicity, post-void residual"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Water-axis organ"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] small echogenic kidneys=renal M-D (chronic)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute obstruction=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] limited for ureteral stones (CT better)"
+      ],
+      "related_tests": [
+        "TST-007 eGFR",
+        "IMG-021 CT urography"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-009",
+      "name_full": "Carotid duplex ultrasound",
+      "name_ru": "Дуплекс сонных артерий",
+      "name_alternative_codes": "carotid duplex",
+      "status": "METACOD-RF",
+      "batch": "DX-12-US",
+      "test_type": "Imaging",
+      "methodology": "[GL] Doppler velocity + plaque",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] carotid stenosis (TIA/stroke/bruit), plaque burden"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] vascular constitution"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] atherosclerotic plaque=vascular M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] operator-dependent; not for intracranial"
+      ],
+      "related_tests": [
+        "IMG-019 CTA",
+        "DRG statins"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-010",
+      "name_full": "Venous duplex (DVT) ultrasound",
+      "name_ru": "Дуплекс вен (ТГВ)",
+      "name_alternative_codes": "venous duplex",
+      "status": "METACOD-RF",
+      "batch": "DX-12-US",
+      "test_type": "Imaging",
+      "methodology": "[GL] Compression + Doppler",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] deep vein thrombosis (limb swelling/pain)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute thrombosis=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] limited for calf/iliac; operator-dependent"
+      ],
+      "related_tests": [
+        "TST-023 D-dimer",
+        "DRG anticoagulants"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "VTE guidelines"
+      ]
+    },
+    {
+      "test_id": "IMG-011",
+      "name_full": "Musculoskeletal / soft-tissue ultrasound",
+      "name_ru": "УЗИ опорно-двигательного/мягких тканей",
+      "name_alternative_codes": "MSK US",
+      "status": "METACOD-RF",
+      "batch": "DX-12-US",
+      "test_type": "Imaging",
+      "methodology": "[GL] High-frequency B-mode ± Doppler",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] tendon/muscle/joint effusion, soft-tissue mass, injection guidance"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] effusion=M-A; chronic tendinosis=M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute inflammation=Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] operator-dependent; limited depth"
+      ],
+      "related_tests": [
+        "IMG-030 MRI MSK"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-012",
+      "name_full": "Mammography",
+      "name_ru": "Маммография",
+      "name_alternative_codes": "mammo",
+      "status": "METACOD-RF",
+      "batch": "DX-12-Xray",
+      "test_type": "Imaging",
+      "methodology": "[GL] Low-dose X-ray (2D/3D tomosynthesis); BI-RADS",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] breast cancer screening + diagnostic (lump/discharge)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] dense breasts ↓ sensitivity (adjunct US/MRI); recall/false+"
+      ],
+      "related_tests": [
+        "IMG-035 breast MRI",
+        "TST-106 CA15-3"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR BI-RADS; USPSTF"
+      ]
+    },
+    {
+      "test_id": "IMG-013",
+      "name_full": "Obstetric ultrasound",
+      "name_ru": "Акушерское УЗИ",
+      "name_alternative_codes": "OB US",
+      "status": "METACOD-RF",
+      "batch": "DX-12-US",
+      "test_type": "Imaging",
+      "methodology": "[GL] B-mode (dating/anatomy/growth/Doppler)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] pregnancy dating/viability/anatomy/growth/well-being"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] gestational-age dependent accuracy"
+      ],
+      "related_tests": [
+        "TST-107 hCG",
+        "DRG OB agents"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACOG/ISUOG"
+      ]
+    },
+    {
+      "test_id": "IMG-014",
+      "name_full": "Point-of-care ultrasound (POCUS / FAST)",
+      "name_ru": "УЗИ у постели (POCUS/FAST)",
+      "name_alternative_codes": "POCUS/FAST",
+      "status": "METACOD-RF",
+      "batch": "DX-12-US",
+      "test_type": "Imaging",
+      "methodology": "[GL] Focused bedside B-mode",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] trauma free fluid (FAST), volume status (IVC), lung (B-lines), procedural guidance"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] bedside fluid/membrane read"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] B-lines/IVC = fluid-retention/M-A context"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute (shock/trauma)=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] IVC plethora/B-lines = supportive fluid-retention (bedside)"
+      },
+      "safety_limitations": [
+        "[GL] focused (not comprehensive); operator skill"
+      ],
+      "related_tests": [
+        "IMG-005 abd US",
+        "FUN-001 BIA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "POCUS guidelines"
+      ]
+    }
+  ]
+}

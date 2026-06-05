@@ -1,0 +1,494 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-17-FunctionalPulmSleep",
+    "version": "RF-2026-06-DX17",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — functional pulmonology + sleep",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 9,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Modality/indications/findings = [GL/LBL]. Energy/membrane/phase interpretation = [RF]. Imaging/procedures REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care; radiation/contrast/invasiveness flagged.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/imaging guideline (ACR/specialty)",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "FUN-021",
+      "name_full": "Spirometry (pre/post bronchodilator)",
+      "name_ru": "Спирометрия (до/после бронходилататора)",
+      "name_alternative_codes": "spirometry",
+      "status": "METACOD-RF",
+      "batch": "DX-17-Pulmonology",
+      "test_type": "Functional",
+      "methodology": "[GL] Forced spirometry (FEV1/FVC); reversibility",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] asthma/COPD dx + severity, reversibility, restriction screen"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Lung-Metal axis function"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fixed obstruction=airway remodeling/M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] effort-dependent; quality criteria; restriction needs lung volumes"
+      ],
+      "related_tests": [
+        "FUN-022 PFT",
+        "DRG bronchodilators"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ATS/ERS; GINA/GOLD"
+      ]
+    },
+    {
+      "test_id": "FUN-022",
+      "name_full": "Full pulmonary function tests (lung volumes / plethysmography)",
+      "name_ru": "Полное исследование ФВД (объёмы/бодиплетизмография)",
+      "name_alternative_codes": "PFT/body box",
+      "status": "METACOD-RF",
+      "batch": "DX-17-Pulmonology",
+      "test_type": "Functional",
+      "methodology": "[GL] Body plethysmography (TLC/RV)",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] restriction vs obstruction, hyperinflation, air trapping"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] lung capacity"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fibrotic restriction=M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] technique-dependent; claustrophobia (box)"
+      ],
+      "related_tests": [
+        "FUN-021 spirometry",
+        "FUN-023 DLCO"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ATS/ERS"
+      ]
+    },
+    {
+      "test_id": "FUN-023",
+      "name_full": "Diffusing capacity (DLCO)",
+      "name_ru": "Диффузионная способность лёгких (DLCO)",
+      "name_alternative_codes": "DLCO",
+      "status": "METACOD-RF",
+      "batch": "DX-17-Pulmonology",
+      "test_type": "Functional",
+      "methodology": "[GL] Single-breath CO uptake",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] ILD, emphysema, pulmonary vascular disease (low DLCO), pre-chemo (bleomycin)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] alveolar-capillary interface"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fibrosis/emphysema=parenchymal M-S/M-D"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] corrected for Hb/COHb; effort/technique"
+      ],
+      "related_tests": [
+        "IMG-016 HRCT",
+        "DRG-157 nintedanib"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ATS/ERS"
+      ]
+    },
+    {
+      "test_id": "FUN-024",
+      "name_full": "Bronchial provocation (methacholine) test",
+      "name_ru": "Бронхопровокационный тест (метахолин)",
+      "name_alternative_codes": "methacholine challenge",
+      "status": "METACOD-RF",
+      "batch": "DX-17-Pulmonology",
+      "test_type": "Functional",
+      "methodology": "[GL] Methacholine inhalation (PC20)",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] asthma diagnosis when spirometry normal (airway hyperreactivity)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] airway Wind reactivity"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] bronchospasm risk (rescue ready); contraindicated severe obstruction"
+      ],
+      "related_tests": [
+        "FUN-021 spirometry"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ATS asthma"
+      ]
+    },
+    {
+      "test_id": "FUN-025",
+      "name_full": "Six-minute walk test (6MWT)",
+      "name_ru": "Тест 6-минутной ходьбы",
+      "name_alternative_codes": "6MWT",
+      "status": "METACOD-RF",
+      "batch": "DX-17-Pulmonology",
+      "test_type": "Functional",
+      "methodology": "[GL] Standardized walk distance + SpO2",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] functional capacity (ILD/COPD/PAH/HF), desaturation, rehab response"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] integrated functional reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] effort/motivation; learning effect"
+      ],
+      "related_tests": [
+        "FUN-019 CPET",
+        "IMG PAH"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ATS"
+      ]
+    },
+    {
+      "test_id": "FUN-026",
+      "name_full": "Pulse oximetry / overnight oximetry",
+      "name_ru": "Пульсоксиметрия / ночная оксиметрия",
+      "name_alternative_codes": "SpO2",
+      "status": "METACOD-RF",
+      "batch": "DX-17-Pulmonology",
+      "test_type": "Functional",
+      "methodology": "[GL] Transcutaneous SpO2 (spot/overnight)",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] hypoxemia screen, oxygen titration, OSA screen (overnight desaturation)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] oxygenation"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute desaturation=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] poor perfusion/motion/nail polish/CO artifact"
+      ],
+      "related_tests": [
+        "FUN-027 ABG",
+        "FUN-028 PSG"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ATS"
+      ]
+    },
+    {
+      "test_id": "FUN-027",
+      "name_full": "Arterial blood gas (ABG)",
+      "name_ru": "Анализ газов артериальной крови (КЩС)",
+      "name_alternative_codes": "ABG",
+      "status": "METACOD-RF",
+      "batch": "DX-17-Pulmonology",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Arterial sample (pH/PaO2/PaCO2/HCO3)",
+      "specimen_type": "Arterial blood",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "[GL] severe hypoxemia/acidosis",
+      "indications": {
+        "primary": [
+          "[GL] respiratory failure, acid-base disorders, ventilation assessment"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] systemic acid-base/oxygenation"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute respiratory failure=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] arterial puncture (painful); rapid processing; Allen test"
+      ],
+      "related_tests": [
+        "TST-003 BMP",
+        "FUN-026 oximetry"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ATS"
+      ]
+    },
+    {
+      "test_id": "FUN-028",
+      "name_full": "Polysomnography (in-lab sleep study)",
+      "name_ru": "Полисомнография (лабораторное исследование сна)",
+      "name_alternative_codes": "PSG",
+      "status": "METACOD-RF",
+      "batch": "DX-17-Sleep",
+      "test_type": "Functional",
+      "methodology": "[GL] Attended multi-channel sleep study (AHI)",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] obstructive/central sleep apnea, parasomnias, PLMD, titration"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] OSA contributes to fatigue/autonomic burden (comorbidity context)"
+      },
+      "safety_limitations": [
+        "[GL] in-lab burden/cost; night-to-night variability"
+      ],
+      "related_tests": [
+        "FUN-029 home test",
+        "DRG-289 melatonin"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "AASM"
+      ]
+    },
+    {
+      "test_id": "FUN-029",
+      "name_full": "Home sleep apnea test (HSAT)",
+      "name_ru": "Домашнее тестирование апноэ сна (HSAT)",
+      "name_alternative_codes": "HSAT",
+      "status": "METACOD-RF",
+      "batch": "DX-17-Sleep",
+      "test_type": "Functional",
+      "methodology": "[GL] Limited-channel home monitor",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] uncomplicated moderate-severe OSA (high pretest probability)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] underestimates AHI; not for central apnea/comorbidity — confirm with PSG if negative"
+      ],
+      "related_tests": [
+        "FUN-028 PSG"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "AASM"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,696 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-14-ImagingMRI",
+    "version": "RF-2026-06-DX14",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — imaging: MRI protocols (+ functional)",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 13,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Modality/indications/findings = [GL/LBL]. Energy/membrane/phase interpretation = [RF]. Imaging/procedures REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care; radiation/contrast/invasiveness flagged.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/imaging guideline (ACR/specialty)",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "IMG-028",
+      "name_full": "MRI brain",
+      "name_ru": "МРТ головного мозга",
+      "name_alternative_codes": "MRI brain",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Imaging",
+      "methodology": "[GL] Multi-sequence MRI ± contrast (DWI/FLAIR/SWI)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] stroke (DWI), MS, tumor, dementia, seizure, infection — superior soft-tissue"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] atrophy=M-D; gliosis/demyelination=M-S; white-matter disease"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute infarct (DWI)=Phase 1/3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] contraindications (non-MRI implants), gadolinium (NSF if severe CKD), claustrophobia, time"
+      ],
+      "related_tests": [
+        "IMG-015 CT head",
+        "DRG MS-DMTs"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-029",
+      "name_full": "MRI spine",
+      "name_ru": "МРТ позвоночника",
+      "name_alternative_codes": "MRI spine",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Imaging",
+      "methodology": "[GL] Multi-sequence MRI ± contrast",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] cord compression/myelopathy, disc/radiculopathy, infection (discitis), marrow"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] disc degeneration/fibrosis=M-S; cord atrophy=M-D"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute compression=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] MRI contraindications; degenerative findings common/asymptomatic"
+      ],
+      "related_tests": [
+        "IMG-004 spine X-ray"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-030",
+      "name_full": "MRI musculoskeletal / joint",
+      "name_ru": "МРТ опорно-двигательного/сустава",
+      "name_alternative_codes": "MRI MSK",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Imaging",
+      "methodology": "[GL] Multi-sequence MRI",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] internal derangement (ligament/meniscus/cartilage), marrow, soft-tissue mass, stress fx"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] effusion=M-A; chronic tendinosis/scar=M-S; bone-marrow edema"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute injury=Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] MRI contraindications; incidental findings"
+      ],
+      "related_tests": [
+        "IMG-003 X-ray",
+        "IMG-011 MSK US"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-031",
+      "name_full": "MRI abdomen (liver / MRCP)",
+      "name_ru": "МРТ брюшной полости (печень/МРХПГ)",
+      "name_alternative_codes": "MRI abd/MRCP",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Imaging",
+      "methodology": "[GL] MRI ± hepatobiliary contrast; MRCP",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] liver lesion characterization, iron/fat quantification, biliary (MRCP), pancreas"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Liver-Wood axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fibrosis (MR elastography)=M-S; steatosis/iron quantification"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] gadolinium; time; breath-hold"
+      ],
+      "related_tests": [
+        "IMG-005 abd US",
+        "TST-061 LFTs"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR; AASLD"
+      ]
+    },
+    {
+      "test_id": "IMG-032",
+      "name_full": "MRI pelvis (prostate mpMRI / gyn)",
+      "name_ru": "МРТ малого таза (мпМРТ простаты/гин)",
+      "name_alternative_codes": "mpMRI/pelvic MRI",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Imaging",
+      "methodology": "[GL] Multiparametric MRI; PI-RADS",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] prostate cancer (PI-RADS, biopsy targeting), gyn masses, endometriosis, rectal staging"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fibrosis/adenomyosis=M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] gadolinium; PI-RADS reader variability"
+      ],
+      "related_tests": [
+        "TST-048 PSA",
+        "PRO-018 prostate biopsy"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR PI-RADS"
+      ]
+    },
+    {
+      "test_id": "IMG-033",
+      "name_full": "Cardiac MRI",
+      "name_ru": "МРТ сердца",
+      "name_alternative_codes": "CMR",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Imaging",
+      "methodology": "[GL] CMR (cine/LGE/mapping/perfusion)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] cardiomyopathy, myocarditis, infiltrative (amyloid/sarcoid), viability, congenital"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] cardiac constitution"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] LGE fibrosis/scar=myocardial M-S; edema (T2)=M-A"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute myocarditis=Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] gadolinium; arrhythmia/breath-hold; availability"
+      ],
+      "related_tests": [
+        "TST-022 BNP",
+        "FUN-014 echo"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "SCMR; ESC"
+      ]
+    },
+    {
+      "test_id": "IMG-034",
+      "name_full": "MR angiography (MRA)",
+      "name_ru": "МР-ангиография",
+      "name_alternative_codes": "MRA",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Imaging",
+      "methodology": "[GL] MRI vascular (± contrast / non-contrast TOF)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] intracranial/renal/peripheral vascular, aneurysm (non-radiation alternative to CTA)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] vascular constitution"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] overestimates stenosis; gadolinium options"
+      ],
+      "related_tests": [
+        "IMG-019 CTA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-035",
+      "name_full": "Breast MRI",
+      "name_ru": "МРТ молочных желёз",
+      "name_alternative_codes": "breast MRI",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Imaging",
+      "methodology": "[GL] Dynamic contrast MRI; BI-RADS",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] high-risk screening (BRCA), extent of disease, implant integrity, occult primary"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] gadolinium; false+ (recall/biopsy); not for average-risk screening"
+      ],
+      "related_tests": [
+        "IMG-012 mammography"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACR BI-RADS"
+      ]
+    },
+    {
+      "test_id": "IMG-036",
+      "name_full": "Functional MRI (fMRI)",
+      "name_ru": "Функциональная МРТ (фМРТ)",
+      "name_alternative_codes": "fMRI",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Functional",
+      "methodology": "[GL] BOLD MRI (task/resting-state)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] pre-surgical eloquent-cortex mapping; research"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] mostly research/specialty; motion-sensitive"
+      ],
+      "related_tests": [
+        "IMG-028 MRI brain"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Neuroimaging"
+      ]
+    },
+    {
+      "test_id": "IMG-037",
+      "name_full": "Diffusion-weighted imaging (DWI/ADC)",
+      "name_ru": "Диффузионно-взвешенная МРТ (DWI/ADC)",
+      "name_alternative_codes": "DWI",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Imaging",
+      "methodology": "[GL] MRI diffusion sequence",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] acute stroke (restricted diffusion), abscess vs tumor, whole-body DWI oncology"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute ischemia/cytotoxic edema=Phase 1/3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] T2-shine-through; artifact"
+      ],
+      "related_tests": [
+        "IMG-028 MRI brain"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "stroke guidelines"
+      ]
+    },
+    {
+      "test_id": "IMG-038",
+      "name_full": "MR enterography (dedicated)",
+      "name_ru": "МР-энтерография",
+      "name_alternative_codes": "MRE",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Imaging",
+      "methodology": "[GL] Enteric-contrast MRI (no radiation)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Crohn's monitoring in young patients (repeated, radiation-free)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] active=M-A; fibrostenotic=M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] flare=Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] time; bowel prep"
+      ],
+      "related_tests": [
+        "IMG-022 CT enterography"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ECCO/ACG IBD"
+      ]
+    },
+    {
+      "test_id": "IMG-039",
+      "name_full": "MR neurography",
+      "name_ru": "МР-нейрография",
+      "name_alternative_codes": "MRN",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Imaging",
+      "methodology": "[GL] High-resolution peripheral-nerve MRI",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] peripheral nerve entrapment/injury/tumor (brachial/lumbosacral plexus)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] nerve fibrosis=M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] specialty; availability"
+      ],
+      "related_tests": [
+        "FUN EMG (future)"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Neuroimaging"
+      ]
+    },
+    {
+      "test_id": "IMG-040",
+      "name_full": "Whole-body MRI",
+      "name_ru": "МРТ всего тела",
+      "name_alternative_codes": "WB-MRI",
+      "status": "METACOD-RF",
+      "batch": "DX-14-MRI",
+      "test_type": "Imaging",
+      "methodology": "[GL] Whole-body MRI (DWI)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] myeloma/metastasis screening, cancer-predisposition surveillance (Li-Fraumeni)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] time; incidental findings; availability"
+      ],
+      "related_tests": [
+        "IMG-041 PET-CT"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Oncology imaging"
+      ]
+    }
+  ]
+}

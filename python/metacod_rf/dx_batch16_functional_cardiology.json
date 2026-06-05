@@ -1,0 +1,598 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-16-FunctionalCardiology",
+    "version": "RF-2026-06-DX16",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — functional cardiology",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 11,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Modality/indications/findings = [GL/LBL]. Energy/membrane/phase interpretation = [RF]. Imaging/procedures REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care; radiation/contrast/invasiveness flagged.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/imaging guideline (ACR/specialty)",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "FUN-010",
+      "name_full": "12-lead electrocardiogram (ECG)",
+      "name_ru": "ЭКГ в 12 отведениях",
+      "name_alternative_codes": "ECG/EKG",
+      "status": "METACOD-RF",
+      "batch": "DX-16-Cardiology",
+      "test_type": "Functional",
+      "methodology": "[GL] 12-lead surface ECG",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] rate/intervals/axis vs normal",
+      "units": "—",
+      "critical_values": "[GL] STEMI / malignant arrhythmia / severe QT",
+      "indications": {
+        "primary": [
+          "[GL] arrhythmia, ischemia/MI (STEMI), conduction, chamber enlargement, electrolyte/QT"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] cardiac electrical state"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute STEMI/arrhythmia=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] snapshot (misses paroxysmal); needs clinical correlation"
+      ],
+      "related_tests": [
+        "TST-021 troponin",
+        "FUN-011 Holter"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ACC/AHA"
+      ]
+    },
+    {
+      "test_id": "FUN-011",
+      "name_full": "Ambulatory ECG (Holter / event / patch)",
+      "name_ru": "Амбулаторное ЭКГ (Холтер/событийный/патч)",
+      "name_alternative_codes": "Holter",
+      "status": "METACOD-RF",
+      "batch": "DX-16-Cardiology",
+      "test_type": "Functional",
+      "methodology": "[GL] 24-72h to 14-30d continuous/event monitoring",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] paroxysmal arrhythmia, palpitations, syncope, AF burden"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] captures paroxysmal Phase 3 events"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] yield depends on symptom frequency/duration"
+      ],
+      "related_tests": [
+        "FUN-010 ECG",
+        "FUN-020 loop recorder"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ACC/AHA"
+      ]
+    },
+    {
+      "test_id": "FUN-012",
+      "name_full": "Exercise stress test (treadmill ECG)",
+      "name_ru": "Нагрузочная проба (тредмил-ЭКГ)",
+      "name_alternative_codes": "stress ECG",
+      "status": "METACOD-RF",
+      "batch": "DX-16-Cardiology",
+      "test_type": "Functional",
+      "methodology": "[GL] Graded exercise ECG (Bruce)",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] CAD evaluation (intermediate risk), functional capacity, exercise-induced arrhythmia"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] cardiac functional reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] inducible ischemia"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] lower sensitivity; uninterpretable with baseline ECG abnormalities/LBBB"
+      ],
+      "related_tests": [
+        "IMG-043 MPI",
+        "FUN-013 stress echo"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACC/AHA"
+      ]
+    },
+    {
+      "test_id": "FUN-013",
+      "name_full": "Stress echocardiography",
+      "name_ru": "Стресс-эхокардиография",
+      "name_alternative_codes": "stress echo",
+      "status": "METACOD-RF",
+      "batch": "DX-16-Cardiology",
+      "test_type": "Functional",
+      "methodology": "[GL] Exercise/dobutamine echo (wall-motion)",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] ischemia (wall-motion), viability, valvular under stress"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] inducible wall-motion abnormality=ischemia"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] image quality; operator-dependent"
+      ],
+      "related_tests": [
+        "FUN-014 TTE",
+        "IMG-043 MPI"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ASE; ACC/AHA"
+      ]
+    },
+    {
+      "test_id": "FUN-014",
+      "name_full": "Transthoracic echocardiography (TTE)",
+      "name_ru": "Трансторакальная эхокардиография (ТТЭ)",
+      "name_alternative_codes": "TTE/echo",
+      "status": "METACOD-RF",
+      "batch": "DX-16-Cardiology",
+      "test_type": "Functional",
+      "methodology": "[GL] 2D/Doppler/strain echo",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] LV function (EF), valves, pericardium, pulmonary pressures, HF work-up"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] cardiac structure/function"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] hypertrophy/fibrosis pattern; effusion=M-A"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute (tamponade)=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] acoustic windows/body habitus; load-dependent EF"
+      ],
+      "related_tests": [
+        "TST-022 BNP",
+        "IMG-033 CMR"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ASE"
+      ]
+    },
+    {
+      "test_id": "FUN-015",
+      "name_full": "Transesophageal echocardiography (TEE)",
+      "name_ru": "Чреспищеводная эхокардиография (ЧПЭ)",
+      "name_alternative_codes": "TEE",
+      "status": "METACOD-RF",
+      "batch": "DX-16-Cardiology",
+      "test_type": "Procedure",
+      "methodology": "[GL] Probe-based esophageal echo (sedation)",
+      "specimen_type": "Procedure",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] endocarditis, LAA thrombus (pre-cardioversion), valve detail, source of embolism"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] vegetations/thrombus"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] semi-invasive (sedation, esophageal injury); NPO"
+      ],
+      "related_tests": [
+        "FUN-014 TTE"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ASE"
+      ]
+    },
+    {
+      "test_id": "FUN-016",
+      "name_full": "Ambulatory blood pressure monitoring (ABPM)",
+      "name_ru": "Суточное мониторирование АД (СМАД)",
+      "name_alternative_codes": "ABPM",
+      "status": "METACOD-RF",
+      "batch": "DX-16-Cardiology",
+      "test_type": "Functional",
+      "methodology": "[GL] 24h automated BP",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] white-coat/masked HTN, nocturnal dipping, resistant HTN, true BP burden"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] vascular/autonomic"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] non-dipping = autonomic pattern"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] non-dipping = supportive autonomic/chronic-stress pattern"
+      },
+      "safety_limitations": [
+        "[GL] tolerability; cuff artifact"
+      ],
+      "related_tests": [
+        "FUN-003 HRV",
+        "DRG antihypertensives"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ESC/ESH HTN"
+      ]
+    },
+    {
+      "test_id": "FUN-017",
+      "name_full": "Ankle-brachial index (ABI)",
+      "name_ru": "Лодыжечно-плечевой индекс (ЛПИ)",
+      "name_alternative_codes": "ABI",
+      "status": "METACOD-RF",
+      "batch": "DX-16-Cardiology",
+      "test_type": "Functional",
+      "methodology": "[GL] Doppler ankle/brachial pressure ratio",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] peripheral artery disease (claudication), CV risk"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] vascular constitution"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] falsely high if calcified/non-compressible (diabetes/CKD — use TBI)"
+      ],
+      "related_tests": [
+        "IMG-019 CTA",
+        "DRG-075 cilostazol"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACC/AHA PAD"
+      ]
+    },
+    {
+      "test_id": "FUN-018",
+      "name_full": "Tilt-table test",
+      "name_ru": "Тилт-тест (ортостатическая проба)",
+      "name_alternative_codes": "HUTT",
+      "status": "METACOD-RF",
+      "batch": "DX-16-Cardiology",
+      "test_type": "Functional",
+      "methodology": "[GL] Head-up tilt ± provocation (HR/BP)",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] unexplained syncope, vasovagal, POTS, orthostatic intolerance"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] autonomic state"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] reproducibility; false+"
+      ],
+      "related_tests": [
+        "FUN-003 HRV",
+        "DRG-394 midodrine"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "syncope guidelines"
+      ]
+    },
+    {
+      "test_id": "FUN-019",
+      "name_full": "Cardiopulmonary exercise test (CPET)",
+      "name_ru": "Кардиопульмональный нагрузочный тест (КПНТ)",
+      "name_alternative_codes": "CPET",
+      "status": "METACOD-RF",
+      "batch": "DX-16-Cardiology",
+      "test_type": "Functional",
+      "methodology": "[GL] Exercise with gas exchange (VO2max)",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] dyspnea (cardiac vs pulmonary), HF prognosis/transplant eval, pre-op risk"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] integrated functional reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] effort-dependent; equipment/expertise"
+      ],
+      "related_tests": [
+        "FUN-022 PFT",
+        "TST-022 BNP"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ATS/ACC"
+      ]
+    },
+    {
+      "test_id": "FUN-020",
+      "name_full": "Cardiac event monitor / implantable loop recorder (ILR)",
+      "name_ru": "Событийный монитор / имплантируемый петлевой регистратор",
+      "name_alternative_codes": "ILR",
+      "status": "METACOD-RF",
+      "batch": "DX-16-Cardiology",
+      "test_type": "Functional",
+      "methodology": "[GL] Long-term (months-years) loop monitoring",
+      "specimen_type": "Functional",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] infrequent syncope/palpitations, cryptogenic stroke (AF detection)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] captures rare Phase 3 arrhythmia"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] ILR minor implant; data review burden"
+      ],
+      "related_tests": [
+        "FUN-011 Holter"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACC/AHA"
+      ]
+    }
+  ]
+}

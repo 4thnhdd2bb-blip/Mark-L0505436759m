@@ -1,0 +1,493 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-15-ImagingNuclearPET",
+    "version": "RF-2026-06-DX15",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — imaging: nuclear medicine + PET",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 9,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Modality/indications/findings = [GL/LBL]. Energy/membrane/phase interpretation = [RF]. Imaging/procedures REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care; radiation/contrast/invasiveness flagged.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/imaging guideline (ACR/specialty)",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "IMG-041",
+      "name_full": "FDG PET-CT",
+      "name_ru": "ФДГ ПЭТ-КТ",
+      "name_alternative_codes": "FDG PET-CT",
+      "status": "METACOD-RF",
+      "batch": "DX-15-PET",
+      "test_type": "Imaging",
+      "methodology": "[GL] 18F-FDG PET + CT (SUV)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] cancer staging/restaging/response, FUO/inflammation, cardiac sarcoid"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] metabolic activity (Heat)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] hypermetabolic=active disease"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] radiation; false+ (infection/inflammation); glucose/insulin prep"
+      ],
+      "related_tests": [
+        "IMG-040 WB-MRI",
+        "TST tumor markers"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "oncology PET guidelines"
+      ]
+    },
+    {
+      "test_id": "IMG-042",
+      "name_full": "Bone scintigraphy",
+      "name_ru": "Сцинтиграфия костей",
+      "name_alternative_codes": "bone scan",
+      "status": "METACOD-RF",
+      "batch": "DX-15-Nuclear",
+      "test_type": "Imaging",
+      "methodology": "[GL] Tc-99m MDP (whole-body)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] bone metastases, osteomyelitis, occult fracture, Paget"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] osteoblastic activity"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] non-specific uptake (degenerative); radiation"
+      ],
+      "related_tests": [
+        "IMG-003 X-ray",
+        "TST-109 calcitonin"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "nuclear guidelines"
+      ]
+    },
+    {
+      "test_id": "IMG-043",
+      "name_full": "Myocardial perfusion imaging (SPECT/PET)",
+      "name_ru": "Перфузионная сцинтиграфия миокарда",
+      "name_alternative_codes": "MPI/SPECT",
+      "status": "METACOD-RF",
+      "batch": "DX-15-Nuclear",
+      "test_type": "Functional",
+      "methodology": "[GL] Tc-99m/PET stress-rest perfusion",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] ischemia detection, viability, CAD risk"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] coronary perfusion"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] scar (fixed defect)=myocardial M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] reversible defect=ischemia"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] radiation; attenuation artifact"
+      ],
+      "related_tests": [
+        "FUN-012 stress test",
+        "IMG-033 CMR"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ASNC; ACC/AHA"
+      ]
+    },
+    {
+      "test_id": "IMG-044",
+      "name_full": "Ventilation/perfusion scan (V/Q)",
+      "name_ru": "Вентиляционно-перфузионная сцинтиграфия (V/Q)",
+      "name_alternative_codes": "V/Q scan",
+      "status": "METACOD-RF",
+      "batch": "DX-15-Nuclear",
+      "test_type": "Imaging",
+      "methodology": "[GL] Tc-99m perfusion ± ventilation",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] pulmonary embolism (when CTPA contraindicated — renal/contrast/pregnancy)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute PE=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] indeterminate if abnormal CXR/lung disease"
+      ],
+      "related_tests": [
+        "IMG-017 CTPA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "VTE guidelines"
+      ]
+    },
+    {
+      "test_id": "IMG-045",
+      "name_full": "Thyroid uptake & scan",
+      "name_ru": "Сцинтиграфия щитовидной железы",
+      "name_alternative_codes": "thyroid scan/RAIU",
+      "status": "METACOD-RF",
+      "batch": "DX-15-Nuclear",
+      "test_type": "Imaging",
+      "methodology": "[GL] I-123/Tc-99m uptake + scan",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] hyperthyroidism etiology (Graves vs toxic nodule vs thyroiditis), nodule function"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] iodine/contrast/thyroid meds interfere; contraindicated pregnancy"
+      ],
+      "related_tests": [
+        "TST-026 TSH",
+        "DRG-121 methimazole"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ATA"
+      ]
+    },
+    {
+      "test_id": "IMG-046",
+      "name_full": "Renal scintigraphy (MAG3 / DMSA)",
+      "name_ru": "Реносцинтиграфия (MAG3/DMSA)",
+      "name_alternative_codes": "renal scan",
+      "status": "METACOD-RF",
+      "batch": "DX-15-Nuclear",
+      "test_type": "Functional",
+      "methodology": "[GL] Tc-99m MAG3 (function/drainage) / DMSA (cortex/scars)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] split renal function, obstruction (diuretic renogram), scarring/pyelonephritis"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Water-axis function"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] cortical scars=renal M-D/M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] hydration/timing"
+      ],
+      "related_tests": [
+        "IMG-008 renal US",
+        "TST-007 eGFR"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "nuclear guidelines"
+      ]
+    },
+    {
+      "test_id": "IMG-047",
+      "name_full": "Hepatobiliary scan (HIDA)",
+      "name_ru": "Гепатобилиарная сцинтиграфия (HIDA)",
+      "name_alternative_codes": "HIDA",
+      "status": "METACOD-RF",
+      "batch": "DX-15-Nuclear",
+      "test_type": "Functional",
+      "methodology": "[GL] Tc-99m HIDA ± CCK (ejection fraction)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] acute cholecystitis (non-filling GB), biliary leak/obstruction, GB ejection fraction"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] biliary function"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute cholecystitis=Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] fasting state; opioids affect sphincter"
+      ],
+      "related_tests": [
+        "IMG-005 abd US"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "nuclear guidelines"
+      ]
+    },
+    {
+      "test_id": "IMG-048",
+      "name_full": "DaTscan (dopamine transporter SPECT)",
+      "name_ru": "ДаТ-скан (транспортёр дофамина)",
+      "name_alternative_codes": "DaTscan",
+      "status": "METACOD-RF",
+      "batch": "DX-15-Nuclear",
+      "test_type": "Imaging",
+      "methodology": "[GL] I-123 ioflupane SPECT",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] differentiate Parkinsonian syndromes from essential tremor/drug-induced"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] nigrostriatal dopaminergic"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] presynaptic dopaminergic loss=M-D"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] does not distinguish PD from atypical parkinsonism"
+      ],
+      "related_tests": [
+        "DRG Parkinson agents"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "MDS Parkinson"
+      ]
+    },
+    {
+      "test_id": "IMG-049",
+      "name_full": "PSMA PET / DOTATATE PET",
+      "name_ru": "ПСМА-ПЭТ / DOTATATE-ПЭТ",
+      "name_alternative_codes": "PSMA/DOTATATE",
+      "status": "METACOD-RF",
+      "batch": "DX-15-PET",
+      "test_type": "Imaging",
+      "methodology": "[GL] 68Ga/18F-PSMA (prostate); 68Ga-DOTATATE (NET)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] prostate cancer staging/biochemical recurrence (PSMA); neuroendocrine tumors (DOTATATE)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] receptor-targeted"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] availability/cost; theranostic pairing (Lu-177)"
+      ],
+      "related_tests": [
+        "TST-048 PSA",
+        "TST-108 chromogranin A"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "NCCN prostate/NET"
+      ]
+    }
+  ]
+}

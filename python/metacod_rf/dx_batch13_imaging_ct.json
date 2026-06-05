@@ -1,0 +1,699 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-13-ImagingCT",
+    "version": "RF-2026-06-DX13",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — imaging: CT protocols",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 13,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Modality/indications/findings = [GL/LBL]. Energy/membrane/phase interpretation = [RF]. Imaging/procedures REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care; radiation/contrast/invasiveness flagged.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/imaging guideline (ACR/specialty)",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "IMG-015",
+      "name_full": "CT head (non-contrast)",
+      "name_ru": "КТ головы без контраста",
+      "name_alternative_codes": "NCCT head",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] Non-contrast CT",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "[GL] acute hemorrhage/herniation",
+      "indications": {
+        "primary": [
+          "[GL] acute stroke (hemorrhage rule-out), trauma, ↑ICP, acute neuro"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] atrophy=M-D; chronic ischemic=M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute hemorrhage=Phase 1/3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] radiation; poor for early ischemia/posterior fossa (MRI better)"
+      ],
+      "related_tests": [
+        "IMG-028 MRI brain",
+        "IMG-027 CT perfusion"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ACR; stroke guidelines"
+      ]
+    },
+    {
+      "test_id": "IMG-016",
+      "name_full": "CT chest (incl. HRCT)",
+      "name_ru": "КТ грудной клетки (вкл. ВРКТ)",
+      "name_alternative_codes": "CT chest/HRCT",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] CT ± contrast; HRCT for ILD",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] nodules/masses, ILD (HRCT), bronchiectasis, infection, staging"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fibrosis/honeycomb=lung M-S; ground-glass=M-A inflammatory"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute infection=Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] radiation; incidental nodules (Fleischner follow-up)"
+      ],
+      "related_tests": [
+        "IMG-001 CXR",
+        "DRG-156 pirfenidone"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ACR; Fleischner"
+      ]
+    },
+    {
+      "test_id": "IMG-017",
+      "name_full": "CT pulmonary angiography (CTPA)",
+      "name_ru": "КТ-ангиография лёгочных артерий",
+      "name_alternative_codes": "CTPA",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] Contrast-enhanced CT (PE protocol)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] pulmonary embolism diagnosis"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute PE=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] iodinated contrast (renal/allergy); radiation; D-dimer to gate"
+      ],
+      "related_tests": [
+        "TST-023 D-dimer",
+        "IMG-044 V/Q"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "VTE guidelines"
+      ]
+    },
+    {
+      "test_id": "IMG-018",
+      "name_full": "CT abdomen/pelvis (contrast)",
+      "name_ru": "КТ брюшной полости/таза с контрастом",
+      "name_alternative_codes": "CT A/P",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] Multiphase contrast CT",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] acute abdomen, masses/staging, infection/abscess, trauma, stones (non-con)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] organ constitution"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fibrosis/cirrhosis=M-S; ascites=fluid/M-A"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute (appendicitis/abscess)=Phase 2/3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] contrast (renal/allergy); radiation"
+      ],
+      "related_tests": [
+        "IMG-005 abd US",
+        "IMG-022 CT enterography"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-019",
+      "name_full": "CT angiography (CTA)",
+      "name_ru": "КТ-ангиография",
+      "name_alternative_codes": "CTA",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] Contrast CT vascular protocol",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] aneurysm/dissection, PAD, GI bleed, vascular mapping"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] vascular constitution"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] atherosclerosis/calcification=vascular M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute dissection/bleed=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] contrast; radiation"
+      ],
+      "related_tests": [
+        "IMG-009 carotid duplex"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR appropriateness"
+      ]
+    },
+    {
+      "test_id": "IMG-020",
+      "name_full": "Coronary CT angiography / calcium score",
+      "name_ru": "КТ-коронарография / кальциевый индекс",
+      "name_alternative_codes": "CCTA/CAC",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] ECG-gated CT (± contrast); Agatston CAC",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] chest pain (low-intermediate risk, high NPV), CAD risk (CAC score)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] coronary constitution"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] coronary calcium=vascular M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] heart-rate control needed; contrast; CAC=radiation"
+      ],
+      "related_tests": [
+        "TST-057 lipids",
+        "FUN-012 stress test"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACC/AHA chest pain"
+      ]
+    },
+    {
+      "test_id": "IMG-021",
+      "name_full": "CT urography",
+      "name_ru": "КТ-урография",
+      "name_alternative_codes": "CTU",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] Multiphase contrast CT (urinary)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] hematuria work-up, urothelial cancer, stones, obstruction"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Water-axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute obstruction=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] contrast; radiation"
+      ],
+      "related_tests": [
+        "IMG-008 renal US",
+        "TST-068 UA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "AUA hematuria"
+      ]
+    },
+    {
+      "test_id": "IMG-022",
+      "name_full": "CT / MR enterography",
+      "name_ru": "КТ/МР-энтерография",
+      "name_alternative_codes": "CTE/MRE",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] Enteric-contrast CT or MR",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Crohn's disease (small-bowel inflammation/strictures), GI bleed"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] active enteritis=M-A; fibrostenotic stricture=M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] flare=Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] CTE radiation (MRE preferred for repeated young IBD)"
+      ],
+      "related_tests": [
+        "TST-116 calprotectin",
+        "PRO-002 colonoscopy"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ECCO/ACG IBD"
+      ]
+    },
+    {
+      "test_id": "IMG-023",
+      "name_full": "CT colonography",
+      "name_ru": "КТ-колонография (виртуальная колоноскопия)",
+      "name_alternative_codes": "CTC",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] CT with colonic insufflation",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] colorectal cancer screening (colonoscopy alternative/incomplete)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] bowel prep; positives need colonoscopy; radiation"
+      ],
+      "related_tests": [
+        "PRO-002 colonoscopy",
+        "TST-117 FIT"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACR; USPSTF CRC"
+      ]
+    },
+    {
+      "test_id": "IMG-024",
+      "name_full": "Low-dose CT lung cancer screening",
+      "name_ru": "Низкодозная КТ скрининг рака лёгкого",
+      "name_alternative_codes": "LDCT",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] Low-dose non-contrast CT; Lung-RADS",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] lung cancer screening (high-risk smokers, USPSTF criteria)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] false+/incidental nodules; eligibility criteria; cumulative radiation"
+      ],
+      "related_tests": [
+        "IMG-016 CT chest"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "USPSTF; Lung-RADS"
+      ]
+    },
+    {
+      "test_id": "IMG-025",
+      "name_full": "CT cervical spine (trauma)",
+      "name_ru": "КТ шейного отдела (травма)",
+      "name_alternative_codes": "CT c-spine",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] Non-contrast CT",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] cervical spine clearance in trauma (NEXUS/Canadian C-spine)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute fracture=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] radiation; MRI for cord/ligament"
+      ],
+      "related_tests": [
+        "IMG-029 MRI spine"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "trauma guidelines"
+      ]
+    },
+    {
+      "test_id": "IMG-026",
+      "name_full": "CT temporal bone / sinus",
+      "name_ru": "КТ височных костей / придаточных пазух",
+      "name_alternative_codes": "CT temporal/sinus",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] High-resolution non-contrast CT",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] chronic sinusitis (pre-op), cholesteatoma, ossicles, conductive loss"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] chronic mucosal thickening=M-S/Damp"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] radiation near orbit/lens"
+      ],
+      "related_tests": [
+        "DRG-321 nasal steroid"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ENT guidelines"
+      ]
+    },
+    {
+      "test_id": "IMG-027",
+      "name_full": "CT perfusion (stroke)",
+      "name_ru": "КТ-перфузия (инсульт)",
+      "name_alternative_codes": "CTP",
+      "status": "METACOD-RF",
+      "batch": "DX-13-CT",
+      "test_type": "Imaging",
+      "methodology": "[GL] Dynamic contrast CT (core/penumbra)",
+      "specimen_type": "Imaging",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] acute ischemic stroke — salvageable tissue for thrombectomy selection"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute ischemia=Phase 3 (penumbra=salvageable)"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] contrast; time-critical workflow"
+      ],
+      "related_tests": [
+        "IMG-015 NCCT head"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "stroke guidelines"
+      ]
+    }
+  ]
+}

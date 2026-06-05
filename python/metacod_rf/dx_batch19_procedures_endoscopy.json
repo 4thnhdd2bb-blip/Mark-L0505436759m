@@ -1,0 +1,596 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-19-ProceduresEndoscopy",
+    "version": "RF-2026-06-DX19",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — procedures: endoscopy + biopsy",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 11,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Modality/indications/findings = [GL/LBL]. Energy/membrane/phase interpretation = [RF]. Imaging/procedures REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care; radiation/contrast/invasiveness flagged.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/imaging guideline (ACR/specialty)",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "PRO-001",
+      "name_full": "Esophagogastroduodenoscopy (EGD)",
+      "name_ru": "Эзофагогастродуоденоскопия (ЭГДС)",
+      "name_alternative_codes": "EGD/upper endoscopy",
+      "status": "METACOD-RF",
+      "batch": "DX-19-Endoscopy",
+      "test_type": "Procedure",
+      "methodology": "[GL] Flexible upper endoscopy ± biopsy (sedation)",
+      "specimen_type": "Procedure",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] dyspepsia/alarm, GI bleed, dysphagia, Barrett/varices surveillance, biopsy (H. pylori/celiac)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] mucosal atrophy/metaplasia=M-D/M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute bleed=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] sedation risks, perforation/bleeding (rare); NPO"
+      ],
+      "related_tests": [
+        "TST-118 H. pylori",
+        "TST-115 celiac"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ASGE; ACG"
+      ]
+    },
+    {
+      "test_id": "PRO-002",
+      "name_full": "Colonoscopy",
+      "name_ru": "Колоноскопия",
+      "name_alternative_codes": "colonoscopy",
+      "status": "METACOD-RF",
+      "batch": "DX-19-Endoscopy",
+      "test_type": "Procedure",
+      "methodology": "[GL] Flexible lower endoscopy + polypectomy/biopsy",
+      "specimen_type": "Procedure",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] CRC screening/surveillance, bleeding, IBD assessment, polyp removal"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] chronic IBD changes=mucosal M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] active colitis=Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] prep burden; perforation/bleed (esp. polypectomy); sedation"
+      ],
+      "related_tests": [
+        "TST-117 FIT",
+        "IMG-023 CTC"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "USPSTF; ASGE"
+      ]
+    },
+    {
+      "test_id": "PRO-003",
+      "name_full": "Flexible sigmoidoscopy",
+      "name_ru": "Сигмоидоскопия",
+      "name_alternative_codes": "flex sig",
+      "status": "METACOD-RF",
+      "batch": "DX-19-Endoscopy",
+      "test_type": "Procedure",
+      "methodology": "[GL] Limited left-colon endoscopy",
+      "specimen_type": "Procedure",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] distal colon evaluation, CRC screening (alternative), proctitis"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] misses proximal lesions"
+      ],
+      "related_tests": [
+        "PRO-002 colonoscopy"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "USPSTF; ASGE"
+      ]
+    },
+    {
+      "test_id": "PRO-004",
+      "name_full": "Endoscopic retrograde cholangiopancreatography (ERCP)",
+      "name_ru": "ЭРХПГ",
+      "name_alternative_codes": "ERCP",
+      "status": "METACOD-RF",
+      "batch": "DX-19-Endoscopy",
+      "test_type": "Procedure",
+      "methodology": "[GL] Endoscopic biliary/pancreatic cannulation (therapeutic)",
+      "specimen_type": "Procedure",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] choledocholithiasis (stone removal/stent), biliary obstruction/stricture, leak"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] biliary"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute cholangitis=Phase 2/3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] post-ERCP pancreatitis (major), bleeding/perforation; therapeutic not diagnostic (MRCP first)"
+      ],
+      "related_tests": [
+        "IMG-031 MRCP"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ASGE"
+      ]
+    },
+    {
+      "test_id": "PRO-005",
+      "name_full": "Endoscopic ultrasound (EUS) + FNA",
+      "name_ru": "Эндоскопическое УЗИ (ЭУЗИ) + ТАБ",
+      "name_alternative_codes": "EUS-FNA",
+      "status": "METACOD-RF",
+      "batch": "DX-19-Endoscopy",
+      "test_type": "Procedure",
+      "methodology": "[GL] Endoscope-mounted US ± fine-needle aspiration",
+      "specimen_type": "Procedure",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] pancreatic/subepithelial lesions, GI cancer staging, mediastinal/biliary, tissue sampling"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] sedation; bleeding/pancreatitis (FNA); expertise"
+      ],
+      "related_tests": [
+        "IMG-018 CT abdomen",
+        "TST-105 CA19-9"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ASGE"
+      ]
+    },
+    {
+      "test_id": "PRO-006",
+      "name_full": "Capsule endoscopy",
+      "name_ru": "Капсульная эндоскопия",
+      "name_alternative_codes": "capsule",
+      "status": "METACOD-RF",
+      "batch": "DX-19-Endoscopy",
+      "test_type": "Procedure",
+      "methodology": "[GL] Swallowed wireless camera (small bowel)",
+      "specimen_type": "Procedure",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] obscure GI bleed, small-bowel Crohn's, polyposis surveillance"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] capsule retention risk (stricture — patency capsule first); no biopsy/therapy"
+      ],
+      "related_tests": [
+        "PRO-001 EGD",
+        "IMG-038 MRE"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ASGE"
+      ]
+    },
+    {
+      "test_id": "PRO-007",
+      "name_full": "Bronchoscopy (± BAL / EBUS)",
+      "name_ru": "Бронхоскопия (± БАЛ/ЭБУЗИ)",
+      "name_alternative_codes": "bronchoscopy",
+      "status": "METACOD-RF",
+      "batch": "DX-19-Endoscopy",
+      "test_type": "Procedure",
+      "methodology": "[GL] Flexible bronchoscopy ± lavage/biopsy/EBUS-TBNA",
+      "specimen_type": "Procedure",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] hemoptysis, lung mass/staging (EBUS), infection (BAL), ILD, airway lesions"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute hemoptysis=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] hypoxemia/bleeding/pneumothorax; sedation"
+      ],
+      "related_tests": [
+        "IMG-016 CT chest"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ATS/ACCP"
+      ]
+    },
+    {
+      "test_id": "PRO-008",
+      "name_full": "Liver biopsy",
+      "name_ru": "Биопсия печени",
+      "name_alternative_codes": "liver bx",
+      "status": "METACOD-RF",
+      "batch": "DX-19-Biopsy",
+      "test_type": "Procedure",
+      "methodology": "[GL] Percutaneous/transjugular core biopsy",
+      "specimen_type": "Tissue",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] unexplained LFTs, staging fibrosis (when non-invasive insufficient), focal lesion, autoimmune/transplant"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Liver-Wood histology"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fibrosis staging=M-S quantification"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] bleeding (transjugular if coagulopathy/ascites); sampling error"
+      ],
+      "related_tests": [
+        "IMG-031 MRI liver",
+        "TST-061 LFTs"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "AASLD"
+      ]
+    },
+    {
+      "test_id": "PRO-009",
+      "name_full": "Renal biopsy",
+      "name_ru": "Биопсия почки",
+      "name_alternative_codes": "renal bx",
+      "status": "METACOD-RF",
+      "batch": "DX-19-Biopsy",
+      "test_type": "Procedure",
+      "methodology": "[GL] US-guided percutaneous core biopsy",
+      "specimen_type": "Tissue",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] glomerulonephritis/nephrotic, unexplained AKI/CKD, transplant rejection"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] glomerulosclerosis/interstitial fibrosis=renal M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] active nephritis=Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] bleeding (control BP/coagulation); sampling adequacy"
+      ],
+      "related_tests": [
+        "TST-069 ACR",
+        "DRG-167 mycophenolate"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "KDIGO"
+      ]
+    },
+    {
+      "test_id": "PRO-010",
+      "name_full": "Skin biopsy",
+      "name_ru": "Биопсия кожи",
+      "name_alternative_codes": "skin bx",
+      "status": "METACOD-RF",
+      "batch": "DX-19-Biopsy",
+      "test_type": "Procedure",
+      "methodology": "[GL] Punch/shave/excisional ± DIF",
+      "specimen_type": "Tissue",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] suspicious lesions (melanoma/NMSC), inflammatory/bullous dermatoses, vasculitis"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] sampling/site selection; scarring"
+      ],
+      "related_tests": [
+        "DRG-493 dapsone"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "AAD"
+      ]
+    },
+    {
+      "test_id": "PRO-011",
+      "name_full": "Image-guided core / FNA biopsy (general)",
+      "name_ru": "Биопсия под визуализационным контролем (кор/ТАБ)",
+      "name_alternative_codes": "image-guided bx",
+      "status": "METACOD-RF",
+      "batch": "DX-19-Biopsy",
+      "test_type": "Procedure",
+      "methodology": "[GL] US/CT-guided core or fine-needle aspiration",
+      "specimen_type": "Tissue",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] tissue diagnosis of masses (thyroid/lymph node/lung/breast/soft-tissue)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] bleeding/pneumothorax (lung); non-diagnostic samples"
+      ],
+      "related_tests": [
+        "IMG-007 thyroid US",
+        "IMG-016 CT chest"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "interventional radiology"
+      ]
+    }
+  ]
+}

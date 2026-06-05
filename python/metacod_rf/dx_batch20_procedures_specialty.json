@@ -1,0 +1,497 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-20-ProceduresSpecialty",
+    "version": "RF-2026-06-DX20",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — specialty procedures (marrow/LP/aspiration/cath)",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 9,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Modality/indications/findings = [GL/LBL]. Energy/membrane/phase interpretation = [RF]. Imaging/procedures REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care; radiation/contrast/invasiveness flagged.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/imaging guideline (ACR/specialty)",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "PRO-012",
+      "name_full": "Bone marrow aspiration + biopsy",
+      "name_ru": "Аспирация + трепанобиопсия костного мозга",
+      "name_alternative_codes": "BMA/BMB",
+      "status": "METACOD-RF",
+      "batch": "DX-20-Procedure",
+      "test_type": "Procedure",
+      "methodology": "[GL] Posterior iliac crest aspirate + core",
+      "specimen_type": "Bone marrow",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] cytopenias, leukemia/lymphoma/myeloma, marrow infiltration, MDS, staging"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] hematopoietic reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fibrosis (reticulin/myelofibrosis)=marrow M-S; hypoplasia=M-D"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] local pain/bleeding; dry tap; sampling"
+      ],
+      "related_tests": [
+        "TST-001 CBC",
+        "DRG-374 hydroxyurea"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "hematology guidelines"
+      ]
+    },
+    {
+      "test_id": "PRO-013",
+      "name_full": "Lumbar puncture (CSF analysis)",
+      "name_ru": "Люмбальная пункция (анализ ликвора)",
+      "name_alternative_codes": "LP/CSF",
+      "status": "METACOD-RF",
+      "batch": "DX-20-Procedure",
+      "test_type": "Procedure",
+      "methodology": "[GL] Spinal needle CSF sampling (opening pressure + analysis)",
+      "specimen_type": "CSF",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "[GL] bacterial meningitis CSF profile",
+      "indications": {
+        "primary": [
+          "[GL] meningitis/encephalitis, SAH, MS (oligoclonal bands), IIH, malignancy, neurodegenerative biomarkers"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] CNS milieu"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute meningitis=Phase 2/3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] post-LP headache; herniation risk (imaging first if focal/papilledema); coagulopathy"
+      ],
+      "related_tests": [
+        "IMG-028 MRI brain",
+        "IMG-015 CT head",
+        "DRG-498 acetazolamide"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "IDSA; AAN"
+      ]
+    },
+    {
+      "test_id": "PRO-014",
+      "name_full": "Thoracentesis",
+      "name_ru": "Торакоцентез",
+      "name_alternative_codes": "thoracentesis",
+      "status": "METACOD-RF",
+      "batch": "DX-20-Procedure",
+      "test_type": "Procedure",
+      "methodology": "[GL] US-guided pleural fluid aspiration (Light's criteria)",
+      "specimen_type": "Pleural fluid",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] pleural effusion dx (exudate vs transudate), therapeutic drainage, empyema"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] effusion=M-A/fluid; transudate=fluid-retention context"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute (large/empyema)=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] bilateral transudates = supportive fluid-retention context"
+      },
+      "safety_limitations": [
+        "[GL] pneumothorax/re-expansion edema; US guidance reduces risk"
+      ],
+      "related_tests": [
+        "IMG-001 CXR",
+        "IMG-014 POCUS"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "BTS/ATS"
+      ]
+    },
+    {
+      "test_id": "PRO-015",
+      "name_full": "Paracentesis",
+      "name_ru": "Парацентез (лапароцентез)",
+      "name_alternative_codes": "paracentesis",
+      "status": "METACOD-RF",
+      "batch": "DX-20-Procedure",
+      "test_type": "Procedure",
+      "methodology": "[GL] US-guided peritoneal fluid aspiration (SAAG)",
+      "specimen_type": "Ascitic fluid",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] new ascites dx (SAAG, cell count for SBP), therapeutic large-volume drainage"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] ascites=fluid/M-A (portal HTN context)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] SBP=Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] large-volume → albumin replacement; bleeding/leak"
+      ],
+      "related_tests": [
+        "IMG-005 abd US",
+        "TST-013 albumin"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "AASLD"
+      ]
+    },
+    {
+      "test_id": "PRO-016",
+      "name_full": "Arthrocentesis (joint aspiration)",
+      "name_ru": "Артроцентез (пункция сустава)",
+      "name_alternative_codes": "joint aspiration",
+      "status": "METACOD-RF",
+      "batch": "DX-20-Procedure",
+      "test_type": "Procedure",
+      "methodology": "[GL] Synovial fluid aspiration (cell count/crystals/culture)",
+      "specimen_type": "Synovial fluid",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "[GL] septic arthritis",
+      "indications": {
+        "primary": [
+          "[GL] septic arthritis vs crystal (gout/CPPD) vs inflammatory, effusion relief"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] inflammatory effusion=joint M-A"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] septic joint=Phase 2/3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] iatrogenic infection (sterile technique); dry tap"
+      ],
+      "related_tests": [
+        "TST-060 uric acid",
+        "DRG-175 colchicine"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR"
+      ]
+    },
+    {
+      "test_id": "PRO-017",
+      "name_full": "Endometrial biopsy",
+      "name_ru": "Биопсия эндометрия",
+      "name_alternative_codes": "EMB",
+      "status": "METACOD-RF",
+      "batch": "DX-20-Procedure",
+      "test_type": "Procedure",
+      "methodology": "[GL] Office pipelle sampling",
+      "specimen_type": "Tissue",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] abnormal uterine/postmenopausal bleeding, endometrial hyperplasia/cancer"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] sampling error; cervical stenosis; cramping"
+      ],
+      "related_tests": [
+        "IMG-006 TVUS",
+        "DRG-140 progesterone"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACOG"
+      ]
+    },
+    {
+      "test_id": "PRO-018",
+      "name_full": "Prostate biopsy",
+      "name_ru": "Биопсия предстательной железы",
+      "name_alternative_codes": "prostate bx",
+      "status": "METACOD-RF",
+      "batch": "DX-20-Procedure",
+      "test_type": "Procedure",
+      "methodology": "[GL] MRI-targeted ± systematic (transrectal/transperineal)",
+      "specimen_type": "Tissue",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] prostate cancer dx (elevated/rising PSA, PI-RADS lesion)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] infection/sepsis (transrectal), bleeding, hematuria; transperineal lower infection"
+      ],
+      "related_tests": [
+        "IMG-032 mpMRI",
+        "TST-048 PSA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "AUA/NCCN"
+      ]
+    },
+    {
+      "test_id": "PRO-019",
+      "name_full": "Pericardiocentesis",
+      "name_ru": "Перикардиоцентез",
+      "name_alternative_codes": "pericardiocentesis",
+      "status": "METACOD-RF",
+      "batch": "DX-20-Procedure",
+      "test_type": "Procedure",
+      "methodology": "[GL] Echo-guided pericardial fluid aspiration",
+      "specimen_type": "Pericardial fluid",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "[GL] tamponade = emergency",
+      "indications": {
+        "primary": [
+          "[GL] cardiac tamponade (emergent), large/diagnostic effusion"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] effusion=M-A"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] tamponade=Phase 3 (life-threatening)"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] myocardial/coronary laceration; echo guidance essential"
+      ],
+      "related_tests": [
+        "FUN-014 TTE",
+        "IMG-033 CMR"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ESC pericardial"
+      ]
+    },
+    {
+      "test_id": "PRO-020",
+      "name_full": "Cardiac catheterization / coronary angiography (invasive)",
+      "name_ru": "Катетеризация сердца / коронарография (инвазивная)",
+      "name_alternative_codes": "cardiac cath/angio",
+      "status": "METACOD-RF",
+      "batch": "DX-20-Procedure",
+      "test_type": "Procedure",
+      "methodology": "[GL] Invasive catheter angiography ± PCI/FFR",
+      "specimen_type": "Procedure",
+      "reference_ranges": "[GL] interpreted vs normal anatomy/findings",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] definitive CAD assessment (ACS, high-risk stress), hemodynamics, PCI"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] coronary constitution"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] atherosclerotic stenosis=vascular M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute ACS=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] vascular access complications, contrast nephropathy, stroke/MI (rare)"
+      ],
+      "related_tests": [
+        "FUN-012 stress test",
+        "IMG-020 CCTA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ACC/AHA"
+      ]
+    }
+  ]
+}

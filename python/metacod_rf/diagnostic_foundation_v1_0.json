@@ -23,7 +23,7 @@
       "standard_care_primacy": "Диагностическая интерпретация через METACOD не должна задерживать/заменять стандартную диагностику и лечение."
     },
     "relationship": "Parallel к drug DB (DRG-*). Управляется three_axis_framework v1.0 + kcts_integration v1.1 + constitutional_model. Cross-references к drug DB (тесты, мониторящие конкретные препараты).",
-    "content_started_note": "[2026-06] Content filling in progress. DONE (12 batches, 141 entries): all Laboratory category A (DX-01..DX-11) + DX-18 body-composition/Mark-canonical. REMAINING (8): imaging DX-12..DX-15, functional-cardio/pulmo DX-16/DX-17, procedures DX-19/DX-20."
+    "content_started_note": "[2026-06] Content filling COMPLETE — all 20 batches / 230 entries. Lab (DX-01..DX-11, TST-001..132), imaging (DX-12..DX-15, IMG-001..049), functional (DX-16/17 + DX-18, FUN-001..029), procedures (DX-19/20, PRO-001..020). Claude-authored standard-evidence; [OBS-Mark] empty; mark_validated false; reference ranges/findings [LBL/GL], energy/membrane/phase [RF]; KCTS EBM (no Hamer/AIRE in entries)."
   },
   "id_prefixes": {
     "TST": "Laboratory test",
@@ -365,20 +365,8 @@
     "estimated_batches": 20,
     "mark_validation_needed": true,
     "ready_to_proceed": "after Mark answers Q1-Q6",
-    "batches_done": [
-      "DX-01 (14)",
-      "DX-02 (11)",
-      "DX-03 (13)",
-      "DX-04 (11)",
-      "DX-05 (11)",
-      "DX-06 (14)",
-      "DX-07 (13)",
-      "DX-08 (14)",
-      "DX-09 (9)",
-      "DX-10 (12)",
-      "DX-11 (10)",
-      "DX-18 (9)"
-    ],
-    "entries_done": 141
+    "batches_done": "ALL 20 (DX-01..DX-20)",
+    "entries_done": 230,
+    "content_complete": true
   }
 }
