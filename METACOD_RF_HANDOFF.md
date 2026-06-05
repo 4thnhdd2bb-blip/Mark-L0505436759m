@@ -88,7 +88,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 > (~201 drugs, batches 01–11, 26 output files). **This repo differs.** Below is
 > the actual git content.
 
-### Drug batches present (13 files, **138 drugs**)
+### Drug batches present (14 files, **153 drugs**)
 | batch_id | n | notes |
 |---|---|---|
 | 01-GLP1 | 6 | DRG-001..006; DRG-001 semaglutide PARTIAL (OBS-Mark-001 wax-wane) + RF literature scan |
@@ -115,7 +115,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 - 9 nosology registries: metabolic_cv_renal, respiratory, nephro_urinal,
   hepatobiliary, cardiology, spleen_pancreas, gallbladder, small_intestine,
   gastroduodenal
-- Loaders in `python/services/`, tests in `python/tests/unit/`. **486 tests, 0 skipped.**
+- Loaders in `python/services/`, tests in `python/tests/unit/`. **495 tests, 0 skipped.**
 
 ### NOT supplied to this repo (exist only in Mark's project outputs / never pasted here)
 - **Drug batches: 06 (cardio ~63), 08 (endocrine), 09 (pulmo), 10 (rheum),

@@ -201,6 +201,23 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-294": "Polypharmacy deprescribing framework",
         "DRG-295": "Anticholinergic burden assessment framework",
     },
+    "20-Dermatology": {
+        "DRG-296": "Hydrocortisone topical",
+        "DRG-297": "Betamethasone valerate (topical)",
+        "DRG-298": "Clobetasol propionate",
+        "DRG-299": "Tretinoin (topical)",
+        "DRG-300": "Adapalene",
+        "DRG-301": "Isotretinoin (oral)",
+        "DRG-302": "Tacrolimus (topical)",
+        "DRG-303": "Pimecrolimus",
+        "DRG-304": "Secukinumab",
+        "DRG-305": "Apremilast",
+        "DRG-306": "Benzoyl peroxide (topical)",
+        "DRG-307": "Metronidazole topical",
+        "DRG-308": "Hydroquinone",
+        "DRG-309": "Minoxidil (topical)",
+        "DRG-310": "Permethrin",
+    },
 }
 
 
