@@ -179,6 +179,16 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-276": "Sugammadex",
         "DRG-277": "Neostigmine + glycopyrrolate",
     },
+    "18-Addiction": {
+        "DRG-278": "Buprenorphine",
+        "DRG-279": "Methadone",
+        "DRG-280": "Naltrexone",
+        "DRG-281": "Acamprosate",
+        "DRG-282": "Disulfiram",
+        "DRG-283": "Varenicline",
+        "DRG-284": "Nicotine replacement (NRT)",
+        "DRG-285": "Naloxone",
+    },
 }
 
 

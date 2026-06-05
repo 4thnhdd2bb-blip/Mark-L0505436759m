@@ -1,0 +1,158 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_drug_db",
+    "batch_id": "18-Addiction",
+    "version": "RF-2026-06-batch18",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Addiction medicine — OUD / AUD / smoking cessation / overdose reversal (8 препаратов, 4 подгруппы)",
+    "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0 + KCTS awareness HIGH",
+    "preparations_count": 8,
+    "author": "Mark Litvak (с AI-assistance)",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "id_range_note": "DRG-278..285. Batch 16 (oncology) не присланы; batch 17 anesthesia заняла 268..277.",
+    "kcts_awareness_governance_note": {
+      "_authored_by": "METACOD-RF governance layer (not Mark's source text).",
+      "separable_legitimate_evidence": "Часть claims этого батча — доказательная и mainstream: medication-assisted treatment (MAT) + психосоциальная поддержка/trauma-informed care/peer support = установленный стандарт лечения зависимостей; фармакотерапия в одиночку даёт худшие исходы. Это валидно НЕЗАВИСИМО от METACOD-рамки.",
+      "unvalidated_framing": "Однако формулировки 'AIRE-triggers nearly universal', 'addiction requires AIRE/KCTS resolution', 'pharmacotherapy insufficient без KCTS resolution' в Hamer/AIRE-терминах — это UNVALIDATED research-гипотеза (см. kcts_integration_v1_0.json), а НЕ установленный механизм. 'Психосоциальный компонент важен' ≠ 'Hamer AIRE-конфликт каузально вызывает зависимость'.",
+      "standard_care_primacy": "КРИТИЧНО: ничто здесь не откладывает и не заменяет evidence-based addiction care. Naloxone при передозировке — немедленная, жизнеспасающая терапия и НЕ подлежит никакому 'KCTS'-рассуждению. Buprenorphine/methadone/naltrexone — time-sensitive; KCTS-resolution не prerequisite.",
+      "not_operationalized": "KCTS-text не инжектируется в движок, не patient-facing."
+    },
+    "source_tag_legend": {
+      "LBL": "FDA / EMA label",
+      "GL": "Clinical guideline",
+      "RCT": "конкретное RCT",
+      "CLASS": "class pattern extrapolation",
+      "OBS-Mark": "клиническое наблюдение Mark (требует заполнения)",
+      "RF": "METACOD research framework (theoretical)"
+    },
+    "class_notes": {
+      "energy_perspective": ["Substitution therapy (buprenorphine, methadone, NRT) = controlled replacement reducing harm", "Antagonists (naltrexone, naloxone) = blockade preventing reinforcement / reversing overdose", "Aversive agents (disulfiram) = negative consequence for drinking", "Modulators (acamprosate, varenicline) = neurotransmitter system rebalancing"],
+      "class_warnings": ["Buprenorphine induction: precipitated withdrawal if full agonist still active — COWS scoring", "Naltrexone discontinuation: increased overdose risk if relapse (lost tolerance)", "Methadone: QT prolongation, accumulation, narrow margin", "Naloxone: short half-life, may need multiple doses (esp. fentanyl)"],
+      "obs_mark_to_fill": ["OUD treatment в Israeli practice", "AIRE-trigger pattern в addiction — clinical experience", "AUD treatment selection algorithm", "Smoking cessation approach", "Naloxone take-home programs", "Integration of pharmacotherapy + psychosocial — practical models"],
+      "logic_review_flags_for_mark": {
+        "_note": "Источник добавил Logic Review Flag секцию — перенесена как research-вопросы, governance unchanged.",
+        "issue_1_mandatory_kcts": "[RF] Источник framing: addiction meds требуют 'mandatory KCTS resolution component', фармакотерапия 'insufficient' alone. Q for Mark: 'essential' или смягчить к 'highly recommended'? [GOVERNANCE: psychosocial-integration evidence-based; Hamer/AIRE-каузальность — не валидирована.]",
+        "issue_2_aire_universality": "[RF] Claim 'AIRE-triggers nearly universal' в addiction — сильное утверждение (pattern recognition + literature, не Mark canonical). Q: подтвердить 'nearly universal' или смягчить к 'highly prevalent'/'common'?",
+        "issue_3_bupropion_crossref": "[RF] Bupropion (smoking, Zyban) — полный профиль в batch 07. Здесь cross-reference. Q: adequate или повторить?",
+        "issue_4_public_health": "[RF] Naloxone дан с public-health акцентом (harm reduction, take-home). Q: включать policy-level контекст или чисто клинически?"
+      }
+    }
+  },
+  "drugs": [
+    {
+      "drug_id": "DRG-278", "name_inn": "Buprenorphine", "name_ru": "Бупренорфин", "name_brand": "Suboxone (+naloxone), Subutex (alone), Sublocade (monthly inj), Probuphine (implant)",
+      "status": "METACOD-RF", "batch": "18-OUD",
+      "molecular": {"chemical_class": "Partial μ-opioid receptor agonist + κ-receptor antagonist", "mechanism_primary": ["[LBL] Partial μ-agonism — opioid effect с ceiling (safer than full agonist)", "[LBL] High receptor affinity — displaces other opioids, blocks subsequent use", "[RF] κ-receptor antagonism — possible anti-depressant signal"], "mechanism_distinct": ["[LBL] Ceiling effect на respiratory depression — safer overdose profile", "[LBL] Long half-life (~24-72h) — once-daily dosing"], "half_life": "24-42 hours", "metabolism": "CYP3A4"},
+      "indications": {"approved": ["[LBL] Opioid use disorder treatment (MAT)", "[LBL] Chronic pain management (specific formulations)", "[LBL] Acute pain (some formulations)"]},
+      "dosing": {"dose": "OUD 8-24 mg/day sublingual; Sublocade 100-300 mg SC monthly; Probuphine implant 6 months", "induction": ["[LBL] Patient должен быть в moderate withdrawal before first dose (precipitated withdrawal risk if full agonist still active)", "[LBL] COWS score guidance for induction timing", "[LBL] Modern 'micro-induction' protocols — overlap с fentanyl без precipitated withdrawal"]},
+      "three_axis_profile": {
+        "constitutional": {"energy": "Controlled Yang restoration в opioid receptor system (partial agonist); translation: partial μ-receptor agonism", "best_match": ["OUD any constitution"], "access_note": "Office-based prescribing (vs methadone clinic); X-waiver removed 2023 (MAT Act)"},
+        "membrane": {"impact": "Chronic stable maintenance; generally safe membrane profile, less catabolic than chronic illicit use; restores hormonal axes disrupted by chronic opioid use (testosterone, cortisol)"},
+        "phase": {"match": "Acute (induction = Phase 1 withdrawal); chronic maintenance (Phase 5 stabilization); recurrent cycles if relapse → return к Phase 1 stress"}
+      },
+      "safety": {"ddi_critical_2_star": ["[LBL] Benzodiazepines — respiratory depression / death (FDA box)", "[LBL] Alcohol — additive CNS depression", "[LBL] CYP3A4 strong inhibitors — elevated levels", "[LBL] CYP3A4 inducers — reduced efficacy"], "ddi_critical_1_star": ["[LBL] Other opioids — buprenorphine displaces (precipitated withdrawal)", "[LBL] MAOIs — caution"], "contraindications": ["[LBL] Severe hepatic disease", "[LBL] Hypersensitivity"]},
+      "adverse_events": {"common": ["[LBL] Constipation", "[LBL] Headache", "[LBL] Insomnia", "[LBL] Sweating", "[LBL] Nausea (usually initial)"], "serious": ["[LBL] Respiratory depression (much less than full agonists, but possible)", "[LBL] QT prolongation (high doses)", "[LBL] Adrenal insufficiency (long-term opioid effect)", "[LBL] Hepatotoxicity (rare)"]},
+      "kcts_awareness_rf": {"_note": "[RF] OUD patients often have AIRE-trigger history (childhood trauma, abandonment, isolation), HCV/HIV, single-carrier responsibility, multiple parallel chronic conditions. Source: 'buprenorphine alone often insufficient; KCTS resolution component essential'.", "_governance": "[GOVERNANCE] Psychosocial/trauma-informed integration evidence-based; Hamer/AIRE causal framing unvalidated. MAT is time-sensitive — not delayed by KCTS reasoning."},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "buprenorphine_practice": "[OBS-Mark] [Mark, OUD treatment в Israel approach?]", "kcts_addiction_intersection": "[OBS-Mark] [AIRE-trigger pattern в addiction populations — clinical experience?]"},
+      "references": ["FDA label Suboxone", "SAMHSA TIP 63"],
+      "status_flags": {"mark_validated": false, "priority_for_mark_review": "HIGH (MAT paradigm + KCTS intersection)"}
+    },
+    {
+      "drug_id": "DRG-279", "name_inn": "Methadone", "name_ru": "Метадон", "name_brand": "Dolophine, Methadose",
+      "status": "METACOD-RF", "batch": "18-OUD",
+      "molecular": {"chemical_class": "Full μ-opioid receptor agonist + NMDA antagonist", "mechanism_primary": ["[LBL] Full agonist activity + unique NMDA antagonism (analgesic in neuropathic pain)"], "half_life": "8-59 hours (variable, accumulates initial weeks)"},
+      "distinct_clinical": ["[LBL] Full agonist — no ceiling effect (more dangerous overdose potential)", "[LBL] Highly regulated — methadone clinic dispensing в US (changing)", "[LBL] Long half-life with high variability — accumulation risk", "[LBL] QT prolongation significant", "[LBL] NMDA antagonism — useful neuropathic pain context"],
+      "indications": {"approved": ["[LBL] OUD treatment (regulated settings)", "[LBL] Chronic pain (any prescriber)"]},
+      "dosing": {"dose": "60-120 mg/day typically maintenance", "administration": ["[LBL] Slow titration mandatory — accumulation risk", "[LBL] QT monitoring required"]},
+      "three_axis_profile": {"constitutional": {"energy": "Full Yang restoration в opioid receptor system", "best_match": ["OUD (regulated settings)"], "caution": ["QT-risk patients"]}, "membrane": {"impact": "Chronic maintenance"}, "phase": {"match": "Chronic maintenance / recurrent cycles if relapse"}},
+      "safety": {"critical": ["[LBL] QT prolongation — dose-related, ECG monitoring (>30-60 mg)", "[LBL] Torsade de pointes risk", "[LBL] Highly variable pharmacokinetics — individual dosing", "[LBL] Respiratory depression especially с benzo/alcohol"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "methadone_vs_buprenorphine": "[OBS-Mark] [Methadone vs buprenorphine selection?]"},
+      "references": ["FDA label Dolophine"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-280", "name_inn": "Naltrexone", "name_ru": "Налтрексон", "name_brand": "Vivitrol (ER IM), ReVia (oral)",
+      "status": "METACOD-RF", "batch": "18-OUD-AUD",
+      "molecular": {"chemical_class": "μ-opioid receptor antagonist", "mechanism_primary": ["[LBL] Blocks opioid receptors — prevents reinforcement от opioid use"], "half_life": "4 hours (oral); Vivitrol = 4 weeks"},
+      "indications": {"approved": ["[LBL] Opioid use disorder (post-detox maintenance)", "[LBL] Alcohol use disorder"]},
+      "dosing": {"dose": "Oral 50 mg daily; Vivitrol 380 mg IM q4 weeks"},
+      "critical_clinical": ["[LBL] MUST be opioid-free 7-10 days before initiation (precipitated withdrawal otherwise — can be severe)", "[LBL] Opioid blockade — patient cannot use opioids while на naltrexone effective", "[LBL] If discontinued — patient может be more sensitive to opioids — overdose risk significantly elevated", "[LBL] No abuse potential (antagonist)", "[LBL] Vivitrol monthly IM — adherence advantage"],
+      "three_axis_profile": {"constitutional": {"energy": "Opioid receptor blockade — different paradigm from substitution; translation: μ-antagonism preventing reinforcement", "best_match": ["Highly motivated patients (post-detox)", "AUD with craving reduction"]}, "membrane": {"impact": "Generally well-tolerated long-term; hepatotoxicity signal (oral high doses)"}, "phase": {"match": "Post-acute maintenance / long-term recovery support"}},
+      "safety": {"critical": ["[LBL] Hepatotoxicity — black box (oral form especially)", "[LBL] Injection site reactions (Vivitrol)", "[LBL] Depression / suicidality signal", "[LBL] Acute pain management challenges в naltrexone-treated patients"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "naltrexone_selection": "[OBS-Mark] [Naltrexone selection algorithm?]"},
+      "references": ["FDA label Vivitrol"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-281", "name_inn": "Acamprosate", "name_ru": "Акампросат", "name_brand": "Campral",
+      "status": "METACOD-RF", "batch": "18-AUD",
+      "molecular": {"chemical_class": "GABA / NMDA modulator (mechanism unclear)", "mechanism_primary": ["[LBL] Modulates GABA + NMDA glutamate signaling", "[LBL] Reduces 'protracted withdrawal' symptoms (months post-detox)", "[LBL] Reduces craving"], "half_life": "20-33 hours", "metabolism": "renal (no hepatic metabolism — advantage в liver disease)"},
+      "indications": {"approved": ["[LBL] Alcohol use disorder — maintenance of abstinence"]},
+      "dosing": {"dose": "666 mg (2 × 333 mg) TID; initiated post-detox (after 5-7 days abstinence)"},
+      "distinct_clinical": ["[LBL] No hepatic metabolism — useful в alcohol-related liver disease", "[LBL] Non-sedating", "[LBL] No abuse potential", "[LBL] Compatible с relapse — reduces craving regardless"],
+      "three_axis_profile": {"constitutional": {"energy": "Glutamate/GABA rebalancing (craving reduction)", "best_match": ["AUD maintenance, especially с hepatic disease (renal excretion)"]}, "membrane": {"impact": "Chronic, well-tolerated"}, "phase": {"match": "Post-detox maintenance"}},
+      "safety": {"common": ["[LBL] GI side effects (diarrhea common)", "[LBL] Headache", "[LBL] Generally well-tolerated"], "renal": ["[LBL] Renal excretion — caution CKD"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "acamprosate_hepatic": "[OBS-Mark] [Acamprosate в AUD with hepatic disease?]"},
+      "references": ["FDA label Campral"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-282", "name_inn": "Disulfiram", "name_ru": "Дисульфирам", "name_brand": "Antabuse, Esperal",
+      "status": "METACOD-RF", "batch": "18-AUD",
+      "molecular": {"chemical_class": "Aldehyde dehydrogenase (ALDH2) inhibitor", "mechanism_primary": ["[LBL] Blocks ALDH2 → acetaldehyde accumulates после alcohol consumption", "[LBL] Causes intensely unpleasant reaction (flushing, nausea, vomiting, headache, hypotension)", "[LBL] Aversion-based therapy — psychological deterrent"]},
+      "paradigm_note": "Fundamentally different paradigm: doesn't reduce craving; creates negative consequence for drinking; only works if patient committed, educated, motivated.",
+      "indications": {"approved": ["[LBL] Alcohol use disorder (aversive therapy, motivated patients)"]},
+      "dosing": {"dose": "250-500 mg daily AM"},
+      "patient_education_critical": ["[LBL] AVOID all alcohol-containing products: mouthwash, cough syrups, some perfumes, vanilla extract, some sauces/vinegars, hand sanitizer (occasionally)", "[LBL] Disulfiram-alcohol reaction can be severe — rarely fatal", "[LBL] Effect persists 1-2 weeks after discontinuation"],
+      "three_axis_profile": {"constitutional": {"energy": "Aversive deterrent (ALDH2 blockade)", "best_match": ["AUD, highly motivated patients only"]}, "membrane": {"impact": "Chronic"}, "phase": {"match": "Maintenance (motivated abstinence)"}},
+      "safety": {"critical": ["[LBL] Hepatotoxicity — rare but serious (monitor LFTs)", "[LBL] Neuropathy — peripheral, optic", "[LBL] Psychosis в predisposed", "[LBL] Major drug interactions — inhibits multiple CYPs"]},
+      "note": "Less commonly used now vs naltrexone/acamprosate, но persists в highly motivated patients.",
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "disulfiram_selection": "[OBS-Mark] [Disulfiram patient selection — motivated patients only?]"},
+      "references": ["FDA label Antabuse"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-283", "name_inn": "Varenicline", "name_ru": "Варениклин", "name_brand": "Chantix (US), Champix (EU)",
+      "status": "METACOD-RF", "batch": "18-Smoking",
+      "molecular": {"chemical_class": "α4β2 nicotinic acetylcholine receptor partial agonist", "mechanism_primary": ["[LBL] Partial agonist — provides some dopamine release (reduces craving)", "[LBL] Blocks nicotine binding — reduces reward of smoking if patient lapses", "[LBL] Dual mechanism — most effective monotherapy"], "half_life": "24 hours"},
+      "clinical_evidence": ["[RCT] Most effective single smoking cessation drug — higher abstinence than bupropion or NRT alone", "[GL] Combination с NRT может add benefit", "[RCT] EAGLES trial: no excess neuropsychiatric harm vs bupropion vs placebo (changed earlier FDA black box)"],
+      "indications": {"approved": ["[LBL] Smoking cessation"]},
+      "dosing": {"dose": "0.5-1 mg titration over 1 week, then 1 mg BID × 12 weeks", "administration": ["[LBL] Pre-quit start 7-14 days before quit date", "[LBL] Flexible approach: can start while still smoking"]},
+      "three_axis_profile": {"constitutional": {"energy": "Nicotinic receptor modulation reducing dependence; translation: partial agonism at nicotinic receptor", "best_match": ["Any smoker motivated to quit"]}, "membrane": {"impact": "12-week course; smoking cessation = significant membrane benefit long-term (reduced oxidative stress, M-D drift)"}, "phase": {"match": "Acute quit attempt; patient в active CA stress during quitting — supportive care needed"}},
+      "safety": {"critical": ["[LBL] Black box removed (2016) — neuropsychiatric concerns overestimated", "[LBL] Nausea common (take с food, full glass water)", "[LBL] Vivid dreams (often patient-reported)", "[LBL] Cardiovascular events — slight signal in some studies, controversial", "[LBL] Suicidal ideation signal (lower than originally feared but monitor)", "[LBL] Renal dose adjustment important"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "smoking_cessation_algorithm": "[OBS-Mark] [Smoking cessation algorithm — varenicline first-line?]"},
+      "references": ["FDA label Chantix", "EAGLES trial"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-284", "name_inn": "Nicotine replacement (NRT)", "name_ru": "Никотинзаместительная терапия (НЗТ)", "name_brand": "Nicoderm CQ (patch), Nicorette (gum), Habitrol, Commit (lozenge)",
+      "status": "METACOD-RF", "batch": "18-Smoking",
+      "molecular": {"chemical_class": "Nicotine replacement (patches/gum/lozenges/inhaler/nasal spray)", "categories": ["Long-acting (background): patches 21/14/7 mg — taper over weeks", "Short-acting (PRN cravings): gum 2/4 mg, lozenges 2/4 mg, inhaler, nasal spray (strongest, fastest)"]},
+      "combination_approach": "Best practice: patch (background) + PRN short-acting (cravings) = combination NRT — significantly better than monotherapy.",
+      "indications": {"approved": ["[LBL] Smoking cessation"]},
+      "dosing": {"dose": "Heavy smoker (>10/day) 21 mg patch initial; light smoker 14 mg; step down q4-6 weeks 21→14→7→off"},
+      "three_axis_profile": {"constitutional": {"energy": "Nicotinic replacement (harm reduction, taper)", "best_match": ["Smokers; combination NRT"]}, "membrane": {"impact": "Cessation = long-term membrane benefit"}, "phase": {"match": "Acute quit attempt + taper"}},
+      "safety": {"common": ["[LBL] Skin irritation (patch — rotate sites)", "[LBL] Mouth/throat irritation (gum, lozenge)", "[LBL] Nasal irritation (spray — significant)", "[LBL] GI upset (gum especially)", "[LBL] Vivid dreams (overnight patch — remove if persistent)", "[LBL] Avoid in pregnancy (controversial — risk:benefit assessment)"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "nrt_combination_protocol": "[OBS-Mark] [NRT combination protocol — patient education key points?]"},
+      "references": ["FDA label Nicoderm, Nicorette"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-285", "name_inn": "Naloxone", "name_ru": "Налоксон", "name_brand": "Narcan (intranasal), Evzio (auto-injector), generic IV",
+      "status": "METACOD-RF", "batch": "18-Overdose",
+      "molecular": {"chemical_class": "Pure μ-opioid receptor antagonist", "mechanism_primary": ["[LBL] Competitive antagonism at opioid receptors → rapid reversal of opioid effect"], "half_life": "30-90 minutes"},
+      "public_health_note": "[LBL] Naloxone = single most important harm reduction tool в opioid crisis: reverses respiratory depression in opioid overdose; otherwise-fatal events become survivable; take-home naloxone = standard of care в many regions; pharmacist OTC dispensing в multiple jurisdictions.",
+      "indications": {"approved": ["[LBL] Opioid overdose (any cause — prescription, illicit)", "[LBL] Naloxone challenge test (rare)", "[LBL] Take-home naloxone для high-risk patients/families"]},
+      "dosing": {"dose": "Intranasal 4 mg/0.1 mL (one nostril, repeat в 2-3 min if needed); IV/IM 0.4-2 mg repeat q2-3 min; Auto-injector 2 mg IM"},
+      "critical_clinical": ["[LBL] Short half-life — может wear off before opioid (re-narcotization risk)", "[LBL] Multiple doses often needed (especially для fentanyl/carfentanil)", "[LBL] EMS still required even after successful reversal — monitoring needed", "[LBL] Precipitated withdrawal в opioid-dependent — uncomfortable but not life-threatening"],
+      "three_axis_profile": {"constitutional": {"energy": "Emergency opioid receptor blockade (overdose reversal)", "best_match": ["Opioid overdose — any patient"]}, "membrane": {"impact": "Acute emergency"}, "phase": {"match": "Acute emergency reversal"}},
+      "safety": {"note": ["[LBL] Very safe — pure antagonist, no opioid effect itself", "[LBL] Withdrawal symptoms в dependent patients (expected, not dangerous)", "[LBL] Pulmonary edema (rare)", "[LBL] Cardiac events (rare)"]},
+      "governance_note": "[GOVERNANCE] Naloxone — немедленная жизнеспасающая терапия при передозировке; применяется без задержки. Никакое KCTS/AIRE-рассуждение к нему не применяется.",
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "take_home_naloxone": "[OBS-Mark] [Take-home naloxone program в Israel?]"},
+      "references": ["FDA label Narcan", "SAMHSA Overdose Prevention Toolkit"],
+      "status_flags": {"mark_validated": false}
+    }
+  ]
+}

@@ -50,6 +50,7 @@ python/
 │   ├── drugs_batch13_urology_gyn.json      # METACOD-RF research drug DB — batch 13 (15 uro/gyn: α1-blockers/PDE5/OAB/fertility-PCOS/gyn; DRG-217..231; source claimed 16, 15 enumerable)
 │   ├── drugs_batch15_antivirals.json       # METACOD-RF research drug DB — batch 15 (5 antivirals: HSV/VZV/influenza/HIV-HBV/HCV-DAA; DRG-251..255; batch 14 antimicrobials not in repo; KCTS-text governance-flagged)
 │   ├── drugs_batch17_anesthesia.json       # METACOD-RF research drug DB — batch 17 (10 anesthesia: IV induction/opioids/NMB/reversal; DRG-268..277; batch 16 oncology not in repo; acute-use short profiles; KCTS pre-op hypothesis governance-flagged)
+│   ├── drugs_batch18_addiction.json        # METACOD-RF research drug DB — batch 18 (8 addiction: OUD/AUD/smoking/overdose-reversal; DRG-278..285; HIGH KCTS framing — evidence-based psychosocial-MAT separated from unvalidated Hamer/AIRE causal claim; naloxone standard-care primacy)
 │   ├── constitutional_model_v0_1.json     # METACOD-RF constitutional model v0.1: conceptual two-axis framework (Parts A-E; constitution × process/phase)
 │   ├── constitutional_model_v0_2.json     # METACOD-RF constitutional model: 5-energy biomarker quality panels (research, hypotheses)
 │   ├── predictive_matrix_01_semaglutide.json # METACOD-RF predictive matrix #1: semaglutide × 8 constitutional triads (hypotheses)
@@ -70,7 +71,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (468 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (477 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -161,7 +162,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 468 tests
+pytest                 # all 477 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
