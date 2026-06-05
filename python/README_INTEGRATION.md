@@ -48,8 +48,10 @@ python/
 │   ├── drugs_batch11_gastroenterology.json # METACOD-RF research drug DB — batch 11 (20 GI: PPI/H2/antacid/prokinetic/antiemetic/5-ASA/IBD-biologic/laxative; Mark primary specialty; batches 06/08/09/10 not in repo, IDs jump 118→180)
 │   ├── drugs_batch12_neurology.json        # METACOD-RF research drug DB — batch 12 (15 neuro: antiepileptics/triptans/anti-CGRP/Parkinson/dementia/MS; DRG-202..216)
 │   ├── drugs_batch13_urology_gyn.json      # METACOD-RF research drug DB — batch 13 (15 uro/gyn: α1-blockers/PDE5/OAB/fertility-PCOS/gyn; DRG-217..231; source claimed 16, 15 enumerable)
-│   ├── drugs_batch15_antivirals.json       # METACOD-RF research drug DB — batch 15 (5 antivirals: HSV/VZV/influenza/HIV-HBV/HCV-DAA; DRG-251..255; batch 14 antimicrobials not in repo; KCTS-text governance-flagged)
-│   ├── drugs_batch17_anesthesia.json       # METACOD-RF research drug DB — batch 17 (10 anesthesia: IV induction/opioids/NMB/reversal; DRG-268..277; batch 16 oncology not in repo; acute-use short profiles; KCTS pre-op hypothesis governance-flagged)
+│   ├── drugs_batch14_antimicrobials.json   # METACOD-RF research drug DB — batch 14 (18 antimicrobials: beta-lactams/macrolides/FQ/tetra/aminoglyc/glycopeptide/oxazolidinone/sulfa/nitrofurantoin/nitroimidazole/azole; DRG-232..249; CLAUDE-AUTHORED standard-evidence gap-fill, not Mark source; honors cross-ref cipro=239/moxi=241/metronidazole=248)
+│   ├── drugs_batch15_antivirals.json       # METACOD-RF research drug DB — batch 15 (5 antivirals: HSV/VZV/influenza/HIV-HBV/HCV-DAA; DRG-251..255; KCTS-text governance-flagged)
+│   ├── drugs_batch16_oncology.json         # METACOD-RF research drug DB — batch 16 (12 targeted-oncology/hormonal: imatinib/trastuzumab/rituximab/bevacizumab/pembrolizumab/nivo-ipi/osimertinib/tamoxifen/letrozole/leuprolide-ADT/olaparib/ibrutinib; DRG-256..267; CLAUDE-AUTHORED standard-evidence gap-fill; leuprolide ties to Mark ADT support stack)
+│   ├── drugs_batch17_anesthesia.json       # METACOD-RF research drug DB — batch 17 (10 anesthesia: IV induction/opioids/NMB/reversal; DRG-268..277; acute-use short profiles; KCTS pre-op hypothesis governance-flagged)
 │   ├── drugs_batch18_addiction.json        # METACOD-RF research drug DB — batch 18 (8 addiction: OUD/AUD/smoking/overdose-reversal; DRG-278..285; HIGH KCTS framing — evidence-based psychosocial-MAT separated from unvalidated Hamer/AIRE causal claim; naloxone standard-care primacy)
 │   ├── drugs_batch19_geriatric.json        # METACOD-RF research drug DB — batch 19 (10 geriatric: framework-heavy — Beers/STOPP-START/CGA/deprescribing/ACB [GL]-anchored + Vit D/melatonin + apixaban/donepezil cross-refs; DRG-286..295)
 │   ├── drugs_batch20_dermatology.json      # METACOD-RF research drug DB — batch 20 (15 derm: topical steroids/retinoids/calcineurin-inh/psoriasis-biologics/acne-rosacea/specific; DRG-296..310; lesion-systemic paradox RF hypothesis)
@@ -80,7 +82,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (558 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (576 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -171,7 +173,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 558 tests
+pytest                 # all 576 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)

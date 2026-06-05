@@ -98,7 +98,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 > (~201 drugs, batches 01–11, 26 output files). **This repo differs.** Below is
 > the actual git content.
 
-### Drug batches present (21 files, **220 drugs**)
+### Drug batches present (23 files, **250 drugs**)
 | batch_id | n | notes |
 |---|---|---|
 | 01-GLP1 | 6 | DRG-001..006; DRG-001 semaglutide PARTIAL (OBS-Mark-001 wax-wane) + RF literature scan |
@@ -110,7 +110,9 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 | 11-Gastroenterology | 20 | DRG-180..199 (source claimed 22; 20 enumerable) |
 | 12-Neurology | 15 | DRG-202..216 |
 | 13-Urology_Gyn | 15 | DRG-217..231 (source claimed 16; 15 enumerable; 2 cross-refs) |
+| 14-Antimicrobials | 18 | DRG-232..249; **Claude-authored standard-evidence gap-fill** (not Mark source); beta-lactams/macrolides/FQ/tetra/aminoglyc/glycopeptide/oxazolidinone/sulfa/nitrofurantoin/nitroimidazole/azole; honors cross-refs cipro=239/moxi=241/metronidazole=248 |
 | 15-Antivirals | 5 | DRG-251..255; KCTS-text governance-flagged |
+| 16-Oncology | 12 | DRG-256..267; **Claude-authored standard-evidence gap-fill**; TKI/mAb/checkpoint/hormonal(SERM/AI/GnRH-ADT)/PARP/BTK; leuprolide→Mark ADT support stack; checkpoint→post-cure framework Q |
 | 17-Anesthesia | 10 | DRG-268..277; acute-use short profiles |
 | 18-Addiction | 8 | DRG-278..285; HIGH KCTS framing separated from evidence base |
 | 19-Geriatric | 10 | DRG-286..295; framework-heavy (Beers/STOPP-START/CGA/deprescribing/ACB, [GL]-anchored) + Vit D/melatonin + apixaban/donepezil cross-refs |
@@ -133,12 +135,17 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 - 9 nosology registries: metabolic_cv_renal, respiratory, nephro_urinal,
   hepatobiliary, cardiology, spleen_pancreas, gallbladder, small_intestine,
   gastroduodenal
-- Loaders in `python/services/`, tests in `python/tests/unit/`. **558 tests, 0 skipped.**
+- Loaders in `python/services/`, tests in `python/tests/unit/`. **576 tests, 0 skipped.**
 
-### NOT supplied to this repo (exist only in Mark's project outputs / never pasted here)
-- **Drug batches: 06 (cardio ~63), 08 (endocrine), 09 (pulmo), 10 (rheum),
-  14 (antimicrobials), 16 (targeted oncology).** DRG numbering already accounts
-  for these gaps (e.g. 118→180, 255→268).
+### Gap-fill in progress (Mark authorized Claude to author missing directions, EBM style, 2026-06)
+- **DONE (Claude-authored standard-evidence, flagged `claude_authored_standard_evidence`):**
+  14 Antimicrobials (DRG-232..249), 16 Oncology (DRG-256..267). These fill reserved
+  ID gaps with standard [LBL]/[GL]/[RCT] pharmacology; `[OBS-Mark]` empty,
+  `mark_validated` false. **Reconcile with Mark's own versions if they surface
+  (his canonical observations take priority).**
+- **STILL TO AUTHOR (reserved gaps): 06 Cardiovascular (~63, DRG-034..096),
+  08 Endocrine non-DM (~25), 09 Pulmonology (~18), 10 Rheumatology (~18)** —
+  08/09/10 share DRG-119..179. Next gap-fill installments.
 - Docs: Membranes Full Deployment v1.0, Matrix #1 v2.0, Translation Layer v1.0,
   Phase Axis v2.0, infrastructure docs (Case Registry, Comparison Protocol,
   De-identification Checklist, Scope Declaration).
