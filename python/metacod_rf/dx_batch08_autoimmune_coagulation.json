@@ -1,0 +1,724 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-08-AutoimmuneCoagulation",
+    "version": "RF-2026-06-DX08",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — autoimmune serology + coagulation/thrombophilia",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 14,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Reference ranges/indications = [GL/LBL] (valid independently). Energy/membrane/phase interpretation = [RF]. Tests REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/lab guideline or standard",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "TST-088",
+      "name_full": "Antinuclear antibody (ANA)",
+      "name_ru": "Антинуклеарные антитела (АНА)",
+      "name_alternative_codes": "ANA",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Autoimmune",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Indirect immunofluorescence (titer + pattern)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] ≥1:80 positive (pattern-dependent)",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] SLE/connective tissue disease screening"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] autoimmune activity"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] low-titer common in healthy; sensitive not specific"
+      ],
+      "related_tests": [
+        "TST-089 anti-dsDNA",
+        "TST-090 ENA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "EULAR/ACR SLE"
+      ]
+    },
+    {
+      "test_id": "TST-089",
+      "name_full": "Anti-double-stranded DNA (anti-dsDNA)",
+      "name_ru": "Анти-дсДНК",
+      "name_alternative_codes": "dsDNA",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Autoimmune",
+      "test_type": "Laboratory",
+      "methodology": "[GL] ELISA/Crithidia/Farr",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific positivity",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] SLE (specific; tracks activity/nephritis)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] autoimmune (lupus)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] lupus nephritis = renal membrane injury"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] flare = Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] correlate with complement (C3/C4)"
+      ],
+      "related_tests": [
+        "TST-088 ANA",
+        "TST-091 complement"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "EULAR SLE"
+      ]
+    },
+    {
+      "test_id": "TST-090",
+      "name_full": "Extractable nuclear antigen panel (ENA)",
+      "name_ru": "Панель ЭНА (anti-Ro/La/Sm/RNP/Scl-70/Jo-1)",
+      "name_alternative_codes": "ENA",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Autoimmune",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] antigen-specific positivity",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] CTD subtyping (Sjögren/SLE/scleroderma/myositis/MCTD)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] specific autoimmune pattern"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] interpret in clinical context"
+      ],
+      "related_tests": [
+        "TST-088 ANA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "EULAR"
+      ]
+    },
+    {
+      "test_id": "TST-091",
+      "name_full": "Complement C3 / C4",
+      "name_ru": "Комплемент C3/C4",
+      "name_alternative_codes": "C3/C4",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Autoimmune",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Nephelometry",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] SLE activity (consumption), complement disorders"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] complement activity"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] low = active consumption"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] C3/C4 also acute-phase reactants"
+      ],
+      "related_tests": [
+        "TST-089 dsDNA",
+        "DRG-379 eculizumab"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "EULAR SLE"
+      ]
+    },
+    {
+      "test_id": "TST-092",
+      "name_full": "Rheumatoid factor (RF)",
+      "name_ru": "Ревматоидный фактор",
+      "name_alternative_codes": "RF",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Autoimmune",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Nephelometry/latex",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <14 IU/mL (assay)",
+      "units": "IU/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] rheumatoid arthritis, cryoglobulinemia, Sjögren"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] autoimmune (joint)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] erosive joint M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] non-specific (infection/age/other CTD)"
+      ],
+      "related_tests": [
+        "TST-093 anti-CCP"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR/EULAR RA"
+      ]
+    },
+    {
+      "test_id": "TST-093",
+      "name_full": "Anti-cyclic citrullinated peptide (anti-CCP)",
+      "name_ru": "Анти-ЦЦП (АЦЦП)",
+      "name_alternative_codes": "anti-CCP/ACPA",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Autoimmune",
+      "test_type": "Laboratory",
+      "methodology": "[GL] ELISA",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific positivity",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] RA (specific; prognostic for erosive disease)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] autoimmune (erosive RA)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] erosive M-S risk"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] may precede clinical RA"
+      ],
+      "related_tests": [
+        "TST-092 RF",
+        "DRG-162 methotrexate"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR/EULAR RA"
+      ]
+    },
+    {
+      "test_id": "TST-094",
+      "name_full": "ANCA (MPO / PR3)",
+      "name_ru": "АНЦА (МПО/ПР3)",
+      "name_alternative_codes": "ANCA",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Autoimmune",
+      "test_type": "Laboratory",
+      "methodology": "[GL] IIF (p/c-ANCA) + ELISA (MPO/PR3)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] pattern + antigen positivity",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] ANCA-associated vasculitis (GPA/MPA/EGPA)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] autoimmune vasculitis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] flare = Phase 2/3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] correlate clinically; drug-induced ANCA (PTU)"
+      ],
+      "related_tests": [
+        "DRG-258 rituximab"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "EULAR vasculitis"
+      ]
+    },
+    {
+      "test_id": "TST-095",
+      "name_full": "Antiphospholipid antibodies (LA / aCL / anti-β2GPI)",
+      "name_ru": "Антифосфолипидные антитела",
+      "name_alternative_codes": "APL/lupus anticoagulant",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Coagulation",
+      "test_type": "Laboratory",
+      "methodology": "[GL] LA functional + aCL/anti-β2GPI immunoassay (repeat 12wk)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] persistent positivity (criteria)",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] antiphospholipid syndrome (thrombosis/pregnancy loss)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] thrombotic autoimmune"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] thrombotic Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] anticoagulants affect LA; needs repeat confirmation"
+      ],
+      "related_tests": [
+        "TST-097 PT/INR",
+        "DRG-076 warfarin"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ISTH APS"
+      ]
+    },
+    {
+      "test_id": "TST-096",
+      "name_full": "Activated partial thromboplastin time (aPTT)",
+      "name_ru": "АЧТВ",
+      "name_alternative_codes": "aPTT",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Coagulation",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Clot-based",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] ~25-35 s (lab)",
+      "units": "s",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] intrinsic pathway, heparin monitoring, factor deficiency/inhibitor"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] coagulation reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] mixing study for prolongation; preanalytic"
+      ],
+      "related_tests": [
+        "TST-097 PT/INR",
+        "DRG-077 heparin"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ISTH"
+      ]
+    },
+    {
+      "test_id": "TST-097",
+      "name_full": "Prothrombin time / INR (coagulation)",
+      "name_ru": "ПВ/МНО (коагуляция)",
+      "name_alternative_codes": "PT/INR",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Coagulation",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Clot-based",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] INR ~0.8-1.1",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] extrinsic pathway, warfarin monitoring, liver synthetic (cross-ref DX-06)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] coagulation/synthetic"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute bleeding risk Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] reagent-dependent ISI"
+      ],
+      "related_tests": [
+        "TST-066 hepatic PT",
+        "DRG-076 warfarin"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ISTH"
+      ]
+    },
+    {
+      "test_id": "TST-098",
+      "name_full": "Thrombophilia panel (Factor V Leiden / PT G20210A / protein C/S / antithrombin)",
+      "name_ru": "Тромбофилия (FVL/PT20210/протеин C-S/АТ)",
+      "name_alternative_codes": "thrombophilia",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Coagulation",
+      "test_type": "Laboratory",
+      "methodology": "[GL] PCR (genetic) + functional assays",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] unprovoked/recurrent VTE work-up (selected, timing matters)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] thrombotic constitution"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] acute thrombosis/anticoagulation distort functional assays; test off-anticoagulation"
+      ],
+      "related_tests": [
+        "TST-095 APL"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ISTH/ASH"
+      ]
+    },
+    {
+      "test_id": "TST-099",
+      "name_full": "Platelet function / closure time (PFA)",
+      "name_ru": "Функция тромбоцитов / PFA",
+      "name_alternative_codes": "PFA-100",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Coagulation",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Platelet function analyzer / aggregometry",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] von Willebrand/platelet dysfunction, antiplatelet effect"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] primary hemostasis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] affected by Hct/platelet count/vWF"
+      ],
+      "related_tests": [
+        "TST-100 vWF",
+        "DRG-072 clopidogrel"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ISTH"
+      ]
+    },
+    {
+      "test_id": "TST-100",
+      "name_full": "Von Willebrand factor panel (vWF:Ag / activity / FVIII)",
+      "name_ru": "Фактор Виллебранда (антиген/активность/FVIII)",
+      "name_alternative_codes": "vWF panel",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Coagulation",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay + activity (GPIbM/RCo) + FVIII",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] type-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] von Willebrand disease dx/typing"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] hemostatic factor"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] acute-phase ↑ (stress/pregnancy) — repeat"
+      ],
+      "related_tests": [
+        "TST-099 PFA",
+        "DRG-134 desmopressin"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ISTH vWD"
+      ]
+    },
+    {
+      "test_id": "TST-101",
+      "name_full": "Direct antiglobulin test (Coombs)",
+      "name_ru": "Прямая проба Кумбса (ПАГТ)",
+      "name_alternative_codes": "DAT/Coombs",
+      "status": "METACOD-RF",
+      "batch": "DX-08-Coagulation",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Antiglobulin agglutination",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] positive/negative (IgG/C3d)",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] autoimmune hemolytic anemia, drug-induced (methyldopa), HDFN"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] immune hemolysis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute hemolysis Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] positive without hemolysis possible"
+      ],
+      "related_tests": [
+        "TST-002 retic",
+        "DRG-060 methyldopa"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Hematology guidelines"
+      ]
+    }
+  ]
+}

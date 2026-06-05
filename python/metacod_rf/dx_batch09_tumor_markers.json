@@ -1,0 +1,471 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-09-TumorMarkers",
+    "version": "RF-2026-06-DX09",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — tumor markers (monitoring; not screening except where validated)",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 9,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Reference ranges/indications = [GL/LBL] (valid independently). Energy/membrane/phase interpretation = [RF]. Tests REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/lab guideline or standard",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "TST-102",
+      "name_full": "CA-125",
+      "name_ru": "СА-125",
+      "name_alternative_codes": "CA-125",
+      "status": "METACOD-RF",
+      "batch": "DX-09-Tumor",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <35 U/mL",
+      "units": "U/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] ovarian cancer monitoring (+ HE4/ROMA), not general screening"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] elevated in endometriosis/menses/peritoneal inflammation"
+      ],
+      "related_tests": [
+        "TST-103 HE4"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "NCCN ovarian"
+      ]
+    },
+    {
+      "test_id": "TST-103",
+      "name_full": "Carcinoembryonic antigen (CEA)",
+      "name_ru": "РЭА",
+      "name_alternative_codes": "CEA",
+      "status": "METACOD-RF",
+      "batch": "DX-09-Tumor",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <3 (non-smoker) / <5 ng/mL",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] colorectal cancer monitoring/recurrence"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] ↑ in smoking/IBD/benign; not screening"
+      ],
+      "related_tests": [
+        "TST-105 CA19-9"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "NCCN CRC"
+      ]
+    },
+    {
+      "test_id": "TST-104",
+      "name_full": "Alpha-fetoprotein (AFP)",
+      "name_ru": "Альфа-фетопротеин (АФП)",
+      "name_alternative_codes": "AFP",
+      "status": "METACOD-RF",
+      "batch": "DX-09-Tumor",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <10 ng/mL",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] HCC (with imaging) + germ-cell tumors; maternal screening (separate)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] ↑ in cirrhosis/pregnancy"
+      ],
+      "related_tests": [
+        "TST-106 hCG"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "AASLD HCC"
+      ]
+    },
+    {
+      "test_id": "TST-105",
+      "name_full": "CA 19-9",
+      "name_ru": "СА 19-9",
+      "name_alternative_codes": "CA19-9",
+      "status": "METACOD-RF",
+      "batch": "DX-09-Tumor",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <37 U/mL",
+      "units": "U/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] pancreatic/biliary cancer monitoring"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] false− in Lewis-antigen-negative; ↑ in cholestasis"
+      ],
+      "related_tests": [
+        "TST-103 CEA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "NCCN pancreatic"
+      ]
+    },
+    {
+      "test_id": "TST-106",
+      "name_full": "CA 15-3 / CA 27-29",
+      "name_ru": "СА 15-3",
+      "name_alternative_codes": "CA15-3",
+      "status": "METACOD-RF",
+      "batch": "DX-09-Tumor",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] metastatic breast cancer monitoring"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] not for early detection"
+      ],
+      "related_tests": [
+        "TST-103 CEA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "NCCN breast"
+      ]
+    },
+    {
+      "test_id": "TST-107",
+      "name_full": "Beta-hCG (tumor)",
+      "name_ru": "Бета-ХГЧ (опухолевый)",
+      "name_alternative_codes": "β-hCG",
+      "status": "METACOD-RF",
+      "batch": "DX-09-Tumor",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <5 mIU/mL (non-pregnant)",
+      "units": "mIU/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] germ-cell/trophoblastic tumors, gestational trophoblastic disease"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] pregnancy; phantom hCG (heterophile)"
+      ],
+      "related_tests": [
+        "TST-104 AFP"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "NCCN germ-cell"
+      ]
+    },
+    {
+      "test_id": "TST-108",
+      "name_full": "Chromogranin A",
+      "name_ru": "Хромогранин A",
+      "name_alternative_codes": "CgA",
+      "status": "METACOD-RF",
+      "batch": "DX-09-Tumor",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] neuroendocrine tumors (carcinoid) monitoring"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] ↑ with PPI use/renal/atrophic gastritis"
+      ],
+      "related_tests": [
+        "TST-110 5-HIAA (DX-10)",
+        "DRG-137 octreotide"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "NCCN NET"
+      ]
+    },
+    {
+      "test_id": "TST-109",
+      "name_full": "Calcitonin",
+      "name_ru": "Кальцитонин",
+      "name_alternative_codes": "calcitonin",
+      "status": "METACOD-RF",
+      "batch": "DX-09-Tumor",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] sex-specific low",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] medullary thyroid carcinoma dx/monitoring"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] ↑ in renal failure/PPI; stimulation test"
+      ],
+      "related_tests": [
+        "TST-029 thyroid Ab"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ATA MTC"
+      ]
+    },
+    {
+      "test_id": "TST-110",
+      "name_full": "Tumor marker panel governance note (cross-ref LDH/PSA)",
+      "name_ru": "Опухолевые маркеры — заметка",
+      "name_alternative_codes": "panel",
+      "status": "METACOD-RF",
+      "batch": "DX-09-Tumor",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Various",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] use monitoring not screening (except PSA/AFP-context)",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] cross-ref PSA (TST-048), LDH (TST-025) as tumor-context markers"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] tumor markers NOT for population screening (false+/-); trend matters"
+      ],
+      "related_tests": [
+        "TST-048 PSA",
+        "TST-025 LDH"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "NCCN/ASCO tumor marker guidelines"
+      ]
+    }
+  ]
+}

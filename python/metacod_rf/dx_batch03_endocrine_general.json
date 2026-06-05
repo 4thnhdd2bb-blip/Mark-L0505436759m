@@ -1,0 +1,669 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-03-EndocrineGeneral",
+    "version": "RF-2026-06-DX03",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — endocrine general (thyroid + adrenal axis)",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 13,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Reference ranges/indications = [GL/LBL] (valid independently). Energy/membrane/phase interpretation = [RF]. Tests REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/lab guideline or standard",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "TST-026",
+      "name_full": "Thyroid-stimulating hormone (TSH)",
+      "name_ru": "ТТГ",
+      "name_alternative_codes": "TSH",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Thyroid",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] 0.4-4.0 mIU/L (lab/trimester-specific)",
+      "units": "mIU/L",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] thyroid screening/monitoring (first-line)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] metabolic rate-setter (Yang)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] central hypothyroidism: TSH unreliable; sick-euthyroid"
+      ],
+      "related_tests": [
+        "TST-027 free T4"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ATA"
+      ]
+    },
+    {
+      "test_id": "TST-027",
+      "name_full": "Free thyroxine (free T4)",
+      "name_ru": "Свободный Т4",
+      "name_alternative_codes": "fT4",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Thyroid",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] ~0.8-1.8 ng/dL",
+      "units": "ng/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] thyroid function (with TSH)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Yang metabolic output"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] assay interference (biotin, antibodies)"
+      ],
+      "related_tests": [
+        "TST-026 TSH"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ATA"
+      ]
+    },
+    {
+      "test_id": "TST-028",
+      "name_full": "Free triiodothyronine (free T3)",
+      "name_ru": "Свободный Т3",
+      "name_alternative_codes": "fT3",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Thyroid",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] ~2.3-4.2 pg/mL",
+      "units": "pg/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] hyperthyroidism (T3-toxicosis), conversion assessment"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] active Yang"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] low in sick-euthyroid; not for hypothyroid monitoring"
+      ],
+      "related_tests": [
+        "TST-026 TSH"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ATA"
+      ]
+    },
+    {
+      "test_id": "TST-029",
+      "name_full": "Thyroid antibodies (anti-TPO / anti-Tg / TRAb)",
+      "name_ru": "Антитела щитовидной (анти-ТПО/ТГ/рТТГ)",
+      "name_alternative_codes": "TPOAb/TgAb/TRAb",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Thyroid",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific cutoffs",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] Hashimoto (TPO/Tg), Graves (TRAb)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] autoimmune thyroid"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] TPOAb common in euthyroid population"
+      ],
+      "related_tests": [
+        "TST-026 TSH"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ATA"
+      ]
+    },
+    {
+      "test_id": "TST-030",
+      "name_full": "Thyroglobulin",
+      "name_ru": "Тиреоглобулин",
+      "name_alternative_codes": "Tg",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Thyroid",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay (+ recovery)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] post-thyroidectomy tumor marker",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] differentiated thyroid cancer monitoring"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] TgAb interferes"
+      ],
+      "related_tests": [
+        "TST-029 antibodies"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ATA thyroid cancer"
+      ]
+    },
+    {
+      "test_id": "TST-031",
+      "name_full": "Morning serum cortisol",
+      "name_ru": "Утренний кортизол",
+      "name_alternative_codes": "AM cortisol",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Adrenal",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay (8 AM)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] ~5-25 µg/dL (diurnal)",
+      "units": "µg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] adrenal insufficiency screen, Cushing work-up"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] stress-axis (HPA) output"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute crisis = low (Addisonian Phase 3)"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] blunted diurnal pattern = supportive chronic-stress marker"
+      },
+      "safety_limitations": [
+        "[GL] diurnal/stress variation; binding-protein effects"
+      ],
+      "related_tests": [
+        "TST-032 ACTH",
+        "TST-033 ACTH-stim"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-032",
+      "name_full": "ACTH (adrenocorticotropic hormone)",
+      "name_ru": "АКТГ",
+      "name_alternative_codes": "ACTH",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Adrenal",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay (chilled EDTA)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] ~7-63 pg/mL (AM)",
+      "units": "pg/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] localize adrenal vs pituitary (with cortisol)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] HPA axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] labile; strict pre-analytic handling"
+      ],
+      "related_tests": [
+        "TST-031 cortisol"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-033",
+      "name_full": "ACTH (cosyntropin) stimulation test",
+      "name_ru": "Стимуляционный тест с косинтропином",
+      "name_alternative_codes": "cosyntropin stim",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Adrenal",
+      "test_type": "Functional",
+      "methodology": "[GL] 250 µg cosyntropin; cortisol 0/30/60 min",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] peak cortisol >18-20 µg/dL = adequate",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] adrenal insufficiency confirmation"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] adrenal reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] misses recent/central AI; timing"
+      ],
+      "related_tests": [
+        "TST-031 cortisol"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-034",
+      "name_full": "Dexamethasone suppression test",
+      "name_ru": "Дексаметазоновый супрессивный тест",
+      "name_alternative_codes": "DST",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Adrenal",
+      "test_type": "Functional",
+      "methodology": "[GL] 1 mg overnight; cortisol AM",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] suppression <1.8 µg/dL = normal",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] Cushing syndrome screening"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] cortisol-axis feedback"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] false+ (depression/alcohol/CYP3A4); confirm"
+      ],
+      "related_tests": [
+        "TST-031 cortisol",
+        "TST-035 UFC"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society Cushing"
+      ]
+    },
+    {
+      "test_id": "TST-035",
+      "name_full": "24-hour urinary free cortisol",
+      "name_ru": "Свободный кортизол суточной мочи",
+      "name_alternative_codes": "UFC",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Adrenal",
+      "test_type": "Laboratory",
+      "methodology": "[GL] LC-MS/MS on 24h urine",
+      "specimen_type": "24h urine",
+      "reference_ranges": "[GL] assay-specific (e.g. <50 µg/24h)",
+      "units": "µg/24h",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] Cushing syndrome (cortisol excess)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] integrated cortisol output"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] collection errors; mild elevations non-specific"
+      ],
+      "related_tests": [
+        "TST-034 DST"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society Cushing"
+      ]
+    },
+    {
+      "test_id": "TST-036",
+      "name_full": "Aldosterone + renin (ARR)",
+      "name_ru": "Альдостерон + ренин (АРС)",
+      "name_alternative_codes": "aldosterone/renin ratio",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Adrenal",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay/LC-MS + renin activity/concentration",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] ARR cutoff (e.g. >20-30 + aldo >15 ng/dL)",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] primary aldosteronism screen (resistant HTN/hypokalemia)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] mineralocorticoid/fluid axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fluid-retention context"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] meds (MRA/ACE/ARB/BB) confound — washout"
+      ],
+      "related_tests": [
+        "TST-006 K",
+        "DRG-056 spironolactone"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society aldosteronism"
+      ]
+    },
+    {
+      "test_id": "TST-037",
+      "name_full": "Prolactin",
+      "name_ru": "Пролактин",
+      "name_alternative_codes": "PRL",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Pituitary",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] M <20 / F <25 ng/mL",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] galactorrhea/amenorrhea/hypogonadism, prolactinoma"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] pituitary axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] macroprolactin/hook effect; stress/meds elevate"
+      ],
+      "related_tests": [
+        "DRG-135 cabergoline"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-038",
+      "name_full": "Insulin-like growth factor 1 (IGF-1)",
+      "name_ru": "ИФР-1 (соматомедин C)",
+      "name_alternative_codes": "IGF-1",
+      "status": "METACOD-RF",
+      "batch": "DX-03-Pituitary",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay (age/sex-normalized)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] age/sex Z-score",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] acromegaly (high) / GH deficiency (low)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] GH-axis anabolic output"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] affected by nutrition/liver/age"
+      ],
+      "related_tests": [
+        "TST-026 TSH",
+        "DRG-137 octreotide"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society acromegaly"
+      ]
+    }
+  ]
+}

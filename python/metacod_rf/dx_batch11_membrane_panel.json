@@ -1,0 +1,521 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-11-MembranePanel",
+    "version": "RF-2026-06-DX11",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — Mark-canonical membrane/oxidative biomarker panel (RF research)",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 10,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Reference ranges/indications = [GL/LBL] (valid independently). Energy/membrane/phase interpretation = [RF]. Tests REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/lab guideline or standard",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "TST-123",
+      "name_full": "Paired sterol + malondialdehyde (MDA)",
+      "name_ru": "Парные стерол + МДА",
+      "name_alternative_codes": "sterol+MDA",
+      "status": "METACOD-RF",
+      "batch": "DX-11-Membrane",
+      "test_type": "Laboratory",
+      "methodology": "[RF] Mark-canonical paired assay (research)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[RF] no validated METACOD cutoff",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[RF/Mark] membrane M-S assessment (paired oxidative/sterol)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] membrane integrity (M-S marker)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF/Mark] paired sterol+MDA = M-S signature (research-only)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark/RF] Mark-canonical membrane biomarker",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] research assay; NOT a validated diagnostic; no standardized reference"
+      ],
+      "related_tests": [
+        "FUN-007 Cole-Cole α",
+        "TST-126 4-HNE"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "[RF] Mark canonical membrane framework"
+      ]
+    },
+    {
+      "test_id": "TST-124",
+      "name_full": "Galectin-3",
+      "name_ru": "Галектин-3",
+      "name_alternative_codes": "Gal-3",
+      "status": "METACOD-RF",
+      "batch": "DX-11-Membrane",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] HF prognostic (>17.8 ng/mL higher risk)",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] heart-failure fibrosis/prognosis; [RF] METACOD fibrosis/M-S overlay"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] fibrotic constitution"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fibrosis (M-S) marker"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] non-specific fibrosis; renal clearance"
+      ],
+      "related_tests": [
+        "TST-125 TGF-β1",
+        "TST-022 BNP"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "HF biomarker guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-125",
+      "name_full": "Transforming growth factor beta-1 (TGF-β1)",
+      "name_ru": "Трансформирующий фактор роста β1",
+      "name_alternative_codes": "TGF-β1",
+      "status": "METACOD-RF",
+      "batch": "DX-11-Membrane",
+      "test_type": "Laboratory",
+      "methodology": "[RF] ELISA (research)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[RF] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[RF/Mark] fibrosis/M-S marker (research)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] pro-fibrotic signaling"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fibrosis (M-S)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] platelet-release artifact; research use"
+      ],
+      "related_tests": [
+        "TST-124 galectin-3"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "[RF] fibrosis literature; Mark canonical"
+      ]
+    },
+    {
+      "test_id": "TST-126",
+      "name_full": "4-hydroxynonenal (4-HNE)",
+      "name_ru": "4-гидроксиноненаль",
+      "name_alternative_codes": "4-HNE",
+      "status": "METACOD-RF",
+      "batch": "DX-11-Membrane",
+      "test_type": "Laboratory",
+      "methodology": "[RF] Immunoassay/LC-MS (research)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[RF] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[RF/Mark] lipid-peroxidation/membrane oxidative marker (paired)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] oxidative membrane damage"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF/Mark] M-S oxidative signature"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] research assay"
+      ],
+      "related_tests": [
+        "TST-123 sterol+MDA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "[RF] Mark canonical"
+      ]
+    },
+    {
+      "test_id": "TST-127",
+      "name_full": "Hydroxyproline (collagen turnover)",
+      "name_ru": "Гидроксипролин",
+      "name_alternative_codes": "hydroxyproline",
+      "status": "METACOD-RF",
+      "batch": "DX-11-Membrane",
+      "test_type": "Laboratory",
+      "methodology": "[GL] HPLC (urine/serum)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] collagen turnover/bone resorption; [RF] METACOD fibrosis overlay"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] collagen/fibrosis turnover"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] M-S collagen context"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] diet (gelatin) confounds"
+      ],
+      "related_tests": [
+        "TST-125 TGF-β1",
+        "FUN-002 DEXA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Bone/collagen literature"
+      ]
+    },
+    {
+      "test_id": "TST-128",
+      "name_full": "Oxidized LDL (oxLDL)",
+      "name_ru": "Окисленный ЛПНП",
+      "name_alternative_codes": "oxLDL",
+      "status": "METACOD-RF",
+      "batch": "DX-11-Membrane",
+      "test_type": "Laboratory",
+      "methodology": "[RCT] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[RCT] assay-specific; CV-risk associated",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[RCT] oxidative/atherogenic stress (research/CV)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] oxidative vascular load"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] vascular M-S"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] not routine clinical"
+      ],
+      "related_tests": [
+        "TST-057 lipids"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "CV oxidative literature"
+      ]
+    },
+    {
+      "test_id": "TST-129",
+      "name_full": "F2-isoprostanes",
+      "name_ru": "F2-изопростаны",
+      "name_alternative_codes": "F2-IsoP",
+      "status": "METACOD-RF",
+      "batch": "DX-11-Membrane",
+      "test_type": "Laboratory",
+      "methodology": "[RCT] LC-MS/MS (gold-standard oxidative marker)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[RCT] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[RCT] systemic lipid-peroxidation/oxidative stress (research)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] systemic oxidative load"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] oxidative membrane stress"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] research; collection/storage sensitive"
+      ],
+      "related_tests": [
+        "TST-126 4-HNE"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Oxidative-stress literature"
+      ]
+    },
+    {
+      "test_id": "TST-130",
+      "name_full": "8-hydroxy-2'-deoxyguanosine (8-OHdG)",
+      "name_ru": "8-OHdG (оксидативное повреждение ДНК)",
+      "name_alternative_codes": "8-OHdG",
+      "status": "METACOD-RF",
+      "batch": "DX-11-Membrane",
+      "test_type": "Laboratory",
+      "methodology": "[RCT] ELISA/LC-MS (urine)",
+      "specimen_type": "Urine/serum",
+      "reference_ranges": "[RCT] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[RCT] oxidative DNA damage marker (research)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] oxidative load"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] research"
+      ],
+      "related_tests": [
+        "TST-129 F2-isoprostanes"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Oxidative-stress literature"
+      ]
+    },
+    {
+      "test_id": "TST-131",
+      "name_full": "Glutathione (GSH / GSSG ratio)",
+      "name_ru": "Глутатион (GSH/GSSG)",
+      "name_alternative_codes": "GSH/GSSG",
+      "status": "METACOD-RF",
+      "batch": "DX-11-Membrane",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Enzymatic/LC-MS",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific redox ratio",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] antioxidant/redox status (research/clinical); NAC context"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] redox reserve (antioxidant)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] sample-handling sensitive (rapid oxidation)"
+      ],
+      "related_tests": [
+        "DRG-365 NAC"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Redox literature"
+      ]
+    },
+    {
+      "test_id": "TST-132",
+      "name_full": "Advanced glycation end-products (AGEs)",
+      "name_ru": "Конечные продукты гликирования (AGEs)",
+      "name_alternative_codes": "AGEs",
+      "status": "METACOD-RF",
+      "batch": "DX-11-Membrane",
+      "test_type": "Laboratory",
+      "methodology": "[RCT] Serum assay / skin autofluorescence",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[RCT] device/assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[RCT] glycation/aging/diabetic-complication load (research)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] glycation/aging load"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] tissue M-S/aging"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] research; skin-AF device-specific"
+      ],
+      "related_tests": [
+        "TST-050 A1c"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Glycation literature"
+      ]
+    }
+  ]
+}

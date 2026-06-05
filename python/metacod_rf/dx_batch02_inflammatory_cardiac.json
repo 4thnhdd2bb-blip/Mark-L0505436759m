@@ -1,0 +1,572 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-02-InflammatoryCardiac",
+    "version": "RF-2026-06-DX02",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — inflammatory + cardiac markers",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 11,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Reference ranges/indications = [GL/LBL] (valid independently). Energy/membrane/phase interpretation = [RF]. Tests REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/lab guideline or standard",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "TST-015",
+      "name_full": "High-sensitivity C-reactive protein (hsCRP)",
+      "name_ru": "вч-СРБ",
+      "name_alternative_codes": "hsCRP",
+      "status": "METACOD-RF",
+      "batch": "DX-02-Inflammatory",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoturbidimetry",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <1 low / 1-3 average / >3 high CV risk; >10 acute inflammation",
+      "units": "mg/L",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] CV risk stratification; chronic low-grade inflammation"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] systemic inflammatory load"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] M-A inflammatory context"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute ↑ = Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] chronically mild-↑ = supportive chronic-stress/inflammation pattern"
+      },
+      "safety_limitations": [
+        "[GL] non-specific; confounded by acute illness/obesity"
+      ],
+      "related_tests": [
+        "TST-016 ESR",
+        "TST-017 ferritin"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "AHA CV risk"
+      ]
+    },
+    {
+      "test_id": "TST-016",
+      "name_full": "Erythrocyte sedimentation rate (ESR)",
+      "name_ru": "СОЭ",
+      "name_alternative_codes": "ESR",
+      "status": "METACOD-RF",
+      "batch": "DX-02-Inflammatory",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Westergren",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] age/sex-dependent (~<20-30 mm/h)",
+      "units": "mm/h",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] inflammation/infection monitoring (GCA/PMR, etc.)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] inflammatory load"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] elevated = active inflammatory phase"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] slow/non-specific; anemia/age confound"
+      ],
+      "related_tests": [
+        "TST-015 hsCRP"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Lab standards"
+      ]
+    },
+    {
+      "test_id": "TST-017",
+      "name_full": "Ferritin",
+      "name_ru": "Ферритин",
+      "name_alternative_codes": "ferritin",
+      "status": "METACOD-RF",
+      "batch": "DX-02-Inflammatory",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] M 30-400 / F 15-150 ng/mL; acute-phase reactant",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] iron stores (DX-07) AND inflammation marker; HLH/Still (very high)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] iron-reserve + inflammation"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] very high = acute/hyperinflammatory"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] dual meaning (iron vs inflammation) — interpret with CRP/TSAT"
+      ],
+      "related_tests": [
+        "TST-015 hsCRP",
+        "TST-075 iron studies"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Iron/inflammation guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-018",
+      "name_full": "Fibrinogen",
+      "name_ru": "Фибриноген",
+      "name_alternative_codes": "fibrinogen",
+      "status": "METACOD-RF",
+      "batch": "DX-02-Inflammatory",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Clauss assay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] 200-400 mg/dL",
+      "units": "mg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] inflammation/coagulation; DIC (low)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] inflammatory + clotting"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] low in consumptive (DIC) Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] acute-phase reactant"
+      ],
+      "related_tests": [
+        "TST-097 PT/INR"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ISTH"
+      ]
+    },
+    {
+      "test_id": "TST-019",
+      "name_full": "Procalcitonin",
+      "name_ru": "Прокальцитонин",
+      "name_alternative_codes": "PCT",
+      "status": "METACOD-RF",
+      "batch": "DX-02-Inflammatory",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <0.25 low bacterial likelihood; >0.5 suggests bacterial",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] bacterial infection/sepsis; antibiotic stewardship"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] bacterial Heat-Damp"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] ↑ = acute bacterial Phase 2/3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] elevated in non-infectious states (surgery, shock)"
+      ],
+      "related_tests": [
+        "TST-015 hsCRP"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Sepsis guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-020",
+      "name_full": "Interleukin-6 (IL-6)",
+      "name_ru": "Интерлейкин-6",
+      "name_alternative_codes": "IL-6",
+      "status": "METACOD-RF",
+      "batch": "DX-02-Inflammatory",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <7 pg/mL (assay-dependent)",
+      "units": "pg/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] cytokine storm/CRS, severe inflammation (research/specialty)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] core inflammatory cytokine"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] ↑ acute inflammatory cascade"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] limited routine availability"
+      ],
+      "related_tests": [
+        "TST-015 hsCRP"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Cytokine literature"
+      ]
+    },
+    {
+      "test_id": "TST-021",
+      "name_full": "High-sensitivity cardiac troponin (hs-cTn)",
+      "name_ru": "вч-Тропонин",
+      "name_alternative_codes": "hs-cTnT/I",
+      "status": "METACOD-RF",
+      "batch": "DX-02-Cardiac",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay (serial 0/1-3h)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] sex-specific 99th percentile URL; serial delta",
+      "units": "ng/L",
+      "critical_values": "[GL] rising trend = acute MI",
+      "indications": {
+        "primary": "[GL] acute MI diagnosis, myocardial injury"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] myocardial Heat/injury"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute rise = Phase 3 cardiac event"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] elevated in CKD/HF/PE/sepsis (injury ≠ MI); needs serial + context"
+      ],
+      "related_tests": [
+        "TST-022 BNP",
+        "FUN cardiology (DX-16)"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ESC/ACC ACS"
+      ]
+    },
+    {
+      "test_id": "TST-022",
+      "name_full": "BNP / NT-proBNP",
+      "name_ru": "BNP / NT-proBNP",
+      "name_alternative_codes": "natriuretic peptides",
+      "status": "METACOD-RF",
+      "batch": "DX-02-Cardiac",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] NT-proBNP age-adjusted cutoffs; BNP <100 unlikely HF",
+      "units": "pg/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] heart failure dx/prognosis/monitoring"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] cardiac wall-stress / fluid overload"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] fluid-retention (EBM KCTS-supportive)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute decompensation = Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] supportive fluid-retention marker"
+      },
+      "safety_limitations": [
+        "[GL] ↑ in age/AF/CKD; ↓ in obesity"
+      ],
+      "related_tests": [
+        "TST-021 troponin",
+        "FUN echo (DX-16)"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ESC/ACC HF"
+      ]
+    },
+    {
+      "test_id": "TST-023",
+      "name_full": "D-dimer",
+      "name_ru": "D-димер",
+      "name_alternative_codes": "D-dimer",
+      "status": "METACOD-RF",
+      "batch": "DX-02-Cardiac",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoturbidimetric",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <500 ng/mL FEU (age-adjusted >50y)",
+      "units": "ng/mL FEU",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] VTE/PE exclusion (high NPV), DIC"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] thrombotic activity"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] ↑ acute thrombotic Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] non-specific (age/inflammation/pregnancy) — rule-OUT use"
+      ],
+      "related_tests": [
+        "TST-018 fibrinogen"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "VTE guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-024",
+      "name_full": "Creatine kinase (CK) + CK-MB",
+      "name_ru": "КФК + КФК-МВ",
+      "name_alternative_codes": "CK/CK-MB",
+      "status": "METACOD-RF",
+      "batch": "DX-02-Cardiac",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Enzymatic",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] CK M 40-200 / F 30-150 U/L",
+      "units": "U/L",
+      "critical_values": "[GL] CK>5000 rhabdo risk",
+      "indications": {
+        "primary": "[GL] rhabdomyolysis, myopathy, (historic cardiac — troponin preferred)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] muscle injury (Heat)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute rise = muscle injury"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] CK-MB superseded by troponin for MI"
+      ],
+      "related_tests": [
+        "TST-021 troponin"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Lab standards"
+      ]
+    },
+    {
+      "test_id": "TST-025",
+      "name_full": "Lactate dehydrogenase (LDH)",
+      "name_ru": "ЛДГ",
+      "name_alternative_codes": "LDH",
+      "status": "METACOD-RF",
+      "batch": "DX-02-Cardiac",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Enzymatic",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] 140-280 U/L",
+      "units": "U/L",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] hemolysis, tumor lysis, tissue turnover (non-specific)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] tissue turnover"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] very non-specific"
+      ],
+      "related_tests": [
+        "TST-002 retic",
+        "TST-108 tumor markers"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Lab standards"
+      ]
+    }
+  ]
+}

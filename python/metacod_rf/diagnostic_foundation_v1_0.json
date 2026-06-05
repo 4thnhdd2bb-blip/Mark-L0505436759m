@@ -23,7 +23,7 @@
       "standard_care_primacy": "Диагностическая интерпретация через METACOD не должна задерживать/заменять стандартную диагностику и лечение."
     },
     "relationship": "Parallel к drug DB (DRG-*). Управляется three_axis_framework v1.0 + kcts_integration v1.1 + constitutional_model. Cross-references к drug DB (тесты, мониторящие конкретные препараты).",
-    "content_started_note": "[2026-06] Content filling STARTED per Mark (full scope + full Mark-canonical core; start DX-18 + DX-01). Done: DX-18 (dx_batch18_body_composition.json, 9 FUN), DX-01 (dx_batch01_foundation_labs.json, 14 TST). Remaining 18 batches pending."
+    "content_started_note": "[2026-06] Content filling in progress. DONE (12 batches, 141 entries): all Laboratory category A (DX-01..DX-11) + DX-18 body-composition/Mark-canonical. REMAINING (8): imaging DX-12..DX-15, functional-cardio/pulmo DX-16/DX-17, procedures DX-19/DX-20."
   },
   "id_prefixes": {
     "TST": "Laboratory test",
@@ -367,7 +367,18 @@
     "ready_to_proceed": "after Mark answers Q1-Q6",
     "batches_done": [
       "DX-01 (14)",
+      "DX-02 (11)",
+      "DX-03 (13)",
+      "DX-04 (11)",
+      "DX-05 (11)",
+      "DX-06 (14)",
+      "DX-07 (13)",
+      "DX-08 (14)",
+      "DX-09 (9)",
+      "DX-10 (12)",
+      "DX-11 (10)",
       "DX-18 (9)"
-    ]
+    ],
+    "entries_done": 141
   }
 }

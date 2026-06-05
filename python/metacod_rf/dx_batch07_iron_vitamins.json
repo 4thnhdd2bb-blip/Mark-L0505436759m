@@ -1,0 +1,671 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-07-IronVitamins",
+    "version": "RF-2026-06-DX07",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — iron studies, B-vitamins, micronutrients",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 13,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Reference ranges/indications = [GL/LBL] (valid independently). Energy/membrane/phase interpretation = [RF]. Tests REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/lab guideline or standard",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "TST-075",
+      "name_full": "Iron studies (serum iron + TIBC + TSAT)",
+      "name_ru": "Обмен железа (железо + ОЖСС + насыщение)",
+      "name_alternative_codes": "iron/TIBC/TSAT",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Iron",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Colorimetric; TSAT = iron/TIBC",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] TSAT 20-50%; ↓iron ↑TIBC ↓TSAT = deficiency",
+      "units": "µg/dL; %",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] iron-deficiency vs anemia of chronic disease"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] iron/Yang oxygen-carrying reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] diurnal iron; ferritin (TST-017) needed (acute-phase)"
+      ],
+      "related_tests": [
+        "TST-017 ferritin",
+        "TST-001 CBC",
+        "DRG-372 oral iron"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "Iron guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-076",
+      "name_full": "Vitamin B12 (cobalamin)",
+      "name_ru": "Витамин B12",
+      "name_alternative_codes": "B12",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Vitamins",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] >300 normal; 200-300 borderline; <200 deficient",
+      "units": "pg/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] macrocytic anemia, neuropathy; metformin/PPI long-term"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] hematopoietic/neural cofactor"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] unreliable borderline — use MMA/homocysteine"
+      ],
+      "related_tests": [
+        "TST-078 MMA",
+        "DRG-360 B-vitamins"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "Hematology guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-077",
+      "name_full": "Folate (serum ± RBC)",
+      "name_ru": "Фолат (сыворотка/эритроцитарный)",
+      "name_alternative_codes": "folate",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Vitamins",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] serum >4 ng/mL; RBC folate more stable",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] macrocytic anemia, pregnancy, MTX (Zuo)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] one-carbon/hematopoietic cofactor"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] recent intake affects serum; mask B12 deficiency"
+      ],
+      "related_tests": [
+        "TST-076 B12",
+        "DRG-162 methotrexate"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Hematology guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-078",
+      "name_full": "Methylmalonic acid (MMA)",
+      "name_ru": "Метилмалоновая кислота",
+      "name_alternative_codes": "MMA",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Vitamins",
+      "test_type": "Laboratory",
+      "methodology": "[GL] LC-MS/MS",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] elevated in B12 deficiency",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] confirm functional B12 deficiency"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] B12-dependent pathway"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] renal impairment elevates"
+      ],
+      "related_tests": [
+        "TST-076 B12"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Hematology guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-079",
+      "name_full": "Homocysteine",
+      "name_ru": "Гомоцистеин",
+      "name_alternative_codes": "Hcy",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Vitamins",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay/LC-MS",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] ~5-15 µmol/L",
+      "units": "µmol/L",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] B12/folate functional deficiency, hyperhomocysteinemia (thrombosis/CV)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] methylation/vascular"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] non-specific CV marker"
+      ],
+      "related_tests": [
+        "TST-076 B12",
+        "TST-077 folate"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Lab standards"
+      ]
+    },
+    {
+      "test_id": "TST-080",
+      "name_full": "Vitamin D (25-hydroxyvitamin D)",
+      "name_ru": "Витамин D (25-OH)",
+      "name_alternative_codes": "25-OH-D",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Vitamins",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay/LC-MS",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <20 deficient; 20-30 insufficient; >30 ng/mL sufficient",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] deficiency (bone/immune/falls), ADT/osteoporosis monitoring"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF/Mark] systemic Yin support; deficiency contributes to M-D drift (frail elderly)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark/RF] Mark canonical (ADT support stack + frailty)",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] assay variability; sarcoidosis caution"
+      ],
+      "related_tests": [
+        "FUN-002 DEXA",
+        "DRG-288/359 vitamin D"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-081",
+      "name_full": "Vitamin B1 (thiamine)",
+      "name_ru": "Витамин B1 (тиамин)",
+      "name_alternative_codes": "thiamine",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Vitamins",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Whole-blood thiamine/erythrocyte transketolase",
+      "specimen_type": "Whole blood",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] alcohol use/malnutrition, Wernicke risk, refeeding"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] energy-metabolism cofactor"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute deficiency = Wernicke (Phase 3)"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] treat empirically if suspected (don't await result)"
+      ],
+      "related_tests": [
+        "TST-076 B12"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Nutrition guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-082",
+      "name_full": "Zinc",
+      "name_ru": "Цинк",
+      "name_alternative_codes": "Zn",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Micronutrient",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Atomic absorption/ICP-MS",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] ~60-120 µg/dL",
+      "units": "µg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] deficiency (wound/immune/taste), malabsorption"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] immune/repair cofactor"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] acute-phase ↓ (redistribution); hemolysis ↑"
+      ],
+      "related_tests": [
+        "DRG-503 zinc"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Nutrition guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-083",
+      "name_full": "Copper + ceruloplasmin",
+      "name_ru": "Медь + церулоплазмин",
+      "name_alternative_codes": "Cu/Cp",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Micronutrient",
+      "test_type": "Laboratory",
+      "methodology": "[GL] ICP-MS / immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] Wilson disease (low Cp), copper deficiency (zinc excess/bariatric)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] trace-metal balance"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Cp acute-phase reactant"
+      ],
+      "related_tests": [
+        "TST-082 zinc"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Wilson guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-084",
+      "name_full": "Selenium",
+      "name_ru": "Селен",
+      "name_alternative_codes": "Se",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Micronutrient",
+      "test_type": "Laboratory",
+      "methodology": "[GL] ICP-MS",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] deficiency (cardiomyopathy/myopathy), TPN monitoring"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] antioxidant cofactor"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] rarely indicated routinely"
+      ],
+      "related_tests": [
+        "TST-082 zinc"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Nutrition guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-085",
+      "name_full": "Vitamin A (retinol)",
+      "name_ru": "Витамин A (ретинол)",
+      "name_alternative_codes": "retinol",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Vitamins",
+      "test_type": "Laboratory",
+      "methodology": "[GL] HPLC",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] deficiency (malabsorption/night blindness), toxicity"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] epithelial/vision"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] acute-phase ↓; teratogenic excess"
+      ],
+      "related_tests": [
+        "TST-080 vitamin D"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Nutrition guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-086",
+      "name_full": "Vitamin E (alpha-tocopherol)",
+      "name_ru": "Витамин E",
+      "name_alternative_codes": "vit E",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Vitamins",
+      "test_type": "Laboratory",
+      "methodology": "[GL] HPLC",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific (ratio to lipids)",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] fat malabsorption, neurologic deficiency (rare)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] antioxidant"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] interpret per lipids"
+      ],
+      "related_tests": [
+        "TST-085 vitamin A"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Nutrition guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-087",
+      "name_full": "Vitamin B6 (pyridoxal-5-phosphate)",
+      "name_ru": "Витамин B6 (ПЛФ)",
+      "name_alternative_codes": "PLP",
+      "status": "METACOD-RF",
+      "batch": "DX-07-Vitamins",
+      "test_type": "Laboratory",
+      "methodology": "[GL] HPLC",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] deficiency (INH therapy), neuropathy; toxicity (excess→neuropathy)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] enzymatic cofactor"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] both deficiency and excess cause neuropathy"
+      ],
+      "related_tests": [
+        "DRG-360 B-vitamins"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Nutrition guidelines"
+      ]
+    }
+  ]
+}

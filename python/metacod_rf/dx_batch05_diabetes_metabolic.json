@@ -1,0 +1,572 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-05-DiabetesMetabolic",
+    "version": "RF-2026-06-DX05",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — diabetes + metabolic (lipids, uric acid)",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 11,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Reference ranges/indications = [GL/LBL] (valid independently). Energy/membrane/phase interpretation = [RF]. Tests REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/lab guideline or standard",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "TST-050",
+      "name_full": "Hemoglobin A1c (HbA1c)",
+      "name_ru": "Гликированный гемоглобин HbA1c",
+      "name_alternative_codes": "A1c",
+      "status": "METACOD-RF",
+      "batch": "DX-05-Diabetes",
+      "test_type": "Laboratory",
+      "methodology": "[GL] HPLC/immunoassay (NGSP)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <5.7% normal; 5.7-6.4 prediabetes; ≥6.5 diabetes",
+      "units": "%",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] diabetes dx + 3-month glycemic monitoring"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] metabolic load (Yin-Earth phenotype)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] unreliable in hemoglobinopathy/anemia/↑turnover/CKD"
+      ],
+      "related_tests": [
+        "TST-009 glucose",
+        "DRG GLP-1/SGLT2"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ADA"
+      ]
+    },
+    {
+      "test_id": "TST-051",
+      "name_full": "Oral glucose tolerance test (OGTT)",
+      "name_ru": "Глюкозотолерантный тест (ОГТТ)",
+      "name_alternative_codes": "OGTT 75g",
+      "status": "METACOD-RF",
+      "batch": "DX-05-Diabetes",
+      "test_type": "Functional",
+      "methodology": "[GL] 75g glucose; 0/120-min glucose",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] 2h ≥200 = diabetes; 140-199 IGT",
+      "units": "mg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] diabetes/GDM diagnosis, IGT"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] metabolic handling"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] reproducibility; prep-dependent"
+      ],
+      "related_tests": [
+        "TST-050 A1c"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ADA"
+      ]
+    },
+    {
+      "test_id": "TST-052",
+      "name_full": "Fasting insulin",
+      "name_ru": "Инсулин натощак",
+      "name_alternative_codes": "insulin",
+      "status": "METACOD-RF",
+      "batch": "DX-05-Metabolic",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay (fasting)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific (~2-25 µIU/mL)",
+      "units": "µIU/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] insulin resistance/hypoglycemia work-up"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] metabolic/anabolic signal"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] no standardized assay; interpret with glucose"
+      ],
+      "related_tests": [
+        "TST-054 HOMA-IR",
+        "TST-053 C-peptide"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-053",
+      "name_full": "C-peptide",
+      "name_ru": "С-пептид",
+      "name_alternative_codes": "C-peptide",
+      "status": "METACOD-RF",
+      "batch": "DX-05-Metabolic",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] fasting ~0.8-3.1 ng/mL",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] endogenous insulin reserve (T1 vs T2DM), insulinoma, factitious hypoglycemia"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] beta-cell reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] renal clearance affects"
+      ],
+      "related_tests": [
+        "TST-052 insulin"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ADA"
+      ]
+    },
+    {
+      "test_id": "TST-054",
+      "name_full": "HOMA-IR (insulin resistance index)",
+      "name_ru": "Индекс HOMA-IR",
+      "name_alternative_codes": "HOMA-IR",
+      "status": "METACOD-RF",
+      "batch": "DX-05-Metabolic",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Calculated (fasting glucose × insulin / 405)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] >2.5-2.9 suggests IR (population-specific)",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] insulin resistance estimation (research/clinical)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] metabolic-syndrome (Yin-Earth)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] not a diagnostic threshold; assay-dependent"
+      ],
+      "related_tests": [
+        "TST-052 insulin"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Research/clinical"
+      ]
+    },
+    {
+      "test_id": "TST-055",
+      "name_full": "Fructosamine",
+      "name_ru": "Фруктозамин",
+      "name_alternative_codes": "fructosamine",
+      "status": "METACOD-RF",
+      "batch": "DX-05-Diabetes",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Colorimetric",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] 2-3 week glycemic average (when A1c unreliable)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] short-term glycemic load"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] affected by protein turnover/albumin"
+      ],
+      "related_tests": [
+        "TST-050 A1c"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ADA"
+      ]
+    },
+    {
+      "test_id": "TST-056",
+      "name_full": "Islet autoantibodies (GAD65, IA-2, ZnT8, IAA)",
+      "name_ru": "Антитела к островкам (GAD65/IA-2/ZnT8)",
+      "name_alternative_codes": "islet Ab",
+      "status": "METACOD-RF",
+      "batch": "DX-05-Diabetes",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific positivity",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] type 1 / LADA diagnosis, classification"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] autoimmune beta-cell"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] not for routine T2DM"
+      ],
+      "related_tests": [
+        "TST-053 C-peptide"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ADA"
+      ]
+    },
+    {
+      "test_id": "TST-057",
+      "name_full": "Lipid panel (full)",
+      "name_ru": "Липидограмма (полная)",
+      "name_alternative_codes": "lipids",
+      "status": "METACOD-RF",
+      "batch": "DX-05-Lipid",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Enzymatic; calculated/measured LDL",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] TC, LDL, HDL, TG (risk-based targets)",
+      "units": "mg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] ASCVD risk, dyslipidemia dx/monitoring"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] metabolic/Damp-Heat lipid load"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] fasting for TG; calculated LDL invalid if TG>400"
+      ],
+      "related_tests": [
+        "TST-058 Lp(a)",
+        "DRG statins (batch 06)"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ACC/AHA cholesterol"
+      ]
+    },
+    {
+      "test_id": "TST-058",
+      "name_full": "Lipoprotein(a) [Lp(a)]",
+      "name_ru": "Липопротеин(а)",
+      "name_alternative_codes": "Lp(a)",
+      "status": "METACOD-RF",
+      "batch": "DX-05-Lipid",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay (nmol/L preferred)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] >125 nmol/L (~50 mg/dL) elevated",
+      "units": "nmol/L",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] inherited ASCVD risk (once-in-lifetime)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] atherogenic genetic load"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] largely genetic; assay standardization issues"
+      ],
+      "related_tests": [
+        "TST-057 lipids",
+        "DRG-070 inclisiran"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ESC/EAS"
+      ]
+    },
+    {
+      "test_id": "TST-059",
+      "name_full": "Apolipoprotein B (apoB)",
+      "name_ru": "Аполипопротеин B",
+      "name_alternative_codes": "apoB",
+      "status": "METACOD-RF",
+      "batch": "DX-05-Lipid",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoturbidimetry",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] risk-based (<90 / <80 mg/dL targets)",
+      "units": "mg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] atherogenic particle number (better than LDL-C in some)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] atherogenic particle load"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] not yet universal target"
+      ],
+      "related_tests": [
+        "TST-057 lipids"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ESC/EAS"
+      ]
+    },
+    {
+      "test_id": "TST-060",
+      "name_full": "Uric acid (serum)",
+      "name_ru": "Мочевая кислота",
+      "name_alternative_codes": "urate",
+      "status": "METACOD-RF",
+      "batch": "DX-05-Metabolic",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Enzymatic (uricase)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] M 3.5-7.2 / F 2.6-6.0 mg/dL",
+      "units": "mg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] gout, tumor lysis, metabolic syndrome"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF/Mark] Yin-Fire phenotype marker (uric-acid + dyslipidemia pattern)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute ↑ = tumor lysis/gout flare"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark/RF] Yin-Fire phenotype (Mark personal context)",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] asymptomatic hyperuricemia not always treated"
+      ],
+      "related_tests": [
+        "DRG-176 allopurinol",
+        "TST-057 lipids"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACR gout"
+      ]
+    }
+  ]
+}

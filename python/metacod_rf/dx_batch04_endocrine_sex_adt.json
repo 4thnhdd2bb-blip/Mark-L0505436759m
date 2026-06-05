@@ -1,0 +1,574 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-04-EndocrineSexADT",
+    "version": "RF-2026-06-DX04",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — sex hormones + ADT/cancer monitoring",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 11,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Reference ranges/indications = [GL/LBL] (valid independently). Energy/membrane/phase interpretation = [RF]. Tests REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/lab guideline or standard",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "TST-039",
+      "name_full": "Total testosterone",
+      "name_ru": "Тестостерон общий",
+      "name_alternative_codes": "total T",
+      "status": "METACOD-RF",
+      "batch": "DX-04-Sex",
+      "test_type": "Laboratory",
+      "methodology": "[GL] LC-MS/MS (preferred) / immunoassay; AM",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] M ~300-1000 ng/dL (age-dependent); F low",
+      "units": "ng/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] hypogonadism, ADT monitoring, PCOS/hirsutism (F)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] androgen/Yang axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] ADT → M-A→M-D context (cross-ref DRG-265)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] ADT monitoring (with phase-angle BIA/DEXA)",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] diurnal; SHBG affects total; assay variability"
+      ],
+      "related_tests": [
+        "TST-040 free T",
+        "TST-041 SHBG",
+        "DRG-265 leuprolide"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-040",
+      "name_full": "Free testosterone",
+      "name_ru": "Свободный тестостерон",
+      "name_alternative_codes": "free T",
+      "status": "METACOD-RF",
+      "batch": "DX-04-Sex",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Equilibrium dialysis/calculated (from total+SHBG)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay/age-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] hypogonadism when SHBG abnormal"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] bioavailable androgen"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] direct analog immunoassay unreliable — use calculated/dialysis"
+      ],
+      "related_tests": [
+        "TST-039 total T",
+        "TST-041 SHBG"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-041",
+      "name_full": "Sex hormone-binding globulin (SHBG)",
+      "name_ru": "ГСПГ",
+      "name_alternative_codes": "SHBG",
+      "status": "METACOD-RF",
+      "batch": "DX-04-Sex",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] sex/age-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] interpret total testosterone/estradiol bioavailability"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] hormone-binding capacity"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] altered by thyroid/insulin/obesity/liver"
+      ],
+      "related_tests": [
+        "TST-039 total T"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-042",
+      "name_full": "Estradiol (E2)",
+      "name_ru": "Эстрадиол",
+      "name_alternative_codes": "E2",
+      "status": "METACOD-RF",
+      "batch": "DX-04-Sex",
+      "test_type": "Laboratory",
+      "methodology": "[GL] LC-MS/MS / immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] cycle/menopause/sex-specific",
+      "units": "pg/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] ovarian function, menopause, fertility, ADT/AI monitoring"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] estrogen/Yin axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] low-level assay imprecision (men/postmenopausal)"
+      ],
+      "related_tests": [
+        "TST-043 LH",
+        "DRG-264 letrozole"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-043",
+      "name_full": "Luteinizing hormone (LH)",
+      "name_ru": "ЛГ",
+      "name_alternative_codes": "LH",
+      "status": "METACOD-RF",
+      "batch": "DX-04-Sex",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] cycle/sex-specific",
+      "units": "IU/L",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] hypogonadism (central vs primary), ovulation, puberty"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] gonadotropic axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] pulsatile secretion"
+      ],
+      "related_tests": [
+        "TST-044 FSH"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-044",
+      "name_full": "Follicle-stimulating hormone (FSH)",
+      "name_ru": "ФСГ",
+      "name_alternative_codes": "FSH",
+      "status": "METACOD-RF",
+      "batch": "DX-04-Sex",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] cycle/menopause/sex-specific",
+      "units": "IU/L",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] ovarian reserve/menopause, hypogonadism, azoospermia"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] gonadotropic axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] day-3 timing (F)"
+      ],
+      "related_tests": [
+        "TST-043 LH",
+        "TST-047 AMH"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-045",
+      "name_full": "DHEA-sulfate (DHEA-S)",
+      "name_ru": "ДГЭА-сульфат",
+      "name_alternative_codes": "DHEA-S",
+      "status": "METACOD-RF",
+      "batch": "DX-04-Sex",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] age/sex-specific",
+      "units": "µg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] adrenal androgen (hirsutism, adrenal tumor), adrenal reserve"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] adrenal androgen reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] low DHEA-S = supportive depleted-adrenal-reserve (chronic-stress)"
+      },
+      "safety_limitations": [
+        "[GL] declines with age"
+      ],
+      "related_tests": [
+        "TST-031 cortisol"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-046",
+      "name_full": "Progesterone",
+      "name_ru": "Прогестерон",
+      "name_alternative_codes": "P4",
+      "status": "METACOD-RF",
+      "batch": "DX-04-Sex",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay/LC-MS",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] luteal vs follicular phase",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] ovulation confirmation, early pregnancy, luteal function"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] timing-dependent (mid-luteal)"
+      ],
+      "related_tests": [
+        "TST-042 E2"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ASRM"
+      ]
+    },
+    {
+      "test_id": "TST-047",
+      "name_full": "Anti-Müllerian hormone (AMH)",
+      "name_ru": "Антимюллеров гормон",
+      "name_alternative_codes": "AMH",
+      "status": "METACOD-RF",
+      "batch": "DX-04-Sex",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] age-specific ovarian reserve",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] ovarian reserve (IVF planning), PCOS"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] reproductive reserve (Jing)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] not for fertility guarantee"
+      ],
+      "related_tests": [
+        "TST-044 FSH",
+        "DRG-461 gonadotropins"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ASRM"
+      ]
+    },
+    {
+      "test_id": "TST-048",
+      "name_full": "Prostate-specific antigen (PSA, total + free)",
+      "name_ru": "ПСА (общий + свободный)",
+      "name_alternative_codes": "PSA",
+      "status": "METACOD-RF",
+      "batch": "DX-04-Sex",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] age-specific; %free PSA; velocity",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] prostate cancer screening/monitoring, ADT response"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] prostatic activity"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] ADT response monitoring",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] BPH/prostatitis/instrumentation elevate; screening controversy"
+      ],
+      "related_tests": [
+        "TST-039 testosterone",
+        "DRG-265 leuprolide"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "AUA/NCCN prostate"
+      ]
+    },
+    {
+      "test_id": "TST-049",
+      "name_full": "17-hydroxyprogesterone (17-OHP)",
+      "name_ru": "17-гидроксипрогестерон",
+      "name_alternative_codes": "17-OHP",
+      "status": "METACOD-RF",
+      "batch": "DX-04-Sex",
+      "test_type": "Laboratory",
+      "methodology": "[GL] LC-MS/immunoassay (AM)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <200 ng/dL (follicular); stim if intermediate",
+      "units": "ng/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] congenital adrenal hyperplasia (21-OH deficiency)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] adrenal steroidogenesis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] timing; stress elevates"
+      ],
+      "related_tests": [
+        "TST-031 cortisol"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Endocrine Society CAH"
+      ]
+    }
+  ]
+}

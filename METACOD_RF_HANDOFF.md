@@ -144,16 +144,20 @@ repository**. Update this file whenever the repo state or canonical decisions ch
   hepatobiliary, cardiology, spleen_pancreas, gallbladder, small_intestine,
   gastroduodenal
 - `diagnostic_foundation_v1_0.json` — diagnostics DB architecture/foundation
-- Loaders in `python/services/`, tests in `python/tests/unit/`. **639 tests, 0 skipped.**
+- Loaders in `python/services/`, tests in `python/tests/unit/`. **719 tests, 0 skipped.**
 
 ### Diagnostics DB (parallel test/imaging database — STARTED 2026-06)
 - Separate research DB: `dx_batch*.json` + loader `services/diagnostic_db.py` +
   `diagnostic_foundation_v1_0.json` + tests (`test_metacod_rf_diagnostics.py`,
   `test_diagnostic_foundation.py`). IDs: TST/IMG/FUN/PRO.
 - Mark authorized **full scope** (~300-390 across lab/imaging/functional/procedures,
-  20 batches DX-01..DX-20) **+ full Mark-canonical core**. **Started: DX-18**
-  (9 functional — BIA/DEXA/HRV/urine-pH-4pt/SG/Bristol/Cole-Cole/grip/RMR) +
-  **DX-01** (14 foundation labs) = 23 entries. **18 batches remain.**
+  20 batches DX-01..DX-20) **+ full Mark-canonical core**. **DONE (12 batches /
+  141 entries):** entire Laboratory category A — DX-01 foundation labs, DX-02
+  inflammatory+cardiac, DX-03 endocrine-general, DX-04 sex/ADT, DX-05 diabetes/
+  metabolic, DX-06 hepatic/renal/urinalysis, DX-07 iron/vitamins, DX-08 autoimmune/
+  coagulation, DX-09 tumor-markers, DX-10 specialty/PGx, DX-11 membrane-panel (RF)
+  — plus DX-18 body-composition/Mark-canonical. **8 batches remain:** imaging
+  DX-12..DX-15, functional DX-16/DX-17, procedures DX-19/DX-20.
 - Governance: tests REVEAL axis states (vs drugs target); ref-ranges/indications
   `[LBL/GL]`, energy/membrane/phase interpretation `[RF]`; BIA phase-angle =
   evidence-based prognostic (zone-mapping `[RF]`); Revici urine-pH / Bristol

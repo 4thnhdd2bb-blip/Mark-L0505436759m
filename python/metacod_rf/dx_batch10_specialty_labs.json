@@ -1,0 +1,621 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-10-SpecialtyLabs",
+    "version": "RF-2026-06-DX10",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — specialty labs (allergy/catecholamines/celiac/GI/PGx)",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 12,
+    "author": "Claude (standard-evidence authorship) — diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Reference ranges/indications = [GL/LBL] (valid independently). Energy/membrane/phase interpretation = [RF]. Tests REVEAL axis states (do not target). research-only; not patient-facing; never delays standard care.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/lab guideline or standard",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "TST-111",
+      "name_full": "Total IgE + specific IgE",
+      "name_ru": "Общий IgE + специфический IgE",
+      "name_alternative_codes": "IgE",
+      "status": "METACOD-RF",
+      "batch": "DX-10-Allergy",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay (ImmunoCAP)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] specific-IgE class 0-6",
+      "units": "kU/L",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] allergic sensitization, atopy work-up"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Wind-Heat (allergy)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] sensitization ≠ clinical allergy"
+      ],
+      "related_tests": [
+        "DRG-153 omalizumab"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Allergy guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-112",
+      "name_full": "Serum tryptase",
+      "name_ru": "Триптаза",
+      "name_alternative_codes": "tryptase",
+      "status": "METACOD-RF",
+      "batch": "DX-10-Allergy",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay (baseline + acute)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] <11.4 ng/mL baseline; acute Δ formula",
+      "units": "ng/mL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] anaphylaxis confirmation, mastocytosis"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] mast-cell activation"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute ↑ = anaphylaxis Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] acute sample timing (1-3h); hereditary α-tryptasemia"
+      ],
+      "related_tests": [
+        "TST-111 IgE",
+        "DRG-389 epinephrine"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Allergy/mastocytosis"
+      ]
+    },
+    {
+      "test_id": "TST-113",
+      "name_full": "Plasma/urine metanephrines + catecholamines",
+      "name_ru": "Метанефрины/катехоламины (плазма/моча)",
+      "name_alternative_codes": "metanephrines",
+      "status": "METACOD-RF",
+      "batch": "DX-10-Endocrine",
+      "test_type": "Laboratory",
+      "methodology": "[GL] LC-MS/MS",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] assay-specific (supine plasma free metanephrines)",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] pheochromocytoma/paraganglioma"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] sympathetic/adrenal-medulla"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] crisis = Phase 3 hypertensive"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] strict prep (supine/diet/meds); false+ common"
+      ],
+      "related_tests": [
+        "TST-031 cortisol"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society pheo"
+      ]
+    },
+    {
+      "test_id": "TST-114",
+      "name_full": "5-HIAA (24h urine)",
+      "name_ru": "5-ГИУК (суточная моча)",
+      "name_alternative_codes": "5-HIAA",
+      "status": "METACOD-RF",
+      "batch": "DX-10-Endocrine",
+      "test_type": "Laboratory",
+      "methodology": "[GL] HPLC 24h urine",
+      "specimen_type": "24h urine",
+      "reference_ranges": "[GL] assay-specific",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] carcinoid syndrome (serotonin metabolite)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] diet restriction (bananas/avocado) needed"
+      ],
+      "related_tests": [
+        "TST-108 chromogranin A"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "NCCN NET"
+      ]
+    },
+    {
+      "test_id": "TST-115",
+      "name_full": "Celiac serology (tTG-IgA + total IgA)",
+      "name_ru": "Целиакия (тТГ-IgA + общий IgA)",
+      "name_alternative_codes": "tTG-IgA",
+      "status": "METACOD-RF",
+      "batch": "DX-10-GI",
+      "test_type": "Laboratory",
+      "methodology": "[GL] ELISA (on gluten-containing diet)",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] tTG-IgA positivity; check total IgA",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] celiac disease screening"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] autoimmune/Damp GI"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] villous atrophy = mucosal M-D"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] false− if IgA-deficient or gluten-free diet"
+      ],
+      "related_tests": [
+        "PRO endoscopy/biopsy (DX-19)"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACG celiac"
+      ]
+    },
+    {
+      "test_id": "TST-116",
+      "name_full": "Fecal calprotectin",
+      "name_ru": "Фекальный кальпротектин",
+      "name_alternative_codes": "calprotectin",
+      "status": "METACOD-RF",
+      "batch": "DX-10-GI",
+      "test_type": "Laboratory",
+      "methodology": "[GL] ELISA on stool",
+      "specimen_type": "Stool",
+      "reference_ranges": "[GL] <50 µg/g normal; >150-250 inflammation",
+      "units": "µg/g",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] IBD vs IBS differentiation, IBD activity monitoring"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] gut inflammation (Damp-Heat)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] mucosal inflammatory M-A"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] flare = Phase 2"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] ↑ with NSAIDs/infection; not specific to IBD"
+      ],
+      "related_tests": [
+        "DRG vedolizumab (batch 11)"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ECCO/ACG IBD"
+      ]
+    },
+    {
+      "test_id": "TST-117",
+      "name_full": "Fecal immunochemical test (FIT) / FOBT",
+      "name_ru": "Кал на скрытую кровь (FIT)",
+      "name_alternative_codes": "FIT",
+      "status": "METACOD-RF",
+      "batch": "DX-10-GI",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunochemical stool hemoglobin",
+      "specimen_type": "Stool",
+      "reference_ranges": "[GL] positive/negative threshold",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] colorectal cancer screening"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] positive requires colonoscopy; FIT preferred over guaiac"
+      ],
+      "related_tests": [
+        "PRO colonoscopy (DX-19)"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "USPSTF CRC"
+      ]
+    },
+    {
+      "test_id": "TST-118",
+      "name_full": "H. pylori testing (stool antigen / urea breath)",
+      "name_ru": "H. pylori (антиген кала / дыхательный тест)",
+      "name_alternative_codes": "H. pylori",
+      "status": "METACOD-RF",
+      "batch": "DX-10-GI",
+      "test_type": "Functional",
+      "methodology": "[GL] Stool antigen or 13C-urea breath test",
+      "specimen_type": "Stool/breath",
+      "reference_ranges": "[GL] positive/negative",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] H. pylori dx + eradication confirmation"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] gastric infection (Damp-Heat)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] PPI/antibiotics/bismuth → false− (hold 2 wk)"
+      ],
+      "related_tests": [
+        "DRG-433 bismuth",
+        "DRG PPI (batch 11)"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACG H. pylori"
+      ]
+    },
+    {
+      "test_id": "TST-119",
+      "name_full": "G6PD activity",
+      "name_ru": "Активность Г6ФД",
+      "name_alternative_codes": "G6PD",
+      "status": "METACOD-RF",
+      "batch": "DX-10-PGx",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Enzymatic assay",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] deficient vs normal",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] before oxidant drugs (dapsone/primaquine/rasburicase/nitrofurantoin)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute hemolysis if exposed = Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] falsely normal during acute hemolysis (retic) — retest later"
+      ],
+      "related_tests": [
+        "DRG-493 dapsone",
+        "DRG-179 pegloticase"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Pharmacogenomics"
+      ]
+    },
+    {
+      "test_id": "TST-120",
+      "name_full": "Thiopurine pharmacogenomics (TPMT / NUDT15)",
+      "name_ru": "Тиопурин-фармакогенетика (TPMT/NUDT15)",
+      "name_alternative_codes": "TPMT/NUDT15",
+      "status": "METACOD-RF",
+      "batch": "DX-10-PGx",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Genotype/phenotype",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] activity/variant status",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] before azathioprine/6-MP (myelosuppression risk)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] genotype + phenotype; ongoing CBC monitoring still needed"
+      ],
+      "related_tests": [
+        "DRG-166 azathioprine"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "CPIC"
+      ]
+    },
+    {
+      "test_id": "TST-121",
+      "name_full": "CYP pharmacogenomics (CYP2D6 / CYP2C19)",
+      "name_ru": "Фармакогенетика CYP (2D6/2C19)",
+      "name_alternative_codes": "CYP PGx",
+      "status": "METACOD-RF",
+      "batch": "DX-10-PGx",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Genotype → metabolizer phenotype",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] PM/IM/NM/RM/UM",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] clopidogrel (2C19), codeine/tamoxifen/SSRI (2D6), PPI"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] phenoconversion by interacting drugs"
+      ],
+      "related_tests": [
+        "DRG-072 clopidogrel",
+        "DRG-347 eliglustat"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "CPIC"
+      ]
+    },
+    {
+      "test_id": "TST-122",
+      "name_full": "HLA pharmacogenomics (HLA-B*5701 / *1502 / *5801)",
+      "name_ru": "HLA-фармакогенетика (B*5701/1502/5801)",
+      "name_alternative_codes": "HLA PGx",
+      "status": "METACOD-RF",
+      "batch": "DX-10-PGx",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Genotyping",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] present/absent",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] abacavir (*5701), carbamazepine (*1502 SJS), allopurinol (*5801)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] severe cutaneous reaction risk"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] population-specific testing recommendations"
+      ],
+      "related_tests": [
+        "DRG-176 allopurinol",
+        "DRG-443 oxcarbazepine"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "CPIC/FDA"
+      ]
+    }
+  ]
+}
