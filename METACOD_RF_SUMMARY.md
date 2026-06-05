@@ -16,8 +16,8 @@
 | Total drug/concept entries | **507** (507 unique DRG IDs — no collisions) |
 | — authored from Mark's pasted source docs | **220** |
 | — Claude-authored (191 gap-fill batches + 133 expansion-block DRG-380..512) | **324** (flagged) |
-| Conceptual / registry files | **17** (incl. diagnostics foundation) |
-| Test suite | **798 passing, 0 skipped** |
+| Conceptual / registry files | **19** (incl. diagnostics foundation, Master Integration v1.1, Unified Energy Catalog) |
+| Test suite | **809 passing, 0 skipped** |
 | `ready_for_clinical_use` across **all** artifacts | **false** (verified) |
 
 DRG ID space is essentially contiguous **DRG-001..379** core + a **380..512 expansion block** (133 class-completion entries across all systems). Documented minor gaps only: 200-201, 250, 370-371.
@@ -118,10 +118,11 @@ energy-mapping / Cole-Cole membrane = `[RF]` hypotheses; KCTS EBM-reframed.
 
 ---
 
-## 6. Conceptual / registry layer (18 files)
+## 6. Conceptual / registry layer (19 files)
 
 - `three_axis_framework_v1_0.json` — Constitution × Membrane × Phase
 - `master_integration_v1_1.json` — Master Integration v1.1 CORRECTED (symptoms→diagnostics→drugs; 6-layer pipeline; ERRATA M-A=ANABOLIC not inflammation; treatment-direction OPPOSITE per membrane; research-only, NOT operationalized)
+- `unified_energy_catalog_v1_0.json` — Unified Energy Catalog (Park Jae Woo Six Energies consolidated for patient analysis: Yin/Yang routing → 6 energy cards → 9 clinical-system disease checklists → 17 diagnostic channels; Liver=Wind [OBS-Mark]; six→five energy crosswalk; research-only, not operationalized, not patient-facing)
 - `diagnostic_foundation_v1_0.json` — diagnostics DB architecture/foundation
 - `kcts_integration_v1_0.json` — KCTS modifier (v1.1 EBM-reframed)
 - `constitutional_model_v0_1.json` + `v0_2.json` — constitution model + 5-energy biomarker panels

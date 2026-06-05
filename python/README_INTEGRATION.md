@@ -39,7 +39,9 @@ python/
 │   ├── symptom_registry.py      # METACOD-RF symptom registry loader (SYM × histogenetic layer × 6-Ki × phase × membrane drift)
 │   ├── nosology_registry.py     # METACOD-RF nosology registry loader (nosology/ICD-10 × 6-Ki × redox × SYM × membrane drift)
 │   ├── diagnostic_foundation.py # METACOD-RF diagnostics DB foundation loader (lab/imaging/functional/procedures architecture)
-│   └── diagnostic_db.py         # METACOD-RF diagnostics DB loader/catalog (dx_batch*.json; TST/IMG/FUN/PRO; research-only, provenance-tagged, parallel to metacod_rf.py)
+│   ├── diagnostic_db.py         # METACOD-RF diagnostics DB loader/catalog (dx_batch*.json; TST/IMG/FUN/PRO; research-only, provenance-tagged, parallel to metacod_rf.py)
+│   ├── master_integration.py    # METACOD-RF Master Integration v1.1 loader (6-layer symptoms→diagnostics→drugs; corrected membrane canon; treatment-direction)
+│   └── unified_energy_catalog.py # METACOD-RF Unified Energy Catalog loader (Park Six Energies: Yin/Yang routing + energy cards + clinical-system checklists + 17 channels)
 ├── metacod_rf/
 │   ├── drugs_batch01_glp1.json  # METACOD-RF research drug DB — batch 01 (6 GLP-1 agents, pending Mark validation)
 │   ├── drugs_batch02_sglt2.json # METACOD-RF research drug DB — batch 02 (4 SGLT2 inhibitors, pending Mark validation)
@@ -73,6 +75,7 @@ python/
 │   ├── predictive_matrix_01_semaglutide.json # METACOD-RF predictive matrix #1: semaglutide × 8 constitutional triads (hypotheses)
 │   ├── three_axis_framework_v1_0.json     # METACOD-RF three-axis diagnostic framework (Constitution × Membrane × Phase; research)
 │   ├── master_integration_v1_1.json       # METACOD-RF Master Integration v1.1 CORRECTED (symptoms→diagnostics→drugs; 6-layer pipeline; ERRATA: M-A=ANABOLIC not inflammation; treatment-direction OPPOSITE per membrane; drug-selection scoring; research-only, NOT operationalized; KCTS EBM)
+│   ├── unified_energy_catalog_v1_0.json   # METACOD-RF Unified Energy Catalog (Park Jae Woo Six Energies consolidated for patient analysis: Yin/Yang routing → 6 energy cards [chakra/meridians/organs/symptoms/diseases/emotions/temperament/timing/windows] → 9 clinical-system disease checklists → 17 diagnostic channels; Liver=Wind [OBS-Mark]; six→five energy crosswalk; research-only, NOT operationalized, not patient-facing)
 │   ├── diagnostic_foundation_v1_0.json    # METACOD-RF Diagnostics DB foundation (parallel to drug DB: lab/imaging/functional/procedures; 4 categories, 20-batch plan, Mark-canonical tiers BIA/urine-pH/Bristol/membrane-panel flagged RF; KCTS EBM-reframed; content STARTED DX-01+DX-18)
 │   ├── dx_batch01_foundation_labs.json    # METACOD-RF diagnostics — DX-01 (14 labs TST-001..014: CBC/BMP/CMP + key analytes; K M-A/M-D heuristic RF; ranges=[GL], interpretation=[RF])
 │   ├── dx_batch18_body_composition.json   # METACOD-RF diagnostics — DX-18 (9 functional FUN-001..009: BIA/DEXA/HRV/urine-pH-4pt/SG/Bristol/Cole-Cole/grip/RMR; Mark-canonical CENTRAL; phase-angle prognostic [GL/RCT], zone-mapping [RF])
@@ -92,7 +95,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (798 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (809 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -183,7 +186,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 798 tests
+pytest                 # all 809 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
