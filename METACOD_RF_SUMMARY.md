@@ -17,7 +17,7 @@
 | — authored from Mark's pasted source docs | **220** |
 | — Claude-authored (191 gap-fill batches + 133 expansion-block DRG-380..512) | **324** (flagged) |
 | Conceptual / registry files | **17** (incl. diagnostics foundation) |
-| Test suite | **621 passing, 0 skipped** |
+| Test suite | **639 passing, 0 skipped** |
 | `ready_for_clinical_use` across **all** artifacts | **false** (verified) |
 
 DRG ID space is essentially contiguous **DRG-001..379** core + a **380..512 expansion block** (133 class-completion entries across all systems). Documented minor gaps only: 200-201, 250, 370-371.
@@ -105,9 +105,24 @@ Enforced uniformly and checked by tests:
 
 ---
 
-## 6. Conceptual / registry layer (16 files)
+## 5b. Diagnostics DB (parallel test/imaging database — STARTED)
+
+Separate research database under the same governance wall (`dx_batch*.json`,
+loader `services/diagnostic_db.py`, foundation `diagnostic_foundation_v1_0.json`).
+Per Mark: full scope (~300-390 across lab/imaging/functional/procedures, 20 batches)
++ full Mark-canonical core; started **DX-18 (9 functional — BIA/DEXA/HRV/urine-pH/
+SG/Bristol/Cole-Cole/grip/RMR)** and **DX-01 (14 foundation labs)** = 23 entries.
+Tests **REVEAL** axis states (vs drugs target them); reference ranges/indications
+= `[LBL/GL]`, energy/membrane/phase interpretation = `[RF]`; BIA phase-angle =
+evidence-based prognostic, METACOD zone-mapping `[RF]`; Revici urine-pH / Bristol
+energy-mapping / Cole-Cole membrane = `[RF]` hypotheses; KCTS EBM-reframed. 18 batches remain.
+
+---
+
+## 6. Conceptual / registry layer (17 files)
 
 - `three_axis_framework_v1_0.json` — Constitution × Membrane × Phase
+- `diagnostic_foundation_v1_0.json` — diagnostics DB architecture/foundation
 - `kcts_integration_v1_0.json` — KCTS modifier (v1.1 EBM-reframed)
 - `constitutional_model_v0_1.json` + `v0_2.json` — constitution model + 5-energy biomarker panels
 - `predictive_matrix_01_semaglutide.json` — semaglutide × 8 constitutional triads (hypotheses)

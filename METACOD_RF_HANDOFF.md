@@ -143,7 +143,25 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 - 9 nosology registries: metabolic_cv_renal, respiratory, nephro_urinal,
   hepatobiliary, cardiology, spleen_pancreas, gallbladder, small_intestine,
   gastroduodenal
-- Loaders in `python/services/`, tests in `python/tests/unit/`. **576 tests, 0 skipped.**
+- `diagnostic_foundation_v1_0.json` — diagnostics DB architecture/foundation
+- Loaders in `python/services/`, tests in `python/tests/unit/`. **639 tests, 0 skipped.**
+
+### Diagnostics DB (parallel test/imaging database — STARTED 2026-06)
+- Separate research DB: `dx_batch*.json` + loader `services/diagnostic_db.py` +
+  `diagnostic_foundation_v1_0.json` + tests (`test_metacod_rf_diagnostics.py`,
+  `test_diagnostic_foundation.py`). IDs: TST/IMG/FUN/PRO.
+- Mark authorized **full scope** (~300-390 across lab/imaging/functional/procedures,
+  20 batches DX-01..DX-20) **+ full Mark-canonical core**. **Started: DX-18**
+  (9 functional — BIA/DEXA/HRV/urine-pH-4pt/SG/Bristol/Cole-Cole/grip/RMR) +
+  **DX-01** (14 foundation labs) = 23 entries. **18 batches remain.**
+- Governance: tests REVEAL axis states (vs drugs target); ref-ranges/indications
+  `[LBL/GL]`, energy/membrane/phase interpretation `[RF]`; BIA phase-angle =
+  evidence-based prognostic (zone-mapping `[RF]`); Revici urine-pH / Bristol
+  energy-mapping / Cole-Cole = `[RF]` hypotheses; KCTS EBM-reframed (no Hamer/AIRE
+  in entries — enforced by test); Claude-authored (reconcile with Mark originals);
+  `mark_validated` false; research-only.
+- **Open: Mark Q1-Q6** (scope confirmed YES-full; start confirmed DX-18+DX-01;
+  Q2-Q5 accepted as-proposed unless Mark revises).
 
 ### Gap-fill in progress (Mark authorized Claude to author missing directions, EBM style, 2026-06)
 - **DONE — gap-fill COMPLETE (Claude-authored standard-evidence, flagged

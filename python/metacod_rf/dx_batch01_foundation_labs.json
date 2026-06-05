@@ -1,0 +1,753 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-01-FoundationLabs",
+    "version": "RF-2026-06-DX01",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — foundation labs (CBC + chemistry panels + key analytes)",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 14,
+    "author": "Claude (standard-evidence authorship) — first diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); психоконфликт-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Reference ranges/indications = [GL] (standard, valid independently). Energy/membrane/phase interpretation = [RF]. Potassium M-A/M-D heuristic = Mark-canonical research hypothesis, NOT validated. Tests reveal axis states (do not target). research-only; not patient-facing.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/lab guideline or standard",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research framework / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "TST-001",
+      "name_full": "Complete blood count (CBC) with differential",
+      "name_ru": "Общий анализ крови с лейкоформулой",
+      "name_alternative_codes": "LOINC 58410-2; CBC w/ diff",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Hematology",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Automated hematology analyzer (impedance/flow cytometry)",
+      "specimen_type": "Whole blood (EDTA)",
+      "reference_ranges": "[GL] WBC 4-11×10⁹/L; Hb M 13.5-17.5 / F 12-15.5 g/dL; Plt 150-400×10⁹/L",
+      "units": "SI/conventional",
+      "critical_values": "[GL] Hb<7 / Plt<20 / ANC<0.5 = critical",
+      "indications": {
+        "primary": [
+          "[GL] Anemia/polycythemia, infection/inflammation, cytopenias, screening + monitoring"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] WBC/Hb/lineage = systemic vitality; anemia = Yin depletion / reduced Yang oxygen-carrying"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] No direct membrane read"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Left-shift/neutrophilia = acute Phase 2; lymphocyte:neutrophil ratio = immune state"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] CBC baseline in every assessment",
+        "kcts_screening_role": "[GL] not a KCTS marker per se"
+      },
+      "safety_limitations": [
+        "[GL] Spurious results (clumping, hemolysis)",
+        "[GL] Does not localize pathology"
+      ],
+      "related_tests": [
+        "TST-002 reticulocyte",
+        "TST-007 iron studies (batch DX-07)"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "CAP/CLSI hematology standards"
+      ]
+    },
+    {
+      "test_id": "TST-002",
+      "name_full": "Reticulocyte count",
+      "name_ru": "Ретикулоциты",
+      "name_alternative_codes": "retic",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Hematology",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Flow cytometry",
+      "specimen_type": "Whole blood (EDTA)",
+      "reference_ranges": "[GL] 0.5-2.5% (RPI interpretation)",
+      "units": "%/absolute",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Anemia work-up — distinguishes hypoproliferative vs hemolytic/blood-loss"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Marrow regenerative capacity (Yang reserve)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] High retic = active recovery phase"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Affected by recent transfusion"
+      ],
+      "related_tests": [
+        "TST-001 CBC"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Hematology guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-003",
+      "name_full": "Basic metabolic panel (BMP)",
+      "name_ru": "Базовая метаболическая панель",
+      "name_alternative_codes": "BMP",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Chemistry",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Automated chemistry analyzer",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] Na 135-145; K 3.5-5.0; Cl; CO2; BUN; Cr; glucose (analyte ranges)",
+      "units": "mmol/L (SI)",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Electrolytes, renal function, glucose, acid-base screening + monitoring"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Electrolyte/fluid balance = membrane/constitution substrate"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] Na/fluid balance informs membrane state"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Acute derangement = Phase 3 risk"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] core panel",
+        "kcts_screening_role": "[GL] borderline hyponatremia supportive of fluid-retention pattern"
+      },
+      "safety_limitations": [
+        "[GL] Fasting affects glucose; hemolysis spuriously ↑K"
+      ],
+      "related_tests": [
+        "TST-004 CMP",
+        "TST-006 K"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "CLSI chemistry"
+      ]
+    },
+    {
+      "test_id": "TST-004",
+      "name_full": "Comprehensive metabolic panel (CMP)",
+      "name_ru": "Комплексная метаболическая панель",
+      "name_alternative_codes": "CMP",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Chemistry",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Automated chemistry analyzer",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] BMP + Ca, albumin, total protein, ALT, AST, ALP, bilirubin",
+      "units": "conventional/SI",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Adds hepatic + calcium/protein assessment to BMP"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Multi-system constitutional snapshot"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] Albumin-low + edema = fluid-retention/M-A context"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Acute transaminase rise = Phase 2 hepatic"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] core panel",
+        "kcts_screening_role": "[GL] albumin/Na pattern supportive in fluid-retention screen"
+      },
+      "safety_limitations": [
+        "[GL] Many pre-analytic variables"
+      ],
+      "related_tests": [
+        "TST-003 BMP",
+        "DX-06 LFT detail"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "CLSI chemistry"
+      ]
+    },
+    {
+      "test_id": "TST-005",
+      "name_full": "Sodium (Na⁺)",
+      "name_ru": "Натрий",
+      "name_alternative_codes": "Na",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Chemistry",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Ion-selective electrode",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] 135-145 mmol/L",
+      "units": "mmol/L",
+      "critical_values": "[GL] Na<120 or >160 critical",
+      "indications": {
+        "primary": [
+          "[GL] Fluid/osmolar status, hypo/hypernatremia work-up"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Fluid-balance axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] Borderline hyponatremia = fluid-retention (EBM KCTS-supportive)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Acute severe Na shift = Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] borderline hyponatremia = supportive fluid-retention marker"
+      },
+      "safety_limitations": [
+        "[GL] Pseudohyponatremia (lipids/protein)"
+      ],
+      "related_tests": [
+        "TST-003 BMP",
+        "FUN-005 urine SG"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Hyponatremia guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-006",
+      "name_full": "Potassium (K⁺)",
+      "name_ru": "Калий",
+      "name_alternative_codes": "K",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Chemistry",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Ion-selective electrode",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] 3.5-5.0 mmol/L",
+      "units": "mmol/L",
+      "critical_values": "[GL] K<2.5 or >6.5 critical",
+      "indications": {
+        "primary": [
+          "[GL] Arrhythmia risk, renal/adrenal/drug effects, acid-base"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] PAIRED with urine SG + pain-timing: K high + SG>1.025 + leukopenia = M-D; K low + SG<1.015 + AM-pain = M-A (Mark canonical, research-only)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Acute hyper/hypokalemia = Phase 3 arrhythmia risk"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] Mark M-A vs M-D distinguisher (paired)",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Hemolysis/clenched-fist spuriously ↑K (pseudohyperkalemia)"
+      ],
+      "related_tests": [
+        "FUN-005 urine SG",
+        "TST-003 BMP"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "KDIGO; Mark canonical membrane heuristic"
+      ]
+    },
+    {
+      "test_id": "TST-007",
+      "name_full": "Serum creatinine + eGFR",
+      "name_ru": "Креатинин + рСКФ",
+      "name_alternative_codes": "Cr/eGFR",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Chemistry",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Enzymatic/Jaffe; CKD-EPI eGFR",
+      "specimen_type": "Serum",
+      "reference_ranges": "[GL] Cr M 0.7-1.3 / F 0.6-1.1 mg/dL; eGFR >90",
+      "units": "mg/dL; mL/min/1.73m²",
+      "critical_values": "[GL] rapid Cr doubling = AKI",
+      "indications": {
+        "primary": [
+          "[GL] Renal function, drug dosing, CKD staging/monitoring"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Kidney-Water axis reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] Chronic ↓eGFR = renal M-D trajectory"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Acute rise (AKI) = Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] renal staging",
+        "kcts_screening_role": "[GL] eGFR often preserved in fluid-retention pattern (functional, not failure)"
+      },
+      "safety_limitations": [
+        "[GL] Muscle mass/diet affect Cr; cystatin C alternative"
+      ],
+      "related_tests": [
+        "TST-008 BUN",
+        "DX-06 urinalysis"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "KDIGO CKD"
+      ]
+    },
+    {
+      "test_id": "TST-008",
+      "name_full": "Blood urea nitrogen (BUN)",
+      "name_ru": "Мочевина (азот мочевины)",
+      "name_alternative_codes": "BUN/urea",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Chemistry",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Enzymatic",
+      "specimen_type": "Serum",
+      "reference_ranges": "[GL] 7-20 mg/dL; BUN:Cr ratio",
+      "units": "mg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Renal function, volume status, GI bleed (↑ratio), protein catabolism"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Catabolic/volume marker"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] High BUN:Cr = volume depletion vs fluid context"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] volume-status context"
+      },
+      "safety_limitations": [
+        "[GL] Diet/steroids/GI-bleed confound"
+      ],
+      "related_tests": [
+        "TST-007 Cr"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "KDIGO"
+      ]
+    },
+    {
+      "test_id": "TST-009",
+      "name_full": "Fasting plasma glucose",
+      "name_ru": "Глюкоза натощак",
+      "name_alternative_codes": "FPG",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Chemistry",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Hexokinase; fasting ≥8h",
+      "specimen_type": "Plasma (fluoride)",
+      "reference_ranges": "[GL] 70-99 mg/dL normal; 100-125 prediabetes; ≥126 diabetes",
+      "units": "mg/dL",
+      "critical_values": "[GL] glucose <50 or >400 critical",
+      "indications": {
+        "primary": [
+          "[GL] Diabetes screening/diagnosis, hypoglycemia"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Metabolic state; hyperglycemia = Yin-Earth/metabolic-syndrome phenotype indicator"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Severe hypo/hyperglycemia = Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] metabolic phenotype",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Stress/illness hyperglycemia; preanalytic glycolysis"
+      ],
+      "related_tests": [
+        "DX-05 HbA1c",
+        "DX-05 insulin/HOMA-IR"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ADA standards"
+      ]
+    },
+    {
+      "test_id": "TST-010",
+      "name_full": "Calcium (total + ionized)",
+      "name_ru": "Кальций (общий + ионизированный)",
+      "name_alternative_codes": "Ca",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Chemistry",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Colorimetric (total); ISE (ionized)",
+      "specimen_type": "Serum",
+      "reference_ranges": "[GL] Total 8.5-10.5 mg/dL (albumin-corrected); ionized 1.1-1.35 mmol/L",
+      "units": "mg/dL; mmol/L",
+      "critical_values": "[GL] Ca<6 or >14 critical",
+      "indications": {
+        "primary": [
+          "[GL] Hyper/hypocalcemia, PTH/vit-D disorders, malignancy"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Mineral/bone axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] Chronic bone-mineral M-D context"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Severe Ca derangement = Phase 3 (arrhythmia/tetany)"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Correct for albumin; ionized for acid-base/critical"
+      ],
+      "related_tests": [
+        "DX-03 PTH/vit-D"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "TST-011",
+      "name_full": "Magnesium",
+      "name_ru": "Магний",
+      "name_alternative_codes": "Mg",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Chemistry",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Colorimetric",
+      "specimen_type": "Serum",
+      "reference_ranges": "[GL] 1.7-2.2 mg/dL",
+      "units": "mg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Arrhythmia, refractory K/Ca, neuromuscular, alcohol/malnutrition"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Mg deficiency relevant to Yin-Fire phenotype / autonomic balance"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Severe hypomagnesemia = arrhythmia (Phase 3)"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] Yin-Fire context (cross-ref DRG-354)",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Serum Mg poor reflection of total body Mg"
+      ],
+      "related_tests": [
+        "TST-006 K"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Electrolyte guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-012",
+      "name_full": "Phosphate (inorganic phosphorus)",
+      "name_ru": "Фосфат",
+      "name_alternative_codes": "PO4",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Chemistry",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Colorimetric",
+      "specimen_type": "Serum",
+      "reference_ranges": "[GL] 2.5-4.5 mg/dL",
+      "units": "mg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] CKD-MBD, refeeding, hyper/hypophosphatemia"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Mineral/bone axis (CKD-MBD)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] CKD chronic ↑PO4 = vascular M-S risk"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Severe hypophosphatemia (refeeding) = Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Diurnal variation; hemolysis ↑"
+      ],
+      "related_tests": [
+        "DX-06 renal",
+        "DRG-336 binders"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "KDIGO CKD-MBD"
+      ]
+    },
+    {
+      "test_id": "TST-013",
+      "name_full": "Serum albumin",
+      "name_ru": "Альбумин",
+      "name_alternative_codes": "Alb",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Chemistry",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Bromocresol green/purple",
+      "specimen_type": "Serum",
+      "reference_ranges": "[GL] 3.5-5.0 g/dL",
+      "units": "g/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Nutrition/synthetic liver function, oncotic/volume status, chronic disease"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Constitutional reserve/nutrition"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] Normal-low albumin + mild edema (without severe hypoalbuminemia) = fluid-retention pattern marker"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Acute drop = inflammation (negative acute-phase reactant)"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] nutrition/membrane context",
+        "kcts_screening_role": "[GL] supportive in fluid-retention constellation"
+      },
+      "safety_limitations": [
+        "[GL] Negative acute-phase reactant (falls with inflammation independent of nutrition)"
+      ],
+      "related_tests": [
+        "FUN-001 BIA (phase angle)",
+        "DX-04 prealbumin"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Nutrition guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-014",
+      "name_full": "Total protein",
+      "name_ru": "Общий белок",
+      "name_alternative_codes": "TP",
+      "status": "METACOD-RF",
+      "batch": "DX-01-Chemistry",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Biuret",
+      "specimen_type": "Serum",
+      "reference_ranges": "[GL] 6.0-8.3 g/dL",
+      "units": "g/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Globulin gap, paraproteinemia screen, nutrition/hydration"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Constitutional reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Hydration affects; needs A/G ratio interpretation"
+      ],
+      "related_tests": [
+        "TST-013 albumin",
+        "DX-08 SPEP"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Lab standards"
+      ]
+    }
+  ]
+}

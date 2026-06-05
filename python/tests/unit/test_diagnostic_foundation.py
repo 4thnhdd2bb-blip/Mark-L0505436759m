@@ -54,10 +54,11 @@ def test_entry_template_present(doc):
 
 # --- governance (safety) ---
 
-def test_research_only_and_content_not_filled(doc):
+def test_research_only(doc):
     assert doc.ready_for_clinical_use is False
-    assert doc.content_filling_started is False
     assert "not clinical guidance" in doc.meta["status"].lower()
+    # Content filling has begun (DX-01 + DX-18); flag must be a bool.
+    assert isinstance(doc.content_filling_started, bool)
 
 
 def test_governance_annotation_present(doc):

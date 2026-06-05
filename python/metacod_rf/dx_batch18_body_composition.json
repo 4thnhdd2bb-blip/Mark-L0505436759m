@@ -1,0 +1,504 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-18-BodyComposition",
+    "version": "RF-2026-06-DX18",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — body composition + Mark-canonical functional (BIA/DEXA/HRV/urine-pH/SG/Bristol/Cole-Cole/grip/RMR)",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 9,
+    "author": "Claude (standard-evidence authorship) — first diagnostics content; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] KCTS-screening здесь = EBM (psychosocial/chronic-stress/fluid-retention); психоконфликт-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] BIA phase-angle = evidence-based prognostic marker ([GL]); METACOD zone-mapping (<5=M-D2 etc.), urine-pH catabolic/anabolic (Revici), Bristol energy-mapping, Cole-Cole membrane = [RF] research hypotheses, NOT validated diagnostic rules. HRV reduced = EBM chronic-stress marker (v1.1). research-only; not patient-facing; never delays standard care.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/lab guideline or standard",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research framework / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "FUN-001",
+      "name_full": "Bioelectrical impedance analysis (BIA)",
+      "name_ru": "Биоимпедансный анализ (БИА)",
+      "name_alternative_codes": "BIA; phase angle/ECW-TBW/ASMI/FFM",
+      "status": "METACOD-RF",
+      "batch": "DX-18-BodyComposition",
+      "test_type": "Functional",
+      "methodology": "[GL] Multi-frequency bioimpedance device (standardized hydration/position)",
+      "specimen_type": "Whole-body impedance measurement",
+      "reference_ranges": "[GL] phase angle device/age/sex-specific; ECW/TBW ~0.38-0.40; ASMI sarcopenia <7.0 M / <5.5 F kg/m²",
+      "units": "degrees; ratio; kg/m²",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Body composition / nutrition / sarcopenia assessment",
+          "[GL] phase angle = prognostic/nutritional marker",
+          "[OBS-Mark] METACOD core monitoring (ADT stack monthly)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Cellular health / constitutional reserve (phase angle)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] phase angle >6°=M-0 territory; <5°=M-D2 zone alert; <4°=severe M-D3; ECW/TBW>0.40=M-A/fluid-retention (Mark canonical mapping, research-only)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Serial trend > single value; tracks recovery trajectory"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] Mark CENTRAL diagnostic; part of standard outpatient visit; monthly in ADT support stack",
+        "kcts_screening_role": "[GL] ECW/TBW>0.40 = supportive fluid-retention (chronic-stress/psychosocial constellation)"
+      },
+      "safety_limitations": [
+        "[GL] Hydration/food/exercise/position confound; device-specific reference; not valid in severe fluid shifts/amputees/implants"
+      ],
+      "related_tests": [
+        "FUN-002 DEXA",
+        "FUN-007 Cole-Cole α",
+        "DRG-355 creatine (ADT stack)"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "[GL] phase-angle prognostic literature",
+        "Mark canonical (drug DB ADT support stack)"
+      ]
+    },
+    {
+      "test_id": "FUN-002",
+      "name_full": "Dual-energy X-ray absorptiometry (DEXA)",
+      "name_ru": "Двухэнергетическая рентгеновская абсорбциометрия (DEXA)",
+      "name_alternative_codes": "DXA; BMD + body composition",
+      "status": "METACOD-RF",
+      "batch": "DX-18-BodyComposition",
+      "test_type": "Functional",
+      "methodology": "[GL] Dual-energy X-ray (very low radiation)",
+      "specimen_type": "Imaging scan (hip/spine/whole-body)",
+      "reference_ranges": "[GL] BMD T-score ≥-1 normal; -1 to -2.5 osteopenia; ≤-2.5 osteoporosis; FMI/FFMI",
+      "units": "T-score/Z-score; kg",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Osteoporosis diagnosis/monitoring",
+          "[GL] Body composition (fat/lean)",
+          "[OBS-Mark] ADT bone monitoring q2y (q12mo if ADT+enzalutamide)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Skeletal/constitutional reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] Declining BMD/lean = M-D drift (bone/muscle)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Chronic trajectory"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] ADT/long-term-hormonal monitoring (cross-ref DRG-265)",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Low radiation; artifact (calcification/hardware/degenerative spine inflates BMD)"
+      ],
+      "related_tests": [
+        "FUN-001 BIA",
+        "DX-03 vit-D/PTH"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "ISCD; Endocrine Society"
+      ]
+    },
+    {
+      "test_id": "FUN-003",
+      "name_full": "Heart rate variability (HRV)",
+      "name_ru": "Вариабельность сердечного ритма (ВСР)",
+      "name_alternative_codes": "HRV; SDNN/RMSSD",
+      "status": "METACOD-RF",
+      "batch": "DX-18-Autonomic",
+      "test_type": "Functional",
+      "methodology": "[GL] ECG/wearable (Polar/Whoop/Oura) time/frequency-domain analysis",
+      "specimen_type": "Beat-to-beat RR intervals",
+      "reference_ranges": "[GL] Age-dependent; trend-based interpretation",
+      "units": "ms (SDNN/RMSSD)",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Autonomic balance / stress-recovery monitoring"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Autonomic constitutional state"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Reduced HRV = sympathetic dominance / poor recovery"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] reduced HRV correlates with chronic-stress pattern",
+        "kcts_screening_role": "[GL] reduced HRV = supportive chronic-stress-physiology marker (v1.1 EBM chronic-stress, not psychoconflict-causal)"
+      },
+      "safety_limitations": [
+        "[GL] Confounded by activity/caffeine/illness; device variability; needs trend"
+      ],
+      "related_tests": [
+        "FUN-001 BIA",
+        "DX-03 cortisol diurnal"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "HRV standards (Task Force)"
+      ]
+    },
+    {
+      "test_id": "FUN-004",
+      "name_full": "Urinary pH (4-point: morning + post-meal)",
+      "name_ru": "pH мочи (4-точечный: утро + постпрандиально)",
+      "name_alternative_codes": "urine pH profile",
+      "status": "METACOD-RF",
+      "batch": "DX-18-Revici",
+      "test_type": "Functional",
+      "methodology": "[GL] pH meter/strips on fresh urine (4 timed samples)",
+      "specimen_type": "Urine (fresh)",
+      "reference_ranges": "[GL] urine pH 4.5-8.0 (diet-dependent)",
+      "units": "pH units",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Stone risk / RTA / urine alkalinization monitoring",
+          "[RF] METACOD catabolic/anabolic assessment"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] pH = ENERGY axis (acid=Heat; alkaline=Cold+Dry) — SEPARATE from membrane axis"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] pH↔membrane correlation empirical not definitional (drug-induced dissociation possible)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] 4-point pattern (AM + post-meal) = dynamic energy state"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] Revici framework central: pH<6=catabolic, pH>6=anabolic (Hebrew monograph) — research-only, NOT validated diagnostic rule",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Diet/time/bacteria confound; not a validated METACOD diagnostic criterion"
+      ],
+      "related_tests": [
+        "FUN-005 urine SG",
+        "DX-06 urinalysis"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "[RF] Revici monograph; Mark canonical"
+      ]
+    },
+    {
+      "test_id": "FUN-005",
+      "name_full": "Urine specific gravity",
+      "name_ru": "Удельный вес мочи",
+      "name_alternative_codes": "urine SG",
+      "status": "METACOD-RF",
+      "batch": "DX-18-Revici",
+      "test_type": "Functional",
+      "methodology": "[GL] Refractometry/dipstick",
+      "specimen_type": "Urine (fresh)",
+      "reference_ranges": "[GL] 1.005-1.030",
+      "units": "SG",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Hydration/concentrating ability",
+          "[RF] paired membrane heuristic (with K, pain timing)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Concentration/fluid state"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] SG>1.025 + K high + leukopenia = M-D; SG<1.015 + K low + AM-pain = M-A (research-only)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] paired with K (TST-006) for M-A/M-D heuristic",
+        "kcts_screening_role": "[GL] hydration context"
+      },
+      "safety_limitations": [
+        "[GL] Glucose/protein/contrast falsely elevate SG"
+      ],
+      "related_tests": [
+        "TST-006 K",
+        "FUN-004 urine pH"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "[RF] Mark canonical heuristic"
+      ]
+    },
+    {
+      "test_id": "FUN-006",
+      "name_full": "Bristol Stool Scale (+ METACOD energy mapping)",
+      "name_ru": "Бристольская шкала стула (+ энергетический маппинг)",
+      "name_alternative_codes": "Bristol stool form",
+      "status": "METACOD-RF",
+      "batch": "DX-18-GI",
+      "test_type": "Functional",
+      "methodology": "[GL] Visual stool-form classification (types 1-7)",
+      "specimen_type": "Stool (visual)",
+      "reference_ranges": "[GL] Type 3-4 = normal transit; 1-2 constipation; 6-7 diarrhea",
+      "units": "type 1-7",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Bowel transit/constipation-diarrhea assessment",
+          "[RF] energy mapping"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] energy mapping: Type1=Damp-excess (Mark revision, NOT Dry); 2=Damp+Wind; 3=Dry-excess; 4=NORMA; 5=Cold; 6=Wind+Dry; 7=Wind+Dry extreme (research-only)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] Mark-canonical energy mapping (revision of TCM standard)",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Subjective; single sample non-representative; energy mapping not validated"
+      ],
+      "related_tests": [
+        "FUN-004 urine pH",
+        "DX-06 stool tests"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "[RF] Mark canonical"
+      ]
+    },
+    {
+      "test_id": "FUN-007",
+      "name_full": "Bioimpedance spectroscopy / Cole-Cole α",
+      "name_ru": "Биоимпедансная спектроскопия / Cole-Cole α",
+      "name_alternative_codes": "BIS; Cole-Cole",
+      "status": "METACOD-RF",
+      "batch": "DX-18-BodyComposition",
+      "test_type": "Functional",
+      "methodology": "[GL] Multi-frequency bioimpedance spectroscopy modelling",
+      "specimen_type": "Whole-body impedance spectrum",
+      "reference_ranges": "[RF] Cole-Cole α = membrane-property parameter (no standard METACOD cutoff)",
+      "units": "dimensionless",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[RF] membrane-property estimation (research)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Cellular membrane integrity"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] Cole-Cole α primary = membrane-property proxy (research-only)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] Mark-canonical membrane biomarker (cross-ref membrane panel DX-11)",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] Research parameter; not validated for clinical membrane staging"
+      ],
+      "related_tests": [
+        "FUN-001 BIA",
+        "DX-11 membrane panel"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "[RF] Mark canonical"
+      ]
+    },
+    {
+      "test_id": "FUN-008",
+      "name_full": "Handgrip strength (dynamometry)",
+      "name_ru": "Кистевая динамометрия (сила хвата)",
+      "name_alternative_codes": "grip strength",
+      "status": "METACOD-RF",
+      "batch": "DX-18-BodyComposition",
+      "test_type": "Functional",
+      "methodology": "[GL] Hand dynamometer (standardized protocol)",
+      "specimen_type": "Functional measurement",
+      "reference_ranges": "[GL] Sarcopenia cutoffs: <27 kg M / <16 kg F (EWGSOP2)",
+      "units": "kg",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Sarcopenia/frailty assessment, functional muscle"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Functional Yang/muscle reserve"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] Low grip = M-D (sarcopenia) functional correlate"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] sarcopenia monitoring (complements BIA/DEXA ASMI)",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Effort-dependent; arthritis/pain confound"
+      ],
+      "related_tests": [
+        "FUN-001 BIA",
+        "FUN-002 DEXA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "EWGSOP2 sarcopenia"
+      ]
+    },
+    {
+      "test_id": "FUN-009",
+      "name_full": "Indirect calorimetry (resting metabolic rate)",
+      "name_ru": "Непрямая калориметрия (RMR)",
+      "name_alternative_codes": "RMR; REE",
+      "status": "METACOD-RF",
+      "batch": "DX-18-Metabolic",
+      "test_type": "Functional",
+      "methodology": "[GL] Metabolic cart (VO2/VCO2; RQ)",
+      "specimen_type": "Respiratory gas analysis",
+      "reference_ranges": "[GL] Compared to predicted REE; RQ 0.7-1.0",
+      "units": "kcal/day; RQ",
+      "critical_values": "—",
+      "indications": {
+        "primary": [
+          "[GL] Energy-expenditure measurement (nutrition planning, hyper/hypometabolism)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] Metabolic rate / Yang activity"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] Hypermetabolism = acute catabolic phase"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] Requires fasting/rest/steady-state; equipment-intensive"
+      ],
+      "related_tests": [
+        "FUN-001 BIA"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "Nutrition guidelines"
+      ]
+    }
+  ]
+}
