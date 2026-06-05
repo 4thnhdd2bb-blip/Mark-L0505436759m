@@ -99,7 +99,7 @@
           "what_it_reveals": "[RF] —"
         },
         "membrane": {
-          "what_it_reveals": "[RF] fibrosis/honeycomb=lung M-S; ground-glass=M-A inflammatory"
+          "what_it_reveals": "[RF] fibrosis/honeycomb=lung M-S; ground-glass=active inflammation Phase 2 (NOT M-A)"
         },
         "phase": {
           "what_it_reveals": "[RF] acute infection=Phase 2"
@@ -203,7 +203,7 @@
           "what_it_reveals": "[RF] organ constitution"
         },
         "membrane": {
-          "what_it_reveals": "[RF] fibrosis/cirrhosis=M-S; ascites=fluid/M-A"
+          "what_it_reveals": "[RF] fibrosis/cirrhosis=M-S; ascites=fluid-retention (NOT M-A anabolic)"
         },
         "phase": {
           "what_it_reveals": "[RF] acute (appendicitis/abscess)=Phase 2/3"
@@ -410,7 +410,7 @@
           "what_it_reveals": "[RF] —"
         },
         "membrane": {
-          "what_it_reveals": "[RF] active enteritis=M-A; fibrostenotic stricture=M-S"
+          "what_it_reveals": "[RF] active enteritis=Phase-2 inflammatory (NOT M-A); fibrostenotic stricture=M-S"
         },
         "phase": {
           "what_it_reveals": "[RF] flare=Phase 2"

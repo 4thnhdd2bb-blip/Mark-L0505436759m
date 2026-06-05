@@ -574,7 +574,7 @@
       },
       {
         "constitution": "T3 Yin-Fire (Mark)",
-        "baseline": "Variable, often M-A2 with inflammatory overlay",
+        "baseline": "Variable, often M-A2 (anabolic) backbone + M-D1/Phase-2 inflammatory overlay (mixed) [v1.1]",
         "tendency": "Drift to M-D2 in active inflammation periods"
       },
       {
@@ -984,7 +984,7 @@
       },
       "F_pre_oncology_screening": {
         "constitution": "T3 Yin-Fire potential",
-        "membrane": "M-A2 with inflammatory overlay",
+        "membrane": "M-A2 (anabolic) backbone + M-D1/Phase-2 inflammatory overlay (mixed) [v1.1]",
         "phase": "chronic CA-low-grade",
         "markers": "high uric acid, hsCRP, normal-borderline hemoglobin, gout episodes",
         "strategy": "anti-inflammatory + metabolic optimization"

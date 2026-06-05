@@ -491,7 +491,7 @@
           ]
         },
         "membrane": {
-          "impact": "[RF] Direct membrane integrity support; reduces oxidative stress; anti M-A2 inflammatory pattern"
+          "impact": "[RF] Direct membrane integrity support; reduces oxidative stress; membrane fluidity / catabolic-shift in M-A (displaces sterols); anti-inflammatory only if M-D/Phase-2 component [v1.1]"
         },
         "phase": {
           "match": "Chronic; may reduce Phase 2 inflammatory events"
@@ -770,7 +770,7 @@
         "[RF] Most chronic conditions",
         "[RF] Specific autoimmune"
       ],
-      "energy_translation_rf": "[RF] Microbiome = part of constitutional foundation; M-A2 inflammatory pts often dysbiotic; long-term antibiotics/PPIs disrupt; restoration supportive не curative.",
+      "energy_translation_rf": "[RF] Microbiome = part of constitutional foundation; M-A2 (anabolic/metabolic-syndrome) pts often dysbiotic; long-term antibiotics/PPIs disrupt; restoration supportive не curative.",
       "kcts_awareness": "[RF, SPECULATIVE] Microbiome links к mood/inflammation/metabolism/stress response; KCTS-active pts могут have altered microbiome. Speculative — probiotics potentially supportive.",
       "dosing": {
         "dose": "Varies by strain/product — quality variable"
@@ -1066,7 +1066,7 @@
           ]
         },
         "membrane": {
-          "impact": "[RF] anti M-A2 inflammatory"
+          "impact": "[RF] anti-inflammatory (relevant to M-D2/Phase-2, NOT M-A anabolic core) [v1.1]"
         },
         "phase": {
           "match": "Chronic"

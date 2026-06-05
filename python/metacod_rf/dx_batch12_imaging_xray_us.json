@@ -47,7 +47,7 @@
           "what_it_reveals": "[RF] body habitus, calcification history"
         },
         "membrane": {
-          "what_it_reveals": "[RF] effusion=M-A; fibrosis/scarring=M-S"
+          "what_it_reveals": "[RF] effusion=Phase-2/fluid-retention (NOT M-A); fibrosis/scarring=M-S"
         },
         "phase": {
           "what_it_reveals": "[RF] acute infiltrate=Phase 2"
@@ -253,7 +253,7 @@
           "what_it_reveals": "[RF] organ habitus/steatosis"
         },
         "membrane": {
-          "what_it_reveals": "[RF] fibrosis/cirrhosis echotexture=M-S; ascites=M-A/fluid"
+          "what_it_reveals": "[RF] fibrosis/cirrhosis echotexture=M-S; ascites=fluid-retention (NOT M-A anabolic)"
         },
         "phase": {
           "what_it_reveals": "[RF] acute cholecystitis=Phase 2"
@@ -565,7 +565,7 @@
           "what_it_reveals": "[RF] —"
         },
         "membrane": {
-          "what_it_reveals": "[RF] effusion=M-A; chronic tendinosis=M-S"
+          "what_it_reveals": "[RF] effusion=Phase-2/fluid-retention (NOT M-A); chronic tendinosis=M-S"
         },
         "phase": {
           "what_it_reveals": "[RF] acute inflammation=Phase 2"
@@ -720,7 +720,7 @@
           "what_it_reveals": "[RF] bedside fluid/membrane read"
         },
         "membrane": {
-          "what_it_reveals": "[RF] B-lines/IVC = fluid-retention/M-A context"
+          "what_it_reveals": "[RF] B-lines/IVC = fluid-retention (NOT M-A anabolic)"
         },
         "phase": {
           "what_it_reveals": "[RF] acute (shock/trauma)=Phase 3"

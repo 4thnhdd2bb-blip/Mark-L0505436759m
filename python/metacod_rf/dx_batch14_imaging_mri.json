@@ -150,7 +150,7 @@
           "what_it_reveals": "[RF] —"
         },
         "membrane": {
-          "what_it_reveals": "[RF] effusion=M-A; chronic tendinosis/scar=M-S; bone-marrow edema"
+          "what_it_reveals": "[RF] effusion=Phase-2/fluid-retention (NOT M-A); chronic tendinosis/scar=M-S; bone-marrow edema"
         },
         "phase": {
           "what_it_reveals": "[RF] acute injury=Phase 2"
@@ -306,7 +306,7 @@
           "what_it_reveals": "[RF] cardiac constitution"
         },
         "membrane": {
-          "what_it_reveals": "[RF] LGE fibrosis/scar=myocardial M-S; edema (T2)=M-A"
+          "what_it_reveals": "[RF] LGE fibrosis/scar=myocardial M-S; edema (T2)=Phase-2 inflammatory (NOT M-A)"
         },
         "phase": {
           "what_it_reveals": "[RF] acute myocarditis=Phase 2"
@@ -562,7 +562,7 @@
           "what_it_reveals": "[RF] —"
         },
         "membrane": {
-          "what_it_reveals": "[RF] active=M-A; fibrostenotic=M-S"
+          "what_it_reveals": "[RF] active inflammation=Phase 2 (NOT M-A); fibrostenotic=M-S"
         },
         "phase": {
           "what_it_reveals": "[RF] flare=Phase 2"

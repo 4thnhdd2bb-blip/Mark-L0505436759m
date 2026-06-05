@@ -152,7 +152,7 @@
           "what_it_reveals": "[RF] —"
         },
         "membrane": {
-          "what_it_reveals": "[RF] effusion=M-A/fluid; transudate=fluid-retention context"
+          "what_it_reveals": "[RF] effusion=Phase-2/fluid-retention (NOT M-A); transudate=fluid-retention context"
         },
         "phase": {
           "what_it_reveals": "[RF] acute (large/empyema)=Phase 3"
@@ -204,7 +204,7 @@
           "what_it_reveals": "[RF] —"
         },
         "membrane": {
-          "what_it_reveals": "[RF] ascites=fluid/M-A (portal HTN context)"
+          "what_it_reveals": "[RF] ascites=fluid-retention (NOT M-A anabolic) (portal HTN context)"
         },
         "phase": {
           "what_it_reveals": "[RF] SBP=Phase 2"
@@ -412,7 +412,7 @@
           "what_it_reveals": "[RF] —"
         },
         "membrane": {
-          "what_it_reveals": "[RF] effusion=M-A"
+          "what_it_reveals": "[RF] effusion=Phase-2/fluid-retention (NOT M-A)"
         },
         "phase": {
           "what_it_reveals": "[RF] tamponade=Phase 3 (life-threatening)"

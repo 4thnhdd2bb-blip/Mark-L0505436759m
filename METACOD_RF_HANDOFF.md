@@ -52,7 +52,20 @@ repository**. Update this file whenever the repo state or canonical decisions ch
      Yin- vs Yang-dominant mirror architectures; Quantity×Quality).
   2. **Membrane** (medium) — Revici-based **8 levels**: M-0, M-A1/A2/A3, M-S,
      M-D1/D2/D3. In code: `services.symptom_registry.CANONICAL_MEMBRANE_CODES`.
-     M-S = pathological *stagnant* (NOT "balanced").
+     M-S = pathological *stagnant* (NOT "balanced"). **CORRECTED CANON v1.1 (Mark,
+     Том I + Module 02 — `master_integration_v1_1.json`):** **M-A = ANABOLIC**
+     (sterol excess, rigidity, HMGCR active, metabolic-syndrome; feels better
+     evening; urine pH AM <5.5) — **NOT inflammation**. **M-D = CATABOLIC**
+     (peroxidation, MDA↑/GPX4↓; feels better morning) — this is where chronic
+     inflammation lives (M-D1 hidden / M-D2 autoimmune). **Inflammation location:**
+     acute=**Phase 2**, hidden-chronic=**M-D1**, autoimmune=**M-D2**,
+     fibrotic-nonhealing=**M-S** — **never M-A**. **Treatment DIRECTION is OPPOSITE:**
+     M-A→catabolic-shift (Se/S/Mg/omega-3/statin/metformin/SGLT2); M-D→anabolic
+     support + anti-inflammatory + GPX4; M-S→three-parallel (fibrolysis + Yin +
+     stop-peroxidation). **Misclassification → opposite treatment → harm** — hence
+     this stays RF/research-only, never auto-driving prescribing. (v1.0's
+     "M-A=inflammation" error was corrected across repo: three_axis_framework,
+     diagnostic_foundation, dx imaging batches 12/13/14/16/20, batch-02, batch-26.)
   3. **Phase** (fast) — 5 phases. Canonical keys
      `services.constitutional_model.PHASE_KEYS` = CA, PCL-A, Epicrisis, PCL-B,
      Normotonia. External/EBM names (Phase Axis v2.0): Acute Sympathicotonia /
@@ -144,7 +157,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
   hepatobiliary, cardiology, spleen_pancreas, gallbladder, small_intestine,
   gastroduodenal
 - `diagnostic_foundation_v1_0.json` — diagnostics DB architecture/foundation
-- Loaders in `python/services/`, tests in `python/tests/unit/`. **791 tests, 0 skipped.**
+- Loaders in `python/services/`, tests in `python/tests/unit/`. **798 tests, 0 skipped.**
 
 ### Diagnostics DB (parallel test/imaging database — COMPLETE 2026-06)
 - Separate research DB: `dx_batch*.json` + loader `services/diagnostic_db.py` +

@@ -219,7 +219,7 @@
   "three_axis_for_diagnostics": {
     "principle": "Tests REVEAL axis states (vs drugs target axes). [RF] interpretation overlay.",
     "constitutional": "Body habitus, fat distribution, calcification, atrophy/hypertrophy, skeletal patterns",
-    "membrane": "[RF] edema=M-A; sclerosis/fibrosis=M-S; atrophy/tissue-loss=M-D; calcification=M-S chronic",
+    "membrane": "[RF v1.1] edema/effusion=Phase-2 inflammatory or fluid-retention (NOT M-A); anabolic sterol-excess=M-A; sclerosis/fibrosis=M-S; atrophy/tissue-loss=M-D; calcification=M-S chronic",
     "phase": "[RF] acute inflammation signal=Phase2; chronic changes=late/hanging; hemorrhage=Phase1/3; fibroproliferative=Phase4"
   },
   "kcts_detection_ebm": {

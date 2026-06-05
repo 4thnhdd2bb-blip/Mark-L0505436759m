@@ -1,0 +1,100 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_master_integration",
+    "document_id": "METACOD_RF_Master_Integration",
+    "title": "Master Integration — symptoms → diagnostics → drugs",
+    "version": "1.1-CORRECTED",
+    "date": "2026-06",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "replaces": "v1.0 (framework error: M-A mischaracterized as inflammation in 4 places)",
+    "author": "Mark Litvak (canonical, Том I + Module 02) — formalized with AI-assistance",
+    "ready_for_research_use": true,
+    "ready_for_clinical_use": false,
+    "mark_validated": "pending review",
+    "kcts_v1_1_alignment": "[KCTS v1.1] Layer 0 = psychosocial / chronic-stress support (EBM); Hamer/AIRE psychic-conflict causality NOT used. Governed by kcts_integration v1.1.",
+    "errata_v1_0_to_v1_1": {
+      "error": "v1.0 characterized M-A1/A2 as 'inflammation' (4 places).",
+      "correction": "[OBS-Mark CANONICAL, Том I + Module 02] M-A = ANABOLIC membrane (sterol excess, rigidity, HMGCR active) — NOT inflammation. Inflammation lives elsewhere: acute=Phase 2; hidden-chronic=M-D1; chronic-autoimmune=M-D2; chronic non-healing+fibrosis=M-S.",
+      "repo_alignment": "[2026-06] Repo content corrected to v1.1: removed/erroneous 'M-A=inflammation/edema/effusion/ground-glass' wordings in three_axis_framework, diagnostic_foundation, dx imaging batches (12/13/14/16/20), batch-02, batch-26 → acute fluid/inflammation reframed to Phase-2/fluid-retention; M-A reserved for anabolic sterol-excess."
+    },
+    "governance_safety_annotation": {
+      "_authored_by": "METACOD-RF governance layer",
+      "membrane_is_RF_construct": "[GOVERNANCE — CRITICAL] The membrane axis (M-A/M-S/M-D, Revici-derived) and its 'treatment DIRECTION' (M-A→catabolic-shift vs M-D→anabolic-support — OPPOSITE) are a Mark-canonical RESEARCH construct, NOT externally validated. The document's own warning ('misclassification → opposite direction → patient worsening') is precisely why this MUST stay research-only and NEVER auto-drive real prescribing: a wrong RF classification would reverse therapy. Classification inputs (urine-pH/K/WBC/phase-angle '3-confirmatory' rule) are themselves RF heuristics, not validated diagnostic criteria.",
+      "not_operationalized": "Symptom→diagnostic→drug pipeline, membrane-direction drug filter, compatibility scoring, Layer-0..4 stack — NONE wired into the engine; documentation only.",
+      "standard_care_primacy": "Layer 4 = standard EBM disease therapy is non-negotiable and not delayed. METACOD complementary, NOT a replacement (Часть 9). Acute emergencies / surgical / ICU / pregnancy / MH-crisis = standard care.",
+      "not_patient_facing": "Energy/membrane/phase/KCTS vocabulary never surfaced to patient (Variant B; Patient-Facing Filter).",
+      "evidence_separation": "Standard pharmacology/lab/imaging facts = [LBL/GL/RCT] (valid independently). Energy/membrane/phase/KCTS overlay + treatment-direction = [RF]."
+    }
+  },
+  "membrane_canon_v1_1": {
+    "_note": "[OBS-Mark CANONICAL] Corrected membrane model. Functional anabolic↔catabolic scale (Revici 7 → METACOD 8 incl. stagnant M-S). Medium-changing (weeks-months); independent of constitution.",
+    "M-A_anabolic": {
+      "definition": "Sterol excess, rigidity, sterol-incorporation > FA-mobilization, HMGCR active. Energy: sterol-Heat + rigidity-Damp ('anabolic accumulation'). Feels better EVENING. Urine pH morning <5.5 (acidic).",
+      "M-A1": "Membrane cholesterol upper-border, mild phase-angle drop → early HTN, ↑LDL, mild insulin resistance, prediabetes",
+      "M-A2": "Developed sterol excess, HMGCR active, peripheral resistance ↑↑ → metabolic syndrome, T2DM, stable HTN, central obesity (markers: Warburg/tissue-acidity, low serum-K + high intracell-K, urine pH AM <5.5, membrane cholesterol >260, phase angle <5.5). NOT inflammation.",
+      "M-A3": "Decompensation: sterols accumulated, adaptive capacity exhausted → atherosclerosis w/ complications, IHD, onset sclerosis"
+    },
+    "M-D_catabolic": {
+      "definition": "Oxidized FA excess, peroxidation, MDA↑, GPX4↓, FA-mobilization predominates. Feels better MORNING. Urine pH evening >6.5 (alkaline). Serum K 5.0+.",
+      "M-D1": "Mild GPX4↓, early peroxidation, MDA upper-border → chronic fatigue, mild hypotension, HIDDEN inflammation",
+      "M-D2": "Developed peroxidation, marked oxidative stress, sarcopenia → AUTOIMMUNE disease, CHRONIC inflammation, muscle loss",
+      "M-D3": "Decompensation: antioxidant defense exhausted, multi-organ → cachexia, multi-organ dysfunction, terminal"
+    },
+    "M-S_sclerotic": {
+      "definition": "Paradoxical simultaneous anabolic rigidity + catabolic fragility. Most tumors arise in M-S zones. Atherosclerosis/cirrhosis/scleroderma/pulmonary fibrosis = M-S.",
+      "three_faces": ["Modifier — local M-S zone within a base membrane (e.g. M-A2 systemic + M-S in bronchial-artery walls — Mariana)", "Monolithic — whole organ in M-S", "Final — decompensation of M-A3 or M-D3 via GPX4 exhaustion"]
+    },
+    "inflammation_location": {
+      "acute": "Phase 2 (phase axis — independent of membrane)",
+      "hidden_chronic": "M-D1",
+      "chronic_autoimmune": "M-D2",
+      "chronic_nonhealing_fibrosis": "M-S",
+      "NOT": "M-A1/A2/A3 (anabolic, not inflammatory)"
+    }
+  },
+  "treatment_direction_v1_1": {
+    "_critical": "[OBS-Mark CANONICAL / GOVERNANCE] M-A and M-D treatment directions are OPPOSITE. Misclassification → opposite-of-correct direction → patient worsening. [RF research-only; must not auto-drive prescribing.]",
+    "M-A": "CATABOLIC SHIFT — Se, S, Mg, omega-3 (membrane fluidity, displaces sterols), statins (HMGCR), metformin (AMPK/anti-anabolic), SGLT2 (glucose dump/cooling), low-carb. NOT primary anti-inflammatory.",
+    "M-D": "ANABOLIC SUPPORT + ANTI-INFLAMMATORY + GPX4 support — cholesterol/lipid-alcohols, Zn, Fe, creatine, leucine, anabolic stack; omega-3/curcumin/selective-NSAID; Se/NAC/glutathione; Vit D.",
+    "M-S": "THREE PARALLEL — fibrolysis (systemic enzymes: nattokinase, serratiopeptidase) + Yin-quality restoration (structural substrates) + stop peroxidation (GPX4: Se, NAC, glutathione).",
+    "anti_inflammatory_primary_only_for": ["M-D2", "M-S"]
+  },
+  "six_layer_architecture": [
+    {"layer": 1, "name": "Entry point", "does": "subjective/objective + AIRE screening + psychoemotional pattern + Bristol stool; standard ICD dx + METACOD adds energy/membrane/phase/KCTS/constitution"},
+    {"layer": 2, "name": "Pattern recognition", "does": "Step1 Yang/Yin (Park Tab 2) → Step2 17-channel energy voting (8-12 concordant=confident; divergent=mixed; contradictory=KCTS suspicion) → Step3 AIRE screen (≥2=KCTS suspected). Output: polarity + energy + triad + KCTS status"},
+    {"layer": 3, "name": "Targeted investigation", "does": "Mark core panel ALWAYS (BIA / 4-point urine pH / urine SG / Bristol / HRV + CBC/CMP/TSH/hsCRP); membrane differentiation needs ≥3 confirmatory markers in one direction; imaging by clinical question"},
+    {"layer": 4, "name": "Axes synthesis", "does": "Constitution (triad T1-T8 + Yin/Yang) × Membrane (M-0..M-S..M-D via BIA+biochemistry) × Phase (1-5 via autonomic+inflammation+pain-timing) + KCTS modifier (Active/Subclinical/Absent)"},
+    {"layer": 5, "name": "Treatment construction", "does": "5-layer stack: L0 KCTS/psychosocial · L1 alkalinization 3:2:1 · L2 membrane-targeted (DIRECTION!) · L3 phase-appropriate timing · L4 ICD standard EBM"},
+    {"layer": 6, "name": "Monitoring & iteration", "does": "monthly BIA/symptoms/Bristol/urine-pH; quarterly labs/imaging/KCTS; annual DEXA. Symptom×biomarker quadrant logic; target progression to Phase 5"}
+  ],
+  "symptom_to_diagnostic_to_drug": {
+    "symptoms_to_analyses": "Park 17 channels → hypothesis → analyses confirm/refute → 3-confirmatory rule for membrane classification",
+    "analyses_to_drugs": "Membrane state determines treatment DIRECTION (M-A→catabolic / M-D→anabolic+anti-inflammatory / M-S→three-parallel) + ICD-specific + KCTS modifier",
+    "drug_selection_scoring": "SCORE = Σ Match(constitutional/membrane-direction/phase/KCTS) × weights + ICD-indication (required) + safety filter (CI/DDI). CRITICAL filter = membrane-direction match (e.g. M-A2 → anabolic agents like creatine contraindicated/caution; M-D2 → high-dose catabolic statins with caution). [RF — not operationalized.]"
+  },
+  "monitoring_quadrant_logic": {
+    "sx_up_bio_up": "continue",
+    "sx_up_bio_down": "symptom-suppression only (red flag)",
+    "sx_down_bio_down": "reassess axes — KCTS likely not addressed",
+    "sx_down_bio_up": "drug-induced dissociation (close monitoring)",
+    "phase_tracking": "goal = progression to stable Phase 5; stuck Phase 2 = KCTS suspicion"
+  },
+  "three_databases": {
+    "drug_db": "507 (DRG-*) — services/metacod_rf.py",
+    "diagnostic_db": "248 (TST/IMG/FUN/PRO) — services/diagnostic_db.py",
+    "symptom_db": "symptom_registry (Park consolidated; Yin/Yang energies — being filled by Mark)",
+    "integration_layer": "three-axis profiler + drug recommender (RF, not built/operationalized)",
+    "output_format": "Variant B (internal energy + external EBM); 10-section METACOD analysis; 3-column treatment table (METACOD v3 output | treating physician | Prof. Itamar Raz)"
+  },
+  "case_example_corrected": {
+    "patient": "62M, T2DM 12y/HTN 8y/mild-CKD(eGFR55)/depression; metformin+lisinopril+atorvastatin+sertraline; BMI 32; attended alone; spouse died 2y ago",
+    "membrane": "M-A2 (anabolic metabolic-syndrome) — 5 confirmatory (urine pH AM 5.4, K 3.2, WBC 11.2, phase-angle 4.8, cholesterol 280). hsCRP 6.2 = POSSIBLE M-D1 component / Phase-2 ongoing — NOT inflammatory nature of M-A2 itself",
+    "phase": "chronic Phase 2 (non-resolving — KCTS-characteristic)",
+    "kcts": "Active (alone + bereavement + chronic>10y + treatment-refractory + flat cortisol + ECW/TBW↑)",
+    "treatment_direction": "M-A2 → CATABOLIC SHIFT (continue metformin/atorvastatin; add SGLT2/omega-3/Se/Mg/Vit-D/low-carb; finerenone as anti-fibrotic M-S-prevention NOT anti-inflammatory) + Layer-0 bereavement support (primary breakthrough)"
+  },
+  "critical_decision_points": {
+    "deviate_from_standard_when": ["symptomatic vs root-cause", "polypharmacy in elderly", "treatment-refractory", "recurrent same-pattern issues"],
+    "metacod_does_not_replace": ["acute emergencies", "surgical indications", "ICU care", "pregnancy standard care", "mental-health crisis"]
+  }
+}

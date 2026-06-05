@@ -17,7 +17,7 @@
 | — authored from Mark's pasted source docs | **220** |
 | — Claude-authored (191 gap-fill batches + 133 expansion-block DRG-380..512) | **324** (flagged) |
 | Conceptual / registry files | **17** (incl. diagnostics foundation) |
-| Test suite | **791 passing, 0 skipped** |
+| Test suite | **798 passing, 0 skipped** |
 | `ready_for_clinical_use` across **all** artifacts | **false** (verified) |
 
 DRG ID space is essentially contiguous **DRG-001..379** core + a **380..512 expansion block** (133 class-completion entries across all systems). Documented minor gaps only: 200-201, 250, 370-371.
@@ -118,9 +118,10 @@ energy-mapping / Cole-Cole membrane = `[RF]` hypotheses; KCTS EBM-reframed.
 
 ---
 
-## 6. Conceptual / registry layer (17 files)
+## 6. Conceptual / registry layer (18 files)
 
 - `three_axis_framework_v1_0.json` — Constitution × Membrane × Phase
+- `master_integration_v1_1.json` — Master Integration v1.1 CORRECTED (symptoms→diagnostics→drugs; 6-layer pipeline; ERRATA M-A=ANABOLIC not inflammation; treatment-direction OPPOSITE per membrane; research-only, NOT operationalized)
 - `diagnostic_foundation_v1_0.json` — diagnostics DB architecture/foundation
 - `kcts_integration_v1_0.json` — KCTS modifier (v1.1 EBM-reframed)
 - `constitutional_model_v0_1.json` + `v0_2.json` — constitution model + 5-energy biomarker panels
