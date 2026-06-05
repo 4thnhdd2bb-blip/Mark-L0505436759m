@@ -249,6 +249,15 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-334": "Pulmonary surfactant (beractant / poractant alfa / calfactant)",
         "DRG-335": "Pediatric emergency drugs framework",
     },
+    "24-Renal": {
+        "DRG-336": "Sevelamer carbonate / hydrochloride",
+        "DRG-337": "Lanthanum carbonate",
+        "DRG-338": "Epoetin alfa / Darbepoetin alfa",
+        "DRG-339": "Calcitriol / Alfacalcidol / Paricalcitol (active Vitamin D analogs)",
+        "DRG-340": "Cinacalcet",
+        "DRG-341": "Finerenone",
+        "DRG-342": "Tolvaptan",
+    },
 }
 
 

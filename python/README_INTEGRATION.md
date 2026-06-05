@@ -56,6 +56,7 @@ python/
 │   ├── drugs_batch21_ophthalmology.json    # METACOD-RF research drug DB — batch 21 (10 ophth: glaucoma PGA/BB/α2/CAI + dry-eye + anti-VEGF + topical abx/steroid cross-refs; DRG-311..320; topical→systemic absorption warning)
 │   ├── drugs_batch22_ent.json              # METACOD-RF research drug DB — batch 22 (8 ENT: nasal steroid/2nd-gen antihistamine/montelukast x-ref/vestibular/decongestants/tinnitus framework; DRG-321..328; rhinitis medicamentosa flag)
 │   ├── drugs_batch23_pediatric.json        # METACOD-RF research drug DB — batch 23 (7 peds, framework-heavy: prescribing/antibiotic/asthma/emergency frameworks + palivizumab/surfactant/ADHD-stimulants; DRG-329..335; source claimed 8, 7 enumerable; ACEs↔AIRE overlap flagged speculative)
+│   ├── drugs_batch24_renal.json            # METACOD-RF research drug DB — batch 24 (7 renal: phosphate binders/ESA/active-VitD+calcimimetic/finerenone/tolvaptan; DRG-336..342; source claimed 8, 7 enumerable; STRONGEST KCTS operationalization push — 'CKD=textbook KCTS' hard-walled governance, standard-care primacy)
 │   ├── constitutional_model_v0_1.json     # METACOD-RF constitutional model v0.1: conceptual two-axis framework (Parts A-E; constitution × process/phase)
 │   ├── constitutional_model_v0_2.json     # METACOD-RF constitutional model: 5-energy biomarker quality panels (research, hypotheses)
 │   ├── predictive_matrix_01_semaglutide.json # METACOD-RF predictive matrix #1: semaglutide × 8 constitutional triads (hypotheses)
@@ -76,7 +77,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (522 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (531 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -167,7 +168,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 522 tests
+pytest                 # all 531 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
