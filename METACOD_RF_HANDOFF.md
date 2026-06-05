@@ -82,13 +82,17 @@ repository**. Update this file whenever the repo state or canonical decisions ch
   Not equated anywhere; cross-guards keep them separate.
 - **Q2** — `treatment_sequence` order in the TCM bridge (still baseline).
 - **Logic-review flags** carried in drug batches 15/17/18 `_meta.class_notes`.
-- **KCTS/AIRE direction — RESOLVED (2026-06):** Mark chose **reframe to pure EBM**.
-  Done centrally in `kcts_integration_v1_0.json` v1.1 (governs all batches) + this
-  §2 bullet + batch 27 authored in EBM style. **Remaining cleanup (tracked):** the
-  legacy Hamer/AIRE wording still sits inline in batches 15/18/19/22/23/24/25 and
-  conceptual files (constitutional_model, symptom_registry, three_axis_framework);
-  it is already subordinated to v1.1 (which supersedes), but a text sweep to align
-  wording is the next reformulation chore.
+- **KCTS/AIRE direction — RESOLVED + CLEANUP DONE (2026-06):** Mark chose **reframe
+  to pure EBM**. (1) Central `kcts_integration_v1_0.json` v1.1 (governs/supersedes
+  all batches). (2) Batch 27 authored in EBM style. (3) **Legacy-text cleanup
+  COMPLETE:** a `_meta.kcts_v1_1_alignment` note now sits at the top of every file
+  that carried legacy wording — batch files 15/18/19/22/23/24/25 (KCTS/AIRE
+  subordinated to v1.1: psychosocial/chronic-stress/fluid-retention; Hamer/AIRE
+  causality + collecting-tubule disavowed) and the 3 conceptual files
+  (constitutional_model, symptom_registry, three_axis_framework — note clarifies
+  their Hamer refs are histogenetic-layer/phase taxonomy with psychogenic claims
+  already STRIPPED, no AIRE/KCTS causal layer). Reframe is now 100% closed at the
+  governance level — no file presents legacy AIRE/Hamer causality as current canon.
 
 ---
 

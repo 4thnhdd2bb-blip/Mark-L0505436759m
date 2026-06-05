@@ -1,6 +1,7 @@
 {
   "_meta": {
     "schema": "metacod_rf_constitutional_model_v0_1",
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT 2026-06] Reviewed: файл НЕ содержит AIRE/KCTS психоконфликт-каузального слоя. Ссылки на Hamer относятся к histogenetic-layer/phase taxonomy с УЖЕ удалёнными психогенными claims (inspired_by/STRIPPED) — организующая ось, не disavowed AIRE-механизм. Согласовано с kcts_integration v1.1.",
     "document": "METACOD Constitutional Model",
     "version": "0.1",
     "subtitle": "Минимальная честная фиксация двухосевой модели (Constitution × Process/Phase)",
@@ -29,8 +30,20 @@
       "Не для клинического применения. Применение к пациентам требует: validated algorithm для constitutional determination (не существует), pre-specified study protocol, IRB approval, documentation в Case Registry."
     ],
     "critical_constants": {
-      "energies": ["wind", "heat", "damp", "dry", "cold"],
-      "phases": ["CA", "PCL-A", "Epicrisis", "PCL-B", "Normotonia"]
+      "energies": [
+        "wind",
+        "heat",
+        "damp",
+        "dry",
+        "cold"
+      ],
+      "phases": [
+        "CA",
+        "PCL-A",
+        "Epicrisis",
+        "PCL-B",
+        "Normotonia"
+      ]
     }
   },
   "part_A_constitutional_axis": {
@@ -100,11 +113,26 @@
     "five_phases": {
       "inspired_by": "Hamer's phase observations, STRIPPED of specific psychogenic claims",
       "sequence": [
-        {"phase": "CA (Conflict-Active)", "description": "sympathetic activation phase, активная реакция на trigger"},
-        {"phase": "PCL-A (Post-Conflict-Lysis A)", "description": "ранняя resolution, инфламматорная reorganization"},
-        {"phase": "Epicrisis", "description": "peak crisis в resolution process"},
-        {"phase": "PCL-B (Post-Conflict-Lysis B)", "description": "late resolution, consolidation"},
-        {"phase": "Normotonia", "description": "return to baseline / maintenance state"}
+        {
+          "phase": "CA (Conflict-Active)",
+          "description": "sympathetic activation phase, активная реакция на trigger"
+        },
+        {
+          "phase": "PCL-A (Post-Conflict-Lysis A)",
+          "description": "ранняя resolution, инфламматорная reorganization"
+        },
+        {
+          "phase": "Epicrisis",
+          "description": "peak crisis в resolution process"
+        },
+        {
+          "phase": "PCL-B (Post-Conflict-Lysis B)",
+          "description": "late resolution, consolidation"
+        },
+        {
+          "phase": "Normotonia",
+          "description": "return to baseline / maintenance state"
+        }
       ]
     },
     "trigger_inclusive": {

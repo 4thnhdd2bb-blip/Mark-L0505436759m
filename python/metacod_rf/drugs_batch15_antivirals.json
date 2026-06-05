@@ -1,6 +1,7 @@
 {
   "_meta": {
     "schema": "metacod_rf_drug_db",
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT 2026-06] Любые KCTS/AIRE упоминания в этом файле ПОДЧИНЕНЫ и ВЫТЕСНЕНЫ kcts_integration v1.1 (EBM-reframe, решение Mark): оперативная модель — psychosocial burden + chronic-stress physiology + fluid-retention; Hamer/AIRE психоконфликт-каузальность и 'collecting tubule' анатомия ОТВЕРГНУТЫ как механизм (сохранены лишь как раскрытое происхождение); psychosocial-поддержка СОПУТСТВУЮЩАЯ доказательному лечению, никогда вместо/прежде. Legacy 'AIRE-trigger'/'KCTS-active' читать как EBM psychosocial/chronic-stress markers.",
     "batch_id": "15-Antivirals",
     "version": "RF-2026-06-batch15",
     "status": "METACOD-RF — Research Framework, not clinical guidance",
@@ -22,9 +23,26 @@
       "RF": "METACOD research framework (theoretical)"
     },
     "class_notes": {
-      "energy_perspective": ["Acute antivirals (acyclovir, oseltamivir) = acute Heat reduction в viral-specific tissues", "HIV antiretrovirals = chronic Yang preservation (preventing immune depletion = preventing M-D drift)", "HCV DAAs = curative — removes chronic Heat-Damp pattern в liver", "HBV antivirals = chronic suppression — prevents M-D progression в liver"],
-      "class_warnings": ["Acyclovir/valacyclovir: renal toxicity especially dehydrated; CNS effects в severe renal impairment", "Oseltamivir: neuropsychiatric AE (especially adolescents); modest efficacy; 48h window critical", "TDF/FTC: HBV reactivation if stopped; TDF renal/bone toxicity long-term; TAF preferred newer", "HCV DAAs: HBV reactivation в coinfection"],
-      "obs_mark_to_fill": ["HSV suppressive therapy indications", "Influenza antiviral prescribing (high-risk only vs broader)", "HIV PrEP counseling", "TDF vs TAF selection criteria", "HCV DAA era impact on practice", "KCTS screening в chronic viral infection patients"],
+      "energy_perspective": [
+        "Acute antivirals (acyclovir, oseltamivir) = acute Heat reduction в viral-specific tissues",
+        "HIV antiretrovirals = chronic Yang preservation (preventing immune depletion = preventing M-D drift)",
+        "HCV DAAs = curative — removes chronic Heat-Damp pattern в liver",
+        "HBV antivirals = chronic suppression — prevents M-D progression в liver"
+      ],
+      "class_warnings": [
+        "Acyclovir/valacyclovir: renal toxicity especially dehydrated; CNS effects в severe renal impairment",
+        "Oseltamivir: neuropsychiatric AE (especially adolescents); modest efficacy; 48h window critical",
+        "TDF/FTC: HBV reactivation if stopped; TDF renal/bone toxicity long-term; TAF preferred newer",
+        "HCV DAAs: HBV reactivation в coinfection"
+      ],
+      "obs_mark_to_fill": [
+        "HSV suppressive therapy indications",
+        "Influenza antiviral prescribing (high-risk only vs broader)",
+        "HIV PrEP counseling",
+        "TDF vs TAF selection criteria",
+        "HCV DAA era impact on practice",
+        "KCTS screening в chronic viral infection patients"
+      ],
       "logic_review_flags_for_mark": {
         "_note": "Источник добавил 'Logic Review Flag' секцию с framework-вопросами для Mark — перенесены как research questions, без изменения governance.",
         "issue_1_hcv_curative": "[RF] HCV DAA назван 'curative — complete removal of chronic disease pattern' — первый класс в БД, полностью устраняющий chronic disease (vs suppressing). Q for Mark: правильное framework application? Caveat: фиброз может persist (M-S patterns в liver) даже после virus clearance.",
@@ -36,88 +54,371 @@
   },
   "drugs": [
     {
-      "drug_id": "DRG-251", "name_inn": "Acyclovir", "name_ru": "Ацикловир", "name_brand": "Zovirax",
-      "status": "METACOD-RF", "batch": "15-Antivirals",
-      "molecular": {"chemical_class": "Guanosine analog", "mechanism_primary": ["[LBL] Selective activation by viral thymidine kinase → acyclovir triphosphate", "[LBL] Incorporates в viral DNA → chain termination", "[LBL] Selective — minimal toxicity к human cells"], "half_life": "2.5 hours", "excretion": "~70% renal"},
-      "indications": {"approved": ["[LBL] HSV genital herpes (acute + suppressive)", "[LBL] HSV labialis (cold sores)", "[LBL] HSV encephalitis (IV — emergency)", "[LBL] HSV neonatal (IV)", "[LBL] VZV (varicella, herpes zoster)", "[LBL] Immunocompromised host HSV/VZV prophylaxis"]},
-      "dosing": {"dose": "HSV genital first episode 400 mg TID × 7-10d; HSV recurrent 800 mg BID × 5d; Suppressive HSV 400 mg BID; VZV/shingles 800 mg 5x/day × 7d; HSV encephalitis IV 10 mg/kg q8h × 14-21d"},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Acute Heat reduction in viral-affected tissue (mucocutaneous, neural); translation: selective HSV/VZV DNA polymerase inhibition", "best_match": ["Any constitution с HSV/VZV infection", "Acute herpes episodes universal use"]},
-        "membrane": {"impact": "Acute use clearing infection → supports return к M-0; chronic suppressive well-tolerated long-term"},
-        "phase": {"match": "Acute Phase 2 (HSV outbreak inflammation); chronic suppressive prevents recurrent Phase 2 events"}
+      "drug_id": "DRG-251",
+      "name_inn": "Acyclovir",
+      "name_ru": "Ацикловир",
+      "name_brand": "Zovirax",
+      "status": "METACOD-RF",
+      "batch": "15-Antivirals",
+      "molecular": {
+        "chemical_class": "Guanosine analog",
+        "mechanism_primary": [
+          "[LBL] Selective activation by viral thymidine kinase → acyclovir triphosphate",
+          "[LBL] Incorporates в viral DNA → chain termination",
+          "[LBL] Selective — minimal toxicity к human cells"
+        ],
+        "half_life": "2.5 hours",
+        "excretion": "~70% renal"
       },
-      "safety": {"ddi_critical_1_star": ["[LBL] Probenecid — increased levels", "[LBL] Other nephrotoxic drugs — additive AKI risk"], "contraindications": ["[LBL] Hypersensitivity"], "relative_contraindications": ["[GL] Severe renal disease — dose adjustment"], "pregnancy": ["[LBL] Category B — generally safe (extensive use data)"], "breastfeeding": "compatible", "pediatric": "yes, weight-based", "geriatric": ["[GL] Renal function monitoring", "[GL] Dose adjust eGFR <50"], "renal": ["[LBL] Significant dose adjustment с CKD", "[LBL] AKI risk — adequate hydration mandatory"], "hepatic": "no specific adjustment"},
-      "adverse_events": {"common": ["[LBL] Generally well-tolerated", "[LBL] Nausea, headache (mild)", "[LBL] Diarrhea"], "serious": ["[LBL] AKI (especially IV, especially dehydration)", "[LBL] Crystalluria/nephrotoxicity (high IV doses)", "[LBL] CNS toxicity в renal impairment — confusion, hallucinations, encephalopathy", "[LBL] Thrombotic thrombocytopenic purpura (rare)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "acyclovir_suppressive_therapy": "[OBS-Mark] [Mark, suppressive therapy indications в genital HSV?]"},
-      "references": ["FDA label Zovirax", "CDC STI Guidelines", "IDSA Encephalitis Guidelines"],
-      "status_flags": {"mark_validated": false}
+      "indications": {
+        "approved": [
+          "[LBL] HSV genital herpes (acute + suppressive)",
+          "[LBL] HSV labialis (cold sores)",
+          "[LBL] HSV encephalitis (IV — emergency)",
+          "[LBL] HSV neonatal (IV)",
+          "[LBL] VZV (varicella, herpes zoster)",
+          "[LBL] Immunocompromised host HSV/VZV prophylaxis"
+        ]
+      },
+      "dosing": {
+        "dose": "HSV genital first episode 400 mg TID × 7-10d; HSV recurrent 800 mg BID × 5d; Suppressive HSV 400 mg BID; VZV/shingles 800 mg 5x/day × 7d; HSV encephalitis IV 10 mg/kg q8h × 14-21d"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute Heat reduction in viral-affected tissue (mucocutaneous, neural); translation: selective HSV/VZV DNA polymerase inhibition",
+          "best_match": [
+            "Any constitution с HSV/VZV infection",
+            "Acute herpes episodes universal use"
+          ]
+        },
+        "membrane": {
+          "impact": "Acute use clearing infection → supports return к M-0; chronic suppressive well-tolerated long-term"
+        },
+        "phase": {
+          "match": "Acute Phase 2 (HSV outbreak inflammation); chronic suppressive prevents recurrent Phase 2 events"
+        }
+      },
+      "safety": {
+        "ddi_critical_1_star": [
+          "[LBL] Probenecid — increased levels",
+          "[LBL] Other nephrotoxic drugs — additive AKI risk"
+        ],
+        "contraindications": [
+          "[LBL] Hypersensitivity"
+        ],
+        "relative_contraindications": [
+          "[GL] Severe renal disease — dose adjustment"
+        ],
+        "pregnancy": [
+          "[LBL] Category B — generally safe (extensive use data)"
+        ],
+        "breastfeeding": "compatible",
+        "pediatric": "yes, weight-based",
+        "geriatric": [
+          "[GL] Renal function monitoring",
+          "[GL] Dose adjust eGFR <50"
+        ],
+        "renal": [
+          "[LBL] Significant dose adjustment с CKD",
+          "[LBL] AKI risk — adequate hydration mandatory"
+        ],
+        "hepatic": "no specific adjustment"
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Generally well-tolerated",
+          "[LBL] Nausea, headache (mild)",
+          "[LBL] Diarrhea"
+        ],
+        "serious": [
+          "[LBL] AKI (especially IV, especially dehydration)",
+          "[LBL] Crystalluria/nephrotoxicity (high IV doses)",
+          "[LBL] CNS toxicity в renal impairment — confusion, hallucinations, encephalopathy",
+          "[LBL] Thrombotic thrombocytopenic purpura (rare)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "acyclovir_suppressive_therapy": "[OBS-Mark] [Mark, suppressive therapy indications в genital HSV?]"
+      },
+      "references": [
+        "FDA label Zovirax",
+        "CDC STI Guidelines",
+        "IDSA Encephalitis Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-252", "name_inn": "Valacyclovir", "name_ru": "Валацикловир", "name_brand": "Valtrex",
-      "status": "METACOD-RF", "batch": "15-Antivirals",
-      "molecular": {"chemical_class": "L-valyl ester prodrug of acyclovir", "mechanism_primary": ["[LBL] Better oral bioavailability (~55% vs 15-30% acyclovir) — converted to acyclovir в gut wall и liver"]},
-      "distinct_clinical": ["[LBL] Less frequent dosing (BID/TID vs 5x/day)", "[LBL] Better adherence", "[LBL] Same efficacy", "[LBL] Slightly higher cost"],
-      "indications": {"approved": ["[LBL] HSV genital (acute и suppressive)", "[LBL] HSV labialis (1-day high-dose protocol)", "[LBL] VZV (herpes zoster — better than acyclovir)", "[LBL] CMV prophylaxis (transplant — high doses)"]},
-      "dosing": {"dose": "HSV genital first episode 1 g BID × 7-10d; HSV recurrent 500 mg BID × 3d; Suppressive 500-1000 mg daily; Herpes labialis 2 g × 2 doses 12h apart (1-day); VZV/shingles 1 g TID × 7d"},
-      "three_axis_profile": {"constitutional": {"energy": "Acute Heat reduction (acyclovir prodrug); better bioavailability", "best_match": ["HSV/VZV, adherence-favorable dosing"]}, "membrane": {"impact": "Acute / chronic suppressive"}, "phase": {"match": "Acute Phase 2 / suppressive"}},
-      "safety": {"distinct": ["[LBL] Thrombotic microangiopathy — rare but documented в high-dose use (especially HIV CD4 <100)", "[LBL] Otherwise similar к acyclovir safety profile"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "valacyclovir_1day_labialis": "[OBS-Mark] [Valacyclovir 1-day labialis protocol в practice?]"},
-      "references": ["FDA label Valtrex"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-252",
+      "name_inn": "Valacyclovir",
+      "name_ru": "Валацикловир",
+      "name_brand": "Valtrex",
+      "status": "METACOD-RF",
+      "batch": "15-Antivirals",
+      "molecular": {
+        "chemical_class": "L-valyl ester prodrug of acyclovir",
+        "mechanism_primary": [
+          "[LBL] Better oral bioavailability (~55% vs 15-30% acyclovir) — converted to acyclovir в gut wall и liver"
+        ]
+      },
+      "distinct_clinical": [
+        "[LBL] Less frequent dosing (BID/TID vs 5x/day)",
+        "[LBL] Better adherence",
+        "[LBL] Same efficacy",
+        "[LBL] Slightly higher cost"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] HSV genital (acute и suppressive)",
+          "[LBL] HSV labialis (1-day high-dose protocol)",
+          "[LBL] VZV (herpes zoster — better than acyclovir)",
+          "[LBL] CMV prophylaxis (transplant — high doses)"
+        ]
+      },
+      "dosing": {
+        "dose": "HSV genital first episode 1 g BID × 7-10d; HSV recurrent 500 mg BID × 3d; Suppressive 500-1000 mg daily; Herpes labialis 2 g × 2 doses 12h apart (1-day); VZV/shingles 1 g TID × 7d"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute Heat reduction (acyclovir prodrug); better bioavailability",
+          "best_match": [
+            "HSV/VZV, adherence-favorable dosing"
+          ]
+        },
+        "membrane": {
+          "impact": "Acute / chronic suppressive"
+        },
+        "phase": {
+          "match": "Acute Phase 2 / suppressive"
+        }
+      },
+      "safety": {
+        "distinct": [
+          "[LBL] Thrombotic microangiopathy — rare but documented в high-dose use (especially HIV CD4 <100)",
+          "[LBL] Otherwise similar к acyclovir safety profile"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "valacyclovir_1day_labialis": "[OBS-Mark] [Valacyclovir 1-day labialis protocol в practice?]"
+      },
+      "references": [
+        "FDA label Valtrex"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-253", "name_inn": "Oseltamivir", "name_ru": "Осельтамивир", "name_brand": "Tamiflu",
-      "status": "METACOD-RF", "batch": "15-Antivirals",
-      "molecular": {"chemical_class": "Neuraminidase inhibitor (influenza A и B)", "mechanism_primary": ["[LBL] Blocks viral neuraminidase → prevents viral release from infected cells → reduces spread"], "half_life": "6-10 hours (active metabolite)"},
-      "indications": {"approved": ["[LBL] Influenza A и B treatment (start within 48h symptoms)", "[LBL] Influenza post-exposure prophylaxis", "[LBL] Seasonal prophylaxis (selected)", "[LBL] H1N1 epidemic/pandemic use"]},
-      "dosing": {"dose": "Treatment 75 mg BID × 5d; Prophylaxis 75 mg daily × 7-10d post-exposure; Pediatric weight-based"},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Acute Heat reduction в viral respiratory infection; translation: neuraminidase blockade", "best_match": ["Influenza any constitution"], "caution": ["Yin-Wood frail elderly с CNS sensitivity (rare neuropsychiatric AE)"]},
-        "membrane": {"impact": "Acute use, short course, minimal long-term"},
-        "phase": {"match": "Acute Phase 1/2 viral illness; modest reduction в symptom duration (~1 day); more benefit if started early (<24h)"}
+      "drug_id": "DRG-253",
+      "name_inn": "Oseltamivir",
+      "name_ru": "Осельтамивир",
+      "name_brand": "Tamiflu",
+      "status": "METACOD-RF",
+      "batch": "15-Antivirals",
+      "molecular": {
+        "chemical_class": "Neuraminidase inhibitor (influenza A и B)",
+        "mechanism_primary": [
+          "[LBL] Blocks viral neuraminidase → prevents viral release from infected cells → reduces spread"
+        ],
+        "half_life": "6-10 hours (active metabolite)"
       },
-      "clinical_reality_check": ["[GL] Symptom duration reduction ~17 hours average (Cochrane analysis)", "[GL] Hospitalization reduction unclear", "[GL] Cost-benefit debated; critics argue overhyped; defenders argue benefit в high-risk + early use"],
-      "safety": {"common": ["[LBL] Nausea, vomiting (significant — take с food)", "[LBL] Headache", "[LBL] Diarrhea"], "serious": ["[LBL] Neuropsychiatric events — rare; particularly children/adolescents (FDA warning Japan)", "[LBL] Anaphylaxis (rare)", "[LBL] SJS (rare)"], "renal": ["[LBL] eGFR adjustments important"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "oseltamivir_prescribing": "[OBS-Mark] [Oseltamivir prescribing — high-risk vs broad use approach?]"},
-      "references": ["FDA label Tamiflu", "Cochrane Reviews (multiple)", "CDC Influenza Guidelines"],
-      "status_flags": {"mark_validated": false}
+      "indications": {
+        "approved": [
+          "[LBL] Influenza A и B treatment (start within 48h symptoms)",
+          "[LBL] Influenza post-exposure prophylaxis",
+          "[LBL] Seasonal prophylaxis (selected)",
+          "[LBL] H1N1 epidemic/pandemic use"
+        ]
+      },
+      "dosing": {
+        "dose": "Treatment 75 mg BID × 5d; Prophylaxis 75 mg daily × 7-10d post-exposure; Pediatric weight-based"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute Heat reduction в viral respiratory infection; translation: neuraminidase blockade",
+          "best_match": [
+            "Influenza any constitution"
+          ],
+          "caution": [
+            "Yin-Wood frail elderly с CNS sensitivity (rare neuropsychiatric AE)"
+          ]
+        },
+        "membrane": {
+          "impact": "Acute use, short course, minimal long-term"
+        },
+        "phase": {
+          "match": "Acute Phase 1/2 viral illness; modest reduction в symptom duration (~1 day); more benefit if started early (<24h)"
+        }
+      },
+      "clinical_reality_check": [
+        "[GL] Symptom duration reduction ~17 hours average (Cochrane analysis)",
+        "[GL] Hospitalization reduction unclear",
+        "[GL] Cost-benefit debated; critics argue overhyped; defenders argue benefit в high-risk + early use"
+      ],
+      "safety": {
+        "common": [
+          "[LBL] Nausea, vomiting (significant — take с food)",
+          "[LBL] Headache",
+          "[LBL] Diarrhea"
+        ],
+        "serious": [
+          "[LBL] Neuropsychiatric events — rare; particularly children/adolescents (FDA warning Japan)",
+          "[LBL] Anaphylaxis (rare)",
+          "[LBL] SJS (rare)"
+        ],
+        "renal": [
+          "[LBL] eGFR adjustments important"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "oseltamivir_prescribing": "[OBS-Mark] [Oseltamivir prescribing — high-risk vs broad use approach?]"
+      },
+      "references": [
+        "FDA label Tamiflu",
+        "Cochrane Reviews (multiple)",
+        "CDC Influenza Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-254", "name_inn": "Tenofovir + emtricitabine", "name_ru": "Тенофовир + эмтрицитабин", "name_brand": "Truvada (TDF/FTC), Descovy (TAF/FTC)",
-      "status": "METACOD-RF", "batch": "15-Antivirals",
-      "molecular": {"chemical_class": "Nucleotide/nucleoside reverse transcriptase inhibitors (NRTI)", "mechanism_primary": ["[LBL] Inhibits HIV reverse transcriptase + HBV polymerase"], "formulations": ["TDF (tenofovir disoproxil fumarate) — older", "TAF (tenofovir alafenamide) — newer, less renal/bone toxicity"]},
-      "indications": {"approved": ["[LBL] HIV treatment (combination ART)", "[LBL] HIV PrEP (pre-exposure prophylaxis)", "[LBL] HIV PEP (post-exposure prophylaxis)", "[LBL] Chronic hepatitis B treatment"]},
-      "dosing": {"dose": "1 tablet daily (PO)"},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Sustained Yang preservation through immune protection (HIV) or chronic Heat-Damp suppression в liver (HBV); translation: reverse transcriptase / DNA polymerase inhibition. [RF — see logic_review_flag issue_2: novel energetic framing of targeted therapy]", "best_match": ["HIV positive (any constitution)", "HBV chronic", "HIV-negative high-risk (PrEP)"]},
-        "membrane": {"impact": "TDF causes mild M-D drift в bone и kidney over years; TAF safer; untreated HIV: progressive immune depletion = M-D2 → M-D3 trajectory; ART prevents this"},
-        "phase": {"match": "Chronic suppression therapy; lifetime (HIV) or long-term (HBV)"}
+      "drug_id": "DRG-254",
+      "name_inn": "Tenofovir + emtricitabine",
+      "name_ru": "Тенофовир + эмтрицитабин",
+      "name_brand": "Truvada (TDF/FTC), Descovy (TAF/FTC)",
+      "status": "METACOD-RF",
+      "batch": "15-Antivirals",
+      "molecular": {
+        "chemical_class": "Nucleotide/nucleoside reverse transcriptase inhibitors (NRTI)",
+        "mechanism_primary": [
+          "[LBL] Inhibits HIV reverse transcriptase + HBV polymerase"
+        ],
+        "formulations": [
+          "TDF (tenofovir disoproxil fumarate) — older",
+          "TAF (tenofovir alafenamide) — newer, less renal/bone toxicity"
+        ]
       },
-      "safety": {"critical": ["[LBL] HBV reactivation if HBV-coinfected patient stops therapy — severe hepatitis", "[LBL] TDF: renal toxicity (Fanconi-like), bone mineral density reduction — monitor eGFR, phosphate, urine protein", "[LBL] TAF: less renal/bone toxicity, slight weight gain signal, preferred в most current regimens", "[LBL] Lactic acidosis — class warning NRTI (rare)", "[LBL] CYP minimal — fewer DDIs than other ART classes"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "tdf_vs_taf": "[OBS-Mark] [TDF vs TAF в naive HIV patients?]"},
-      "references": ["FDA label Truvada, Descovy", "DHHS HIV Guidelines"],
-      "status_flags": {"mark_validated": false}
+      "indications": {
+        "approved": [
+          "[LBL] HIV treatment (combination ART)",
+          "[LBL] HIV PrEP (pre-exposure prophylaxis)",
+          "[LBL] HIV PEP (post-exposure prophylaxis)",
+          "[LBL] Chronic hepatitis B treatment"
+        ]
+      },
+      "dosing": {
+        "dose": "1 tablet daily (PO)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Sustained Yang preservation through immune protection (HIV) or chronic Heat-Damp suppression в liver (HBV); translation: reverse transcriptase / DNA polymerase inhibition. [RF — see logic_review_flag issue_2: novel energetic framing of targeted therapy]",
+          "best_match": [
+            "HIV positive (any constitution)",
+            "HBV chronic",
+            "HIV-negative high-risk (PrEP)"
+          ]
+        },
+        "membrane": {
+          "impact": "TDF causes mild M-D drift в bone и kidney over years; TAF safer; untreated HIV: progressive immune depletion = M-D2 → M-D3 trajectory; ART prevents this"
+        },
+        "phase": {
+          "match": "Chronic suppression therapy; lifetime (HIV) or long-term (HBV)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] HBV reactivation if HBV-coinfected patient stops therapy — severe hepatitis",
+          "[LBL] TDF: renal toxicity (Fanconi-like), bone mineral density reduction — monitor eGFR, phosphate, urine protein",
+          "[LBL] TAF: less renal/bone toxicity, slight weight gain signal, preferred в most current regimens",
+          "[LBL] Lactic acidosis — class warning NRTI (rare)",
+          "[LBL] CYP minimal — fewer DDIs than other ART classes"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "tdf_vs_taf": "[OBS-Mark] [TDF vs TAF в naive HIV patients?]"
+      },
+      "references": [
+        "FDA label Truvada, Descovy",
+        "DHHS HIV Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-255", "name_inn": "Sofosbuvir + combinations", "name_ru": "Софосбувир + комбинации", "name_brand": "Epclusa (sofosbuvir/velpatasvir), Harvoni (sofosbuvir/ledipasvir), Vosevi",
-      "status": "METACOD-RF", "batch": "15-Antivirals",
-      "molecular": {"chemical_class": "Direct-acting antivirals (DAA) — multiple targets", "mechanism_primary": ["[LBL] Sofosbuvir: NS5B polymerase inhibitor", "[LBL] Velpatasvir: NS5A inhibitor (pan-genotypic)", "[LBL] Ledipasvir: NS5A inhibitor (genotype 1)", "[LBL] Direct inhibition of HCV replication"]},
-      "revolution_note": ["[RCT] HCV DAAs are CURATIVE: 95%+ SVR12 cure rate", "[LBL] 8-12 week oral courses, generally well-tolerated", "[GL] Single biggest infectious disease pharmacotherapy advance в decades"],
-      "indications": {"approved": ["[LBL] All HCV genotypes (Epclusa pan-genotypic)"]},
-      "dosing": {"dose": "Epclusa 1 tablet daily × 12 weeks (most patients)"},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Curative — eliminates chronic Heat-Damp pattern в liver completely; translation: direct viral elimination, permanent cure", "impact": ["Removes chronic disease burden", "T7 Yang-Wood с hepatic involvement returns toward M-0"]},
-        "membrane": {"impact": "Pre-treatment chronic HCV = ongoing M-D drift в hepatic tissue; treatment inflammation reduction; post-cure sustained M-0 recovery; fibrosis regression documented после cure (slow, partial). [RF — see logic_review_flag issue_1: M-S fibrosis may persist despite cure]"},
-        "phase": {"match": "8-12 week treatment, definitive resolution"}
+      "drug_id": "DRG-255",
+      "name_inn": "Sofosbuvir + combinations",
+      "name_ru": "Софосбувир + комбинации",
+      "name_brand": "Epclusa (sofosbuvir/velpatasvir), Harvoni (sofosbuvir/ledipasvir), Vosevi",
+      "status": "METACOD-RF",
+      "batch": "15-Antivirals",
+      "molecular": {
+        "chemical_class": "Direct-acting antivirals (DAA) — multiple targets",
+        "mechanism_primary": [
+          "[LBL] Sofosbuvir: NS5B polymerase inhibitor",
+          "[LBL] Velpatasvir: NS5A inhibitor (pan-genotypic)",
+          "[LBL] Ledipasvir: NS5A inhibitor (genotype 1)",
+          "[LBL] Direct inhibition of HCV replication"
+        ]
       },
-      "safety": {"critical": ["[LBL] Generally very well-tolerated", "[LBL] HBV reactivation warning в HCV/HBV coinfection — screen HBV first", "[LBL] Drug interactions limited but consider amiodarone (bradycardia signal с sofosbuvir)", "[LBL] Pregnancy: Category B-C; generally not recommended"]},
+      "revolution_note": [
+        "[RCT] HCV DAAs are CURATIVE: 95%+ SVR12 cure rate",
+        "[LBL] 8-12 week oral courses, generally well-tolerated",
+        "[GL] Single biggest infectious disease pharmacotherapy advance в decades"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] All HCV genotypes (Epclusa pan-genotypic)"
+        ]
+      },
+      "dosing": {
+        "dose": "Epclusa 1 tablet daily × 12 weeks (most patients)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Curative — eliminates chronic Heat-Damp pattern в liver completely; translation: direct viral elimination, permanent cure",
+          "impact": [
+            "Removes chronic disease burden",
+            "T7 Yang-Wood с hepatic involvement returns toward M-0"
+          ]
+        },
+        "membrane": {
+          "impact": "Pre-treatment chronic HCV = ongoing M-D drift в hepatic tissue; treatment inflammation reduction; post-cure sustained M-0 recovery; fibrosis regression documented после cure (slow, partial). [RF — see logic_review_flag issue_1: M-S fibrosis may persist despite cure]"
+        },
+        "phase": {
+          "match": "8-12 week treatment, definitive resolution"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Generally very well-tolerated",
+          "[LBL] HBV reactivation warning в HCV/HBV coinfection — screen HBV first",
+          "[LBL] Drug interactions limited but consider amiodarone (bradycardia signal с sofosbuvir)",
+          "[LBL] Pregnancy: Category B-C; generally not recommended"
+        ]
+      },
       "kcts_awareness_rf": {
         "_note": "[RF] Источник: пациенты с chronic HCV много лет часто имеют AIRE-trigger markers (stigma + social isolation, treatment-refractory pre-DAA, single carriers, IVDU history с trauma). Источник предлагает 'KCTS resolution приоритет ДО DAA treatment в complex psychosocial cases'.",
         "_governance": "[GOVERNANCE] Это research-гипотеза. HCV DAA — куративная, time-sensitive evidence-based терапия; 'KCTS resolution' НЕ является prerequisite и НЕ должна откладывать DAA. Standard-care primacy. Не операционализировано, не patient-facing."
       },
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "daa_era_transformation": "[OBS-Mark] [DAA era — HCV management transformation?]", "post_cure_surveillance": "[OBS-Mark] [Post-cure surveillance в high-risk?]"},
-      "references": ["FDA label Epclusa", "AASLD HCV Guidelines"],
-      "status_flags": {"mark_validated": false}
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "daa_era_transformation": "[OBS-Mark] [DAA era — HCV management transformation?]",
+        "post_cure_surveillance": "[OBS-Mark] [Post-cure surveillance в high-risk?]"
+      },
+      "references": [
+        "FDA label Epclusa",
+        "AASLD HCV Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     }
   ]
 }

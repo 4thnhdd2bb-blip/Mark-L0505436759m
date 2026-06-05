@@ -1,6 +1,7 @@
 {
   "_meta": {
     "schema": "metacod_rf_drug_db",
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT 2026-06] Любые KCTS/AIRE упоминания в этом файле ПОДЧИНЕНЫ и ВЫТЕСНЕНЫ kcts_integration v1.1 (EBM-reframe, решение Mark): оперативная модель — psychosocial burden + chronic-stress physiology + fluid-retention; Hamer/AIRE психоконфликт-каузальность и 'collecting tubule' анатомия ОТВЕРГНУТЫ как механизм (сохранены лишь как раскрытое происхождение); psychosocial-поддержка СОПУТСТВУЮЩАЯ доказательному лечению, никогда вместо/прежде. Legacy 'AIRE-trigger'/'KCTS-active' читать как EBM psychosocial/chronic-stress markers.",
     "batch_id": "25-Rare-Diseases",
     "version": "RF-2026-06-batch25",
     "status": "METACOD-RF — Research Framework, not clinical guidance",
@@ -17,12 +18,38 @@
     "kcts_governance_note": "[GOVERNANCE] Батч предлагает 'KCTS resolution = integral part of comprehensive rare disease care' и 'diagnostic odyssey = AIRE-trigger accumulation'. Психосоциальная поддержка пациентов/семей с редкими болезнями (peer connection, family/financial counseling, психологическая помощь) — это MAINSTREAM-валидная и важная составляющая помощи. НО специфическая AIRE/KCTS КАУЗАЛЬНАЯ атрибуция — Hamer-derived НЕВАЛИДИРОВАННАЯ гипотеза (см. kcts_integration_v1_0.json). Standard-care primacy: psychosocial/KCTS-компонент НЕ должен задерживать/заменять disease-modifying терапию (Trikafta, Zolgensma, ERT, нусинерсен/рисдиплам, и т.д.). Research-only; не операционализировано; не patient-facing.",
     "framework_extension_note": "[GOVERNANCE/RF] Батч ставит framework-вопросы (НЕ решения): 'post-cure state' (Trikafta/Zolgensma/HCV-DAA/checkpoint меняют M-D trajectory), 'gene therapy = constitutional intervention'. Это открытые вопросы для Mark, помечены [RF] в logic_review; не каноничны до его подтверждения.",
     "rf_framing_note": "[GOVERNANCE] Энергетический overlay (genetic/constitutional foundation, multi-membrane involvement, M-D drift) — RF гипотезы. Фарм-факты ([LBL]/[RCT]) независимы.",
-    "source_tag_legend": {"LBL": "FDA/EMA label", "GL": "Clinical guideline", "RCT": "конкретное trial (VX-445/FIREFISH/STR1VE/TEMPO/etc.)", "CLASS": "class extrapolation", "OBS-Mark": "наблюдение Mark (требует заполнения)", "RF": "research framework (theoretical)"},
+    "source_tag_legend": {
+      "LBL": "FDA/EMA label",
+      "GL": "Clinical guideline",
+      "RCT": "конкретное trial (VX-445/FIREFISH/STR1VE/TEMPO/etc.)",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "наблюдение Mark (требует заполнения)",
+      "RF": "research framework (theoretical)"
+    },
     "class_notes": {
-      "energy_perspective": ["Constitutional/genetic foundation [RF]", "Multi-system / multi-membrane involvement [RF]", "Progressive M-D drift untreated [RF]", "Atypical phase cycling (persistent genetic dysregulation) [RF]"],
+      "energy_perspective": [
+        "Constitutional/genetic foundation [RF]",
+        "Multi-system / multi-membrane involvement [RF]",
+        "Progressive M-D drift untreated [RF]",
+        "Atypical phase cycling (persistent genetic dysregulation) [RF]"
+      ],
       "rare_disease_era": "Curative/transformative interventions emerging: HCV-DAA (batch 15), gene therapy (Zolgensma), CFTR modulators (Trikafta), some checkpoint inhibitors (batch 16). Previously 'fatal/progressive' diseases now manageable/curable.",
-      "specialty_drug_realities": ["REMS programs (multiple)", "Specialty center administration", "Genetic testing pre-treatment", "Intensive long-term monitoring", "Cost $100k-$2M/year (financial toxicity)"],
-      "obs_mark_to_fill": ["CFTR modulator access Israeli pediatric", "HAE management patient access", "Pompe disease ERT approach", "PAH management current therapy", "SMA therapy access", "Gene therapy era practice implications", "KCTS-aware comprehensive rare disease care model [GOVERNANCE: psychosocial mainstream-valid; AIRE-causality research-only]"],
+      "specialty_drug_realities": [
+        "REMS programs (multiple)",
+        "Specialty center administration",
+        "Genetic testing pre-treatment",
+        "Intensive long-term monitoring",
+        "Cost $100k-$2M/year (financial toxicity)"
+      ],
+      "obs_mark_to_fill": [
+        "CFTR modulator access Israeli pediatric",
+        "HAE management patient access",
+        "Pompe disease ERT approach",
+        "PAH management current therapy",
+        "SMA therapy access",
+        "Gene therapy era practice implications",
+        "KCTS-aware comprehensive rare disease care model [GOVERNANCE: psychosocial mainstream-valid; AIRE-causality research-only]"
+      ],
       "logic_review_flags_for_mark": {
         "issue_1_post_cure_state": "[RF] Should framework formally acknowledge 'post-cure' state (constitutional restoration после fundamental intervention)? Q for Mark.",
         "issue_2_gene_therapy_constitutional": "[RF] Zolgensma framed как 'fundamental constitutional intervention' (changes constitutional baseline). Q: acceptable framework claim или refine?",
@@ -32,84 +59,576 @@
     }
   },
   "drugs": [
-    {"drug_id": "DRG-343", "name_inn": "Elexacaftor + Tezacaftor + Ivacaftor", "name_ru": "Элексакафтор + Тезакафтор + Ивакафтор", "name_brand": "Trikafta (US), Kaftrio (EU)", "status": "METACOD-RF", "batch": "25-CF",
-     "molecular": {"chemical_class": "Triple-combination CFTR modulator", "mechanism_primary": ["[LBL] Elexacaftor + Tezacaftor — CFTR correctors (improve protein folding/trafficking)", "[LBL] Ivacaftor — CFTR potentiator (improves channel gating)", "[LBL] Combined — restores CFTR function partially"], "distinct": ["[LBL] Disease-modifying — fundamentally alters CF natural history", "[LBL] Most CF patients eligible (F508del ≥1 allele = ~90% of CF)", "[RCT] Dramatic improvement — FEV1 +14%, exacerbations halved, weight gain (VX-445-102)"]},
-     "indications": {"approved": ["[LBL] Cystic fibrosis с at least one F508del mutation (~90% of CF)", "[LBL] Age ≥6 currently (expanding pediatric)"]},
-     "dosing": {"dose": "2 tablets AM + 1 tablet PM (с fatty food)", "note": ["[LBL] Take with fat-containing food (significantly improves absorption)", "[LBL] Lifelong therapy intended"]},
-     "three_axis_profile": {"constitutional": {"energy": "Restoration of fundamental cellular function в CFTR-affected tissues; translation: partial CFTR protein function restoration", "best_match": ["CF (multi-system: pulmonary, GI, sweat, reproductive)"]}, "membrane": {"impact": "Pre-Trikafta: progressive M-S в lungs/exocrine pancreas; on-Trikafta: halts/reverses progression в many; improvement within 2-4 weeks; long-term outcomes still being learned"}, "phase": {"match": "Chronic; prevents repeated Phase 2 exacerbations; most achieve sustained Phase 5 stability"}},
-     "adverse_events": {"common": ["[LBL] Headache", "[LBL] GI upset (especially initial weeks)", "[LBL] Hepatic enzyme elevation (monitor LFTs)", "[LBL] Rash"], "serious": ["[LBL] Hepatotoxicity — serious (recent FDA warnings)", "[LBL] Cataracts — pediatric concern (lens opacities)", "[LBL] Severe rash rare", "[LBL] Mental health changes signal (depression, suicidal ideation — controversial)"]},
-     "monitoring": ["LFTs baseline + periodic", "Pediatric: ophthalmologic", "Mental health awareness"],
-     "ddi": ["[LBL] CYP3A4 substrate — significant DDI", "[LBL] Strong CYP3A4 inhibitors — dose reduce significantly", "[LBL] Strong CYP3A4 inducers — avoid (loss of efficacy)"],
-     "kcts_awareness": "[RF] CF = lifelong chronic disease с multiple AIRE features (treatment burden, infection-precaution isolation, life transitions). [GOVERNANCE: psychosocial support valuable; AIRE-causality research-only; Trikafta benefit RCT-established independently.]",
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "cftr_practice": "[OBS-Mark] [Trikafta access в Israel — pediatric outcomes?]"},
-     "references": ["FDA label Trikafta", "VX-445-102 trial"], "status_flags": {"mark_validated": false, "priority_for_mark_review": "HIGH (paradigm-shifting orphan drug)"}},
-    {"drug_id": "DRG-344", "name_inn": "Ivacaftor", "name_ru": "Ивакафтор", "name_brand": "Kalydeco", "status": "METACOD-RF", "batch": "25-CF",
-     "molecular": {"chemical_class": "CFTR potentiator (single agent)", "mechanism_primary": ["[LBL] Improves CFTR channel gating only — not folding correction"], "distinct": ["[LBL] First-approved CFTR modulator (2012)", "[LBL] Monotherapy для G551D and other 'gating' mutations", "[LBL] Historic significance — first targeted CF therapy"]},
-     "indications": {"approved": ["[LBL] Specific gating mutations (G551D, etc.) — small population"]},
-     "dosing": {"dose": "150 mg BID с fatty food"},
-     "note": "Limited current use — most patients eligible для Trikafta. Ivacaftor monotherapy для specific mutations only.",
-     "three_axis_profile": {"constitutional": {"energy": "CFTR gating potentiation (single mechanism)", "best_match": ["CF gating mutations"]}, "membrane": {"impact": "Slows progression в eligible mutations"}, "phase": {"match": "Chronic"}},
-     "safety": {"note": ["[LBL] Hepatic enzyme elevation (monitor LFTs)", "[LBL] CYP3A4 substrate"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "cftr_history": "[OBS-Mark] [CFTR modulator historical perspective?]"},
-     "references": ["FDA label Kalydeco"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-345", "name_inn": "Icatibant", "name_ru": "Икатибант", "name_brand": "Firazyr", "status": "METACOD-RF", "batch": "25-HAE",
-     "molecular": {"chemical_class": "Bradykinin B2 receptor antagonist", "mechanism_primary": ["[LBL] Selective B2 receptor antagonism → blocks bradykinin-mediated vascular permeability"], "half_life": "1-2 hours"},
-     "indications": {"approved": ["[LBL] Acute HAE attacks (subcutaneous self-administration)", "[LBL] Adult HAE primarily"]},
-     "dosing": {"dose": "30 mg SC at attack onset, may repeat q6h (max 3 doses/24h)", "note": ["[LBL] Patient self-administration — critical для unpredictable attacks", "[LBL] Auto-injectors available"]},
-     "distinct_clinical": ["[LBL] Quick relief vs hours of waiting historically", "[LBL] Self-administration = autonomy restoration", "[LBL] No allergic reactions (synthetic peptide)", "[LBL] Stable storage (room temperature)", "[LBL] Expensive (~$8000-12,000/syringe)"],
-     "three_axis_profile": {"constitutional": {"energy": "Acute Wind suppression (vascular permeability); translation: selective B2 antagonism", "best_match": ["Acute HAE attack"]}, "membrane": {"impact": "Acute use only — minimal direct membrane effect"}, "phase": {"match": "Acute Phase 1/2 attack; prevents progression к Phase 3 emergency (laryngeal obstruction)"}},
-     "safety": {"note": ["[LBL] Injection site reactions — most common (mild)", "[LBL] Itching, erythema at site", "[LBL] Generally very well tolerated", "[LBL] Pregnancy: limited data"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "hae_access": "[OBS-Mark] [HAE management в Israel — patient access?]"},
-     "references": ["FDA label Firazyr"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-346", "name_inn": "Alglucosidase alfa / Avalglucosidase alfa", "name_ru": "Алглюкозидаза альфа / Авалглюкозидаза альфа", "name_brand": "Myozyme/Lumizyme (alglucosidase), Nexviazyme (avalglucosidase, 2021)", "status": "METACOD-RF", "batch": "25-LSD",
-     "molecular": {"chemical_class": "Recombinant acid α-glucosidase (GAA enzyme replacement)", "mechanism_primary": ["[LBL] Replaces deficient GAA enzyme → reduces glycogen accumulation в muscle, heart, other tissues"]},
-     "indications": {"approved": ["[LBL] Pompe disease (glycogen storage disease type II) — infantile-onset и late-onset"]},
-     "dosing": {"dose": "20 mg/kg IV q2 weeks (life-long)"},
-     "distinct_clinical": ["[LBL] Avalglucosidase (newer 2021) — improved muscle targeting", "[LBL] Infusion reactions — premedication often required", "[LBL] Antibody development — neutralizing antibodies в some reduce efficacy", "[LBL] Expensive ($300,000-500,000/year)"],
-     "three_axis_profile": {"constitutional": {"energy": "Enzyme replacement (genetic deficiency)", "best_match": ["Pompe disease"]}, "membrane": {"impact": "Reduces glycogen-driven M-S in muscle/heart"}, "phase": {"match": "Chronic / lifelong"}},
-     "safety": {"critical": ["[LBL] Infusion-related reactions (premedicate steroids + antihistamine)", "[LBL] Anaphylaxis — rare but reported", "[LBL] Antibody development monitoring"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "pompe_ert": "[OBS-Mark] [Pompe disease management — ERT approach?]"},
-     "references": ["FDA labels Myozyme, Nexviazyme"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-347", "name_inn": "Eliglustat", "name_ru": "Элиглустат", "name_brand": "Cerdelga", "status": "METACOD-RF", "batch": "25-LSD",
-     "molecular": {"chemical_class": "Oral substrate reduction therapy (glucosylceramide synthase inhibitor)", "mechanism_primary": ["[LBL] Reduces substrate accumulation rather than replacing enzyme"], "distinct": ["[LBL] Oral therapy (vs IV ERT) — significant patient impact", "[LBL] First-line Gaucher type 1 (selected patients)", "[LBL] CYP2D6 PGx — phenotype-based dosing"]},
-     "indications": {"approved": ["[LBL] Gaucher disease type 1 (specific CYP2D6 phenotypes)"]},
-     "dosing": {"dose": "PGx-based — 84 mg BID (CYP2D6 EM/IM) или 84 mg OD (PM)"},
-     "three_axis_profile": {"constitutional": {"energy": "Substrate reduction (Damp accumulation reduction [RF])", "best_match": ["Gaucher type 1, CYP2D6-eligible"]}, "membrane": {"impact": "Reduces storage-driven M-S"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] CYP2D6 PGx critical", "[LBL] QT prolongation (monitor)", "[LBL] DDI с CYP2D6 inhibitors/inducers"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "oral_srt": "[OBS-Mark] [Oral SRT в Gaucher — patient preferences?]"},
-     "references": ["FDA label Cerdelga"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-348", "name_inn": "Bosentan", "name_ru": "Бозентан", "name_brand": "Tracleer", "status": "METACOD-RF", "batch": "25-PAH",
-     "molecular": {"chemical_class": "Endothelin receptor antagonist (ETA + ETB)", "mechanism_primary": ["[LBL] Blocks endothelin-1 mediated vasoconstriction + proliferation"]},
-     "indications": {"approved": ["[LBL] Pulmonary arterial hypertension (PAH, WHO Group 1)", "[LBL] Digital ulcer prevention в systemic sclerosis"]},
-     "dosing": {"dose": "62.5-125 mg BID (titration over weeks)"},
-     "three_axis_profile": {"constitutional": {"energy": "Pulmonary vascular modulation (anti-vasoconstriction)", "best_match": ["PAH WHO Group 1"]}, "membrane": {"impact": "Anti-proliferative on pulmonary vasculature"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Hepatotoxicity — monthly LFT monitoring required (REMS)", "[LBL] Teratogenicity — REMS с contraception requirement", "[LBL] Anemia signal", "[LBL] Edema, fluid retention", "[LBL] CYP3A4/2C9 substrate — extensive DDI"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "pah_therapy": "[OBS-Mark] [PAH management — bosentan place in current therapy?]"},
-     "references": ["FDA label Tracleer"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-349", "name_inn": "Risdiplam", "name_ru": "Рисдиплам", "name_brand": "Evrysdi", "status": "METACOD-RF", "batch": "25-SMA",
-     "molecular": {"chemical_class": "Oral SMN2 splicing modifier", "mechanism_primary": ["[LBL] Modifies SMN2 gene splicing → increased SMN protein production", "[LBL] Oral administration (vs intrathecal nusinersen)", "[LBL] All SMA types (1-4 — broader than gene therapy в most cases)"], "distinct": ["[LBL] Oral — eliminates intrathecal injection burden", "[LBL] All age groups including very young infants", "[LBL] All SMA types vs age/severity restrictions of other therapies", "[LBL] Daily liquid administration"]},
-     "indications": {"approved": ["[LBL] Spinal muscular atrophy (all types)"]},
-     "dosing": {"dose": "Weight-based daily oral liquid", "note": ["[LBL] Pediatric dosing complex"]},
-     "comparison_zolgensma": ["Risdiplam: lifelong daily therapy, multiple SMA types", "Zolgensma: single IV dose, typically infants <2 years", "Both transform what was uniformly fatal disease"],
-     "three_axis_profile": {"constitutional": {"energy": "SMN protein restoration (motor neuron support)", "best_match": ["SMA all types/ages"]}, "membrane": {"impact": "Slows motor neuron M-D drift"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Hepatotoxicity monitoring", "[LBL] Embryo-fetal toxicity — contraception required", "[LBL] Generally well-tolerated otherwise"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "sma_access": "[OBS-Mark] [SMA therapy access в Israel?]"},
-     "references": ["FDA label Evrysdi", "FIREFISH trial"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-350", "name_inn": "Onasemnogene abeparvovec", "name_ru": "Онасемноген абепарвовек", "name_brand": "Zolgensma", "status": "METACOD-RF", "batch": "25-Gene-Therapy",
-     "molecular": {"chemical_class": "AAV9-based gene therapy (SMN1 gene replacement)", "mechanism_primary": ["[LBL] One-time IV infusion delivers functional SMN1 gene via AAV9 vector → restored SMN protein production"], "distinct": ["[LBL] Single-dose treatment — paradigm shift", "[LBL] $2.1 million single dose — most expensive drug ever approved", "[LBL] Most effective when given before symptom onset (newborn screening)", "[LBL] Long-term outcomes still accumulating"]},
-     "indications": {"approved": ["[LBL] SMA в pediatric patients <2 years с biallelic SMN1 mutations"]},
-     "dosing": {"dose": "One-time IV infusion, weight-based (1.1 × 10^14 vector genomes/kg)"},
-     "three_axis_profile": {"constitutional": {"energy": "Genetic restoration — fundamental constitutional intervention [RF]; translation: functional gene delivery via viral vector", "best_match": ["Infantile SMA <2 years"], "framework_note": "[RF] one of первых truly curative gene therapies в clinical use — framework-extension question (see _meta.framework_extension_note)"}, "membrane": {"impact": "Pre-treatment: progressive motor neuron M-D drift; post-treatment: halts/dramatically slows progression в most; long-term cellular consequences still studied"}, "phase": {"match": "Single intervention с lifelong effect — different paradigm от chronic medication"}},
-     "safety": {"critical": ["[LBL] Hepatotoxicity — significant, acute (peak weeks 1-4)", "[LBL] Prednisolone pre/post — steroid course mandatory", "[LBL] Thrombotic microangiopathy rare but serious", "[LBL] Cardiac monitoring — troponin elevations reported", "[LBL] Specialty center administration only"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "gene_therapy_era": "[OBS-Mark] [Gene therapy era — practice implications?]"},
-     "references": ["FDA label Zolgensma", "STR1VE, SPR1NT trials"], "status_flags": {"mark_validated": false, "priority_for_mark_review": "HIGH (paradigm-shifting therapy class)"}},
-    {"drug_id": "DRG-351", "name_inn": "Ataluren", "name_ru": "Аталурен", "name_brand": "Translarna (EU)", "status": "METACOD-RF", "batch": "25-DMD",
-     "molecular": {"chemical_class": "Stop codon readthrough small molecule", "mechanism_primary": ["[LBL] Promotes readthrough of premature stop codons (nonsense mutations)"]},
-     "indications": {"approved": ["[LBL] DMD с nonsense mutations (~10-15% of DMD)"]},
-     "note": ["[LBL] EU approved (2014), NOT FDA approved (US — efficacy data debated)", "Significant ongoing debate re efficacy", "Multiple other DMD drugs emerging (exon-skipping eteplirsen, etc.)"],
-     "three_axis_profile": {"constitutional": {"energy": "Nonsense-mutation readthrough (partial dystrophin restoration)", "best_match": ["DMD nonsense mutations"]}, "membrane": {"impact": "Aims to slow muscle M-D drift (efficacy debated)"}, "phase": {"match": "Chronic"}},
-     "safety": {"note": ["[LBL] Generally tolerated; efficacy is the principal controversy"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "dmd_landscape": "[OBS-Mark] [DMD therapy landscape evolution?]"},
-     "references": ["EMA label Translarna"], "status_flags": {"mark_validated": false, "note": "EU-approved, not FDA; efficacy debated"}}
+    {
+      "drug_id": "DRG-343",
+      "name_inn": "Elexacaftor + Tezacaftor + Ivacaftor",
+      "name_ru": "Элексакафтор + Тезакафтор + Ивакафтор",
+      "name_brand": "Trikafta (US), Kaftrio (EU)",
+      "status": "METACOD-RF",
+      "batch": "25-CF",
+      "molecular": {
+        "chemical_class": "Triple-combination CFTR modulator",
+        "mechanism_primary": [
+          "[LBL] Elexacaftor + Tezacaftor — CFTR correctors (improve protein folding/trafficking)",
+          "[LBL] Ivacaftor — CFTR potentiator (improves channel gating)",
+          "[LBL] Combined — restores CFTR function partially"
+        ],
+        "distinct": [
+          "[LBL] Disease-modifying — fundamentally alters CF natural history",
+          "[LBL] Most CF patients eligible (F508del ≥1 allele = ~90% of CF)",
+          "[RCT] Dramatic improvement — FEV1 +14%, exacerbations halved, weight gain (VX-445-102)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Cystic fibrosis с at least one F508del mutation (~90% of CF)",
+          "[LBL] Age ≥6 currently (expanding pediatric)"
+        ]
+      },
+      "dosing": {
+        "dose": "2 tablets AM + 1 tablet PM (с fatty food)",
+        "note": [
+          "[LBL] Take with fat-containing food (significantly improves absorption)",
+          "[LBL] Lifelong therapy intended"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Restoration of fundamental cellular function в CFTR-affected tissues; translation: partial CFTR protein function restoration",
+          "best_match": [
+            "CF (multi-system: pulmonary, GI, sweat, reproductive)"
+          ]
+        },
+        "membrane": {
+          "impact": "Pre-Trikafta: progressive M-S в lungs/exocrine pancreas; on-Trikafta: halts/reverses progression в many; improvement within 2-4 weeks; long-term outcomes still being learned"
+        },
+        "phase": {
+          "match": "Chronic; prevents repeated Phase 2 exacerbations; most achieve sustained Phase 5 stability"
+        }
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Headache",
+          "[LBL] GI upset (especially initial weeks)",
+          "[LBL] Hepatic enzyme elevation (monitor LFTs)",
+          "[LBL] Rash"
+        ],
+        "serious": [
+          "[LBL] Hepatotoxicity — serious (recent FDA warnings)",
+          "[LBL] Cataracts — pediatric concern (lens opacities)",
+          "[LBL] Severe rash rare",
+          "[LBL] Mental health changes signal (depression, suicidal ideation — controversial)"
+        ]
+      },
+      "monitoring": [
+        "LFTs baseline + periodic",
+        "Pediatric: ophthalmologic",
+        "Mental health awareness"
+      ],
+      "ddi": [
+        "[LBL] CYP3A4 substrate — significant DDI",
+        "[LBL] Strong CYP3A4 inhibitors — dose reduce significantly",
+        "[LBL] Strong CYP3A4 inducers — avoid (loss of efficacy)"
+      ],
+      "kcts_awareness": "[RF] CF = lifelong chronic disease с multiple AIRE features (treatment burden, infection-precaution isolation, life transitions). [GOVERNANCE: psychosocial support valuable; AIRE-causality research-only; Trikafta benefit RCT-established independently.]",
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "cftr_practice": "[OBS-Mark] [Trikafta access в Israel — pediatric outcomes?]"
+      },
+      "references": [
+        "FDA label Trikafta",
+        "VX-445-102 trial"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "priority_for_mark_review": "HIGH (paradigm-shifting orphan drug)"
+      }
+    },
+    {
+      "drug_id": "DRG-344",
+      "name_inn": "Ivacaftor",
+      "name_ru": "Ивакафтор",
+      "name_brand": "Kalydeco",
+      "status": "METACOD-RF",
+      "batch": "25-CF",
+      "molecular": {
+        "chemical_class": "CFTR potentiator (single agent)",
+        "mechanism_primary": [
+          "[LBL] Improves CFTR channel gating only — not folding correction"
+        ],
+        "distinct": [
+          "[LBL] First-approved CFTR modulator (2012)",
+          "[LBL] Monotherapy для G551D and other 'gating' mutations",
+          "[LBL] Historic significance — first targeted CF therapy"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Specific gating mutations (G551D, etc.) — small population"
+        ]
+      },
+      "dosing": {
+        "dose": "150 mg BID с fatty food"
+      },
+      "note": "Limited current use — most patients eligible для Trikafta. Ivacaftor monotherapy для specific mutations only.",
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "CFTR gating potentiation (single mechanism)",
+          "best_match": [
+            "CF gating mutations"
+          ]
+        },
+        "membrane": {
+          "impact": "Slows progression в eligible mutations"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Hepatic enzyme elevation (monitor LFTs)",
+          "[LBL] CYP3A4 substrate"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "cftr_history": "[OBS-Mark] [CFTR modulator historical perspective?]"
+      },
+      "references": [
+        "FDA label Kalydeco"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-345",
+      "name_inn": "Icatibant",
+      "name_ru": "Икатибант",
+      "name_brand": "Firazyr",
+      "status": "METACOD-RF",
+      "batch": "25-HAE",
+      "molecular": {
+        "chemical_class": "Bradykinin B2 receptor antagonist",
+        "mechanism_primary": [
+          "[LBL] Selective B2 receptor antagonism → blocks bradykinin-mediated vascular permeability"
+        ],
+        "half_life": "1-2 hours"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acute HAE attacks (subcutaneous self-administration)",
+          "[LBL] Adult HAE primarily"
+        ]
+      },
+      "dosing": {
+        "dose": "30 mg SC at attack onset, may repeat q6h (max 3 doses/24h)",
+        "note": [
+          "[LBL] Patient self-administration — critical для unpredictable attacks",
+          "[LBL] Auto-injectors available"
+        ]
+      },
+      "distinct_clinical": [
+        "[LBL] Quick relief vs hours of waiting historically",
+        "[LBL] Self-administration = autonomy restoration",
+        "[LBL] No allergic reactions (synthetic peptide)",
+        "[LBL] Stable storage (room temperature)",
+        "[LBL] Expensive (~$8000-12,000/syringe)"
+      ],
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute Wind suppression (vascular permeability); translation: selective B2 antagonism",
+          "best_match": [
+            "Acute HAE attack"
+          ]
+        },
+        "membrane": {
+          "impact": "Acute use only — minimal direct membrane effect"
+        },
+        "phase": {
+          "match": "Acute Phase 1/2 attack; prevents progression к Phase 3 emergency (laryngeal obstruction)"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Injection site reactions — most common (mild)",
+          "[LBL] Itching, erythema at site",
+          "[LBL] Generally very well tolerated",
+          "[LBL] Pregnancy: limited data"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "hae_access": "[OBS-Mark] [HAE management в Israel — patient access?]"
+      },
+      "references": [
+        "FDA label Firazyr"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-346",
+      "name_inn": "Alglucosidase alfa / Avalglucosidase alfa",
+      "name_ru": "Алглюкозидаза альфа / Авалглюкозидаза альфа",
+      "name_brand": "Myozyme/Lumizyme (alglucosidase), Nexviazyme (avalglucosidase, 2021)",
+      "status": "METACOD-RF",
+      "batch": "25-LSD",
+      "molecular": {
+        "chemical_class": "Recombinant acid α-glucosidase (GAA enzyme replacement)",
+        "mechanism_primary": [
+          "[LBL] Replaces deficient GAA enzyme → reduces glycogen accumulation в muscle, heart, other tissues"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Pompe disease (glycogen storage disease type II) — infantile-onset и late-onset"
+        ]
+      },
+      "dosing": {
+        "dose": "20 mg/kg IV q2 weeks (life-long)"
+      },
+      "distinct_clinical": [
+        "[LBL] Avalglucosidase (newer 2021) — improved muscle targeting",
+        "[LBL] Infusion reactions — premedication often required",
+        "[LBL] Antibody development — neutralizing antibodies в some reduce efficacy",
+        "[LBL] Expensive ($300,000-500,000/year)"
+      ],
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Enzyme replacement (genetic deficiency)",
+          "best_match": [
+            "Pompe disease"
+          ]
+        },
+        "membrane": {
+          "impact": "Reduces glycogen-driven M-S in muscle/heart"
+        },
+        "phase": {
+          "match": "Chronic / lifelong"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Infusion-related reactions (premedicate steroids + antihistamine)",
+          "[LBL] Anaphylaxis — rare but reported",
+          "[LBL] Antibody development monitoring"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "pompe_ert": "[OBS-Mark] [Pompe disease management — ERT approach?]"
+      },
+      "references": [
+        "FDA labels Myozyme, Nexviazyme"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-347",
+      "name_inn": "Eliglustat",
+      "name_ru": "Элиглустат",
+      "name_brand": "Cerdelga",
+      "status": "METACOD-RF",
+      "batch": "25-LSD",
+      "molecular": {
+        "chemical_class": "Oral substrate reduction therapy (glucosylceramide synthase inhibitor)",
+        "mechanism_primary": [
+          "[LBL] Reduces substrate accumulation rather than replacing enzyme"
+        ],
+        "distinct": [
+          "[LBL] Oral therapy (vs IV ERT) — significant patient impact",
+          "[LBL] First-line Gaucher type 1 (selected patients)",
+          "[LBL] CYP2D6 PGx — phenotype-based dosing"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Gaucher disease type 1 (specific CYP2D6 phenotypes)"
+        ]
+      },
+      "dosing": {
+        "dose": "PGx-based — 84 mg BID (CYP2D6 EM/IM) или 84 mg OD (PM)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Substrate reduction (Damp accumulation reduction [RF])",
+          "best_match": [
+            "Gaucher type 1, CYP2D6-eligible"
+          ]
+        },
+        "membrane": {
+          "impact": "Reduces storage-driven M-S"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] CYP2D6 PGx critical",
+          "[LBL] QT prolongation (monitor)",
+          "[LBL] DDI с CYP2D6 inhibitors/inducers"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "oral_srt": "[OBS-Mark] [Oral SRT в Gaucher — patient preferences?]"
+      },
+      "references": [
+        "FDA label Cerdelga"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-348",
+      "name_inn": "Bosentan",
+      "name_ru": "Бозентан",
+      "name_brand": "Tracleer",
+      "status": "METACOD-RF",
+      "batch": "25-PAH",
+      "molecular": {
+        "chemical_class": "Endothelin receptor antagonist (ETA + ETB)",
+        "mechanism_primary": [
+          "[LBL] Blocks endothelin-1 mediated vasoconstriction + proliferation"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Pulmonary arterial hypertension (PAH, WHO Group 1)",
+          "[LBL] Digital ulcer prevention в systemic sclerosis"
+        ]
+      },
+      "dosing": {
+        "dose": "62.5-125 mg BID (titration over weeks)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Pulmonary vascular modulation (anti-vasoconstriction)",
+          "best_match": [
+            "PAH WHO Group 1"
+          ]
+        },
+        "membrane": {
+          "impact": "Anti-proliferative on pulmonary vasculature"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hepatotoxicity — monthly LFT monitoring required (REMS)",
+          "[LBL] Teratogenicity — REMS с contraception requirement",
+          "[LBL] Anemia signal",
+          "[LBL] Edema, fluid retention",
+          "[LBL] CYP3A4/2C9 substrate — extensive DDI"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "pah_therapy": "[OBS-Mark] [PAH management — bosentan place in current therapy?]"
+      },
+      "references": [
+        "FDA label Tracleer"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-349",
+      "name_inn": "Risdiplam",
+      "name_ru": "Рисдиплам",
+      "name_brand": "Evrysdi",
+      "status": "METACOD-RF",
+      "batch": "25-SMA",
+      "molecular": {
+        "chemical_class": "Oral SMN2 splicing modifier",
+        "mechanism_primary": [
+          "[LBL] Modifies SMN2 gene splicing → increased SMN protein production",
+          "[LBL] Oral administration (vs intrathecal nusinersen)",
+          "[LBL] All SMA types (1-4 — broader than gene therapy в most cases)"
+        ],
+        "distinct": [
+          "[LBL] Oral — eliminates intrathecal injection burden",
+          "[LBL] All age groups including very young infants",
+          "[LBL] All SMA types vs age/severity restrictions of other therapies",
+          "[LBL] Daily liquid administration"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Spinal muscular atrophy (all types)"
+        ]
+      },
+      "dosing": {
+        "dose": "Weight-based daily oral liquid",
+        "note": [
+          "[LBL] Pediatric dosing complex"
+        ]
+      },
+      "comparison_zolgensma": [
+        "Risdiplam: lifelong daily therapy, multiple SMA types",
+        "Zolgensma: single IV dose, typically infants <2 years",
+        "Both transform what was uniformly fatal disease"
+      ],
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "SMN protein restoration (motor neuron support)",
+          "best_match": [
+            "SMA all types/ages"
+          ]
+        },
+        "membrane": {
+          "impact": "Slows motor neuron M-D drift"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hepatotoxicity monitoring",
+          "[LBL] Embryo-fetal toxicity — contraception required",
+          "[LBL] Generally well-tolerated otherwise"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "sma_access": "[OBS-Mark] [SMA therapy access в Israel?]"
+      },
+      "references": [
+        "FDA label Evrysdi",
+        "FIREFISH trial"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-350",
+      "name_inn": "Onasemnogene abeparvovec",
+      "name_ru": "Онасемноген абепарвовек",
+      "name_brand": "Zolgensma",
+      "status": "METACOD-RF",
+      "batch": "25-Gene-Therapy",
+      "molecular": {
+        "chemical_class": "AAV9-based gene therapy (SMN1 gene replacement)",
+        "mechanism_primary": [
+          "[LBL] One-time IV infusion delivers functional SMN1 gene via AAV9 vector → restored SMN protein production"
+        ],
+        "distinct": [
+          "[LBL] Single-dose treatment — paradigm shift",
+          "[LBL] $2.1 million single dose — most expensive drug ever approved",
+          "[LBL] Most effective when given before symptom onset (newborn screening)",
+          "[LBL] Long-term outcomes still accumulating"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] SMA в pediatric patients <2 years с biallelic SMN1 mutations"
+        ]
+      },
+      "dosing": {
+        "dose": "One-time IV infusion, weight-based (1.1 × 10^14 vector genomes/kg)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Genetic restoration — fundamental constitutional intervention [RF]; translation: functional gene delivery via viral vector",
+          "best_match": [
+            "Infantile SMA <2 years"
+          ],
+          "framework_note": "[RF] one of первых truly curative gene therapies в clinical use — framework-extension question (see _meta.framework_extension_note)"
+        },
+        "membrane": {
+          "impact": "Pre-treatment: progressive motor neuron M-D drift; post-treatment: halts/dramatically slows progression в most; long-term cellular consequences still studied"
+        },
+        "phase": {
+          "match": "Single intervention с lifelong effect — different paradigm от chronic medication"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hepatotoxicity — significant, acute (peak weeks 1-4)",
+          "[LBL] Prednisolone pre/post — steroid course mandatory",
+          "[LBL] Thrombotic microangiopathy rare but serious",
+          "[LBL] Cardiac monitoring — troponin elevations reported",
+          "[LBL] Specialty center administration only"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "gene_therapy_era": "[OBS-Mark] [Gene therapy era — practice implications?]"
+      },
+      "references": [
+        "FDA label Zolgensma",
+        "STR1VE, SPR1NT trials"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "priority_for_mark_review": "HIGH (paradigm-shifting therapy class)"
+      }
+    },
+    {
+      "drug_id": "DRG-351",
+      "name_inn": "Ataluren",
+      "name_ru": "Аталурен",
+      "name_brand": "Translarna (EU)",
+      "status": "METACOD-RF",
+      "batch": "25-DMD",
+      "molecular": {
+        "chemical_class": "Stop codon readthrough small molecule",
+        "mechanism_primary": [
+          "[LBL] Promotes readthrough of premature stop codons (nonsense mutations)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] DMD с nonsense mutations (~10-15% of DMD)"
+        ]
+      },
+      "note": [
+        "[LBL] EU approved (2014), NOT FDA approved (US — efficacy data debated)",
+        "Significant ongoing debate re efficacy",
+        "Multiple other DMD drugs emerging (exon-skipping eteplirsen, etc.)"
+      ],
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Nonsense-mutation readthrough (partial dystrophin restoration)",
+          "best_match": [
+            "DMD nonsense mutations"
+          ]
+        },
+        "membrane": {
+          "impact": "Aims to slow muscle M-D drift (efficacy debated)"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Generally tolerated; efficacy is the principal controversy"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "dmd_landscape": "[OBS-Mark] [DMD therapy landscape evolution?]"
+      },
+      "references": [
+        "EMA label Translarna"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "EU-approved, not FDA; efficacy debated"
+      }
+    }
   ]
 }

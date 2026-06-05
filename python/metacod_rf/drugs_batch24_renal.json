@@ -1,6 +1,7 @@
 {
   "_meta": {
     "schema": "metacod_rf_drug_db",
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT 2026-06] Любые KCTS/AIRE упоминания в этом файле ПОДЧИНЕНЫ и ВЫТЕСНЕНЫ kcts_integration v1.1 (EBM-reframe, решение Mark): оперативная модель — psychosocial burden + chronic-stress physiology + fluid-retention; Hamer/AIRE психоконфликт-каузальность и 'collecting tubule' анатомия ОТВЕРГНУТЫ как механизм (сохранены лишь как раскрытое происхождение); psychosocial-поддержка СОПУТСТВУЮЩАЯ доказательному лечению, никогда вместо/прежде. Legacy 'AIRE-trigger'/'KCTS-active' читать как EBM psychosocial/chronic-stress markers.",
     "batch_id": "24-Renal",
     "version": "RF-2026-06-batch24",
     "status": "METACOD-RF — Research Framework, not clinical guidance",
@@ -16,11 +17,29 @@
     "id_range_note": "DRG-336..342. Batch 23 pediatric закончилась на 335.",
     "kcts_ckd_governance_note": "[GOVERNANCE — CRITICAL] Этот батч содержит САМОЕ СИЛЬНОЕ operationalization-утверждение KCTS на сегодня: 'CKD = textbook KCTS-active population', 'Module 05: AIRE-конфликты affect literal kidney collecting tubules', и 'AIRE-screening должно быть standard part of CKD management; current practice ignores это; could significantly improve outcomes'. СТАТУС ЭТИХ УТВЕРЖДЕНИЙ: НЕВАЛИДИРОВАННАЯ Hamer-derived ГИПОТЕЗА (см. kcts_integration_v1_0.json). (1) Standard-care primacy: AIRE/KCTS-скрининг НЕ должен задерживать/заменять доказательную нефрологию (контроль фосфатов, лечение анемии, MRA, диализ/трансплантация по показаниям). (2) 'Current practice ignores it' — это RF-ассерция, НЕ доказательная критика нефрологии; отсутствие AIRE-скрининга в KDIGO отражает отсутствие валидации, а не упущение. (3) 'kidney collecting tubule' анатомическая привязка — Hamer-конструкт, не established renal physiology. (4) Легитимная фармакология ([LBL]/[GL]) валидна НЕЗАВИСИМО от KCTS-overlay. Research-only; не операционализировано; не patient-facing.",
     "rf_framing_note": "[GOVERNANCE] 'Kidney = Water-Cold axis', 'stores Yang/Jing essence', 'CKD = M-D drift + Yang depletion' — RF/TCM гипотезы. Фарм-факты независимы.",
-    "source_tag_legend": {"LBL": "FDA/EMA label", "GL": "Clinical guideline (KDIGO)", "RCT": "конкретное RCT (FIDELIO/FIGARO/TEMPO)", "CLASS": "class extrapolation", "OBS-Mark": "наблюдение Mark (требует заполнения)", "RF": "research framework (theoretical)"},
+    "source_tag_legend": {
+      "LBL": "FDA/EMA label",
+      "GL": "Clinical guideline (KDIGO)",
+      "RCT": "конкретное RCT (FIDELIO/FIGARO/TEMPO)",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "наблюдение Mark (требует заполнения)",
+      "RF": "research framework (theoretical)"
+    },
     "class_notes": {
-      "energy_perspective": ["Kidney = Water-Cold axis [RF/TCM]", "Stores Yang reserve / source of Jing essence [RF/TCM]", "CKD progression = M-D drift в renal tissue + multi-system Yang depletion [RF]"],
+      "energy_perspective": [
+        "Kidney = Water-Cold axis [RF/TCM]",
+        "Stores Yang reserve / source of Jing essence [RF/TCM]",
+        "CKD progression = M-D drift в renal tissue + multi-system Yang depletion [RF]"
+      ],
       "ckd_dosing": "[GL] Many drugs need eGFR-based adjustment в CKD; accumulation risk increased; monitoring more intensive; multiple drug-drug-disease interactions universal.",
-      "obs_mark_to_fill": ["Phosphate binder selection в CKD-MBD", "CKD anemia Hb target practice", "Secondary HPT management approach", "Finerenone uptake в DM2+CKD", "AIRE-screening в CKD — practical approach [GOVERNANCE: research-only]", "Module 05 CKD-KCTS link — clinical examples"],
+      "obs_mark_to_fill": [
+        "Phosphate binder selection в CKD-MBD",
+        "CKD anemia Hb target practice",
+        "Secondary HPT management approach",
+        "Finerenone uptake в DM2+CKD",
+        "AIRE-screening в CKD — practical approach [GOVERNANCE: research-only]",
+        "Module 05 CKD-KCTS link — clinical examples"
+      ],
       "logic_review_flags_for_mark": {
         "issue_1_ckd_textbook_kcts": "[RF] CKD framed как 'textbook KCTS-active population' (Module 05 literal kidney-collecting-tubule link). Q: confirm Module 05 canonical connection? [GOVERNANCE: unvalidated hypothesis; standard-care primacy enforced.]",
         "issue_2_practice_ignores_aire": "[RF] Claim что standard CKD practice ignores AIRE/KCTS 'could change practice significantly'. Q: confirmed observation или overstatement? [GOVERNANCE: RF-assertion, не доказательная критика нефрологии.]",
@@ -29,65 +48,446 @@
     }
   },
   "drugs": [
-    {"drug_id": "DRG-336", "name_inn": "Sevelamer carbonate / hydrochloride", "name_ru": "Севеламер", "name_brand": "Renvela (carbonate), Renagel (HCl)", "status": "METACOD-RF", "batch": "24-Phosphate-Binders",
-     "molecular": {"chemical_class": "Non-absorbed polymer phosphate binder", "mechanism_primary": ["[LBL] Binds phosphate в gut → reduced systemic absorption", "[LBL] Also reduces LDL cholesterol (bile acid binding-like effect)", "[LBL] Non-calcium based — no calcium load (advantage)"], "metabolism": "not absorbed — excreted с feces"},
-     "indications": {"approved": ["[LBL] Hyperphosphatemia в CKD (dialysis-dependent и pre-dialysis)", "[GL] Often с calcium-based binders в combination"]},
-     "dosing": {"dose": "800-3200 mg with each meal (titrated к phosphate level)", "note": ["[LBL] Take with meals (binds dietary phosphate)", "[LBL] Pill burden significant — adherence challenge"]},
-     "three_axis_profile": {"constitutional": {"energy": "Mineral homeostasis support; translation: non-absorbed phosphate chelation", "best_match": ["CKD patients (Water-Cold axis disturbance [RF])"]}, "membrane": {"impact": "Chronic; reduces vascular calcification trajectory; M-D drift в CKD partially attenuated by phosphate control"}, "phase": {"match": "Chronic / lifelong"}},
-     "safety": {"critical": ["[LBL] GI side effects common (constipation, diarrhea, dyspepsia)", "[LBL] Vitamin absorption reduction — fat-soluble (ADEK)", "[LBL] Multiple pills с each meal — adherence burden", "[LBL] No significant systemic toxicity (not absorbed)", "[LBL] Metabolic acidosis signal — sevelamer HCl (carbonate form preferred)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "pill_burden": "[OBS-Mark] [phosphate binder adherence strategies?]"},
-     "references": ["FDA label Renvela", "KDIGO CKD-MBD Guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-337", "name_inn": "Lanthanum carbonate", "name_ru": "Лантана карбонат", "name_brand": "Fosrenol", "status": "METACOD-RF", "batch": "24-Phosphate-Binders",
-     "molecular": {"chemical_class": "Metal-based phosphate binder"},
-     "distinct_clinical": ["[LBL] Chewable tablets (advantage — pill burden)", "[LBL] Smaller dose volume than sevelamer", "[LBL] No calcium load", "[LBL] Lanthanum minimal absorption but some tissue accumulation (long-term concern)"],
-     "indications": {"approved": ["[LBL] Hyperphosphatemia в CKD"]},
-     "dosing": {"dose": "500-1500 mg with meals (chewable, smaller burden)"},
-     "three_axis_profile": {"constitutional": {"energy": "Mineral homeostasis (metal binder)", "best_match": ["CKD-MBD, pill-burden concern"]}, "membrane": {"impact": "Chronic; tissue accumulation long-term concern"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Bone/tissue accumulation — long-term concern (decades)", "[LBL] GI side effects (nausea, vomiting)", "[LBL] Avoid с levothyroxine (binding interaction)", "[LBL] Bowel obstruction rare reports"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "lanthanum_vs_sevelamer": "[OBS-Mark] [Lanthanum vs sevelamer selection?]"},
-     "references": ["FDA label Fosrenol"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-338", "name_inn": "Epoetin alfa / Darbepoetin alfa", "name_ru": "Эпоэтин / Дарбэпоэтин", "name_brand": "Procrit, Epogen (epoetin); Aranesp (darbepoetin)", "status": "METACOD-RF", "batch": "24-ESA",
-     "molecular": {"chemical_class": "Recombinant human erythropoietin (epoetin) / hyperglycosylated EPO analog (darbepoetin)", "mechanism_primary": ["[LBL] Binds EPO receptor на erythroid progenitor cells", "[LBL] Stimulates erythropoiesis", "[LBL] Darbepoetin longer half-life (~25h vs epoetin 4-8h)"], "dosing_distinction": ["Epoetin: weekly-TIW", "Darbepoetin: weekly или q2-3 weekly", "Methoxy PEG-epoetin (Mircera): monthly"]},
-     "indications": {"approved": ["[LBL] CKD anemia (cornerstone therapy)", "[LBL] Chemotherapy-induced anemia (controversial — survival signal)", "[LBL] HIV-associated anemia (с zidovudine, historical)", "[LBL] Surgery preparation (selected)"]},
-     "dosing": {"dose": "Highly individualized; titrated к Hb target"},
-     "three_axis_profile": {"constitutional": {"energy": "Yang restoration в hematopoietic system; translation: erythropoiesis stimulation", "best_match": ["CKD anemia any constitution", "T5 Yin-Water frail elderly с CKD"]}, "membrane": {"impact": "Improves oxygen delivery → reduces hypoxic injury; reverses one driver of M-D drift в CKD"}, "phase": {"match": "Chronic maintenance / lifelong"}},
-     "safety": {"hb_target_controversy": "[GL] Higher Hb targets (>13 g/dL) associated с increased CV mortality, stroke. FDA: target Hb 10-11 g/dL (CKD), max 12. Iron repletion essential before/during ESA (suboptimal response otherwise).", "critical": ["[LBL] Hypertension — common, sometimes severe", "[LBL] Thromboembolic events — VTE, stroke, MI", "[LBL] Pure red cell aplasia (PRCA) — rare immune response", "[LBL] Tumor progression в some cancers — controversial", "[LBL] Iron deficiency must be addressed simultaneously"], "monitoring": ["Hb level", "Iron studies: ferritin >100, TSAT >20%", "Blood pressure"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "hb_target": "[OBS-Mark] [CKD anemia management — Hb target practice?]"},
-     "references": ["FDA labels Procrit, Aranesp", "KDIGO Anemia Guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-339", "name_inn": "Calcitriol / Alfacalcidol / Paricalcitol (active Vitamin D analogs)", "name_ru": "Кальцитриол / Альфакальцидол / Парикальцитол", "name_brand": "Rocaltrol (calcitriol), Hectorol (doxercalciferol), Zemplar (paricalcitol)", "status": "METACOD-RF", "batch": "24-Active-Vit-D",
-     "molecular": {"chemical_class": "Active vitamin D analogues", "mechanism_primary": ["[LBL] 1α,25(OH)2D — bypasses defective renal 1α-hydroxylation в CKD", "[LBL] Vit D receptor activation", "[LBL] Reduces PTH secretion (secondary hyperparathyroidism management)"], "distinct": ["[LBL] Paricalcitol — selective VDR activator, less hypercalcemia", "[LBL] Calcitriol — active vitamin D directly", "[LBL] Doxercalciferol — pro-drug, hepatic conversion"]},
-     "indications": {"approved": ["[LBL] Secondary hyperparathyroidism в CKD", "[LBL] Hypocalcemia в hypoparathyroidism", "[LBL] Renal osteodystrophy"]},
-     "dosing": {"dose": "Varies by indication and severity; PTH-guided titration"},
-     "three_axis_profile": {"constitutional": {"energy": "PTH-Ca-P axis management (Yin/mineral)", "best_match": ["CKD secondary HPT"]}, "membrane": {"impact": "Bone-mineral homeostasis"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Hypercalcemia — major concern (especially с calcium-based binders)", "[LBL] Hyperphosphatemia worsening", "[LBL] Vascular calcification acceleration если over-treated", "[LBL] PTH monitoring essential", "[LBL] Calcium + phosphate product monitoring"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "secondary_hpt": "[OBS-Mark] [Secondary hyperparathyroidism management — active D approach?]"},
-     "references": ["FDA labels", "KDIGO Guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-340", "name_inn": "Cinacalcet", "name_ru": "Цинакальцет", "name_brand": "Sensipar (US), Mimpara (EU)", "status": "METACOD-RF", "batch": "24-Calcimimetic",
-     "molecular": {"chemical_class": "Calcimimetic — sensitizes calcium-sensing receptor (CaSR)", "mechanism_primary": ["[LBL] Enhances CaSR sensitivity к calcium → reduced PTH secretion"]},
-     "distinct_clinical": ["[LBL] Lowers PTH without hypercalcemia risk (advantage over Vit D analogues)", "[LBL] Can reduce calcium levels (useful когда hypercalcemic on Vit D)"],
-     "indications": {"approved": ["[LBL] Secondary hyperparathyroidism в CKD on dialysis", "[LBL] Hypercalcemia в parathyroid carcinoma", "[LBL] Primary hyperparathyroidism (selected)"]},
-     "dosing": {"dose": "Titrated to PTH/calcium"},
-     "three_axis_profile": {"constitutional": {"energy": "CaSR sensitization → PTH reduction", "best_match": ["Dialysis secondary HPT"]}, "membrane": {"impact": "Bone-mineral"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Hypocalcemia — frequent (paradox monitoring)", "[LBL] QT prolongation (calcium-mediated)", "[LBL] Nausea, vomiting common", "[LBL] GI bleeding signal с upper GI disease"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "calcimimetic_role": "[OBS-Mark] [Calcimimetic role в secondary HPT?]"},
-     "references": ["FDA label Sensipar"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-341", "name_inn": "Finerenone", "name_ru": "Финеренон", "name_brand": "Kerendia", "status": "METACOD-RF", "batch": "24-Newer-CKD",
-     "molecular": {"chemical_class": "Non-steroidal mineralocorticoid receptor antagonist (MRA)", "mechanism_primary": ["[LBL] Selective MR antagonism с anti-fibrotic + anti-inflammatory renal effects"]},
-     "distinct_clinical": ["[LBL] Less hyperkalemia than spironolactone/eplerenone", "[LBL] No sexual side effects (vs spironolactone)", "[RCT] Disease-modifying в CKD with DM2 (FIDELIO/FIGARO: slowed progression + reduced CV events)"],
-     "indications": {"approved": ["[LBL] Chronic kidney disease в type 2 diabetes — slows progression, reduces CV events", "[LBL] Approved 2021 — newer addition"]},
-     "dosing": {"dose": "10-20 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Anti-fibrotic + anti-inflammatory renal effects; translation: targeted MR antagonism", "best_match": ["DM2 + CKD (extremely common phenotype)", "Often Yin-Earth/Yang-Earth metabolic syndrome"]}, "membrane": {"impact": "Disease-modifying — slows progression к dialysis; anti-fibrotic (reduces M-S formation в renal tissue)"}, "phase": {"match": "Chronic / long-term"}},
-     "safety": {"critical": ["[LBL] Hyperkalemia — significant но less than spironolactone", "[LBL] eGFR initial decline (functional, similar к ACE-i pattern)", "[LBL] Hypotension mild", "[LBL] CYP3A4 substrate — DDI с strong CYP3A4 inhibitors"]},
-     "kcts_awareness": "[RF] DM2 + CKD: multiple parallel chronic conditions, long-term disease management, often treatment-refractory pattern. [GOVERNANCE: KCTS-aware framing research-only; finerenone benefit is RCT-established independently.]",
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "finerenone_practice": "[OBS-Mark] [Finerenone в DM2 + CKD — practice integration?]"},
-     "references": ["FDA label Kerendia", "FIDELIO-DKD trial", "FIGARO-DKD trial"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-342", "name_inn": "Tolvaptan", "name_ru": "Толваптан", "name_brand": "Samsca (acute), Jynarque (ADPKD chronic)", "status": "METACOD-RF", "batch": "24-Vasopressin",
-     "molecular": {"chemical_class": "Selective vasopressin V2 receptor antagonist", "mechanism_primary": ["[LBL] Blocks renal V2 receptors → aquaresis (water diuresis without electrolyte loss)"]},
-     "indications": {"approved": ["[LBL] SIADH (hyponatremia)", "[LBL] Autosomal dominant polycystic kidney disease (ADPKD) — slows cyst growth", "[LBL] Heart failure с congestion (less common now)"]},
-     "dosing": {"dose": "Varies by indication"},
-     "three_axis_profile": {"constitutional": {"energy": "Aquaresis (water regulation — Water axis [RF])", "best_match": ["ADPKD, SIADH"]}, "membrane": {"impact": "Slows ADPKD cyst growth"}, "phase": {"match": "Chronic (ADPKD) / acute (SIADH)"}},
-     "safety": {"critical": ["[LBL] Hepatotoxicity — major concern, FDA REMS program (Jynarque)", "[LBL] LFT monitoring mandatory (REMS)", "[LBL] Dehydration risk — significant aquaresis", "[LBL] Hypernatremia if over-treated", "[LBL] Expensive — significant cost barrier"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "adpkd_tolvaptan": "[OBS-Mark] [ADPKD management — tolvaptan access?]"},
-     "references": ["FDA label Jynarque", "TEMPO 3:4 trial"], "status_flags": {"mark_validated": false}}
+    {
+      "drug_id": "DRG-336",
+      "name_inn": "Sevelamer carbonate / hydrochloride",
+      "name_ru": "Севеламер",
+      "name_brand": "Renvela (carbonate), Renagel (HCl)",
+      "status": "METACOD-RF",
+      "batch": "24-Phosphate-Binders",
+      "molecular": {
+        "chemical_class": "Non-absorbed polymer phosphate binder",
+        "mechanism_primary": [
+          "[LBL] Binds phosphate в gut → reduced systemic absorption",
+          "[LBL] Also reduces LDL cholesterol (bile acid binding-like effect)",
+          "[LBL] Non-calcium based — no calcium load (advantage)"
+        ],
+        "metabolism": "not absorbed — excreted с feces"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Hyperphosphatemia в CKD (dialysis-dependent и pre-dialysis)",
+          "[GL] Often с calcium-based binders в combination"
+        ]
+      },
+      "dosing": {
+        "dose": "800-3200 mg with each meal (titrated к phosphate level)",
+        "note": [
+          "[LBL] Take with meals (binds dietary phosphate)",
+          "[LBL] Pill burden significant — adherence challenge"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Mineral homeostasis support; translation: non-absorbed phosphate chelation",
+          "best_match": [
+            "CKD patients (Water-Cold axis disturbance [RF])"
+          ]
+        },
+        "membrane": {
+          "impact": "Chronic; reduces vascular calcification trajectory; M-D drift в CKD partially attenuated by phosphate control"
+        },
+        "phase": {
+          "match": "Chronic / lifelong"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] GI side effects common (constipation, diarrhea, dyspepsia)",
+          "[LBL] Vitamin absorption reduction — fat-soluble (ADEK)",
+          "[LBL] Multiple pills с each meal — adherence burden",
+          "[LBL] No significant systemic toxicity (not absorbed)",
+          "[LBL] Metabolic acidosis signal — sevelamer HCl (carbonate form preferred)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "pill_burden": "[OBS-Mark] [phosphate binder adherence strategies?]"
+      },
+      "references": [
+        "FDA label Renvela",
+        "KDIGO CKD-MBD Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-337",
+      "name_inn": "Lanthanum carbonate",
+      "name_ru": "Лантана карбонат",
+      "name_brand": "Fosrenol",
+      "status": "METACOD-RF",
+      "batch": "24-Phosphate-Binders",
+      "molecular": {
+        "chemical_class": "Metal-based phosphate binder"
+      },
+      "distinct_clinical": [
+        "[LBL] Chewable tablets (advantage — pill burden)",
+        "[LBL] Smaller dose volume than sevelamer",
+        "[LBL] No calcium load",
+        "[LBL] Lanthanum minimal absorption but some tissue accumulation (long-term concern)"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] Hyperphosphatemia в CKD"
+        ]
+      },
+      "dosing": {
+        "dose": "500-1500 mg with meals (chewable, smaller burden)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Mineral homeostasis (metal binder)",
+          "best_match": [
+            "CKD-MBD, pill-burden concern"
+          ]
+        },
+        "membrane": {
+          "impact": "Chronic; tissue accumulation long-term concern"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bone/tissue accumulation — long-term concern (decades)",
+          "[LBL] GI side effects (nausea, vomiting)",
+          "[LBL] Avoid с levothyroxine (binding interaction)",
+          "[LBL] Bowel obstruction rare reports"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "lanthanum_vs_sevelamer": "[OBS-Mark] [Lanthanum vs sevelamer selection?]"
+      },
+      "references": [
+        "FDA label Fosrenol"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-338",
+      "name_inn": "Epoetin alfa / Darbepoetin alfa",
+      "name_ru": "Эпоэтин / Дарбэпоэтин",
+      "name_brand": "Procrit, Epogen (epoetin); Aranesp (darbepoetin)",
+      "status": "METACOD-RF",
+      "batch": "24-ESA",
+      "molecular": {
+        "chemical_class": "Recombinant human erythropoietin (epoetin) / hyperglycosylated EPO analog (darbepoetin)",
+        "mechanism_primary": [
+          "[LBL] Binds EPO receptor на erythroid progenitor cells",
+          "[LBL] Stimulates erythropoiesis",
+          "[LBL] Darbepoetin longer half-life (~25h vs epoetin 4-8h)"
+        ],
+        "dosing_distinction": [
+          "Epoetin: weekly-TIW",
+          "Darbepoetin: weekly или q2-3 weekly",
+          "Methoxy PEG-epoetin (Mircera): monthly"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] CKD anemia (cornerstone therapy)",
+          "[LBL] Chemotherapy-induced anemia (controversial — survival signal)",
+          "[LBL] HIV-associated anemia (с zidovudine, historical)",
+          "[LBL] Surgery preparation (selected)"
+        ]
+      },
+      "dosing": {
+        "dose": "Highly individualized; titrated к Hb target"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Yang restoration в hematopoietic system; translation: erythropoiesis stimulation",
+          "best_match": [
+            "CKD anemia any constitution",
+            "T5 Yin-Water frail elderly с CKD"
+          ]
+        },
+        "membrane": {
+          "impact": "Improves oxygen delivery → reduces hypoxic injury; reverses one driver of M-D drift в CKD"
+        },
+        "phase": {
+          "match": "Chronic maintenance / lifelong"
+        }
+      },
+      "safety": {
+        "hb_target_controversy": "[GL] Higher Hb targets (>13 g/dL) associated с increased CV mortality, stroke. FDA: target Hb 10-11 g/dL (CKD), max 12. Iron repletion essential before/during ESA (suboptimal response otherwise).",
+        "critical": [
+          "[LBL] Hypertension — common, sometimes severe",
+          "[LBL] Thromboembolic events — VTE, stroke, MI",
+          "[LBL] Pure red cell aplasia (PRCA) — rare immune response",
+          "[LBL] Tumor progression в some cancers — controversial",
+          "[LBL] Iron deficiency must be addressed simultaneously"
+        ],
+        "monitoring": [
+          "Hb level",
+          "Iron studies: ferritin >100, TSAT >20%",
+          "Blood pressure"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "hb_target": "[OBS-Mark] [CKD anemia management — Hb target practice?]"
+      },
+      "references": [
+        "FDA labels Procrit, Aranesp",
+        "KDIGO Anemia Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-339",
+      "name_inn": "Calcitriol / Alfacalcidol / Paricalcitol (active Vitamin D analogs)",
+      "name_ru": "Кальцитриол / Альфакальцидол / Парикальцитол",
+      "name_brand": "Rocaltrol (calcitriol), Hectorol (doxercalciferol), Zemplar (paricalcitol)",
+      "status": "METACOD-RF",
+      "batch": "24-Active-Vit-D",
+      "molecular": {
+        "chemical_class": "Active vitamin D analogues",
+        "mechanism_primary": [
+          "[LBL] 1α,25(OH)2D — bypasses defective renal 1α-hydroxylation в CKD",
+          "[LBL] Vit D receptor activation",
+          "[LBL] Reduces PTH secretion (secondary hyperparathyroidism management)"
+        ],
+        "distinct": [
+          "[LBL] Paricalcitol — selective VDR activator, less hypercalcemia",
+          "[LBL] Calcitriol — active vitamin D directly",
+          "[LBL] Doxercalciferol — pro-drug, hepatic conversion"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Secondary hyperparathyroidism в CKD",
+          "[LBL] Hypocalcemia в hypoparathyroidism",
+          "[LBL] Renal osteodystrophy"
+        ]
+      },
+      "dosing": {
+        "dose": "Varies by indication and severity; PTH-guided titration"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "PTH-Ca-P axis management (Yin/mineral)",
+          "best_match": [
+            "CKD secondary HPT"
+          ]
+        },
+        "membrane": {
+          "impact": "Bone-mineral homeostasis"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hypercalcemia — major concern (especially с calcium-based binders)",
+          "[LBL] Hyperphosphatemia worsening",
+          "[LBL] Vascular calcification acceleration если over-treated",
+          "[LBL] PTH monitoring essential",
+          "[LBL] Calcium + phosphate product monitoring"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "secondary_hpt": "[OBS-Mark] [Secondary hyperparathyroidism management — active D approach?]"
+      },
+      "references": [
+        "FDA labels",
+        "KDIGO Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-340",
+      "name_inn": "Cinacalcet",
+      "name_ru": "Цинакальцет",
+      "name_brand": "Sensipar (US), Mimpara (EU)",
+      "status": "METACOD-RF",
+      "batch": "24-Calcimimetic",
+      "molecular": {
+        "chemical_class": "Calcimimetic — sensitizes calcium-sensing receptor (CaSR)",
+        "mechanism_primary": [
+          "[LBL] Enhances CaSR sensitivity к calcium → reduced PTH secretion"
+        ]
+      },
+      "distinct_clinical": [
+        "[LBL] Lowers PTH without hypercalcemia risk (advantage over Vit D analogues)",
+        "[LBL] Can reduce calcium levels (useful когда hypercalcemic on Vit D)"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] Secondary hyperparathyroidism в CKD on dialysis",
+          "[LBL] Hypercalcemia в parathyroid carcinoma",
+          "[LBL] Primary hyperparathyroidism (selected)"
+        ]
+      },
+      "dosing": {
+        "dose": "Titrated to PTH/calcium"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "CaSR sensitization → PTH reduction",
+          "best_match": [
+            "Dialysis secondary HPT"
+          ]
+        },
+        "membrane": {
+          "impact": "Bone-mineral"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hypocalcemia — frequent (paradox monitoring)",
+          "[LBL] QT prolongation (calcium-mediated)",
+          "[LBL] Nausea, vomiting common",
+          "[LBL] GI bleeding signal с upper GI disease"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "calcimimetic_role": "[OBS-Mark] [Calcimimetic role в secondary HPT?]"
+      },
+      "references": [
+        "FDA label Sensipar"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-341",
+      "name_inn": "Finerenone",
+      "name_ru": "Финеренон",
+      "name_brand": "Kerendia",
+      "status": "METACOD-RF",
+      "batch": "24-Newer-CKD",
+      "molecular": {
+        "chemical_class": "Non-steroidal mineralocorticoid receptor antagonist (MRA)",
+        "mechanism_primary": [
+          "[LBL] Selective MR antagonism с anti-fibrotic + anti-inflammatory renal effects"
+        ]
+      },
+      "distinct_clinical": [
+        "[LBL] Less hyperkalemia than spironolactone/eplerenone",
+        "[LBL] No sexual side effects (vs spironolactone)",
+        "[RCT] Disease-modifying в CKD with DM2 (FIDELIO/FIGARO: slowed progression + reduced CV events)"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] Chronic kidney disease в type 2 diabetes — slows progression, reduces CV events",
+          "[LBL] Approved 2021 — newer addition"
+        ]
+      },
+      "dosing": {
+        "dose": "10-20 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anti-fibrotic + anti-inflammatory renal effects; translation: targeted MR antagonism",
+          "best_match": [
+            "DM2 + CKD (extremely common phenotype)",
+            "Often Yin-Earth/Yang-Earth metabolic syndrome"
+          ]
+        },
+        "membrane": {
+          "impact": "Disease-modifying — slows progression к dialysis; anti-fibrotic (reduces M-S formation в renal tissue)"
+        },
+        "phase": {
+          "match": "Chronic / long-term"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hyperkalemia — significant но less than spironolactone",
+          "[LBL] eGFR initial decline (functional, similar к ACE-i pattern)",
+          "[LBL] Hypotension mild",
+          "[LBL] CYP3A4 substrate — DDI с strong CYP3A4 inhibitors"
+        ]
+      },
+      "kcts_awareness": "[RF] DM2 + CKD: multiple parallel chronic conditions, long-term disease management, often treatment-refractory pattern. [GOVERNANCE: KCTS-aware framing research-only; finerenone benefit is RCT-established independently.]",
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "finerenone_practice": "[OBS-Mark] [Finerenone в DM2 + CKD — practice integration?]"
+      },
+      "references": [
+        "FDA label Kerendia",
+        "FIDELIO-DKD trial",
+        "FIGARO-DKD trial"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-342",
+      "name_inn": "Tolvaptan",
+      "name_ru": "Толваптан",
+      "name_brand": "Samsca (acute), Jynarque (ADPKD chronic)",
+      "status": "METACOD-RF",
+      "batch": "24-Vasopressin",
+      "molecular": {
+        "chemical_class": "Selective vasopressin V2 receptor antagonist",
+        "mechanism_primary": [
+          "[LBL] Blocks renal V2 receptors → aquaresis (water diuresis without electrolyte loss)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] SIADH (hyponatremia)",
+          "[LBL] Autosomal dominant polycystic kidney disease (ADPKD) — slows cyst growth",
+          "[LBL] Heart failure с congestion (less common now)"
+        ]
+      },
+      "dosing": {
+        "dose": "Varies by indication"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Aquaresis (water regulation — Water axis [RF])",
+          "best_match": [
+            "ADPKD, SIADH"
+          ]
+        },
+        "membrane": {
+          "impact": "Slows ADPKD cyst growth"
+        },
+        "phase": {
+          "match": "Chronic (ADPKD) / acute (SIADH)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hepatotoxicity — major concern, FDA REMS program (Jynarque)",
+          "[LBL] LFT monitoring mandatory (REMS)",
+          "[LBL] Dehydration risk — significant aquaresis",
+          "[LBL] Hypernatremia if over-treated",
+          "[LBL] Expensive — significant cost barrier"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "adpkd_tolvaptan": "[OBS-Mark] [ADPKD management — tolvaptan access?]"
+      },
+      "references": [
+        "FDA label Jynarque",
+        "TEMPO 3:4 trial"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    }
   ]
 }

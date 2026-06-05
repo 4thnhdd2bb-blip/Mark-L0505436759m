@@ -1,6 +1,7 @@
 {
   "_meta": {
     "schema": "metacod_rf_drug_db",
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT 2026-06] Любые KCTS/AIRE упоминания в этом файле ПОДЧИНЕНЫ и ВЫТЕСНЕНЫ kcts_integration v1.1 (EBM-reframe, решение Mark): оперативная модель — psychosocial burden + chronic-stress physiology + fluid-retention; Hamer/AIRE психоконфликт-каузальность и 'collecting tubule' анатомия ОТВЕРГНУТЫ как механизм (сохранены лишь как раскрытое происхождение); psychosocial-поддержка СОПУТСТВУЮЩАЯ доказательному лечению, никогда вместо/прежде. Legacy 'AIRE-trigger'/'KCTS-active' читать как EBM psychosocial/chronic-stress markers.",
     "batch_id": "19-Geriatric",
     "version": "RF-2026-06-batch19",
     "status": "METACOD-RF — Research Framework, not clinical guidance",
@@ -24,9 +25,28 @@
       "RF": "METACOD research framework (theoretical)"
     },
     "class_notes": {
-      "energy_perspective_elderly": ["Baseline shift toward Yin — reduced reserves", "M-D drift risk amplified (sarcopenia, frailty)", "Phase reserve depleted — slower recovery", "KCTS-active prevalence high", "T5 Yin-Water = frail elderly archetype (Mark canonical)"],
-      "frameworks_referenced": ["Beers Criteria 2023 (AGS)", "STOPP/START v3 (2023)", "Anticholinergic Cognitive Burden (ACB) scale", "Comprehensive Geriatric Assessment (CGA)", "Deprescribing systematic approach"],
-      "obs_mark_to_fill": ["Deprescribing protocols practical", "Beers application в Israeli elderly", "Common deprescribing wins", "CGA + METACOD integration algorithm", "Anticholinergic burden assessment", "KCTS screening в elderly outpatient"],
+      "energy_perspective_elderly": [
+        "Baseline shift toward Yin — reduced reserves",
+        "M-D drift risk amplified (sarcopenia, frailty)",
+        "Phase reserve depleted — slower recovery",
+        "KCTS-active prevalence high",
+        "T5 Yin-Water = frail elderly archetype (Mark canonical)"
+      ],
+      "frameworks_referenced": [
+        "Beers Criteria 2023 (AGS)",
+        "STOPP/START v3 (2023)",
+        "Anticholinergic Cognitive Burden (ACB) scale",
+        "Comprehensive Geriatric Assessment (CGA)",
+        "Deprescribing systematic approach"
+      ],
+      "obs_mark_to_fill": [
+        "Deprescribing protocols practical",
+        "Beers application в Israeli elderly",
+        "Common deprescribing wins",
+        "CGA + METACOD integration algorithm",
+        "Anticholinergic burden assessment",
+        "KCTS screening в elderly outpatient"
+      ],
       "logic_review_flags_for_mark": {
         "issue_1_framework_heavy": "[RF] 6/10 = frameworks vs specific drugs — different structure. Q: acceptable, или re-structure как pure drug batch?",
         "issue_2_crossref_frequent": "[RF] Apixaban/donepezil covered fuller elsewhere; здесь только elderly-specific. Q: cross-ref approach OK?",
@@ -37,95 +57,387 @@
   },
   "drugs": [
     {
-      "drug_id": "DRG-286", "name_inn": "Beers Criteria framework", "name_ru": "Критерии Бирса (рамка)", "name_brand": "— (AGS prescribing framework)",
-      "status": "METACOD-RF", "batch": "19-Framework", "entry_type": "framework",
+      "drug_id": "DRG-286",
+      "name_inn": "Beers Criteria framework",
+      "name_ru": "Критерии Бирса (рамка)",
+      "name_brand": "— (AGS prescribing framework)",
+      "status": "METACOD-RF",
+      "batch": "19-Framework",
+      "entry_type": "framework",
       "concept": "[GL] Beers Criteria (AGS update 2023) — list of potentially inappropriate medications (PIMs) для adults ≥65. Updated every 4-5 years.",
       "categories": {
-        "avoid_in_most_elderly": ["[GL] Long-acting benzodiazepines (diazepam, chlordiazepoxide) — falls, cognition", "[GL] First-gen antihistamines (diphenhydramine, hydroxyzine) — anticholinergic", "[GL] Tertiary TCAs (amitriptyline) — anticholinergic burden", "[GL] Chronic long-acting NSAIDs — GI bleed, AKI, HF", "[GL] Skeletal muscle relaxants (cyclobenzaprine, methocarbamol)", "[GL] Sliding scale insulin", "[GL] Chronic megestrol", "[GL] Oral estrogens (most postmenopausal)", "[GL] Anticholinergic OAB drugs (oxybutynin, DRG-223)"],
-        "avoid_with_conditions": ["[GL] NSAIDs в HF, CKD", "[GL] PPIs >8 weeks unless clear indication", "[GL] Anticholinergics в dementia", "[GL] Z-drugs (zolpidem) в delirium risk"],
-        "use_with_caution": ["[GL] Aspirin primary prevention (declining indication)", "[GL] Antipsychotics в dementia BPSD (black box mortality, sometimes necessary)", "[GL] Diuretics (over-diuresis, electrolytes)"],
-        "ddi_elderly": ["[GL] ≥3 CNS-active drugs — falls", "[GL] Multiple anticholinergics — additive", "[GL] Multiple QT-prolonging drugs"]
+        "avoid_in_most_elderly": [
+          "[GL] Long-acting benzodiazepines (diazepam, chlordiazepoxide) — falls, cognition",
+          "[GL] First-gen antihistamines (diphenhydramine, hydroxyzine) — anticholinergic",
+          "[GL] Tertiary TCAs (amitriptyline) — anticholinergic burden",
+          "[GL] Chronic long-acting NSAIDs — GI bleed, AKI, HF",
+          "[GL] Skeletal muscle relaxants (cyclobenzaprine, methocarbamol)",
+          "[GL] Sliding scale insulin",
+          "[GL] Chronic megestrol",
+          "[GL] Oral estrogens (most postmenopausal)",
+          "[GL] Anticholinergic OAB drugs (oxybutynin, DRG-223)"
+        ],
+        "avoid_with_conditions": [
+          "[GL] NSAIDs в HF, CKD",
+          "[GL] PPIs >8 weeks unless clear indication",
+          "[GL] Anticholinergics в dementia",
+          "[GL] Z-drugs (zolpidem) в delirium risk"
+        ],
+        "use_with_caution": [
+          "[GL] Aspirin primary prevention (declining indication)",
+          "[GL] Antipsychotics в dementia BPSD (black box mortality, sometimes necessary)",
+          "[GL] Diuretics (over-diuresis, electrolytes)"
+        ],
+        "ddi_elderly": [
+          "[GL] ≥3 CNS-active drugs — falls",
+          "[GL] Multiple anticholinergics — additive",
+          "[GL] Multiple QT-prolonging drugs"
+        ]
       },
-      "three_axis_profile": {"constitutional": {"energy": "Recognition that elderly constitutions less tolerant к multiple medications; vulnerability-based prescribing", "best_match": ["T5 Yin-Water frail elderly — most stringent application"]}, "membrane": {"impact": "Implicit M-D drift prevention; each added med = potential M-D acceleration; less is often more"}, "phase": {"match": "Prevent iatrogenic Phase 3 events (falls, delirium, GI bleed)"}},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "beers_application": "[OBS-Mark] [deprescribing protocols в practice? multi-medication elderly assessment?]"},
-      "references": ["AGS Beers Criteria 2023", "STOPP/START Criteria", "deprescribing trials"],
-      "status_flags": {"mark_validated": false}
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Recognition that elderly constitutions less tolerant к multiple medications; vulnerability-based prescribing",
+          "best_match": [
+            "T5 Yin-Water frail elderly — most stringent application"
+          ]
+        },
+        "membrane": {
+          "impact": "Implicit M-D drift prevention; each added med = potential M-D acceleration; less is often more"
+        },
+        "phase": {
+          "match": "Prevent iatrogenic Phase 3 events (falls, delirium, GI bleed)"
+        }
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "beers_application": "[OBS-Mark] [deprescribing protocols в practice? multi-medication elderly assessment?]"
+      },
+      "references": [
+        "AGS Beers Criteria 2023",
+        "STOPP/START Criteria",
+        "deprescribing trials"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-287", "name_inn": "STOPP/START Criteria framework", "name_ru": "Критерии STOPP/START (рамка)", "name_brand": "— (European prescribing framework)",
-      "status": "METACOD-RF", "batch": "19-Framework", "entry_type": "framework",
+      "drug_id": "DRG-287",
+      "name_inn": "STOPP/START Criteria framework",
+      "name_ru": "Критерии STOPP/START (рамка)",
+      "name_brand": "— (European prescribing framework)",
+      "status": "METACOD-RF",
+      "batch": "19-Framework",
+      "entry_type": "framework",
       "concept": "[GL] European framework, more nuanced than Beers: STOPP (drugs to stop) + START (drugs to start — addresses UNDERtreatment in elderly).",
-      "start_examples_undertreatment": ["[GL] Elderly с AF без anticoagulation (often inappropriately avoided)", "[GL] Post-fracture без bone-protective therapy", "[GL] DM без statin когда indicated", "[GL] HFrEF без guideline-directed therapy"],
+      "start_examples_undertreatment": [
+        "[GL] Elderly с AF без anticoagulation (often inappropriately avoided)",
+        "[GL] Post-fracture без bone-protective therapy",
+        "[GL] DM без statin когда indicated",
+        "[GL] HFrEF без guideline-directed therapy"
+      ],
       "mark_canonical": "Both under- и overtreatment harm elderly. Balance is key — not 'less is more' в all cases.",
-      "three_axis_profile": {"constitutional": {"energy": "Balanced prescribing (avoid both over- and under-treatment)", "best_match": ["Elderly, graded application"]}, "membrane": {"impact": "Undertreatment can also drive M-D (e.g. untreated osteoporosis)"}, "phase": {"match": "Chronic optimization"}},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "underprescribing_patterns": "[OBS-Mark] [Underprescribing patterns в elderly — examples?]"},
-      "references": ["STOPP/START Criteria Version 3 (2023)"],
-      "status_flags": {"mark_validated": false}
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Balanced prescribing (avoid both over- and under-treatment)",
+          "best_match": [
+            "Elderly, graded application"
+          ]
+        },
+        "membrane": {
+          "impact": "Undertreatment can also drive M-D (e.g. untreated osteoporosis)"
+        },
+        "phase": {
+          "match": "Chronic optimization"
+        }
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "underprescribing_patterns": "[OBS-Mark] [Underprescribing patterns в elderly — examples?]"
+      },
+      "references": [
+        "STOPP/START Criteria Version 3 (2023)"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-288", "name_inn": "Cholecalciferol (Vitamin D3)", "name_ru": "Холекальциферол (Vit D3)", "name_brand": "Multiple OTC + Rx",
-      "status": "METACOD-RF", "batch": "19-Falls-Prevention", "entry_type": "drug",
+      "drug_id": "DRG-288",
+      "name_inn": "Cholecalciferol (Vitamin D3)",
+      "name_ru": "Холекальциферол (Vit D3)",
+      "name_brand": "Multiple OTC + Rx",
+      "status": "METACOD-RF",
+      "batch": "19-Falls-Prevention",
+      "entry_type": "drug",
       "context": "Vit D deficiency epidemic в elderly: reduced skin synthesis, less sun, reduced renal 1-α-hydroxylation, frequent CKD. Mark canonical: Vit D deficiency = systemic Yin depletion contributing к M-D drift.",
-      "indications": {"approved": ["[LBL] Osteoporosis prevention/treatment", "[LBL] Vitamin D deficiency (25-OH-D <30 ng/mL)", "[GL] Falls prevention (some evidence — Yang-supporting)", "[GL] Multi-system support (immune, mood, neurological)"]},
-      "dosing": {"dose": "Maintenance 1000-2000 IU daily; deficiency repletion 50,000 IU weekly × 8 weeks then maintenance"},
-      "three_axis_profile": {"constitutional": {"energy": "Multi-system Yin support; translation: steroid hormone receptor activation across tissues", "best_match": ["T5 Yin-Water elderly с deficiency", "All elderly <30 ng/mL", "ADT patients (Mark canonical — part of mandatory support stack)"]}, "membrane": {"impact": "Repletion reverses one driver of M-D drift; bone protection; muscle function (reduces sarcopenia)"}, "phase": {"match": "Chronic supplementation, Phase 5 maintenance"}},
-      "safety": {"note": ["[LBL] Generally very safe; toxicity rare (needs extremely high chronic doses)", "[LBL] Hypercalcemia monitor if high doses", "[LBL] Sarcoidosis caution (granulomas make active D)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "vit_d_target_elderly": "[OBS-Mark] [Vit D target levels в elderly?]"},
-      "references": ["Endocrine Society Vitamin D Guidelines"],
-      "status_flags": {"mark_validated": false}
+      "indications": {
+        "approved": [
+          "[LBL] Osteoporosis prevention/treatment",
+          "[LBL] Vitamin D deficiency (25-OH-D <30 ng/mL)",
+          "[GL] Falls prevention (some evidence — Yang-supporting)",
+          "[GL] Multi-system support (immune, mood, neurological)"
+        ]
+      },
+      "dosing": {
+        "dose": "Maintenance 1000-2000 IU daily; deficiency repletion 50,000 IU weekly × 8 weeks then maintenance"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Multi-system Yin support; translation: steroid hormone receptor activation across tissues",
+          "best_match": [
+            "T5 Yin-Water elderly с deficiency",
+            "All elderly <30 ng/mL",
+            "ADT patients (Mark canonical — part of mandatory support stack)"
+          ]
+        },
+        "membrane": {
+          "impact": "Repletion reverses one driver of M-D drift; bone protection; muscle function (reduces sarcopenia)"
+        },
+        "phase": {
+          "match": "Chronic supplementation, Phase 5 maintenance"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Generally very safe; toxicity rare (needs extremely high chronic doses)",
+          "[LBL] Hypercalcemia monitor if high doses",
+          "[LBL] Sarcoidosis caution (granulomas make active D)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "vit_d_target_elderly": "[OBS-Mark] [Vit D target levels в elderly?]"
+      },
+      "references": [
+        "Endocrine Society Vitamin D Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-289", "name_inn": "Melatonin", "name_ru": "Мелатонин", "name_brand": "Multiple OTC (US) / Rx (EU)",
-      "status": "METACOD-RF", "batch": "19-Sleep-Elderly", "entry_type": "drug",
+      "drug_id": "DRG-289",
+      "name_inn": "Melatonin",
+      "name_ru": "Мелатонин",
+      "name_brand": "Multiple OTC (US) / Rx (EU)",
+      "status": "METACOD-RF",
+      "batch": "19-Sleep-Elderly",
+      "entry_type": "drug",
       "context": "Sleep disturbance в elderly: reduced endogenous melatonin, phase advance, comorbidities. Standard sleep meds (Z-drugs, benzos) = Beers AVOID. Melatonin = preferred elderly sleep aid в most contexts.",
-      "indications": {"approved": ["[LBL] Insomnia elderly (low dose 0.5-3 mg)", "[LBL] Jet lag", "[LBL] Shift work", "[GL] Delirium prevention (some evidence)"]},
-      "dosing": {"dose": "0.3-3 mg 1-2h before bedtime", "note": ["[LBL] Lower doses often better than higher (paradoxical)"]},
-      "three_axis_profile": {"constitutional": {"energy": "Circadian restoration (endogenous hormone replacement)", "best_match": ["Elderly insomnia (avoids Beers sedatives)"]}, "membrane": {"impact": "Minimal"}, "phase": {"match": "Chronic / Phase 5"}},
-      "safety": {"note": ["[LBL] Generally very safe", "[LBL] No fall risk (vs benzo/Z-drug)", "[LBL] No cognitive impairment (advantage)", "[LBL] Vivid dreams (some)", "[LBL] Morning drowsiness possible high doses", "[LBL] Quality variable (OTC especially US)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "melatonin_delirium": "[OBS-Mark] [Melatonin в delirium prevention?]"},
-      "references": ["Sleep medicine guidelines"],
-      "status_flags": {"mark_validated": false}
+      "indications": {
+        "approved": [
+          "[LBL] Insomnia elderly (low dose 0.5-3 mg)",
+          "[LBL] Jet lag",
+          "[LBL] Shift work",
+          "[GL] Delirium prevention (some evidence)"
+        ]
+      },
+      "dosing": {
+        "dose": "0.3-3 mg 1-2h before bedtime",
+        "note": [
+          "[LBL] Lower doses often better than higher (paradoxical)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Circadian restoration (endogenous hormone replacement)",
+          "best_match": [
+            "Elderly insomnia (avoids Beers sedatives)"
+          ]
+        },
+        "membrane": {
+          "impact": "Minimal"
+        },
+        "phase": {
+          "match": "Chronic / Phase 5"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Generally very safe",
+          "[LBL] No fall risk (vs benzo/Z-drug)",
+          "[LBL] No cognitive impairment (advantage)",
+          "[LBL] Vivid dreams (some)",
+          "[LBL] Morning drowsiness possible high doses",
+          "[LBL] Quality variable (OTC especially US)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "melatonin_delirium": "[OBS-Mark] [Melatonin в delirium prevention?]"
+      },
+      "references": [
+        "Sleep medicine guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-290", "name_inn": "Donepezil (elderly considerations)", "name_ru": "Донепезил (гериатрия)", "name_brand": "Aricept (cross-ref DRG-213)",
-      "status": "METACOD-RF", "batch": "19-Cognitive", "entry_type": "cross_reference",
+      "drug_id": "DRG-290",
+      "name_inn": "Donepezil (elderly considerations)",
+      "name_ru": "Донепезил (гериатрия)",
+      "name_brand": "Aricept (cross-ref DRG-213)",
+      "status": "METACOD-RF",
+      "batch": "19-Cognitive",
+      "entry_type": "cross_reference",
       "cross_reference": "Full donepezil profile в batch 12 (DRG-213). Здесь — elderly-specific considerations only.",
-      "elderly_considerations": ["[LBL] Discontinuation strategy — consider в advanced disease / lack of benefit", "[LBL] GI side effects more pronounced", "[LBL] Bradycardia especially concerning с cardiac history", "[GL] Falls risk via various mechanisms"],
-      "discontinuation_criteria": ["[GL] Severe advanced dementia (no functional benefit)", "[GL] Significant GI side effects", "[GL] New bradycardia or syncope", "[GL] Caregivers report no benefit", "[GL] Goal-of-care shift к comfort"],
-      "three_axis_profile": {"constitutional": {"energy": "Cholinergic Yin support (см. batch 12)", "best_match": ["Alzheimer's elderly"]}, "membrane": {"impact": "Cannot reverse M-D dementia trajectory"}, "phase": {"match": "Chronic; reassess discontinuation"}},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "chei_discontinuation": "[OBS-Mark] [Cholinesterase inhibitor discontinuation timing?]"},
-      "references": ["см. batch 12 DRG-213"],
-      "status_flags": {"mark_validated": false, "note": "cross-reference entry — full profile DRG-213 batch 12"}
+      "elderly_considerations": [
+        "[LBL] Discontinuation strategy — consider в advanced disease / lack of benefit",
+        "[LBL] GI side effects more pronounced",
+        "[LBL] Bradycardia especially concerning с cardiac history",
+        "[GL] Falls risk via various mechanisms"
+      ],
+      "discontinuation_criteria": [
+        "[GL] Severe advanced dementia (no functional benefit)",
+        "[GL] Significant GI side effects",
+        "[GL] New bradycardia or syncope",
+        "[GL] Caregivers report no benefit",
+        "[GL] Goal-of-care shift к comfort"
+      ],
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Cholinergic Yin support (см. batch 12)",
+          "best_match": [
+            "Alzheimer's elderly"
+          ]
+        },
+        "membrane": {
+          "impact": "Cannot reverse M-D dementia trajectory"
+        },
+        "phase": {
+          "match": "Chronic; reassess discontinuation"
+        }
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "chei_discontinuation": "[OBS-Mark] [Cholinesterase inhibitor discontinuation timing?]"
+      },
+      "references": [
+        "см. batch 12 DRG-213"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "cross-reference entry — full profile DRG-213 batch 12"
+      }
     },
     {
-      "drug_id": "DRG-291", "name_inn": "Apixaban (elderly considerations)", "name_ru": "Апиксабан (гериатрия)", "name_brand": "Eliquis (cross-ref DRG-082 batch 06, not in repo)",
-      "status": "METACOD-RF", "batch": "19-Dosing", "entry_type": "cross_reference",
+      "drug_id": "DRG-291",
+      "name_inn": "Apixaban (elderly considerations)",
+      "name_ru": "Апиксабан (гериатрия)",
+      "name_brand": "Eliquis (cross-ref DRG-082 batch 06, not in repo)",
+      "status": "METACOD-RF",
+      "batch": "19-Dosing",
+      "entry_type": "cross_reference",
       "cross_reference": "Full apixaban profile в batch 06 (DRG-082; batch 06 не в репозитории). Здесь — elderly-specific.",
-      "elderly_considerations": ["[GL] Preferred DOAC в elderly by multiple guidelines", "[RCT] Lowest bleeding risk в class (ARISTOTLE trial)", "[LBL] Simple dose-reduction criteria", "[LBL] Renal flexibility — usable lower eGFR than other DOACs", "[LBL] GI bleeding particularly lower than rivaroxaban"],
-      "dosing": {"reduced_dose": "[LBL] 2.5 mg BID if ≥2 of 3: Age ≥80, Weight ≤60 kg, Creatinine ≥1.5 mg/dL"},
-      "three_axis_profile": {"constitutional": {"energy": "Anticoagulation (см. batch 06)", "best_match": ["Elderly AF requiring anticoagulation"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "doac_elderly_polypharmacy": "[OBS-Mark] [DOAC selection в elderly с polypharmacy?]"},
-      "references": ["ARISTOTLE trial", "см. batch 06 DRG-082"],
-      "status_flags": {"mark_validated": false, "note": "cross-reference entry — full profile batch 06 (not in repo)"}
+      "elderly_considerations": [
+        "[GL] Preferred DOAC в elderly by multiple guidelines",
+        "[RCT] Lowest bleeding risk в class (ARISTOTLE trial)",
+        "[LBL] Simple dose-reduction criteria",
+        "[LBL] Renal flexibility — usable lower eGFR than other DOACs",
+        "[LBL] GI bleeding particularly lower than rivaroxaban"
+      ],
+      "dosing": {
+        "reduced_dose": "[LBL] 2.5 mg BID if ≥2 of 3: Age ≥80, Weight ≤60 kg, Creatinine ≥1.5 mg/dL"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anticoagulation (см. batch 06)",
+          "best_match": [
+            "Elderly AF requiring anticoagulation"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "doac_elderly_polypharmacy": "[OBS-Mark] [DOAC selection в elderly с polypharmacy?]"
+      },
+      "references": [
+        "ARISTOTLE trial",
+        "см. batch 06 DRG-082"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "cross-reference entry — full profile batch 06 (not in repo)"
+      }
     },
     {
-      "drug_id": "DRG-292", "name_inn": "Opioid alternatives in elderly framework", "name_ru": "Альтернативы опиоидам у пожилых (рамка)", "name_brand": "— (pain management framework)",
-      "status": "METACOD-RF", "batch": "19-Pain-Management", "entry_type": "framework",
+      "drug_id": "DRG-292",
+      "name_inn": "Opioid alternatives in elderly framework",
+      "name_ru": "Альтернативы опиоидам у пожилых (рамка)",
+      "name_brand": "— (pain management framework)",
+      "status": "METACOD-RF",
+      "batch": "19-Pain-Management",
+      "entry_type": "framework",
       "concept": "Opioids problematic в elderly (falls, cognition, constipation, delirium, respiratory depression, DDIs). Preferred alternatives by pain type.",
       "alternatives": {
-        "musculoskeletal": ["[GL] Acetaminophen 1-3 g/day (NOT 4 g — lower hepatotox threshold elderly)", "[GL] Topical NSAIDs (diclofenac gel) preferred over systemic", "[GL] Topical capsaicin", "[GL] Topical lidocaine patches", "[GL] Heat / physical therapy"],
-        "neuropathic": ["[GL] Pregabalin/gabapentin (caution falls, edema)", "[GL] Duloxetine (consider polypharmacy)", "[GL] Topical lidocaine"],
-        "chronic_widespread": ["[GL] Duloxetine", "[GL] Acceptance + commitment therapy", "[GL] Exercise (yoga, tai chi — evidence)"],
-        "severe_acute_when_opioid_needed": ["[GL] Lower initial dose (50% standard adult)", "[GL] Avoid morphine (active metabolite accumulates CKD)", "[GL] Prefer hydromorphone or oxycodone low dose", "[GL] Stop ASAP (days)", "[GL] Bowel regimen mandatory (PEG, senna)", "[GL] Falls precautions"]
+        "musculoskeletal": [
+          "[GL] Acetaminophen 1-3 g/day (NOT 4 g — lower hepatotox threshold elderly)",
+          "[GL] Topical NSAIDs (diclofenac gel) preferred over systemic",
+          "[GL] Topical capsaicin",
+          "[GL] Topical lidocaine patches",
+          "[GL] Heat / physical therapy"
+        ],
+        "neuropathic": [
+          "[GL] Pregabalin/gabapentin (caution falls, edema)",
+          "[GL] Duloxetine (consider polypharmacy)",
+          "[GL] Topical lidocaine"
+        ],
+        "chronic_widespread": [
+          "[GL] Duloxetine",
+          "[GL] Acceptance + commitment therapy",
+          "[GL] Exercise (yoga, tai chi — evidence)"
+        ],
+        "severe_acute_when_opioid_needed": [
+          "[GL] Lower initial dose (50% standard adult)",
+          "[GL] Avoid morphine (active metabolite accumulates CKD)",
+          "[GL] Prefer hydromorphone or oxycodone low dose",
+          "[GL] Stop ASAP (days)",
+          "[GL] Bowel regimen mandatory (PEG, senna)",
+          "[GL] Falls precautions"
+        ]
       },
-      "three_axis_profile": {"constitutional": {"energy": "Pain management minimizing iatrogenic Yin-depletion / falls", "best_match": ["Frail elderly с pain"]}, "membrane": {"impact": "Avoid opioid-driven decline / immobility"}, "phase": {"match": "Acute / chronic pain"}},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "chronic_pain_frail_elderly": "[OBS-Mark] [Chronic pain management в frail elderly approach?]"},
-      "references": ["AGS pain management guidance", "Beers Criteria 2023"],
-      "status_flags": {"mark_validated": false}
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Pain management minimizing iatrogenic Yin-depletion / falls",
+          "best_match": [
+            "Frail elderly с pain"
+          ]
+        },
+        "membrane": {
+          "impact": "Avoid opioid-driven decline / immobility"
+        },
+        "phase": {
+          "match": "Acute / chronic pain"
+        }
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "chronic_pain_frail_elderly": "[OBS-Mark] [Chronic pain management в frail elderly approach?]"
+      },
+      "references": [
+        "AGS pain management guidance",
+        "Beers Criteria 2023"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-293", "name_inn": "Comprehensive Geriatric Assessment (CGA) framework", "name_ru": "Комплексная гериатрическая оценка (рамка)", "name_brand": "— (assessment framework)",
-      "status": "METACOD-RF", "batch": "19-Framework", "entry_type": "framework",
+      "drug_id": "DRG-293",
+      "name_inn": "Comprehensive Geriatric Assessment (CGA) framework",
+      "name_ru": "Комплексная гериатрическая оценка (рамка)",
+      "name_brand": "— (assessment framework)",
+      "status": "METACOD-RF",
+      "batch": "19-Framework",
+      "entry_type": "framework",
       "concept": "[GL] CGA = standard geriatric multidimensional assessment: medical, functional (ADL/IADL), mental health (cognition, depression), social (support, isolation), nutritional, environmental.",
       "metacod_integration": {
         "constitutional": "Yin/Yang dominant, triad (usually T5 Yin-Water в frail), Quantity × Quality",
@@ -134,34 +446,152 @@
         "kcts_screening": "[RF] AIRE markers (attended alone, isolation, single-carrier history), long-term chronic disease, treatment-refractory, multiple parallel conditions",
         "lifetime_exposure": "Long-term meds (PPI/NSAID/steroid), lifetime stressors, career carrier, major life events (recent bereavement)"
       },
-      "stratified_approach_rf": ["[RF] Phase-5-stable: maintenance, lifestyle, minimize meds", "[RF] Phase-2-active chronic: address active processes, Beers/STOPP, deprescribe, KCTS screen", "[RF] Phase-3-risk: conservative, lower hospitalization threshold, goals-of-care", "[RF] M-D2/D3 frail/cachectic: modified anabolic support, QoL focus, palliative consult"],
-      "three_axis_profile": {"constitutional": {"energy": "Multidimensional elderly assessment + energy overlay", "best_match": ["All elderly, especially frail T5"]}, "membrane": {"impact": "BIA-based M-D trajectory monitoring"}, "phase": {"match": "Phase reserve assessment"}},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "cga_energy_algorithm": "[OBS-Mark] [CGA integration с energy framework — practical algorithm?]"},
-      "references": ["AGS CGA Guidelines", "frailty syndrome literature"],
-      "status_flags": {"mark_validated": false}
+      "stratified_approach_rf": [
+        "[RF] Phase-5-stable: maintenance, lifestyle, minimize meds",
+        "[RF] Phase-2-active chronic: address active processes, Beers/STOPP, deprescribe, KCTS screen",
+        "[RF] Phase-3-risk: conservative, lower hospitalization threshold, goals-of-care",
+        "[RF] M-D2/D3 frail/cachectic: modified anabolic support, QoL focus, palliative consult"
+      ],
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Multidimensional elderly assessment + energy overlay",
+          "best_match": [
+            "All elderly, especially frail T5"
+          ]
+        },
+        "membrane": {
+          "impact": "BIA-based M-D trajectory monitoring"
+        },
+        "phase": {
+          "match": "Phase reserve assessment"
+        }
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "cga_energy_algorithm": "[OBS-Mark] [CGA integration с energy framework — practical algorithm?]"
+      },
+      "references": [
+        "AGS CGA Guidelines",
+        "frailty syndrome literature"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-294", "name_inn": "Polypharmacy deprescribing framework", "name_ru": "Депрескрайбинг при полипрагмазии (рамка)", "name_brand": "— (deprescribing framework)",
-      "status": "METACOD-RF", "batch": "19-Framework", "entry_type": "framework",
+      "drug_id": "DRG-294",
+      "name_inn": "Polypharmacy deprescribing framework",
+      "name_ru": "Депрескрайбинг при полипрагмазии (рамка)",
+      "name_brand": "— (deprescribing framework)",
+      "status": "METACOD-RF",
+      "batch": "19-Framework",
+      "entry_type": "framework",
       "concept": "[GL] Polypharmacy ≥5 meds associated с falls, delirium, exponential DDIs, ADRs, reduced adherence, increased mortality. Deprescribing = systematic medication reduction.",
-      "systematic_steps": ["[GL] 1. Comprehensive med list (Rx, OTC, supplements, herbals, PRN)", "[GL] 2. Indication review per med (still relevant/effective/positive risk-benefit/goals-aligned?)", "[GL] 3. Risk assessment (Beers, ACB score, DDIs, drug-disease, patient factors)", "[GL] 4. Priority targets (highest-risk first, greatest benefit:risk)", "[GL] 5. Tapering plan (slow taper: benzos/opioids/beta-blockers/SSRI-SNRI/PPIs; abrupt OK: statins in advanced disease)", "[GL] 6. Monitoring (symptom recurrence, improved cognition/function, reassess 1-3 months)"],
-      "common_targets": ["[GL] Chronic PPI (most common)", "[GL] Chronic benzodiazepines", "[GL] Anticholinergics (multiple together)", "[GL] Multiple antihypertensives (target ≤140/90 frail elderly)", "[GL] Statins в life expectancy <2 years", "[GL] Aspirin primary prevention", "[GL] Vitamin/mineral supplements без deficiency"],
-      "metacod_integration_rf": ["[RF] T5 Yin-Water frail — minimize iatrogenic load", "[RF] M-D drift trajectory — reduce drugs driving direction", "[RF] KCTS-active — address underlying не layering symptom management", "[RF] Phase 5 goal — minimize medication disturbance"],
-      "three_axis_profile": {"constitutional": {"energy": "Reduce iatrogenic burden on depleted elderly constitution", "best_match": ["Polypharmacy elderly, especially T5"]}, "membrane": {"impact": "Deprescribing can slow M-D acceleration"}, "phase": {"match": "Chronic optimization"}},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "deprescribing_practice": "[OBS-Mark] [deprescribing strategies — practical examples?]", "common_wins": "[OBS-Mark] [most common deprescribing wins в elderly practice?]"},
-      "references": ["Deprescribing.org Algorithms", "Choosing Wisely", "deprescribing trials"],
-      "status_flags": {"mark_validated": false}
+      "systematic_steps": [
+        "[GL] 1. Comprehensive med list (Rx, OTC, supplements, herbals, PRN)",
+        "[GL] 2. Indication review per med (still relevant/effective/positive risk-benefit/goals-aligned?)",
+        "[GL] 3. Risk assessment (Beers, ACB score, DDIs, drug-disease, patient factors)",
+        "[GL] 4. Priority targets (highest-risk first, greatest benefit:risk)",
+        "[GL] 5. Tapering plan (slow taper: benzos/opioids/beta-blockers/SSRI-SNRI/PPIs; abrupt OK: statins in advanced disease)",
+        "[GL] 6. Monitoring (symptom recurrence, improved cognition/function, reassess 1-3 months)"
+      ],
+      "common_targets": [
+        "[GL] Chronic PPI (most common)",
+        "[GL] Chronic benzodiazepines",
+        "[GL] Anticholinergics (multiple together)",
+        "[GL] Multiple antihypertensives (target ≤140/90 frail elderly)",
+        "[GL] Statins в life expectancy <2 years",
+        "[GL] Aspirin primary prevention",
+        "[GL] Vitamin/mineral supplements без deficiency"
+      ],
+      "metacod_integration_rf": [
+        "[RF] T5 Yin-Water frail — minimize iatrogenic load",
+        "[RF] M-D drift trajectory — reduce drugs driving direction",
+        "[RF] KCTS-active — address underlying не layering symptom management",
+        "[RF] Phase 5 goal — minimize medication disturbance"
+      ],
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Reduce iatrogenic burden on depleted elderly constitution",
+          "best_match": [
+            "Polypharmacy elderly, especially T5"
+          ]
+        },
+        "membrane": {
+          "impact": "Deprescribing can slow M-D acceleration"
+        },
+        "phase": {
+          "match": "Chronic optimization"
+        }
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "deprescribing_practice": "[OBS-Mark] [deprescribing strategies — practical examples?]",
+        "common_wins": "[OBS-Mark] [most common deprescribing wins в elderly practice?]"
+      },
+      "references": [
+        "Deprescribing.org Algorithms",
+        "Choosing Wisely",
+        "deprescribing trials"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-295", "name_inn": "Anticholinergic burden assessment framework", "name_ru": "Оценка антихолинергической нагрузки (рамка)", "name_brand": "— (ACB framework)",
-      "status": "METACOD-RF", "batch": "19-Framework", "entry_type": "framework",
+      "drug_id": "DRG-295",
+      "name_inn": "Anticholinergic burden assessment framework",
+      "name_ru": "Оценка антихолинергической нагрузки (рамка)",
+      "name_brand": "— (ACB framework)",
+      "status": "METACOD-RF",
+      "batch": "19-Framework",
+      "entry_type": "framework",
       "concept": "[GL] Anticholinergic burden = cumulative anticholinergic effect от multiple meds. Effects: cognitive impairment (mimics dementia), falls, constipation, urinary retention, dry mouth/eyes, heat intolerance, tachycardia, delirium.",
-      "acb_scale": {"description": "[GL] ACB (Anticholinergic Cognitive Burden) Scale — drugs scored 1/2/3 by potency; total ≥3 associated с cognitive decline.", "score_3_strong": ["[GL] Amitriptyline, nortriptyline, TCAs", "[GL] Diphenhydramine, hydroxyzine", "[GL] Oxybutynin", "[GL] Paroxetine", "[GL] Clozapine, olanzapine", "[GL] Tolterodine"], "score_2_moderate": ["[GL] Cyclobenzaprine", "[GL] Cetirizine", "[GL] Loratadine"], "score_1_mild": ["[GL] Furosemide, digoxin, warfarin, metoprolol, captopril (many common drugs accumulate)"]},
+      "acb_scale": {
+        "description": "[GL] ACB (Anticholinergic Cognitive Burden) Scale — drugs scored 1/2/3 by potency; total ≥3 associated с cognitive decline.",
+        "score_3_strong": [
+          "[GL] Amitriptyline, nortriptyline, TCAs",
+          "[GL] Diphenhydramine, hydroxyzine",
+          "[GL] Oxybutynin",
+          "[GL] Paroxetine",
+          "[GL] Clozapine, olanzapine",
+          "[GL] Tolterodine"
+        ],
+        "score_2_moderate": [
+          "[GL] Cyclobenzaprine",
+          "[GL] Cetirizine",
+          "[GL] Loratadine"
+        ],
+        "score_1_mild": [
+          "[GL] Furosemide, digoxin, warfarin, metoprolol, captopril (many common drugs accumulate)"
+        ]
+      },
       "metacod_integration_rf": "[RF] High anticholinergic burden = iatrogenic Wind suppression в metabolic terms, but with severe collateral cognitive damage; often mimics dementia в frail elderly. Deprescription priority — addressing burden может improve cognition, falls, QoL, function.",
-      "three_axis_profile": {"constitutional": {"energy": "Iatrogenic Wind suppression with cognitive collateral", "best_match": ["Polypharmacy elderly с cognitive concerns"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic; reversible cognitive impact"}},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "acb_assessment": "[OBS-Mark] [Anticholinergic burden assessment в practice?]"},
-      "references": ["ACB scale literature", "common anticholinergic drug lists"],
-      "status_flags": {"mark_validated": false}
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Iatrogenic Wind suppression with cognitive collateral",
+          "best_match": [
+            "Polypharmacy elderly с cognitive concerns"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic; reversible cognitive impact"
+        }
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "acb_assessment": "[OBS-Mark] [Anticholinergic burden assessment в practice?]"
+      },
+      "references": [
+        "ACB scale literature",
+        "common anticholinergic drug lists"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     }
   ]
 }
