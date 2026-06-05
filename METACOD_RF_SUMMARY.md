@@ -17,7 +17,7 @@
 | — authored from Mark's pasted source docs | **220** |
 | — Claude-authored (191 gap-fill batches + 133 expansion-block DRG-380..512) | **324** (flagged) |
 | Conceptual / registry files | **17** (incl. diagnostics foundation) |
-| Test suite | **783 passing, 0 skipped** |
+| Test suite | **791 passing, 0 skipped** |
 | `ready_for_clinical_use` across **all** artifacts | **false** (verified) |
 
 DRG ID space is essentially contiguous **DRG-001..379** core + a **380..512 expansion block** (133 class-completion entries across all systems). Documented minor gaps only: 200-201, 250, 370-371.
@@ -110,7 +110,7 @@ Enforced uniformly and checked by tests:
 Separate research database under the same governance wall (`dx_batch*.json`,
 loader `services/diagnostic_db.py`, foundation `diagnostic_foundation_v1_0.json`).
 Per Mark: full scope (~300-390 across lab/imaging/functional/procedures, 20 batches)
-+ full Mark-canonical core. **COMPLETE: all 20 batches / 230 entries** — lab (DX-01..11, TST), imaging (DX-12..15, IMG), functional (DX-16/17/18, FUN), procedures (DX-19/20, PRO).
++ full Mark-canonical core. **COMPLETE: 20-batch plan + DX-21 niche labs = 21 batches / 248 entries** — lab (DX-01..11, TST), imaging (DX-12..15, IMG), functional (DX-16/17/18, FUN), procedures (DX-19/20, PRO), niche (DX-21: CSF/toxicology/genetics/salivary).
 Tests **REVEAL** axis states (vs drugs target them); reference ranges/indications
 = `[LBL/GL]`, energy/membrane/phase interpretation = `[RF]`; BIA phase-angle =
 evidence-based prognostic, METACOD zone-mapping `[RF]`; Revici urine-pH / Bristol

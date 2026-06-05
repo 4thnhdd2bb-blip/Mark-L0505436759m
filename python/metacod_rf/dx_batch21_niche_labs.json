@@ -1,0 +1,926 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_db",
+    "batch_id": "DX-21-NicheLabs",
+    "version": "RF-2026-06-DX21",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Diagnostics — niche labs: CSF panel + toxicology/TDM + genetics + salivary hormones",
+    "architecture": "Diagnostic Foundation v1.0 + Three-Axis Framework v1.0 + kcts_integration v1.1 (EBM)",
+    "preparations_count": 18,
+    "author": "Claude (standard-evidence authorship) — diagnostics niche labs; not a Mark source document",
+    "claude_authored_standard_evidence": true,
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT] Salivary cortisol diurnal/CAR = EBM chronic-stress markers (NOT Hamer/AIRE). Hamer/AIRE-каузальность не используется.",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "governance_note": "[GOVERNANCE] Reference ranges/indications = [GL/LBL]; energy/membrane/phase = [RF]. Genetics: genetic counseling + consent required, VUS/incidental findings; secondary findings per ACMG. Toxicology: confirmation before consequences; timed levels. Salivary SEX hormones flagged [RF] — NOT validated clinical diagnostic (serum LC-MS preferred). research-only; not patient-facing; never delays standard care.",
+    "source_tag_legend": {
+      "LBL": "FDA/EMA/device label",
+      "GL": "Clinical/lab guideline or standard",
+      "RCT": "trial evidence",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "Mark observation (требует заполнения)",
+      "RF": "research / METACOD interpretive overlay (theoretical)"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "TST-133",
+      "name_full": "CSF cell count + differential",
+      "name_ru": "Ликвор: цитоз + дифференциал",
+      "name_alternative_codes": "CSF cells",
+      "status": "METACOD-RF",
+      "batch": "DX-21-CSF",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Manual count + differential on CSF",
+      "specimen_type": "CSF",
+      "reference_ranges": "[GL] WBC <5/µL (adult); RBC 0; neutrophils vs lymphocytes pattern",
+      "units": "cells/µL",
+      "critical_values": "[GL] bacterial meningitis profile (↑neutrophils, ↓glucose)",
+      "indications": {
+        "primary": "[GL] meningitis/encephalitis (bacterial vs viral), CNS malignancy"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] CNS inflammatory state"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] neutrophilic pleocytosis = acute bacterial Phase 2/3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] traumatic tap (RBC) confounds; rapid processing (cells lyse)"
+      ],
+      "related_tests": [
+        "PRO-013 LP",
+        "TST-134 CSF protein/glucose"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "IDSA meningitis"
+      ]
+    },
+    {
+      "test_id": "TST-134",
+      "name_full": "CSF protein + glucose (CSF:serum)",
+      "name_ru": "Ликвор: белок + глюкоза (ликвор/сыворотка)",
+      "name_alternative_codes": "CSF protein/glucose",
+      "status": "METACOD-RF",
+      "batch": "DX-21-CSF",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Colorimetric; paired serum glucose",
+      "specimen_type": "CSF",
+      "reference_ranges": "[GL] protein 15-45 mg/dL; CSF:serum glucose ratio >0.6",
+      "units": "mg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] meningitis (↓glucose bacterial), GBS/inflammatory (↑protein, albuminocytologic dissociation)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] CNS barrier integrity"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] ↓glucose+↑protein = acute bacterial"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] paired serum glucose required; bloody tap ↑protein"
+      ],
+      "related_tests": [
+        "TST-133 CSF cells"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "IDSA"
+      ]
+    },
+    {
+      "test_id": "TST-135",
+      "name_full": "CSF oligoclonal bands + IgG index",
+      "name_ru": "Ликвор: олигоклональные полосы + IgG-индекс",
+      "name_alternative_codes": "OCB/IgG index",
+      "status": "METACOD-RF",
+      "batch": "DX-21-CSF",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Isoelectric focusing (paired CSF/serum)",
+      "specimen_type": "CSF",
+      "reference_ranges": "[GL] CSF-restricted bands (≥2 not in serum) positive",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] multiple sclerosis (intrathecal IgG synthesis), CNS inflammation"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] CNS autoimmune activity"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] demyelination context (M-S)"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] non-specific (other CNS inflammatory/infectious)"
+      ],
+      "related_tests": [
+        "IMG-028 MRI brain",
+        "DRG MS-DMTs"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "MS McDonald criteria"
+      ]
+    },
+    {
+      "test_id": "TST-136",
+      "name_full": "CSF Alzheimer biomarkers (Aβ42/40, total-tau, p-tau)",
+      "name_ru": "Ликвор: маркеры Альцгеймера (Aβ42/40, tau, p-tau)",
+      "name_alternative_codes": "CSF AD biomarkers",
+      "status": "METACOD-RF",
+      "batch": "DX-21-CSF",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay (ratios)",
+      "specimen_type": "CSF",
+      "reference_ranges": "[GL] ↓Aβ42/40 + ↑p-tau = AD-consistent",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[RCT] Alzheimer's diagnosis (amyloid/tau), early/atypical dementia"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] neurodegenerative (M-D) context"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] neuronal loss=M-D"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] assay/cutoff harmonization; LP required (plasma biomarkers emerging)"
+      ],
+      "related_tests": [
+        "IMG-041 PET-CT (amyloid)",
+        "DRG-454 lecanemab"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "AD biomarker guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-137",
+      "name_full": "CSF infection/SAH studies (culture/PCR/xanthochromia)",
+      "name_ru": "Ликвор: инфекция/САК (посев/ПЦР/ксантохромия)",
+      "name_alternative_codes": "CSF micro/xanthochromia",
+      "status": "METACOD-RF",
+      "batch": "DX-21-CSF",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Culture + multiplex PCR + spectrophotometry",
+      "specimen_type": "CSF",
+      "reference_ranges": "[GL] pathogen-specific; xanthochromia present in SAH",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] meningitis/encephalitis pathogen ID (HSV PCR), subarachnoid hemorrhage (xanthochromia)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] CNS infection (Heat)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute = Phase 2/3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] HSV PCR may be negative early; timing of xanthochromia (>12h)"
+      ],
+      "related_tests": [
+        "TST-133 CSF cells",
+        "IMG-015 CT head"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "IDSA"
+      ]
+    },
+    {
+      "test_id": "TST-138",
+      "name_full": "Urine drug screen (+ confirmation)",
+      "name_ru": "Скрининг наркотиков в моче (+ подтверждение)",
+      "name_alternative_codes": "UDS",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Toxicology",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay screen + GC-MS/LC-MS confirmation",
+      "specimen_type": "Urine",
+      "reference_ranges": "[GL] qualitative positive/negative; confirm positives",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] overdose/altered mental status, addiction monitoring (MOUD), forensic"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute intoxication=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] false+/− (immunoassay cross-reactivity); confirm before consequences; cutoffs/detection windows"
+      ],
+      "related_tests": [
+        "DRG-285 naloxone",
+        "DRG-018 buprenorphine"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "SAMHSA/toxicology"
+      ]
+    },
+    {
+      "test_id": "TST-139",
+      "name_full": "Blood alcohol (ethanol) level",
+      "name_ru": "Этанол в крови",
+      "name_alternative_codes": "BAC/ethanol",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Toxicology",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Enzymatic/GC",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] quantitative mg/dL (legal/clinical thresholds)",
+      "units": "mg/dL",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] acute intoxication, withdrawal risk, osmolar gap"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute intoxication=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] serum vs whole-blood conversion; isopropyl/methanol not detected"
+      ],
+      "related_tests": [
+        "TST-074 osmolality",
+        "DRG-484 nalmefene"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "toxicology"
+      ]
+    },
+    {
+      "test_id": "TST-140",
+      "name_full": "Acetaminophen + salicylate levels",
+      "name_ru": "Парацетамол + салицилаты (уровни)",
+      "name_alternative_codes": "APAP/ASA levels",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Toxicology",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay/colorimetric; timed",
+      "specimen_type": "Serum",
+      "reference_ranges": "[GL] APAP — Rumack-Matthew nomogram (4h); salicylate toxic >40-50 mg/dL",
+      "units": "mcg/mL",
+      "critical_values": "[GL] toxic level → antidote (NAC for APAP)",
+      "indications": {
+        "primary": "[GL] overdose assessment (co-ingestion screen)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute overdose=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] timing from ingestion critical (nomogram); extended-release/co-ingestants"
+      ],
+      "related_tests": [
+        "DRG-365 NAC",
+        "TST-027 LFTs"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "toxicology/AASLD"
+      ]
+    },
+    {
+      "test_id": "TST-141",
+      "name_full": "Therapeutic drug monitoring (TDM)",
+      "name_ru": "Терапевтический лекарственный мониторинг (ТЛМ)",
+      "name_alternative_codes": "TDM",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Toxicology",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Immunoassay/LC-MS; trough/peak timing",
+      "specimen_type": "Serum/plasma",
+      "reference_ranges": "[GL] drug-specific ranges (digoxin/lithium/vancomycin-AUC/tacrolimus/AEDs/aminoglycosides)",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] narrow-therapeutic-index drug dosing/toxicity (cross-ref drug DB)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] toxicity=Phase 3"
+        }
+      },
+      "mark_canonical": {
+        "priority": "HIGH",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] timing (trough vs peak) essential; renal/hepatic/interaction effects"
+      ],
+      "related_tests": [
+        "DRG-089 digoxin",
+        "DRG-244 vancomycin",
+        "DRG-084 amiodarone"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "HIGH",
+      "references": [
+        "TDM guidelines"
+      ]
+    },
+    {
+      "test_id": "TST-142",
+      "name_full": "Heavy metals (lead / mercury / arsenic)",
+      "name_ru": "Тяжёлые металлы (свинец/ртуть/мышьяк)",
+      "name_alternative_codes": "heavy metals",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Toxicology",
+      "test_type": "Laboratory",
+      "methodology": "[GL] ICP-MS (blood/urine)",
+      "specimen_type": "Blood/urine",
+      "reference_ranges": "[GL] lead BLL action levels; mercury/arsenic reference",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] occupational/environmental exposure, unexplained neuropathy/anemia/encephalopathy"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] toxic burden"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] specimen type matters (blood lead; 24h urine arsenic speciation — seafood organic arsenic)"
+      ],
+      "related_tests": [
+        "TST-001 CBC",
+        "DRG chelation (batch 27)"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "toxicology"
+      ]
+    },
+    {
+      "test_id": "TST-143",
+      "name_full": "Co-oximetry (carboxyhemoglobin / methemoglobin)",
+      "name_ru": "Ко-оксиметрия (карбокси-/метгемоглобин)",
+      "name_alternative_codes": "COHb/MetHb",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Toxicology",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Co-oximetry (ABG)",
+      "specimen_type": "Arterial blood",
+      "reference_ranges": "[GL] COHb <3% (nonsmoker)/<10% smoker; MetHb <2%",
+      "units": "%",
+      "critical_values": "[GL] high COHb/MetHb = emergency",
+      "indications": {
+        "primary": "[GL] CO poisoning, methemoglobinemia (dapsone/benzocaine/nitrates)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] acute = Phase 3 (hypoxia)"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] pulse oximetry falsely normal/misleading (needs co-oximetry)"
+      ],
+      "related_tests": [
+        "FUN-027 ABG",
+        "DRG-493 dapsone"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "toxicology"
+      ]
+    },
+    {
+      "test_id": "TST-144",
+      "name_full": "Karyotype / chromosomal microarray (CMA)",
+      "name_ru": "Кариотип / хромосомный микроматричный анализ",
+      "name_alternative_codes": "karyotype/CMA",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Genetics",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Cytogenetics / array-CGH",
+      "specimen_type": "Blood/tissue",
+      "reference_ranges": "[GL] numerical/structural chromosomal abnormalities; CNVs",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] congenital anomalies/developmental delay, recurrent pregnancy loss, hematologic malignancy"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] constitutional/genetic foundation"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] CMA misses balanced rearrangements; VUS; genetic counseling required"
+      ],
+      "related_tests": [
+        "TST-145 gene panel"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACMG"
+      ]
+    },
+    {
+      "test_id": "TST-145",
+      "name_full": "Targeted gene panel / single-gene test",
+      "name_ru": "Таргетная генная панель / моногенный тест",
+      "name_alternative_codes": "gene panel",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Genetics",
+      "test_type": "Laboratory",
+      "methodology": "[GL] NGS panel / Sanger",
+      "specimen_type": "Blood/saliva",
+      "reference_ranges": "[GL] variant pathogenicity (ACMG classification)",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] hereditary cancer (BRCA/Lynch), CFTR, cardiomyopathy/channelopathy, monogenic disease"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] genetic constitution"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] VUS; incidental findings; pre/post-test genetic counseling + consent essential"
+      ],
+      "related_tests": [
+        "TST-146 WES/WGS",
+        "DRG-343 CFTR modulators"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "ACMG"
+      ]
+    },
+    {
+      "test_id": "TST-146",
+      "name_full": "Whole-exome / whole-genome sequencing (WES/WGS)",
+      "name_ru": "Полноэкзомное/полногеномное секвенирование (WES/WGS)",
+      "name_alternative_codes": "WES/WGS",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Genetics",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Next-generation sequencing (trio if available)",
+      "specimen_type": "Blood/saliva",
+      "reference_ranges": "[GL] ACMG variant classification + phenotype correlation",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] undiagnosed/rare disease, complex congenital, pharmacogenomics"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] genetic constitution (deep)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] secondary/incidental findings (ACMG list), VUS burden, counseling/consent, cost"
+      ],
+      "related_tests": [
+        "TST-145 gene panel"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACMG"
+      ]
+    },
+    {
+      "test_id": "TST-147",
+      "name_full": "Cell-free DNA (NIPT / circulating tumor DNA)",
+      "name_ru": "Внеклеточная ДНК (НИПТ / цоДНК)",
+      "name_alternative_codes": "cfDNA/ctDNA",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Genetics",
+      "test_type": "Laboratory",
+      "methodology": "[GL] cfDNA sequencing (maternal plasma / liquid biopsy)",
+      "specimen_type": "Plasma",
+      "reference_ranges": "[GL] NIPT aneuploidy risk; ctDNA tumor mutations/MRD",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] prenatal aneuploidy screening (NIPT); oncology liquid biopsy (targetable mutations, monitoring)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] —"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[GL] NIPT screening (not diagnostic — confirm); ctDNA sensitivity/tumor-fraction dependent"
+      ],
+      "related_tests": [
+        "TST-145 gene panel",
+        "TST-110 tumor markers"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "ACMG/ASCO"
+      ]
+    },
+    {
+      "test_id": "TST-148",
+      "name_full": "Late-night salivary cortisol",
+      "name_ru": "Ночной кортизол слюны",
+      "name_alternative_codes": "salivary cortisol",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Salivary",
+      "test_type": "Laboratory",
+      "methodology": "[GL] LC-MS/immunoassay (2 late-night samples)",
+      "specimen_type": "Saliva",
+      "reference_ranges": "[GL] elevated late-night = loss of diurnal nadir",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] Cushing syndrome screening (convenient outpatient), pseudo-Cushing differentiation"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] HPA-axis cortisol output (non-invasive)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] loss of diurnal cortisol rhythm = supportive chronic-stress pattern"
+      },
+      "safety_limitations": [
+        "[GL] sleep/shift-work/contamination (food/blood/steroids) confound"
+      ],
+      "related_tests": [
+        "TST-034 DST",
+        "TST-035 UFC"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "Endocrine Society Cushing"
+      ]
+    },
+    {
+      "test_id": "TST-149",
+      "name_full": "Salivary cortisol awakening response / diurnal slope",
+      "name_ru": "Кортизоловая реакция пробуждения / суточный наклон (слюна)",
+      "name_alternative_codes": "CAR / diurnal slope",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Salivary",
+      "test_type": "Laboratory",
+      "methodology": "[GL] Multi-point salivary cortisol (awakening +30/45 min, evening)",
+      "specimen_type": "Saliva",
+      "reference_ranges": "[GL] CAR magnitude + diurnal slope (research/chronic-stress)",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[GL] chronic-stress / HPA-dysregulation assessment (research, wellness)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] chronic-stress physiology (KCTS EBM-supportive)"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "MEDIUM",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] blunted/flattened diurnal slope = supportive chronic-stress-physiology marker (v1.1 EBM)"
+      },
+      "safety_limitations": [
+        "[RF] not a validated clinical diagnostic; strict sampling protocol; high variability"
+      ],
+      "related_tests": [
+        "FUN-003 HRV",
+        "TST-148 salivary cortisol"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "MEDIUM",
+      "references": [
+        "psychoneuroendocrinology literature"
+      ]
+    },
+    {
+      "test_id": "TST-150",
+      "name_full": "Salivary sex hormones (testosterone/estradiol/progesterone)",
+      "name_ru": "Половые гормоны слюны (тестостерон/эстрадиол/прогестерон)",
+      "name_alternative_codes": "salivary sex hormones",
+      "status": "METACOD-RF",
+      "batch": "DX-21-Salivary",
+      "test_type": "Laboratory",
+      "methodology": "[RF] Immunoassay on saliva",
+      "specimen_type": "Saliva",
+      "reference_ranges": "[RF] assay-specific; correlation with serum free fraction debated",
+      "units": "—",
+      "critical_values": "—",
+      "indications": {
+        "primary": "[RF] wellness/functional-medicine hormone assessment (limited validation)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "what_it_reveals": "[RF] free-fraction hormone estimate"
+        },
+        "membrane": {
+          "what_it_reveals": "[RF] —"
+        },
+        "phase": {
+          "what_it_reveals": "[RF] —"
+        }
+      },
+      "mark_canonical": {
+        "priority": "LOW",
+        "canonical_role": "[OBS-Mark] [TBD]",
+        "kcts_screening_role": "[GL] n/a"
+      },
+      "safety_limitations": [
+        "[RF] NOT validated for clinical diagnosis (serum LC-MS preferred); assay variability; contamination"
+      ],
+      "related_tests": [
+        "TST-040 free testosterone",
+        "TST-042 estradiol"
+      ],
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      },
+      "priority_for_mark_review": "LOW",
+      "references": [
+        "[RF] functional-medicine (limited evidence)"
+      ]
+    }
+  ]
+}

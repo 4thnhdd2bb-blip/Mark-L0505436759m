@@ -144,7 +144,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
   hepatobiliary, cardiology, spleen_pancreas, gallbladder, small_intestine,
   gastroduodenal
 - `diagnostic_foundation_v1_0.json` — diagnostics DB architecture/foundation
-- Loaders in `python/services/`, tests in `python/tests/unit/`. **783 tests, 0 skipped.**
+- Loaders in `python/services/`, tests in `python/tests/unit/`. **791 tests, 0 skipped.**
 
 ### Diagnostics DB (parallel test/imaging database — COMPLETE 2026-06)
 - Separate research DB: `dx_batch*.json` + loader `services/diagnostic_db.py` +
@@ -154,7 +154,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
   20 batches DX-01..DX-20) **+ full Mark-canonical core**. **COMPLETE — all 20
   batches / 230 entries:** Lab category A (DX-01..DX-11, TST-001..132), Imaging
   (DX-12..DX-15, IMG-001..049), Functional (DX-16/DX-17 + DX-18, FUN-001..029),
-  Procedures (DX-19/DX-20, PRO-001..020). Claude-authored standard-evidence.
+  Procedures (DX-19/DX-20, PRO-001..020) + **DX-21 niche labs** (CSF/toxicology-TDM/genetics/salivary-hormones, TST-133..150) = **21 batches / 248 entries**. Claude-authored standard-evidence.
 - Governance: tests REVEAL axis states (vs drugs target); ref-ranges/indications
   `[LBL/GL]`, energy/membrane/phase interpretation `[RF]`; BIA phase-angle =
   evidence-based prognostic (zone-mapping `[RF]`); Revici urine-pH / Bristol
