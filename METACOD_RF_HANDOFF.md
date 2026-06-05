@@ -98,7 +98,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 > (~201 drugs, batches 01–11, 26 output files). **This repo differs.** Below is
 > the actual git content.
 
-### Drug batches present (23 files, **250 drugs**)
+### Drug batches present (26 files, **311 drugs**)
 | batch_id | n | notes |
 |---|---|---|
 | 01-GLP1 | 6 | DRG-001..006; DRG-001 semaglutide PARTIAL (OBS-Mark-001 wax-wane) + RF literature scan |
@@ -107,6 +107,9 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 | 04-Old_School_Antidiabetics | 7 | DRG-017..023 |
 | 05-Insulins+Pramlintide | 10 | DRG-024..033; DRG-025 lispro expanded from stub |
 | 07-Psychiatric | 22 | DRG-097..118 |
+| 08-Endocrine | 25 | DRG-119..143; **Claude-authored gap-fill**; thyroid/glucocorticoids/bone/pituitary/sex-hormones; prednisolone=125 (cross-ref batch 21) |
+| 09-Pulmonology | 18 | DRG-144..161; **Claude-authored gap-fill**; SABA/LABA/LAMA/SAMA/montelukast=148/ICS/combo/theophylline/roflumilast/biologics/IPF-antifibrotics/antitussive |
+| 10-Rheumatology | 18 | DRG-162..179; **Claude-authored gap-fill**; csDMARDs/immunosuppressants/TNF-i/IL6/CTLA4/JAK/IL1/gout; MTX↔Zuo, allopurinol-colchicine↔Yin-Fire/gout context |
 | 11-Gastroenterology | 20 | DRG-180..199 (source claimed 22; 20 enumerable) |
 | 12-Neurology | 15 | DRG-202..216 |
 | 13-Urology_Gyn | 15 | DRG-217..231 (source claimed 16; 15 enumerable; 2 cross-refs) |
@@ -139,13 +142,13 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 
 ### Gap-fill in progress (Mark authorized Claude to author missing directions, EBM style, 2026-06)
 - **DONE (Claude-authored standard-evidence, flagged `claude_authored_standard_evidence`):**
-  14 Antimicrobials (DRG-232..249), 16 Oncology (DRG-256..267). These fill reserved
-  ID gaps with standard [LBL]/[GL]/[RCT] pharmacology; `[OBS-Mark]` empty,
-  `mark_validated` false. **Reconcile with Mark's own versions if they surface
-  (his canonical observations take priority).**
-- **STILL TO AUTHOR (reserved gaps): 06 Cardiovascular (~63, DRG-034..096),
-  08 Endocrine non-DM (~25), 09 Pulmonology (~18), 10 Rheumatology (~18)** —
-  08/09/10 share DRG-119..179. Next gap-fill installments.
+  08 Endocrine (DRG-119..143), 09 Pulmonology (DRG-144..161), 10 Rheumatology
+  (DRG-162..179), 14 Antimicrobials (DRG-232..249), 16 Oncology (DRG-256..267).
+  Fill reserved ID gaps with standard [LBL]/[GL]/[RCT] pharmacology; `[OBS-Mark]`
+  empty, `mark_validated` false. **Reconcile with Mark's own versions if they
+  surface (his canonical observations take priority).**
+- **STILL TO AUTHOR (last reserved gap): 06 Cardiovascular (~63, DRG-034..096).**
+  Big one; next gap-fill installment. After it, DRG-001..379 fully contiguous.
 - Docs: Membranes Full Deployment v1.0, Matrix #1 v2.0, Translation Layer v1.0,
   Phase Axis v2.0, infrastructure docs (Case Registry, Comparison Protocol,
   De-identification Checklist, Scope Declaration).

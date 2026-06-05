@@ -45,6 +45,9 @@ python/
 │   ├── drugs_batch04_old_school.json      # METACOD-RF research drug DB — batch 04 (SU/TZD/glinides/α-glucosidase, 7 agents)
 │   ├── drugs_batch05_insulins.json        # METACOD-RF research drug DB — batch 05 (9 insulins + pramlintide — antidiabetic group complete)
 │   ├── drugs_batch07_psychiatric.json     # METACOD-RF research drug DB — batch 07 (22 psychiatric, three-axis profiled; batch 06 cardio not in repo)
+│   ├── drugs_batch08_endocrine.json        # METACOD-RF research drug DB — batch 08 (25 endocrine non-DM: thyroid/glucocorticoids/bone/pituitary/sex-hormones; DRG-119..143; CLAUDE-AUTHORED standard-evidence gap-fill; prednisolone=125 cross-ref batch 21)
+│   ├── drugs_batch09_pulmonology.json      # METACOD-RF research drug DB — batch 09 (18 pulmo: SABA/LABA/LAMA/SAMA/montelukast/ICS/combo/theophylline/roflumilast/biologics/IPF-antifibrotics/antitussive; DRG-144..161; CLAUDE-AUTHORED gap-fill; montelukast=148 cross-ref batch 22)
+│   ├── drugs_batch10_rheumatology.json     # METACOD-RF research drug DB — batch 10 (18 rheum: csDMARDs/immunosuppressants/TNF-i/IL6/CTLA4/JAK/IL1/gout; DRG-162..179; CLAUDE-AUTHORED gap-fill; MTX↔Zuo, gout↔Yin-Fire context)
 │   ├── drugs_batch11_gastroenterology.json # METACOD-RF research drug DB — batch 11 (20 GI: PPI/H2/antacid/prokinetic/antiemetic/5-ASA/IBD-biologic/laxative; Mark primary specialty; batches 06/08/09/10 not in repo, IDs jump 118→180)
 │   ├── drugs_batch12_neurology.json        # METACOD-RF research drug DB — batch 12 (15 neuro: antiepileptics/triptans/anti-CGRP/Parkinson/dementia/MS; DRG-202..216)
 │   ├── drugs_batch13_urology_gyn.json      # METACOD-RF research drug DB — batch 13 (15 uro/gyn: α1-blockers/PDE5/OAB/fertility-PCOS/gyn; DRG-217..231; source claimed 16, 15 enumerable)
@@ -82,7 +85,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (576 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (603 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -173,7 +176,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 576 tests
+pytest                 # all 603 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)
