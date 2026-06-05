@@ -258,6 +258,17 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-341": "Finerenone",
         "DRG-342": "Tolvaptan",
     },
+    "25-Rare-Diseases": {
+        "DRG-343": "Elexacaftor + Tezacaftor + Ivacaftor",
+        "DRG-344": "Ivacaftor",
+        "DRG-345": "Icatibant",
+        "DRG-346": "Alglucosidase alfa / Avalglucosidase alfa",
+        "DRG-347": "Eliglustat",
+        "DRG-348": "Bosentan",
+        "DRG-349": "Risdiplam",
+        "DRG-350": "Onasemnogene abeparvovec",
+        "DRG-351": "Ataluren",
+    },
 }
 
 
