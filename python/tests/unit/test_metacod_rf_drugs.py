@@ -189,6 +189,18 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-284": "Nicotine replacement (NRT)",
         "DRG-285": "Naloxone",
     },
+    "19-Geriatric": {
+        "DRG-286": "Beers Criteria framework",
+        "DRG-287": "STOPP/START Criteria framework",
+        "DRG-288": "Cholecalciferol (Vitamin D3)",
+        "DRG-289": "Melatonin",
+        "DRG-290": "Donepezil (elderly considerations)",
+        "DRG-291": "Apixaban (elderly considerations)",
+        "DRG-292": "Opioid alternatives in elderly framework",
+        "DRG-293": "Comprehensive Geriatric Assessment (CGA) framework",
+        "DRG-294": "Polypharmacy deprescribing framework",
+        "DRG-295": "Anticholinergic burden assessment framework",
+    },
 }
 
 
@@ -315,19 +327,22 @@ def test_all_tagged_statements_use_known_tags(catalog):
 
 
 def test_batch_is_majority_label_sourced(catalog):
-    # Most drugs must carry an [LBL] (FDA/EMA) anchor, so a batch can't be
-    # mostly theoretical [RF] fabrication. Individual abbreviated / class-
-    # interchangeable entries (e.g. lispro = "same as aspart") may legitimately
-    # defer and lack their own [LBL]; the batch-level majority is the guard.
+    # Most drugs must carry an EXTERNAL-EVIDENCE anchor — [LBL] (FDA/EMA) or
+    # [GL] (clinical guideline) — so a batch can't be mostly theoretical [RF]
+    # fabrication. Framework-heavy batches (e.g. 19-Geriatric: Beers / STOPP-START
+    # / CGA / deprescribing / ACB) are legitimately guideline-sourced rather than
+    # label-sourced, so [GL] counts equally. Individual abbreviated / class-
+    # interchangeable entries may defer; the batch-level majority is the guard.
     drugs = list(catalog)
-    with_lbl = [
+    external_anchor = {"LBL", "GL"}
+    with_anchor = [
         d for d in drugs
-        if "LBL" in {first_tag(s) for s in d.tagged_statements()}
+        if external_anchor & {first_tag(s) for s in d.tagged_statements()}
     ]
     threshold = (len(drugs) + 1) // 2  # at least half
-    assert len(with_lbl) >= threshold, (
-        f"[{catalog.meta['batch_id']}] only {len(with_lbl)}/{len(drugs)} drugs "
-        f"have an [LBL] anchor (need >= {threshold})"
+    assert len(with_anchor) >= threshold, (
+        f"[{catalog.meta['batch_id']}] only {len(with_anchor)}/{len(drugs)} drugs "
+        f"have an [LBL]/[GL] external-evidence anchor (need >= {threshold})"
     )
 
 
