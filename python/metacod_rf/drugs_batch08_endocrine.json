@@ -6,7 +6,7 @@
     "status": "METACOD-RF — Research Framework, not clinical guidance",
     "group": "Эндокринология (не-DM) — thyroid / glucocorticoids+mineralocorticoid / bone (bisphosphonate/RANKL/PTH/sclerostin/SERM) / pituitary (DDAVP/dopamine-agonist/somatostatin/GH) / sex-hormones / thyroid-iodine / calcitonin",
     "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0 + KCTS awareness (EBM-reframed per kcts_integration v1.1)",
-    "preparations_count": 25,
+    "preparations_count": 37,
     "author": "Claude (standard-evidence authorship) — fills reserved gap; not a Mark source document",
     "claude_authored_standard_evidence": true,
     "authorship_note": "[GOVERNANCE] Авторизован Mark, написан Claude из стандартной доказательной базы. НЕ source-документ Mark. Заполняет зарезервированный разрыв DRG-119..143 (часть 119..179, делимого с batch 09/10). [OBS-Mark] пусты; mark_validated false. Сверить с оригиналом Mark если есть. Не дублирует: cinacalcet/active-VitD (batch 24), tamoxifen/letrozole/leuprolide (batch 16), fertility/PCOS (batch 13).",
@@ -14,213 +14,1972 @@
     "ready_for_clinical_use": false,
     "ready_for_mark_review": true,
     "id_range_note": "DRG-119..143 (25). Honors cross-ref: prednisolone=125 (batch 21 DRG-320 ophthalmic). Glucocorticoid cluster 123-127.",
-    "source_tag_legend": {"LBL": "FDA/EMA label", "GL": "Clinical guideline (ATA/Endocrine Society/AACE)", "RCT": "конкретное trial", "CLASS": "class extrapolation", "OBS-Mark": "наблюдение Mark (требует заполнения)", "RF": "research framework (theoretical)"},
+    "source_tag_legend": {
+      "LBL": "FDA/EMA label",
+      "GL": "Clinical guideline (ATA/Endocrine Society/AACE)",
+      "RCT": "конкретное trial",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "наблюдение Mark (требует заполнения)",
+      "RF": "research framework (theoretical)"
+    },
     "class_notes": {
-      "energy_perspective": ["Thyroid = metabolic Yang rate-setter [RF]", "Glucocorticoids = potent но catabolic — [OBS-Mark CANONICAL documented] long-term steroids = predictable M-A2→M-A3 (HANDOFF §7)", "Bone agents = structural M-S/M-D management [RF]"],
-      "obs_mark_to_fill": ["Thyroid replacement titration", "Steroid taper/withdrawal", "Osteoporosis agent selection", "HRT risk-benefit"],
-      "logic_review_flags_for_mark": {"issue_1_claude_authored": "[GOVERNANCE] Claude-authored standard-evidence batch (not Mark source). Q: accept gap-fill или replace?", "issue_2_steroid_membrane": "[OBS-Mark documented] chronic steroid → M-A2→M-A3 (от Mark canonical) — confirm assignment."}
-    }
+      "energy_perspective": [
+        "Thyroid = metabolic Yang rate-setter [RF]",
+        "Glucocorticoids = potent но catabolic — [OBS-Mark CANONICAL documented] long-term steroids = predictable M-A2→M-A3 (HANDOFF §7)",
+        "Bone agents = structural M-S/M-D management [RF]"
+      ],
+      "obs_mark_to_fill": [
+        "Thyroid replacement titration",
+        "Steroid taper/withdrawal",
+        "Osteoporosis agent selection",
+        "HRT risk-benefit"
+      ],
+      "logic_review_flags_for_mark": {
+        "issue_1_claude_authored": "[GOVERNANCE] Claude-authored standard-evidence batch (not Mark source). Q: accept gap-fill или replace?",
+        "issue_2_steroid_membrane": "[OBS-Mark documented] chronic steroid → M-A2→M-A3 (от Mark canonical) — confirm assignment."
+      }
+    },
+    "expansion_note": "[2026-06 EXPANSION] Добавлены DRG-395-406 (12 agents) — Claude-authored standard-evidence; докрытие класса (острые/IV-агенты и недостающие подклассы). Не ломает существующие cross-ref ID. ID непрерывность нарушена намеренно (expansion-блок 380+)."
   },
   "drugs": [
-    {"drug_id": "DRG-119", "name_inn": "Levothyroxine", "name_ru": "Левотироксин", "name_brand": "Euthyrox, Synthroid", "status": "METACOD-RF", "batch": "08-Thyroid",
-     "molecular": {"chemical_class": "Synthetic T4", "mechanism_primary": ["[LBL] Replaces thyroid hormone; converted peripherally to active T3"]},
-     "indications": {"approved": ["[LBL] Hypothyroidism (primary/central)", "[LBL] TSH suppression (thyroid cancer, goiter)"]},
-     "dosing": {"dose": "1.6 mcg/kg/day; empty stomach 30-60 min before food; separate from iron/calcium/PPI"},
-     "three_axis_profile": {"constitutional": {"energy": "Metabolic Yang restoration [RF]", "best_match": ["Hypothyroid (Yin-cold pattern)"]}, "membrane": {"impact": "[RF] reverses hypothyroid M-D drift"}, "phase": {"match": "Chronic / lifelong"}},
-     "safety": {"critical": ["[LBL] Over-replacement → AF, bone loss, palpitations", "[LBL] Many absorption interactions (iron/Ca/PPI/soy)", "[LBL] Start low in elderly/CAD"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["ATA hypothyroidism guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-120", "name_inn": "Liothyronine (T3)", "name_ru": "Лиотиронин (Т3)", "name_brand": "Cytomel", "status": "METACOD-RF", "batch": "08-Thyroid",
-     "molecular": {"chemical_class": "Synthetic T3", "mechanism_primary": ["[LBL] Active thyroid hormone; rapid onset, short half-life"]},
-     "indications": {"approved": ["[LBL] Myxedema coma (adjunct)", "[GL] Selected combination therapy (controversial)"]},
-     "dosing": {"dose": "Divided dosing (short half-life)"},
-     "three_axis_profile": {"constitutional": {"energy": "Rapid metabolic Yang [RF]", "best_match": ["Severe hypothyroid states"]}, "membrane": {"impact": "—"}, "phase": {"match": "Acute/adjunct"}},
-     "safety": {"critical": ["[LBL] Cardiac risk (rapid, potent)", "[LBL] Harder to titrate than T4"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["ATA guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-121", "name_inn": "Methimazole / Carbimazole", "name_ru": "Метимазол / Карбимазол", "name_brand": "Tapazole", "status": "METACOD-RF", "batch": "08-Antithyroid",
-     "molecular": {"chemical_class": "Thionamide", "mechanism_primary": ["[LBL] Inhibits thyroid peroxidase → reduced hormone synthesis"]},
-     "indications": {"approved": ["[LBL] Hyperthyroidism / Graves (first-line thionamide)", "[GL] Pre-radioiodine/surgery"]},
-     "dosing": {"dose": "5-40 mg daily, titrated"},
-     "three_axis_profile": {"constitutional": {"energy": "Heat (hypermetabolic) suppression [RF]", "best_match": ["Graves/hyperthyroid (Heat pattern)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic (12-18 mo course)"}},
-     "safety": {"critical": ["[LBL] Agranulocytosis (warn re fever/sore throat)", "[LBL] Hepatotoxicity", "[LBL] Teratogen 1st trimester (aplasia cutis) — PTU preferred 1st trimester"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["ATA hyperthyroidism guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-122", "name_inn": "Propylthiouracil (PTU)", "name_ru": "Пропилтиоурацил", "name_brand": "PTU", "status": "METACOD-RF", "batch": "08-Antithyroid",
-     "molecular": {"chemical_class": "Thionamide", "mechanism_primary": ["[LBL] Inhibits TPO + peripheral T4→T3 conversion"]},
-     "indications": {"approved": ["[GL] Hyperthyroidism 1st trimester pregnancy", "[GL] Thyroid storm (rapid T4→T3 block)"]},
-     "dosing": {"dose": "100-150 mg TID"},
-     "three_axis_profile": {"constitutional": {"energy": "Heat suppression + conversion block [RF]", "best_match": ["1st-trimester/thyroid storm"]}, "membrane": {"impact": "—"}, "phase": {"match": "Acute/short-term"}},
-     "safety": {"critical": ["[LBL] BLACK BOX hepatotoxicity (fulminant) — not first-line otherwise", "[LBL] Agranulocytosis, ANCA vasculitis"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["ATA guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-123", "name_inn": "Hydrocortisone (systemic)", "name_ru": "Гидрокортизон (системно)", "name_brand": "Cortef, Solu-Cortef", "status": "METACOD-RF", "batch": "08-Glucocorticoids",
-     "molecular": {"chemical_class": "Short-acting glucocorticoid (physiologic)", "mechanism_primary": ["[LBL] Glucocorticoid + some mineralocorticoid activity"]},
-     "indications": {"approved": ["[LBL] Adrenal insufficiency replacement (physiologic)", "[GL] Adrenal crisis (stress dosing)"]},
-     "dosing": {"dose": "15-25 mg/day divided (replacement); IV stress dosing in crisis"},
-     "three_axis_profile": {"constitutional": {"energy": "Cortisol-axis replacement [RF]", "best_match": ["Addison/adrenal insufficiency"]}, "membrane": {"impact": "[RF] physiologic dosing neutral; supraphysiologic = catabolic"}, "phase": {"match": "Chronic replacement"}},
-     "safety": {"critical": ["[LBL] Never abruptly stop (adrenal crisis)", "[LBL] Stress-dose education mandatory", "[LBL] Supraphysiologic → Cushingoid effects"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Endocrine Society adrenal insufficiency guideline"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-124", "name_inn": "Fludrocortisone", "name_ru": "Флудрокортизон", "name_brand": "Florinef", "status": "METACOD-RF", "batch": "08-Mineralocorticoid",
-     "molecular": {"chemical_class": "Synthetic mineralocorticoid", "mechanism_primary": ["[LBL] Potent Na retention / K excretion (aldosterone replacement)"]},
-     "indications": {"approved": ["[LBL] Primary adrenal insufficiency (mineralocorticoid component)", "[GL] Orthostatic hypotension (off-label)"]},
-     "dosing": {"dose": "0.05-0.2 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Mineralocorticoid/volume support [RF]", "best_match": ["Addison (aldosterone replacement)"]}, "membrane": {"impact": "[RF] fluid retention (relevant to KCTS fluid-retention EBM note)"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Hypertension, edema, hypokalemia", "[LBL] Monitor BP/K/renin"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Endocrine Society guideline"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-125", "name_inn": "Prednisolone / Prednisone", "name_ru": "Преднизолон / Преднизон", "name_brand": "multiple", "status": "METACOD-RF", "batch": "08-Glucocorticoids",
-     "molecular": {"chemical_class": "Intermediate-acting glucocorticoid", "mechanism_primary": ["[LBL] Broad anti-inflammatory/immunosuppressive (glucocorticoid receptor)"]},
-     "indications": {"approved": ["[LBL] Inflammatory/autoimmune/allergic conditions, asthma/COPD exacerbations", "[GL] Many specialty uses (cross-ref ophthalmic batch 21 DRG-320)"]},
-     "dosing": {"dose": "By indication; taper if >2-3 weeks"},
-     "three_axis_profile": {"constitutional": {"energy": "Potent Heat (inflammation) suppression [RF]", "best_match": ["Acute inflammatory/autoimmune flares"]}, "membrane": {"impact": "[OBS-Mark CANONICAL documented] long-term steroids = predictable M-A2→M-A3 (HANDOFF §7)"}, "phase": {"match": "Acute burst → taper; chronic only when unavoidable"}},
-     "safety": {"critical": ["[LBL] Hyperglycemia, weight gain, fluid retention, hypertension", "[LBL] Osteoporosis, myopathy, immunosuppression, mood/psychosis", "[LBL] Adrenal suppression — taper; never abrupt stop after prolonged use", "[LBL] PPI/bone protection considerations chronic"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "steroid_taper": "[OBS-Mark] [Steroid taper/withdrawal protocols?]"},
-     "references": ["Multiple specialty guidelines"], "status_flags": {"mark_validated": false, "note": "cross-ref ophthalmic prednisolone batch 21 DRG-320"}},
-    {"drug_id": "DRG-126", "name_inn": "Dexamethasone", "name_ru": "Дексаметазон", "name_brand": "Decadron", "status": "METACOD-RF", "batch": "08-Glucocorticoids",
-     "molecular": {"chemical_class": "Long-acting glucocorticoid (no mineralocorticoid)", "mechanism_primary": ["[LBL] Very potent, long-acting; CNS/edema use"]},
-     "indications": {"approved": ["[LBL] Cerebral edema, raised ICP", "[GL] CINV, croup, COVID-19 (RECOVERY)", "[LBL] Diagnostic suppression testing"]},
-     "dosing": {"dose": "By indication"},
-     "three_axis_profile": {"constitutional": {"energy": "Potent prolonged Heat suppression [RF]", "best_match": ["Cerebral edema, severe inflammation"]}, "membrane": {"impact": "[RF] catabolic with chronic use"}, "phase": {"match": "Acute"}},
-     "safety": {"critical": ["[LBL] Same glucocorticoid class effects; hyperglycemia marked", "[LBL] No mineralocorticoid effect (not for adrenal replacement alone)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["RECOVERY trial; specialty guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-127", "name_inn": "Methylprednisolone", "name_ru": "Метилпреднизолон", "name_brand": "Medrol, Solu-Medrol", "status": "METACOD-RF", "batch": "08-Glucocorticoids",
-     "molecular": {"chemical_class": "Intermediate glucocorticoid (IV pulse capable)", "mechanism_primary": ["[LBL] Anti-inflammatory; IV pulse for severe flares"]},
-     "indications": {"approved": ["[LBL] Severe autoimmune flares, transplant rejection", "[GL] MS relapse, severe asthma"]},
-     "dosing": {"dose": "Oral dose pack; IV pulse 500-1000 mg for severe flares"},
-     "three_axis_profile": {"constitutional": {"energy": "Potent Heat suppression (pulse) [RF]", "best_match": ["Severe flares"]}, "membrane": {"impact": "[RF] catabolic chronic"}, "phase": {"match": "Acute pulse"}},
-     "safety": {"critical": ["[LBL] Same glucocorticoid class; IV pulse — arrhythmia/glucose spikes"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Specialty guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-128", "name_inn": "Alendronate", "name_ru": "Алендронат", "name_brand": "Fosamax", "status": "METACOD-RF", "batch": "08-Bone",
-     "molecular": {"chemical_class": "Oral bisphosphonate", "mechanism_primary": ["[LBL] Inhibits osteoclast-mediated bone resorption"]},
-     "indications": {"approved": ["[LBL] Osteoporosis (postmenopausal, male, glucocorticoid-induced)"]},
-     "dosing": {"dose": "70 mg weekly; upright + empty stomach + water (esophagitis)"},
-     "three_axis_profile": {"constitutional": {"energy": "Bone structural preservation [RF]", "best_match": ["Osteoporosis; glucocorticoid-induced bone loss"]}, "membrane": {"impact": "[RF] counters M-D bone loss"}, "phase": {"match": "Chronic (drug holiday after 5y)"}},
-     "safety": {"critical": ["[LBL] Esophagitis (administration rules)", "[LBL] Osteonecrosis of jaw (rare), atypical femoral fracture (long-term)", "[LBL] Avoid if eGFR <35, hypocalcemia"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["AACE/Endocrine Society osteoporosis guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-129", "name_inn": "Zoledronic acid", "name_ru": "Золедроновая кислота", "name_brand": "Reclast, Zometa", "status": "METACOD-RF", "batch": "08-Bone",
-     "molecular": {"chemical_class": "IV bisphosphonate", "mechanism_primary": ["[LBL] Potent osteoclast inhibition; annual dosing"]},
-     "indications": {"approved": ["[LBL] Osteoporosis (annual IV)", "[LBL] Malignancy bone disease/hypercalcemia (Zometa)", "[LBL] Paget disease"]},
-     "dosing": {"dose": "5 mg IV yearly (osteoporosis)"},
-     "three_axis_profile": {"constitutional": {"energy": "Bone preservation (potent) [RF]", "best_match": ["Osteoporosis, malignancy bone"]}, "membrane": {"impact": "[RF] counters M-D bone loss"}, "phase": {"match": "Chronic (annual)"}},
-     "safety": {"critical": ["[LBL] Acute-phase reaction (flu-like) post-infusion", "[LBL] Hypocalcemia (replete vit D first)", "[LBL] ONJ, atypical fracture", "[LBL] Renal (avoid eGFR<35)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Osteoporosis guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-130", "name_inn": "Denosumab", "name_ru": "Деносумаб", "name_brand": "Prolia, Xgeva", "status": "METACOD-RF", "batch": "08-Bone",
-     "molecular": {"chemical_class": "Anti-RANKL monoclonal antibody", "mechanism_primary": ["[LBL] Inhibits RANKL → reduced osteoclast formation/activity"]},
-     "indications": {"approved": ["[LBL] Osteoporosis high-risk (Prolia q6mo)", "[LBL] Bone metastases/giant cell tumor (Xgeva)"]},
-     "dosing": {"dose": "60 mg SC q6 months (Prolia)"},
-     "three_axis_profile": {"constitutional": {"energy": "RANKL-pathway bone preservation [RF]", "best_match": ["Osteoporosis (incl. renal impairment where bisphosphonate contraindicated)"]}, "membrane": {"impact": "[RF] counters M-D bone loss"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] REBOUND vertebral fractures if discontinued without follow-on therapy — do NOT delay/miss doses", "[LBL] Hypocalcemia (replete vit D)", "[LBL] ONJ, atypical fracture, infection risk"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Osteoporosis guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-131", "name_inn": "Teriparatide", "name_ru": "Терипаратид", "name_brand": "Forteo", "status": "METACOD-RF", "batch": "08-Bone",
-     "molecular": {"chemical_class": "Recombinant PTH(1-34) — anabolic", "mechanism_primary": ["[LBL] Intermittent PTH → net bone formation (osteoblast)"]},
-     "indications": {"approved": ["[LBL] Severe osteoporosis / high fracture risk (anabolic)"]},
-     "dosing": {"dose": "20 mcg SC daily (max 2 years lifetime)"},
-     "three_axis_profile": {"constitutional": {"energy": "Anabolic bone Yang [RF]", "best_match": ["Severe osteoporosis"]}, "membrane": {"impact": "[RF] reverses bone M-D (builds bone)"}, "phase": {"match": "Chronic (≤2y, follow with antiresorptive)"}},
-     "safety": {"critical": ["[LBL] Hypercalcemia, orthostasis", "[LBL] Historic osteosarcoma signal (boxed removed 2020; still avoid in bone-malignancy risk)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Osteoporosis guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-132", "name_inn": "Romosozumab", "name_ru": "Ромосозумаб", "name_brand": "Evenity", "status": "METACOD-RF", "batch": "08-Bone",
-     "molecular": {"chemical_class": "Anti-sclerostin monoclonal antibody", "mechanism_primary": ["[LBL] Dual effect — increases formation + decreases resorption"]},
-     "indications": {"approved": ["[LBL] Severe postmenopausal osteoporosis high fracture risk (12 months)"]},
-     "dosing": {"dose": "210 mg SC monthly ×12"},
-     "three_axis_profile": {"constitutional": {"energy": "Anabolic bone [RF]", "best_match": ["Severe osteoporosis"]}, "membrane": {"impact": "[RF] builds bone"}, "phase": {"match": "12-month course → antiresorptive"}},
-     "safety": {"critical": ["[LBL] BLACK BOX cardiovascular (MI/stroke) — avoid if recent CV event", "[LBL] Hypocalcemia, ONJ"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Osteoporosis guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-133", "name_inn": "Raloxifene", "name_ru": "Ралоксифен", "name_brand": "Evista", "status": "METACOD-RF", "batch": "08-Bone-SERM",
-     "molecular": {"chemical_class": "SERM", "mechanism_primary": ["[LBL] Estrogen agonist (bone), antagonist (breast)"]},
-     "indications": {"approved": ["[LBL] Postmenopausal osteoporosis", "[LBL] Breast cancer risk reduction"]},
-     "dosing": {"dose": "60 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Selective estrogen modulation [RF]", "best_match": ["Osteoporosis + breast-risk reduction"]}, "membrane": {"impact": "[RF] bone preservation"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] VTE risk", "[LBL] Hot flashes, leg cramps", "[LBL] No endometrial stimulation (unlike tamoxifen)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Osteoporosis guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-134", "name_inn": "Desmopressin (DDAVP)", "name_ru": "Десмопрессин", "name_brand": "DDAVP, Minirin", "status": "METACOD-RF", "batch": "08-Pituitary",
-     "molecular": {"chemical_class": "Synthetic vasopressin V2 agonist", "mechanism_primary": ["[LBL] Antidiuretic (water reabsorption); raises vWF/factor VIII"]},
-     "indications": {"approved": ["[LBL] Central diabetes insipidus", "[LBL] Nocturnal enuresis, von Willebrand/mild hemophilia A"]},
-     "dosing": {"dose": "Intranasal/oral/IV by indication"},
-     "three_axis_profile": {"constitutional": {"energy": "Water-conservation (Water axis) [RF]", "best_match": ["Central DI"]}, "membrane": {"impact": "[RF] water retention — fluid balance care"}, "phase": {"match": "Chronic (DI)"}},
-     "safety": {"critical": ["[LBL] Hyponatremia / water intoxication (fluid restriction, monitor Na)", "[LBL] Caution elderly, cardiac"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Endocrine Society DI guidance"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-135", "name_inn": "Cabergoline", "name_ru": "Каберголин", "name_brand": "Dostinex", "status": "METACOD-RF", "batch": "08-Pituitary",
-     "molecular": {"chemical_class": "Dopamine D2 agonist (long-acting)", "mechanism_primary": ["[LBL] Suppresses prolactin; shrinks prolactinomas"]},
-     "indications": {"approved": ["[LBL] Hyperprolactinemia / prolactinoma", "[GL] Acromegaly adjunct (selected)"]},
-     "dosing": {"dose": "0.25-0.5 mg twice weekly, titrated"},
-     "three_axis_profile": {"constitutional": {"energy": "Dopaminergic prolactin suppression [RF]", "best_match": ["Prolactinoma"]}, "membrane": {"impact": "[RF] tumor shrinkage"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Cardiac valvulopathy (high-dose, monitor echo)", "[LBL] Nausea, orthostasis, impulse-control disorders"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Endocrine Society hyperprolactinemia guideline"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-136", "name_inn": "Bromocriptine", "name_ru": "Бромокриптин", "name_brand": "Parlodel, Cycloset", "status": "METACOD-RF", "batch": "08-Pituitary",
-     "molecular": {"chemical_class": "Dopamine agonist (ergot)", "mechanism_primary": ["[LBL] Prolactin suppression; Cycloset for T2DM (CNS)"]},
-     "indications": {"approved": ["[LBL] Hyperprolactinemia", "[LBL] Type 2 diabetes (Cycloset, modest)", "[GL] Acromegaly (less effective)"]},
-     "dosing": {"dose": "Titrated; with food"},
-     "three_axis_profile": {"constitutional": {"energy": "Dopaminergic [RF]", "best_match": ["Prolactinoma (pregnancy-preferred over cabergoline historically)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Nausea, orthostasis", "[LBL] Ergot — fibrosis (rare), psychiatric"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Endocrine Society guideline"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-137", "name_inn": "Octreotide / Lanreotide", "name_ru": "Октреотид / Ланреотид", "name_brand": "Sandostatin / Somatuline", "status": "METACOD-RF", "batch": "08-Pituitary",
-     "molecular": {"chemical_class": "Somatostatin analogues", "mechanism_primary": ["[LBL] Suppress GH/IGF-1, GI hormones; antisecretory"]},
-     "indications": {"approved": ["[LBL] Acromegaly", "[LBL] Neuroendocrine tumors (carcinoid)", "[GL] Variceal bleeding (octreotide IV)"]},
-     "dosing": {"dose": "Depot SC/IM monthly (acromegaly/NET); IV infusion (acute)"},
-     "three_axis_profile": {"constitutional": {"energy": "Hormone-secretion suppression [RF]", "best_match": ["Acromegaly, NET"]}, "membrane": {"impact": "[RF] tumor control"}, "phase": {"match": "Chronic / acute (varices)"}},
-     "safety": {"critical": ["[LBL] Gallstones/biliary sludge", "[LBL] GI upset, hyper/hypoglycemia", "[LBL] Bradycardia"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Endocrine Society acromegaly guideline"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-138", "name_inn": "Somatropin (growth hormone)", "name_ru": "Соматропин (гормон роста)", "name_brand": "Genotropin, Norditropin", "status": "METACOD-RF", "batch": "08-Pituitary",
-     "molecular": {"chemical_class": "Recombinant human GH", "mechanism_primary": ["[LBL] GH/IGF-1 axis — growth, anabolic"]},
-     "indications": {"approved": ["[LBL] GH deficiency (pediatric/adult)", "[LBL] Turner, Prader-Willi, SGA, short-bowel"]},
-     "dosing": {"dose": "Weight-based SC daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Anabolic Yang (growth) [RF]", "best_match": ["GH deficiency"]}, "membrane": {"impact": "[RF] anabolic (anti-M-D)"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Edema, arthralgia, carpal tunnel, insulin resistance", "[LBL] Avoid in active malignancy, critical illness", "[LBL] IH (pseudotumor cerebri)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Endocrine Society GH guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-139", "name_inn": "Estradiol (menopausal HRT)", "name_ru": "Эстрадиол (МГТ)", "name_brand": "Estrace, Climara", "status": "METACOD-RF", "batch": "08-Sex-Hormones",
-     "molecular": {"chemical_class": "Estrogen", "mechanism_primary": ["[LBL] Estrogen receptor agonist (vasomotor, bone, GU)"]},
-     "indications": {"approved": ["[LBL] Menopausal vasomotor symptoms, GSM", "[LBL] Osteoporosis prevention (selected)", "[LBL] Hypogonadism"]},
-     "dosing": {"dose": "Lowest effective; transdermal preferred (lower VTE); add progestin if uterus present"},
-     "three_axis_profile": {"constitutional": {"energy": "Estrogen-axis support (Yin) [RF]", "best_match": ["Menopausal women (individualized)"]}, "membrane": {"impact": "[RF] bone/GU benefit"}, "phase": {"match": "Chronic (shortest needed)"}},
-     "safety": {"critical": ["[LBL] VTE/stroke (oral > transdermal)", "[LBL] Breast cancer (with progestin, duration-dependent)", "[LBL] Endometrial cancer if unopposed (need progestin)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "hrt": "[OBS-Mark] [HRT risk-benefit approach?]"},
-     "references": ["Endocrine Society / NAMS menopause guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-140", "name_inn": "Medroxyprogesterone / micronized progesterone", "name_ru": "Медроксипрогестерон / прогестерон", "name_brand": "Provera / Prometrium", "status": "METACOD-RF", "batch": "08-Sex-Hormones",
-     "molecular": {"chemical_class": "Progestogen", "mechanism_primary": ["[LBL] Progesterone receptor agonist; endometrial protection"]},
-     "indications": {"approved": ["[LBL] HRT endometrial protection (with estrogen)", "[LBL] Abnormal uterine bleeding, amenorrhea, contraception (depot)"]},
-     "dosing": {"dose": "By indication"},
-     "three_axis_profile": {"constitutional": {"energy": "Progestogen modulation [RF]", "best_match": ["HRT (uterus present), AUB"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic/cyclic"}},
-     "safety": {"critical": ["[LBL] VTE, mood, weight (MPA)", "[LBL] Depot MPA — reversible bone density loss", "[LBL] Micronized progesterone — sedation (take HS)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["NAMS guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-141", "name_inn": "Testosterone (replacement)", "name_ru": "Тестостерон (заместительная)", "name_brand": "AndroGel, Nebido", "status": "METACOD-RF", "batch": "08-Sex-Hormones",
-     "molecular": {"chemical_class": "Androgen", "mechanism_primary": ["[LBL] Androgen receptor agonist; anabolic"]},
-     "indications": {"approved": ["[LBL] Male hypogonadism (confirmed low T + symptoms)"]},
-     "dosing": {"dose": "Gel daily / IM depot (2-12 weekly)"},
-     "three_axis_profile": {"constitutional": {"energy": "Androgen/Yang restoration [RF]", "best_match": ["Confirmed hypogonadism (NOT 'low-normal aging')"]}, "membrane": {"impact": "[RF] anabolic — muscle/bone"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Erythrocytosis (monitor Hct)", "[LBL] Prostate monitoring; fertility suppression", "[LBL] CV risk debated; gel transfer to others", "[LBL] Avoid in prostate/breast cancer"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Endocrine Society testosterone guideline"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-142", "name_inn": "Potassium iodide (Lugol)", "name_ru": "Калия йодид (раствор Люголя)", "name_brand": "SSKI, Lugol", "status": "METACOD-RF", "batch": "08-Thyroid",
-     "molecular": {"chemical_class": "Inorganic iodide", "mechanism_primary": ["[LBL] Wolff-Chaikoff — transient inhibition of hormone release/synthesis; reduces thyroid vascularity"]},
-     "indications": {"approved": ["[GL] Thyroid storm (after thionamide)", "[GL] Pre-thyroidectomy (Graves)", "[LBL] Radiation thyroid protection"]},
-     "dosing": {"dose": "By protocol; AFTER thionamide in storm"},
-     "three_axis_profile": {"constitutional": {"energy": "Acute thyroid Heat suppression [RF]", "best_match": ["Thyroid storm, pre-op"]}, "membrane": {"impact": "—"}, "phase": {"match": "Acute/short-term"}},
-     "safety": {"critical": ["[LBL] Give AFTER thionamide (else substrate for hormone)", "[LBL] Iodism, escape phenomenon with prolonged use"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["ATA hyperthyroidism guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-143", "name_inn": "Calcitonin (salmon)", "name_ru": "Кальцитонин (лосось)", "name_brand": "Miacalcin, Fortical", "status": "METACOD-RF", "batch": "08-Bone",
-     "molecular": {"chemical_class": "Calcitonin peptide", "mechanism_primary": ["[LBL] Inhibits osteoclasts; mild hypocalcemic; analgesic in vertebral fracture"]},
-     "indications": {"approved": ["[LBL] Acute vertebral fracture pain", "[LBL] Hypercalcemia (adjunct, rapid but short)", "[LBL] Paget disease"]},
-     "dosing": {"dose": "Intranasal/SC by indication"},
-     "three_axis_profile": {"constitutional": {"energy": "Calcium-lowering / bone [RF]", "best_match": ["Acute fracture pain, hypercalcemia bridge"]}, "membrane": {"impact": "[RF] weak antiresorptive"}, "phase": {"match": "Acute/short-term (malignancy signal limits chronic)"}},
-     "safety": {"critical": ["[LBL] Possible malignancy signal with long-term use (limit duration)", "[LBL] Nasal irritation, nausea, tachyphylaxis"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"},
-     "references": ["Osteoporosis/hypercalcemia guidelines"], "status_flags": {"mark_validated": false}}
+    {
+      "drug_id": "DRG-119",
+      "name_inn": "Levothyroxine",
+      "name_ru": "Левотироксин",
+      "name_brand": "Euthyrox, Synthroid",
+      "status": "METACOD-RF",
+      "batch": "08-Thyroid",
+      "molecular": {
+        "chemical_class": "Synthetic T4",
+        "mechanism_primary": [
+          "[LBL] Replaces thyroid hormone; converted peripherally to active T3"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Hypothyroidism (primary/central)",
+          "[LBL] TSH suppression (thyroid cancer, goiter)"
+        ]
+      },
+      "dosing": {
+        "dose": "1.6 mcg/kg/day; empty stomach 30-60 min before food; separate from iron/calcium/PPI"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Metabolic Yang restoration [RF]",
+          "best_match": [
+            "Hypothyroid (Yin-cold pattern)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] reverses hypothyroid M-D drift"
+        },
+        "phase": {
+          "match": "Chronic / lifelong"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Over-replacement → AF, bone loss, palpitations",
+          "[LBL] Many absorption interactions (iron/Ca/PPI/soy)",
+          "[LBL] Start low in elderly/CAD"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ATA hypothyroidism guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-120",
+      "name_inn": "Liothyronine (T3)",
+      "name_ru": "Лиотиронин (Т3)",
+      "name_brand": "Cytomel",
+      "status": "METACOD-RF",
+      "batch": "08-Thyroid",
+      "molecular": {
+        "chemical_class": "Synthetic T3",
+        "mechanism_primary": [
+          "[LBL] Active thyroid hormone; rapid onset, short half-life"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Myxedema coma (adjunct)",
+          "[GL] Selected combination therapy (controversial)"
+        ]
+      },
+      "dosing": {
+        "dose": "Divided dosing (short half-life)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Rapid metabolic Yang [RF]",
+          "best_match": [
+            "Severe hypothyroid states"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute/adjunct"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Cardiac risk (rapid, potent)",
+          "[LBL] Harder to titrate than T4"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ATA guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-121",
+      "name_inn": "Methimazole / Carbimazole",
+      "name_ru": "Метимазол / Карбимазол",
+      "name_brand": "Tapazole",
+      "status": "METACOD-RF",
+      "batch": "08-Antithyroid",
+      "molecular": {
+        "chemical_class": "Thionamide",
+        "mechanism_primary": [
+          "[LBL] Inhibits thyroid peroxidase → reduced hormone synthesis"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Hyperthyroidism / Graves (first-line thionamide)",
+          "[GL] Pre-radioiodine/surgery"
+        ]
+      },
+      "dosing": {
+        "dose": "5-40 mg daily, titrated"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Heat (hypermetabolic) suppression [RF]",
+          "best_match": [
+            "Graves/hyperthyroid (Heat pattern)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic (12-18 mo course)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Agranulocytosis (warn re fever/sore throat)",
+          "[LBL] Hepatotoxicity",
+          "[LBL] Teratogen 1st trimester (aplasia cutis) — PTU preferred 1st trimester"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ATA hyperthyroidism guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-122",
+      "name_inn": "Propylthiouracil (PTU)",
+      "name_ru": "Пропилтиоурацил",
+      "name_brand": "PTU",
+      "status": "METACOD-RF",
+      "batch": "08-Antithyroid",
+      "molecular": {
+        "chemical_class": "Thionamide",
+        "mechanism_primary": [
+          "[LBL] Inhibits TPO + peripheral T4→T3 conversion"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Hyperthyroidism 1st trimester pregnancy",
+          "[GL] Thyroid storm (rapid T4→T3 block)"
+        ]
+      },
+      "dosing": {
+        "dose": "100-150 mg TID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Heat suppression + conversion block [RF]",
+          "best_match": [
+            "1st-trimester/thyroid storm"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute/short-term"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] BLACK BOX hepatotoxicity (fulminant) — not first-line otherwise",
+          "[LBL] Agranulocytosis, ANCA vasculitis"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ATA guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-123",
+      "name_inn": "Hydrocortisone (systemic)",
+      "name_ru": "Гидрокортизон (системно)",
+      "name_brand": "Cortef, Solu-Cortef",
+      "status": "METACOD-RF",
+      "batch": "08-Glucocorticoids",
+      "molecular": {
+        "chemical_class": "Short-acting glucocorticoid (physiologic)",
+        "mechanism_primary": [
+          "[LBL] Glucocorticoid + some mineralocorticoid activity"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Adrenal insufficiency replacement (physiologic)",
+          "[GL] Adrenal crisis (stress dosing)"
+        ]
+      },
+      "dosing": {
+        "dose": "15-25 mg/day divided (replacement); IV stress dosing in crisis"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Cortisol-axis replacement [RF]",
+          "best_match": [
+            "Addison/adrenal insufficiency"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] physiologic dosing neutral; supraphysiologic = catabolic"
+        },
+        "phase": {
+          "match": "Chronic replacement"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Never abruptly stop (adrenal crisis)",
+          "[LBL] Stress-dose education mandatory",
+          "[LBL] Supraphysiologic → Cushingoid effects"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society adrenal insufficiency guideline"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-124",
+      "name_inn": "Fludrocortisone",
+      "name_ru": "Флудрокортизон",
+      "name_brand": "Florinef",
+      "status": "METACOD-RF",
+      "batch": "08-Mineralocorticoid",
+      "molecular": {
+        "chemical_class": "Synthetic mineralocorticoid",
+        "mechanism_primary": [
+          "[LBL] Potent Na retention / K excretion (aldosterone replacement)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Primary adrenal insufficiency (mineralocorticoid component)",
+          "[GL] Orthostatic hypotension (off-label)"
+        ]
+      },
+      "dosing": {
+        "dose": "0.05-0.2 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Mineralocorticoid/volume support [RF]",
+          "best_match": [
+            "Addison (aldosterone replacement)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] fluid retention (relevant to KCTS fluid-retention EBM note)"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hypertension, edema, hypokalemia",
+          "[LBL] Monitor BP/K/renin"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society guideline"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-125",
+      "name_inn": "Prednisolone / Prednisone",
+      "name_ru": "Преднизолон / Преднизон",
+      "name_brand": "multiple",
+      "status": "METACOD-RF",
+      "batch": "08-Glucocorticoids",
+      "molecular": {
+        "chemical_class": "Intermediate-acting glucocorticoid",
+        "mechanism_primary": [
+          "[LBL] Broad anti-inflammatory/immunosuppressive (glucocorticoid receptor)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Inflammatory/autoimmune/allergic conditions, asthma/COPD exacerbations",
+          "[GL] Many specialty uses (cross-ref ophthalmic batch 21 DRG-320)"
+        ]
+      },
+      "dosing": {
+        "dose": "By indication; taper if >2-3 weeks"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Potent Heat (inflammation) suppression [RF]",
+          "best_match": [
+            "Acute inflammatory/autoimmune flares"
+          ]
+        },
+        "membrane": {
+          "impact": "[OBS-Mark CANONICAL documented] long-term steroids = predictable M-A2→M-A3 (HANDOFF §7)"
+        },
+        "phase": {
+          "match": "Acute burst → taper; chronic only when unavoidable"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hyperglycemia, weight gain, fluid retention, hypertension",
+          "[LBL] Osteoporosis, myopathy, immunosuppression, mood/psychosis",
+          "[LBL] Adrenal suppression — taper; never abrupt stop after prolonged use",
+          "[LBL] PPI/bone protection considerations chronic"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "steroid_taper": "[OBS-Mark] [Steroid taper/withdrawal protocols?]"
+      },
+      "references": [
+        "Multiple specialty guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "cross-ref ophthalmic prednisolone batch 21 DRG-320"
+      }
+    },
+    {
+      "drug_id": "DRG-126",
+      "name_inn": "Dexamethasone",
+      "name_ru": "Дексаметазон",
+      "name_brand": "Decadron",
+      "status": "METACOD-RF",
+      "batch": "08-Glucocorticoids",
+      "molecular": {
+        "chemical_class": "Long-acting glucocorticoid (no mineralocorticoid)",
+        "mechanism_primary": [
+          "[LBL] Very potent, long-acting; CNS/edema use"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Cerebral edema, raised ICP",
+          "[GL] CINV, croup, COVID-19 (RECOVERY)",
+          "[LBL] Diagnostic suppression testing"
+        ]
+      },
+      "dosing": {
+        "dose": "By indication"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Potent prolonged Heat suppression [RF]",
+          "best_match": [
+            "Cerebral edema, severe inflammation"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] catabolic with chronic use"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Same glucocorticoid class effects; hyperglycemia marked",
+          "[LBL] No mineralocorticoid effect (not for adrenal replacement alone)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "RECOVERY trial; specialty guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-127",
+      "name_inn": "Methylprednisolone",
+      "name_ru": "Метилпреднизолон",
+      "name_brand": "Medrol, Solu-Medrol",
+      "status": "METACOD-RF",
+      "batch": "08-Glucocorticoids",
+      "molecular": {
+        "chemical_class": "Intermediate glucocorticoid (IV pulse capable)",
+        "mechanism_primary": [
+          "[LBL] Anti-inflammatory; IV pulse for severe flares"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Severe autoimmune flares, transplant rejection",
+          "[GL] MS relapse, severe asthma"
+        ]
+      },
+      "dosing": {
+        "dose": "Oral dose pack; IV pulse 500-1000 mg for severe flares"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Potent Heat suppression (pulse) [RF]",
+          "best_match": [
+            "Severe flares"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] catabolic chronic"
+        },
+        "phase": {
+          "match": "Acute pulse"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Same glucocorticoid class; IV pulse — arrhythmia/glucose spikes"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Specialty guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-128",
+      "name_inn": "Alendronate",
+      "name_ru": "Алендронат",
+      "name_brand": "Fosamax",
+      "status": "METACOD-RF",
+      "batch": "08-Bone",
+      "molecular": {
+        "chemical_class": "Oral bisphosphonate",
+        "mechanism_primary": [
+          "[LBL] Inhibits osteoclast-mediated bone resorption"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Osteoporosis (postmenopausal, male, glucocorticoid-induced)"
+        ]
+      },
+      "dosing": {
+        "dose": "70 mg weekly; upright + empty stomach + water (esophagitis)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Bone structural preservation [RF]",
+          "best_match": [
+            "Osteoporosis; glucocorticoid-induced bone loss"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] counters M-D bone loss"
+        },
+        "phase": {
+          "match": "Chronic (drug holiday after 5y)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Esophagitis (administration rules)",
+          "[LBL] Osteonecrosis of jaw (rare), atypical femoral fracture (long-term)",
+          "[LBL] Avoid if eGFR <35, hypocalcemia"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AACE/Endocrine Society osteoporosis guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-129",
+      "name_inn": "Zoledronic acid",
+      "name_ru": "Золедроновая кислота",
+      "name_brand": "Reclast, Zometa",
+      "status": "METACOD-RF",
+      "batch": "08-Bone",
+      "molecular": {
+        "chemical_class": "IV bisphosphonate",
+        "mechanism_primary": [
+          "[LBL] Potent osteoclast inhibition; annual dosing"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Osteoporosis (annual IV)",
+          "[LBL] Malignancy bone disease/hypercalcemia (Zometa)",
+          "[LBL] Paget disease"
+        ]
+      },
+      "dosing": {
+        "dose": "5 mg IV yearly (osteoporosis)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Bone preservation (potent) [RF]",
+          "best_match": [
+            "Osteoporosis, malignancy bone"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] counters M-D bone loss"
+        },
+        "phase": {
+          "match": "Chronic (annual)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Acute-phase reaction (flu-like) post-infusion",
+          "[LBL] Hypocalcemia (replete vit D first)",
+          "[LBL] ONJ, atypical fracture",
+          "[LBL] Renal (avoid eGFR<35)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Osteoporosis guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-130",
+      "name_inn": "Denosumab",
+      "name_ru": "Деносумаб",
+      "name_brand": "Prolia, Xgeva",
+      "status": "METACOD-RF",
+      "batch": "08-Bone",
+      "molecular": {
+        "chemical_class": "Anti-RANKL monoclonal antibody",
+        "mechanism_primary": [
+          "[LBL] Inhibits RANKL → reduced osteoclast formation/activity"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Osteoporosis high-risk (Prolia q6mo)",
+          "[LBL] Bone metastases/giant cell tumor (Xgeva)"
+        ]
+      },
+      "dosing": {
+        "dose": "60 mg SC q6 months (Prolia)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "RANKL-pathway bone preservation [RF]",
+          "best_match": [
+            "Osteoporosis (incl. renal impairment where bisphosphonate contraindicated)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] counters M-D bone loss"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] REBOUND vertebral fractures if discontinued without follow-on therapy — do NOT delay/miss doses",
+          "[LBL] Hypocalcemia (replete vit D)",
+          "[LBL] ONJ, atypical fracture, infection risk"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Osteoporosis guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-131",
+      "name_inn": "Teriparatide",
+      "name_ru": "Терипаратид",
+      "name_brand": "Forteo",
+      "status": "METACOD-RF",
+      "batch": "08-Bone",
+      "molecular": {
+        "chemical_class": "Recombinant PTH(1-34) — anabolic",
+        "mechanism_primary": [
+          "[LBL] Intermittent PTH → net bone formation (osteoblast)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Severe osteoporosis / high fracture risk (anabolic)"
+        ]
+      },
+      "dosing": {
+        "dose": "20 mcg SC daily (max 2 years lifetime)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anabolic bone Yang [RF]",
+          "best_match": [
+            "Severe osteoporosis"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] reverses bone M-D (builds bone)"
+        },
+        "phase": {
+          "match": "Chronic (≤2y, follow with antiresorptive)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hypercalcemia, orthostasis",
+          "[LBL] Historic osteosarcoma signal (boxed removed 2020; still avoid in bone-malignancy risk)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Osteoporosis guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-132",
+      "name_inn": "Romosozumab",
+      "name_ru": "Ромосозумаб",
+      "name_brand": "Evenity",
+      "status": "METACOD-RF",
+      "batch": "08-Bone",
+      "molecular": {
+        "chemical_class": "Anti-sclerostin monoclonal antibody",
+        "mechanism_primary": [
+          "[LBL] Dual effect — increases formation + decreases resorption"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Severe postmenopausal osteoporosis high fracture risk (12 months)"
+        ]
+      },
+      "dosing": {
+        "dose": "210 mg SC monthly ×12"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anabolic bone [RF]",
+          "best_match": [
+            "Severe osteoporosis"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] builds bone"
+        },
+        "phase": {
+          "match": "12-month course → antiresorptive"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] BLACK BOX cardiovascular (MI/stroke) — avoid if recent CV event",
+          "[LBL] Hypocalcemia, ONJ"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Osteoporosis guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-133",
+      "name_inn": "Raloxifene",
+      "name_ru": "Ралоксифен",
+      "name_brand": "Evista",
+      "status": "METACOD-RF",
+      "batch": "08-Bone-SERM",
+      "molecular": {
+        "chemical_class": "SERM",
+        "mechanism_primary": [
+          "[LBL] Estrogen agonist (bone), antagonist (breast)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Postmenopausal osteoporosis",
+          "[LBL] Breast cancer risk reduction"
+        ]
+      },
+      "dosing": {
+        "dose": "60 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Selective estrogen modulation [RF]",
+          "best_match": [
+            "Osteoporosis + breast-risk reduction"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] bone preservation"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] VTE risk",
+          "[LBL] Hot flashes, leg cramps",
+          "[LBL] No endometrial stimulation (unlike tamoxifen)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Osteoporosis guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-134",
+      "name_inn": "Desmopressin (DDAVP)",
+      "name_ru": "Десмопрессин",
+      "name_brand": "DDAVP, Minirin",
+      "status": "METACOD-RF",
+      "batch": "08-Pituitary",
+      "molecular": {
+        "chemical_class": "Synthetic vasopressin V2 agonist",
+        "mechanism_primary": [
+          "[LBL] Antidiuretic (water reabsorption); raises vWF/factor VIII"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Central diabetes insipidus",
+          "[LBL] Nocturnal enuresis, von Willebrand/mild hemophilia A"
+        ]
+      },
+      "dosing": {
+        "dose": "Intranasal/oral/IV by indication"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Water-conservation (Water axis) [RF]",
+          "best_match": [
+            "Central DI"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] water retention — fluid balance care"
+        },
+        "phase": {
+          "match": "Chronic (DI)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hyponatremia / water intoxication (fluid restriction, monitor Na)",
+          "[LBL] Caution elderly, cardiac"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society DI guidance"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-135",
+      "name_inn": "Cabergoline",
+      "name_ru": "Каберголин",
+      "name_brand": "Dostinex",
+      "status": "METACOD-RF",
+      "batch": "08-Pituitary",
+      "molecular": {
+        "chemical_class": "Dopamine D2 agonist (long-acting)",
+        "mechanism_primary": [
+          "[LBL] Suppresses prolactin; shrinks prolactinomas"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Hyperprolactinemia / prolactinoma",
+          "[GL] Acromegaly adjunct (selected)"
+        ]
+      },
+      "dosing": {
+        "dose": "0.25-0.5 mg twice weekly, titrated"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Dopaminergic prolactin suppression [RF]",
+          "best_match": [
+            "Prolactinoma"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] tumor shrinkage"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Cardiac valvulopathy (high-dose, monitor echo)",
+          "[LBL] Nausea, orthostasis, impulse-control disorders"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society hyperprolactinemia guideline"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-136",
+      "name_inn": "Bromocriptine",
+      "name_ru": "Бромокриптин",
+      "name_brand": "Parlodel, Cycloset",
+      "status": "METACOD-RF",
+      "batch": "08-Pituitary",
+      "molecular": {
+        "chemical_class": "Dopamine agonist (ergot)",
+        "mechanism_primary": [
+          "[LBL] Prolactin suppression; Cycloset for T2DM (CNS)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Hyperprolactinemia",
+          "[LBL] Type 2 diabetes (Cycloset, modest)",
+          "[GL] Acromegaly (less effective)"
+        ]
+      },
+      "dosing": {
+        "dose": "Titrated; with food"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Dopaminergic [RF]",
+          "best_match": [
+            "Prolactinoma (pregnancy-preferred over cabergoline historically)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Nausea, orthostasis",
+          "[LBL] Ergot — fibrosis (rare), psychiatric"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society guideline"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-137",
+      "name_inn": "Octreotide / Lanreotide",
+      "name_ru": "Октреотид / Ланреотид",
+      "name_brand": "Sandostatin / Somatuline",
+      "status": "METACOD-RF",
+      "batch": "08-Pituitary",
+      "molecular": {
+        "chemical_class": "Somatostatin analogues",
+        "mechanism_primary": [
+          "[LBL] Suppress GH/IGF-1, GI hormones; antisecretory"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acromegaly",
+          "[LBL] Neuroendocrine tumors (carcinoid)",
+          "[GL] Variceal bleeding (octreotide IV)"
+        ]
+      },
+      "dosing": {
+        "dose": "Depot SC/IM monthly (acromegaly/NET); IV infusion (acute)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Hormone-secretion suppression [RF]",
+          "best_match": [
+            "Acromegaly, NET"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] tumor control"
+        },
+        "phase": {
+          "match": "Chronic / acute (varices)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Gallstones/biliary sludge",
+          "[LBL] GI upset, hyper/hypoglycemia",
+          "[LBL] Bradycardia"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society acromegaly guideline"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-138",
+      "name_inn": "Somatropin (growth hormone)",
+      "name_ru": "Соматропин (гормон роста)",
+      "name_brand": "Genotropin, Norditropin",
+      "status": "METACOD-RF",
+      "batch": "08-Pituitary",
+      "molecular": {
+        "chemical_class": "Recombinant human GH",
+        "mechanism_primary": [
+          "[LBL] GH/IGF-1 axis — growth, anabolic"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] GH deficiency (pediatric/adult)",
+          "[LBL] Turner, Prader-Willi, SGA, short-bowel"
+        ]
+      },
+      "dosing": {
+        "dose": "Weight-based SC daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anabolic Yang (growth) [RF]",
+          "best_match": [
+            "GH deficiency"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] anabolic (anti-M-D)"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Edema, arthralgia, carpal tunnel, insulin resistance",
+          "[LBL] Avoid in active malignancy, critical illness",
+          "[LBL] IH (pseudotumor cerebri)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society GH guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-139",
+      "name_inn": "Estradiol (menopausal HRT)",
+      "name_ru": "Эстрадиол (МГТ)",
+      "name_brand": "Estrace, Climara",
+      "status": "METACOD-RF",
+      "batch": "08-Sex-Hormones",
+      "molecular": {
+        "chemical_class": "Estrogen",
+        "mechanism_primary": [
+          "[LBL] Estrogen receptor agonist (vasomotor, bone, GU)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Menopausal vasomotor symptoms, GSM",
+          "[LBL] Osteoporosis prevention (selected)",
+          "[LBL] Hypogonadism"
+        ]
+      },
+      "dosing": {
+        "dose": "Lowest effective; transdermal preferred (lower VTE); add progestin if uterus present"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Estrogen-axis support (Yin) [RF]",
+          "best_match": [
+            "Menopausal women (individualized)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] bone/GU benefit"
+        },
+        "phase": {
+          "match": "Chronic (shortest needed)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] VTE/stroke (oral > transdermal)",
+          "[LBL] Breast cancer (with progestin, duration-dependent)",
+          "[LBL] Endometrial cancer if unopposed (need progestin)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "hrt": "[OBS-Mark] [HRT risk-benefit approach?]"
+      },
+      "references": [
+        "Endocrine Society / NAMS menopause guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-140",
+      "name_inn": "Medroxyprogesterone / micronized progesterone",
+      "name_ru": "Медроксипрогестерон / прогестерон",
+      "name_brand": "Provera / Prometrium",
+      "status": "METACOD-RF",
+      "batch": "08-Sex-Hormones",
+      "molecular": {
+        "chemical_class": "Progestogen",
+        "mechanism_primary": [
+          "[LBL] Progesterone receptor agonist; endometrial protection"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] HRT endometrial protection (with estrogen)",
+          "[LBL] Abnormal uterine bleeding, amenorrhea, contraception (depot)"
+        ]
+      },
+      "dosing": {
+        "dose": "By indication"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Progestogen modulation [RF]",
+          "best_match": [
+            "HRT (uterus present), AUB"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic/cyclic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] VTE, mood, weight (MPA)",
+          "[LBL] Depot MPA — reversible bone density loss",
+          "[LBL] Micronized progesterone — sedation (take HS)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "NAMS guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-141",
+      "name_inn": "Testosterone (replacement)",
+      "name_ru": "Тестостерон (заместительная)",
+      "name_brand": "AndroGel, Nebido",
+      "status": "METACOD-RF",
+      "batch": "08-Sex-Hormones",
+      "molecular": {
+        "chemical_class": "Androgen",
+        "mechanism_primary": [
+          "[LBL] Androgen receptor agonist; anabolic"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Male hypogonadism (confirmed low T + symptoms)"
+        ]
+      },
+      "dosing": {
+        "dose": "Gel daily / IM depot (2-12 weekly)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Androgen/Yang restoration [RF]",
+          "best_match": [
+            "Confirmed hypogonadism (NOT 'low-normal aging')"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] anabolic — muscle/bone"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Erythrocytosis (monitor Hct)",
+          "[LBL] Prostate monitoring; fertility suppression",
+          "[LBL] CV risk debated; gel transfer to others",
+          "[LBL] Avoid in prostate/breast cancer"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society testosterone guideline"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-142",
+      "name_inn": "Potassium iodide (Lugol)",
+      "name_ru": "Калия йодид (раствор Люголя)",
+      "name_brand": "SSKI, Lugol",
+      "status": "METACOD-RF",
+      "batch": "08-Thyroid",
+      "molecular": {
+        "chemical_class": "Inorganic iodide",
+        "mechanism_primary": [
+          "[LBL] Wolff-Chaikoff — transient inhibition of hormone release/synthesis; reduces thyroid vascularity"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Thyroid storm (after thionamide)",
+          "[GL] Pre-thyroidectomy (Graves)",
+          "[LBL] Radiation thyroid protection"
+        ]
+      },
+      "dosing": {
+        "dose": "By protocol; AFTER thionamide in storm"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute thyroid Heat suppression [RF]",
+          "best_match": [
+            "Thyroid storm, pre-op"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute/short-term"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Give AFTER thionamide (else substrate for hormone)",
+          "[LBL] Iodism, escape phenomenon with prolonged use"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ATA hyperthyroidism guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-143",
+      "name_inn": "Calcitonin (salmon)",
+      "name_ru": "Кальцитонин (лосось)",
+      "name_brand": "Miacalcin, Fortical",
+      "status": "METACOD-RF",
+      "batch": "08-Bone",
+      "molecular": {
+        "chemical_class": "Calcitonin peptide",
+        "mechanism_primary": [
+          "[LBL] Inhibits osteoclasts; mild hypocalcemic; analgesic in vertebral fracture"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acute vertebral fracture pain",
+          "[LBL] Hypercalcemia (adjunct, rapid but short)",
+          "[LBL] Paget disease"
+        ]
+      },
+      "dosing": {
+        "dose": "Intranasal/SC by indication"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Calcium-lowering / bone [RF]",
+          "best_match": [
+            "Acute fracture pain, hypercalcemia bridge"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] weak antiresorptive"
+        },
+        "phase": {
+          "match": "Acute/short-term (malignancy signal limits chronic)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Possible malignancy signal with long-term use (limit duration)",
+          "[LBL] Nasal irritation, nausea, tachyphylaxis"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Osteoporosis/hypercalcemia guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-395",
+      "name_inn": "Combined oral contraceptive (ethinylestradiol-progestin)",
+      "name_ru": "КОК (этинилэстрадиол-прогестин)",
+      "name_brand": "multiple",
+      "status": "METACOD-RF",
+      "batch": "08-Sex-Hormones",
+      "molecular": {
+        "chemical_class": "Estrogen-progestin contraceptive",
+        "mechanism_primary": [
+          "[LBL] Ovulation suppression + endometrial/cervical effects"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Contraception",
+          "[GL] Menstrual disorders, acne, PCOS, endometriosis"
+        ]
+      },
+      "dosing": {
+        "dose": "Daily cyclic/continuous"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Cyclic sex-hormone modulation [RF]",
+          "best_match": [
+            "Contraception / cycle control"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] VTE/stroke/MI risk (smoking >35 contraindication, migraine-with-aura)",
+          "[LBL] Hypertension, hepatic adenoma; many DDIs (enzyme inducers)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "CDC MEC"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-396",
+      "name_inn": "Levonorgestrel / progestin-only",
+      "name_ru": "Левоноргестрел / прогестин-only",
+      "name_brand": "Plan B, Mirena, mini-pill",
+      "status": "METACOD-RF",
+      "batch": "08-Sex-Hormones",
+      "molecular": {
+        "chemical_class": "Progestin (oral/IUD/implant/emergency)",
+        "mechanism_primary": [
+          "[LBL] Progestin contraception; emergency contraception"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Contraception (POP/LNG-IUD/implant)",
+          "[LBL] Emergency contraception",
+          "[GL] Heavy menstrual bleeding (LNG-IUD)"
+        ]
+      },
+      "dosing": {
+        "dose": "Per formulation"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Progestin modulation [RF]",
+          "best_match": [
+            "Estrogen-contraindicated contraception, HMB"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / acute (EC)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Irregular bleeding, mood; lower VTE than COC",
+          "[LBL] LNG-IUD insertion risks"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "CDC MEC"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-397",
+      "name_inn": "Glucagon",
+      "name_ru": "Глюкагон",
+      "name_brand": "GlucaGen, Baqsimi",
+      "status": "METACOD-RF",
+      "batch": "08-Emergency-Endocrine",
+      "molecular": {
+        "chemical_class": "Counter-regulatory hormone",
+        "mechanism_primary": [
+          "[LBL] ↑hepatic glycogenolysis/gluconeogenesis → ↑glucose; + inotropy"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Severe hypoglycemia (no IV access)",
+          "[GL] Beta-blocker/CCB overdose (high-dose), GI smooth-muscle relaxation"
+        ]
+      },
+      "dosing": {
+        "dose": "1 mg IM/SC/IN; high-dose infusion (overdose)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute glucose/Yang mobilization [RF]",
+          "best_match": [
+            "Severe hypoglycemia; BB/CCB OD"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Vomiting, hyperglycemia rebound",
+          "[LBL] Ineffective if glycogen depleted (alcohol/starvation)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-398",
+      "name_inn": "Diazoxide",
+      "name_ru": "Диазоксид",
+      "name_brand": "Proglycem",
+      "status": "METACOD-RF",
+      "batch": "08-Glucose-Endocrine",
+      "molecular": {
+        "chemical_class": "K-ATP channel opener (pancreatic)",
+        "mechanism_primary": [
+          "[LBL] Inhibits insulin secretion → ↑glucose"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Hyperinsulinemic hypoglycemia (congenital, insulinoma palliation)"
+        ]
+      },
+      "dosing": {
+        "dose": "PO divided"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Glucose elevation (anti-insulin) [RF]",
+          "best_match": [
+            "Hyperinsulinism"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Fluid retention/edema (often needs diuretic), hypertrichosis, hyperglycemia",
+          "[LBL] Pulmonary hypertension (neonates)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-399",
+      "name_inn": "Pegvisomant",
+      "name_ru": "Пегвисомант",
+      "name_brand": "Somavert",
+      "status": "METACOD-RF",
+      "batch": "08-Pituitary",
+      "molecular": {
+        "chemical_class": "GH receptor antagonist",
+        "mechanism_primary": [
+          "[LBL] Blocks GH receptor → normalizes IGF-1"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acromegaly (inadequate response to surgery/somatostatin)"
+        ]
+      },
+      "dosing": {
+        "dose": "SC daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "GH-axis blockade [RF]",
+          "best_match": [
+            "Refractory acromegaly"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hepatotoxicity (LFT monitoring), injection reactions",
+          "[LBL] Tumor size monitoring (MRI)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society acromegaly"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-400",
+      "name_inn": "Pasireotide",
+      "name_ru": "Пасиреотид",
+      "name_brand": "Signifor",
+      "status": "METACOD-RF",
+      "batch": "08-Pituitary",
+      "molecular": {
+        "chemical_class": "Multi-receptor somatostatin analogue",
+        "mechanism_primary": [
+          "[LBL] Broad somatostatin receptor binding (incl. SSTR5)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Cushing disease, acromegaly (when others fail)"
+        ]
+      },
+      "dosing": {
+        "dose": "SC BID / LAR monthly"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Hormone-secretion suppression [RF]",
+          "best_match": [
+            "Cushing disease, acromegaly"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Marked HYPERGLYCEMIA/diabetes (SSTR5), gallstones, bradycardia/QT",
+          "[LBL] Hypocortisolism monitoring"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society Cushing"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-401",
+      "name_inn": "Ketoconazole / Osilodrostat / Metyrapone",
+      "name_ru": "Кетоконазол / Осилодростат / Метирапон",
+      "name_brand": "Nizoral / Isturisa / Metopirone",
+      "status": "METACOD-RF",
+      "batch": "08-Adrenal-Steroidogenesis",
+      "molecular": {
+        "chemical_class": "Steroidogenesis inhibitors",
+        "mechanism_primary": [
+          "[LBL] Inhibit cortisol synthesis (CYP enzymes / 11β-hydroxylase)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Cushing syndrome (cortisol lowering, incl. ectopic/inoperable)"
+        ]
+      },
+      "dosing": {
+        "dose": "Titrated to cortisol"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Cortisol-synthesis suppression [RF]",
+          "best_match": [
+            "Hypercortisolism"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Adrenal insufficiency risk, hepatotoxicity (ketoconazole), QT (osilodrostat), hypokalemia/hypertension (metyrapone 11-deoxy precursors)",
+          "[LBL] Many CYP3A4 DDIs (ketoconazole)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society Cushing"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-402",
+      "name_inn": "Mifepristone",
+      "name_ru": "Мифепристон",
+      "name_brand": "Korlym, Mifeprex",
+      "status": "METACOD-RF",
+      "batch": "08-Adrenal",
+      "molecular": {
+        "chemical_class": "Glucocorticoid + progesterone receptor antagonist",
+        "mechanism_primary": [
+          "[LBL] Blocks GR (Korlym) — controls hyperglycemia of Cushing; PR antagonist (OB)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Cushing syndrome hyperglycemia (Korlym)",
+          "[LBL] Medical abortion / pregnancy management (Mifeprex, with misoprostol)"
+        ]
+      },
+      "dosing": {
+        "dose": "Per indication"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Glucocorticoid/progesterone blockade [RF]",
+          "best_match": [
+            "Cushing hyperglycemia; OB use"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Adrenal insufficiency hard to detect (no cortisol marker), hypokalemia, endometrial thickening",
+          "[LBL] Many DDIs; OB use protocol-bound"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-403",
+      "name_inn": "Mitotane",
+      "name_ru": "Митотан",
+      "name_brand": "Lysodren",
+      "status": "METACOD-RF",
+      "batch": "08-Adrenal",
+      "molecular": {
+        "chemical_class": "Adrenolytic (adrenocortical cytotoxic)",
+        "mechanism_primary": [
+          "[LBL] Selective adrenal cortex destruction"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Adrenocortical carcinoma"
+        ]
+      },
+      "dosing": {
+        "dose": "Titrated (narrow window)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Adrenal cytoreduction [RF]",
+          "best_match": [
+            "Adrenocortical carcinoma"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Adrenal insufficiency (needs glucocorticoid replacement), GI/CNS toxicity",
+          "[LBL] Strong CYP3A4 inducer; long half-life"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ESMO ACC"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-404",
+      "name_inn": "Risedronate / Ibandronate",
+      "name_ru": "Ризедронат / Ибандронат",
+      "name_brand": "Actonel / Boniva",
+      "status": "METACOD-RF",
+      "batch": "08-Bone",
+      "molecular": {
+        "chemical_class": "Additional oral bisphosphonates",
+        "mechanism_primary": [
+          "[LBL] Osteoclast-mediated resorption inhibition"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Osteoporosis (alternatives to alendronate; ibandronate also IV q3mo)"
+        ]
+      },
+      "dosing": {
+        "dose": "Risedronate weekly/monthly; ibandronate monthly PO / IV q3mo"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Bone preservation [RF]",
+          "best_match": [
+            "Osteoporosis (alendronate-intolerant)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] counters M-D bone loss"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Esophagitis (oral admin rules), ONJ, atypical fracture",
+          "[LBL] Renal limits, hypocalcemia"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Osteoporosis guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-405",
+      "name_inn": "Conivaptan",
+      "name_ru": "Конивaптан",
+      "name_brand": "Vaprisol",
+      "status": "METACOD-RF",
+      "batch": "08-Vaptan",
+      "molecular": {
+        "chemical_class": "Mixed V1a/V2 vasopressin antagonist (IV)",
+        "mechanism_primary": [
+          "[LBL] Aquaresis (free-water excretion)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Euvolemic/hypervolemic hyponatremia (in-hospital)"
+        ]
+      },
+      "dosing": {
+        "dose": "IV (in-hospital, Na monitoring)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Aquaresis (Water) [RF]",
+          "best_match": [
+            "Hyponatremia (SIADH/euvolemic)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute (in-hospital)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Overly rapid Na correction → osmotic demyelination (strict monitoring)",
+          "[LBL] CYP3A4 interactions; cross-ref tolvaptan batch 24"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Hyponatremia guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-406",
+      "name_inn": "Finasteride / Dutasteride",
+      "name_ru": "Финастерид / Дутастерид",
+      "name_brand": "Proscar / Avodart",
+      "status": "METACOD-RF",
+      "batch": "08-Androgen",
+      "molecular": {
+        "chemical_class": "5α-reductase inhibitors",
+        "mechanism_primary": [
+          "[LBL] Block testosterone→DHT conversion"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] BPH",
+          "[LBL] Androgenetic alopecia (finasteride 1 mg)"
+        ]
+      },
+      "dosing": {
+        "dose": "Finasteride 5 mg (BPH)/1 mg (hair); dutasteride 0.5 mg"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Androgen (DHT) reduction [RF]",
+          "best_match": [
+            "BPH, androgenetic alopecia"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Sexual dysfunction, gynecomastia, post-finasteride syndrome debate",
+          "[LBL] ↓PSA ~50% (interpret screening), pregnancy handling caution (teratogen)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AUA BPH"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    }
   ]
 }

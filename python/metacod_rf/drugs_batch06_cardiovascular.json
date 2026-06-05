@@ -6,7 +6,7 @@
     "status": "METACOD-RF — Research Framework, not clinical guidance",
     "group": "Кардиология — beta-blockers / ACEi / ARB / ARNI / CCB / diuretics / other-antiHTN / statins / other-lipid / antiplatelets / anticoagulants / antiarrhythmics / digoxin / nitrates / ivabradine / PAH-prostacyclin / vasopressor-inotrope / ranolazine",
     "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0 + KCTS awareness (EBM-reframed per kcts_integration v1.1)",
-    "preparations_count": 63,
+    "preparations_count": 78,
     "author": "Claude (standard-evidence authorship) — fills reserved gap; not a Mark source document",
     "claude_authored_standard_evidence": true,
     "authorship_note": "[GOVERNANCE] Авторизован Mark, написан Claude из стандартной доказательной базы. НЕ source-документ Mark. Заполняет последний зарезервированный разрыв DRG-034..096 (batch 05 кончилась 033, batch 07 началась 097). [OBS-Mark] пусты; mark_validated false. Honors cross-ref: apixaban=082 (batch 19 DRG-291). Сверить с оригиналом Mark если есть.",
@@ -15,454 +15,4033 @@
     "ready_for_mark_review": true,
     "id_range_note": "DRG-034..096 (63). apixaban=082. После этого батча DRG-001..096 непрерывны.",
     "kcts_note": "[GOVERNANCE] EBM-KCTS (v1.1): задержка жидкости (HF, диуретики, минералокортикоид-антагонисты) — измеримый EBM-компонент; chronic CV disease часто несёт psychosocial burden — поддержка ВМЕСТЕ с доказательной терапией. Hamer/AIRE не используется. pH↔membrane drug-induced dissociation note (HANDOFF §2) касается beta-blockers.",
-    "source_tag_legend": {"LBL": "FDA/EMA label", "GL": "Clinical guideline (ACC/AHA/ESC)", "RCT": "конкретное pivotal trial", "CLASS": "class extrapolation", "OBS-Mark": "наблюдение Mark (требует заполнения)", "RF": "research framework (theoretical)"},
+    "source_tag_legend": {
+      "LBL": "FDA/EMA label",
+      "GL": "Clinical guideline (ACC/AHA/ESC)",
+      "RCT": "конкретное pivotal trial",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "наблюдение Mark (требует заполнения)",
+      "RF": "research framework (theoretical)"
+    },
     "class_notes": {
-      "energy_perspective": ["Heart = Fire→merged Heat axis (post-2026 canon) [RF]", "Hypertension/tachyarrhythmia = Heat/Wind excess [RF]", "HF with congestion = fluid-retention (Damp/Water) [RF]", "Anticoagulation = Blood-movement modulation [RF]"],
-      "obs_mark_to_fill": ["HTN agent sequencing", "HFrEF GDMT titration", "AF anticoagulation (DOAC selection — cross-ref batch 19)", "Statin intensity/intolerance approach"],
-      "logic_review_flags_for_mark": {"issue_1_claude_authored": "[GOVERNANCE] Claude-authored standard-evidence batch (largest). Q: accept gap-fill или replace with your version?"}
-    }
+      "energy_perspective": [
+        "Heart = Fire→merged Heat axis (post-2026 canon) [RF]",
+        "Hypertension/tachyarrhythmia = Heat/Wind excess [RF]",
+        "HF with congestion = fluid-retention (Damp/Water) [RF]",
+        "Anticoagulation = Blood-movement modulation [RF]"
+      ],
+      "obs_mark_to_fill": [
+        "HTN agent sequencing",
+        "HFrEF GDMT titration",
+        "AF anticoagulation (DOAC selection — cross-ref batch 19)",
+        "Statin intensity/intolerance approach"
+      ],
+      "logic_review_flags_for_mark": {
+        "issue_1_claude_authored": "[GOVERNANCE] Claude-authored standard-evidence batch (largest). Q: accept gap-fill или replace with your version?"
+      }
+    },
+    "expansion_note": "[2026-06 EXPANSION] Добавлены DRG-380-394 (15 agents) — Claude-authored standard-evidence; докрытие класса (острые/IV-агенты и недостающие подклассы). Не ломает существующие cross-ref ID. ID непрерывность нарушена намеренно (expansion-блок 380+)."
   },
   "drugs": [
-    {"drug_id": "DRG-034", "name_inn": "Metoprolol", "name_ru": "Метопролол", "name_brand": "Lopressor, Toprol-XL", "status": "METACOD-RF", "batch": "06-Beta-Blocker",
-     "molecular": {"chemical_class": "Cardioselective β1-blocker", "mechanism_primary": ["[LBL] β1 blockade → ↓HR, ↓contractility, ↓BP"]},
-     "indications": {"approved": ["[GL] HFrEF (succinate — mortality benefit)", "[GL] Post-MI, angina, AF rate control, HTN"]},
-     "dosing": {"dose": "Succinate (XL) daily for HF; tartrate BID"},
-     "three_axis_profile": {"constitutional": {"energy": "Heat/Wind (rate) suppression [RF]", "best_match": ["HFrEF, post-MI, AF rate"]}, "membrane": {"impact": "[RF] pH↔membrane dissociation note (HANDOFF §2)"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Bradycardia, fatigue, bronchospasm caution", "[LBL] Do NOT stop abruptly (rebound), masks hypoglycemia", "[GL] Avoid in acute decompensated HF"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA HF guideline"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-035", "name_inn": "Bisoprolol", "name_ru": "Бисопролол", "name_brand": "Zebeta, Concor", "status": "METACOD-RF", "batch": "06-Beta-Blocker",
-     "molecular": {"chemical_class": "Highly cardioselective β1-blocker", "mechanism_primary": ["[LBL] Selective β1 blockade"]},
-     "indications": {"approved": ["[RCT] HFrEF (CIBIS-II mortality benefit)", "[GL] HTN, angina"]},
-     "dosing": {"dose": "1.25-10 mg daily (HF up-titration)"},
-     "three_axis_profile": {"constitutional": {"energy": "Rate/Heat control [RF]", "best_match": ["HFrEF (COPD-friendlier selectivity)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Bradycardia, fatigue", "[LBL] No abrupt withdrawal"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["CIBIS-II"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-036", "name_inn": "Carvedilol", "name_ru": "Карведилол", "name_brand": "Coreg", "status": "METACOD-RF", "batch": "06-Beta-Blocker",
-     "molecular": {"chemical_class": "Non-selective β + α1 blocker", "mechanism_primary": ["[LBL] β + α1 blockade (vasodilation); antioxidant"]},
-     "indications": {"approved": ["[RCT] HFrEF (COPERNICUS/COMET)", "[GL] Post-MI LV dysfunction, HTN"]},
-     "dosing": {"dose": "3.125-25 mg BID with food"},
-     "three_axis_profile": {"constitutional": {"energy": "Combined rate + vasodilation [RF]", "best_match": ["HFrEF (preferred BB)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Orthostasis (α1), bradycardia", "[LBL] Bronchospasm (non-selective)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["COPERNICUS"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-037", "name_inn": "Atenolol", "name_ru": "Атенолол", "name_brand": "Tenormin", "status": "METACOD-RF", "batch": "06-Beta-Blocker",
-     "molecular": {"chemical_class": "Cardioselective β1-blocker (renally cleared)", "mechanism_primary": ["[LBL] β1 blockade"]},
-     "indications": {"approved": ["[LBL] HTN, angina, post-MI"]},
-     "dosing": {"dose": "25-100 mg daily; renal adjust"},
-     "three_axis_profile": {"constitutional": {"energy": "Rate/Heat control [RF]", "best_match": ["Angina, post-MI"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[GL] Less preferred for primary HTN (weaker stroke prevention vs others)", "[LBL] Renal accumulation, no CNS penetration"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ESC/ESH HTN"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-038", "name_inn": "Propranolol", "name_ru": "Пропранолол", "name_brand": "Inderal", "status": "METACOD-RF", "batch": "06-Beta-Blocker",
-     "molecular": {"chemical_class": "Non-selective β-blocker (lipophilic, CNS)", "mechanism_primary": ["[LBL] Non-selective β blockade"]},
-     "indications": {"approved": ["[LBL] Migraine prophylaxis, essential tremor, performance anxiety", "[GL] Variceal bleeding prophylaxis, thyroid storm, infantile hemangioma"]},
-     "dosing": {"dose": "By indication (LA forms)"},
-     "three_axis_profile": {"constitutional": {"energy": "Broad β (Wind/Heat) suppression [RF]", "best_match": ["Migraine, tremor, varices, hyperthyroid adjunct"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic / acute"}},
-     "safety": {"critical": ["[LBL] Bronchospasm, bradycardia, fatigue, vivid dreams", "[LBL] Masks hypoglycemia"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["Specialty guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-039", "name_inn": "Nebivolol", "name_ru": "Небиволол", "name_brand": "Bystolic", "status": "METACOD-RF", "batch": "06-Beta-Blocker",
-     "molecular": {"chemical_class": "β1-blocker + NO-mediated vasodilation", "mechanism_primary": ["[LBL] β1 blockade + endothelial NO"]},
-     "indications": {"approved": ["[LBL] HTN", "[GL] HFrEF elderly (SENIORS)"]},
-     "dosing": {"dose": "5-40 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Rate control + vasodilation [RF]", "best_match": ["HTN (favorable metabolic/ED profile)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Bradycardia; better tolerability profile"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["SENIORS"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-040", "name_inn": "Lisinopril", "name_ru": "Лизиноприл", "name_brand": "Prinivil, Zestril", "status": "METACOD-RF", "batch": "06-ACE-Inhibitor",
-     "molecular": {"chemical_class": "ACE inhibitor", "mechanism_primary": ["[LBL] Blocks ACE → ↓angiotensin II, ↓aldosterone"]},
-     "indications": {"approved": ["[GL] HTN, HFrEF, post-MI, diabetic nephropathy"]},
-     "dosing": {"dose": "10-40 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "RAAS suppression [RF]", "best_match": ["HTN, HFrEF, CKD/proteinuria, post-MI"]}, "membrane": {"impact": "[RF] renoprotective"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Cough, hyperkalemia, angioedema, AKI (bilateral RAS)", "[LBL] Teratogen — contraindicated pregnancy", "[LBL] Avoid with ARB/aliskiren combo"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA, ESC"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-041", "name_inn": "Ramipril", "name_ru": "Рамиприл", "name_brand": "Altace", "status": "METACOD-RF", "batch": "06-ACE-Inhibitor",
-     "molecular": {"chemical_class": "ACE inhibitor", "mechanism_primary": ["[LBL] RAAS blockade"]},
-     "indications": {"approved": ["[RCT] CV risk reduction (HOPE)", "[GL] HTN, HFrEF, nephropathy"]},
-     "dosing": {"dose": "2.5-10 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "RAAS suppression [RF]", "best_match": ["High CV risk, HTN, HF"]}, "membrane": {"impact": "[RF] renoprotective"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Same ACE-class (cough/hyperK/angioedema/pregnancy)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["HOPE trial"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-042", "name_inn": "Enalapril", "name_ru": "Эналаприл", "name_brand": "Vasotec", "status": "METACOD-RF", "batch": "06-ACE-Inhibitor",
-     "molecular": {"chemical_class": "ACE inhibitor (IV enalaprilat available)", "mechanism_primary": ["[LBL] RAAS blockade"]},
-     "indications": {"approved": ["[RCT] HFrEF (SOLVD/CONSENSUS mortality)", "[GL] HTN"]},
-     "dosing": {"dose": "2.5-20 mg BID"},
-     "three_axis_profile": {"constitutional": {"energy": "RAAS suppression [RF]", "best_match": ["HFrEF, HTN"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Same ACE-class effects"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["SOLVD, CONSENSUS"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-043", "name_inn": "Losartan", "name_ru": "Лозартан", "name_brand": "Cozaar", "status": "METACOD-RF", "batch": "06-ARB",
-     "molecular": {"chemical_class": "Angiotensin II receptor blocker", "mechanism_primary": ["[LBL] AT1 receptor blockade; uricosuric effect"]},
-     "indications": {"approved": ["[GL] HTN, diabetic nephropathy (RENAAL), HFrEF (ACE-intolerant)", "[LBL] Stroke prevention in LVH"]},
-     "dosing": {"dose": "50-100 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "RAAS (AT1) suppression [RF]", "best_match": ["HTN, nephropathy, ACE-cough intolerant"]}, "membrane": {"impact": "[RF] renoprotective; mild urate-lowering"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Hyperkalemia, AKI, angioedema (rare), pregnancy contraindicated", "[LBL] No cough (vs ACE)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["RENAAL, LIFE"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-044", "name_inn": "Valsartan", "name_ru": "Валсартан", "name_brand": "Diovan", "status": "METACOD-RF", "batch": "06-ARB",
-     "molecular": {"chemical_class": "ARB", "mechanism_primary": ["[LBL] AT1 blockade"]},
-     "indications": {"approved": ["[GL] HTN, HFrEF, post-MI", "[LBL] component of ARNI (sacubitril-valsartan)"]},
-     "dosing": {"dose": "80-320 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "RAAS suppression [RF]", "best_match": ["HTN, HFrEF"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Hyperkalemia, AKI, pregnancy contraindicated"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["Val-HeFT"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-045", "name_inn": "Candesartan", "name_ru": "Кандесартан", "name_brand": "Atacand", "status": "METACOD-RF", "batch": "06-ARB",
-     "molecular": {"chemical_class": "ARB (long-acting)", "mechanism_primary": ["[LBL] AT1 blockade"]},
-     "indications": {"approved": ["[RCT] HFrEF (CHARM)", "[GL] HTN", "[LBL] Migraine prophylaxis (off-label)"]},
-     "dosing": {"dose": "8-32 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "RAAS suppression [RF]", "best_match": ["HFrEF, HTN"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Hyperkalemia, AKI, pregnancy contraindicated"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["CHARM"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-046", "name_inn": "Sacubitril-valsartan (ARNI)", "name_ru": "Сакубитрил-валсартан", "name_brand": "Entresto", "status": "METACOD-RF", "batch": "06-ARNI",
-     "molecular": {"chemical_class": "Angiotensin receptor-neprilysin inhibitor", "mechanism_primary": ["[LBL] Neprilysin inhibition (↑natriuretic peptides) + AT1 blockade"]},
-     "indications": {"approved": ["[RCT] HFrEF (PARADIGM-HF — superior to enalapril)", "[GL] HFpEF (selected)"]},
-     "dosing": {"dose": "Titrate 24/26 → 97/103 mg BID; 36h washout from ACEi"},
-     "three_axis_profile": {"constitutional": {"energy": "RAAS + natriuretic enhancement [RF]", "best_match": ["HFrEF (GDMT pillar)"]}, "membrane": {"impact": "[RF] reverse remodeling"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Angioedema (NEVER combine/overlap with ACEi — 36h gap)", "[LBL] Hypotension, hyperkalemia, AKI, pregnancy contraindicated"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["PARADIGM-HF"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-047", "name_inn": "Amlodipine", "name_ru": "Амлодипин", "name_brand": "Norvasc", "status": "METACOD-RF", "batch": "06-CCB-DHP",
-     "molecular": {"chemical_class": "Dihydropyridine calcium channel blocker", "mechanism_primary": ["[LBL] Vascular L-type Ca blockade → vasodilation"]},
-     "indications": {"approved": ["[GL] HTN (first-line), chronic stable/vasospastic angina"]},
-     "dosing": {"dose": "2.5-10 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Vasodilation (Heat/pressure reduction) [RF]", "best_match": ["HTN, angina"]}, "membrane": {"impact": "[RF] peripheral edema (note KCTS fluid-retention DDx)"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Peripheral edema (dose-dependent), flushing, headache", "[LBL] No negative inotropy (safe in HFrEF for HTN/angina)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ALLHAT"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-048", "name_inn": "Nifedipine", "name_ru": "Нифедипин", "name_brand": "Procardia, Adalat", "status": "METACOD-RF", "batch": "06-CCB-DHP",
-     "molecular": {"chemical_class": "Dihydropyridine CCB", "mechanism_primary": ["[LBL] Vasodilation (ER preferred)"]},
-     "indications": {"approved": ["[GL] HTN, angina", "[GL] Tocolysis, Raynaud, high-altitude pulmonary edema"]},
-     "dosing": {"dose": "ER 30-90 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Vasodilation [RF]", "best_match": ["HTN, Raynaud, tocolysis"]}, "membrane": {"impact": "[RF] edema"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] NEVER immediate-release for HTN urgency (reflex tachy/MI)", "[LBL] Edema, flushing"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ESC HTN"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-049", "name_inn": "Felodipine", "name_ru": "Фелодипин", "name_brand": "Plendil", "status": "METACOD-RF", "batch": "06-CCB-DHP",
-     "molecular": {"chemical_class": "Dihydropyridine CCB", "mechanism_primary": ["[LBL] Vascular-selective vasodilation"]},
-     "indications": {"approved": ["[LBL] HTN, angina"]},
-     "dosing": {"dose": "2.5-10 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Vasodilation [RF]", "best_match": ["HTN"]}, "membrane": {"impact": "[RF] edema"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Edema, flushing", "[LBL] Grapefruit juice interaction (↑levels)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ESC HTN"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-050", "name_inn": "Diltiazem", "name_ru": "Дилтиазем", "name_brand": "Cardizem", "status": "METACOD-RF", "batch": "06-CCB-NonDHP",
-     "molecular": {"chemical_class": "Non-dihydropyridine CCB", "mechanism_primary": ["[LBL] AV nodal + vascular Ca blockade → rate control + vasodilation"]},
-     "indications": {"approved": ["[GL] AF/SVT rate control, angina, HTN"]},
-     "dosing": {"dose": "ER 120-360 mg daily; IV for acute rate control"},
-     "three_axis_profile": {"constitutional": {"energy": "Rate control + vasodilation [RF]", "best_match": ["AF rate control (EF preserved), angina"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic / acute"}},
-     "safety": {"critical": ["[LBL] AVOID in HFrEF (negative inotrope)", "[LBL] Bradycardia/AV block (esp. with BB), CYP3A4 interactions"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA AF"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-051", "name_inn": "Verapamil", "name_ru": "Верапамил", "name_brand": "Calan, Isoptin", "status": "METACOD-RF", "batch": "06-CCB-NonDHP",
-     "molecular": {"chemical_class": "Non-dihydropyridine CCB (most cardiodepressant)", "mechanism_primary": ["[LBL] AV nodal blockade, negative inotropy"]},
-     "indications": {"approved": ["[GL] AF/SVT rate control, angina, HTN", "[GL] Cluster headache prophylaxis"]},
-     "dosing": {"dose": "ER 180-480 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Rate/contractility suppression [RF]", "best_match": ["SVT, AF rate, cluster HA"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic / acute"}},
-     "safety": {"critical": ["[LBL] AVOID in HFrEF", "[LBL] Constipation (marked), bradycardia/AV block", "[LBL] Dangerous with BB; digoxin level ↑"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA AF"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-052", "name_inn": "Hydrochlorothiazide", "name_ru": "Гидрохлортиазид", "name_brand": "Microzide", "status": "METACOD-RF", "batch": "06-Diuretic-Thiazide",
-     "molecular": {"chemical_class": "Thiazide diuretic", "mechanism_primary": ["[LBL] Distal tubule Na-Cl cotransporter inhibition"]},
-     "indications": {"approved": ["[GL] HTN (first-line), edema"]},
-     "dosing": {"dose": "12.5-25 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Volume/fluid (Damp) reduction [RF]", "best_match": ["HTN"]}, "membrane": {"impact": "[RF] reduces fluid retention"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Hypokalemia, hyponatremia, hyperuricemia (gout — Mark Yin-Fire DDx), hyperglycemia, hypercalcemia", "[LBL] Sulfa, photosensitivity; less effective eGFR<30"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ALLHAT"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-053", "name_inn": "Chlorthalidone", "name_ru": "Хлорталидон", "name_brand": "Thalitone", "status": "METACOD-RF", "batch": "06-Diuretic-Thiazide",
-     "molecular": {"chemical_class": "Thiazide-like diuretic (long-acting)", "mechanism_primary": ["[LBL] Longer duration, more potent than HCTZ"]},
-     "indications": {"approved": ["[GL] HTN (preferred thiazide-type — outcome data)"]},
-     "dosing": {"dose": "12.5-25 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Volume reduction (potent) [RF]", "best_match": ["HTN (outcome-proven)"]}, "membrane": {"impact": "[RF] fluid reduction"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] More hypokalemia/hyponatremia than HCTZ", "[LBL] Same metabolic effects"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["SHEP, ALLHAT"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-054", "name_inn": "Furosemide", "name_ru": "Фуросемид", "name_brand": "Lasix", "status": "METACOD-RF", "batch": "06-Diuretic-Loop",
-     "molecular": {"chemical_class": "Loop diuretic", "mechanism_primary": ["[LBL] Na-K-2Cl inhibition (thick ascending limb) — potent diuresis"]},
-     "indications": {"approved": ["[GL] HF congestion/edema, pulmonary edema", "[LBL] Edema (renal/hepatic), hypertensive emergency with volume overload"]},
-     "dosing": {"dose": "20-80 mg PO/IV titrated (IV:PO ~2:1)"},
-     "three_axis_profile": {"constitutional": {"energy": "Potent fluid (Damp/Water) removal [RF]", "best_match": ["HF congestion, edema (fluid-retention — EBM KCTS overlap)"]}, "membrane": {"impact": "[RF] relieves congestion"}, "phase": {"match": "Acute / chronic"}},
-     "safety": {"critical": ["[LBL] Hypokalemia, hyponatremia, hypomagnesemia, hypovolemia/AKI", "[LBL] Ototoxicity (rapid IV/high dose), sulfa"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA HF"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-055", "name_inn": "Torsemide", "name_ru": "Торасемид", "name_brand": "Demadex", "status": "METACOD-RF", "batch": "06-Diuretic-Loop",
-     "molecular": {"chemical_class": "Loop diuretic (better PO bioavailability)", "mechanism_primary": ["[LBL] More predictable absorption than furosemide"]},
-     "indications": {"approved": ["[GL] HF congestion, edema, HTN"]},
-     "dosing": {"dose": "10-20 mg daily (≈ furosemide 40 mg)"},
-     "three_axis_profile": {"constitutional": {"energy": "Fluid removal (reliable PO) [RF]", "best_match": ["HF (gut edema/absorption issues)"]}, "membrane": {"impact": "[RF] relieves congestion"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Same loop class; less ototoxicity"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["TRANSFORM-HF"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-056", "name_inn": "Spironolactone", "name_ru": "Спиронолактон", "name_brand": "Aldactone", "status": "METACOD-RF", "batch": "06-MRA",
-     "molecular": {"chemical_class": "Mineralocorticoid receptor antagonist (non-selective)", "mechanism_primary": ["[LBL] Aldosterone antagonism (K-sparing); anti-androgen"]},
-     "indications": {"approved": ["[RCT] HFrEF (RALES mortality)", "[GL] Resistant HTN, primary aldosteronism, cirrhotic ascites", "[LBL] PCOS hirsutism/acne"]},
-     "dosing": {"dose": "12.5-50 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Aldosterone/fluid modulation [RF]", "best_match": ["HFrEF, resistant HTN, ascites; fluid-retention (EBM KCTS overlap)"]}, "membrane": {"impact": "[RF] anti-fibrotic / fluid"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] HYPERKALEMIA (monitor K/Cr; risk with ACEi/ARB/CKD)", "[LBL] Gynecomastia, menstrual irregularity (anti-androgen)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["RALES"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-057", "name_inn": "Eplerenone", "name_ru": "Эплеренон", "name_brand": "Inspra", "status": "METACOD-RF", "batch": "06-MRA",
-     "molecular": {"chemical_class": "Selective mineralocorticoid receptor antagonist", "mechanism_primary": ["[LBL] Selective MR antagonism (fewer anti-androgen effects)"]},
-     "indications": {"approved": ["[RCT] HFrEF/post-MI (EPHESUS/EMPHASIS-HF)", "[GL] HTN"]},
-     "dosing": {"dose": "25-50 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Selective aldosterone modulation [RF]", "best_match": ["HFrEF (gynecomastia-intolerant of spironolactone)"]}, "membrane": {"impact": "[RF] anti-fibrotic"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Hyperkalemia", "[LBL] CYP3A4 interactions; no gynecomastia"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["EMPHASIS-HF"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-058", "name_inn": "Clonidine", "name_ru": "Клонидин", "name_brand": "Catapres", "status": "METACOD-RF", "batch": "06-Central-Antihypertensive",
-     "molecular": {"chemical_class": "Central α2-agonist", "mechanism_primary": ["[LBL] Central sympatholytic → ↓BP"]},
-     "indications": {"approved": ["[LBL] Resistant HTN", "[GL] ADHD, opioid/nicotine withdrawal, menopausal flushing"]},
-     "dosing": {"dose": "0.1-0.3 mg BID; patch weekly"},
-     "three_axis_profile": {"constitutional": {"energy": "Central sympatholysis (Wind/Heat) [RF]", "best_match": ["Resistant HTN, withdrawal"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic / acute"}},
-     "safety": {"critical": ["[LBL] REBOUND hypertension if stopped abruptly", "[LBL] Sedation, dry mouth, bradycardia"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ESC HTN"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-059", "name_inn": "Hydralazine", "name_ru": "Гидралазин", "name_brand": "Apresoline", "status": "METACOD-RF", "batch": "06-Vasodilator",
-     "molecular": {"chemical_class": "Direct arterial vasodilator", "mechanism_primary": ["[LBL] Arteriolar smooth muscle relaxation"]},
-     "indications": {"approved": ["[RCT] HFrEF with isosorbide dinitrate (A-HeFT — esp. Black patients)", "[GL] Resistant HTN, pregnancy/preeclampsia (IV)"]},
-     "dosing": {"dose": "25-100 mg TID; with nitrate in HF"},
-     "three_axis_profile": {"constitutional": {"energy": "Arterial vasodilation [RF]", "best_match": ["HFrEF (ACE/ARB-intolerant, + nitrate), pregnancy HTN"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic / acute"}},
-     "safety": {"critical": ["[LBL] Reflex tachycardia, fluid retention", "[LBL] Drug-induced lupus (dose/duration-related)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["A-HeFT"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-060", "name_inn": "Methyldopa", "name_ru": "Метилдопа", "name_brand": "Aldomet", "status": "METACOD-RF", "batch": "06-Central-Antihypertensive",
-     "molecular": {"chemical_class": "Central α2-agonist (prodrug)", "mechanism_primary": ["[LBL] Central sympatholysis"]},
-     "indications": {"approved": ["[GL] Hypertension in pregnancy (first-line, safety record)"]},
-     "dosing": {"dose": "250-500 mg BID-TID"},
-     "three_axis_profile": {"constitutional": {"energy": "Central sympatholysis [RF]", "best_match": ["Pregnancy HTN"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic (pregnancy)"}},
-     "safety": {"critical": ["[LBL] Sedation, hepatotoxicity, hemolytic anemia (positive Coombs), drug fever"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACOG HTN pregnancy"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-061", "name_inn": "Doxazosin", "name_ru": "Доксазозин", "name_brand": "Cardura", "status": "METACOD-RF", "batch": "06-Alpha-Blocker",
-     "molecular": {"chemical_class": "α1-adrenergic blocker", "mechanism_primary": ["[LBL] Peripheral α1 blockade → vasodilation; also BPH (cross-ref batch 13)"]},
-     "indications": {"approved": ["[LBL] HTN (add-on, not first-line — ALLHAT HF signal)", "[LBL] BPH"]},
-     "dosing": {"dose": "1-8 mg daily (HS, titrate)"},
-     "three_axis_profile": {"constitutional": {"energy": "α1 vasodilation [RF]", "best_match": ["Resistant HTN + BPH"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] First-dose orthostatic hypotension/syncope", "[GL] Not first-line HTN (↑HF risk ALLHAT)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ALLHAT"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-062", "name_inn": "Atorvastatin", "name_ru": "Аторвастатин", "name_brand": "Lipitor", "status": "METACOD-RF", "batch": "06-Statin",
-     "molecular": {"chemical_class": "HMG-CoA reductase inhibitor (high-intensity capable)", "mechanism_primary": ["[LBL] ↓cholesterol synthesis → ↑LDL receptors; pleiotropic"]},
-     "indications": {"approved": ["[GL] ASCVD secondary prevention, primary prevention (risk-based), familial hyperlipidemia"]},
-     "dosing": {"dose": "10-80 mg daily (40-80 = high-intensity)"},
-     "three_axis_profile": {"constitutional": {"energy": "Lipid/atherogenic reduction [RF]", "best_match": ["ASCVD, high CV risk, diabetes"]}, "membrane": {"impact": "[RF] plaque stabilization (anti-M-S vascular)"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Myalgia/myopathy (rare rhabdo), transaminitis, new-onset diabetes (small)", "[LBL] CYP3A4 interactions; pregnancy contraindicated"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "intolerance": "[OBS-Mark] [Statin intolerance approach?]"}, "references": ["ACC/AHA cholesterol"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-063", "name_inn": "Rosuvastatin", "name_ru": "Розувастатин", "name_brand": "Crestor", "status": "METACOD-RF", "batch": "06-Statin",
-     "molecular": {"chemical_class": "HMG-CoA reductase inhibitor (high-intensity, hydrophilic)", "mechanism_primary": ["[LBL] Potent LDL lowering; less CYP3A4"]},
-     "indications": {"approved": ["[RCT] Primary prevention (JUPITER), ASCVD"]},
-     "dosing": {"dose": "5-40 mg daily (20-40 = high-intensity)"},
-     "three_axis_profile": {"constitutional": {"energy": "Lipid reduction (potent) [RF]", "best_match": ["High CV risk; statin needing fewer DDIs"]}, "membrane": {"impact": "[RF] plaque stabilization"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Myopathy, transaminitis; lower dose in Asian patients", "[LBL] Pregnancy contraindicated"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["JUPITER"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-064", "name_inn": "Simvastatin", "name_ru": "Симвастатин", "name_brand": "Zocor", "status": "METACOD-RF", "batch": "06-Statin",
-     "molecular": {"chemical_class": "HMG-CoA reductase inhibitor (moderate-intensity)", "mechanism_primary": ["[LBL] LDL lowering"]},
-     "indications": {"approved": ["[RCT] ASCVD (4S, HPS)"]},
-     "dosing": {"dose": "10-40 mg HS (80 mg restricted — myopathy)"},
-     "three_axis_profile": {"constitutional": {"energy": "Lipid reduction [RF]", "best_match": ["ASCVD (moderate-intensity)"]}, "membrane": {"impact": "[RF] plaque stabilization"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Highest myopathy DDI risk (CYP3A4 — amiodarone, verapamil, etc. dose caps)", "[LBL] 80 mg restricted"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["4S, HPS"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-065", "name_inn": "Pravastatin", "name_ru": "Правастатин", "name_brand": "Pravachol", "status": "METACOD-RF", "batch": "06-Statin",
-     "molecular": {"chemical_class": "HMG-CoA reductase inhibitor (hydrophilic, low-intensity)", "mechanism_primary": ["[LBL] LDL lowering; minimal CYP — fewest DDIs"]},
-     "indications": {"approved": ["[RCT] ASCVD (WOSCOPS, CARE)"]},
-     "dosing": {"dose": "40-80 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Lipid reduction (low DDI) [RF]", "best_match": ["Statin with polypharmacy / HIV protease inhibitors"]}, "membrane": {"impact": "[RF] plaque stabilization"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Lowest DDI profile; myopathy/transaminitis; pregnancy contraindicated"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["WOSCOPS"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-066", "name_inn": "Ezetimibe", "name_ru": "Эзетимиб", "name_brand": "Zetia", "status": "METACOD-RF", "batch": "06-Lipid",
-     "molecular": {"chemical_class": "Cholesterol absorption inhibitor", "mechanism_primary": ["[LBL] Blocks intestinal NPC1L1 → ↓absorption"]},
-     "indications": {"approved": ["[RCT] Add-on to statin (IMPROVE-IT), statin-intolerant"]},
-     "dosing": {"dose": "10 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Lipid absorption reduction [RF]", "best_match": ["LDL not at goal on statin; statin-intolerant"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Generally well tolerated; rare myopathy/transaminitis"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["IMPROVE-IT"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-067", "name_inn": "Evolocumab / Alirocumab (PCSK9 inhibitors)", "name_ru": "Эволокумаб / Алирокумаб", "name_brand": "Repatha / Praluent", "status": "METACOD-RF", "batch": "06-Lipid",
-     "molecular": {"chemical_class": "Anti-PCSK9 monoclonal antibody", "mechanism_primary": ["[LBL] ↑LDL receptor recycling → marked LDL lowering"]},
-     "indications": {"approved": ["[RCT] ASCVD/FH not at goal on max statin (FOURIER, ODYSSEY)"]},
-     "dosing": {"dose": "SC q2 weeks or monthly"},
-     "three_axis_profile": {"constitutional": {"energy": "Potent lipid reduction [RF]", "best_match": ["High-risk ASCVD/FH, statin-intolerant"]}, "membrane": {"impact": "[RF] plaque regression signal"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Injection reactions; very well tolerated", "[LBL] Cost/access barrier"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["FOURIER, ODYSSEY"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-068", "name_inn": "Fenofibrate / Gemfibrozil", "name_ru": "Фенофибрат / Гемфиброзил", "name_brand": "Tricor / Lopid", "status": "METACOD-RF", "batch": "06-Lipid",
-     "molecular": {"chemical_class": "Fibrate (PPAR-α agonist)", "mechanism_primary": ["[LBL] ↓triglycerides, ↑HDL"]},
-     "indications": {"approved": ["[LBL] Severe hypertriglyceridemia (pancreatitis prevention)", "[GL] Mixed dyslipidemia adjunct"]},
-     "dosing": {"dose": "Fenofibrate 145 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Triglyceride reduction [RF]", "best_match": ["TG >500 (pancreatitis risk)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Myopathy (esp. GEMFIBROZIL + statin — AVOID; fenofibrate preferred)", "[LBL] Transaminitis, gallstones, reversible creatinine rise"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACCORD-Lipid"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-069", "name_inn": "Bempedoic acid", "name_ru": "Бемпедоевая кислота", "name_brand": "Nexletol", "status": "METACOD-RF", "batch": "06-Lipid",
-     "molecular": {"chemical_class": "ATP-citrate lyase inhibitor (liver-selective)", "mechanism_primary": ["[LBL] ↓cholesterol synthesis upstream of HMG-CoA; prodrug activated in liver (not muscle)"]},
-     "indications": {"approved": ["[RCT] Statin-intolerant / adjunct (CLEAR Outcomes)"]},
-     "dosing": {"dose": "180 mg daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Lipid reduction (muscle-sparing) [RF]", "best_match": ["Statin-intolerant (myalgia)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Hyperuricemia/gout, tendon rupture signal, ↑uric acid", "[LBL] Raises some statin levels"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["CLEAR Outcomes"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-070", "name_inn": "Inclisiran", "name_ru": "Инклисиран", "name_brand": "Leqvio", "status": "METACOD-RF", "batch": "06-Lipid",
-     "molecular": {"chemical_class": "siRNA targeting PCSK9", "mechanism_primary": ["[LBL] Hepatic PCSK9 mRNA silencing → sustained LDL lowering"]},
-     "indications": {"approved": ["[RCT] ASCVD/FH adjunct (ORION)"]},
-     "dosing": {"dose": "SC day 0, 3 months, then q6 months (twice-yearly)"},
-     "three_axis_profile": {"constitutional": {"energy": "Potent durable lipid reduction (gene-silencing) [RF]", "best_match": ["Adherence-challenged high-risk LDL"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic (q6mo) — siRNA modality (cf. batch 27 givosiran)"}},
-     "safety": {"critical": ["[LBL] Injection site reactions; long-term outcome data maturing"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ORION trials"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-071", "name_inn": "Aspirin (antiplatelet)", "name_ru": "Аспирин (антиагрегант)", "name_brand": "multiple", "status": "METACOD-RF", "batch": "06-Antiplatelet",
-     "molecular": {"chemical_class": "Irreversible COX-1 inhibitor (antiplatelet dose)", "mechanism_primary": ["[LBL] ↓thromboxane A2 → ↓platelet aggregation"]},
-     "indications": {"approved": ["[GL] ASCVD secondary prevention, ACS, post-PCI (DAPT)", "[GL] Primary prevention — narrowed (bleeding vs benefit)"]},
-     "dosing": {"dose": "75-100 mg daily (325 load in ACS)"},
-     "three_axis_profile": {"constitutional": {"energy": "Platelet (Blood-stasis) modulation [RF]", "best_match": ["Established ASCVD"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] GI bleeding/ulcer, hemorrhagic stroke", "[LBL] Reye syndrome <16y (cross-ref batch 23)", "[LBL] Avoid in active bleeding"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-072", "name_inn": "Clopidogrel", "name_ru": "Клопидогрел", "name_brand": "Plavix", "status": "METACOD-RF", "batch": "06-Antiplatelet",
-     "molecular": {"chemical_class": "P2Y12 inhibitor (thienopyridine, prodrug)", "mechanism_primary": ["[LBL] Irreversible P2Y12 blockade; CYP2C19-activated"]},
-     "indications": {"approved": ["[GL] ACS/post-PCI (DAPT), secondary prevention, PAD/stroke"]},
-     "dosing": {"dose": "75 mg daily (300-600 load)"},
-     "three_axis_profile": {"constitutional": {"energy": "Platelet inhibition [RF]", "best_match": ["DAPT, ASA-intolerant"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic / post-PCI duration"}},
-     "safety": {"critical": ["[LBL] Bleeding; CYP2C19 poor metabolizers reduced efficacy", "[LBL] Interaction with omeprazole (use pantoprazole)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["CURE"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-073", "name_inn": "Ticagrelor", "name_ru": "Тикагрелор", "name_brand": "Brilinta", "status": "METACOD-RF", "batch": "06-Antiplatelet",
-     "molecular": {"chemical_class": "P2Y12 inhibitor (reversible, not a prodrug)", "mechanism_primary": ["[LBL] Reversible P2Y12 blockade; faster/stronger than clopidogrel"]},
-     "indications": {"approved": ["[RCT] ACS/post-PCI (PLATO — superior to clopidogrel)"]},
-     "dosing": {"dose": "90 mg BID (60 mg BID long-term); 180 load"},
-     "three_axis_profile": {"constitutional": {"energy": "Potent platelet inhibition [RF]", "best_match": ["ACS (preferred P2Y12)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic / DAPT"}},
-     "safety": {"critical": ["[LBL] Bleeding, DYSPNEA (adenosine-related), bradyarrhythmia", "[LBL] BID adherence; ASA dose ≤100 mg; CYP3A4"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["PLATO"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-074", "name_inn": "Prasugrel", "name_ru": "Прасугрел", "name_brand": "Effient", "status": "METACOD-RF", "batch": "06-Antiplatelet",
-     "molecular": {"chemical_class": "P2Y12 inhibitor (thienopyridine, potent)", "mechanism_primary": ["[LBL] Irreversible P2Y12; more consistent than clopidogrel"]},
-     "indications": {"approved": ["[RCT] ACS managed with PCI (TRITON-TIMI)"]},
-     "dosing": {"dose": "10 mg daily (5 mg if <60 kg); 60 load"},
-     "three_axis_profile": {"constitutional": {"energy": "Potent platelet inhibition [RF]", "best_match": ["ACS-PCI (not CABG-bound)"]}, "membrane": {"impact": "—"}, "phase": {"match": "DAPT duration"}},
-     "safety": {"critical": ["[LBL] CONTRAINDICATED prior stroke/TIA (intracranial bleed)", "[LBL] Caution >75y, <60 kg; bleeding"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["TRITON-TIMI"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-075", "name_inn": "Cilostazol", "name_ru": "Цилостазол", "name_brand": "Pletal", "status": "METACOD-RF", "batch": "06-Antiplatelet-PAD",
-     "molecular": {"chemical_class": "PDE3 inhibitor (antiplatelet + vasodilator)", "mechanism_primary": ["[LBL] Vasodilation + platelet inhibition"]},
-     "indications": {"approved": ["[GL] Intermittent claudication (symptom/walking distance)"]},
-     "dosing": {"dose": "100 mg BID (empty stomach)"},
-     "three_axis_profile": {"constitutional": {"energy": "Peripheral vasodilation + platelet [RF]", "best_match": ["Claudication (PAD)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] BLACK BOX: contraindicated in ANY heart failure (PDE3 inotrope mortality)", "[LBL] Headache, palpitations, diarrhea"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA PAD"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-076", "name_inn": "Warfarin", "name_ru": "Варфарин", "name_brand": "Coumadin", "status": "METACOD-RF", "batch": "06-Anticoagulant",
-     "molecular": {"chemical_class": "Vitamin K antagonist", "mechanism_primary": ["[LBL] Inhibits VKORC1 → ↓factors II,VII,IX,X"]},
-     "indications": {"approved": ["[GL] Mechanical valves, valvular AF, antiphospholipid syndrome (DOAC-unsuitable settings)"]},
-     "dosing": {"dose": "INR-guided (target 2-3, or 2.5-3.5 mechanical mitral)"},
-     "three_axis_profile": {"constitutional": {"energy": "Anticoagulation (Blood) [RF]", "best_match": ["Mechanical valve, valvular AF, APS"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Bleeding; narrow TI, many food/drug interactions (CYP2C9/VKORC1)", "[LBL] Teratogen; skin necrosis (early); reverse with vit K / PCC"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA AF/valve"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-077", "name_inn": "Unfractionated heparin", "name_ru": "Нефракционированный гепарин", "name_brand": "Heparin", "status": "METACOD-RF", "batch": "06-Anticoagulant",
-     "molecular": {"chemical_class": "Indirect thrombin/Xa inhibitor (antithrombin-mediated)", "mechanism_primary": ["[LBL] Potentiates antithrombin; rapid on/off; reversible (protamine)"]},
-     "indications": {"approved": ["[GL] ACS, VTE, bridging, CKD/periprocedural (short half-life, titratable)"]},
-     "dosing": {"dose": "Weight-based IV (aPTT/anti-Xa) or SC prophylaxis"},
-     "three_axis_profile": {"constitutional": {"energy": "Rapid anticoagulation [RF]", "best_match": ["Acute, periprocedural, renal failure"]}, "membrane": {"impact": "—"}, "phase": {"match": "Acute"}},
-     "safety": {"critical": ["[LBL] Bleeding; HIT (heparin-induced thrombocytopenia — monitor platelets)", "[LBL] Protamine reversal; osteoporosis (prolonged)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["CHEST guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-078", "name_inn": "Enoxaparin (LMWH)", "name_ru": "Эноксапарин", "name_brand": "Lovenox, Clexane", "status": "METACOD-RF", "batch": "06-Anticoagulant",
-     "molecular": {"chemical_class": "Low-molecular-weight heparin", "mechanism_primary": ["[LBL] Predominantly anti-Xa; predictable SC dosing"]},
-     "indications": {"approved": ["[GL] VTE treatment/prophylaxis, ACS, bridging, pregnancy"]},
-     "dosing": {"dose": "1 mg/kg q12h or 1.5 mg/kg daily; renal adjust/anti-Xa"},
-     "three_axis_profile": {"constitutional": {"energy": "Anticoagulation [RF]", "best_match": ["VTE, pregnancy (no placental transfer), bridging"]}, "membrane": {"impact": "—"}, "phase": {"match": "Acute / chronic prophylaxis"}},
-     "safety": {"critical": ["[LBL] Bleeding; lower HIT than UFH; accumulates in renal failure", "[LBL] Partial protamine reversal"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["CHEST guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-079", "name_inn": "Fondaparinux", "name_ru": "Фондапаринукс", "name_brand": "Arixtra", "status": "METACOD-RF", "batch": "06-Anticoagulant",
-     "molecular": {"chemical_class": "Synthetic pentasaccharide (pure anti-Xa)", "mechanism_primary": ["[LBL] Selective antithrombin-mediated factor Xa inhibition"]},
-     "indications": {"approved": ["[GL] VTE treatment/prophylaxis", "[GL] HIT (no cross-reactivity), ACS"]},
-     "dosing": {"dose": "2.5 mg (prophylaxis) / 5-10 mg (treatment) SC daily"},
-     "three_axis_profile": {"constitutional": {"energy": "Selective Xa anticoagulation [RF]", "best_match": ["HIT, VTE"]}, "membrane": {"impact": "—"}, "phase": {"match": "Acute"}},
-     "safety": {"critical": ["[LBL] Bleeding; NO reversal agent; avoid eGFR<30; not for HIT-with-thrombosis as sole agent in some settings"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["CHEST guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-080", "name_inn": "Dabigatran", "name_ru": "Дабигатран", "name_brand": "Pradaxa", "status": "METACOD-RF", "batch": "06-DOAC",
-     "molecular": {"chemical_class": "Direct thrombin (IIa) inhibitor", "mechanism_primary": ["[LBL] Direct thrombin inhibition; reversal idarucizumab"]},
-     "indications": {"approved": ["[RCT] Non-valvular AF (RE-LY), VTE"]},
-     "dosing": {"dose": "150 mg BID (110/75 by renal/age)"},
-     "three_axis_profile": {"constitutional": {"energy": "Direct anticoagulation [RF]", "best_match": ["Non-valvular AF, VTE"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Bleeding (more GI), dyspepsia", "[LBL] Renal clearance (avoid eGFR<30); idarucizumab reversal; P-gp interactions"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["RE-LY"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-081", "name_inn": "Rivaroxaban", "name_ru": "Ривароксабан", "name_brand": "Xarelto", "status": "METACOD-RF", "batch": "06-DOAC",
-     "molecular": {"chemical_class": "Direct factor Xa inhibitor", "mechanism_primary": ["[LBL] Direct Xa inhibition; reversal andexanet"]},
-     "indications": {"approved": ["[RCT] Non-valvular AF (ROCKET-AF), VTE, CAD/PAD low-dose + ASA (COMPASS)"]},
-     "dosing": {"dose": "20 mg daily with food (AF); 15 mg BID×21d then 20 mg (VTE)"},
-     "three_axis_profile": {"constitutional": {"energy": "Xa anticoagulation [RF]", "best_match": ["AF, VTE, CAD/PAD"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Bleeding (more GI than apixaban); take with food", "[LBL] Renal/hepatic limits; CYP3A4/P-gp; once-daily adherence"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ROCKET-AF, COMPASS"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-082", "name_inn": "Apixaban", "name_ru": "Апиксабан", "name_brand": "Eliquis", "status": "METACOD-RF", "batch": "06-DOAC",
-     "molecular": {"chemical_class": "Direct factor Xa inhibitor", "mechanism_primary": ["[LBL] Direct Xa inhibition; reversal andexanet"]},
-     "indications": {"approved": ["[RCT] Non-valvular AF (ARISTOTLE — lowest bleeding in class), VTE"]},
-     "dosing": {"dose": "5 mg BID; 2.5 mg BID if ≥2 of: age≥80, ≤60 kg, Cr≥1.5 (cross-ref batch 19 DRG-291)"},
-     "three_axis_profile": {"constitutional": {"energy": "Xa anticoagulation (favorable bleed profile) [RF]", "best_match": ["AF (preferred elderly DOAC), VTE"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Bleeding (lowest GI bleed in class); usable lower eGFR than other DOACs", "[LBL] CYP3A4/P-gp; andexanet reversal"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ARISTOTLE", "cross-ref batch 19 DRG-291"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-083", "name_inn": "Edoxaban", "name_ru": "Эдоксабан", "name_brand": "Savaysa, Lixiana", "status": "METACOD-RF", "batch": "06-DOAC",
-     "molecular": {"chemical_class": "Direct factor Xa inhibitor", "mechanism_primary": ["[LBL] Direct Xa inhibition; once daily"]},
-     "indications": {"approved": ["[RCT] Non-valvular AF (ENGAGE AF-TIMI), VTE"]},
-     "dosing": {"dose": "60 mg daily (30 mg if renal/weight/P-gp criteria)"},
-     "three_axis_profile": {"constitutional": {"energy": "Xa anticoagulation [RF]", "best_match": ["AF, VTE"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] AVOID if CrCl >95 (reduced efficacy in AF — boxed)", "[LBL] Bleeding; renal lower limit"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ENGAGE AF-TIMI"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-084", "name_inn": "Amiodarone", "name_ru": "Амиодарон", "name_brand": "Cordarone, Pacerone", "status": "METACOD-RF", "batch": "06-Antiarrhythmic",
-     "molecular": {"chemical_class": "Class III antiarrhythmic (multichannel)", "mechanism_primary": ["[LBL] K/Na/Ca channel + β blockade; prolongs repolarization"]},
-     "indications": {"approved": ["[GL] VT/VF, AF rhythm control (incl. structural heart disease)"]},
-     "dosing": {"dose": "Load then 200 mg daily; IV in arrest/unstable"},
-     "three_axis_profile": {"constitutional": {"energy": "Broad rhythm stabilization [RF]", "best_match": ["VT/VF, AF with structural heart disease/HF"]}, "membrane": {"impact": "—"}, "phase": {"match": "Acute / chronic"}},
-     "safety": {"critical": ["[LBL] Pulmonary fibrosis, thyroid (hypo/hyper), hepatotoxicity, corneal deposits, blue skin, neuropathy", "[LBL] Many DDIs (↑warfarin, digoxin, statins); QT (low torsades risk); baseline+periodic PFT/TFT/LFT/eye"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA VT/AF"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-085", "name_inn": "Sotalol", "name_ru": "Соталол", "name_brand": "Betapace", "status": "METACOD-RF", "batch": "06-Antiarrhythmic",
-     "molecular": {"chemical_class": "Class III + β-blocker", "mechanism_primary": ["[LBL] K-channel blockade + β blockade"]},
-     "indications": {"approved": ["[GL] AF rhythm control, VT"]},
-     "dosing": {"dose": "80-160 mg BID (in-hospital initiation — QT)"},
-     "three_axis_profile": {"constitutional": {"energy": "Rhythm + rate control [RF]", "best_match": ["AF rhythm (no severe LVH/HF)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] QT prolongation/torsades (renal dosing, in-hospital load)", "[LBL] Bradycardia; avoid in HFrEF/renal failure"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA AF"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-086", "name_inn": "Flecainide", "name_ru": "Флекаинид", "name_brand": "Tambocor", "status": "METACOD-RF", "batch": "06-Antiarrhythmic",
-     "molecular": {"chemical_class": "Class Ic antiarrhythmic", "mechanism_primary": ["[LBL] Strong Na-channel blockade"]},
-     "indications": {"approved": ["[GL] AF/SVT rhythm control in STRUCTURALLY NORMAL hearts ('pill-in-pocket')"]},
-     "dosing": {"dose": "50-150 mg BID"},
-     "three_axis_profile": {"constitutional": {"energy": "Rhythm control (normal heart) [RF]", "best_match": ["Paroxysmal AF/SVT, no structural disease"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic / PRN"}},
-     "safety": {"critical": ["[LBL] CONTRAINDICATED in CAD/structural heart disease (CAST — proarrhythmic mortality)", "[LBL] Use with AV-nodal agent (1:1 flutter risk)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["CAST"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-087", "name_inn": "Propafenone", "name_ru": "Пропафенон", "name_brand": "Rythmol", "status": "METACOD-RF", "batch": "06-Antiarrhythmic",
-     "molecular": {"chemical_class": "Class Ic antiarrhythmic (+ mild β-block)", "mechanism_primary": ["[LBL] Na-channel blockade"]},
-     "indications": {"approved": ["[GL] AF rhythm control in structurally normal hearts"]},
-     "dosing": {"dose": "150-300 mg TID (or ER BID)"},
-     "three_axis_profile": {"constitutional": {"energy": "Rhythm control (normal heart) [RF]", "best_match": ["Paroxysmal AF, no structural disease"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic / PRN"}},
-     "safety": {"critical": ["[LBL] CONTRAINDICATED in structural heart disease (proarrhythmic)", "[LBL] Metallic taste, bronchospasm (β); with AV-nodal agent"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA AF"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-088", "name_inn": "Dofetilide", "name_ru": "Дофетилид", "name_brand": "Tikosyn", "status": "METACOD-RF", "batch": "06-Antiarrhythmic",
-     "molecular": {"chemical_class": "Class III (pure IKr blocker)", "mechanism_primary": ["[LBL] Selective K-channel blockade"]},
-     "indications": {"approved": ["[GL] AF rhythm control (incl. HF — neutral mortality)"]},
-     "dosing": {"dose": "Renal/QT-based; mandatory in-hospital initiation"},
-     "three_axis_profile": {"constitutional": {"energy": "Rhythm control (HF-compatible) [RF]", "best_match": ["AF with HFrEF"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Torsades — REMS, in-hospital initiation, renal dosing, QT monitoring", "[LBL] Many QT-drug interactions"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["DIAMOND"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-089", "name_inn": "Digoxin", "name_ru": "Дигоксин", "name_brand": "Lanoxin", "status": "METACOD-RF", "batch": "06-Inotrope-Glycoside",
-     "molecular": {"chemical_class": "Cardiac glycoside", "mechanism_primary": ["[LBL] Na/K-ATPase inhibition → ↑contractility; vagal AV slowing"]},
-     "indications": {"approved": ["[GL] AF rate control (adjunct, sedentary/HF), HFrEF symptom reduction (DIG — no mortality benefit)"]},
-     "dosing": {"dose": "0.125-0.25 mg daily; level 0.5-0.9 ng/mL (HF)"},
-     "three_axis_profile": {"constitutional": {"energy": "Inotropy + vagal rate control [RF]", "best_match": ["AF rate (adjunct), symptomatic HFrEF"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Narrow TI — toxicity (N/V, visual halos, arrhythmia); worsened by hypokalemia/hypomagnesemia/renal failure", "[LBL] DigiFab antidote; many DDIs (amiodarone/verapamil ↑level)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["DIG trial"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-090", "name_inn": "Nitroglycerin", "name_ru": "Нитроглицерин", "name_brand": "Nitrostat, Nitro-Dur", "status": "METACOD-RF", "batch": "06-Nitrate",
-     "molecular": {"chemical_class": "Organic nitrate (NO donor)", "mechanism_primary": ["[LBL] Venodilation (↓preload) + coronary vasodilation"]},
-     "indications": {"approved": ["[GL] Acute angina (SL), ACS, acute HF/pulmonary edema (IV), angina prophylaxis"]},
-     "dosing": {"dose": "SL 0.4 mg PRN; IV titrated; patch with nitrate-free interval"},
-     "three_axis_profile": {"constitutional": {"energy": "Vasodilation (preload reduction) [RF]", "best_match": ["Angina, acute HF/pulmonary edema"]}, "membrane": {"impact": "—"}, "phase": {"match": "Acute / chronic prophylaxis"}},
-     "safety": {"critical": ["[LBL] Hypotension, headache; tolerance (need nitrate-free interval)", "[LBL] CONTRAINDICATED with PDE5 inhibitors (severe hypotension); avoid in RV-infarct/severe AS"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-091", "name_inn": "Isosorbide mononitrate / dinitrate", "name_ru": "Изосорбида моно-/динитрат", "name_brand": "Imdur / Isordil", "status": "METACOD-RF", "batch": "06-Nitrate",
-     "molecular": {"chemical_class": "Long-acting organic nitrate", "mechanism_primary": ["[LBL] Sustained venodilation"]},
-     "indications": {"approved": ["[GL] Chronic angina prophylaxis", "[RCT] HFrEF with hydralazine (A-HeFT)"]},
-     "dosing": {"dose": "Mononitrate ER 30-120 mg daily (eccentric dosing for nitrate-free interval)"},
-     "three_axis_profile": {"constitutional": {"energy": "Sustained vasodilation [RF]", "best_match": ["Chronic angina, HFrEF (+ hydralazine)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Headache, hypotension, tolerance (nitrate-free interval)", "[LBL] PDE5 inhibitor contraindication"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["A-HeFT"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-092", "name_inn": "Ivabradine", "name_ru": "Ивабрадин", "name_brand": "Corlanor, Procoralan", "status": "METACOD-RF", "batch": "06-HF-Rate",
-     "molecular": {"chemical_class": "Sinoatrial If-channel inhibitor", "mechanism_primary": ["[LBL] Selective SA-node rate reduction (no BP/inotropy effect)"]},
-     "indications": {"approved": ["[RCT] HFrEF, sinus rhythm, HR≥70 on max BB (SHIFT)", "[GL] Chronic stable angina"]},
-     "dosing": {"dose": "5 mg BID, titrate to HR 50-60"},
-     "three_axis_profile": {"constitutional": {"energy": "Pure rate reduction [RF]", "best_match": ["HFrEF with elevated HR despite BB"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Bradycardia, AF, luminous phenomena (phosphenes)", "[LBL] Only in sinus rhythm; CYP3A4 interactions"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["SHIFT"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-093", "name_inn": "Epoprostenol / Treprostinil (prostacyclin)", "name_ru": "Эпопростенол / Трепростинил", "name_brand": "Flolan / Remodulin", "status": "METACOD-RF", "batch": "06-PAH",
-     "molecular": {"chemical_class": "Prostacyclin analogue (PAH)", "mechanism_primary": ["[LBL] Potent pulmonary vasodilation + antiproliferative"]},
-     "indications": {"approved": ["[GL] Pulmonary arterial hypertension (WHO Group 1, severe — complements bosentan batch 25)"]},
-     "dosing": {"dose": "Continuous IV (epoprostenol, very short half-life) / SC/inhaled (treprostinil)"},
-     "three_axis_profile": {"constitutional": {"energy": "Pulmonary vasodilation [RF]", "best_match": ["Severe PAH"]}, "membrane": {"impact": "[RF] anti-remodeling pulmonary vasculature"}, "phase": {"match": "Chronic (specialist)"}},
-     "safety": {"critical": ["[LBL] Catheter-related infection/thrombosis; abrupt interruption = rebound PH crisis (life-threatening)", "[LBL] Jaw pain, flushing, hypotension"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ESC/ERS PAH guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-094", "name_inn": "Norepinephrine (vasopressor)", "name_ru": "Норэпинефрин", "name_brand": "Levophed", "status": "METACOD-RF", "batch": "06-Vasopressor",
-     "molecular": {"chemical_class": "α1 > β1 adrenergic vasopressor", "mechanism_primary": ["[LBL] Vasoconstriction + modest inotropy"]},
-     "indications": {"approved": ["[GL] Septic shock (first-line vasopressor), other vasodilatory/cardiogenic shock"]},
-     "dosing": {"dose": "IV infusion titrated to MAP (central line)"},
-     "three_axis_profile": {"constitutional": {"energy": "Acute pressure (Yang) support [RF]", "best_match": ["Shock (ICU)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Acute (Phase 3 critical)"}},
-     "safety": {"critical": ["[LBL] Arrhythmia, peripheral/organ ischemia, extravasation necrosis (phentolamine)", "[LBL] ICU/central access"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["Surviving Sepsis"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-095", "name_inn": "Dobutamine / Milrinone (inotropes)", "name_ru": "Добутамин / Милринон", "name_brand": "Dobutrex / Primacor", "status": "METACOD-RF", "batch": "06-Inotrope",
-     "molecular": {"chemical_class": "β1 agonist (dobutamine) / PDE3 inhibitor (milrinone)", "mechanism_primary": ["[LBL] ↑contractility; milrinone also vasodilates (inodilator)"]},
-     "indications": {"approved": ["[GL] Acute decompensated HF / cardiogenic shock (low-output), bridge to transplant/device"]},
-     "dosing": {"dose": "IV infusion (milrinone renal-adjusted)"},
-     "three_axis_profile": {"constitutional": {"energy": "Acute inotropic (Yang) support [RF]", "best_match": ["Low-output HF / cardiogenic shock"]}, "membrane": {"impact": "—"}, "phase": {"match": "Acute (Phase 3)"}},
-     "safety": {"critical": ["[LBL] Arrhythmia, hypotension (milrinone); ↑mortality with chronic use — short-term/palliative only", "[LBL] Dobutamine tolerance/tachyphylaxis"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["ACC/AHA HF"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-096", "name_inn": "Ranolazine", "name_ru": "Ранолазин", "name_brand": "Ranexa", "status": "METACOD-RF", "batch": "06-Antianginal",
-     "molecular": {"chemical_class": "Late sodium current inhibitor", "mechanism_primary": ["[LBL] Reduces late INa → antianginal without HR/BP effect"]},
-     "indications": {"approved": ["[GL] Chronic stable angina (add-on, refractory)"]},
-     "dosing": {"dose": "500-1000 mg BID"},
-     "three_axis_profile": {"constitutional": {"energy": "Antianginal (metabolic) [RF]", "best_match": ["Refractory angina (HR/BP-limited)"]}, "membrane": {"impact": "—"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] QT prolongation, constipation, dizziness", "[LBL] CYP3A4 interactions (avoid strong inhibitors)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]"}, "references": ["MERLIN-TIMI"], "status_flags": {"mark_validated": false}}
+    {
+      "drug_id": "DRG-034",
+      "name_inn": "Metoprolol",
+      "name_ru": "Метопролол",
+      "name_brand": "Lopressor, Toprol-XL",
+      "status": "METACOD-RF",
+      "batch": "06-Beta-Blocker",
+      "molecular": {
+        "chemical_class": "Cardioselective β1-blocker",
+        "mechanism_primary": [
+          "[LBL] β1 blockade → ↓HR, ↓contractility, ↓BP"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] HFrEF (succinate — mortality benefit)",
+          "[GL] Post-MI, angina, AF rate control, HTN"
+        ]
+      },
+      "dosing": {
+        "dose": "Succinate (XL) daily for HF; tartrate BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Heat/Wind (rate) suppression [RF]",
+          "best_match": [
+            "HFrEF, post-MI, AF rate"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] pH↔membrane dissociation note (HANDOFF §2)"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bradycardia, fatigue, bronchospasm caution",
+          "[LBL] Do NOT stop abruptly (rebound), masks hypoglycemia",
+          "[GL] Avoid in acute decompensated HF"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA HF guideline"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-035",
+      "name_inn": "Bisoprolol",
+      "name_ru": "Бисопролол",
+      "name_brand": "Zebeta, Concor",
+      "status": "METACOD-RF",
+      "batch": "06-Beta-Blocker",
+      "molecular": {
+        "chemical_class": "Highly cardioselective β1-blocker",
+        "mechanism_primary": [
+          "[LBL] Selective β1 blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] HFrEF (CIBIS-II mortality benefit)",
+          "[GL] HTN, angina"
+        ]
+      },
+      "dosing": {
+        "dose": "1.25-10 mg daily (HF up-titration)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Rate/Heat control [RF]",
+          "best_match": [
+            "HFrEF (COPD-friendlier selectivity)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bradycardia, fatigue",
+          "[LBL] No abrupt withdrawal"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "CIBIS-II"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-036",
+      "name_inn": "Carvedilol",
+      "name_ru": "Карведилол",
+      "name_brand": "Coreg",
+      "status": "METACOD-RF",
+      "batch": "06-Beta-Blocker",
+      "molecular": {
+        "chemical_class": "Non-selective β + α1 blocker",
+        "mechanism_primary": [
+          "[LBL] β + α1 blockade (vasodilation); antioxidant"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] HFrEF (COPERNICUS/COMET)",
+          "[GL] Post-MI LV dysfunction, HTN"
+        ]
+      },
+      "dosing": {
+        "dose": "3.125-25 mg BID with food"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Combined rate + vasodilation [RF]",
+          "best_match": [
+            "HFrEF (preferred BB)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Orthostasis (α1), bradycardia",
+          "[LBL] Bronchospasm (non-selective)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "COPERNICUS"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-037",
+      "name_inn": "Atenolol",
+      "name_ru": "Атенолол",
+      "name_brand": "Tenormin",
+      "status": "METACOD-RF",
+      "batch": "06-Beta-Blocker",
+      "molecular": {
+        "chemical_class": "Cardioselective β1-blocker (renally cleared)",
+        "mechanism_primary": [
+          "[LBL] β1 blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] HTN, angina, post-MI"
+        ]
+      },
+      "dosing": {
+        "dose": "25-100 mg daily; renal adjust"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Rate/Heat control [RF]",
+          "best_match": [
+            "Angina, post-MI"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[GL] Less preferred for primary HTN (weaker stroke prevention vs others)",
+          "[LBL] Renal accumulation, no CNS penetration"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ESC/ESH HTN"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-038",
+      "name_inn": "Propranolol",
+      "name_ru": "Пропранолол",
+      "name_brand": "Inderal",
+      "status": "METACOD-RF",
+      "batch": "06-Beta-Blocker",
+      "molecular": {
+        "chemical_class": "Non-selective β-blocker (lipophilic, CNS)",
+        "mechanism_primary": [
+          "[LBL] Non-selective β blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Migraine prophylaxis, essential tremor, performance anxiety",
+          "[GL] Variceal bleeding prophylaxis, thyroid storm, infantile hemangioma"
+        ]
+      },
+      "dosing": {
+        "dose": "By indication (LA forms)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Broad β (Wind/Heat) suppression [RF]",
+          "best_match": [
+            "Migraine, tremor, varices, hyperthyroid adjunct"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bronchospasm, bradycardia, fatigue, vivid dreams",
+          "[LBL] Masks hypoglycemia"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Specialty guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-039",
+      "name_inn": "Nebivolol",
+      "name_ru": "Небиволол",
+      "name_brand": "Bystolic",
+      "status": "METACOD-RF",
+      "batch": "06-Beta-Blocker",
+      "molecular": {
+        "chemical_class": "β1-blocker + NO-mediated vasodilation",
+        "mechanism_primary": [
+          "[LBL] β1 blockade + endothelial NO"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] HTN",
+          "[GL] HFrEF elderly (SENIORS)"
+        ]
+      },
+      "dosing": {
+        "dose": "5-40 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Rate control + vasodilation [RF]",
+          "best_match": [
+            "HTN (favorable metabolic/ED profile)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bradycardia; better tolerability profile"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "SENIORS"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-040",
+      "name_inn": "Lisinopril",
+      "name_ru": "Лизиноприл",
+      "name_brand": "Prinivil, Zestril",
+      "status": "METACOD-RF",
+      "batch": "06-ACE-Inhibitor",
+      "molecular": {
+        "chemical_class": "ACE inhibitor",
+        "mechanism_primary": [
+          "[LBL] Blocks ACE → ↓angiotensin II, ↓aldosterone"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] HTN, HFrEF, post-MI, diabetic nephropathy"
+        ]
+      },
+      "dosing": {
+        "dose": "10-40 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "RAAS suppression [RF]",
+          "best_match": [
+            "HTN, HFrEF, CKD/proteinuria, post-MI"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] renoprotective"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Cough, hyperkalemia, angioedema, AKI (bilateral RAS)",
+          "[LBL] Teratogen — contraindicated pregnancy",
+          "[LBL] Avoid with ARB/aliskiren combo"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA, ESC"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-041",
+      "name_inn": "Ramipril",
+      "name_ru": "Рамиприл",
+      "name_brand": "Altace",
+      "status": "METACOD-RF",
+      "batch": "06-ACE-Inhibitor",
+      "molecular": {
+        "chemical_class": "ACE inhibitor",
+        "mechanism_primary": [
+          "[LBL] RAAS blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] CV risk reduction (HOPE)",
+          "[GL] HTN, HFrEF, nephropathy"
+        ]
+      },
+      "dosing": {
+        "dose": "2.5-10 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "RAAS suppression [RF]",
+          "best_match": [
+            "High CV risk, HTN, HF"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] renoprotective"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Same ACE-class (cough/hyperK/angioedema/pregnancy)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "HOPE trial"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-042",
+      "name_inn": "Enalapril",
+      "name_ru": "Эналаприл",
+      "name_brand": "Vasotec",
+      "status": "METACOD-RF",
+      "batch": "06-ACE-Inhibitor",
+      "molecular": {
+        "chemical_class": "ACE inhibitor (IV enalaprilat available)",
+        "mechanism_primary": [
+          "[LBL] RAAS blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] HFrEF (SOLVD/CONSENSUS mortality)",
+          "[GL] HTN"
+        ]
+      },
+      "dosing": {
+        "dose": "2.5-20 mg BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "RAAS suppression [RF]",
+          "best_match": [
+            "HFrEF, HTN"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Same ACE-class effects"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "SOLVD, CONSENSUS"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-043",
+      "name_inn": "Losartan",
+      "name_ru": "Лозартан",
+      "name_brand": "Cozaar",
+      "status": "METACOD-RF",
+      "batch": "06-ARB",
+      "molecular": {
+        "chemical_class": "Angiotensin II receptor blocker",
+        "mechanism_primary": [
+          "[LBL] AT1 receptor blockade; uricosuric effect"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] HTN, diabetic nephropathy (RENAAL), HFrEF (ACE-intolerant)",
+          "[LBL] Stroke prevention in LVH"
+        ]
+      },
+      "dosing": {
+        "dose": "50-100 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "RAAS (AT1) suppression [RF]",
+          "best_match": [
+            "HTN, nephropathy, ACE-cough intolerant"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] renoprotective; mild urate-lowering"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hyperkalemia, AKI, angioedema (rare), pregnancy contraindicated",
+          "[LBL] No cough (vs ACE)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "RENAAL, LIFE"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-044",
+      "name_inn": "Valsartan",
+      "name_ru": "Валсартан",
+      "name_brand": "Diovan",
+      "status": "METACOD-RF",
+      "batch": "06-ARB",
+      "molecular": {
+        "chemical_class": "ARB",
+        "mechanism_primary": [
+          "[LBL] AT1 blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] HTN, HFrEF, post-MI",
+          "[LBL] component of ARNI (sacubitril-valsartan)"
+        ]
+      },
+      "dosing": {
+        "dose": "80-320 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "RAAS suppression [RF]",
+          "best_match": [
+            "HTN, HFrEF"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hyperkalemia, AKI, pregnancy contraindicated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Val-HeFT"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-045",
+      "name_inn": "Candesartan",
+      "name_ru": "Кандесартан",
+      "name_brand": "Atacand",
+      "status": "METACOD-RF",
+      "batch": "06-ARB",
+      "molecular": {
+        "chemical_class": "ARB (long-acting)",
+        "mechanism_primary": [
+          "[LBL] AT1 blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] HFrEF (CHARM)",
+          "[GL] HTN",
+          "[LBL] Migraine prophylaxis (off-label)"
+        ]
+      },
+      "dosing": {
+        "dose": "8-32 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "RAAS suppression [RF]",
+          "best_match": [
+            "HFrEF, HTN"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hyperkalemia, AKI, pregnancy contraindicated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "CHARM"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-046",
+      "name_inn": "Sacubitril-valsartan (ARNI)",
+      "name_ru": "Сакубитрил-валсартан",
+      "name_brand": "Entresto",
+      "status": "METACOD-RF",
+      "batch": "06-ARNI",
+      "molecular": {
+        "chemical_class": "Angiotensin receptor-neprilysin inhibitor",
+        "mechanism_primary": [
+          "[LBL] Neprilysin inhibition (↑natriuretic peptides) + AT1 blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] HFrEF (PARADIGM-HF — superior to enalapril)",
+          "[GL] HFpEF (selected)"
+        ]
+      },
+      "dosing": {
+        "dose": "Titrate 24/26 → 97/103 mg BID; 36h washout from ACEi"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "RAAS + natriuretic enhancement [RF]",
+          "best_match": [
+            "HFrEF (GDMT pillar)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] reverse remodeling"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Angioedema (NEVER combine/overlap with ACEi — 36h gap)",
+          "[LBL] Hypotension, hyperkalemia, AKI, pregnancy contraindicated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "PARADIGM-HF"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-047",
+      "name_inn": "Amlodipine",
+      "name_ru": "Амлодипин",
+      "name_brand": "Norvasc",
+      "status": "METACOD-RF",
+      "batch": "06-CCB-DHP",
+      "molecular": {
+        "chemical_class": "Dihydropyridine calcium channel blocker",
+        "mechanism_primary": [
+          "[LBL] Vascular L-type Ca blockade → vasodilation"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] HTN (first-line), chronic stable/vasospastic angina"
+        ]
+      },
+      "dosing": {
+        "dose": "2.5-10 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Vasodilation (Heat/pressure reduction) [RF]",
+          "best_match": [
+            "HTN, angina"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] peripheral edema (note KCTS fluid-retention DDx)"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Peripheral edema (dose-dependent), flushing, headache",
+          "[LBL] No negative inotropy (safe in HFrEF for HTN/angina)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ALLHAT"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-048",
+      "name_inn": "Nifedipine",
+      "name_ru": "Нифедипин",
+      "name_brand": "Procardia, Adalat",
+      "status": "METACOD-RF",
+      "batch": "06-CCB-DHP",
+      "molecular": {
+        "chemical_class": "Dihydropyridine CCB",
+        "mechanism_primary": [
+          "[LBL] Vasodilation (ER preferred)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] HTN, angina",
+          "[GL] Tocolysis, Raynaud, high-altitude pulmonary edema"
+        ]
+      },
+      "dosing": {
+        "dose": "ER 30-90 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Vasodilation [RF]",
+          "best_match": [
+            "HTN, Raynaud, tocolysis"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] edema"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] NEVER immediate-release for HTN urgency (reflex tachy/MI)",
+          "[LBL] Edema, flushing"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ESC HTN"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-049",
+      "name_inn": "Felodipine",
+      "name_ru": "Фелодипин",
+      "name_brand": "Plendil",
+      "status": "METACOD-RF",
+      "batch": "06-CCB-DHP",
+      "molecular": {
+        "chemical_class": "Dihydropyridine CCB",
+        "mechanism_primary": [
+          "[LBL] Vascular-selective vasodilation"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] HTN, angina"
+        ]
+      },
+      "dosing": {
+        "dose": "2.5-10 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Vasodilation [RF]",
+          "best_match": [
+            "HTN"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] edema"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Edema, flushing",
+          "[LBL] Grapefruit juice interaction (↑levels)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ESC HTN"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-050",
+      "name_inn": "Diltiazem",
+      "name_ru": "Дилтиазем",
+      "name_brand": "Cardizem",
+      "status": "METACOD-RF",
+      "batch": "06-CCB-NonDHP",
+      "molecular": {
+        "chemical_class": "Non-dihydropyridine CCB",
+        "mechanism_primary": [
+          "[LBL] AV nodal + vascular Ca blockade → rate control + vasodilation"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] AF/SVT rate control, angina, HTN"
+        ]
+      },
+      "dosing": {
+        "dose": "ER 120-360 mg daily; IV for acute rate control"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Rate control + vasodilation [RF]",
+          "best_match": [
+            "AF rate control (EF preserved), angina"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] AVOID in HFrEF (negative inotrope)",
+          "[LBL] Bradycardia/AV block (esp. with BB), CYP3A4 interactions"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA AF"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-051",
+      "name_inn": "Verapamil",
+      "name_ru": "Верапамил",
+      "name_brand": "Calan, Isoptin",
+      "status": "METACOD-RF",
+      "batch": "06-CCB-NonDHP",
+      "molecular": {
+        "chemical_class": "Non-dihydropyridine CCB (most cardiodepressant)",
+        "mechanism_primary": [
+          "[LBL] AV nodal blockade, negative inotropy"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] AF/SVT rate control, angina, HTN",
+          "[GL] Cluster headache prophylaxis"
+        ]
+      },
+      "dosing": {
+        "dose": "ER 180-480 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Rate/contractility suppression [RF]",
+          "best_match": [
+            "SVT, AF rate, cluster HA"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] AVOID in HFrEF",
+          "[LBL] Constipation (marked), bradycardia/AV block",
+          "[LBL] Dangerous with BB; digoxin level ↑"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA AF"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-052",
+      "name_inn": "Hydrochlorothiazide",
+      "name_ru": "Гидрохлортиазид",
+      "name_brand": "Microzide",
+      "status": "METACOD-RF",
+      "batch": "06-Diuretic-Thiazide",
+      "molecular": {
+        "chemical_class": "Thiazide diuretic",
+        "mechanism_primary": [
+          "[LBL] Distal tubule Na-Cl cotransporter inhibition"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] HTN (first-line), edema"
+        ]
+      },
+      "dosing": {
+        "dose": "12.5-25 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Volume/fluid (Damp) reduction [RF]",
+          "best_match": [
+            "HTN"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] reduces fluid retention"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hypokalemia, hyponatremia, hyperuricemia (gout — Mark Yin-Fire DDx), hyperglycemia, hypercalcemia",
+          "[LBL] Sulfa, photosensitivity; less effective eGFR<30"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ALLHAT"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-053",
+      "name_inn": "Chlorthalidone",
+      "name_ru": "Хлорталидон",
+      "name_brand": "Thalitone",
+      "status": "METACOD-RF",
+      "batch": "06-Diuretic-Thiazide",
+      "molecular": {
+        "chemical_class": "Thiazide-like diuretic (long-acting)",
+        "mechanism_primary": [
+          "[LBL] Longer duration, more potent than HCTZ"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] HTN (preferred thiazide-type — outcome data)"
+        ]
+      },
+      "dosing": {
+        "dose": "12.5-25 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Volume reduction (potent) [RF]",
+          "best_match": [
+            "HTN (outcome-proven)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] fluid reduction"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] More hypokalemia/hyponatremia than HCTZ",
+          "[LBL] Same metabolic effects"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "SHEP, ALLHAT"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-054",
+      "name_inn": "Furosemide",
+      "name_ru": "Фуросемид",
+      "name_brand": "Lasix",
+      "status": "METACOD-RF",
+      "batch": "06-Diuretic-Loop",
+      "molecular": {
+        "chemical_class": "Loop diuretic",
+        "mechanism_primary": [
+          "[LBL] Na-K-2Cl inhibition (thick ascending limb) — potent diuresis"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] HF congestion/edema, pulmonary edema",
+          "[LBL] Edema (renal/hepatic), hypertensive emergency with volume overload"
+        ]
+      },
+      "dosing": {
+        "dose": "20-80 mg PO/IV titrated (IV:PO ~2:1)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Potent fluid (Damp/Water) removal [RF]",
+          "best_match": [
+            "HF congestion, edema (fluid-retention — EBM KCTS overlap)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] relieves congestion"
+        },
+        "phase": {
+          "match": "Acute / chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hypokalemia, hyponatremia, hypomagnesemia, hypovolemia/AKI",
+          "[LBL] Ototoxicity (rapid IV/high dose), sulfa"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA HF"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-055",
+      "name_inn": "Torsemide",
+      "name_ru": "Торасемид",
+      "name_brand": "Demadex",
+      "status": "METACOD-RF",
+      "batch": "06-Diuretic-Loop",
+      "molecular": {
+        "chemical_class": "Loop diuretic (better PO bioavailability)",
+        "mechanism_primary": [
+          "[LBL] More predictable absorption than furosemide"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] HF congestion, edema, HTN"
+        ]
+      },
+      "dosing": {
+        "dose": "10-20 mg daily (≈ furosemide 40 mg)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Fluid removal (reliable PO) [RF]",
+          "best_match": [
+            "HF (gut edema/absorption issues)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] relieves congestion"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Same loop class; less ototoxicity"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "TRANSFORM-HF"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-056",
+      "name_inn": "Spironolactone",
+      "name_ru": "Спиронолактон",
+      "name_brand": "Aldactone",
+      "status": "METACOD-RF",
+      "batch": "06-MRA",
+      "molecular": {
+        "chemical_class": "Mineralocorticoid receptor antagonist (non-selective)",
+        "mechanism_primary": [
+          "[LBL] Aldosterone antagonism (K-sparing); anti-androgen"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] HFrEF (RALES mortality)",
+          "[GL] Resistant HTN, primary aldosteronism, cirrhotic ascites",
+          "[LBL] PCOS hirsutism/acne"
+        ]
+      },
+      "dosing": {
+        "dose": "12.5-50 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Aldosterone/fluid modulation [RF]",
+          "best_match": [
+            "HFrEF, resistant HTN, ascites; fluid-retention (EBM KCTS overlap)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] anti-fibrotic / fluid"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] HYPERKALEMIA (monitor K/Cr; risk with ACEi/ARB/CKD)",
+          "[LBL] Gynecomastia, menstrual irregularity (anti-androgen)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "RALES"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-057",
+      "name_inn": "Eplerenone",
+      "name_ru": "Эплеренон",
+      "name_brand": "Inspra",
+      "status": "METACOD-RF",
+      "batch": "06-MRA",
+      "molecular": {
+        "chemical_class": "Selective mineralocorticoid receptor antagonist",
+        "mechanism_primary": [
+          "[LBL] Selective MR antagonism (fewer anti-androgen effects)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] HFrEF/post-MI (EPHESUS/EMPHASIS-HF)",
+          "[GL] HTN"
+        ]
+      },
+      "dosing": {
+        "dose": "25-50 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Selective aldosterone modulation [RF]",
+          "best_match": [
+            "HFrEF (gynecomastia-intolerant of spironolactone)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] anti-fibrotic"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hyperkalemia",
+          "[LBL] CYP3A4 interactions; no gynecomastia"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "EMPHASIS-HF"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-058",
+      "name_inn": "Clonidine",
+      "name_ru": "Клонидин",
+      "name_brand": "Catapres",
+      "status": "METACOD-RF",
+      "batch": "06-Central-Antihypertensive",
+      "molecular": {
+        "chemical_class": "Central α2-agonist",
+        "mechanism_primary": [
+          "[LBL] Central sympatholytic → ↓BP"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Resistant HTN",
+          "[GL] ADHD, opioid/nicotine withdrawal, menopausal flushing"
+        ]
+      },
+      "dosing": {
+        "dose": "0.1-0.3 mg BID; patch weekly"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Central sympatholysis (Wind/Heat) [RF]",
+          "best_match": [
+            "Resistant HTN, withdrawal"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] REBOUND hypertension if stopped abruptly",
+          "[LBL] Sedation, dry mouth, bradycardia"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ESC HTN"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-059",
+      "name_inn": "Hydralazine",
+      "name_ru": "Гидралазин",
+      "name_brand": "Apresoline",
+      "status": "METACOD-RF",
+      "batch": "06-Vasodilator",
+      "molecular": {
+        "chemical_class": "Direct arterial vasodilator",
+        "mechanism_primary": [
+          "[LBL] Arteriolar smooth muscle relaxation"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] HFrEF with isosorbide dinitrate (A-HeFT — esp. Black patients)",
+          "[GL] Resistant HTN, pregnancy/preeclampsia (IV)"
+        ]
+      },
+      "dosing": {
+        "dose": "25-100 mg TID; with nitrate in HF"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Arterial vasodilation [RF]",
+          "best_match": [
+            "HFrEF (ACE/ARB-intolerant, + nitrate), pregnancy HTN"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Reflex tachycardia, fluid retention",
+          "[LBL] Drug-induced lupus (dose/duration-related)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "A-HeFT"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-060",
+      "name_inn": "Methyldopa",
+      "name_ru": "Метилдопа",
+      "name_brand": "Aldomet",
+      "status": "METACOD-RF",
+      "batch": "06-Central-Antihypertensive",
+      "molecular": {
+        "chemical_class": "Central α2-agonist (prodrug)",
+        "mechanism_primary": [
+          "[LBL] Central sympatholysis"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Hypertension in pregnancy (first-line, safety record)"
+        ]
+      },
+      "dosing": {
+        "dose": "250-500 mg BID-TID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Central sympatholysis [RF]",
+          "best_match": [
+            "Pregnancy HTN"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic (pregnancy)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Sedation, hepatotoxicity, hemolytic anemia (positive Coombs), drug fever"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACOG HTN pregnancy"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-061",
+      "name_inn": "Doxazosin",
+      "name_ru": "Доксазозин",
+      "name_brand": "Cardura",
+      "status": "METACOD-RF",
+      "batch": "06-Alpha-Blocker",
+      "molecular": {
+        "chemical_class": "α1-adrenergic blocker",
+        "mechanism_primary": [
+          "[LBL] Peripheral α1 blockade → vasodilation; also BPH (cross-ref batch 13)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] HTN (add-on, not first-line — ALLHAT HF signal)",
+          "[LBL] BPH"
+        ]
+      },
+      "dosing": {
+        "dose": "1-8 mg daily (HS, titrate)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "α1 vasodilation [RF]",
+          "best_match": [
+            "Resistant HTN + BPH"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] First-dose orthostatic hypotension/syncope",
+          "[GL] Not first-line HTN (↑HF risk ALLHAT)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ALLHAT"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-062",
+      "name_inn": "Atorvastatin",
+      "name_ru": "Аторвастатин",
+      "name_brand": "Lipitor",
+      "status": "METACOD-RF",
+      "batch": "06-Statin",
+      "molecular": {
+        "chemical_class": "HMG-CoA reductase inhibitor (high-intensity capable)",
+        "mechanism_primary": [
+          "[LBL] ↓cholesterol synthesis → ↑LDL receptors; pleiotropic"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] ASCVD secondary prevention, primary prevention (risk-based), familial hyperlipidemia"
+        ]
+      },
+      "dosing": {
+        "dose": "10-80 mg daily (40-80 = high-intensity)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Lipid/atherogenic reduction [RF]",
+          "best_match": [
+            "ASCVD, high CV risk, diabetes"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] plaque stabilization (anti-M-S vascular)"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Myalgia/myopathy (rare rhabdo), transaminitis, new-onset diabetes (small)",
+          "[LBL] CYP3A4 interactions; pregnancy contraindicated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "intolerance": "[OBS-Mark] [Statin intolerance approach?]"
+      },
+      "references": [
+        "ACC/AHA cholesterol"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-063",
+      "name_inn": "Rosuvastatin",
+      "name_ru": "Розувастатин",
+      "name_brand": "Crestor",
+      "status": "METACOD-RF",
+      "batch": "06-Statin",
+      "molecular": {
+        "chemical_class": "HMG-CoA reductase inhibitor (high-intensity, hydrophilic)",
+        "mechanism_primary": [
+          "[LBL] Potent LDL lowering; less CYP3A4"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Primary prevention (JUPITER), ASCVD"
+        ]
+      },
+      "dosing": {
+        "dose": "5-40 mg daily (20-40 = high-intensity)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Lipid reduction (potent) [RF]",
+          "best_match": [
+            "High CV risk; statin needing fewer DDIs"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] plaque stabilization"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Myopathy, transaminitis; lower dose in Asian patients",
+          "[LBL] Pregnancy contraindicated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "JUPITER"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-064",
+      "name_inn": "Simvastatin",
+      "name_ru": "Симвастатин",
+      "name_brand": "Zocor",
+      "status": "METACOD-RF",
+      "batch": "06-Statin",
+      "molecular": {
+        "chemical_class": "HMG-CoA reductase inhibitor (moderate-intensity)",
+        "mechanism_primary": [
+          "[LBL] LDL lowering"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] ASCVD (4S, HPS)"
+        ]
+      },
+      "dosing": {
+        "dose": "10-40 mg HS (80 mg restricted — myopathy)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Lipid reduction [RF]",
+          "best_match": [
+            "ASCVD (moderate-intensity)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] plaque stabilization"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Highest myopathy DDI risk (CYP3A4 — amiodarone, verapamil, etc. dose caps)",
+          "[LBL] 80 mg restricted"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "4S, HPS"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-065",
+      "name_inn": "Pravastatin",
+      "name_ru": "Правастатин",
+      "name_brand": "Pravachol",
+      "status": "METACOD-RF",
+      "batch": "06-Statin",
+      "molecular": {
+        "chemical_class": "HMG-CoA reductase inhibitor (hydrophilic, low-intensity)",
+        "mechanism_primary": [
+          "[LBL] LDL lowering; minimal CYP — fewest DDIs"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] ASCVD (WOSCOPS, CARE)"
+        ]
+      },
+      "dosing": {
+        "dose": "40-80 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Lipid reduction (low DDI) [RF]",
+          "best_match": [
+            "Statin with polypharmacy / HIV protease inhibitors"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] plaque stabilization"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Lowest DDI profile; myopathy/transaminitis; pregnancy contraindicated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "WOSCOPS"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-066",
+      "name_inn": "Ezetimibe",
+      "name_ru": "Эзетимиб",
+      "name_brand": "Zetia",
+      "status": "METACOD-RF",
+      "batch": "06-Lipid",
+      "molecular": {
+        "chemical_class": "Cholesterol absorption inhibitor",
+        "mechanism_primary": [
+          "[LBL] Blocks intestinal NPC1L1 → ↓absorption"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Add-on to statin (IMPROVE-IT), statin-intolerant"
+        ]
+      },
+      "dosing": {
+        "dose": "10 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Lipid absorption reduction [RF]",
+          "best_match": [
+            "LDL not at goal on statin; statin-intolerant"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Generally well tolerated; rare myopathy/transaminitis"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "IMPROVE-IT"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-067",
+      "name_inn": "Evolocumab / Alirocumab (PCSK9 inhibitors)",
+      "name_ru": "Эволокумаб / Алирокумаб",
+      "name_brand": "Repatha / Praluent",
+      "status": "METACOD-RF",
+      "batch": "06-Lipid",
+      "molecular": {
+        "chemical_class": "Anti-PCSK9 monoclonal antibody",
+        "mechanism_primary": [
+          "[LBL] ↑LDL receptor recycling → marked LDL lowering"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] ASCVD/FH not at goal on max statin (FOURIER, ODYSSEY)"
+        ]
+      },
+      "dosing": {
+        "dose": "SC q2 weeks or monthly"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Potent lipid reduction [RF]",
+          "best_match": [
+            "High-risk ASCVD/FH, statin-intolerant"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] plaque regression signal"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Injection reactions; very well tolerated",
+          "[LBL] Cost/access barrier"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "FOURIER, ODYSSEY"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-068",
+      "name_inn": "Fenofibrate / Gemfibrozil",
+      "name_ru": "Фенофибрат / Гемфиброзил",
+      "name_brand": "Tricor / Lopid",
+      "status": "METACOD-RF",
+      "batch": "06-Lipid",
+      "molecular": {
+        "chemical_class": "Fibrate (PPAR-α agonist)",
+        "mechanism_primary": [
+          "[LBL] ↓triglycerides, ↑HDL"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Severe hypertriglyceridemia (pancreatitis prevention)",
+          "[GL] Mixed dyslipidemia adjunct"
+        ]
+      },
+      "dosing": {
+        "dose": "Fenofibrate 145 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Triglyceride reduction [RF]",
+          "best_match": [
+            "TG >500 (pancreatitis risk)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Myopathy (esp. GEMFIBROZIL + statin — AVOID; fenofibrate preferred)",
+          "[LBL] Transaminitis, gallstones, reversible creatinine rise"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACCORD-Lipid"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-069",
+      "name_inn": "Bempedoic acid",
+      "name_ru": "Бемпедоевая кислота",
+      "name_brand": "Nexletol",
+      "status": "METACOD-RF",
+      "batch": "06-Lipid",
+      "molecular": {
+        "chemical_class": "ATP-citrate lyase inhibitor (liver-selective)",
+        "mechanism_primary": [
+          "[LBL] ↓cholesterol synthesis upstream of HMG-CoA; prodrug activated in liver (not muscle)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Statin-intolerant / adjunct (CLEAR Outcomes)"
+        ]
+      },
+      "dosing": {
+        "dose": "180 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Lipid reduction (muscle-sparing) [RF]",
+          "best_match": [
+            "Statin-intolerant (myalgia)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hyperuricemia/gout, tendon rupture signal, ↑uric acid",
+          "[LBL] Raises some statin levels"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "CLEAR Outcomes"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-070",
+      "name_inn": "Inclisiran",
+      "name_ru": "Инклисиран",
+      "name_brand": "Leqvio",
+      "status": "METACOD-RF",
+      "batch": "06-Lipid",
+      "molecular": {
+        "chemical_class": "siRNA targeting PCSK9",
+        "mechanism_primary": [
+          "[LBL] Hepatic PCSK9 mRNA silencing → sustained LDL lowering"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] ASCVD/FH adjunct (ORION)"
+        ]
+      },
+      "dosing": {
+        "dose": "SC day 0, 3 months, then q6 months (twice-yearly)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Potent durable lipid reduction (gene-silencing) [RF]",
+          "best_match": [
+            "Adherence-challenged high-risk LDL"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic (q6mo) — siRNA modality (cf. batch 27 givosiran)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Injection site reactions; long-term outcome data maturing"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ORION trials"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-071",
+      "name_inn": "Aspirin (antiplatelet)",
+      "name_ru": "Аспирин (антиагрегант)",
+      "name_brand": "multiple",
+      "status": "METACOD-RF",
+      "batch": "06-Antiplatelet",
+      "molecular": {
+        "chemical_class": "Irreversible COX-1 inhibitor (antiplatelet dose)",
+        "mechanism_primary": [
+          "[LBL] ↓thromboxane A2 → ↓platelet aggregation"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] ASCVD secondary prevention, ACS, post-PCI (DAPT)",
+          "[GL] Primary prevention — narrowed (bleeding vs benefit)"
+        ]
+      },
+      "dosing": {
+        "dose": "75-100 mg daily (325 load in ACS)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Platelet (Blood-stasis) modulation [RF]",
+          "best_match": [
+            "Established ASCVD"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] GI bleeding/ulcer, hemorrhagic stroke",
+          "[LBL] Reye syndrome <16y (cross-ref batch 23)",
+          "[LBL] Avoid in active bleeding"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-072",
+      "name_inn": "Clopidogrel",
+      "name_ru": "Клопидогрел",
+      "name_brand": "Plavix",
+      "status": "METACOD-RF",
+      "batch": "06-Antiplatelet",
+      "molecular": {
+        "chemical_class": "P2Y12 inhibitor (thienopyridine, prodrug)",
+        "mechanism_primary": [
+          "[LBL] Irreversible P2Y12 blockade; CYP2C19-activated"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] ACS/post-PCI (DAPT), secondary prevention, PAD/stroke"
+        ]
+      },
+      "dosing": {
+        "dose": "75 mg daily (300-600 load)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Platelet inhibition [RF]",
+          "best_match": [
+            "DAPT, ASA-intolerant"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / post-PCI duration"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bleeding; CYP2C19 poor metabolizers reduced efficacy",
+          "[LBL] Interaction with omeprazole (use pantoprazole)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "CURE"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-073",
+      "name_inn": "Ticagrelor",
+      "name_ru": "Тикагрелор",
+      "name_brand": "Brilinta",
+      "status": "METACOD-RF",
+      "batch": "06-Antiplatelet",
+      "molecular": {
+        "chemical_class": "P2Y12 inhibitor (reversible, not a prodrug)",
+        "mechanism_primary": [
+          "[LBL] Reversible P2Y12 blockade; faster/stronger than clopidogrel"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] ACS/post-PCI (PLATO — superior to clopidogrel)"
+        ]
+      },
+      "dosing": {
+        "dose": "90 mg BID (60 mg BID long-term); 180 load"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Potent platelet inhibition [RF]",
+          "best_match": [
+            "ACS (preferred P2Y12)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / DAPT"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bleeding, DYSPNEA (adenosine-related), bradyarrhythmia",
+          "[LBL] BID adherence; ASA dose ≤100 mg; CYP3A4"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "PLATO"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-074",
+      "name_inn": "Prasugrel",
+      "name_ru": "Прасугрел",
+      "name_brand": "Effient",
+      "status": "METACOD-RF",
+      "batch": "06-Antiplatelet",
+      "molecular": {
+        "chemical_class": "P2Y12 inhibitor (thienopyridine, potent)",
+        "mechanism_primary": [
+          "[LBL] Irreversible P2Y12; more consistent than clopidogrel"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] ACS managed with PCI (TRITON-TIMI)"
+        ]
+      },
+      "dosing": {
+        "dose": "10 mg daily (5 mg if <60 kg); 60 load"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Potent platelet inhibition [RF]",
+          "best_match": [
+            "ACS-PCI (not CABG-bound)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "DAPT duration"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] CONTRAINDICATED prior stroke/TIA (intracranial bleed)",
+          "[LBL] Caution >75y, <60 kg; bleeding"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "TRITON-TIMI"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-075",
+      "name_inn": "Cilostazol",
+      "name_ru": "Цилостазол",
+      "name_brand": "Pletal",
+      "status": "METACOD-RF",
+      "batch": "06-Antiplatelet-PAD",
+      "molecular": {
+        "chemical_class": "PDE3 inhibitor (antiplatelet + vasodilator)",
+        "mechanism_primary": [
+          "[LBL] Vasodilation + platelet inhibition"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Intermittent claudication (symptom/walking distance)"
+        ]
+      },
+      "dosing": {
+        "dose": "100 mg BID (empty stomach)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Peripheral vasodilation + platelet [RF]",
+          "best_match": [
+            "Claudication (PAD)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] BLACK BOX: contraindicated in ANY heart failure (PDE3 inotrope mortality)",
+          "[LBL] Headache, palpitations, diarrhea"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA PAD"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-076",
+      "name_inn": "Warfarin",
+      "name_ru": "Варфарин",
+      "name_brand": "Coumadin",
+      "status": "METACOD-RF",
+      "batch": "06-Anticoagulant",
+      "molecular": {
+        "chemical_class": "Vitamin K antagonist",
+        "mechanism_primary": [
+          "[LBL] Inhibits VKORC1 → ↓factors II,VII,IX,X"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Mechanical valves, valvular AF, antiphospholipid syndrome (DOAC-unsuitable settings)"
+        ]
+      },
+      "dosing": {
+        "dose": "INR-guided (target 2-3, or 2.5-3.5 mechanical mitral)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anticoagulation (Blood) [RF]",
+          "best_match": [
+            "Mechanical valve, valvular AF, APS"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bleeding; narrow TI, many food/drug interactions (CYP2C9/VKORC1)",
+          "[LBL] Teratogen; skin necrosis (early); reverse with vit K / PCC"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA AF/valve"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-077",
+      "name_inn": "Unfractionated heparin",
+      "name_ru": "Нефракционированный гепарин",
+      "name_brand": "Heparin",
+      "status": "METACOD-RF",
+      "batch": "06-Anticoagulant",
+      "molecular": {
+        "chemical_class": "Indirect thrombin/Xa inhibitor (antithrombin-mediated)",
+        "mechanism_primary": [
+          "[LBL] Potentiates antithrombin; rapid on/off; reversible (protamine)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] ACS, VTE, bridging, CKD/periprocedural (short half-life, titratable)"
+        ]
+      },
+      "dosing": {
+        "dose": "Weight-based IV (aPTT/anti-Xa) or SC prophylaxis"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Rapid anticoagulation [RF]",
+          "best_match": [
+            "Acute, periprocedural, renal failure"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bleeding; HIT (heparin-induced thrombocytopenia — monitor platelets)",
+          "[LBL] Protamine reversal; osteoporosis (prolonged)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "CHEST guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-078",
+      "name_inn": "Enoxaparin (LMWH)",
+      "name_ru": "Эноксапарин",
+      "name_brand": "Lovenox, Clexane",
+      "status": "METACOD-RF",
+      "batch": "06-Anticoagulant",
+      "molecular": {
+        "chemical_class": "Low-molecular-weight heparin",
+        "mechanism_primary": [
+          "[LBL] Predominantly anti-Xa; predictable SC dosing"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] VTE treatment/prophylaxis, ACS, bridging, pregnancy"
+        ]
+      },
+      "dosing": {
+        "dose": "1 mg/kg q12h or 1.5 mg/kg daily; renal adjust/anti-Xa"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anticoagulation [RF]",
+          "best_match": [
+            "VTE, pregnancy (no placental transfer), bridging"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute / chronic prophylaxis"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bleeding; lower HIT than UFH; accumulates in renal failure",
+          "[LBL] Partial protamine reversal"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "CHEST guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-079",
+      "name_inn": "Fondaparinux",
+      "name_ru": "Фондапаринукс",
+      "name_brand": "Arixtra",
+      "status": "METACOD-RF",
+      "batch": "06-Anticoagulant",
+      "molecular": {
+        "chemical_class": "Synthetic pentasaccharide (pure anti-Xa)",
+        "mechanism_primary": [
+          "[LBL] Selective antithrombin-mediated factor Xa inhibition"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] VTE treatment/prophylaxis",
+          "[GL] HIT (no cross-reactivity), ACS"
+        ]
+      },
+      "dosing": {
+        "dose": "2.5 mg (prophylaxis) / 5-10 mg (treatment) SC daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Selective Xa anticoagulation [RF]",
+          "best_match": [
+            "HIT, VTE"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bleeding; NO reversal agent; avoid eGFR<30; not for HIT-with-thrombosis as sole agent in some settings"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "CHEST guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-080",
+      "name_inn": "Dabigatran",
+      "name_ru": "Дабигатран",
+      "name_brand": "Pradaxa",
+      "status": "METACOD-RF",
+      "batch": "06-DOAC",
+      "molecular": {
+        "chemical_class": "Direct thrombin (IIa) inhibitor",
+        "mechanism_primary": [
+          "[LBL] Direct thrombin inhibition; reversal idarucizumab"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Non-valvular AF (RE-LY), VTE"
+        ]
+      },
+      "dosing": {
+        "dose": "150 mg BID (110/75 by renal/age)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Direct anticoagulation [RF]",
+          "best_match": [
+            "Non-valvular AF, VTE"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bleeding (more GI), dyspepsia",
+          "[LBL] Renal clearance (avoid eGFR<30); idarucizumab reversal; P-gp interactions"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "RE-LY"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-081",
+      "name_inn": "Rivaroxaban",
+      "name_ru": "Ривароксабан",
+      "name_brand": "Xarelto",
+      "status": "METACOD-RF",
+      "batch": "06-DOAC",
+      "molecular": {
+        "chemical_class": "Direct factor Xa inhibitor",
+        "mechanism_primary": [
+          "[LBL] Direct Xa inhibition; reversal andexanet"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Non-valvular AF (ROCKET-AF), VTE, CAD/PAD low-dose + ASA (COMPASS)"
+        ]
+      },
+      "dosing": {
+        "dose": "20 mg daily with food (AF); 15 mg BID×21d then 20 mg (VTE)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Xa anticoagulation [RF]",
+          "best_match": [
+            "AF, VTE, CAD/PAD"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bleeding (more GI than apixaban); take with food",
+          "[LBL] Renal/hepatic limits; CYP3A4/P-gp; once-daily adherence"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ROCKET-AF, COMPASS"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-082",
+      "name_inn": "Apixaban",
+      "name_ru": "Апиксабан",
+      "name_brand": "Eliquis",
+      "status": "METACOD-RF",
+      "batch": "06-DOAC",
+      "molecular": {
+        "chemical_class": "Direct factor Xa inhibitor",
+        "mechanism_primary": [
+          "[LBL] Direct Xa inhibition; reversal andexanet"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Non-valvular AF (ARISTOTLE — lowest bleeding in class), VTE"
+        ]
+      },
+      "dosing": {
+        "dose": "5 mg BID; 2.5 mg BID if ≥2 of: age≥80, ≤60 kg, Cr≥1.5 (cross-ref batch 19 DRG-291)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Xa anticoagulation (favorable bleed profile) [RF]",
+          "best_match": [
+            "AF (preferred elderly DOAC), VTE"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bleeding (lowest GI bleed in class); usable lower eGFR than other DOACs",
+          "[LBL] CYP3A4/P-gp; andexanet reversal"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ARISTOTLE",
+        "cross-ref batch 19 DRG-291"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-083",
+      "name_inn": "Edoxaban",
+      "name_ru": "Эдоксабан",
+      "name_brand": "Savaysa, Lixiana",
+      "status": "METACOD-RF",
+      "batch": "06-DOAC",
+      "molecular": {
+        "chemical_class": "Direct factor Xa inhibitor",
+        "mechanism_primary": [
+          "[LBL] Direct Xa inhibition; once daily"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Non-valvular AF (ENGAGE AF-TIMI), VTE"
+        ]
+      },
+      "dosing": {
+        "dose": "60 mg daily (30 mg if renal/weight/P-gp criteria)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Xa anticoagulation [RF]",
+          "best_match": [
+            "AF, VTE"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] AVOID if CrCl >95 (reduced efficacy in AF — boxed)",
+          "[LBL] Bleeding; renal lower limit"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ENGAGE AF-TIMI"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-084",
+      "name_inn": "Amiodarone",
+      "name_ru": "Амиодарон",
+      "name_brand": "Cordarone, Pacerone",
+      "status": "METACOD-RF",
+      "batch": "06-Antiarrhythmic",
+      "molecular": {
+        "chemical_class": "Class III antiarrhythmic (multichannel)",
+        "mechanism_primary": [
+          "[LBL] K/Na/Ca channel + β blockade; prolongs repolarization"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] VT/VF, AF rhythm control (incl. structural heart disease)"
+        ]
+      },
+      "dosing": {
+        "dose": "Load then 200 mg daily; IV in arrest/unstable"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Broad rhythm stabilization [RF]",
+          "best_match": [
+            "VT/VF, AF with structural heart disease/HF"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute / chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Pulmonary fibrosis, thyroid (hypo/hyper), hepatotoxicity, corneal deposits, blue skin, neuropathy",
+          "[LBL] Many DDIs (↑warfarin, digoxin, statins); QT (low torsades risk); baseline+periodic PFT/TFT/LFT/eye"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA VT/AF"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-085",
+      "name_inn": "Sotalol",
+      "name_ru": "Соталол",
+      "name_brand": "Betapace",
+      "status": "METACOD-RF",
+      "batch": "06-Antiarrhythmic",
+      "molecular": {
+        "chemical_class": "Class III + β-blocker",
+        "mechanism_primary": [
+          "[LBL] K-channel blockade + β blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] AF rhythm control, VT"
+        ]
+      },
+      "dosing": {
+        "dose": "80-160 mg BID (in-hospital initiation — QT)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Rhythm + rate control [RF]",
+          "best_match": [
+            "AF rhythm (no severe LVH/HF)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] QT prolongation/torsades (renal dosing, in-hospital load)",
+          "[LBL] Bradycardia; avoid in HFrEF/renal failure"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA AF"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-086",
+      "name_inn": "Flecainide",
+      "name_ru": "Флекаинид",
+      "name_brand": "Tambocor",
+      "status": "METACOD-RF",
+      "batch": "06-Antiarrhythmic",
+      "molecular": {
+        "chemical_class": "Class Ic antiarrhythmic",
+        "mechanism_primary": [
+          "[LBL] Strong Na-channel blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] AF/SVT rhythm control in STRUCTURALLY NORMAL hearts ('pill-in-pocket')"
+        ]
+      },
+      "dosing": {
+        "dose": "50-150 mg BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Rhythm control (normal heart) [RF]",
+          "best_match": [
+            "Paroxysmal AF/SVT, no structural disease"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / PRN"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] CONTRAINDICATED in CAD/structural heart disease (CAST — proarrhythmic mortality)",
+          "[LBL] Use with AV-nodal agent (1:1 flutter risk)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "CAST"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-087",
+      "name_inn": "Propafenone",
+      "name_ru": "Пропафенон",
+      "name_brand": "Rythmol",
+      "status": "METACOD-RF",
+      "batch": "06-Antiarrhythmic",
+      "molecular": {
+        "chemical_class": "Class Ic antiarrhythmic (+ mild β-block)",
+        "mechanism_primary": [
+          "[LBL] Na-channel blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] AF rhythm control in structurally normal hearts"
+        ]
+      },
+      "dosing": {
+        "dose": "150-300 mg TID (or ER BID)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Rhythm control (normal heart) [RF]",
+          "best_match": [
+            "Paroxysmal AF, no structural disease"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / PRN"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] CONTRAINDICATED in structural heart disease (proarrhythmic)",
+          "[LBL] Metallic taste, bronchospasm (β); with AV-nodal agent"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA AF"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-088",
+      "name_inn": "Dofetilide",
+      "name_ru": "Дофетилид",
+      "name_brand": "Tikosyn",
+      "status": "METACOD-RF",
+      "batch": "06-Antiarrhythmic",
+      "molecular": {
+        "chemical_class": "Class III (pure IKr blocker)",
+        "mechanism_primary": [
+          "[LBL] Selective K-channel blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] AF rhythm control (incl. HF — neutral mortality)"
+        ]
+      },
+      "dosing": {
+        "dose": "Renal/QT-based; mandatory in-hospital initiation"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Rhythm control (HF-compatible) [RF]",
+          "best_match": [
+            "AF with HFrEF"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Torsades — REMS, in-hospital initiation, renal dosing, QT monitoring",
+          "[LBL] Many QT-drug interactions"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "DIAMOND"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-089",
+      "name_inn": "Digoxin",
+      "name_ru": "Дигоксин",
+      "name_brand": "Lanoxin",
+      "status": "METACOD-RF",
+      "batch": "06-Inotrope-Glycoside",
+      "molecular": {
+        "chemical_class": "Cardiac glycoside",
+        "mechanism_primary": [
+          "[LBL] Na/K-ATPase inhibition → ↑contractility; vagal AV slowing"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] AF rate control (adjunct, sedentary/HF), HFrEF symptom reduction (DIG — no mortality benefit)"
+        ]
+      },
+      "dosing": {
+        "dose": "0.125-0.25 mg daily; level 0.5-0.9 ng/mL (HF)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Inotropy + vagal rate control [RF]",
+          "best_match": [
+            "AF rate (adjunct), symptomatic HFrEF"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Narrow TI — toxicity (N/V, visual halos, arrhythmia); worsened by hypokalemia/hypomagnesemia/renal failure",
+          "[LBL] DigiFab antidote; many DDIs (amiodarone/verapamil ↑level)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "DIG trial"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-090",
+      "name_inn": "Nitroglycerin",
+      "name_ru": "Нитроглицерин",
+      "name_brand": "Nitrostat, Nitro-Dur",
+      "status": "METACOD-RF",
+      "batch": "06-Nitrate",
+      "molecular": {
+        "chemical_class": "Organic nitrate (NO donor)",
+        "mechanism_primary": [
+          "[LBL] Venodilation (↓preload) + coronary vasodilation"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Acute angina (SL), ACS, acute HF/pulmonary edema (IV), angina prophylaxis"
+        ]
+      },
+      "dosing": {
+        "dose": "SL 0.4 mg PRN; IV titrated; patch with nitrate-free interval"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Vasodilation (preload reduction) [RF]",
+          "best_match": [
+            "Angina, acute HF/pulmonary edema"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute / chronic prophylaxis"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hypotension, headache; tolerance (need nitrate-free interval)",
+          "[LBL] CONTRAINDICATED with PDE5 inhibitors (severe hypotension); avoid in RV-infarct/severe AS"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-091",
+      "name_inn": "Isosorbide mononitrate / dinitrate",
+      "name_ru": "Изосорбида моно-/динитрат",
+      "name_brand": "Imdur / Isordil",
+      "status": "METACOD-RF",
+      "batch": "06-Nitrate",
+      "molecular": {
+        "chemical_class": "Long-acting organic nitrate",
+        "mechanism_primary": [
+          "[LBL] Sustained venodilation"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Chronic angina prophylaxis",
+          "[RCT] HFrEF with hydralazine (A-HeFT)"
+        ]
+      },
+      "dosing": {
+        "dose": "Mononitrate ER 30-120 mg daily (eccentric dosing for nitrate-free interval)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Sustained vasodilation [RF]",
+          "best_match": [
+            "Chronic angina, HFrEF (+ hydralazine)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Headache, hypotension, tolerance (nitrate-free interval)",
+          "[LBL] PDE5 inhibitor contraindication"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "A-HeFT"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-092",
+      "name_inn": "Ivabradine",
+      "name_ru": "Ивабрадин",
+      "name_brand": "Corlanor, Procoralan",
+      "status": "METACOD-RF",
+      "batch": "06-HF-Rate",
+      "molecular": {
+        "chemical_class": "Sinoatrial If-channel inhibitor",
+        "mechanism_primary": [
+          "[LBL] Selective SA-node rate reduction (no BP/inotropy effect)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] HFrEF, sinus rhythm, HR≥70 on max BB (SHIFT)",
+          "[GL] Chronic stable angina"
+        ]
+      },
+      "dosing": {
+        "dose": "5 mg BID, titrate to HR 50-60"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Pure rate reduction [RF]",
+          "best_match": [
+            "HFrEF with elevated HR despite BB"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bradycardia, AF, luminous phenomena (phosphenes)",
+          "[LBL] Only in sinus rhythm; CYP3A4 interactions"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "SHIFT"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-093",
+      "name_inn": "Epoprostenol / Treprostinil (prostacyclin)",
+      "name_ru": "Эпопростенол / Трепростинил",
+      "name_brand": "Flolan / Remodulin",
+      "status": "METACOD-RF",
+      "batch": "06-PAH",
+      "molecular": {
+        "chemical_class": "Prostacyclin analogue (PAH)",
+        "mechanism_primary": [
+          "[LBL] Potent pulmonary vasodilation + antiproliferative"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Pulmonary arterial hypertension (WHO Group 1, severe — complements bosentan batch 25)"
+        ]
+      },
+      "dosing": {
+        "dose": "Continuous IV (epoprostenol, very short half-life) / SC/inhaled (treprostinil)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Pulmonary vasodilation [RF]",
+          "best_match": [
+            "Severe PAH"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] anti-remodeling pulmonary vasculature"
+        },
+        "phase": {
+          "match": "Chronic (specialist)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Catheter-related infection/thrombosis; abrupt interruption = rebound PH crisis (life-threatening)",
+          "[LBL] Jaw pain, flushing, hypotension"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ESC/ERS PAH guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-094",
+      "name_inn": "Norepinephrine (vasopressor)",
+      "name_ru": "Норэпинефрин",
+      "name_brand": "Levophed",
+      "status": "METACOD-RF",
+      "batch": "06-Vasopressor",
+      "molecular": {
+        "chemical_class": "α1 > β1 adrenergic vasopressor",
+        "mechanism_primary": [
+          "[LBL] Vasoconstriction + modest inotropy"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Septic shock (first-line vasopressor), other vasodilatory/cardiogenic shock"
+        ]
+      },
+      "dosing": {
+        "dose": "IV infusion titrated to MAP (central line)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute pressure (Yang) support [RF]",
+          "best_match": [
+            "Shock (ICU)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute (Phase 3 critical)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Arrhythmia, peripheral/organ ischemia, extravasation necrosis (phentolamine)",
+          "[LBL] ICU/central access"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Surviving Sepsis"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-095",
+      "name_inn": "Dobutamine / Milrinone (inotropes)",
+      "name_ru": "Добутамин / Милринон",
+      "name_brand": "Dobutrex / Primacor",
+      "status": "METACOD-RF",
+      "batch": "06-Inotrope",
+      "molecular": {
+        "chemical_class": "β1 agonist (dobutamine) / PDE3 inhibitor (milrinone)",
+        "mechanism_primary": [
+          "[LBL] ↑contractility; milrinone also vasodilates (inodilator)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Acute decompensated HF / cardiogenic shock (low-output), bridge to transplant/device"
+        ]
+      },
+      "dosing": {
+        "dose": "IV infusion (milrinone renal-adjusted)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute inotropic (Yang) support [RF]",
+          "best_match": [
+            "Low-output HF / cardiogenic shock"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute (Phase 3)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Arrhythmia, hypotension (milrinone); ↑mortality with chronic use — short-term/palliative only",
+          "[LBL] Dobutamine tolerance/tachyphylaxis"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA HF"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-096",
+      "name_inn": "Ranolazine",
+      "name_ru": "Ранолазин",
+      "name_brand": "Ranexa",
+      "status": "METACOD-RF",
+      "batch": "06-Antianginal",
+      "molecular": {
+        "chemical_class": "Late sodium current inhibitor",
+        "mechanism_primary": [
+          "[LBL] Reduces late INa → antianginal without HR/BP effect"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Chronic stable angina (add-on, refractory)"
+        ]
+      },
+      "dosing": {
+        "dose": "500-1000 mg BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Antianginal (metabolic) [RF]",
+          "best_match": [
+            "Refractory angina (HR/BP-limited)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] QT prolongation, constipation, dizziness",
+          "[LBL] CYP3A4 interactions (avoid strong inhibitors)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "MERLIN-TIMI"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-380",
+      "name_inn": "Labetalol",
+      "name_ru": "Лабеталол",
+      "name_brand": "Trandate",
+      "status": "METACOD-RF",
+      "batch": "06-Beta-Blocker-Acute",
+      "molecular": {
+        "chemical_class": "Combined α1/β blocker (IV/PO)",
+        "mechanism_primary": [
+          "[LBL] α1+β blockade — rapid BP control without reflex tachycardia"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Hypertensive emergency (IV)",
+          "[GL] Hypertension in pregnancy/preeclampsia"
+        ]
+      },
+      "dosing": {
+        "dose": "IV bolus/infusion; PO 100-400 mg BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute pressure (Heat) reduction [RF]",
+          "best_match": [
+            "HTN emergency, pregnancy HTN"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute / chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bronchospasm, bradycardia, orthostasis",
+          "[LBL] Hepatotoxicity (rare)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ESC/ACOG HTN"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-381",
+      "name_inn": "Esmolol",
+      "name_ru": "Эсмолол",
+      "name_brand": "Brevibloc",
+      "status": "METACOD-RF",
+      "batch": "06-Beta-Blocker-Acute",
+      "molecular": {
+        "chemical_class": "Ultra-short-acting β1 blocker (IV)",
+        "mechanism_primary": [
+          "[LBL] Rapid on/off β1 blockade (esterase-metabolized)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Acute rate control (AF/SVT), perioperative/HTN emergency tachycardia"
+        ]
+      },
+      "dosing": {
+        "dose": "IV infusion titrated"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute rate (Heat/Wind) control [RF]",
+          "best_match": [
+            "Acute tachyarrhythmia/HTN (titratable)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute (ICU/OR)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hypotension, bradycardia",
+          "[LBL] Bronchospasm; extravasation"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-382",
+      "name_inn": "Sodium nitroprusside",
+      "name_ru": "Нитропруссид натрия",
+      "name_brand": "Nipride",
+      "status": "METACOD-RF",
+      "batch": "06-Vasodilator-Acute",
+      "molecular": {
+        "chemical_class": "Direct arterial+venous vasodilator (NO donor, IV)",
+        "mechanism_primary": [
+          "[LBL] Immediate balanced vasodilation"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Hypertensive emergency, acute afterload reduction (acute HF/dissection adjunct)"
+        ]
+      },
+      "dosing": {
+        "dose": "IV infusion, arterial line"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute potent vasodilation [RF]",
+          "best_match": [
+            "HTN emergency (ICU)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute (Phase 3)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] CYANIDE/thiocyanate toxicity (prolonged/high dose, renal/hepatic)",
+          "[LBL] Profound hypotension, coronary steal, ↑ICP"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ESC HTN"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-383",
+      "name_inn": "Nicardipine / Clevidipine",
+      "name_ru": "Никардипин / Клевидипин",
+      "name_brand": "Cardene / Cleviprex",
+      "status": "METACOD-RF",
+      "batch": "06-CCB-Acute",
+      "molecular": {
+        "chemical_class": "IV dihydropyridine CCB",
+        "mechanism_primary": [
+          "[LBL] Titratable arterial vasodilation (clevidipine ultra-short)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Hypertensive emergency (IV, preferred titratable agents)"
+        ]
+      },
+      "dosing": {
+        "dose": "IV infusion titrated"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute vasodilation [RF]",
+          "best_match": [
+            "HTN emergency (ICU/stroke)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Reflex tachycardia, hypotension",
+          "[LBL] Clevidipine — lipid emulsion (egg/soy allergy, TG)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ESC HTN; stroke guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-384",
+      "name_inn": "Adenosine",
+      "name_ru": "Аденозин",
+      "name_brand": "Adenocard",
+      "status": "METACOD-RF",
+      "batch": "06-Antiarrhythmic-Acute",
+      "molecular": {
+        "chemical_class": "Endogenous nucleoside (transient AV block)",
+        "mechanism_primary": [
+          "[LBL] Transient complete AV nodal block (half-life seconds)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Paroxysmal SVT termination, diagnostic for wide-complex tachycardia"
+        ]
+      },
+      "dosing": {
+        "dose": "6 mg rapid IV push → 12 mg; central faster"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute AV-node interruption [RF]",
+          "best_match": [
+            "SVT termination"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute (seconds)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Transient asystole, flushing, chest pain, dyspnea, sense of doom",
+          "[LBL] Bronchospasm; potentiated by dipyridamole; avoid in WPW-AF"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA SVT"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-385",
+      "name_inn": "Atropine",
+      "name_ru": "Атропин",
+      "name_brand": "AtroPen",
+      "status": "METACOD-RF",
+      "batch": "06-Antiarrhythmic-Acute",
+      "molecular": {
+        "chemical_class": "Antimuscarinic",
+        "mechanism_primary": [
+          "[LBL] Vagolytic → ↑SA/AV conduction"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Symptomatic bradycardia, organophosphate poisoning, pre-anesthetic secretions"
+        ]
+      },
+      "dosing": {
+        "dose": "0.5-1 mg IV q3-5 min (max 3 mg)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute vagolysis (Wind) [RF]",
+          "best_match": [
+            "Symptomatic bradycardia"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Tachycardia, anticholinergic toxidrome",
+          "[LBL] Ineffective in infranodal/transplant block (consider pacing)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACLS"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-386",
+      "name_inn": "Vasopressin",
+      "name_ru": "Вазопрессин",
+      "name_brand": "Vasostrict",
+      "status": "METACOD-RF",
+      "batch": "06-Vasopressor",
+      "molecular": {
+        "chemical_class": "V1 vasoconstrictor (non-adrenergic)",
+        "mechanism_primary": [
+          "[LBL] V1-mediated vasoconstriction (catecholamine-sparing)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Septic shock (adjunct to norepinephrine), vasodilatory shock; ACLS adjunct (historical)"
+        ]
+      },
+      "dosing": {
+        "dose": "IV infusion (low fixed dose)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute non-adrenergic pressure support [RF]",
+          "best_match": [
+            "Refractory vasodilatory shock"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute (ICU)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Peripheral/mesenteric/digital ischemia",
+          "[LBL] Hyponatremia; reserve for catecholamine-refractory"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Surviving Sepsis"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-387",
+      "name_inn": "Dopamine",
+      "name_ru": "Дофамин",
+      "name_brand": "Intropin",
+      "status": "METACOD-RF",
+      "batch": "06-Inotrope-Pressor",
+      "molecular": {
+        "chemical_class": "Dose-dependent adrenergic (D/β/α)",
+        "mechanism_primary": [
+          "[LBL] Inotropy + vasoconstriction (dose-dependent)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Cardiogenic/septic shock (selected), symptomatic bradycardia"
+        ]
+      },
+      "dosing": {
+        "dose": "IV infusion (central) titrated"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute pressure/inotropy [RF]",
+          "best_match": [
+            "Shock with bradycardia"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute (ICU)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Tachyarrhythmia (more than norepinephrine), tissue necrosis on extravasation",
+          "[GL] Norepinephrine preferred first-line septic shock"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Surviving Sepsis"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-388",
+      "name_inn": "Phenylephrine",
+      "name_ru": "Фенилэфрин",
+      "name_brand": "Vazculep",
+      "status": "METACOD-RF",
+      "batch": "06-Vasopressor",
+      "molecular": {
+        "chemical_class": "Pure α1 agonist",
+        "mechanism_primary": [
+          "[LBL] Pure vasoconstriction (no β); reflex bradycardia"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Hypotension (esp. anesthesia, tachyarrhythmia-prone), nasal decongestant"
+        ]
+      },
+      "dosing": {
+        "dose": "IV bolus/infusion"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute α1 pressure support [RF]",
+          "best_match": [
+            "Hypotension with tachycardia"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Reflex bradycardia, hypertension, reduced cardiac output",
+          "[LBL] Extravasation ischemia"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Anesthesia guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-389",
+      "name_inn": "Epinephrine",
+      "name_ru": "Эпинефрин (адреналин)",
+      "name_brand": "Adrenalin, EpiPen",
+      "status": "METACOD-RF",
+      "batch": "06-Pressor-Emergency",
+      "molecular": {
+        "chemical_class": "Endogenous α/β agonist",
+        "mechanism_primary": [
+          "[LBL] α+β agonism — vasoconstriction, inotropy, bronchodilation"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Anaphylaxis (IM first-line), cardiac arrest (ACLS), severe shock/croup"
+        ]
+      },
+      "dosing": {
+        "dose": "IM 0.3-0.5 mg (anaphylaxis); IV 1 mg (arrest); infusion (shock)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute life-threat support [RF]",
+          "best_match": [
+            "Anaphylaxis, arrest, shock"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute (Phase 3)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Arrhythmia, hypertension, ischemia, anxiety",
+          "[LBL] IM anterolateral thigh for anaphylaxis (not IV unless arrest)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACLS; anaphylaxis guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-390",
+      "name_inn": "Vericiguat",
+      "name_ru": "Верицигуат",
+      "name_brand": "Verquvo",
+      "status": "METACOD-RF",
+      "batch": "06-HF-sGC",
+      "molecular": {
+        "chemical_class": "Soluble guanylate cyclase stimulator",
+        "mechanism_primary": [
+          "[LBL] Restores NO-sGC-cGMP signaling"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Worsening HFrEF after decompensation (VICTORIA)"
+        ]
+      },
+      "dosing": {
+        "dose": "2.5→10 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "HF vascular/myocardial cGMP support [RF]",
+          "best_match": [
+            "Recently decompensated HFrEF (add-on GDMT)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] HFrEF GDMT add-on"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hypotension, anemia, syncope",
+          "[LBL] Avoid with PDE5 inhibitors/riociguat; pregnancy contraindicated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "VICTORIA"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-391",
+      "name_inn": "Aliskiren",
+      "name_ru": "Алискирен",
+      "name_brand": "Tekturna",
+      "status": "METACOD-RF",
+      "batch": "06-Renin-Inhibitor",
+      "molecular": {
+        "chemical_class": "Direct renin inhibitor",
+        "mechanism_primary": [
+          "[LBL] Blocks renin → ↓angiotensinogen→angiotensin I"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Hypertension (limited role)"
+        ]
+      },
+      "dosing": {
+        "dose": "150-300 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "RAAS suppression (renin level) [RF]",
+          "best_match": [
+            "HTN (when ACE/ARB unsuitable; rarely used)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hyperkalemia, angioedema, AKI",
+          "[LBL] DO NOT combine with ACE/ARB in diabetes (ALTITUDE harm); pregnancy contraindicated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ALTITUDE"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-392",
+      "name_inn": "Mexiletine",
+      "name_ru": "Мексилетин",
+      "name_brand": "Mexitil",
+      "status": "METACOD-RF",
+      "batch": "06-Antiarrhythmic",
+      "molecular": {
+        "chemical_class": "Class Ib antiarrhythmic (oral)",
+        "mechanism_primary": [
+          "[LBL] Na-channel blockade (oral lidocaine analog)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Ventricular arrhythmias (refractory), myotonia, some neuropathic pain"
+        ]
+      },
+      "dosing": {
+        "dose": "150-300 mg q8h"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Ventricular rhythm stabilization [RF]",
+          "best_match": [
+            "Refractory VT (adjunct)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] GI upset, tremor, ataxia",
+          "[LBL] Proarrhythmia; caution structural heart disease"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACC/AHA VA"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-393",
+      "name_inn": "Lidocaine (antiarrhythmic)",
+      "name_ru": "Лидокаин (антиаритмик)",
+      "name_brand": "Xylocaine",
+      "status": "METACOD-RF",
+      "batch": "06-Antiarrhythmic-Acute",
+      "molecular": {
+        "chemical_class": "Class Ib antiarrhythmic (IV)",
+        "mechanism_primary": [
+          "[LBL] Na-channel blockade — ventricular tissue"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Ventricular tachycardia/VF (ACLS alternative to amiodarone), esp. ischemic"
+        ]
+      },
+      "dosing": {
+        "dose": "IV bolus 1-1.5 mg/kg then infusion"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute ventricular rhythm control [RF]",
+          "best_match": [
+            "VT/VF (ischemic)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] CNS toxicity (seizures, perioral numbness), bradycardia",
+          "[LBL] Hepatic clearance — reduce in HF/hepatic"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ACLS"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-394",
+      "name_inn": "Midodrine",
+      "name_ru": "Мидодрин",
+      "name_brand": "ProAmatine",
+      "status": "METACOD-RF",
+      "batch": "06-Vasopressor-Oral",
+      "molecular": {
+        "chemical_class": "Oral α1 agonist (prodrug)",
+        "mechanism_primary": [
+          "[LBL] Peripheral α1 vasoconstriction"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Orthostatic hypotension (symptomatic)",
+          "[GL] Hepatorenal syndrome adjunct, dialysis hypotension"
+        ]
+      },
+      "dosing": {
+        "dose": "5-10 mg TID (not at night)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Oral α1 pressure support [RF]",
+          "best_match": [
+            "Orthostatic hypotension"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Supine hypertension (avoid pre-recumbency), urinary retention, piloerection"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAN orthostatic guidance"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    }
   ]
 }

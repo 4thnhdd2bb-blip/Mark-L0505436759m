@@ -102,7 +102,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 > (~201 drugs, batches 01–11, 26 output files). **This repo differs.** Below is
 > the actual git content.
 
-### Drug batches present (27 files, **374 drugs**)
+### Drug batches present (27 files, **411 drugs**)
 | batch_id | n | notes |
 |---|---|---|
 | 01-GLP1 | 6 | DRG-001..006; DRG-001 semaglutide PARTIAL (OBS-Mark-001 wax-wane) + RF literature scan |
@@ -110,10 +110,10 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 | 03-Biguanides+DPP4 | 6 | DRG-011..016 |
 | 04-Old_School_Antidiabetics | 7 | DRG-017..023 |
 | 05-Insulins+Pramlintide | 10 | DRG-024..033; DRG-025 lispro expanded from stub |
-| 06-Cardiovascular | 63 | DRG-034..096; **Claude-authored gap-fill** (largest); BB/ACEi/ARB/ARNI/CCB/diuretics/MRA/statins/lipid/antiplatelets/anticoagulants/antiarrhythmics/digoxin/nitrates/ivabradine/PAH/pressors/ranolazine; apixaban=082 (cross-ref batch 19) |
+| 06-Cardiovascular | 78 | DRG-034..096 + 380-394 (acute/IV expansion); **Claude-authored gap-fill** (largest); BB/ACEi/ARB/ARNI/CCB/diuretics/MRA/statins/lipid/antiplatelets/anticoagulants/antiarrhythmics/digoxin/nitrates/ivabradine/PAH/pressors/ranolazine; apixaban=082 (cross-ref batch 19) |
 | 07-Psychiatric | 22 | DRG-097..118 |
-| 08-Endocrine | 25 | DRG-119..143; **Claude-authored gap-fill**; thyroid/glucocorticoids/bone/pituitary/sex-hormones; prednisolone=125 (cross-ref batch 21) |
-| 09-Pulmonology | 18 | DRG-144..161; **Claude-authored gap-fill**; SABA/LABA/LAMA/SAMA/montelukast=148/ICS/combo/theophylline/roflumilast/biologics/IPF-antifibrotics/antitussive |
+| 08-Endocrine | 37 | DRG-119..143 + 395-406 (expansion); **Claude-authored gap-fill**; thyroid/glucocorticoids/bone/pituitary/sex-hormones; prednisolone=125 (cross-ref batch 21) |
+| 09-Pulmonology | 28 | DRG-144..161 + 407-416 (expansion); **Claude-authored gap-fill**; SABA/LABA/LAMA/SAMA/montelukast=148/ICS/combo/theophylline/roflumilast/biologics/IPF-antifibrotics/antitussive |
 | 10-Rheumatology | 18 | DRG-162..179; **Claude-authored gap-fill**; csDMARDs/immunosuppressants/TNF-i/IL6/CTLA4/JAK/IL1/gout; MTX↔Zuo, allopurinol-colchicine↔Yin-Fire/gout context |
 | 11-Gastroenterology | 20 | DRG-180..199 (source claimed 22; 20 enumerable) |
 | 12-Neurology | 15 | DRG-202..216 |

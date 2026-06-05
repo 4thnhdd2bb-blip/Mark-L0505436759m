@@ -13,14 +13,14 @@
 | Metric | Value |
 |---|---|
 | Drug-batch files | **27** |
-| Total drug/concept entries | **374** (374 unique DRG IDs — no collisions) |
+| Total drug/concept entries | **411** (411 unique DRG IDs — no collisions) |
 | — authored from Mark's pasted source docs | **220** |
-| — Claude-authored standard-evidence gap-fill | **154** (flagged `claude_authored_standard_evidence`) |
+| — Claude-authored standard-evidence gap-fill | **191** (flagged `claude_authored_standard_evidence`) |
 | Conceptual / registry files | **16** |
 | Test suite | **612 passing, 0 skipped** |
 | `ready_for_clinical_use` across **all** artifacts | **false** (verified) |
 
-DRG ID space is essentially contiguous **DRG-001..379** (documented minor source gaps only: 200-201, 250, 370-371).
+DRG ID space is essentially contiguous **DRG-001..379** core + a **380..416 expansion block** (acute/IV cardiology, endocrine, pulmonology). Documented minor gaps only: 200-201, 250, 370-371.
 
 ---
 
@@ -35,10 +35,10 @@ DRG ID space is essentially contiguous **DRG-001..379** (documented minor source
 | 03-Biguanides+DPP4 | 6 | 011–016 | src | metformin + DPP-4 |
 | 04-Old-school antidiabetics | 7 | 017–023 | src | SU/TZD/glinide/α-glucosidase |
 | 05-Insulins | 10 | 024–033 | src | insulins + pramlintide |
-| 06-Cardiovascular | 63 | 034–096 | ✎ | BB/ACEi/ARB/ARNI/CCB/diuretics/MRA/statins/lipid/antiplatelet/anticoagulant/antiarrhythmic/digoxin/nitrate/ivabradine/PAH/pressor/ranolazine |
+| 06-Cardiovascular | 78 | 034–096 +380–394 | ✎ | BB/ACEi/ARB/ARNI/CCB/diuretics/MRA/statins/lipid/antiplatelet/anticoagulant/antiarrhythmic/digoxin/nitrate/ivabradine/PAH/pressor/ranolazine |
 | 07-Psychiatric | 22 | 097–118 | src | antidepressants/antipsychotics/mood/anxiolytics |
-| 08-Endocrine | 25 | 119–143 | ✎ | thyroid/glucocorticoid/bone/pituitary/sex-hormone |
-| 09-Pulmonology | 18 | 144–161 | ✎ | bronchodilators/ICS/biologics/IPF-antifibrotics |
+| 08-Endocrine | 37 | 119–143 +395–406 | ✎ | thyroid/glucocorticoid/bone/pituitary/sex-hormone |
+| 09-Pulmonology | 28 | 144–161 +407–416 | ✎ | bronchodilators/ICS/biologics/IPF-antifibrotics |
 | 10-Rheumatology | 18 | 162–179 | ✎ | csDMARDs/biologics/JAK/gout |
 | 11-Gastroenterology | 20 | 180–199 | src | PPI/H2/prokinetic/antiemetic/5-ASA/IBD-biologic/laxative (Mark's specialty) |
 | 12-Neurology | 15 | 202–216 | src | antiepileptic/triptan/anti-CGRP/Parkinson/dementia/MS |
@@ -66,15 +66,15 @@ Every clinical statement carries a provenance tag. Counts across the DB:
 
 | Tag | Meaning | Count |
 |---|---|---|
-| `[LBL]` | FDA/EMA label | 2698 |
-| `[OBS-Mark]` | Mark clinical observation (mostly empty placeholders `[TBD]`) | 616 |
-| `[GL]` | Clinical guideline | 461 |
-| `[RF]` | Research-framework / theoretical (energy/membrane/phase overlay) | 423 |
-| `[RCT]` | Named randomized trial / trial body | 146 |
+| `[LBL]` | FDA/EMA label | 2820 |
+| `[OBS-Mark]` | Mark clinical observation (mostly empty placeholders `[TBD]`) | 653 |
+| `[GL]` | Clinical guideline | 488 |
+| `[RF]` | Research-framework / theoretical (energy/membrane/phase overlay) | 426 |
+| `[RCT]` | Named randomized trial / trial body | 149 |
 | `[CLASS]` | Class extrapolation | 16 |
 | `[TBD]`/`[GOVERNANCE]` | placeholders / governance annotations | 10 |
 
-**Reading:** the DB is overwhelmingly anchored in external evidence (`LBL`+`GL`+`RCT` ≈ 3305 statements). `[RF]` (423) is the energy/three-axis overlay, always tagged as theoretical. `[OBS-Mark]` slots are reserved for Mark's input and remain largely unfilled (`[TBD]`).
+**Reading:** the DB is overwhelmingly anchored in external evidence (`LBL`+`GL`+`RCT` ≈ 3457 statements). `[RF]` (426) is the energy/three-axis overlay, always tagged as theoretical. `[OBS-Mark]` slots are reserved for Mark's input and remain largely unfilled (`[TBD]`).
 
 ---
 
@@ -82,7 +82,7 @@ Every clinical statement carries a provenance tag. Counts across the DB:
 
 | State | Count | Notes |
 |---|---|---|
-| `none` | 362 | not yet Mark-reviewed |
+| `none` | 399 | not yet Mark-reviewed |
 | `partial` | 12 | Mark observations recorded, **not** full sign-off |
 | `full` | **0** | full validation requires explicit formal sign-off — never auto-set |
 
