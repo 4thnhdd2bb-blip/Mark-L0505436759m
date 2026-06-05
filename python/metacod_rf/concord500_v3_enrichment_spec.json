@@ -25,14 +25,24 @@
       "not_patient_facing": "All METACOD vocabulary (Hamer/Revici/Wu Xing/membrane/energy) engine-internal."
     },
     "CRITICAL_GOVERNANCE_FLAG": {
-      "hamer_conflict_theme_vs_kcts_v1_1": "[FLAG-FOR-MARK — CRITICAL, BLOCKS MATERIALIZATION] The v3.0 METACOD layer reintroduces a Hamer-phase enrichment WITH a 'тема конфликта' (conflict theme) field (conflict-active / PCL-A / PCL-B / hanging-healing). The 'conflict theme' is precisely the Hamer/GNM/AIRE PSYCHIC-CONFLICT CAUSALITY that the KCTS v1.1 decision (Mark, 2026-06) DISAVOWED as mechanism. This is a direct contradiction with the established governance line and must be reconciled by Mark BEFORE the v3.0 data is materialized. See reconciliation_options.",
-      "reconciliation_options": {
-        "A_phase_taxonomy_only": "Keep Hamer-phase as a PURE PHASE-TAXONOMY descriptor (CA/PCL-A/PCL-B/PCL-Final mapped onto the 5-phase axis) and DROP the 'conflict theme' causal field. Consistent with KCTS v1.1. [Default-safe — recommended unless Mark says otherwise.]",
-        "B_reinstate_conflict_causality": "v3.0 intends to RE-INSTATE Hamer psychic-conflict causality → this REVERSES the KCTS v1.1 EBM decision (major governance change; would need explicit Mark sign-off and re-opening kcts_integration v1.1).",
-        "C_quarantine": "Keep 'conflict theme' but quarantined as disclosed-origin-only metadata, flagged, never operationalized and never surfaced — same treatment as the disavowed KCTS origin."
+      "hamer_conflict_theme_vs_kcts_v1_1": "[RESOLVED — Mark ruling 2026-06] The v3.0 METACOD layer reintroduced a Hamer-phase enrichment WITH a 'тема конфликта' (conflict theme) field — the psychic-conflict causality KCTS v1.1 disavowed. RESOLUTION: option A — Hamer kept as PHASE-TAXONOMY ONLY; the 'conflict theme' causal field is DROPPED on materialization. Consistent with KCTS v1.1.",
+      "resolution": {
+        "chosen": "A_phase_taxonomy_only",
+        "rule": "On materialization: map Hamer phase labels (conflict-active→CA/Phase-2 active, PCL-A, PCL-B, PCL-Final/hanging) onto the METACOD 5-phase axis as a pure phenomenological PHASE descriptor. DROP / do NOT import any 'conflict theme' / psychic-conflict-cause field. No Hamer causal etiology enters the repo.",
+        "decided": "Mark, 2026-06"
+      },
+      "reconciliation_options_considered": {
+        "A_phase_taxonomy_only": "[CHOSEN] Hamer-phase as PURE PHASE-TAXONOMY descriptor; DROP 'conflict theme'. Consistent with KCTS v1.1.",
+        "B_reinstate_conflict_causality": "[REJECTED] would reverse KCTS v1.1.",
+        "C_quarantine": "[REJECTED] keep conflict-theme quarantined."
       }
     },
-    "kcts_v1_1_alignment": "[KCTS v1.1] Hamer/AIRE psychic-conflict causality DISAVOWED as mechanism. The v3.0 'conflict theme' field is in tension with this — see CRITICAL_GOVERNANCE_FLAG."
+    "materialization_plan": {
+      "_status": "[Mark ruling 2026-06] When the actual v3.0 files arrive, SPLIT into governed JSON batches.",
+      "rule": "Materialize master_bundle_v3.0_enriched.json as governed batches in the existing repo style — by record type (disease/drug/symptom/lab) and chunked — each with a loader + tests, every enrichment field flagged [RF]/rule-derived (version=3.0_enriched), ready_for_clinical_use=false. Apply the Hamer phase-taxonomy-only rule (no conflict-theme). Graph edges flagged statistical-not-causal. Reuse existing DRG-*/TST-*/SYM-* cross-refs where the ids align.",
+      "pending": "Awaiting the actual ~3 MB bundle + ~1.8 MB SQL from Mark (not yet pasted)."
+    },
+    "kcts_v1_1_alignment": "[KCTS v1.1] Hamer/AIRE psychic-conflict causality DISAVOWED as mechanism. RESOLVED: v3.0 Hamer layer imported as phase-taxonomy only; 'conflict theme' dropped — no contradiction remains."
   },
 
   "enrichment_layers": {

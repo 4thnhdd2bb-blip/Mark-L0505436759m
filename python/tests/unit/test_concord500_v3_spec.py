@@ -42,15 +42,22 @@ def test_data_files_recorded_as_absent(spec):
     assert "concord500_v3_enrichment.sql" in nf
 
 
-def test_hamer_conflict_theme_flagged_against_kcts_v1_1(spec):
+def test_hamer_conflict_theme_resolved_phase_taxonomy_only(spec):
     flag = spec.critical_flag
     blob = json.dumps(flag, ensure_ascii=False).lower()
     assert "hamer" in blob and "conflict" in blob
     assert "kcts v1.1" in blob or "kcts_v1_1" in blob or "kcts v1_1" in blob
     assert "disavow" in blob
-    # Three reconciliation options offered to Mark.
-    opts = flag.get("reconciliation_options", {})
-    assert len(opts) == 3
+    # Mark resolved → option A: phase-taxonomy only, conflict-theme dropped.
+    res = flag.get("resolution", {})
+    assert res.get("chosen") == "A_phase_taxonomy_only"
+    assert "drop" in json.dumps(res, ensure_ascii=False).lower()
+
+
+def test_materialization_plan_split_into_batches(spec):
+    plan = spec.meta.get("materialization_plan", {})
+    assert plan
+    assert "split" in json.dumps(plan, ensure_ascii=False).lower()
 
 
 def test_three_enrichment_layers(spec):
