@@ -157,7 +157,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
   hepatobiliary, cardiology, spleen_pancreas, gallbladder, small_intestine,
   gastroduodenal
 - `diagnostic_foundation_v1_0.json` — diagnostics DB architecture/foundation
-- Loaders in `python/services/`, tests in `python/tests/unit/`. **824 tests, 0 skipped.**
+- Loaders in `python/services/`, tests in `python/tests/unit/`. **829 tests, 0 skipped.**
 
 ### Diagnostics DB (parallel test/imaging database — COMPLETE 2026-06)
 - Separate research DB: `dx_batch*.json` + loader `services/diagnostic_db.py` +

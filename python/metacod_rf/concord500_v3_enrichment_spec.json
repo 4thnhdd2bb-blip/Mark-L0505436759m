@@ -1,0 +1,88 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_concord500_v3_spec",
+    "document_id": "METACOD_RF_CONCORD500_v3_Enrichment_Spec",
+    "title": "CONCORD-500 v3.0 ENRICHED — architecture/spec (3-layer enrichment)",
+    "version": "3.0_enriched",
+    "date": "2026-05-28",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "author": "Mark Litvak — CONCORD-500 v3.0 (dedication: посвящается Анне)",
+    "ready_for_research_use": true,
+    "ready_for_clinical_use": false,
+    "mark_validated": "pending review",
+    "scope_note": "This artifact records the v3.0 ENRICHED ARCHITECTURE/SPEC as described by Mark (layers, distributions, deployment, capabilities, honest boundaries). It is NOT the data itself.",
+    "data_files_not_in_repo": {
+      "master_bundle_v3.0_enriched.json": "~3.0 MB — full enriched bundle (1778 records: 350 diseases + 658 drugs + 450 symptoms + 320 labs). NOT pasted/materialized.",
+      "concord500_v3_enrichment.sql": "~1.8 MB — additive schema (5 enrichment tables + 2368 INSERTs). NOT pasted/materialized.",
+      "action": "When Mark provides the actual files, materialize under the governance gates below (and apply the Hamer reconciliation decision first)."
+    },
+    "governance_safety_annotation": {
+      "research_only": "[GOVERNANCE] ready_for_clinical_use=false. Enrichment is a navigation/approximation layer, NOT clinical guidance.",
+      "rule_derived_not_curated": "[Mark's own 'честные границы'] The METACOD enrichment layer is RULE-DERIVED by category/class/energetics, NOT hand-curated expert annotation. A structural approximation; priority cases need manual review.",
+      "graph_statistical_not_causal": "[Mark] Graph edges are STATISTICAL (symptom/lab overlap), NOT causal. Comorbidity/progression are separate curated fields, currently minimal (await validation).",
+      "clinical_fields_templated": "[Mark] Clinical fields are category-TEMPLATED; exact figures (epidemiology, specific PK) need sourcing.",
+      "not_operationalized": "No part of v3.0 is wired into the engine. The SQL capability examples (Revici balancing, DDI screen, similar-disease graph, Hamer-phase navigation) are illustrative, not deployed.",
+      "not_patient_facing": "All METACOD vocabulary (Hamer/Revici/Wu Xing/membrane/energy) engine-internal."
+    },
+    "CRITICAL_GOVERNANCE_FLAG": {
+      "hamer_conflict_theme_vs_kcts_v1_1": "[FLAG-FOR-MARK — CRITICAL, BLOCKS MATERIALIZATION] The v3.0 METACOD layer reintroduces a Hamer-phase enrichment WITH a 'тема конфликта' (conflict theme) field (conflict-active / PCL-A / PCL-B / hanging-healing). The 'conflict theme' is precisely the Hamer/GNM/AIRE PSYCHIC-CONFLICT CAUSALITY that the KCTS v1.1 decision (Mark, 2026-06) DISAVOWED as mechanism. This is a direct contradiction with the established governance line and must be reconciled by Mark BEFORE the v3.0 data is materialized. See reconciliation_options.",
+      "reconciliation_options": {
+        "A_phase_taxonomy_only": "Keep Hamer-phase as a PURE PHASE-TAXONOMY descriptor (CA/PCL-A/PCL-B/PCL-Final mapped onto the 5-phase axis) and DROP the 'conflict theme' causal field. Consistent with KCTS v1.1. [Default-safe — recommended unless Mark says otherwise.]",
+        "B_reinstate_conflict_causality": "v3.0 intends to RE-INSTATE Hamer psychic-conflict causality → this REVERSES the KCTS v1.1 EBM decision (major governance change; would need explicit Mark sign-off and re-opening kcts_integration v1.1).",
+        "C_quarantine": "Keep 'conflict theme' but quarantined as disclosed-origin-only metadata, flagged, never operationalized and never surfaced — same treatment as the disavowed KCTS origin."
+      }
+    },
+    "kcts_v1_1_alignment": "[KCTS v1.1] Hamer/AIRE psychic-conflict causality DISAVOWED as mechanism. The v3.0 'conflict theme' field is in tension with this — see CRITICAL_GOVERNANCE_FLAG."
+  },
+
+  "enrichment_layers": {
+    "layer_1_clinical": {
+      "diseases": ["prognosis", "staging system", "severity markers", "pathophysiology"],
+      "drugs": ["mechanism of action", "pharmacokinetics", "key adverse events", "onset class", "pregnancy note", "DDI flags (CYP, QT, serotonergic, nephrotoxic, bleeding)"],
+      "symptoms": ["urgency tier (1/2/3)", "alarm signs", "system detail"],
+      "labs": ["sample type", "turnaround time", "interpretation note"]
+    },
+    "layer_2_metacod": {
+      "_provenance": "[RF] rule-derived overlay (NOT curated)",
+      "hamer_phase": "conflict-active / PCL-A / PCL-B / hanging-healing + conflict theme  [conflict-theme FLAGGED vs KCTS v1.1]",
+      "revici_level": "catabolic / anabolic / dualistic + acid-base shift",
+      "wu_xing": "element (Fire/Earth/Metal/Water/Wood) + cycle role",
+      "membrane_dynamics": "current M-A/M-S/M-D state + probable transitions",
+      "energy_opposition": "which energy opposes the pattern (therapeutic vector)",
+      "drugs_extra": ["agent type (catabolic/anabolic)", "Hamer phase alignment", "membrane effect (stabilize/permeabilize)", "energy vector"]
+    },
+    "layer_3_graph": {
+      "_provenance": "[RF] STATISTICAL (overlap), NOT causal",
+      "diseases": ["shared-symptom edges", "shared-lab edges", "comorbidity", "progression"],
+      "drugs": ["treats-disease (reverse)", "same-class alternatives", "DDI classes"],
+      "symptoms": ["appears-in-diseases", "frequently-paired symptoms"],
+      "labs": ["ordered-in-diseases", "related labs"]
+    }
+  },
+
+  "distributions_qc": {
+    "disease_hamer_phase": {"PCL-healing": 220, "conflict-active": 77, "PCL-B/chronic": 30, "hanging": 15, "PCL-A": 8},
+    "disease_revici": {"dualistic": 259, "catabolic": 48, "anabolic": 43},
+    "wu_xing": {"Earth": 163, "Fire-Water axis": 63, "Water": 42, "Wood": 34, "Metal": 34, "Fire": 14},
+    "drug_revici": {"catabolic": 351, "balanced": 232, "anabolic": 75},
+    "ddi_flagged_drugs": "243/658",
+    "graph_edges": {"symptom_to_disease": 363, "lab_to_disease": 275, "drug_to_disease": 427}
+  },
+
+  "record_counts": {"diseases": 350, "drugs": 658, "symptoms": 450, "labs": 320, "total": 1778},
+
+  "engine_capabilities_illustrative": {
+    "_note": "[RF — illustrative SQL, NOT deployed]",
+    "revici_balancing": "catabolic disease → anabolic-agent drug (opposite metabolic vector)",
+    "ddi_screen": "find all QT-prolonging drugs in a patient regimen (ddi_flags ? 'QT_prolongation')",
+    "similar_disease_graph": "disease_graph_edge for differential navigation",
+    "hamer_phase_navigation": "diseases in a given phase [phase-taxonomy use; conflict-theme FLAGGED]"
+  },
+
+  "honest_boundaries_verbatim": [
+    "METACOD-слой выведен правилами по категории/классу/энергетике, не ручной экспертной разметкой — структурная аппроксимация для навигации; приоритетные случаи проверяются вручную.",
+    "Граф-связи статистические (по перекрытию симптомов/лаб), не причинно-следственные. Коморбидность и прогрессия — отдельные курируемые поля, пока минимальны.",
+    "Клинические поля шаблонные по категории — точные цифры требуют дозаполнения из источников.",
+    "Всё обогащение помечено version=3.0_enriched и флагами происхождения — выведенное легко отделимо от курируемого."
+  ]
+}
