@@ -65,20 +65,30 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 - **Two-language (Variant B)**: internal energy/Park/Hamer terms for Mark-Claude
   reasoning; **outputs stay pure EBM**. When Mark says "Yin-Fire"/"M-A2" in chat,
   that's internal language, not a request to emit energy terms in outputs.
-- **KCTS** = 4th element, a **modifier** (not an axis): `kcts_integration_v1_0.json`.
-  Hamer-derived research HYPOTHESIS. Governance: standard-care primacy (must
-  never delay/replace evidence-based, time-critical care), not operationalized,
-  not patient-facing, Hamer/GNM pseudoscience provenance disclosed, EBM
-  "translation" is rebrand not validated equivalence.
+- **KCTS** = a **modifier** (not an axis): `kcts_integration_v1_0.json`, now **v1.1
+  EBM-REFORMULATED** (Mark decision 2026-06). Operative model is now **pure EBM**:
+  persistent fluid-retention + chronic-stress physiology (HPA/cortisol/HRV) +
+  low-grade inflammation (hsCRP) + psychosocial burden (isolation/carer-burden/
+  treatment-refractory disease). **Hamer/GNM lineage, "AIRE" psychic-conflict
+  causality, literal "collecting-tubule/endoderm/SBS" anatomy, and "Layer 0 =
+  AIRE-resolution-FIRST" are DISAVOWED as mechanism** — retained only as disclosed
+  origin in `provenance_and_risk_note`. Psychosocial/fluid-retention support runs
+  **alongside, never before/instead of**, evidence-based disease treatment. The
+  v1.1 doc **governs/supersedes** all per-batch KCTS mentions. Still research-only,
+  not operationalized, not patient-facing.
 
 ### Open canonical questions awaiting Mark (do NOT decide these unilaterally)
 - **Q1** — 6 Ki → 5 energy mapping (atlases/registries use 6 Ki; bridge uses 5).
   Not equated anywhere; cross-guards keep them separate.
 - **Q2** — `treatment_sequence` order in the TCM bridge (still baseline).
 - **Logic-review flags** carried in drug batches 15/17/18 `_meta.class_notes`.
-- **KCTS/AIRE direction** — recurring across batches; needs one systemic decision
-  (keep research-only / strengthen disclaimers / reframe to pure-EBM fluid-
-  retention without Hamer causality).
+- **KCTS/AIRE direction — RESOLVED (2026-06):** Mark chose **reframe to pure EBM**.
+  Done centrally in `kcts_integration_v1_0.json` v1.1 (governs all batches) + this
+  §2 bullet + batch 27 authored in EBM style. **Remaining cleanup (tracked):** the
+  legacy Hamer/AIRE wording still sits inline in batches 15/18/19/22/23/24/25 and
+  conceptual files (constitutional_model, symptom_registry, three_axis_framework);
+  it is already subordinated to v1.1 (which supersedes), but a text sweep to align
+  wording is the next reformulation chore.
 
 ---
 
@@ -88,7 +98,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 > (~201 drugs, batches 01–11, 26 output files). **This repo differs.** Below is
 > the actual git content.
 
-### Drug batches present (20 files, **212 drugs**)
+### Drug batches present (21 files, **220 drugs**)
 | batch_id | n | notes |
 |---|---|---|
 | 01-GLP1 | 6 | DRG-001..006; DRG-001 semaglutide PARTIAL (OBS-Mark-001 wax-wane) + RF literature scan |
@@ -110,7 +120,8 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 | 23-Pediatric | 7 | DRG-329..335; framework-heavy; source claimed 8, 7 enumerable (no DRG-336 block); ACEs↔AIRE overlap flagged speculative |
 | 24-Renal | 7 | DRG-336..342; phosphate binders/ESA/active-VitD+calcimimetic/finerenone/tolvaptan; source claimed 8, 7 enumerable; STRONGEST KCTS push ("CKD=textbook KCTS / AIRE-screening should be standard") — hard-walled, standard-care primacy |
 | 25-Rare-Diseases | 9 | DRG-343..351; CFTR-modulators/HAE/lysosomal-ERT-SRT/PAH/SMA/gene-therapy/DMD; source claimed 10, 9 enumerable; framework Qs (post-cure state, gene-therapy=constitutional, KCTS-rare-disease model) flagged [RF] for Mark |
-| 26-Nutraceuticals (FINAL) | 18 | DRG-352..369; alkalinization 3:2:1 / ADT-stack / Zuo formula / Mariana n=1 / adaptogens / microbiome; source claimed 17, 18 enumerable (reverse under-count); HEAVIEST Mark-canonical — 11 source-"CONFIRMED/PARTIAL" deliberately mapped to validation_state=partial (NOT full; sign-off pending); [RCT] added as valid majority-anchor; alkalinization+ADT governance-noted |
+| 26-Nutraceuticals | 18 | DRG-352..369; alkalinization 3:2:1 / ADT-stack / Zuo formula / Mariana n=1 / adaptogens / microbiome; source claimed 17, 18 enumerable (reverse under-count); HEAVIEST Mark-canonical — 11 source-"CONFIRMED/PARTIAL" deliberately mapped to validation_state=partial (NOT full; sign-off pending); [RCT] added as valid majority-anchor; alkalinization+ADT governance-noted |
+| 27-Hematology | 8 | DRG-372..379 (source skipped 370-371); iron oral/IV, hydroxyurea, TPO-agonists, givosiran siRNA, eculizumab/complement; authored AFTER KCTS v1.1 reframe — sickle-cell = EBM psychosocial burden, NOT "AIRE accumulation" |
 
 ### Conceptual / registry artifacts present
 - `constitutional_model_v0_1.json` (Parts A–E conceptual) + `v0_2.json` (5-energy
@@ -122,7 +133,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 - 9 nosology registries: metabolic_cv_renal, respiratory, nephro_urinal,
   hepatobiliary, cardiology, spleen_pancreas, gallbladder, small_intestine,
   gastroduodenal
-- Loaders in `python/services/`, tests in `python/tests/unit/`. **549 tests, 0 skipped.**
+- Loaders in `python/services/`, tests in `python/tests/unit/`. **558 tests, 0 skipped.**
 
 ### NOT supplied to this repo (exist only in Mark's project outputs / never pasted here)
 - **Drug batches: 06 (cardio ~63), 08 (endocrine), 09 (pulmo), 10 (rheum),

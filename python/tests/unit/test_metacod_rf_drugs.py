@@ -289,6 +289,16 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-368": "Curcumin (turmeric extract)",
         "DRG-369": "Melatonin (expanded context)",
     },
+    "27-Hematology": {
+        "DRG-372": "Oral iron (ferrous sulfate / gluconate / fumarate)",
+        "DRG-373": "IV iron (ferric carboxymaltose / iron sucrose / ferumoxytol / ferric derisomaltose)",
+        "DRG-374": "Hydroxyurea (hydroxycarbamide)",
+        "DRG-375": "Eltrombopag / Romiplostim",
+        "DRG-376": "Pentoxifylline",
+        "DRG-377": "Heme arginate / Hemin",
+        "DRG-378": "Givosiran",
+        "DRG-379": "Eculizumab / Ravulizumab",
+    },
 }
 
 

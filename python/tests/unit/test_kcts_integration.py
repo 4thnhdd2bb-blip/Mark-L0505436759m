@@ -27,9 +27,12 @@ def doc(data_dir):
 # Structure
 # ---------------------------------------------------------------------------
 
-def test_loads_v1_0(doc):
-    assert doc.version == "1.0"
+def test_loads_v1_1(doc):
+    # v1.1 = EBM-reformulated (Mark decision 2026-06): Hamer/AIRE causality
+    # disavowed as mechanism, retained only as disclosed origin.
+    assert doc.version == "1.1"
     assert doc.meta["schema"] == "metacod_rf_kcts_integration"
+    assert doc.meta.get("reformulation_note_v1_1"), "v1.1 must record the EBM reformulation"
 
 
 def test_kcts_is_modifier_not_fourth_axis(doc):
