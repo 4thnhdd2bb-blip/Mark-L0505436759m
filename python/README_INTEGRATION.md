@@ -50,6 +50,7 @@ python/
 │   ├── constitutional_model_v0_2.json     # METACOD-RF constitutional model: 5-energy biomarker quality panels (research, hypotheses)
 │   ├── predictive_matrix_01_semaglutide.json # METACOD-RF predictive matrix #1: semaglutide × 8 constitutional triads (hypotheses)
 │   ├── three_axis_framework_v1_0.json     # METACOD-RF three-axis diagnostic framework (Constitution × Membrane × Phase; research)
+│   ├── kcts_integration_v1_0.json         # METACOD-RF KCTS modifier (Hamer-derived research HYPOTHESIS; research-only, not operationalized, governance-flagged: must not delay evidence-based care)
 │   ├── topographic_atlas_v6_0.json        # METACOD-RF topographic atlas: 10 systems / 14 organs / 140 tissue-reactivity patterns (6-Ki, research)
 │   ├── symptom_registry_v3_0.json         # METACOD-RF symptom registry: 35 detailed of 172 (histogenetic layer × 6-Ki × phase × membrane drift)
 │   ├── nosology_registry_metabolic_cv_renal_v3_11.json # METACOD-RF nosology registry: diabetic + cardiovascular + nephro contours (21 patterns)
@@ -65,7 +66,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (423 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (432 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -156,7 +157,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 423 tests
+pytest                 # all 432 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)

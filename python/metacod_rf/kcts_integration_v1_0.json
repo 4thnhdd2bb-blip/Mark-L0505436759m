@@ -1,0 +1,210 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_kcts_integration",
+    "document_id": "METACOD_RF_KCTS_Integration",
+    "title": "KCTS Integration Document",
+    "version": "1.0",
+    "date": "2026-06",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "purpose": "Интеграция концепции KCTS (Kidney Collecting Tubule Syndrome) в Three-Axis Diagnostic Framework v1.0 как СИСТЕМНОГО MODIFIER (не четвёртой оси).",
+    "author": "Mark Litvak (formalization with AI-assistance)",
+    "based_on": [
+      "Module 05 Hamer (Mark canonical, earlier work)",
+      "Genesis v2.1 (Mark canonical)",
+      "Three-Axis Framework v1.0",
+      "Translation Layer v1.0 (dual notation)",
+      "Mariana case (Mark first-hand)"
+    ],
+    "ready_for_research_use": true,
+    "ready_for_clinical_use": false,
+    "mark_validated": "pending review",
+    "provenance_and_risk_note": {
+      "derivation": "KCTS / AIRE conflict taxonomy is HAMER-DERIVED (Germanic New Medicine lineage). Хотя Mark здесь добавляет EBM-translation и страйпит часть формулировок, этот документ — в отличие от прежних — ВНОВЬ ВВОДИТ психогенный «conflict» слой (AIRE) как clinical detection и как treatment-prioritization (Layer 0).",
+      "external_status": "Germanic New Medicine / Hamer doctrine is a recognized pseudoscience with documented patient-harm history (attribution of organic disease — incl. cancer/infection — to unresolved psychic conflict, with deprioritization of evidence-based treatment). Это записано здесь как research hypothesis, НЕ как established mechanism.",
+      "not_equated": "EBM-перевод (PWRS-HB и т.п.) — это REBRANDING, а не доказанная эквивалентность какому-либо валидированному нефрологическому/эндокринному синдрому. Не равнять KCTS с SIADH, гиперальдостеронизмом или реальной патологией почечных канальцев."
+    },
+    "metacod_rf_governance_safety_annotation": {
+      "_authored_by": "METACOD-RF governance layer (not part of Mark's source text) — same role as ready_for_clinical_use / canon_discrepancy flags on every RF artifact.",
+      "standard_care_primacy": "КРИТИЧНО: ничто в этом документе не должно использоваться для того, чтобы откладывать, заменять или деприоритизировать доказательную терапию. Для Mariana-class пациента (bronchiectasis + NTM + Aspergillus + кровохарканье) антимикробная/пульмонологическая помощь — first-line и time-critical; «Layer 0 / AIRE resolution» НЕ является prerequisite для её начала и не может её откладывать.",
+      "not_operationalized": "Этот artifact НЕ интегрирован в движок: KCTS-modifier и KCTS drug-warnings НЕ инжектируются в drug-batches, НЕ меняют rule_pack, НЕ меняют three_axis_framework operational logic. Stored as documentation only.",
+      "not_patient_facing": "KCTS / AIRE терминология и conflict-attribution НЕ выводятся пациенту ни в каком виде (Patient-Facing Filter domain).",
+      "causal_claim_status": "Утверждение «без resolution AIRE стандартная терапия даёт лишь временный эффект» — UNVALIDATED single-clinician hypothesis. Не доказательное, не для клинического применения.",
+      "legitimate_pharmacology_separable": "Часть Part 5 — реальная фармакология (NSAID → fluid retention; хронические стероиды → отёк; SSRI → SIADH/гипонатриемия; GLP-1 → дегидратация). Эти факты валидны независимо от KCTS-рамки; KCTS-обрамление — гипотеза."
+    },
+    "critical_constants": {
+      "kcts_is_modifier_not_axis": true,
+      "modifier_states": ["present", "absent", "subclinical"],
+      "referenced_membrane_codes": ["M-S"],
+      "phase_crosswalk_note": "Документ нумерует фазы Phase 1-5 со своими именами; они СООТНОСЯТСЯ (не доказательно тождественны) с каноническими 5 фазами METACOD."
+    },
+    "phase_crosswalk": [
+      {"kcts_phase": "Phase 1 (Acute Sympathicotonia)", "canonical_phase": "CA"},
+      {"kcts_phase": "Phase 2 (Exudative-Inflammatory)", "canonical_phase": "PCL-A"},
+      {"kcts_phase": "Phase 3 (Autonomic Paroxysm)", "canonical_phase": "Epicrisis"},
+      {"kcts_phase": "Phase 4 (Fibroproliferative Remodeling)", "canonical_phase": "PCL-B"},
+      {"kcts_phase": "Phase 5 (Homeostasis)", "canonical_phase": "Normotonia"}
+    ]
+  },
+  "part_1_concept": {
+    "definition": "KCTS = Kidney Collecting Tubule Syndrome — persistent water-retention syndrome при активации kidney collecting tubule system (endoderm level); когда активен — системный modifier, amplifies патологические aspects всех других активных процессов.",
+    "ebm_translation": "Persistent Water Retention Syndrome with Healing Block (PWRS-HB) — [RF rebranding, not validated equivalence]",
+    "biophysical_hypothesis": [
+      "[RF] Sustained activation of renal medullary collecting ducts",
+      "[RF] Persistent ADH-like signal без physiological need",
+      "[RF] Systemic capillary permeability increase",
+      "[RF] Healing-resolution mechanisms blocked across multiple parallel processes",
+      "[RF] Chronic disease amplification"
+    ],
+    "key_insight": "KCTS — не отдельная болезнь, а состояние, накладывающееся на другие болезни и не дающее им разрешиться.",
+    "four_simultaneous_effects": {
+      "1_water_retention": "Отёки, асцит, прибавка веса без переедания, иногда субклинически.",
+      "2_inflammation_amplification": "Heat + Damp компоненты recovery phases amplified; на Phase 2 (PCL-A) особенно — normal inflammation становится excessive.",
+      "3_healing_block": "Другие активные процессы не могут завершить recovery phase; patient stuck в hanging recovery.",
+      "4_chronic_disease_genesis": "[RF — наиболее спорное] Длительные хронические патологии возможны «именно потому что KCTS активен»; объясняет почему стандартные лечения «не работают». UNVALIDATED causal claim."
+    }
+  },
+  "part_1_3_dual_language": {
+    "internal_hamer_derived": {
+      "KCTS": "Kidney Collecting Tubule Syndrome",
+      "AIRE_triggers": "Abandonment / Isolation / Refugee / Existence conflicts",
+      "hanging_healing": "recovery blocked",
+      "SBS": "Significant Biological Significance events (active processes)"
+    },
+    "external_ebm": {
+      "KCTS": "Persistent Water Retention Syndrome with Healing Block (PWRS-HB)",
+      "AIRE_triggers": "Chronic existential stress markers (specific clinical pattern)",
+      "hanging_healing": "Unresolved recovery phase / chronic inflammatory state",
+      "SBS": "Active disease processes / inflammatory cascade events"
+    },
+    "translation_layer_rule": "Variant B: internal language — Mark-Claude conversation; EBM language — external/regulatory documents. NB: перевод не делает гипотезу доказанной."
+  },
+  "part_2_detection": {
+    "caveat": "[RF] AIRE-детекция — Hamer-derived, unvalidated; НЕ использовать для атрибуции органической болезни психологическому конфликту и НЕ для деприоритизации стандартной помощи.",
+    "primary_aire_markers": [
+      {"marker": "Attended clinic alone", "ebm": "chronic social isolation marker"},
+      {"marker": "Хроническая болезнь >5 лет без resolution / treatment-refractory", "ebm": "treatment-refractory chronic disease pattern"},
+      {"marker": "Изоляция в крупных жизненных событиях (diagnosis/surgery/loss)", "ebm": "lack of social support in major life events"},
+      {"marker": "Single carrier responsibility (business/family carrier без partner support)", "ebm": "chronic carer burden / sole-responsibility lifestyle pattern"}
+    ],
+    "supporting_markers": [
+      "Frequent travel / no fixed home (refugee-feel)",
+      "Financial precariousness (existence fear)",
+      "Recently bereaved + не разделил горе",
+      "Recurrent infections в нескольких системах одновременно",
+      "Multiple parallel chronic conditions",
+      "Pet loss / job loss / move from familiar territory (1-3 года)"
+    ],
+    "biomarker_constellation": [
+      {"marker": "Albumin", "pattern": "normal-low (mild edema без severe hypoalbuminemia)"},
+      {"marker": "ECW/TBW BIA", "pattern": ">0.40 — fluid retention"},
+      {"marker": "Phase angle BIA", "pattern": "variable by duration"},
+      {"marker": "Weight", "pattern": "gradually increasing без overt overeating"},
+      {"marker": "ADH", "pattern": "may be mildly elevated if measured"},
+      {"marker": "eGFR", "pattern": "often preserved (functional disregulation, not renal failure)"},
+      {"marker": "hsCRP", "pattern": "often mildly elevated (chronic low-grade inflammation)"},
+      {"marker": "Cortisol diurnal", "pattern": "often blunted (chronic stress)"},
+      {"marker": "HRV", "pattern": "reduced (autonomic imbalance)"}
+    ],
+    "diagnosis_note": "Нет single test. Pattern recognition + biomarker constellation + AIRE detection. [RF] — не диагностический алгоритм."
+  },
+  "part_3_kcts_x_phase": {
+    "principle": "KCTS — modifier, накладывается на whatever phase. См. phase_crosswalk в _meta.",
+    "phase_1_CA": "Sympathetic activation дольше нормы; chronic cortisol elevation; 'stuck Phase 1'.",
+    "phase_2_PCL_A_MOST_PRONOUNCED": "Наиболее важно: edema выраженнее, inflammation amplified, fever выше/дольше, pain интенсивнее, recovery extended, часто картина 'decompensation' в стационаре. EBM: decompensated inflammatory response in chronic dysregulated state.",
+    "phase_3_Epicrisis": "Amplifies risk катастрофических событий: гипертонический криз, flash pulmonary edema, cardiac events.",
+    "phase_4_PCL_B": "Блокирует нормальное завершение: fibrosis incomplete/excessive, scar dysregulated, M-S frozen patterns в multiple tissues.",
+    "phase_5_Normotonia": "Cannot reach пока KCTS активен — пациент в subclinical Phase 2/4 dysregulation.",
+    "critical_observation": "Без resolution KCTS пациент циклирует partial Phase 1/2/4, не достигает stable Phase 5; multiple parallel processes stuck; standard treatments дают temporary relief."
+  },
+  "part_4_kcts_x_membrane": {
+    "kcts_drives_systemic_M_S": "Long-term active KCTS = драйвер системного M-S: за годы тело развивает M-S в множественных тканях (ни одна recovery phase не закрывается).",
+    "example": "Bronchiectasis (lung M-S) + myomas (uterine M-S) + osteoarthritis (joint M-S) + atherosclerosis (vascular M-S) = системный M-S под KCTS-locked.",
+    "therapy_implication_hierarchy": [
+      "1. Identify AIRE trigger",
+      "2. Address underlying stress pattern (psychological/social/lifestyle)",
+      "3. Support kidney/water regulation медикаментозно если необходимо",
+      "4. Symptomatic treatment of underlying diseases"
+    ],
+    "metacod_rf_caveat": "[GOVERNANCE] Эта иерархия — research hypothesis. Не должна откладывать time-critical доказательную терапию (антимикробную, онкологическую и т.п.). См. metacod_rf_governance_safety_annotation."
+  },
+  "part_5_drug_implications": {
+    "framing_note": "[RF] KCTS-обрамление — гипотеза; перечисленные фарм-факты валидны независимо.",
+    "may_worsen_kcts": [
+      "[CLASS] Препараты с водозадерживающим эффектом",
+      "[LBL] Chronic NSAIDs — fluid/sodium retention",
+      "[LBL] Chronic steroids — Cushing-pattern + massive edema",
+      "[LBL] Some CCBs (amlodipine) — peripheral edema"
+    ],
+    "may_help": [
+      "[GL] Diuretics короткими курсами (не chronic — electrolyte imbalance risk)",
+      "[GL] ACE-i / ARB — RAAS modulation (особенно при гипертензии)",
+      "[GL] Spironolactone — при aldosterone dysregulation",
+      "[RF] SGLT2 — diuretic + cooling — в KCTS с metabolic syndrome"
+    ],
+    "do_not_help_alone": [
+      "[RF] Symptomatic treatment без addressing AIRE — временный эффект (UNVALIDATED claim)",
+      "[RF] Antibiotics для recurrent infections без KCTS context — endless cycles (UNVALIDATED claim; НЕ повод отменять показанную антимикробную терапию)",
+      "[RF] Standard immune suppression в KCTS-active autoimmune — partial response"
+    ],
+    "drug_class_warnings": {
+      "glp1_in_kcts": ["[RF] dehydration paradox поверх retention pattern", "[RF] membrane↔energy drug-induced dissociation", "[GL] careful clinical monitoring"],
+      "antidepressants": ["[LBL] SSRI long-term + KCTS = повышенный hyponatremia/SIADH risk", "[RF] Mirtazapine = compound water/fat retention"],
+      "antipsychotics": ["[LBL] Olanzapine/quetiapine + KCTS = compound metabolic syndrome risk"]
+    }
+  },
+  "part_6_mariana_case": {
+    "patient": "Mariana, 45 — chronic bronchiectasis + NTM + Aspergillus + episodic hemoptysis, 10 лет; left-sided pulmonary; business single-carrier; первый визит — пришла одна.",
+    "detection_markers_present": ["Attended clinic alone", "Chronic disease >5y (10y)", "Business single-carrier", "Left-sided (per lateralization rule)", "Multiple parallel chronic conditions"],
+    "hypothesis": "AIRE-active; specific type требует structured interview verification.",
+    "treatment_integration_as_documented": [
+      "Layer 1 (per source): resolve KCTS/AIRE trigger",
+      "Layer 2: membrane state (M-A2 systemic + S-flag local)",
+      "Layer 3: antimicrobial / anti-inflammatory",
+      "Layer 4: supplements (NAC 1200, serratiopeptidase, ectoin)"
+    ],
+    "reported_result": "Bleeding stopped, мембрана восстановлена (Mark first-hand report; не controlled outcome).",
+    "metacod_rf_caveat": "[GOVERNANCE] В этом кейсе антимикробная терапия (NTM/Aspergillus) — first-line обязательна и не может откладываться 'AIRE resolution'. Причинная атрибуция улучшения KCTS-resolution — UNVALIDATED; результат — single anecdotal report, не доказательство механизма."
+  },
+  "part_7_integration": {
+    "kcts_as_modifier": "Не четвёртая ось — modifier поверх Constitution/Membrane/Phase: present/absent/subclinical; if present amplifies dysregulation всех трёх осей.",
+    "treatment_hierarchy_revised_as_documented": {
+      "layer_0_NEW": "KCTS/AIRE resolution (psychological/social/lifestyle ± pharmacotherapy adjunct)",
+      "layer_1": "Base alkalinization (universal)",
+      "layer_2": "Membrane-specific therapy → M-0",
+      "layer_3": "Phase-appropriate intervention"
+    },
+    "metacod_rf_caveat": "[GOVERNANCE] 'Layer 0 first' — гипотеза источника; НЕ применять как правило, откладывающее доказательную помощь. Не операционализировано в движке."
+  },
+  "part_8_open_questions_validation": {
+    "open_questions": [
+      "Можно ли 4 AIRE-markers квантифицировать в score?",
+      "Какой biomarker panel наиболее specific для KCTS?",
+      "Какие AIRE-resolution interventions работают clinically?",
+      "Inter-rater reliability KCTS assessment?",
+      "Возможен ли subclinical/partial KCTS?",
+      "Как объективно подтвердить KCTS reversal?"
+    ],
+    "validation_path": ["Retrospective case documentation", "Pattern emergence", "Inter-rater reliability", "Prospective standardized recording", "Formal validation studies"],
+    "limitations_v1_0": [
+      "Subjective AIRE detection",
+      "No validated screening tool",
+      "AIRE categorization из Hamer canon — must verify clinical validity independently",
+      "Single-clinician canon (Mark)",
+      "KCTS-aware approach не сравнён с standard care в RCT"
+    ],
+    "not_a_replacement_for": [
+      "Standard nephrology for actual kidney disease",
+      "Standard endocrinology for actual SIADH / aldosteronism",
+      "Standard psychiatric care for actual depression/anxiety",
+      "Standard infectious-disease / oncology care for actual infection / cancer",
+      "IRB-approved research protocols for human subjects"
+    ]
+  },
+  "quick_reference": {
+    "what_it_is": "Systemic modifier state (not a separate disease, not a fourth axis); [RF/Hamer-derived hypothesis]. EBM rebrand: PWRS-HB.",
+    "when_to_suspect": ["Attended clinic alone", "Chronic disease >5y без resolution", "Treatment-refractory", "Single-carrier responsibility", "Multiple parallel chronic conditions", "Isolation в major life events"],
+    "clinical_effect_hypothesized": ["Worsens Phase 2 (PCL-A) inflammation", "Amplifies all phase pathology", "Blocks recovery completion", "Drives systemic M-S over years"],
+    "treatment_implication_as_documented": "Source proposes AIRE resolution as Layer 0. GOVERNANCE: must NOT delay/replace evidence-based care.",
+    "drug_warnings": ["Chronic NSAID worsens retention", "Chronic steroids → edema", "GLP-1 → dissociation risk", "SSRI long-term → hyponatremia/SIADH risk"]
+  }
+}
