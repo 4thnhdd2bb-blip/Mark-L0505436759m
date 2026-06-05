@@ -1,0 +1,230 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_algorithms",
+    "document_id": "METACOD_RF_Diagnostic_Algorithms",
+    "title": "Diagnostic Algorithms — consolidated patient-analysis decision flows",
+    "version": "1.0",
+    "date": "2026-06",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "purpose": "Один документ со ВСЕМИ диагностическими алгоритмами анализа пациента: пошаговые decision-flows, которые связывают существующие слои (Park six-energy routing, конституция, мембрана, фаза, KCTS, biomarker-quality, нозология, синтез трёх осей, drug-scoring, мониторинг). Это структурированная запись логики рассуждения, НЕ развёрнутый/валидированный клинический алгоритм.",
+    "author": "Consolidated from Mark-canonical artifacts with AI-assistance",
+    "ready_for_research_use": true,
+    "ready_for_clinical_use": false,
+    "mark_validated": "pending review",
+    "source_layers": {
+      "ALG-0/ALG-1": "unified_energy_catalog_v1_0.json (Park Tab 2 routing + 6 energy cards)",
+      "ALG-2": "three_axis_framework_v1_0.json (constitutional axis) + constitutional_model_v0_1/v0_2",
+      "ALG-3": "three_axis_framework (membrane levels) + master_integration_v1_1 (corrected canon)",
+      "ALG-4": "three_axis_framework (phase signatures)",
+      "ALG-5": "kcts_integration v1.1 (EBM)",
+      "ALG-6": "constitutional_model_v0_2.json (5-energy biomarker quality panels)",
+      "ALG-7": "unified_energy_catalog clinical_systems + nosology_registry_*.json + topographic_atlas_v6_0",
+      "ALG-8/ALG-9/ALG-10": "master_integration_v1_1.json (Layers 4–6, drug-selection scoring, monitoring quadrant)"
+    },
+    "governance_safety_annotation": {
+      "not_operationalized": "[GOVERNANCE — CRITICAL] These are DOCUMENTED reasoning flows, NOT code wired into the engine and NOT validated diagnostic criteria. No step auto-drives diagnosis or prescribing. Standard ICD diagnosis + EBM care are primary, parallel, and never delayed by any algorithm here.",
+      "rf_overlay": "Energy/membrane/phase/KCTS classifications are [RF] constructs (Park/Revici-derived), not externally validated. Inputs like the 'urine-pH / K / WBC / phase-angle 3-confirmatory rule' are RF heuristics, not validated diagnostic tests.",
+      "membrane_direction_harm_warning": "Membrane treatment directions are OPPOSITE (M-A→catabolic vs M-D→anabolic). Misclassification reverses therapy → harm. This is exactly why ALG-3 stays research-only and must never auto-prescribe. See unresolved_discrepancies.urine_pH_membrane_direction.",
+      "not_patient_facing": "All energy/membrane/phase/KCTS/temperament vocabulary is engine-internal (Variant B).",
+      "no_hamer_aire_causality": "KCTS = EBM v1.1; no Hamer/AIRE psychic-conflict causality (ALG-5)."
+    },
+    "unresolved_discrepancies": {
+      "urine_pH_membrane_direction": {
+        "_flag": "[FLAG-FOR-MARK — SAFETY-RELEVANT] Two repo artifacts give OPPOSITE urine-pH ↔ membrane-direction mappings. ALG-3 cannot be finalized until Mark resolves this.",
+        "source_A_three_axis_framework": "M-A (anabolic) = ALKALINE urine (M-A1 pH >6.4, M-A2 6.5–7.0, M-A3 >7.0; 'internal zone'); M-D1 (catabolic) = ACIDIC urine (pH <6.2). Carries a Mark-canonical 'internal zone vs external/skin zone OPPOSITE' note.",
+        "source_B_master_integration_v1_1": "M-A (anabolic) = ACIDIC morning urine (pH AM <5.5); M-D (catabolic) = ALKALINE evening urine (pH PM >6.5).",
+        "possible_reconciliation": "May be a time-of-day / zone artifact (4-point urine-pH curve; 'internal' vs 'skin/external' zone) rather than a true contradiction — but as written the directions conflict. NOT resolved here; NOT guessed.",
+        "interim_rule": "ALG-3 treats urine-pH as INDETERMINATE for membrane direction until Mark confirms which convention (and which time-point/zone) is canonical. Use the other confirmatory markers (serum K, phase angle, cholesterol, MDA/GPX4) and require ≥3 concordant NON-pH markers in the meantime."
+      }
+    }
+  },
+
+  "pipeline_overview": {
+    "_note": "[RF] Порядок применения алгоритмов. Каждый шаг — отдельный алгоритм ниже. Maps onto master_integration 6-layer architecture.",
+    "order": [
+      "ALG-0 Yin/Yang primary routing  → polarity",
+      "ALG-1 Energy determination       → 1–2 dominant energies (within polarity)",
+      "ALG-2 Constitutional triad       → T1–T8 + Yin/Yang baseline (slow axis)",
+      "ALG-3 Membrane classification    → M-0..M-S..M-D (medium axis) [pH FLAGGED]",
+      "ALG-4 Phase determination        → CA/PCL-A/Epicrisis/PCL-B/Normotonia (fast axis)",
+      "ALG-5 KCTS screen (EBM)          → Active / Subclinical / Absent",
+      "ALG-6 Energy quality assessment  → per-energy biomarker quality (optimal/excess/deficient)",
+      "ALG-7 System localization        → affected system → nosology contour",
+      "ALG-8 Three-axis synthesis       → integrated profile + treatment DIRECTION",
+      "ALG-9 Drug-selection scoring     → ranked candidates (RF, not operationalized)",
+      "ALG-10 Monitoring & iteration    → symptom×biomarker quadrant logic"
+    ]
+  },
+
+  "algorithms": [
+    {
+      "id": "ALG-0", "name": "Yin/Yang primary routing", "layer": "L1–L2",
+      "purpose": "ПЕРВЫЙ ШАГ любой диагностики (Park Tab 2). Классифицировать пациента A (Yang) vs УМ (Yin) ДО определения конкретной энергии.",
+      "inputs": ["возраст", "характер/психика", "форма болезни (острая↔хроническая)", "язык", "пульс", "сон", "глаза/голос/кожа", "тонус мышц", "дыхание/стул/мочеиспускание", "температура/пот", "менструации", "жажда", "характер и локализация боли/симптомов", "хуже/лучше (тепло↔холод, день↔ночь)"],
+      "steps": [
+        "1. Собрать 22 дискриминатора (unified_energy_catalog.yin_yang_routing.discriminators).",
+        "2. Подсчитать перевес Yang vs Yin признаков.",
+        "3. Преобладание Yang (острое, красный язык, частый пульс, жар, понос, светлая обильная менструация, боль резкая/мигрирующая, хуже от тепла/днём) → A-полярность.",
+        "4. Преобладание Yin (хроническое, бледный язык, редкий пульс, субфебрилитет, запор, тёмная/аменорея, боль тупая/фиксированная, хуже от холода/ночью) → УМ-полярность.",
+        "5. Смешанный/неопределённый паттерн → отметить как mixed, перейти к ALG-1 с осторожностью."
+      ],
+      "output": "Полярность: Yang (энергии Тепло/Жар/Ветер) | Yin (Влажность/Сухость/Холод) | Mixed",
+      "governance": "[RF] phenomenological routing; не диагноз."
+    },
+    {
+      "id": "ALG-1", "name": "Energy determination (6 energies)", "layer": "L2",
+      "purpose": "Внутри полярности определить 1–2 доминирующие энергии из шести (Ветер/Тепло/Жар/Влажность/Сухость/Холод).",
+      "inputs": ["core symptoms", "universal symptom map", "характер боли", "эмоции/ментальный паттерн", "темперамент", "метео-триггер", "тайминг (сезон/сутки/возраст)", "окна (внешние индикаторы)"],
+      "steps": [
+        "1. Сузить кандидатов по полярности из ALG-0 (Yang→{Тепло,Жар,Ветер}; Yin→{Влажность,Сухость,Холод}).",
+        "2. Сопоставить симптомы с energy cards (core_symptoms + universal_symptom_map).",
+        "3. Подтвердить характером боли (pain_differential): тупая=Влажность, резкая=Сухость, скручивающая/стреляющая=Ветер, жжение/распирание=Жар, тепло в коже=Тепло, нестерпимая/костная=Холод.",
+        "4. Перекрёстно проверить: темперамент, эмоции, метео-триггер, тайминг, окна.",
+        "5. Выбрать доминирующую энергию; при 8–12 совпадающих признаках = confident; расходящиеся = mixed; противоречивые = заподозрить KCTS (→ALG-5).",
+        "6. Печень = Ветер (canonical); вторичные mappings (Fire/Dry) только в спец. контексте."
+      ],
+      "output": "1–2 dominant energies + confidence (confident/mixed/KCTS-suspect)",
+      "governance": "[RF]; energy = symptom-pattern descriptor, не нозология."
+    },
+    {
+      "id": "ALG-2", "name": "Constitutional triad determination", "layer": "L4",
+      "purpose": "Определить медленно-меняющуюся конституцию (триада T1–T8 + Yin/Yang baseline + тепловая асимметрия).",
+      "inputs": ["body/face/head/hand morphology", "baseline temperament", "lifelong thermal preference (Yin/Yang dominance)", "stable energy-pair pattern"],
+      "steps": [
+        "1. Оценить Yin/Yang dominance конституции (baseline_thermal_asymmetry).",
+        "2. Определить устойчивую энергетическую триаду T1–T8 (three_axis_framework constitutional.triads).",
+        "3. Отделить конституцию (slow, годы) от текущего phase/energy (fast) — НЕ путать.",
+        "4. Open problem: формальный алгоритм triad-присвоения пока не закрыт (constitutional_model Part A)."
+      ],
+      "output": "Constitutional triad (T1–T8) + Yin/Yang baseline",
+      "governance": "[RF]; conceptual framework agreed, algorithm pending (open problem)."
+    },
+    {
+      "id": "ALG-3", "name": "Membrane classification", "layer": "L3–L4",
+      "purpose": "Классифицировать функциональное состояние мембраны на шкале anabolic↔catabolic (M-0 / M-A1-3 / M-S / M-D1-3). ОПРЕДЕЛЯЕТ НАПРАВЛЕНИЕ ЛЕЧЕНИЯ.",
+      "inputs": ["serum K", "phase angle BIA", "WBC", "cholesterol", "MDA/GPX4 (peroxidation)", "HOMA-IR/HbA1c", "hsCRP", "urine pH (FLAGGED — см. ниже)", "su-Heat/morning↔evening feeling"],
+      "corrected_canon_v1_1": {
+        "M-A_anabolic": "Sterol excess, rigidity, HMGCR active. Markers: cholesterol >260, phase angle <5.5, low serum-K, HOMA-IR↑. Feels better EVENING. → metabolic syndrome/T2DM/HTN/atherosclerosis. NOT inflammation.",
+        "M-D_catabolic": "Oxidized-FA excess, peroxidation, MDA↑, GPX4↓. Serum K 5.0+. Feels better MORNING. → chronic fatigue→autoimmune/chronic inflammation→cachexia.",
+        "M-S_sclerotic": "Paradoxical rigidity+fragility; most tumors, atherosclerosis, cirrhosis, fibrosis.",
+        "inflammation_location": "acute=Phase 2; hidden=M-D1; autoimmune=M-D2; fibrotic=M-S — NEVER M-A."
+      },
+      "steps": [
+        "1. Собрать confirmatory markers.",
+        "2. ПРАВИЛО 3-CONFIRMATORY: требуется ≥3 маркера, согласованных в ОДНОМ направлении, прежде чем присваивать M-A vs M-D.",
+        "3. [FLAG] Urine-pH направление НЕ согласовано между источниками (см. _meta.unresolved_discrepancies) — до резолюции Mark трактовать pH как INDETERMINATE и требовать ≥3 НЕ-pH согласованных маркера.",
+        "4. Оценить depth (1/2/3) и наличие локальной/моно/финальной M-S зоны.",
+        "5. CRITICAL: направление M-A и M-D ПРОТИВОПОЛОЖНЫ — ошибка классификации → обратное лечение → вред. Поэтому research-only, не авто-назначение."
+      ],
+      "output": "Membrane state (M-0/M-A1-3/M-S/M-D1-3) + confidence; treatment DIRECTION (→ALG-8)",
+      "governance": "[RF/GOVERNANCE — CRITICAL] не валидировано; pH-вход помечен как нерешённый; никогда не авто-назначать."
+    },
+    {
+      "id": "ALG-4", "name": "Phase determination", "layer": "L4",
+      "purpose": "Определить быстро-меняющуюся фазу процесса (CA → PCL-A → Epicrisis → PCL-B → Normotonia) по автономике + воспалению + тайму боли.",
+      "inputs": ["autonomic tone (sympathetic↔parasympathetic)", "inflammation/edema", "sleep/weight shift", "pain timing", "HRV"],
+      "steps": [
+        "1. CA (Yang-Cold): симпатикотония, холодные конечности, бессонница/ажитация, похудание, ↑кортизол.",
+        "2. PCL-A (Yin-Damp): парасимпатический отскок, воспаление/отёк, ↑сон, ↑hsCRP.",
+        "3. Epicrisis (Yang-Wind): пик разрешающего криза, кратковременный симпатический всплеск (лихорадка/криз).",
+        "4. PCL-B (Yin-Dry): продолжающаяся парасимпатика, фиброзное ремоделирование, консолидация ткани.",
+        "5. Normotonia (Yang-Heat): возврат к автономному балансу, интегрированное состояние.",
+        "6. Застрявшая Phase 2 (non-resolving) = заподозрить KCTS (→ALG-5)."
+      ],
+      "output": "Текущая фаза (1–5) + признак застревания",
+      "governance": "[RF]; фаза независима от конституции и мембраны."
+    },
+    {
+      "id": "ALG-5", "name": "KCTS screen (EBM v1.1)", "layer": "L1–L2",
+      "purpose": "Скрининг KCTS-модификатора по EBM-модели (НЕ Hamer/AIRE каузальность).",
+      "operative_model": "[KCTS v1.1] Персистирующая задержка жидкости + хронический стресс (HPA/кортизол/HRV) + низкоградиентное воспаление (hsCRP) + психосоциальная нагрузка.",
+      "inputs": ["ECW/TBW (BIA)", "flat/blunted cortisol rhythm", "low HRV", "hsCRP", "психосоциальные факторы (одиночество, утрата, хронич. >10 лет, рефрактерность)"],
+      "steps": [
+        "1. Оценить EBM-признаки (жидкость+стресс+воспаление+психосоц.).",
+        "2. ≥2 признака → KCTS suspected.",
+        "3. Сопоставить с застрявшей Phase 2 (ALG-4) и рефрактерностью к стандартной терапии.",
+        "4. Классифицировать: Active / Subclinical / Absent.",
+        "5. ВАЖНО: Hamer/GNM/AIRE психоконфликт-каузальность НЕ используется (disavowed); Layer-0 = психосоциальная поддержка как ДОПОЛНЕНИЕ, не замена."
+      ],
+      "output": "KCTS state: Active / Subclinical / Absent",
+      "governance": "[RF, EBM] не задерживает доказательную терапию; psychosocial support адъювантна."
+    },
+    {
+      "id": "ALG-6", "name": "Energy quality assessment (biomarker panels)", "layer": "L3",
+      "purpose": "Оценить КАЧЕСТВО каждой релевантной энергии через biomarker panels (optimal / excess / deficient). Двух-зональная structure.",
+      "inputs": ["per-energy panels из constitutional_model_v0_2 (57 markers)"],
+      "panel_refs": {
+        "Heat (Тепло+Жар)": "CBC/Hb/Hct/ferritin/hsCRP/B12/MMA/LDH/resting-HR/body-temp (11)",
+        "Wind": "ALT/AST/GGT/ratio/bilirubin/SBP-variability/migraine/tremor/anti-mito-Ab (10)",
+        "Damp": "HbA1c/glucose/HOMA-IR/insulin/TG/waist/adiponectin/leptin/phase-angle/body-water (12)",
+        "Dry": "osmolality/USG/urea/creatinine/eGFR/skin-turgor/HA/procollagen-III/FEV1-FVC/KL-6 (10)",
+        "Cold": "TSH/fT4/fT3/basal-temp/cortisol/DHEA-S/testosterone/estradiol/VitD/phosphate/Ca/iPTH/DEXA/bone-turnover (14)"
+      },
+      "steps": [
+        "1. Для каждой доминирующей энергии (ALG-1) подтянуть её панель.",
+        "2. Оценить каждый маркер: optimal / excess (часто патология) / deficient (часто патология).",
+        "3. Combine quantity (ALG-1 выраженность) × quality (биомаркеры): напр. high-quantity+low-quality Heat = воспаление+анемия.",
+        "4. NOTE: качество — 5-энергетический слой; Тепло и Жар используют ОДНУ панель 'heat' (six→five crosswalk).",
+        "5. Multi-energy markers (phase-angle, albumin, urine-pH-4pt, uric acid, homocysteine) — interaction-оценка.",
+        "6. Single biomarker НИКОГДА не диагностичен; нужен паттерн."
+      ],
+      "output": "Per-energy quality profile (optimal/excess/deficient) + quantity×quality pattern",
+      "governance": "[RF] biomarker selections = HYPOTHESES; optimal≠lab-normal; не замена ICD-dx."
+    },
+    {
+      "id": "ALG-7", "name": "System localization & nosology", "layer": "L3",
+      "purpose": "Локализовать поражённую систему и сопоставить с нозологическим контуром по энергиям.",
+      "inputs": ["affected organ/system", "energy from ALG-1", "imaging/labs"],
+      "steps": [
+        "1. Определить поражённую систему (неврология/эндокрин/лимфа/кость/позвоночник/грудь/ЖКТ/конечности/кожа).",
+        "2. Свериться с unified_energy_catalog.clinical_systems[system].by_energy.",
+        "3. Уточнить через nosology_registry_*.json (паттерны по 6-Ki × redox × membrane drift) и topographic_atlas (tissue × 6-Ki → ICD-10 + membrane code).",
+        "4. ICD-диагноз ставится по стандартным критериям; энергетическая метка — overlay."
+      ],
+      "output": "ICD-диагноз (стандартный) + энергетический контур (RF overlay)",
+      "governance": "[GL/RCT для болезни] + [RF для overlay]; диагноз = стандартный."
+    },
+    {
+      "id": "ALG-8", "name": "Three-axis synthesis → treatment direction", "layer": "L4–L5",
+      "purpose": "Свести три оси (Constitution × Membrane × Phase) + KCTS в единый профиль и вывести НАПРАВЛЕНИЕ лечения.",
+      "inputs": ["ALG-2 constitution", "ALG-3 membrane", "ALG-4 phase", "ALG-5 KCTS", "ALG-6 quality", "ALG-7 nosology"],
+      "steps": [
+        "1. Собрать профиль: Constitution(T,Yin/Yang) × Membrane(M-*) × Phase(1–5) + KCTS.",
+        "2. Treatment DIRECTION по мембране (master_integration treatment_direction_v1_1): M-A→CATABOLIC shift; M-D→ANABOLIC support + anti-inflammatory + GPX4; M-S→three-parallel (fibrolysis + Yin restoration + stop-peroxidation). НАПРАВЛЕНИЯ ПРОТИВОПОЛОЖНЫ.",
+        "3. Сложить 5-слойный stack: L0 KCTS/психосоц · L1 алкализация 3:2:1 · L2 membrane-targeted (НАПРАВЛЕНИЕ!) · L3 phase-appropriate timing · L4 ICD standard EBM.",
+        "4. anti-inflammatory как ПЕРВИЧНОЕ только для M-D2/M-S."
+      ],
+      "output": "Integrated 3-axis profile + treatment DIRECTION + 5-layer stack",
+      "governance": "[RF/GOVERNANCE] L4 standard EBM non-negotiable; направление RF, не авто-назначение."
+    },
+    {
+      "id": "ALG-9", "name": "Drug-selection scoring", "layer": "L5",
+      "purpose": "Ранжировать кандидатов-препаратов по соответствию профилю (RF scoring).",
+      "inputs": ["treatment direction (ALG-8)", "drug_db DRG-* профили", "ICD-indication", "CI/DDI"],
+      "steps": [
+        "1. ICD-indication = ОБЯЗАТЕЛЬНЫЙ фильтр (препарат должен иметь стандартное показание).",
+        "2. Safety filter: contraindications + drug-drug interactions.",
+        "3. SCORE = Σ Match(constitutional / membrane-direction / phase / KCTS) × weights.",
+        "4. CRITICAL фильтр = membrane-direction match (напр. M-A2 → anabolic-агенты типа creatine с осторожностью/CI; M-D2 → высокодозные катаболические статины с осторожностью).",
+        "5. Вернуть ранжированный список + обоснование по тегам провенанса."
+      ],
+      "output": "Ранжированные кандидаты + scoring rationale",
+      "governance": "[RF — НЕ операционализировано]; не заменяет клиническое назначение врачом."
+    },
+    {
+      "id": "ALG-10", "name": "Monitoring & iteration (quadrant logic)", "layer": "L6",
+      "purpose": "Отслеживать ответ по логике квадрантов симптом×биомаркер; цель — прогресс к стабильной Phase 5.",
+      "inputs": ["симптомы (monthly)", "BIA/Bristol/urine-pH (monthly)", "labs/imaging/KCTS (quarterly)", "DEXA (annual)"],
+      "steps": [
+        "1. sx↑ bio↑ → continue.",
+        "2. sx↑ bio↓ → симптом-подавление (red flag).",
+        "3. sx↓ bio↓ → пересмотреть оси (KCTS вероятно не адресован).",
+        "4. sx↓ bio↑ → drug-induced dissociation (тщательный мониторинг).",
+        "5. Phase tracking: цель = стабильная Phase 5; застрявшая Phase 2 = подозрение KCTS (→ALG-5).",
+        "6. Итерировать: при смене мембраны/фазы — повторить ALG-3/ALG-4."
+      ],
+      "output": "Quadrant assessment + iteration decision",
+      "governance": "[RF]; мониторинг дополняет стандартное наблюдение, не заменяет."
+    }
+  ]
+}

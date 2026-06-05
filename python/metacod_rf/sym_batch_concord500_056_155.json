@@ -1,0 +1,1532 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_symptom_db",
+    "document_id": "METACOD_RF_Symptom_DB_CONCORD500",
+    "title": "Symptom DB (CONCORD-500) — clinical-triage symptom catalog",
+    "batch": "concord500_patch_01",
+    "version": "1.1_patch_01",
+    "generated": "2026-05-27",
+    "patch_for": "CONCORD-500_expansion",
+    "id_range": "SYM-056 to SYM-155",
+    "source_count_claim": 100,
+    "date": "2026-06",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "author": "Mark Litvak (canonical source) — materialized with AI-assistance",
+    "ready_for_research_use": true,
+    "ready_for_clinical_use": false,
+    "mark_validated": "pending review",
+    "schema_note": "Clinical-triage symptom schema: id/name_ru/popular/system/level(S|L)/energy_primary([RF] TCM overlay)/yang_yin([RF])/differentials/red_flags/workup/screen/causes/types/directed_drugs/drug_induced/glp1_* etc. Standard clinical fields (differentials/red_flags/workup/screen/drug_induced) = [GL] standard knowledge; energy_primary + yang_yin = [RF] energy overlay.",
+    "namespace_note": "[FLAG-FOR-MARK] This CONCORD-500 symptom DB uses SYM-### ids in the SAME numeric namespace as symptom_registry_v3_0.json (sym_id SYM-001..), but a DIFFERENT schema (registry = Park 6-Ki × histogenetic × phase × membrane-drift; CONCORD = clinical-triage differentials). They are PARALLEL databases. SYM-056..155 here do NOT correspond 1:1 to registry sym_ids. SYM-001..055 (CONCORD patch 00) not yet provided. Whether to unify the two SYM namespaces is an open question for Mark.",
+    "governance_safety_annotation": {
+      "research_only": "[GOVERNANCE] ready_for_clinical_use=false. Reference/decision-SUPPORT catalog, NOT a triage engine and NOT operationalized — no symptom→diagnosis or symptom→drug auto-routing is wired in.",
+      "red_flags_preserved": "Emergency/red-flag content (stroke window, status epilepticus >5min, SJS/TEN, airway emergencies, suicidal ideation, qSOFA, massive hemoptysis) is standard [GL] knowledge, preserved verbatim — it points to STANDARD emergency care, never delayed.",
+      "energy_overlay_is_RF": "energy_primary (e.g. 'spleen_qi_deficiency','liver_qi_stagnation_heat') and yang_yin are [RF] TCM-style overlays — not validated diagnostic criteria; must not auto-drive diagnosis/prescribing.",
+      "not_patient_facing": "Energy/yang-yin vocabulary engine-internal (Variant B).",
+      "drug_safety_flags": "directed_drugs/drug_induced/glp1_* fields are decision-support pointers; actual prescribing stays with the treating clinician. GLP-1 suicidality alert (SYM-136) aligns with FDA labeling.",
+      "no_hamer_aire_causality": "No Hamer/AIRE psychic-conflict causal layer."
+    }
+  },
+  "symptoms": [
+    {
+      "id": "SYM-056",
+      "name_ru": "Дисфагия",
+      "popular": "Затруднение глотания",
+      "system": "gi",
+      "level": "S",
+      "energy_primary": "wind_dry_throat",
+      "yang_yin": "yang_acute_yin_chronic",
+      "related_diseases": [
+        "DIS-022",
+        "DIS-023"
+      ],
+      "directed_drugs": [],
+      "red_flags": [
+        "solid_food_progressive_esophageal_ca",
+        "weight_loss",
+        "regurgitation_at_night_achalasia"
+      ],
+      "differentials": [
+        "esophageal_cancer",
+        "achalasia",
+        "GERD_stricture",
+        "scleroderma_esophagus",
+        "neuromuscular_post_stroke"
+      ]
+    },
+    {
+      "id": "SYM-057",
+      "name_ru": "Одинофагия",
+      "popular": "Боль при глотании",
+      "system": "gi",
+      "level": "S",
+      "energy_primary": "heat_acute",
+      "related_diseases": [],
+      "directed_drugs": [],
+      "red_flags": [
+        "with_immunosuppression_candida_HSV_CMV"
+      ],
+      "differentials": [
+        "pill_esophagitis",
+        "candida",
+        "HSV",
+        "reflux_severe"
+      ]
+    },
+    {
+      "id": "SYM-058",
+      "name_ru": "Гематемезис",
+      "popular": "Рвота кровью",
+      "system": "gi",
+      "level": "S",
+      "energy_primary": "heat_blood",
+      "yang_yin": "yang_emergency",
+      "red_flags": [
+        "emergency_endoscopy_within_24h",
+        "varices_in_cirrhosis",
+        "Mallory_Weiss_after_retching",
+        "PUD_NSAID_aspirin_related"
+      ],
+      "directed_drugs": [
+        "PPI_high_dose_IV"
+      ]
+    },
+    {
+      "id": "SYM-059",
+      "name_ru": "Мелена",
+      "popular": "Чёрный дегтеобразный стул",
+      "system": "gi",
+      "level": "S",
+      "energy_primary": "heat_blood_old",
+      "yang_yin": "yang_subacute",
+      "red_flags": [
+        "upper_GI_bleed_localization",
+        "iron_deficiency_anemia_workup"
+      ],
+      "related_diseases": []
+    },
+    {
+      "id": "SYM-060",
+      "name_ru": "Гематохезия",
+      "popular": "Алая кровь в стуле",
+      "system": "gi",
+      "level": "S",
+      "differentials": [
+        "hemorrhoids",
+        "diverticulosis",
+        "colorectal_cancer",
+        "IBD_active",
+        "ischemic_colitis"
+      ],
+      "red_flags": [
+        "over_50_colonoscopy_mandatory",
+        "weight_loss_with_blood"
+      ]
+    },
+    {
+      "id": "SYM-061",
+      "name_ru": "Желтуха",
+      "popular": "Желтизна кожи/склер",
+      "system": "gi",
+      "level": "S",
+      "energy_primary": "damp_heat_liver",
+      "yang_yin": "yang_acute",
+      "differentials": [
+        "hepatocellular",
+        "obstructive_choledocholithiasis",
+        "pancreatic_head_ca",
+        "hemolytic",
+        "Gilbert"
+      ],
+      "workup": [
+        "bilirubin_direct_indirect",
+        "ALT_AST_ALP_GGT",
+        "abdominal_US",
+        "MRCP_if_obstructive"
+      ]
+    },
+    {
+      "id": "SYM-062",
+      "name_ru": "Асцит",
+      "popular": "Жидкость в животе",
+      "system": "gi",
+      "level": "L",
+      "energy_primary": "damp_L_excessive",
+      "yang_yin": "yin",
+      "causes": [
+        "cirrhosis_70%",
+        "malignancy_10%",
+        "heart_failure_3%",
+        "tuberculosis",
+        "nephrotic_syndrome"
+      ],
+      "red_flags": [
+        "SAAG_calculation",
+        "SBP_paracentesis_if_fever"
+      ]
+    },
+    {
+      "id": "SYM-063",
+      "name_ru": "Анорексия",
+      "popular": "Потеря аппетита",
+      "system": "gi",
+      "level": "S",
+      "energy_primary": "spleen_qi_deficiency",
+      "differentials": [
+        "malignancy_paraneoplastic",
+        "depression",
+        "uremia",
+        "hepatic_failure",
+        "GLP1_excessive_dose"
+      ],
+      "glp1_alert": "if_on_GLP1_reduce_dose_or_stop"
+    },
+    {
+      "id": "SYM-064",
+      "name_ru": "Раннее насыщение",
+      "popular": "Быстрая сытость",
+      "system": "gi",
+      "level": "S",
+      "energy_primary": "damp_stomach_qi_stagnation",
+      "differentials": [
+        "gastroparesis_diabetic",
+        "gastric_outlet_obstruction",
+        "GLP1_expected_effect",
+        "gastric_cancer"
+      ],
+      "glp1_relation": "expected_titration_marker"
+    },
+    {
+      "id": "SYM-065",
+      "name_ru": "Гастроэзофагеальный рефлюкс",
+      "popular": "Изжога/кислый привкус",
+      "system": "gi",
+      "level": "S",
+      "energy_primary": "heat_stomach_rebellious_qi",
+      "directed_drugs": [
+        "PPI",
+        "H2_blocker",
+        "alginate"
+      ],
+      "complications": [
+        "Barrett_esophagus",
+        "esophagitis_grade_C_D",
+        "esophageal_ulcer"
+      ]
+    },
+    {
+      "id": "SYM-066",
+      "name_ru": "Стеаторея",
+      "popular": "Жирный стул",
+      "system": "gi",
+      "level": "S",
+      "energy_primary": "spleen_yang_def",
+      "differentials": [
+        "chronic_pancreatitis_PEI",
+        "celiac",
+        "bile_acid_diarrhea",
+        "bacterial_overgrowth"
+      ],
+      "workup": [
+        "fecal_elastase",
+        "anti_tTG"
+      ]
+    },
+    {
+      "id": "SYM-067",
+      "name_ru": "Тенезмы",
+      "popular": "Ложные позывы",
+      "system": "gi",
+      "level": "S",
+      "differentials": [
+        "proctitis_IBD",
+        "rectal_cancer",
+        "infectious_proctitis_STI"
+      ]
+    },
+    {
+      "id": "SYM-068",
+      "name_ru": "Боль в эпигастрии",
+      "popular": "Боль под ложечкой",
+      "system": "gi",
+      "level": "S",
+      "differentials": [
+        "PUD",
+        "gastritis",
+        "pancreatitis",
+        "biliary_colic",
+        "MI_inferior_atypical",
+        "AAA_rupture"
+      ],
+      "red_flags": [
+        "radiation_to_back_pancreatitis_or_AAA",
+        "exertional_cardiac"
+      ]
+    },
+    {
+      "id": "SYM-069",
+      "name_ru": "Зуд анальный",
+      "popular": "Зуд в заднем проходе",
+      "system": "gi",
+      "level": "S",
+      "differentials": [
+        "pinworms",
+        "perianal_eczema",
+        "hemorrhoids",
+        "anal_fissure",
+        "diabetes_candida",
+        "PSC_cholestasis"
+      ]
+    },
+    {
+      "id": "SYM-070",
+      "name_ru": "Гепатомегалия",
+      "popular": "Увеличение печени",
+      "system": "gi",
+      "level": "L",
+      "energy_primary": "damp_heat_liver_chronic",
+      "differentials": [
+        "MASLD",
+        "hepatitis_chronic",
+        "congestive_hepatopathy_CHF",
+        "lymphoma",
+        "amyloidosis"
+      ],
+      "workup": [
+        "AST_ALT_GGT",
+        "abdominal_US_doppler",
+        "FibroScan"
+      ]
+    },
+    {
+      "id": "SYM-071",
+      "name_ru": "Спленомегалия",
+      "popular": "Увеличение селезёнки",
+      "system": "hematologic",
+      "level": "L",
+      "differentials": [
+        "portal_hypertension",
+        "lymphoma",
+        "myeloproliferative",
+        "infectious_mononucleosis",
+        "endocarditis"
+      ]
+    },
+    {
+      "id": "SYM-072",
+      "name_ru": "Желудочно-кишечное кровотечение скрытое",
+      "popular": "Скрытая кровь",
+      "system": "gi",
+      "level": "S",
+      "workup": [
+        "FIT_fecal_immunochemical_test",
+        "colonoscopy_if_positive_over_45"
+      ],
+      "red_flags": [
+        "iron_deficiency_anemia_in_male_or_post_menopausal_F"
+      ]
+    },
+    {
+      "id": "SYM-073",
+      "name_ru": "Запах изо рта (галитоз)",
+      "popular": "Плохой запах изо рта",
+      "system": "gi",
+      "level": "S",
+      "causes": [
+        "periodontal_disease",
+        "GERD",
+        "H_pylori_associated",
+        "DKA_ketone_smell",
+        "hepatic_fetor",
+        "uremia"
+      ]
+    },
+    {
+      "id": "SYM-074",
+      "name_ru": "Боль в правом подреберье",
+      "popular": "Боль справа под рёбрами",
+      "system": "gi",
+      "level": "S",
+      "differentials": [
+        "cholelithiasis",
+        "acute_cholecystitis",
+        "hepatitis",
+        "pyelonephritis_right",
+        "liver_abscess",
+        "pleural_basal"
+      ]
+    },
+    {
+      "id": "SYM-075",
+      "name_ru": "Геморрой",
+      "popular": "Геморроидальные узлы",
+      "system": "gi",
+      "level": "S",
+      "complications": [
+        "thrombosis",
+        "bleeding"
+      ],
+      "directed_drugs": []
+    },
+    {
+      "id": "SYM-076",
+      "name_ru": "Кровохарканье",
+      "popular": "Кашель с кровью",
+      "system": "respiratory",
+      "level": "S",
+      "energy_primary": "heat_blood_lung",
+      "yang_yin": "yang_emergency",
+      "red_flags": [
+        "massive_>100ml_emergency_bronchoscopy",
+        "TB_screen",
+        "lung_cancer_workup_over_40_smoker"
+      ],
+      "differentials": [
+        "bronchiectasis_Mariana_Rusu_case",
+        "lung_cancer",
+        "TB",
+        "PE_with_infarction",
+        "NTM",
+        "Aspergillus_invasive"
+      ]
+    },
+    {
+      "id": "SYM-077",
+      "name_ru": "Стридор",
+      "popular": "Свистящее шумное дыхание",
+      "system": "respiratory",
+      "level": "S",
+      "yang_yin": "yang_emergency",
+      "red_flags": [
+        "airway_obstruction_emergency",
+        "epiglottitis_consider"
+      ],
+      "differentials": [
+        "foreign_body",
+        "anaphylaxis",
+        "laryngeal_cancer",
+        "tracheal_stenosis_post_intubation"
+      ]
+    },
+    {
+      "id": "SYM-078",
+      "name_ru": "Тахипноэ",
+      "popular": "Частое дыхание",
+      "system": "respiratory",
+      "level": "S",
+      "differentials": [
+        "pneumonia",
+        "PE",
+        "DKA_Kussmaul",
+        "sepsis",
+        "anxiety_attack"
+      ],
+      "red_flags": [
+        "RR_>30_qSOFA_positive_sepsis_alert"
+      ]
+    },
+    {
+      "id": "SYM-079",
+      "name_ru": "Брадипноэ",
+      "popular": "Редкое дыхание",
+      "system": "respiratory",
+      "level": "S",
+      "yang_yin": "yin_emergency",
+      "red_flags": [
+        "opioid_overdose",
+        "CO2_narcosis_COPD",
+        "stroke_brainstem"
+      ]
+    },
+    {
+      "id": "SYM-080",
+      "name_ru": "Кашель сухой непродуктивный",
+      "popular": "Сухой кашель",
+      "system": "respiratory",
+      "level": "S",
+      "energy_primary": "dry_lung_yin_def",
+      "differentials": [
+        "ACE_inhibitor_class_effect",
+        "viral_URI",
+        "GERD_cough",
+        "asthma_cough_variant",
+        "ILD",
+        "postnasal_drip"
+      ],
+      "ACE_induced": "switch_to_ARB"
+    },
+    {
+      "id": "SYM-081",
+      "name_ru": "Кашель продуктивный",
+      "popular": "Влажный кашель",
+      "system": "respiratory",
+      "level": "S",
+      "energy_primary": "damp_phlegm_lung",
+      "differentials": [
+        "COPD_exacerbation",
+        "bronchitis",
+        "pneumonia",
+        "bronchiectasis",
+        "TB",
+        "lung_abscess"
+      ]
+    },
+    {
+      "id": "SYM-082",
+      "name_ru": "Гнойная мокрота",
+      "popular": "Гной в мокроте",
+      "system": "respiratory",
+      "level": "S",
+      "energy_primary": "damp_heat_lung",
+      "differentials": [
+        "bacterial_pneumonia",
+        "bronchiectasis",
+        "lung_abscess",
+        "CF",
+        "NTM"
+      ]
+    },
+    {
+      "id": "SYM-083",
+      "name_ru": "Цианоз",
+      "popular": "Синюшность",
+      "system": "respiratory",
+      "level": "S",
+      "types": [
+        "central_SpO2_under_85",
+        "peripheral_local_circulation"
+      ],
+      "red_flags": [
+        "acute_central_emergency"
+      ]
+    },
+    {
+      "id": "SYM-084",
+      "name_ru": "Боль в грудной клетке плевритическая",
+      "popular": "Колющая боль при дыхании",
+      "system": "respiratory",
+      "level": "S",
+      "differentials": [
+        "pulmonary_embolism",
+        "pneumonia",
+        "pleurisy_viral",
+        "pneumothorax",
+        "pericarditis"
+      ]
+    },
+    {
+      "id": "SYM-085",
+      "name_ru": "Хрипы крепитация",
+      "popular": "Хрипы при вдохе",
+      "system": "respiratory",
+      "level": "S",
+      "types": [
+        "fine_late_inspiratory_pulm_fibrosis_pneumonia",
+        "coarse_early_inspiratory_bronchiectasis_COPD"
+      ]
+    },
+    {
+      "id": "SYM-086",
+      "name_ru": "Свистящее дыхание (wheezing)",
+      "popular": "Свист при выдохе",
+      "system": "respiratory",
+      "level": "S",
+      "differentials": [
+        "asthma",
+        "COPD",
+        "cardiac_asthma_HF",
+        "bronchiolitis",
+        "anaphylaxis"
+      ],
+      "cardiac_vs_bronchial": "BNP_if_unclear"
+    },
+    {
+      "id": "SYM-087",
+      "name_ru": "Барабанные палочки",
+      "popular": "Утолщение концевых фаланг",
+      "system": "respiratory",
+      "level": "L",
+      "causes": [
+        "bronchiectasis_chronic",
+        "lung_cancer_paraneoplastic",
+        "IPF",
+        "cyanotic_CHD",
+        "IBD",
+        "biliary_cirrhosis"
+      ]
+    },
+    {
+      "id": "SYM-088",
+      "name_ru": "Боль в горле острая",
+      "popular": "Острая боль в горле",
+      "system": "respiratory",
+      "level": "S",
+      "differentials": [
+        "viral_pharyngitis",
+        "streptococcal_pharyngitis_Centor",
+        "infectious_mononucleosis",
+        "peritonsillar_abscess"
+      ]
+    },
+    {
+      "id": "SYM-089",
+      "name_ru": "Заложенность носа хроническая",
+      "popular": "Постоянная заложенность",
+      "system": "ent",
+      "level": "S",
+      "causes": [
+        "allergic_rhinitis",
+        "non_allergic_vasomotor",
+        "deviated_septum",
+        "polyps",
+        "chronic_sinusitis"
+      ]
+    },
+    {
+      "id": "SYM-090",
+      "name_ru": "Ринорея",
+      "popular": "Насморк",
+      "system": "ent",
+      "level": "S",
+      "types": [
+        "clear_allergic_viral",
+        "purulent_bacterial_sinusitis",
+        "unilateral_CSF_leak_alert_after_trauma"
+      ]
+    },
+    {
+      "id": "SYM-091",
+      "name_ru": "Носовое кровотечение",
+      "popular": "Кровь из носа",
+      "system": "ent",
+      "level": "S",
+      "causes": [
+        "Kiesselbach_anterior_most_common",
+        "DOAC_anticoagulation",
+        "HTN_uncontrolled",
+        "HHT_Osler_Weber",
+        "thrombocytopenia"
+      ]
+    },
+    {
+      "id": "SYM-092",
+      "name_ru": "Снижение слуха",
+      "popular": "Тугоухость",
+      "system": "ent",
+      "level": "S",
+      "types": [
+        "sensorineural_presbycusis_noise_ototoxic",
+        "conductive_cerumen_otitis_otosclerosis"
+      ],
+      "drug_induced": [
+        "aminoglycosides_gentamicin",
+        "cisplatin",
+        "loop_diuretics_high_dose",
+        "vancomycin"
+      ]
+    },
+    {
+      "id": "SYM-093",
+      "name_ru": "Тиннитус",
+      "popular": "Шум в ушах",
+      "system": "ent",
+      "level": "S",
+      "causes": [
+        "presbycusis",
+        "noise_exposure",
+        "Meniere",
+        "vestibular_schwannoma_unilateral",
+        "ototoxic_drugs",
+        "TMJ_dysfunction"
+      ]
+    },
+    {
+      "id": "SYM-094",
+      "name_ru": "Боль в ухе",
+      "popular": "Отит",
+      "system": "ent",
+      "level": "S",
+      "differentials": [
+        "otitis_externa",
+        "otitis_media",
+        "TMJ",
+        "referred_tonsillar"
+      ]
+    },
+    {
+      "id": "SYM-095",
+      "name_ru": "Снижение остроты зрения",
+      "popular": "Ухудшение зрения",
+      "system": "ophthalmology",
+      "level": "S",
+      "differentials": [
+        "refraction_error",
+        "cataract",
+        "glaucoma",
+        "AMD",
+        "diabetic_retinopathy",
+        "optic_neuritis_MS",
+        "amaurosis_fugax_TIA_alert"
+      ]
+    },
+    {
+      "id": "SYM-096",
+      "name_ru": "Двоение в глазах",
+      "popular": "Диплопия",
+      "system": "ophthalmology",
+      "level": "S",
+      "yang_yin": "wind_internal",
+      "differentials": [
+        "cranial_nerve_palsy_DM_microvascular",
+        "MG_fatigable",
+        "Graves_orbitopathy",
+        "MS",
+        "stroke_brainstem"
+      ],
+      "red_flags": [
+        "sudden_with_headache_ICP_aneurysm"
+      ]
+    },
+    {
+      "id": "SYM-097",
+      "name_ru": "Боль в глазу",
+      "popular": "Глазная боль",
+      "system": "ophthalmology",
+      "level": "S",
+      "red_flags": [
+        "acute_angle_closure_glaucoma_emergency",
+        "scleritis",
+        "optic_neuritis_MS_DDx"
+      ]
+    },
+    {
+      "id": "SYM-098",
+      "name_ru": "Покраснение глаз",
+      "popular": "Красные глаза",
+      "system": "ophthalmology",
+      "level": "S",
+      "differentials": [
+        "conjunctivitis",
+        "uveitis_HLA_B27_IBD",
+        "scleritis_RA",
+        "acute_glaucoma",
+        "subconjunctival_hemorrhage"
+      ]
+    },
+    {
+      "id": "SYM-099",
+      "name_ru": "Птоз",
+      "popular": "Опущение века",
+      "system": "neurological",
+      "level": "S",
+      "differentials": [
+        "MG_fatigable_diurnal",
+        "Horner_syndrome",
+        "3rd_nerve_palsy",
+        "congenital_levator_dehiscence"
+      ],
+      "red_flags": [
+        "with_anisocoria_Horner_workup_apical_lung_carotid_dissection"
+      ]
+    },
+    {
+      "id": "SYM-100",
+      "name_ru": "Афония / Дисфония",
+      "popular": "Осиплость голоса",
+      "system": "ent",
+      "level": "S",
+      "differentials": [
+        "laryngitis_viral",
+        "recurrent_laryngeal_nerve_palsy_after_thyroidectomy",
+        "laryngeal_cancer_smoker",
+        "vocal_cord_nodules"
+      ],
+      "red_flags": [
+        "over_3_weeks_smoker_ENT_referral_mandatory"
+      ]
+    },
+    {
+      "id": "SYM-101",
+      "name_ru": "Очаговый неврологический дефицит",
+      "popular": "Слабость в руке/ноге",
+      "system": "neurological",
+      "level": "S",
+      "yang_yin": "yang_emergency",
+      "red_flags": [
+        "FAST_stroke_window_4.5h_tPA",
+        "thrombectomy_window_24h"
+      ],
+      "workup": [
+        "NIHSS",
+        "CT_head_emergent",
+        "MRI_DWI"
+      ]
+    },
+    {
+      "id": "SYM-102",
+      "name_ru": "Афазия",
+      "popular": "Нарушение речи",
+      "system": "neurological",
+      "level": "S",
+      "types": [
+        "Broca_expressive",
+        "Wernicke_receptive",
+        "global",
+        "anomic"
+      ],
+      "red_flags": [
+        "acute_stroke_workup"
+      ]
+    },
+    {
+      "id": "SYM-103",
+      "name_ru": "Дизартрия",
+      "popular": "Невнятная речь",
+      "system": "neurological",
+      "level": "S",
+      "differentials": [
+        "stroke",
+        "PD",
+        "ALS",
+        "MS",
+        "intoxication"
+      ]
+    },
+    {
+      "id": "SYM-104",
+      "name_ru": "Атаксия",
+      "popular": "Шаткость, нарушение координации",
+      "system": "neurological",
+      "level": "S",
+      "types": [
+        "cerebellar_intention",
+        "sensory_proprioceptive_Romberg_pos",
+        "vestibular"
+      ],
+      "differentials": [
+        "cerebellar_stroke",
+        "MS",
+        "alcoholic_cerebellar_degeneration",
+        "B12_def_dorsal_columns",
+        "paraneoplastic"
+      ]
+    },
+    {
+      "id": "SYM-105",
+      "name_ru": "Парестезии",
+      "popular": "Покалывания/онемение",
+      "system": "neurological",
+      "level": "S",
+      "patterns": [
+        "glove_and_stocking_DM_alcohol_B12",
+        "radicular_dermatomal",
+        "mononeuropathy_compression_carpal",
+        "central_hemibody"
+      ]
+    },
+    {
+      "id": "SYM-106",
+      "name_ru": "Аллодиния",
+      "popular": "Боль от лёгкого касания",
+      "system": "neurological",
+      "level": "S",
+      "energy_primary": "wind_heat_nerve",
+      "differentials": [
+        "post_herpetic_neuralgia",
+        "diabetic_painful_neuropathy",
+        "complex_regional_pain_syndrome",
+        "fibromyalgia"
+      ]
+    },
+    {
+      "id": "SYM-107",
+      "name_ru": "Гиперестезия",
+      "popular": "Повышенная чувствительность",
+      "system": "neurological",
+      "level": "S",
+      "contexts": [
+        "post_herpetic",
+        "thalamic_pain_post_stroke",
+        "migraine_aura"
+      ]
+    },
+    {
+      "id": "SYM-108",
+      "name_ru": "Слабость проксимальная",
+      "popular": "Слабость в плечах/бёдрах",
+      "system": "neurological",
+      "level": "L",
+      "differentials": [
+        "polymyositis_dermatomyositis",
+        "PMR_over_50_ESR_high",
+        "statin_myopathy",
+        "hypothyroid_myopathy",
+        "Cushing_steroid_myopathy"
+      ],
+      "statin_induced_main": "CK_check_TSH_check"
+    },
+    {
+      "id": "SYM-109",
+      "name_ru": "Слабость дистальная",
+      "popular": "Слабость в кистях/стопах",
+      "system": "neurological",
+      "level": "L",
+      "differentials": [
+        "peripheral_neuropathy_DM",
+        "CIDP",
+        "ALS",
+        "CMT_hereditary"
+      ]
+    },
+    {
+      "id": "SYM-110",
+      "name_ru": "Фасцикуляции",
+      "popular": "Подергивания мышц",
+      "system": "neurological",
+      "level": "L",
+      "red_flags": [
+        "with_weakness_atrophy_ALS_workup",
+        "EMG"
+      ],
+      "benign_pattern": "isolated_lid_calf_no_atrophy_likely_benign"
+    },
+    {
+      "id": "SYM-111",
+      "name_ru": "Миоклонус",
+      "popular": "Подергивания тела",
+      "system": "neurological",
+      "level": "S",
+      "differentials": [
+        "physiological_sleep",
+        "epilepsy_juvenile_myoclonic",
+        "uremic",
+        "post_anoxic_Lance_Adams",
+        "CJD"
+      ]
+    },
+    {
+      "id": "SYM-112",
+      "name_ru": "Хорея",
+      "popular": "Непроизвольные танцующие движения",
+      "system": "neurological",
+      "level": "S",
+      "energy_primary": "wind_internal",
+      "differentials": [
+        "Huntington_genetic",
+        "Sydenham_post_streptococcal",
+        "tardive_dyskinesia",
+        "chorea_gravidarum"
+      ]
+    },
+    {
+      "id": "SYM-113",
+      "name_ru": "Дистония",
+      "popular": "Скручивающие позы",
+      "system": "neurological",
+      "level": "S",
+      "types": [
+        "focal_cervical_torticollis",
+        "generalized_DYT1",
+        "drug_induced_acute_dystonia_haloperidol"
+      ]
+    },
+    {
+      "id": "SYM-114",
+      "name_ru": "Эпилептический припадок",
+      "popular": "Судороги",
+      "system": "neurological",
+      "level": "S",
+      "yang_yin": "yang_emergency",
+      "types": [
+        "focal_aware_unaware",
+        "generalized_tonic_clonic",
+        "absence",
+        "myoclonic"
+      ],
+      "red_flags": [
+        "status_epilepticus_>5min_emergency",
+        "first_seizure_neuroimaging"
+      ]
+    },
+    {
+      "id": "SYM-115",
+      "name_ru": "Транзиторная глобальная амнезия",
+      "popular": "Внезапная потеря памяти",
+      "system": "neurological",
+      "level": "S",
+      "energy_primary": "wind_brain",
+      "red_flags": [
+        "DDx_TIA_stroke_seizure",
+        "MRI_DWI_required"
+      ]
+    },
+    {
+      "id": "SYM-116",
+      "name_ru": "Спутанность сознания",
+      "popular": "Дезориентация",
+      "system": "neurological",
+      "level": "S",
+      "causes_ranking": [
+        "UTI_in_elderly_most_common",
+        "pneumonia",
+        "drug_induced_anticholinergic",
+        "electrolyte_imbalance_hyponatremia",
+        "hypoglycemia_check_first",
+        "intracranial_event"
+      ],
+      "REVERSIBLE_causes_must_exclude": "DELIRIUM_workup_PINCH_ME"
+    },
+    {
+      "id": "SYM-117",
+      "name_ru": "Делирий",
+      "popular": "Острая спутанность",
+      "system": "neurological",
+      "level": "S",
+      "subtypes": [
+        "hyperactive",
+        "hypoactive_often_missed",
+        "mixed"
+      ],
+      "screen": "CAM_ICU_4AT",
+      "red_flags": [
+        "mortality_25_percent_in_elderly_hospitalized"
+      ]
+    },
+    {
+      "id": "SYM-118",
+      "name_ru": "Кома",
+      "popular": "Без сознания",
+      "system": "neurological",
+      "level": "S",
+      "yang_yin": "yang_emergency",
+      "workup": [
+        "GCS",
+        "glucose_first",
+        "naloxone_if_opioid_suspect",
+        "CT_head",
+        "ABG",
+        "ammonia_if_cirrhosis"
+      ]
+    },
+    {
+      "id": "SYM-119",
+      "name_ru": "Сонливость дневная патологическая",
+      "popular": "Постоянная сонливость",
+      "system": "neurological",
+      "level": "S",
+      "screen": "Epworth_>10_pathologic",
+      "causes": [
+        "OSA_main_cause",
+        "narcolepsy_REM_sleep_onset",
+        "depression",
+        "sedating_medications",
+        "shift_work"
+      ]
+    },
+    {
+      "id": "SYM-120",
+      "name_ru": "Парасомнии",
+      "popular": "Расстройства сна",
+      "system": "neurological",
+      "level": "S",
+      "types": [
+        "NREM_sleepwalking",
+        "REM_behavior_disorder_PD_prodrome_decade_ahead",
+        "night_terrors"
+      ],
+      "neurodegenerative_prodrome": "RBD_strong_predictor_alpha_synucleinopathy"
+    },
+    {
+      "id": "SYM-121",
+      "name_ru": "Синдром беспокойных ног",
+      "popular": "RLS",
+      "system": "neurological",
+      "level": "S",
+      "associations": [
+        "iron_deficiency_ferritin_under_75",
+        "CKD",
+        "DM_peripheral_neuropathy",
+        "pregnancy"
+      ],
+      "directed_drugs": [
+        "pramipexole",
+        "ropinirole",
+        "gabapentin",
+        "iron_if_low"
+      ]
+    },
+    {
+      "id": "SYM-122",
+      "name_ru": "Гипосмия / Аносмия",
+      "popular": "Снижение обоняния",
+      "system": "neurological",
+      "level": "S",
+      "neurodegenerative_prodrome": "PD_AD_early_marker",
+      "causes": [
+        "URI_post_viral_COVID",
+        "PD_early",
+        "AD_early",
+        "head_trauma",
+        "chronic_sinusitis"
+      ]
+    },
+    {
+      "id": "SYM-123",
+      "name_ru": "Дисгевзия",
+      "popular": "Нарушение вкуса",
+      "system": "neurological",
+      "level": "S",
+      "drug_induced": [
+        "metformin_metallic_taste",
+        "ACE_inhibitors",
+        "lithium",
+        "chemotherapy",
+        "PPI_long_term"
+      ]
+    },
+    {
+      "id": "SYM-124",
+      "name_ru": "Бульбарная дисфункция",
+      "popular": "Поперхивание/слюнотечение",
+      "system": "neurological",
+      "level": "L",
+      "differentials": [
+        "ALS_bulbar_onset",
+        "MG_bulbar",
+        "brainstem_stroke",
+        "MS_brainstem_plaques"
+      ],
+      "workup": [
+        "EMG",
+        "anti_AChR",
+        "MRI_brainstem"
+      ]
+    },
+    {
+      "id": "SYM-125",
+      "name_ru": "Спастичность",
+      "popular": "Тугоподвижность с повышенным тонусом",
+      "system": "neurological",
+      "level": "L",
+      "differentials": [
+        "UMN_lesion_stroke_MS_SCI",
+        "PD_rigidity_DDx_cogwheel"
+      ]
+    },
+    {
+      "id": "SYM-126",
+      "name_ru": "Гипотензия ортостатическая",
+      "popular": "Падение АД при вставании",
+      "system": "cardiovascular_neurological",
+      "level": "S",
+      "criteria": [
+        "SBP_drop_20_or_DBP_10_in_3min_standing"
+      ],
+      "causes": [
+        "volume_depletion",
+        "antihypertensive_excess",
+        "autonomic_failure_DM_PD_amyloidosis",
+        "adrenal_insufficiency"
+      ]
+    },
+    {
+      "id": "SYM-127",
+      "name_ru": "Постуральная ортостатическая тахикардия (POTS)",
+      "popular": "Учащение пульса при вставании",
+      "system": "cardiovascular_neurological",
+      "level": "S",
+      "criteria": [
+        "HR_increase_30_or_to_120_in_10min_standing_without_BP_drop"
+      ]
+    },
+    {
+      "id": "SYM-128",
+      "name_ru": "Когнитивное снижение быстрое",
+      "popular": "Быстрое снижение памяти",
+      "system": "neurological",
+      "level": "S",
+      "red_flags": [
+        "under_2_years_workup_for_CJD_paraneoplastic_NPH_reversible"
+      ]
+    },
+    {
+      "id": "SYM-129",
+      "name_ru": "Поведенческие изменения",
+      "popular": "Изменение характера",
+      "system": "neurological_psychiatric",
+      "level": "S",
+      "differentials": [
+        "frontotemporal_dementia",
+        "limbic_encephalitis_paraneoplastic",
+        "brain_tumor_frontal",
+        "Wilson_under_40"
+      ]
+    },
+    {
+      "id": "SYM-130",
+      "name_ru": "Зрительные галлюцинации",
+      "popular": "Видения",
+      "system": "neurological_psychiatric",
+      "level": "S",
+      "differentials": [
+        "DLB_Lewy_body_dementia_pathognomonic",
+        "PD_med_induced",
+        "Charles_Bonnet_isolated_vision_loss",
+        "delirium",
+        "psychosis_atypical"
+      ],
+      "patognomonic": "DLB_visual_hallucinations_RBD_fluctuating_cognition"
+    },
+    {
+      "id": "SYM-131",
+      "name_ru": "Менингеальные знаки",
+      "popular": "Симптомы менингита",
+      "system": "neurological",
+      "level": "S",
+      "yang_yin": "yang_emergency",
+      "signs": [
+        "neck_stiffness",
+        "Kernig",
+        "Brudzinski"
+      ],
+      "red_flags": [
+        "fever_headache_neck_stiffness_LP_within_hour"
+      ]
+    },
+    {
+      "id": "SYM-132",
+      "name_ru": "Папиллоэдема",
+      "popular": "Отёк дисков зрительных нервов",
+      "system": "neurological",
+      "level": "L",
+      "red_flags": [
+        "raised_ICP_brain_tumor_or_IIH_workup"
+      ]
+    },
+    {
+      "id": "SYM-133",
+      "name_ru": "Анизокория",
+      "popular": "Разные зрачки",
+      "system": "neurological",
+      "level": "S",
+      "differentials": [
+        "Horner_small_pupil_ptosis",
+        "3rd_nerve_palsy_large_pupil",
+        "Adie_tonic",
+        "pharmacological"
+      ],
+      "red_flags": [
+        "acute_with_headache_aneurysm_PCom"
+      ]
+    },
+    {
+      "id": "SYM-134",
+      "name_ru": "Нистагм",
+      "popular": "Подёргивание глазных яблок",
+      "system": "neurological",
+      "level": "S",
+      "types": [
+        "horizontal_peripheral_BPPV",
+        "vertical_central_alarming",
+        "downbeat_cerebellar"
+      ]
+    },
+    {
+      "id": "SYM-135",
+      "name_ru": "Туннельный синдром / Карпальный туннель",
+      "popular": "Онемение пальцев ночью",
+      "system": "neurological",
+      "level": "S",
+      "associations": [
+        "DM",
+        "hypothyroidism",
+        "pregnancy",
+        "rheumatoid",
+        "amyloidosis",
+        "repetitive_strain"
+      ],
+      "workup": [
+        "Phalen_Tinel",
+        "EMG_NCS"
+      ]
+    },
+    {
+      "id": "SYM-136",
+      "name_ru": "Суицидальные мысли",
+      "popular": "Мысли о смерти",
+      "system": "psychiatric",
+      "level": "S",
+      "yang_yin": "yang_emergency",
+      "screen": "Columbia_C_SSRS_PHQ_9_item_9",
+      "red_flags": [
+        "plan_means_intent_mandatory_psychiatric_eval",
+        "FDA_GLP1_alert_check_at_baseline_and_quarterly"
+      ]
+    },
+    {
+      "id": "SYM-137",
+      "name_ru": "Ангедония",
+      "popular": "Потеря удовольствия",
+      "system": "psychiatric",
+      "level": "L",
+      "core_symptom_of": [
+        "MDD",
+        "schizophrenia_negative_symptoms",
+        "PD_apathy"
+      ]
+    },
+    {
+      "id": "SYM-138",
+      "name_ru": "Паническая атака",
+      "popular": "Приступ паники",
+      "system": "psychiatric",
+      "level": "S",
+      "differentials": [
+        "panic_disorder",
+        "hyperthyroidism",
+        "pheochromocytoma_episodic",
+        "carcinoid",
+        "hypoglycemia",
+        "PE",
+        "MI"
+      ]
+    },
+    {
+      "id": "SYM-139",
+      "name_ru": "Обсессивно-компульсивные симптомы",
+      "popular": "Навязчивости",
+      "system": "psychiatric",
+      "level": "L",
+      "directed_drugs": [
+        "SSRI_higher_doses",
+        "clomipramine"
+      ]
+    },
+    {
+      "id": "SYM-140",
+      "name_ru": "Маниакальный эпизод",
+      "popular": "Мания",
+      "system": "psychiatric",
+      "level": "S",
+      "criteria": [
+        "elevated_mood",
+        "decreased_need_for_sleep",
+        "grandiosity",
+        "pressured_speech",
+        "risk_behavior"
+      ],
+      "differentials": [
+        "bipolar_I",
+        "secondary_steroid_induced",
+        "hyperthyroidism",
+        "substance_induced"
+      ]
+    },
+    {
+      "id": "SYM-141",
+      "name_ru": "Дезорганизованное мышление",
+      "popular": "Бессвязная речь",
+      "system": "psychiatric",
+      "level": "L",
+      "core_of": [
+        "schizophrenia",
+        "schizoaffective",
+        "acute_psychosis"
+      ]
+    },
+    {
+      "id": "SYM-142",
+      "name_ru": "Социальная изоляция",
+      "popular": "Уход от общения",
+      "system": "psychiatric",
+      "level": "L",
+      "differentials": [
+        "depression",
+        "social_anxiety",
+        "schizoid_personality",
+        "schizophrenia_negative",
+        "autism_spectrum"
+      ]
+    },
+    {
+      "id": "SYM-143",
+      "name_ru": "Расстройство пищевого поведения",
+      "popular": "Анорексия/булимия",
+      "system": "psychiatric",
+      "level": "L",
+      "subtypes": [
+        "anorexia_nervosa",
+        "bulimia_nervosa",
+        "binge_eating_disorder"
+      ],
+      "glp1_caution": "screen_eating_disorder_before_GLP1_prescribing"
+    },
+    {
+      "id": "SYM-144",
+      "name_ru": "Самоповреждение",
+      "popular": "Селфхарм",
+      "system": "psychiatric",
+      "level": "S",
+      "red_flags": [
+        "correlated_with_suicidal_risk_psychiatric_consult"
+      ]
+    },
+    {
+      "id": "SYM-145",
+      "name_ru": "Раздражительность",
+      "popular": "Вспыльчивость",
+      "system": "psychiatric",
+      "level": "S",
+      "energy_primary": "liver_qi_stagnation_heat",
+      "differentials": [
+        "MDD_atypical",
+        "anxiety",
+        "bipolar_mixed",
+        "hyperthyroid",
+        "ADHD_adult",
+        "alcohol_withdrawal"
+      ]
+    },
+    {
+      "id": "SYM-146",
+      "name_ru": "Зависимость алкогольная",
+      "popular": "Алкоголизм",
+      "system": "psychiatric",
+      "level": "L",
+      "screen": "AUDIT_C",
+      "directed_drugs": [
+        "naltrexone",
+        "acamprosate",
+        "disulfiram"
+      ]
+    },
+    {
+      "id": "SYM-147",
+      "name_ru": "Зависимость опиоидная",
+      "popular": "Опиоидная зависимость",
+      "system": "psychiatric",
+      "level": "L",
+      "directed_drugs": [
+        "buprenorphine_naloxone",
+        "methadone",
+        "naltrexone"
+      ]
+    },
+    {
+      "id": "SYM-148",
+      "name_ru": "Тревога генерализованная",
+      "popular": "Постоянная тревога",
+      "system": "psychiatric",
+      "level": "L",
+      "screen": "GAD_7",
+      "differentials": [
+        "GAD",
+        "hyperthyroidism_workup_mandatory_TSH",
+        "anemia"
+      ]
+    },
+    {
+      "id": "SYM-149",
+      "name_ru": "PTSD флешбэки",
+      "popular": "Травматические воспоминания",
+      "system": "psychiatric",
+      "level": "L",
+      "screen": "PCL_5_PC_PTSD_5",
+      "directed_drugs": [
+        "SSRI",
+        "prazosin_nightmares"
+      ]
+    },
+    {
+      "id": "SYM-150",
+      "name_ru": "Бессонница хроническая",
+      "popular": "Хроническая бессонница",
+      "system": "psychiatric_neurological",
+      "level": "L",
+      "directed_drugs": [
+        "melatonin_low_dose_for_circadian",
+        "ramelteon",
+        "trazodone_low"
+      ],
+      "non_pharma_first_line": "CBT_I"
+    },
+    {
+      "id": "SYM-151",
+      "name_ru": "Сыпь генерализованная",
+      "popular": "Высыпания по всему телу",
+      "system": "dermatological",
+      "level": "S",
+      "differentials": [
+        "drug_eruption_morbilliform",
+        "viral_exanthem",
+        "Stevens_Johnson_TEN_emergency_if_mucosal",
+        "DRESS"
+      ],
+      "red_flags": [
+        "mucosal_involvement",
+        "skin_pain_not_just_itch",
+        "fever_with_rash_lymphadenopathy_DRESS"
+      ]
+    },
+    {
+      "id": "SYM-152",
+      "name_ru": "Зуд (pruritus) генерализованный",
+      "popular": "Зуд всего тела",
+      "system": "dermatological",
+      "level": "S",
+      "differentials": [
+        "cholestasis_PBC_PSC",
+        "uremia_CKD",
+        "lymphoma_Hodgkin_alcohol_induced",
+        "iron_def",
+        "thyroid_dysfunction",
+        "polycythemia_vera"
+      ]
+    },
+    {
+      "id": "SYM-153",
+      "name_ru": "Крапивница",
+      "popular": "Уртикария",
+      "system": "dermatological_immune",
+      "level": "S",
+      "types": [
+        "acute_under_6_weeks_food_drug_infection",
+        "chronic_over_6_weeks_idiopathic_autoimmune"
+      ],
+      "red_flags": [
+        "with_angioedema_anaphylaxis_alert"
+      ]
+    },
+    {
+      "id": "SYM-154",
+      "name_ru": "Ангиоэдема",
+      "popular": "Отёк лица/губ",
+      "system": "dermatological_immune",
+      "level": "S",
+      "differentials": [
+        "histamine_mediated_allergic",
+        "bradykinin_mediated_ACE_inh_C1_inh_def"
+      ],
+      "red_flags": [
+        "airway_emergency",
+        "ACE_inhibitor_discontinue_permanent"
+      ],
+      "ACE_induced": "C1_esterase_inhibitor_normal_in_ACE_induced"
+    },
+    {
+      "id": "SYM-155",
+      "name_ru": "Эритема узловатая",
+      "popular": "Болезненные красные узлы голеней",
+      "system": "dermatological",
+      "level": "L",
+      "energy_primary": "damp_heat_blood",
+      "associations": [
+        "sarcoidosis_Lofgren",
+        "TB",
+        "streptococcal_post_infection",
+        "IBD",
+        "OCP_drug_induced",
+        "pregnancy"
+      ]
+    }
+  ]
+}
