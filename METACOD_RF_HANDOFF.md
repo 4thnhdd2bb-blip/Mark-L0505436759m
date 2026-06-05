@@ -102,7 +102,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 > (~201 drugs, batches 01–11, 26 output files). **This repo differs.** Below is
 > the actual git content.
 
-### Drug batches present (27 files, **411 drugs**)
+### Drug batches present (27 files, **507 drugs**)
 | batch_id | n | notes |
 |---|---|---|
 | 01-GLP1 | 6 | DRG-001..006; DRG-001 semaglutide PARTIAL (OBS-Mark-001 wax-wane) + RF literature scan |
@@ -111,27 +111,27 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 | 04-Old_School_Antidiabetics | 7 | DRG-017..023 |
 | 05-Insulins+Pramlintide | 10 | DRG-024..033; DRG-025 lispro expanded from stub |
 | 06-Cardiovascular | 78 | DRG-034..096 + 380-394 (acute/IV expansion); **Claude-authored gap-fill** (largest); BB/ACEi/ARB/ARNI/CCB/diuretics/MRA/statins/lipid/antiplatelets/anticoagulants/antiarrhythmics/digoxin/nitrates/ivabradine/PAH/pressors/ranolazine; apixaban=082 (cross-ref batch 19) |
-| 07-Psychiatric | 22 | DRG-097..118 |
+| 07-Psychiatric | 34 | DRG-097..118 |
 | 08-Endocrine | 37 | DRG-119..143 + 395-406 (expansion); **Claude-authored gap-fill**; thyroid/glucocorticoids/bone/pituitary/sex-hormones; prednisolone=125 (cross-ref batch 21) |
 | 09-Pulmonology | 28 | DRG-144..161 + 407-416 (expansion); **Claude-authored gap-fill**; SABA/LABA/LAMA/SAMA/montelukast=148/ICS/combo/theophylline/roflumilast/biologics/IPF-antifibrotics/antitussive |
 | 10-Rheumatology | 18 | DRG-162..179; **Claude-authored gap-fill**; csDMARDs/immunosuppressants/TNF-i/IL6/CTLA4/JAK/IL1/gout; MTX↔Zuo, allopurinol-colchicine↔Yin-Fire/gout context |
-| 11-Gastroenterology | 20 | DRG-180..199 (source claimed 22; 20 enumerable) |
-| 12-Neurology | 15 | DRG-202..216 |
-| 13-Urology_Gyn | 15 | DRG-217..231 (source claimed 16; 15 enumerable; 2 cross-refs) |
+| 11-Gastroenterology | 33 | DRG-180..199 (source claimed 22; 20 enumerable) |
+| 12-Neurology | 32 | DRG-202..216 |
+| 13-Urology_Gyn | 23 | DRG-217..231 (source claimed 16; 15 enumerable; 2 cross-refs) |
 | 14-Antimicrobials | 18 | DRG-232..249; **Claude-authored standard-evidence gap-fill** (not Mark source); beta-lactams/macrolides/FQ/tetra/aminoglyc/glycopeptide/oxazolidinone/sulfa/nitrofurantoin/nitroimidazole/azole; honors cross-refs cipro=239/moxi=241/metronidazole=248 |
-| 15-Antivirals | 5 | DRG-251..255; KCTS-text governance-flagged |
+| 15-Antivirals | 13 | DRG-251..255; KCTS-text governance-flagged |
 | 16-Oncology | 12 | DRG-256..267; **Claude-authored standard-evidence gap-fill**; TKI/mAb/checkpoint/hormonal(SERM/AI/GnRH-ADT)/PARP/BTK; leuprolide→Mark ADT support stack; checkpoint→post-cure framework Q |
-| 17-Anesthesia | 10 | DRG-268..277; acute-use short profiles |
-| 18-Addiction | 8 | DRG-278..285; HIGH KCTS framing separated from evidence base |
+| 17-Anesthesia | 18 | DRG-268..277; acute-use short profiles |
+| 18-Addiction | 10 | DRG-278..285; HIGH KCTS framing separated from evidence base |
 | 19-Geriatric | 10 | DRG-286..295; framework-heavy (Beers/STOPP-START/CGA/deprescribing/ACB, [GL]-anchored) + Vit D/melatonin + apixaban/donepezil cross-refs |
-| 20-Dermatology | 15 | DRG-296..310; topical steroids/retinoids/calcineurin/psoriasis-biologics/acne/specific; lesion-systemic paradox RF hypothesis |
-| 21-Ophthalmology | 10 | DRG-311..320; glaucoma/dry-eye/anti-VEGF + cross-refs; topical→systemic absorption warning |
+| 20-Dermatology | 24 | DRG-296..310; topical steroids/retinoids/calcineurin/psoriasis-biologics/acne/specific; lesion-systemic paradox RF hypothesis |
+| 21-Ophthalmology | 15 | DRG-311..320; glaucoma/dry-eye/anti-VEGF + cross-refs; topical→systemic absorption warning |
 | 22-ENT | 8 | DRG-321..328; nasal steroid/antihistamine/vestibular/decongestant/tinnitus framework; rhinitis medicamentosa flag |
 | 23-Pediatric | 7 | DRG-329..335; framework-heavy; source claimed 8, 7 enumerable (no DRG-336 block); ACEs↔AIRE overlap flagged speculative |
-| 24-Renal | 7 | DRG-336..342; phosphate binders/ESA/active-VitD+calcimimetic/finerenone/tolvaptan; source claimed 8, 7 enumerable; STRONGEST KCTS push ("CKD=textbook KCTS / AIRE-screening should be standard") — hard-walled, standard-care primacy |
+| 24-Renal | 10 | DRG-336..342; phosphate binders/ESA/active-VitD+calcimimetic/finerenone/tolvaptan; source claimed 8, 7 enumerable; STRONGEST KCTS push ("CKD=textbook KCTS / AIRE-screening should be standard") — hard-walled, standard-care primacy |
 | 25-Rare-Diseases | 9 | DRG-343..351; CFTR-modulators/HAE/lysosomal-ERT-SRT/PAH/SMA/gene-therapy/DMD; source claimed 10, 9 enumerable; framework Qs (post-cure state, gene-therapy=constitutional, KCTS-rare-disease model) flagged [RF] for Mark |
-| 26-Nutraceuticals | 18 | DRG-352..369; alkalinization 3:2:1 / ADT-stack / Zuo formula / Mariana n=1 / adaptogens / microbiome; source claimed 17, 18 enumerable (reverse under-count); HEAVIEST Mark-canonical — 11 source-"CONFIRMED/PARTIAL" deliberately mapped to validation_state=partial (NOT full; sign-off pending); [RCT] added as valid majority-anchor; alkalinization+ADT governance-noted |
-| 27-Hematology | 8 | DRG-372..379 (source skipped 370-371); iron oral/IV, hydroxyurea, TPO-agonists, givosiran siRNA, eculizumab/complement; authored AFTER KCTS v1.1 reframe — sickle-cell = EBM psychosocial burden, NOT "AIRE accumulation" |
+| 26-Nutraceuticals | 24 | DRG-352..369; alkalinization 3:2:1 / ADT-stack / Zuo formula / Mariana n=1 / adaptogens / microbiome; source claimed 17, 18 enumerable (reverse under-count); HEAVIEST Mark-canonical — 11 source-"CONFIRMED/PARTIAL" deliberately mapped to validation_state=partial (NOT full; sign-off pending); [RCT] added as valid majority-anchor; alkalinization+ADT governance-noted |
+| 27-Hematology | 13 | DRG-372..379 (source skipped 370-371); iron oral/IV, hydroxyurea, TPO-agonists, givosiran siRNA, eculizumab/complement; authored AFTER KCTS v1.1 reframe — sickle-cell = EBM psychosocial burden, NOT "AIRE accumulation" |
 
 ### Conceptual / registry artifacts present
 - `constitutional_model_v0_1.json` (Parts A–E conceptual) + `v0_2.json` (5-energy
@@ -156,6 +156,17 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 - **DRG space now essentially contiguous DRG-001..379.** Documented minor
   source gaps only: 200-201 (batch-11 non-enumerable 2), 250 (batch-14/15
   boundary), 370-371 (batch-26/27 boundary). No reserved-class gaps remain.
+- **EXPANSION block DRG-380..512 (133 entries, Claude-authored standard-evidence,
+  `_meta.expansion_note`):** class-completion per Mark "дополняй все препараты".
+  380-416 = acute/IV + missing subclasses in cardio/endo/pulmo. 417-512 = missing
+  agents across psych (clozapine/haloperidol/lurasidone/MAOI/TCA/esketamine…),
+  GI (rifaximin/UDCA/budesonide/prucalopride/secretagogues…), neuro (topiramate/
+  gepants/anti-CGRP/botox/COMT/lecanemab/MS-DMTs/ALS…), uro-gyn (OAB/GnRH-antag/
+  gonadotropins/OB), antivirals (Paxlovid/remdesivir/INSTI/HBV/CMV), anesthesia
+  (midazolam/dexmedetomidine/volatiles/NMB/locals/dantrolene), addiction, derm,
+  ophtho, renal (K-binders/HIF-PHI), nutra (CoQ10/zinc/berberine…), heme
+  (G-CSF/chelators/reversal-agents/antifibrinolytics). All `[OBS-Mark]` empty,
+  `mark_validated` false. Reconcile with Mark's originals if they surface.
 - Docs: Membranes Full Deployment v1.0, Matrix #1 v2.0, Translation Layer v1.0,
   Phase Axis v2.0, infrastructure docs (Case Registry, Comparison Protocol,
   De-identification Checklist, Scope Declaration).

@@ -6,7 +6,7 @@
     "status": "METACOD-RF — Research Framework, not clinical guidance",
     "group": "Дерматология — topical steroids / retinoids / calcineurin inhibitors / psoriasis biologics / acne-rosacea / specific agents (6 подгрупп)",
     "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0 + KCTS awareness",
-    "preparations_count": 15,
+    "preparations_count": 24,
     "author": "Mark Litvak (с AI-assistance)",
     "date": "2026-06",
     "ready_for_clinical_use": false,
@@ -22,203 +22,1400 @@
       "RF": "METACOD research framework (theoretical)"
     },
     "class_notes": {
-      "energy_perspective": ["Skin = Lung-Metal axis (Dry energy) [RF/TCM]", "Skin pH: healthy slightly acidic 4.5-5.5; more acidic skin often = alkaline body (lesion-systemic paradox) [RF/Mark]", "Topical steroids = local Heat reduction (potency hierarchy)", "Topical retinoids = cellular turnover normalization", "Calcineurin inhibitors = targeted T-cell suppression", "Biologics = cytokine-specific blockade"],
-      "membrane_skin_correlation_rf": ["M-A2/A3: oily, acne, hidradenitis, edematous", "M-D1/D2: dry, thin, atrophic, slow healing", "M-S: scleroderma, lichen sclerosus, fibrotic skin", "KCTS-active: recurrent infections, treatment-refractory dermatitis"],
+      "energy_perspective": [
+        "Skin = Lung-Metal axis (Dry energy) [RF/TCM]",
+        "Skin pH: healthy slightly acidic 4.5-5.5; more acidic skin often = alkaline body (lesion-systemic paradox) [RF/Mark]",
+        "Topical steroids = local Heat reduction (potency hierarchy)",
+        "Topical retinoids = cellular turnover normalization",
+        "Calcineurin inhibitors = targeted T-cell suppression",
+        "Biologics = cytokine-specific blockade"
+      ],
+      "membrane_skin_correlation_rf": [
+        "M-A2/A3: oily, acne, hidradenitis, edematous",
+        "M-D1/D2: dry, thin, atrophic, slow healing",
+        "M-S: scleroderma, lichen sclerosus, fibrotic skin",
+        "KCTS-active: recurrent infections, treatment-refractory dermatitis"
+      ],
       "lesion_systemic_paradox_rf": "[RF/Mark canonical] Skin lesions особенно good example: acidic skin lesion (acne, eczema) часто = alkaline systemic; dry chronic eczema = often M-A2 systemic. Topical treatment alone treats local не systemic.",
-      "obs_mark_to_fill": ["Pediatric dermatitis topical approach", "Topical steroid tapering strategies", "Isotretinoin adolescent vs adult management", "Biologic selection в psoriasis", "Hydroquinone use restrictions", "Scabies household management", "Lesion-systemic paradox — clinical examples"],
+      "obs_mark_to_fill": [
+        "Pediatric dermatitis topical approach",
+        "Topical steroid tapering strategies",
+        "Isotretinoin adolescent vs adult management",
+        "Biologic selection в psoriasis",
+        "Hydroquinone use restrictions",
+        "Scabies household management",
+        "Lesion-systemic paradox — clinical examples"
+      ],
       "logic_review_flags_for_mark": {
         "issue_1_lesion_systemic": "[RF] Derm framed как demonstrating lesion-systemic paradox. Q: все skin conditions follow this, или selective?",
         "issue_2_steroid_potency": "[RF] Standard Class I-VII hierarchy used. Q: integrated correctly с METACOD?",
         "issue_3_skin_metal_lung": "[RF] Skin = Metal/Lung axis (TCM). Q: confirmed canonical anchor?"
       }
-    }
+    },
+    "expansion_note": "[2026-06 EXPANSION-2] +DRG-485-493 (9) Claude-authored standard-evidence class-completion (expansion block)."
   },
   "drugs": [
     {
-      "drug_id": "DRG-296", "name_inn": "Hydrocortisone topical", "name_ru": "Гидрокортизон (наружно)", "name_brand": "Multiple OTC + Rx (0.5%, 1%, 2.5%)",
-      "status": "METACOD-RF", "batch": "20-Topical-Steroids",
-      "molecular": {"chemical_class": "Topical glucocorticoid (low potency Class VII)", "mechanism_primary": ["[LBL] Topical glucocorticoid receptor activation → anti-inflammatory + vasoconstriction"]},
-      "indications": {"approved": ["[LBL] Mild dermatitis", "[LBL] Mild eczema", "[LBL] Mild psoriasis (face, intertriginous)", "[LBL] Pediatric dermatitis (lowest potency для children)", "[LBL] Facial dermatitis", "[LBL] Intertrigo"]},
-      "dosing": {"dose": "Apply thin layer 1-2× daily, short courses", "note": ["[LBL] Fingertip unit (FTU) for standardized application"]},
-      "three_axis_profile": {"constitutional": {"energy": "Local Heat reduction (mild); translation: low-potency topical anti-inflammatory", "best_match": ["Pediatric", "Facial use any age", "Sensitive area", "Pregnancy (compatible)"]}, "membrane": {"impact": "Acute symptomatic, minimal systemic; long-term even low potency = some atrophy concern"}, "phase": {"match": "Acute Phase 2 dermatitis; limited maintenance role"}},
-      "safety": {"note": ["[LBL] Generally very safe — lowest concerns в class", "[LBL] Pediatric: face OK, body OK short-term", "[LBL] Pregnancy: safe", "[LBL] Long-term mild atrophy possible", "[LBL] HPA axis suppression rare с this potency"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "pediatric_steroid_use": "[OBS-Mark] [pediatric dermatitis topical steroid approach?]"},
-      "references": ["Dermatology guidelines"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-296",
+      "name_inn": "Hydrocortisone topical",
+      "name_ru": "Гидрокортизон (наружно)",
+      "name_brand": "Multiple OTC + Rx (0.5%, 1%, 2.5%)",
+      "status": "METACOD-RF",
+      "batch": "20-Topical-Steroids",
+      "molecular": {
+        "chemical_class": "Topical glucocorticoid (low potency Class VII)",
+        "mechanism_primary": [
+          "[LBL] Topical glucocorticoid receptor activation → anti-inflammatory + vasoconstriction"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Mild dermatitis",
+          "[LBL] Mild eczema",
+          "[LBL] Mild psoriasis (face, intertriginous)",
+          "[LBL] Pediatric dermatitis (lowest potency для children)",
+          "[LBL] Facial dermatitis",
+          "[LBL] Intertrigo"
+        ]
+      },
+      "dosing": {
+        "dose": "Apply thin layer 1-2× daily, short courses",
+        "note": [
+          "[LBL] Fingertip unit (FTU) for standardized application"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local Heat reduction (mild); translation: low-potency topical anti-inflammatory",
+          "best_match": [
+            "Pediatric",
+            "Facial use any age",
+            "Sensitive area",
+            "Pregnancy (compatible)"
+          ]
+        },
+        "membrane": {
+          "impact": "Acute symptomatic, minimal systemic; long-term even low potency = some atrophy concern"
+        },
+        "phase": {
+          "match": "Acute Phase 2 dermatitis; limited maintenance role"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Generally very safe — lowest concerns в class",
+          "[LBL] Pediatric: face OK, body OK short-term",
+          "[LBL] Pregnancy: safe",
+          "[LBL] Long-term mild atrophy possible",
+          "[LBL] HPA axis suppression rare с this potency"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "pediatric_steroid_use": "[OBS-Mark] [pediatric dermatitis topical steroid approach?]"
+      },
+      "references": [
+        "Dermatology guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-297", "name_inn": "Betamethasone valerate (topical)", "name_ru": "Бетаметазона валерат (наружно)", "name_brand": "Beta-Val, Diprolene (dipropionate)",
-      "status": "METACOD-RF", "batch": "20-Topical-Steroids",
-      "molecular": {"chemical_class": "Mid-potency topical glucocorticoid (Class II-V by formulation)", "potency_examples": ["Betamethasone dipropionate 0.05% = Class III (potent)", "Betamethasone valerate 0.1% = Class V (medium)", "Optimized (Diprolene) = Class I-II (very potent)"]},
-      "indications": {"approved": ["[LBL] Psoriasis (body, scalp)", "[LBL] Severe eczema", "[LBL] Lichen planus", "[LBL] Bullous diseases"]},
-      "dosing": {"dose": "Apply BID short courses (2-4 weeks typical)"},
-      "three_axis_profile": {"constitutional": {"energy": "Local Heat reduction (mid-potency)", "best_match": ["Body psoriasis, severe eczema"]}, "membrane": {"impact": "Atrophy risk with prolonged use"}, "phase": {"match": "Acute/subacute Phase 2"}},
-      "safety": {"critical": ["[LBL] Skin atrophy с prolonged use", "[LBL] Striae (especially intertriginous)", "[LBL] Systemic absorption possible с high-potency + large area + occlusion", "[LBL] HPA axis suppression possible", "[LBL] Rebound при abrupt discontinuation", "[LBL] Topical steroid withdrawal syndrome (controversial — burning erythema after long-term use)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "steroid_tapering": "[OBS-Mark] [Topical steroid tapering strategies?]"},
-      "references": ["WHO Essential Medicines List"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-297",
+      "name_inn": "Betamethasone valerate (topical)",
+      "name_ru": "Бетаметазона валерат (наружно)",
+      "name_brand": "Beta-Val, Diprolene (dipropionate)",
+      "status": "METACOD-RF",
+      "batch": "20-Topical-Steroids",
+      "molecular": {
+        "chemical_class": "Mid-potency topical glucocorticoid (Class II-V by formulation)",
+        "potency_examples": [
+          "Betamethasone dipropionate 0.05% = Class III (potent)",
+          "Betamethasone valerate 0.1% = Class V (medium)",
+          "Optimized (Diprolene) = Class I-II (very potent)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Psoriasis (body, scalp)",
+          "[LBL] Severe eczema",
+          "[LBL] Lichen planus",
+          "[LBL] Bullous diseases"
+        ]
+      },
+      "dosing": {
+        "dose": "Apply BID short courses (2-4 weeks typical)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local Heat reduction (mid-potency)",
+          "best_match": [
+            "Body psoriasis, severe eczema"
+          ]
+        },
+        "membrane": {
+          "impact": "Atrophy risk with prolonged use"
+        },
+        "phase": {
+          "match": "Acute/subacute Phase 2"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Skin atrophy с prolonged use",
+          "[LBL] Striae (especially intertriginous)",
+          "[LBL] Systemic absorption possible с high-potency + large area + occlusion",
+          "[LBL] HPA axis suppression possible",
+          "[LBL] Rebound при abrupt discontinuation",
+          "[LBL] Topical steroid withdrawal syndrome (controversial — burning erythema after long-term use)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "steroid_tapering": "[OBS-Mark] [Topical steroid tapering strategies?]"
+      },
+      "references": [
+        "WHO Essential Medicines List"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-298", "name_inn": "Clobetasol propionate", "name_ru": "Клобетазола пропионат", "name_brand": "Temovate, Clobex",
-      "status": "METACOD-RF", "batch": "20-Topical-Steroids",
-      "molecular": {"chemical_class": "Super-potent topical steroid (Class I — highest)"},
+      "drug_id": "DRG-298",
+      "name_inn": "Clobetasol propionate",
+      "name_ru": "Клобетазола пропионат",
+      "name_brand": "Temovate, Clobex",
+      "status": "METACOD-RF",
+      "batch": "20-Topical-Steroids",
+      "molecular": {
+        "chemical_class": "Super-potent topical steroid (Class I — highest)"
+      },
       "clinical_position": "Short-course only — severe inflammatory dermatoses",
-      "indications": {"approved": ["[LBL] Severe psoriasis (palms, soles)", "[LBL] Lichen planus (severe)", "[LBL] Lichen sclerosus", "[LBL] Discoid lupus", "[LBL] Other severe inflammatory dermatoses"]},
-      "dosing": {"dose": "BID × max 2 weeks usually", "restrictions": ["[LBL] NEVER на face, intertriginous, large surface area", "[LBL] NEVER в pediatric"]},
-      "three_axis_profile": {"constitutional": {"energy": "Strong local Heat suppression (super-potent)", "best_match": ["True severe dermatoses, short courses"], "caution": ["systemic absorption / HPA suppression"]}, "membrane": {"impact": "Rapid severe local atrophy"}, "phase": {"match": "Acute severe Phase 2, time-limited"}},
-      "safety": {"critical": ["[LBL] Significant systemic absorption possible", "[LBL] HPA axis suppression documented", "[LBL] Severe local atrophy quickly", "[LBL] Rebound flare при stopping", "[LBL] Diabetes effect (systemic glucocorticoid response)", "[LBL] Cataracts, glaucoma signal long-term"]},
+      "indications": {
+        "approved": [
+          "[LBL] Severe psoriasis (palms, soles)",
+          "[LBL] Lichen planus (severe)",
+          "[LBL] Lichen sclerosus",
+          "[LBL] Discoid lupus",
+          "[LBL] Other severe inflammatory dermatoses"
+        ]
+      },
+      "dosing": {
+        "dose": "BID × max 2 weeks usually",
+        "restrictions": [
+          "[LBL] NEVER на face, intertriginous, large surface area",
+          "[LBL] NEVER в pediatric"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Strong local Heat suppression (super-potent)",
+          "best_match": [
+            "True severe dermatoses, short courses"
+          ],
+          "caution": [
+            "systemic absorption / HPA suppression"
+          ]
+        },
+        "membrane": {
+          "impact": "Rapid severe local atrophy"
+        },
+        "phase": {
+          "match": "Acute severe Phase 2, time-limited"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Significant systemic absorption possible",
+          "[LBL] HPA axis suppression documented",
+          "[LBL] Severe local atrophy quickly",
+          "[LBL] Rebound flare при stopping",
+          "[LBL] Diabetes effect (systemic glucocorticoid response)",
+          "[LBL] Cataracts, glaucoma signal long-term"
+        ]
+      },
       "note": "Reserve для true severe dermatoses, short courses, careful follow-up.",
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "clobetasol_indications": "[OBS-Mark] [Clobetasol — situations clearly worth strong potency?]"},
-      "references": ["FDA label Temovate"],
-      "status_flags": {"mark_validated": false}
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "clobetasol_indications": "[OBS-Mark] [Clobetasol — situations clearly worth strong potency?]"
+      },
+      "references": [
+        "FDA label Temovate"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-299", "name_inn": "Tretinoin (topical)", "name_ru": "Третиноин (наружно)", "name_brand": "Retin-A, Renova, Tretin-X",
-      "status": "METACOD-RF", "batch": "20-Topical-Retinoids",
-      "molecular": {"chemical_class": "First-generation topical retinoid", "mechanism_primary": ["[LBL] Activates retinoic acid receptors (RAR-α, RAR-γ)", "[LBL] Normalizes keratinocyte differentiation", "[LBL] Anti-inflammatory", "[LBL] Anti-comedogenic", "[LBL] Stimulates collagen synthesis"]},
-      "indications": {"approved": ["[LBL] Acne vulgaris", "[LBL] Photoaging (cosmeceutical)", "[LBL] Melasma adjunct", "[LBL] Some keratinization disorders"]},
-      "dosing": {"dose": "0.025-0.1% cream/gel, apply nightly", "titration": ["[LBL] Start 2-3× weekly", "[LBL] Increase к daily over weeks", "[LBL] Tolerance development needed"]},
-      "three_axis_profile": {"constitutional": {"energy": "Local Yang restoration (cellular turnover normalization); translation: retinoic acid receptor modulation", "best_match": ["Acne с inflammatory component", "Photoaging"]}, "membrane": {"impact": "Local; long-term improves skin quality, reduces M-S in photoaged skin; pregnancy CONTRAINDICATED (teratogenic systemic) but topical absorption minimal"}, "phase": {"match": "Chronic maintenance, slow improvement over months"}},
-      "adverse_events": {"common": ["[LBL] Initial irritation (almost universal — adaptation needed)", "[LBL] Dryness, peeling", "[LBL] Photosensitivity (sunscreen mandatory)", "[LBL] Burning sensation"], "serious": ["[LBL] Severe dermatitis if overused", "[LBL] Pregnancy concerns (avoid even though topical absorption low)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "tretinoin_education": "[OBS-Mark] [Tretinoin patient education protocols?]"},
-      "references": ["FDA label Retin-A"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-299",
+      "name_inn": "Tretinoin (topical)",
+      "name_ru": "Третиноин (наружно)",
+      "name_brand": "Retin-A, Renova, Tretin-X",
+      "status": "METACOD-RF",
+      "batch": "20-Topical-Retinoids",
+      "molecular": {
+        "chemical_class": "First-generation topical retinoid",
+        "mechanism_primary": [
+          "[LBL] Activates retinoic acid receptors (RAR-α, RAR-γ)",
+          "[LBL] Normalizes keratinocyte differentiation",
+          "[LBL] Anti-inflammatory",
+          "[LBL] Anti-comedogenic",
+          "[LBL] Stimulates collagen synthesis"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acne vulgaris",
+          "[LBL] Photoaging (cosmeceutical)",
+          "[LBL] Melasma adjunct",
+          "[LBL] Some keratinization disorders"
+        ]
+      },
+      "dosing": {
+        "dose": "0.025-0.1% cream/gel, apply nightly",
+        "titration": [
+          "[LBL] Start 2-3× weekly",
+          "[LBL] Increase к daily over weeks",
+          "[LBL] Tolerance development needed"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local Yang restoration (cellular turnover normalization); translation: retinoic acid receptor modulation",
+          "best_match": [
+            "Acne с inflammatory component",
+            "Photoaging"
+          ]
+        },
+        "membrane": {
+          "impact": "Local; long-term improves skin quality, reduces M-S in photoaged skin; pregnancy CONTRAINDICATED (teratogenic systemic) but topical absorption minimal"
+        },
+        "phase": {
+          "match": "Chronic maintenance, slow improvement over months"
+        }
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Initial irritation (almost universal — adaptation needed)",
+          "[LBL] Dryness, peeling",
+          "[LBL] Photosensitivity (sunscreen mandatory)",
+          "[LBL] Burning sensation"
+        ],
+        "serious": [
+          "[LBL] Severe dermatitis if overused",
+          "[LBL] Pregnancy concerns (avoid even though topical absorption low)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "tretinoin_education": "[OBS-Mark] [Tretinoin patient education protocols?]"
+      },
+      "references": [
+        "FDA label Retin-A"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-300", "name_inn": "Adapalene", "name_ru": "Адапален", "name_brand": "Differin",
-      "status": "METACOD-RF", "batch": "20-Topical-Retinoids",
-      "molecular": {"chemical_class": "Third-generation topical retinoid"},
-      "distinct_clinical": ["[LBL] More tolerable than tretinoin", "[LBL] Less photosensitivity", "[LBL] OTC available (US, 0.1%) — major shift", "[LBL] Stable в sunlight (unlike tretinoin)", "[LBL] Effective monotherapy mild acne"],
-      "indications": {"approved": ["[LBL] Acne vulgaris"]},
-      "dosing": {"dose": "0.1-0.3% gel, apply nightly"},
-      "three_axis_profile": {"constitutional": {"energy": "Local cellular turnover normalization (retinoid)", "best_match": ["Mild-moderate acne (tolerable, OTC)"]}, "membrane": {"impact": "Local"}, "phase": {"match": "Chronic maintenance"}},
-      "safety": {"note": ["[LBL] Less irritation than tretinoin", "[LBL] Photosensitivity lower"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "adapalene_first_line": "[OBS-Mark] [Adapalene first-line для mild-moderate acne?]"},
-      "references": ["FDA label Differin"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-300",
+      "name_inn": "Adapalene",
+      "name_ru": "Адапален",
+      "name_brand": "Differin",
+      "status": "METACOD-RF",
+      "batch": "20-Topical-Retinoids",
+      "molecular": {
+        "chemical_class": "Third-generation topical retinoid"
+      },
+      "distinct_clinical": [
+        "[LBL] More tolerable than tretinoin",
+        "[LBL] Less photosensitivity",
+        "[LBL] OTC available (US, 0.1%) — major shift",
+        "[LBL] Stable в sunlight (unlike tretinoin)",
+        "[LBL] Effective monotherapy mild acne"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] Acne vulgaris"
+        ]
+      },
+      "dosing": {
+        "dose": "0.1-0.3% gel, apply nightly"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local cellular turnover normalization (retinoid)",
+          "best_match": [
+            "Mild-moderate acne (tolerable, OTC)"
+          ]
+        },
+        "membrane": {
+          "impact": "Local"
+        },
+        "phase": {
+          "match": "Chronic maintenance"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Less irritation than tretinoin",
+          "[LBL] Photosensitivity lower"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "adapalene_first_line": "[OBS-Mark] [Adapalene first-line для mild-moderate acne?]"
+      },
+      "references": [
+        "FDA label Differin"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-301", "name_inn": "Isotretinoin (oral)", "name_ru": "Изотретиноин (системно)", "name_brand": "Accutane (historic), Absorica, Claravis, Myorisan",
-      "status": "METACOD-RF", "batch": "20-Oral-Retinoids",
-      "molecular": {"chemical_class": "Oral retinoid (13-cis retinoic acid)", "mechanism_primary": ["[LBL] Significantly reduces sebum production (sebaceous gland atrophy)", "[LBL] Normalizes keratinization", "[LBL] Anti-inflammatory", "[LBL] Profound systemic effects beyond skin"], "half_life": "21 hours (parent), longer active metabolite"},
-      "indications": {"approved": ["[LBL] Severe nodular acne (recalcitrant к other treatments)", "[LBL] Severe scarring acne", "[LBL] Cumulative dose-based therapy (120-150 mg/kg total typical course)"]},
-      "dosing": {"dose": "0.5-1 mg/kg/day × 4-6 months", "administration": ["[LBL] С food (especially fatty foods improve absorption)", "[LBL] Lidose formulations (Absorica) — improved absorption on empty stomach"]},
-      "three_axis_profile": {"constitutional": {"energy": "Profound systemic effect — sebum (Damp) reduction + multi-system impacts; translation: systemic retinoid receptor modulation", "best_match": ["Severe acne any constitution", "Often Yin-Earth/Yang-Earth с metabolic-inflammatory pattern"]}, "membrane": {"impact": "[RF] Mild M-A→M-D drift (drying tendency systemically); usually well tolerated, durable response; [RF Mark canonical] may worsen pre-existing M-D drift в frail (rare — younger patients usually)"}, "phase": {"match": "4-6 month course = defined treatment phase; 'initial flare' common (month 1) — Phase 2 amplification"}},
-      "safety": {"ipledge": "iPLEDGE program (US) — mandatory registration for prescribers/patients/pharmacies: monthly pregnancy testing, two forms contraception, 30-day prescription limits — prevents congenital malformations.", "critical": ["[LBL] TERATOGENICITY — highly teratogenic, multiple severe malformations", "[LBL] Mucocutaneous dryness — universal (cheilitis, eye/nasal dryness)", "[LBL] Hyperlipidemia — usually mild, sometimes severe", "[LBL] Hepatotoxicity — monitor LFTs", "[LBL] Psychiatric effects — depression, suicidal ideation (controversial signal — recent data more reassuring)", "[LBL] Inflammatory bowel disease — controversial association", "[LBL] Photosensitivity", "[LBL] Night vision changes", "[LBL] Bone effects (musculoskeletal pains common)", "[LBL] Dry eye sometimes persistent"], "monitoring": ["Baseline + monthly: pregnancy test (women), LFTs, lipids", "CBC if indicated", "Mood assessment"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "isotretinoin_management": "[OBS-Mark] [Isotretinoin practical management — adolescent vs adult?]"},
-      "references": ["FDA label Accutane", "iPLEDGE program documentation"],
-      "status_flags": {"mark_validated": false, "priority_for_mark_review": "HIGH (significant safety profile)"}
+      "drug_id": "DRG-301",
+      "name_inn": "Isotretinoin (oral)",
+      "name_ru": "Изотретиноин (системно)",
+      "name_brand": "Accutane (historic), Absorica, Claravis, Myorisan",
+      "status": "METACOD-RF",
+      "batch": "20-Oral-Retinoids",
+      "molecular": {
+        "chemical_class": "Oral retinoid (13-cis retinoic acid)",
+        "mechanism_primary": [
+          "[LBL] Significantly reduces sebum production (sebaceous gland atrophy)",
+          "[LBL] Normalizes keratinization",
+          "[LBL] Anti-inflammatory",
+          "[LBL] Profound systemic effects beyond skin"
+        ],
+        "half_life": "21 hours (parent), longer active metabolite"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Severe nodular acne (recalcitrant к other treatments)",
+          "[LBL] Severe scarring acne",
+          "[LBL] Cumulative dose-based therapy (120-150 mg/kg total typical course)"
+        ]
+      },
+      "dosing": {
+        "dose": "0.5-1 mg/kg/day × 4-6 months",
+        "administration": [
+          "[LBL] С food (especially fatty foods improve absorption)",
+          "[LBL] Lidose formulations (Absorica) — improved absorption on empty stomach"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Profound systemic effect — sebum (Damp) reduction + multi-system impacts; translation: systemic retinoid receptor modulation",
+          "best_match": [
+            "Severe acne any constitution",
+            "Often Yin-Earth/Yang-Earth с metabolic-inflammatory pattern"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] Mild M-A→M-D drift (drying tendency systemically); usually well tolerated, durable response; [RF Mark canonical] may worsen pre-existing M-D drift в frail (rare — younger patients usually)"
+        },
+        "phase": {
+          "match": "4-6 month course = defined treatment phase; 'initial flare' common (month 1) — Phase 2 amplification"
+        }
+      },
+      "safety": {
+        "ipledge": "iPLEDGE program (US) — mandatory registration for prescribers/patients/pharmacies: monthly pregnancy testing, two forms contraception, 30-day prescription limits — prevents congenital malformations.",
+        "critical": [
+          "[LBL] TERATOGENICITY — highly teratogenic, multiple severe malformations",
+          "[LBL] Mucocutaneous dryness — universal (cheilitis, eye/nasal dryness)",
+          "[LBL] Hyperlipidemia — usually mild, sometimes severe",
+          "[LBL] Hepatotoxicity — monitor LFTs",
+          "[LBL] Psychiatric effects — depression, suicidal ideation (controversial signal — recent data more reassuring)",
+          "[LBL] Inflammatory bowel disease — controversial association",
+          "[LBL] Photosensitivity",
+          "[LBL] Night vision changes",
+          "[LBL] Bone effects (musculoskeletal pains common)",
+          "[LBL] Dry eye sometimes persistent"
+        ],
+        "monitoring": [
+          "Baseline + monthly: pregnancy test (women), LFTs, lipids",
+          "CBC if indicated",
+          "Mood assessment"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "isotretinoin_management": "[OBS-Mark] [Isotretinoin practical management — adolescent vs adult?]"
+      },
+      "references": [
+        "FDA label Accutane",
+        "iPLEDGE program documentation"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "priority_for_mark_review": "HIGH (significant safety profile)"
+      }
     },
     {
-      "drug_id": "DRG-302", "name_inn": "Tacrolimus (topical)", "name_ru": "Такролимус (наружно)", "name_brand": "Protopic",
-      "status": "METACOD-RF", "batch": "20-Calcineurin-Inhibitors",
-      "molecular": {"chemical_class": "Calcineurin inhibitor (topical)", "mechanism_primary": ["[LBL] Inhibits T-cell calcineurin → reduces inflammatory cytokine release"]},
-      "distinct_clinical": ["[LBL] Steroid-sparing alternative для chronic dermatitis", "[LBL] Safe для face, intertriginous areas (где steroid atrophy concerning)", "[LBL] No skin atrophy"],
-      "indications": {"approved": ["[LBL] Atopic dermatitis (moderate-severe)", "[LBL] Vitiligo (off-label)", "[LBL] Lichen sclerosus (off-label)", "[LBL] Steroid-rebound dermatitis transition"]},
-      "dosing": {"dose": "0.03% (pediatric), 0.1% (adult) ointment BID"},
-      "three_axis_profile": {"constitutional": {"energy": "Targeted T-cell Heat suppression (steroid-sparing)", "best_match": ["Atopic dermatitis face/intertriginous (no atrophy)"]}, "membrane": {"impact": "No atrophy (advantage over steroids)"}, "phase": {"match": "Chronic dermatitis maintenance"}},
-      "safety": {"critical": ["[LBL] Black box warning: theoretical malignancy risk (mostly disproven by long-term studies)", "[LBL] Burning sensation на initial application (often transient)", "[LBL] Photosensitivity — avoid sun/tanning beds", "[LBL] No vaccinations on treated areas", "[LBL] Significant systemic absorption only с very large areas"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "tacrolimus_steroid_alt": "[OBS-Mark] [Tacrolimus — steroid alternatives selection?]"},
-      "references": ["FDA label Protopic"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-302",
+      "name_inn": "Tacrolimus (topical)",
+      "name_ru": "Такролимус (наружно)",
+      "name_brand": "Protopic",
+      "status": "METACOD-RF",
+      "batch": "20-Calcineurin-Inhibitors",
+      "molecular": {
+        "chemical_class": "Calcineurin inhibitor (topical)",
+        "mechanism_primary": [
+          "[LBL] Inhibits T-cell calcineurin → reduces inflammatory cytokine release"
+        ]
+      },
+      "distinct_clinical": [
+        "[LBL] Steroid-sparing alternative для chronic dermatitis",
+        "[LBL] Safe для face, intertriginous areas (где steroid atrophy concerning)",
+        "[LBL] No skin atrophy"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] Atopic dermatitis (moderate-severe)",
+          "[LBL] Vitiligo (off-label)",
+          "[LBL] Lichen sclerosus (off-label)",
+          "[LBL] Steroid-rebound dermatitis transition"
+        ]
+      },
+      "dosing": {
+        "dose": "0.03% (pediatric), 0.1% (adult) ointment BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Targeted T-cell Heat suppression (steroid-sparing)",
+          "best_match": [
+            "Atopic dermatitis face/intertriginous (no atrophy)"
+          ]
+        },
+        "membrane": {
+          "impact": "No atrophy (advantage over steroids)"
+        },
+        "phase": {
+          "match": "Chronic dermatitis maintenance"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Black box warning: theoretical malignancy risk (mostly disproven by long-term studies)",
+          "[LBL] Burning sensation на initial application (often transient)",
+          "[LBL] Photosensitivity — avoid sun/tanning beds",
+          "[LBL] No vaccinations on treated areas",
+          "[LBL] Significant systemic absorption only с very large areas"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "tacrolimus_steroid_alt": "[OBS-Mark] [Tacrolimus — steroid alternatives selection?]"
+      },
+      "references": [
+        "FDA label Protopic"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-303", "name_inn": "Pimecrolimus", "name_ru": "Пимекролимус", "name_brand": "Elidel",
-      "status": "METACOD-RF", "batch": "20-Calcineurin-Inhibitors",
-      "molecular": {"chemical_class": "Calcineurin inhibitor (topical)"},
-      "distinct_clinical": ["[LBL] Similar к tacrolimus но less potent, less systemic absorption"],
-      "indications": {"approved": ["[LBL] Atopic dermatitis (mild-moderate)"]},
-      "dosing": {"dose": "1% cream BID"},
-      "three_axis_profile": {"constitutional": {"energy": "Targeted T-cell suppression (milder than tacrolimus)", "best_match": ["Mild-moderate atopic dermatitis"]}, "membrane": {"impact": "No atrophy"}, "phase": {"match": "Chronic maintenance"}},
-      "safety": {"note": ["[LBL] Same class black-box (theoretical malignancy, mostly disproven)", "[LBL] Less systemic absorption than tacrolimus"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "pimecrolimus_vs_tacrolimus": "[OBS-Mark] [Pimecrolimus vs tacrolimus selection?]"},
-      "references": ["FDA label Elidel"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-303",
+      "name_inn": "Pimecrolimus",
+      "name_ru": "Пимекролимус",
+      "name_brand": "Elidel",
+      "status": "METACOD-RF",
+      "batch": "20-Calcineurin-Inhibitors",
+      "molecular": {
+        "chemical_class": "Calcineurin inhibitor (topical)"
+      },
+      "distinct_clinical": [
+        "[LBL] Similar к tacrolimus но less potent, less systemic absorption"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] Atopic dermatitis (mild-moderate)"
+        ]
+      },
+      "dosing": {
+        "dose": "1% cream BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Targeted T-cell suppression (milder than tacrolimus)",
+          "best_match": [
+            "Mild-moderate atopic dermatitis"
+          ]
+        },
+        "membrane": {
+          "impact": "No atrophy"
+        },
+        "phase": {
+          "match": "Chronic maintenance"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Same class black-box (theoretical malignancy, mostly disproven)",
+          "[LBL] Less systemic absorption than tacrolimus"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "pimecrolimus_vs_tacrolimus": "[OBS-Mark] [Pimecrolimus vs tacrolimus selection?]"
+      },
+      "references": [
+        "FDA label Elidel"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-304", "name_inn": "Secukinumab", "name_ru": "Секукинумаб", "name_brand": "Cosentyx",
-      "status": "METACOD-RF", "batch": "20-Psoriasis-Biologics",
-      "molecular": {"chemical_class": "Anti-IL-17A monoclonal antibody", "mechanism_primary": ["[LBL] Selective IL-17A neutralization"], "half_life": "27 days"},
-      "indications": {"approved": ["[LBL] Moderate-severe plaque psoriasis", "[LBL] Psoriatic arthritis", "[LBL] Ankylosing spondylitis", "[LBL] Non-radiographic axSpA"]},
-      "dosing": {"dose": "Loading 300 mg SC weeks 0,1,2,3,4; Maintenance 300 mg SC q4 weeks"},
-      "three_axis_profile": {"constitutional": {"energy": "Targeted IL-17 pathway suppression (specific Heat reduction); translation: anti-IL-17A biological therapy", "best_match": ["Moderate-severe psoriasis / PsA"]}, "membrane": {"impact": "Psoriasis often M-A2 or M-D-mixed; treatment improves disease burden; well-tolerated durable response"}, "phase": {"match": "Chronic maintenance; prevents Phase 2 inflammatory flares"}},
-      "safety": {"critical": ["[LBL] IBD flare risk — caution в IBD patients (paradoxical worsening Crohn's, UC)", "[LBL] Candida infections (oral, esophageal) — IL-17 role в antifungal immunity", "[LBL] Injection site reactions", "[LBL] Upper respiratory infections more frequent", "[LBL] Latex allergy (pen device)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "il17_selection": "[OBS-Mark] [IL-17 biologic selection в psoriasis?]"},
-      "references": ["FDA label Cosentyx"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-304",
+      "name_inn": "Secukinumab",
+      "name_ru": "Секукинумаб",
+      "name_brand": "Cosentyx",
+      "status": "METACOD-RF",
+      "batch": "20-Psoriasis-Biologics",
+      "molecular": {
+        "chemical_class": "Anti-IL-17A monoclonal antibody",
+        "mechanism_primary": [
+          "[LBL] Selective IL-17A neutralization"
+        ],
+        "half_life": "27 days"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Moderate-severe plaque psoriasis",
+          "[LBL] Psoriatic arthritis",
+          "[LBL] Ankylosing spondylitis",
+          "[LBL] Non-radiographic axSpA"
+        ]
+      },
+      "dosing": {
+        "dose": "Loading 300 mg SC weeks 0,1,2,3,4; Maintenance 300 mg SC q4 weeks"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Targeted IL-17 pathway suppression (specific Heat reduction); translation: anti-IL-17A biological therapy",
+          "best_match": [
+            "Moderate-severe psoriasis / PsA"
+          ]
+        },
+        "membrane": {
+          "impact": "Psoriasis often M-A2 or M-D-mixed; treatment improves disease burden; well-tolerated durable response"
+        },
+        "phase": {
+          "match": "Chronic maintenance; prevents Phase 2 inflammatory flares"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] IBD flare risk — caution в IBD patients (paradoxical worsening Crohn's, UC)",
+          "[LBL] Candida infections (oral, esophageal) — IL-17 role в antifungal immunity",
+          "[LBL] Injection site reactions",
+          "[LBL] Upper respiratory infections more frequent",
+          "[LBL] Latex allergy (pen device)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "il17_selection": "[OBS-Mark] [IL-17 biologic selection в psoriasis?]"
+      },
+      "references": [
+        "FDA label Cosentyx"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-305", "name_inn": "Apremilast", "name_ru": "Апремиласт", "name_brand": "Otezla",
-      "status": "METACOD-RF", "batch": "20-Psoriasis-Oral",
-      "molecular": {"chemical_class": "Oral PDE4 inhibitor", "mechanism_primary": ["[LBL] Phosphodiesterase 4 inhibition → increased intracellular cAMP → reduced inflammatory cytokines"]},
-      "distinct_clinical": ["[LBL] Oral alternative to injectable biologics", "[LBL] Less immunosuppression than biologics", "[LBL] No pre-treatment TB/HBV screening required", "[LBL] Modest efficacy vs biologics (lower response rates)"],
-      "indications": {"approved": ["[LBL] Plaque psoriasis", "[LBL] Psoriatic arthritis", "[LBL] Behçet's disease oral ulcers"]},
-      "dosing": {"dose": "Titrate to 30 mg BID over 1 week"},
-      "three_axis_profile": {"constitutional": {"energy": "PDE4-mediated cytokine reduction (oral, less immunosuppression)", "best_match": ["Mild-moderate psoriasis preferring oral / avoiding biologic screening"]}, "membrane": {"impact": "Chronic"}, "phase": {"match": "Chronic maintenance"}},
-      "safety": {"critical": ["[LBL] Significant GI side effects — diarrhea, nausea (dose-limiting often)", "[LBL] Weight loss (sometimes desirable, sometimes problematic)", "[LBL] Depression signal (FDA warning)", "[LBL] Headache common"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "apremilast_tradeoff": "[OBS-Mark] [Apremilast — oral simplicity vs efficacy tradeoff?]"},
-      "references": ["FDA label Otezla"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-305",
+      "name_inn": "Apremilast",
+      "name_ru": "Апремиласт",
+      "name_brand": "Otezla",
+      "status": "METACOD-RF",
+      "batch": "20-Psoriasis-Oral",
+      "molecular": {
+        "chemical_class": "Oral PDE4 inhibitor",
+        "mechanism_primary": [
+          "[LBL] Phosphodiesterase 4 inhibition → increased intracellular cAMP → reduced inflammatory cytokines"
+        ]
+      },
+      "distinct_clinical": [
+        "[LBL] Oral alternative to injectable biologics",
+        "[LBL] Less immunosuppression than biologics",
+        "[LBL] No pre-treatment TB/HBV screening required",
+        "[LBL] Modest efficacy vs biologics (lower response rates)"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] Plaque psoriasis",
+          "[LBL] Psoriatic arthritis",
+          "[LBL] Behçet's disease oral ulcers"
+        ]
+      },
+      "dosing": {
+        "dose": "Titrate to 30 mg BID over 1 week"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "PDE4-mediated cytokine reduction (oral, less immunosuppression)",
+          "best_match": [
+            "Mild-moderate psoriasis preferring oral / avoiding biologic screening"
+          ]
+        },
+        "membrane": {
+          "impact": "Chronic"
+        },
+        "phase": {
+          "match": "Chronic maintenance"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Significant GI side effects — diarrhea, nausea (dose-limiting often)",
+          "[LBL] Weight loss (sometimes desirable, sometimes problematic)",
+          "[LBL] Depression signal (FDA warning)",
+          "[LBL] Headache common"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "apremilast_tradeoff": "[OBS-Mark] [Apremilast — oral simplicity vs efficacy tradeoff?]"
+      },
+      "references": [
+        "FDA label Otezla"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-306", "name_inn": "Benzoyl peroxide (topical)", "name_ru": "Бензоила пероксид (наружно)", "name_brand": "PanOxyl, Benzac (OTC + Rx)",
-      "status": "METACOD-RF", "batch": "20-Acne",
-      "molecular": {"chemical_class": "Topical antimicrobial + comedolytic", "mechanism_primary": ["[LBL] Releases free radicals — antibacterial (P. acnes)", "[LBL] Mild comedolytic effect", "[LBL] No bacterial resistance (unlike topical antibiotics)"]},
-      "indications": {"approved": ["[LBL] Acne vulgaris (cornerstone therapy)", "[LBL] Often combined с topical antibiotic (prevents resistance)", "[LBL] Often combined с retinoid"]},
-      "dosing": {"dose": "2.5-10% wash/cream/gel, OD-BID"},
-      "three_axis_profile": {"constitutional": {"energy": "Local antimicrobial + Damp-Heat reduction (acne)", "best_match": ["Acne vulgaris (cornerstone, combos)"]}, "membrane": {"impact": "Local"}, "phase": {"match": "Chronic maintenance"}},
-      "safety": {"note": ["[LBL] Skin irritation (start low concentration)", "[LBL] Bleaches fabrics, hair, towels — patient education", "[LBL] Photosensitivity mild", "[LBL] Pregnancy compatible"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "bpo_retinoid_combo": "[OBS-Mark] [BPO + retinoid combination protocols?]"},
-      "references": ["Acne management guidelines"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-306",
+      "name_inn": "Benzoyl peroxide (topical)",
+      "name_ru": "Бензоила пероксид (наружно)",
+      "name_brand": "PanOxyl, Benzac (OTC + Rx)",
+      "status": "METACOD-RF",
+      "batch": "20-Acne",
+      "molecular": {
+        "chemical_class": "Topical antimicrobial + comedolytic",
+        "mechanism_primary": [
+          "[LBL] Releases free radicals — antibacterial (P. acnes)",
+          "[LBL] Mild comedolytic effect",
+          "[LBL] No bacterial resistance (unlike topical antibiotics)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acne vulgaris (cornerstone therapy)",
+          "[LBL] Often combined с topical antibiotic (prevents resistance)",
+          "[LBL] Often combined с retinoid"
+        ]
+      },
+      "dosing": {
+        "dose": "2.5-10% wash/cream/gel, OD-BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local antimicrobial + Damp-Heat reduction (acne)",
+          "best_match": [
+            "Acne vulgaris (cornerstone, combos)"
+          ]
+        },
+        "membrane": {
+          "impact": "Local"
+        },
+        "phase": {
+          "match": "Chronic maintenance"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Skin irritation (start low concentration)",
+          "[LBL] Bleaches fabrics, hair, towels — patient education",
+          "[LBL] Photosensitivity mild",
+          "[LBL] Pregnancy compatible"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "bpo_retinoid_combo": "[OBS-Mark] [BPO + retinoid combination protocols?]"
+      },
+      "references": [
+        "Acne management guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-307", "name_inn": "Metronidazole topical", "name_ru": "Метронидазол (наружно)", "name_brand": "MetroGel, Rosadan (cross-ref DRG-248 batch 14)",
-      "status": "METACOD-RF", "batch": "20-Rosacea", "entry_type": "cross_reference",
+      "drug_id": "DRG-307",
+      "name_inn": "Metronidazole topical",
+      "name_ru": "Метронидазол (наружно)",
+      "name_brand": "MetroGel, Rosadan (cross-ref DRG-248 batch 14)",
+      "status": "METACOD-RF",
+      "batch": "20-Rosacea",
+      "entry_type": "cross_reference",
       "cross_reference": "Full metronidazole profile в batch 14 (DRG-248; batch 14 не в репозитории). Здесь — topical rosacea use only.",
-      "distinct_clinical": ["[LBL] Topical formulations для rosacea (different from oral antimicrobial use)", "[RF] Anti-inflammatory effect predominantly (mechanism в rosacea unclear)"],
-      "indications": {"approved": ["[LBL] Rosacea (topical)"]},
-      "dosing": {"dose": "0.75-1% gel/cream BID-OD"},
-      "three_axis_profile": {"constitutional": {"energy": "Local anti-inflammatory (rosacea Heat)", "best_match": ["Rosacea"]}, "membrane": {"impact": "Local"}, "phase": {"match": "Chronic maintenance"}},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "rosacea_algorithm": "[OBS-Mark] [Rosacea treatment algorithm?]"},
-      "references": ["см. batch 14 DRG-248"],
-      "status_flags": {"mark_validated": false, "note": "cross-reference entry — full profile batch 14 (not in repo)"}
+      "distinct_clinical": [
+        "[LBL] Topical formulations для rosacea (different from oral antimicrobial use)",
+        "[RF] Anti-inflammatory effect predominantly (mechanism в rosacea unclear)"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] Rosacea (topical)"
+        ]
+      },
+      "dosing": {
+        "dose": "0.75-1% gel/cream BID-OD"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local anti-inflammatory (rosacea Heat)",
+          "best_match": [
+            "Rosacea"
+          ]
+        },
+        "membrane": {
+          "impact": "Local"
+        },
+        "phase": {
+          "match": "Chronic maintenance"
+        }
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "rosacea_algorithm": "[OBS-Mark] [Rosacea treatment algorithm?]"
+      },
+      "references": [
+        "см. batch 14 DRG-248"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "cross-reference entry — full profile batch 14 (not in repo)"
+      }
     },
     {
-      "drug_id": "DRG-308", "name_inn": "Hydroquinone", "name_ru": "Гидрохинон", "name_brand": "Multiple",
-      "status": "METACOD-RF", "batch": "20-Pigmentation",
-      "molecular": {"chemical_class": "Tyrosinase inhibitor", "mechanism_primary": ["[LBL] Reduces melanin synthesis"]},
-      "indications": {"approved": ["[LBL] Melasma", "[LBL] Post-inflammatory hyperpigmentation", "[LBL] Solar lentigines"]},
-      "dosing": {"dose": "2% (OTC) или 4% (Rx) cream BID"},
-      "three_axis_profile": {"constitutional": {"energy": "Local melanin reduction (pigmentation)", "best_match": ["Melasma, PIH, lentigines"]}, "membrane": {"impact": "Local; limit duration"}, "phase": {"match": "Time-limited courses"}},
-      "safety": {"critical": ["[LBL] Ochronosis — paradoxical hyperpigmentation с long-term use", "[LBL] Skin irritation", "[LBL] EU banned (cosmetic) — safety concerns; still used dermatology в US", "[LBL] Limit duration — 3-6 month courses", "[LBL] Often combined с retinoid + steroid (Kligman formula)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "hydroquinone_restrictions": "[OBS-Mark] [Hydroquinone use — restrictions в practice?]"},
-      "references": ["Dermatology pigmentation guidelines"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-308",
+      "name_inn": "Hydroquinone",
+      "name_ru": "Гидрохинон",
+      "name_brand": "Multiple",
+      "status": "METACOD-RF",
+      "batch": "20-Pigmentation",
+      "molecular": {
+        "chemical_class": "Tyrosinase inhibitor",
+        "mechanism_primary": [
+          "[LBL] Reduces melanin synthesis"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Melasma",
+          "[LBL] Post-inflammatory hyperpigmentation",
+          "[LBL] Solar lentigines"
+        ]
+      },
+      "dosing": {
+        "dose": "2% (OTC) или 4% (Rx) cream BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local melanin reduction (pigmentation)",
+          "best_match": [
+            "Melasma, PIH, lentigines"
+          ]
+        },
+        "membrane": {
+          "impact": "Local; limit duration"
+        },
+        "phase": {
+          "match": "Time-limited courses"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Ochronosis — paradoxical hyperpigmentation с long-term use",
+          "[LBL] Skin irritation",
+          "[LBL] EU banned (cosmetic) — safety concerns; still used dermatology в US",
+          "[LBL] Limit duration — 3-6 month courses",
+          "[LBL] Often combined с retinoid + steroid (Kligman formula)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "hydroquinone_restrictions": "[OBS-Mark] [Hydroquinone use — restrictions в practice?]"
+      },
+      "references": [
+        "Dermatology pigmentation guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-309", "name_inn": "Minoxidil (topical)", "name_ru": "Миноксидил (наружно)", "name_brand": "Rogaine",
-      "status": "METACOD-RF", "batch": "20-Hair-Loss",
-      "molecular": {"chemical_class": "Vasodilator (topical)", "mechanism_primary": ["[LBL] Local vasodilation + direct hair follicle effects (mechanism incompletely understood)"]},
-      "indications": {"approved": ["[LBL] Androgenetic alopecia (male и female)", "[LBL] Off-label other alopecia types"]},
-      "dosing": {"dose": "2% (women) или 5% (men) topical solution/foam BID"},
-      "three_axis_profile": {"constitutional": {"energy": "Local vasodilation / follicle stimulation", "best_match": ["Androgenetic alopecia"]}, "membrane": {"impact": "Local"}, "phase": {"match": "Chronic (must continue for effect)"}},
-      "safety": {"note": ["[LBL] Scalp irritation (especially propylene glycol formulations)", "[LBL] Unwanted facial/body hair в women (transfer от scalp)", "[LBL] Initial shed (paradoxical hair fall first 4-8 weeks)", "[LBL] Rebound shedding при discontinuation", "[LBL] Systemic absorption rare с topical", "[LBL] Cardiovascular signal с oral minoxidil (different formulation, used HTN historically)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "minoxidil_counseling": "[OBS-Mark] [Topical minoxidil patient counseling?]"},
-      "references": ["FDA label Rogaine"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-309",
+      "name_inn": "Minoxidil (topical)",
+      "name_ru": "Миноксидил (наружно)",
+      "name_brand": "Rogaine",
+      "status": "METACOD-RF",
+      "batch": "20-Hair-Loss",
+      "molecular": {
+        "chemical_class": "Vasodilator (topical)",
+        "mechanism_primary": [
+          "[LBL] Local vasodilation + direct hair follicle effects (mechanism incompletely understood)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Androgenetic alopecia (male и female)",
+          "[LBL] Off-label other alopecia types"
+        ]
+      },
+      "dosing": {
+        "dose": "2% (women) или 5% (men) topical solution/foam BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local vasodilation / follicle stimulation",
+          "best_match": [
+            "Androgenetic alopecia"
+          ]
+        },
+        "membrane": {
+          "impact": "Local"
+        },
+        "phase": {
+          "match": "Chronic (must continue for effect)"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Scalp irritation (especially propylene glycol formulations)",
+          "[LBL] Unwanted facial/body hair в women (transfer от scalp)",
+          "[LBL] Initial shed (paradoxical hair fall first 4-8 weeks)",
+          "[LBL] Rebound shedding при discontinuation",
+          "[LBL] Systemic absorption rare с topical",
+          "[LBL] Cardiovascular signal с oral minoxidil (different formulation, used HTN historically)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "minoxidil_counseling": "[OBS-Mark] [Topical minoxidil patient counseling?]"
+      },
+      "references": [
+        "FDA label Rogaine"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-310", "name_inn": "Permethrin", "name_ru": "Перметрин", "name_brand": "Elimite (scabies), Nix (lice)",
-      "status": "METACOD-RF", "batch": "20-Antiparasitic",
-      "molecular": {"chemical_class": "Pyrethroid insecticide", "mechanism_primary": ["[LBL] Disrupts arthropod sodium channels"]},
-      "indications": {"approved": ["[LBL] Scabies (5% cream, full-body application overnight)", "[LBL] Head lice (1% lotion)"]},
-      "dosing": {"dose": "Scabies: 5% cream head-to-toe overnight, repeat в 1 week; Lice: 1% lotion к dry hair × 10 min, repeat в 1 week"},
-      "three_axis_profile": {"constitutional": {"energy": "Antiparasitic (local)", "best_match": ["Scabies, lice"]}, "membrane": {"impact": "Acute"}, "phase": {"match": "Acute (2 applications)"}},
-      "safety": {"note": ["[LBL] Generally very safe", "[LBL] Mild skin irritation", "[LBL] Pregnancy compatible", "[LBL] Pediatric ≥2 months"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "scabies_household": "[OBS-Mark] [Scabies treatment — household contacts?]"},
-      "references": ["FDA label Elimite, Nix"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-310",
+      "name_inn": "Permethrin",
+      "name_ru": "Перметрин",
+      "name_brand": "Elimite (scabies), Nix (lice)",
+      "status": "METACOD-RF",
+      "batch": "20-Antiparasitic",
+      "molecular": {
+        "chemical_class": "Pyrethroid insecticide",
+        "mechanism_primary": [
+          "[LBL] Disrupts arthropod sodium channels"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Scabies (5% cream, full-body application overnight)",
+          "[LBL] Head lice (1% lotion)"
+        ]
+      },
+      "dosing": {
+        "dose": "Scabies: 5% cream head-to-toe overnight, repeat в 1 week; Lice: 1% lotion к dry hair × 10 min, repeat в 1 week"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Antiparasitic (local)",
+          "best_match": [
+            "Scabies, lice"
+          ]
+        },
+        "membrane": {
+          "impact": "Acute"
+        },
+        "phase": {
+          "match": "Acute (2 applications)"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Generally very safe",
+          "[LBL] Mild skin irritation",
+          "[LBL] Pregnancy compatible",
+          "[LBL] Pediatric ≥2 months"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "scabies_household": "[OBS-Mark] [Scabies treatment — household contacts?]"
+      },
+      "references": [
+        "FDA label Elimite, Nix"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-485",
+      "name_inn": "Mupirocin",
+      "name_ru": "Мупироцин",
+      "name_brand": "Bactroban",
+      "status": "METACOD-RF",
+      "batch": "20-Topical-Antibiotic",
+      "molecular": {
+        "chemical_class": "Topical antibacterial",
+        "mechanism_primary": [
+          "[LBL] Inhibits bacterial isoleucyl-tRNA synthetase"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Impetigo, secondarily infected dermatoses, nasal MRSA decolonization"
+        ]
+      },
+      "dosing": {
+        "dose": "TID topical / nasal"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local antibacterial [RF]",
+          "best_match": [
+            "Impetigo, MRSA decolonization"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Local irritation; resistance with overuse"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "IDSA SSTI"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-486",
+      "name_inn": "Calcipotriene / Calcitriol (topical vit D)",
+      "name_ru": "Кальципотриол / Кальцитриол (наружно)",
+      "name_brand": "Dovonex / Vectical",
+      "status": "METACOD-RF",
+      "batch": "20-Psoriasis",
+      "molecular": {
+        "chemical_class": "Topical vitamin D analogue",
+        "mechanism_primary": [
+          "[LBL] Normalizes keratinocyte proliferation/differentiation"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Plaque psoriasis (often with topical steroid)"
+        ]
+      },
+      "dosing": {
+        "dose": "Topical BID (combo Enstilar/Taclonex)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local keratinocyte normalization [RF]",
+          "best_match": [
+            "Plaque psoriasis"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Local irritation; hypercalcemia if extensive/over-application"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAD psoriasis"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-487",
+      "name_inn": "Terbinafine",
+      "name_ru": "Тербинафин",
+      "name_brand": "Lamisil",
+      "status": "METACOD-RF",
+      "batch": "20-Antifungal",
+      "molecular": {
+        "chemical_class": "Allylamine antifungal",
+        "mechanism_primary": [
+          "[LBL] Squalene epoxidase inhibition (fungicidal)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Onychomycosis, tinea (dermatophyte) — oral; topical tinea"
+        ]
+      },
+      "dosing": {
+        "dose": "Oral 250 mg daily (6-12 wk nails); topical"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Antifungal (Damp-clearing) [RF]",
+          "best_match": [
+            "Dermatophyte onychomycosis/tinea"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Course"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hepatotoxicity (LFTs for oral), taste disturbance, rare SJS",
+          "[LBL] CYP2D6 inhibitor"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAD onychomycosis"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-488",
+      "name_inn": "Ketoconazole / Ciclopirox (topical antifungal)",
+      "name_ru": "Кетоконазол / Циклопирокс (наружно)",
+      "name_brand": "Nizoral / Loprox",
+      "status": "METACOD-RF",
+      "batch": "20-Antifungal",
+      "molecular": {
+        "chemical_class": "Topical azole / hydroxypyridone antifungal",
+        "mechanism_primary": [
+          "[LBL] Ergosterol synthesis inhibition (topical)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Seborrheic dermatitis, tinea, candidiasis, pityriasis versicolor"
+        ]
+      },
+      "dosing": {
+        "dose": "Topical/shampoo"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local antifungal [RF]",
+          "best_match": [
+            "Seborrheic dermatitis, tinea"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / course"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Local irritation; topical avoids oral ketoconazole hepatotoxicity"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAD"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-489",
+      "name_inn": "Azelaic acid",
+      "name_ru": "Азелаиновая кислота",
+      "name_brand": "Finacea, Azelex",
+      "status": "METACOD-RF",
+      "batch": "20-Acne-Rosacea",
+      "molecular": {
+        "chemical_class": "Dicarboxylic acid (antimicrobial/anti-inflammatory)",
+        "mechanism_primary": [
+          "[LBL] Antibacterial + comedolytic + anti-inflammatory + tyrosinase inhibition"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acne, rosacea, post-inflammatory hyperpigmentation, melasma"
+        ]
+      },
+      "dosing": {
+        "dose": "15-20% topical BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local anti-inflammatory/pigment [RF]",
+          "best_match": [
+            "Acne, rosacea, PIH (pregnancy-safe)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Burning/stinging, hypopigmentation (dark skin); well tolerated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAD acne/rosacea"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-490",
+      "name_inn": "Imiquimod",
+      "name_ru": "Имиквимод",
+      "name_brand": "Aldara, Zyclara",
+      "status": "METACOD-RF",
+      "batch": "20-Immunomodulator",
+      "molecular": {
+        "chemical_class": "Topical TLR7 agonist (immune response modifier)",
+        "mechanism_primary": [
+          "[LBL] Induces local interferon/cytokine antitumor/antiviral response"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Actinic keratosis, superficial BCC, external genital warts"
+        ]
+      },
+      "dosing": {
+        "dose": "Topical (regimen-specific)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local immune activation [RF]",
+          "best_match": [
+            "Actinic keratosis, superficial BCC, warts"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Course"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Intense local inflammation/erosion (expected), flu-like symptoms"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAD"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-491",
+      "name_inn": "5-Fluorouracil (topical)",
+      "name_ru": "5-Фторурацил (наружно)",
+      "name_brand": "Efudex, Carac",
+      "status": "METACOD-RF",
+      "batch": "20-Antineoplastic-Topical",
+      "molecular": {
+        "chemical_class": "Topical antimetabolite",
+        "mechanism_primary": [
+          "[LBL] Thymidylate synthase inhibition → destroys dysplastic cells"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Actinic keratoses, superficial BCC"
+        ]
+      },
+      "dosing": {
+        "dose": "Topical BID × weeks"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local dysplasia destruction [RF]",
+          "best_match": [
+            "Field actinic keratosis"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Course"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Marked inflammation/erosion/crusting (expected), photosensitivity",
+          "[LBL] DPD deficiency caution; pregnancy contraindicated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAD"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-492",
+      "name_inn": "Acitretin",
+      "name_ru": "Ацитретин",
+      "name_brand": "Soriatane",
+      "status": "METACOD-RF",
+      "batch": "20-Oral-Retinoid",
+      "molecular": {
+        "chemical_class": "Systemic retinoid",
+        "mechanism_primary": [
+          "[LBL] Normalizes keratinization (psoriasis)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Severe psoriasis (esp. pustular/erythrodermic), disorders of keratinization"
+        ]
+      },
+      "dosing": {
+        "dose": "10-50 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Systemic keratinization control [RF]",
+          "best_match": [
+            "Severe psoriasis"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] TERATOGEN (avoid pregnancy 3 yr after — alcohol→etretinate), hyperlipidemia, hepatotoxicity, mucocutaneous dryness"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAD psoriasis"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-493",
+      "name_inn": "Dapsone",
+      "name_ru": "Дапсон",
+      "name_brand": "Aczone (topical), oral",
+      "status": "METACOD-RF",
+      "batch": "20-Anti-inflammatory",
+      "molecular": {
+        "chemical_class": "Sulfone antimicrobial/anti-inflammatory",
+        "mechanism_primary": [
+          "[LBL] Antineutrophilic; antimicrobial"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Dermatitis herpetiformis, acne (topical)",
+          "[GL] Leprosy, PJP prophylaxis (oral), bullous dermatoses"
+        ]
+      },
+      "dosing": {
+        "dose": "Topical BID; oral per indication"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anti-neutrophilic [RF]",
+          "best_match": [
+            "Dermatitis herpetiformis, acne"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hemolysis (G6PD — test before oral), methemoglobinemia, DRESS/sulfone syndrome, agranulocytosis"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAD"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     }
   ]
 }

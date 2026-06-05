@@ -13,14 +13,14 @@
 | Metric | Value |
 |---|---|
 | Drug-batch files | **27** |
-| Total drug/concept entries | **411** (411 unique DRG IDs — no collisions) |
+| Total drug/concept entries | **507** (507 unique DRG IDs — no collisions) |
 | — authored from Mark's pasted source docs | **220** |
-| — Claude-authored standard-evidence gap-fill | **191** (flagged `claude_authored_standard_evidence`) |
+| — Claude-authored (191 gap-fill batches + 133 expansion-block DRG-380..512) | **324** (flagged) |
 | Conceptual / registry files | **16** |
 | Test suite | **612 passing, 0 skipped** |
 | `ready_for_clinical_use` across **all** artifacts | **false** (verified) |
 
-DRG ID space is essentially contiguous **DRG-001..379** core + a **380..416 expansion block** (acute/IV cardiology, endocrine, pulmonology). Documented minor gaps only: 200-201, 250, 370-371.
+DRG ID space is essentially contiguous **DRG-001..379** core + a **380..512 expansion block** (133 class-completion entries across all systems). Documented minor gaps only: 200-201, 250, 370-371.
 
 ---
 
@@ -36,27 +36,27 @@ DRG ID space is essentially contiguous **DRG-001..379** core + a **380..416 expa
 | 04-Old-school antidiabetics | 7 | 017–023 | src | SU/TZD/glinide/α-glucosidase |
 | 05-Insulins | 10 | 024–033 | src | insulins + pramlintide |
 | 06-Cardiovascular | 78 | 034–096 +380–394 | ✎ | BB/ACEi/ARB/ARNI/CCB/diuretics/MRA/statins/lipid/antiplatelet/anticoagulant/antiarrhythmic/digoxin/nitrate/ivabradine/PAH/pressor/ranolazine |
-| 07-Psychiatric | 22 | 097–118 | src | antidepressants/antipsychotics/mood/anxiolytics |
+| 07-Psychiatric | 34 | 097–118 +417–428 | src✎ | antidepressants/antipsychotics/mood/anxiolytics |
 | 08-Endocrine | 37 | 119–143 +395–406 | ✎ | thyroid/glucocorticoid/bone/pituitary/sex-hormone |
 | 09-Pulmonology | 28 | 144–161 +407–416 | ✎ | bronchodilators/ICS/biologics/IPF-antifibrotics |
 | 10-Rheumatology | 18 | 162–179 | ✎ | csDMARDs/biologics/JAK/gout |
-| 11-Gastroenterology | 20 | 180–199 | src | PPI/H2/prokinetic/antiemetic/5-ASA/IBD-biologic/laxative (Mark's specialty) |
-| 12-Neurology | 15 | 202–216 | src | antiepileptic/triptan/anti-CGRP/Parkinson/dementia/MS |
-| 13-Urology/Gyn | 15 | 217–231 | src | α1-blocker/PDE5/OAB/fertility-PCOS |
+| 11-Gastroenterology | 33 | 180–199 +429–441 | src✎ | PPI/H2/prokinetic/antiemetic/5-ASA/IBD-biologic/laxative (Mark's specialty) |
+| 12-Neurology | 32 | 202–216 +442–458 | src✎ | antiepileptic/triptan/anti-CGRP/Parkinson/dementia/MS |
+| 13-Urology/Gyn | 23 | 217–231 +459–466 | src✎ | α1-blocker/PDE5/OAB/fertility-PCOS |
 | 14-Antimicrobials | 18 | 232–249 | ✎ | β-lactam/macrolide/FQ/tetra/aminoglycoside/glycopeptide/oxazolidinone/sulfa/nitrofurantoin/nitroimidazole/azole |
-| 15-Antivirals | 5 | 251–255 | src | HSV/VZV/influenza/HIV-HBV/HCV-DAA |
+| 15-Antivirals | 13 | 251–255 +467–474 | src✎ | HSV/VZV/influenza/HIV-HBV/HCV-DAA |
 | 16-Oncology | 12 | 256–267 | ✎ | TKI/mAb/checkpoint/hormonal(SERM/AI/GnRH-ADT)/PARP/BTK |
-| 17-Anesthesia | 10 | 268–277 | src | IV induction/opioid/NMB/reversal |
-| 18-Addiction | 8 | 278–285 | src | OUD/AUD/smoking/overdose-reversal |
+| 17-Anesthesia | 18 | 268–277 +475–482 | src✎ | IV induction/opioid/NMB/reversal |
+| 18-Addiction | 10 | 278–285 +483–484 | src✎ | OUD/AUD/smoking/overdose-reversal |
 | 19-Geriatric | 10 | 286–295 | src | Beers/STOPP-START/CGA/deprescribing/ACB + Vit D/melatonin + cross-refs |
-| 20-Dermatology | 15 | 296–310 | src | topical steroid/retinoid/calcineurin/psoriasis-biologic/acne/specific |
-| 21-Ophthalmology | 10 | 311–320 | src | glaucoma/dry-eye/anti-VEGF + cross-refs |
+| 20-Dermatology | 24 | 296–310 +485–493 | src✎ | topical steroid/retinoid/calcineurin/psoriasis-biologic/acne/specific |
+| 21-Ophthalmology | 15 | 311–320 +494–498 | src✎ | glaucoma/dry-eye/anti-VEGF + cross-refs |
 | 22-ENT | 8 | 321–328 | src | nasal steroid/antihistamine/vestibular/decongestant/tinnitus |
 | 23-Pediatric | 7 | 329–335 | src | prescribing/antibiotic/asthma/emergency frameworks + palivizumab/surfactant/ADHD |
-| 24-Renal | 7 | 336–342 | src | phosphate binders/ESA/active-VitD/calcimimetic/finerenone/tolvaptan |
+| 24-Renal | 10 | 336–342 +499–501 | src✎ | phosphate binders/ESA/active-VitD/calcimimetic/finerenone/tolvaptan |
 | 25-Rare diseases | 9 | 343–351 | src | CFTR-modulators/HAE/lysosomal-ERT-SRT/PAH/SMA/gene-therapy/DMD |
-| 26-Nutraceuticals | 18 | 352–369 | src | alkalinization 3:2:1 / ADT-stack / Zuo / Mariana / adaptogens / microbiome |
-| 27-Hematology | 8 | 372–379 | src | iron/hydroxyurea/TPO-agonist/givosiran-siRNA/eculizumab-complement |
+| 26-Nutraceuticals | 24 | 352–369 +502–507 | src✎ | alkalinization 3:2:1 / ADT-stack / Zuo / Mariana / adaptogens / microbiome |
+| 27-Hematology | 13 | 372–379 +508–512 | src✎ | iron/hydroxyurea/TPO-agonist/givosiran-siRNA/eculizumab-complement |
 
 ---
 
@@ -66,15 +66,15 @@ Every clinical statement carries a provenance tag. Counts across the DB:
 
 | Tag | Meaning | Count |
 |---|---|---|
-| `[LBL]` | FDA/EMA label | 2820 |
-| `[OBS-Mark]` | Mark clinical observation (mostly empty placeholders `[TBD]`) | 653 |
-| `[GL]` | Clinical guideline | 488 |
+| `[LBL]` | FDA/EMA label | 3150 |
+| `[OBS-Mark]` | Mark clinical observation (mostly empty placeholders `[TBD]`) | 749 |
+| `[GL]` | Clinical guideline | 511 |
 | `[RF]` | Research-framework / theoretical (energy/membrane/phase overlay) | 426 |
-| `[RCT]` | Named randomized trial / trial body | 149 |
+| `[RCT]` | Named randomized trial / trial body | 169 |
 | `[CLASS]` | Class extrapolation | 16 |
 | `[TBD]`/`[GOVERNANCE]` | placeholders / governance annotations | 10 |
 
-**Reading:** the DB is overwhelmingly anchored in external evidence (`LBL`+`GL`+`RCT` ≈ 3457 statements). `[RF]` (426) is the energy/three-axis overlay, always tagged as theoretical. `[OBS-Mark]` slots are reserved for Mark's input and remain largely unfilled (`[TBD]`).
+**Reading:** the DB is overwhelmingly anchored in external evidence (`LBL`+`GL`+`RCT` ≈ 3830 statements). `[RF]` (426) is the energy/three-axis overlay, always tagged as theoretical. `[OBS-Mark]` slots are reserved for Mark's input and remain largely unfilled (`[TBD]`).
 
 ---
 
@@ -82,7 +82,7 @@ Every clinical statement carries a provenance tag. Counts across the DB:
 
 | State | Count | Notes |
 |---|---|---|
-| `none` | 399 | not yet Mark-reviewed |
+| `none` | 495 | not yet Mark-reviewed |
 | `partial` | 12 | Mark observations recorded, **not** full sign-off |
 | `full` | **0** | full validation requires explicit formal sign-off — never auto-set |
 

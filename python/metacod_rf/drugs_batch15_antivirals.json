@@ -7,7 +7,7 @@
     "status": "METACOD-RF — Research Framework, not clinical guidance",
     "group": "Антивирусные — HSV/VZV / influenza / HIV-HBV / HCV DAA (5 препаратов, 4 подгруппы)",
     "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0 + KCTS awareness",
-    "preparations_count": 5,
+    "preparations_count": 13,
     "author": "Mark Litvak (с AI-assistance)",
     "date": "2026-06",
     "ready_for_clinical_use": false,
@@ -50,7 +50,8 @@
         "issue_3_kcts_chronic_viral": "[RF] AIRE-triggers связаны с chronic viral infections через social/lifestyle markers — НЕ было explicitly в Module 05 Hamer canon для этих conditions. Q: OK extend KCTS к chronic viral populations, или speculative? [GOVERNANCE: в любом случае — research-only, не клинически.]",
         "issue_4_hbv_coverage": "[RF] HBV coverage thin (TDF/FTC primarily HIV-framed). Q: расширить отдельной HBV-секцией?"
       }
-    }
+    },
+    "expansion_note": "[2026-06 EXPANSION-2] +DRG-467-474 (8) Claude-authored standard-evidence class-completion (expansion block)."
   },
   "drugs": [
     {
@@ -415,6 +416,409 @@
       "references": [
         "FDA label Epclusa",
         "AASLD HCV Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-467",
+      "name_inn": "Famciclovir",
+      "name_ru": "Фамцикловир",
+      "name_brand": "Famvir",
+      "status": "METACOD-RF",
+      "batch": "15-Herpesvirus",
+      "molecular": {
+        "chemical_class": "Guanosine analog (penciclovir prodrug)",
+        "mechanism_primary": [
+          "[LBL] HSV/VZV DNA polymerase inhibition"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Herpes zoster, recurrent genital HSV, herpes labialis"
+        ]
+      },
+      "dosing": {
+        "dose": "Per indication (short course)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Antiviral (Heat-clearing) [RF]",
+          "best_match": [
+            "HSV/VZV (alternative to valacyclovir)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Well tolerated; renal dose adjustment, headache"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "IDSA HSV/VZV"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-468",
+      "name_inn": "Ganciclovir / Valganciclovir",
+      "name_ru": "Ганцикловир / Валганцикловир",
+      "name_brand": "Cytovene / Valcyte",
+      "status": "METACOD-RF",
+      "batch": "15-CMV",
+      "molecular": {
+        "chemical_class": "Guanosine analog (CMV)",
+        "mechanism_primary": [
+          "[LBL] CMV DNA polymerase inhibition"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] CMV retinitis/disease, CMV prophylaxis in transplant"
+        ]
+      },
+      "dosing": {
+        "dose": "Valganciclovir PO; ganciclovir IV (renal-dosed)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anti-CMV [RF]",
+          "best_match": [
+            "CMV (immunocompromised/transplant)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute / prophylaxis"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Myelosuppression (neutropenia/thrombocytopenia), nephrotoxicity, teratogen/carcinogen"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AST CMV"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-469",
+      "name_inn": "Baloxavir marboxil",
+      "name_ru": "Балоксавир",
+      "name_brand": "Xofluza",
+      "status": "METACOD-RF",
+      "batch": "15-Influenza",
+      "molecular": {
+        "chemical_class": "Cap-dependent endonuclease inhibitor",
+        "mechanism_primary": [
+          "[LBL] Blocks influenza mRNA synthesis (single dose)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acute uncomplicated influenza, post-exposure prophylaxis"
+        ]
+      },
+      "dosing": {
+        "dose": "Single oral dose (weight-based)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anti-influenza (Wind-Heat) [RF]",
+          "best_match": [
+            "Influenza (single-dose convenience)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Treatment-emergent resistance, hypersensitivity; avoid with dairy/polyvalent cations"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "IDSA influenza"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-470",
+      "name_inn": "Nirmatrelvir-ritonavir (Paxlovid)",
+      "name_ru": "Нирматрелвир-ритонавир (Паксловид)",
+      "name_brand": "Paxlovid",
+      "status": "METACOD-RF",
+      "batch": "15-COVID",
+      "molecular": {
+        "chemical_class": "SARS-CoV-2 protease inhibitor (ritonavir-boosted)",
+        "mechanism_primary": [
+          "[RCT] 3CL protease inhibition (EPIC-HR — reduces severe COVID)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Mild-moderate COVID-19, high-risk for progression (early)"
+        ]
+      },
+      "dosing": {
+        "dose": "5-day course (renal adjust)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Antiviral (early) [RF]",
+          "best_match": [
+            "High-risk early COVID-19"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute (5 days)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] MAJOR ritonavir CYP3A4 DDIs (statins, anticoagulants, many — review/hold)",
+          "[LBL] Dysgeusia, 'rebound'; avoid eGFR<30 (dose) / severe hepatic"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "NIH COVID; EPIC-HR"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-471",
+      "name_inn": "Remdesivir",
+      "name_ru": "Ремдесивир",
+      "name_brand": "Veklury",
+      "status": "METACOD-RF",
+      "batch": "15-COVID",
+      "molecular": {
+        "chemical_class": "Nucleotide analog RdRp inhibitor (IV)",
+        "mechanism_primary": [
+          "[RCT] Viral RNA polymerase inhibition (ACTT-1)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] COVID-19 (hospitalized / high-risk outpatient early)"
+        ]
+      },
+      "dosing": {
+        "dose": "IV loading then daily (3-5 days)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Antiviral (IV) [RF]",
+          "best_match": [
+            "COVID-19 (hospitalized/high-risk)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Transaminitis, infusion reactions, bradycardia; avoid eGFR<30 (vehicle)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "NIH COVID; ACTT-1"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-472",
+      "name_inn": "Dolutegravir / Bictegravir (INSTI)",
+      "name_ru": "Долутегравир / Биктегравир",
+      "name_brand": "Tivicay / Biktarvy",
+      "status": "METACOD-RF",
+      "batch": "15-HIV",
+      "molecular": {
+        "chemical_class": "HIV integrase strand-transfer inhibitor",
+        "mechanism_primary": [
+          "[LBL] Blocks HIV integration; high barrier to resistance"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] HIV-1 (first-line, often single-tablet regimens)"
+        ]
+      },
+      "dosing": {
+        "dose": "Daily (STR e.g. Biktarvy)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Antiretroviral backbone [RF]",
+          "best_match": [
+            "HIV-1 treatment"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Weight gain, insomnia, ↑creatinine (benign, tubular); neural-tube signal (periconception — reassured by data)",
+          "[LBL] Polyvalent cation chelation (separate)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "DHHS HIV"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-473",
+      "name_inn": "Entecavir / Tenofovir alafenamide (HBV)",
+      "name_ru": "Энтекавир / Тенофовир алафенамид",
+      "name_brand": "Baraclude / Vemlidy",
+      "status": "METACOD-RF",
+      "batch": "15-HBV",
+      "molecular": {
+        "chemical_class": "Nucleos(t)ide analog (HBV)",
+        "mechanism_primary": [
+          "[LBL] HBV polymerase inhibition (high barrier)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Chronic hepatitis B"
+        ]
+      },
+      "dosing": {
+        "dose": "Daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anti-HBV [RF]",
+          "best_match": [
+            "Chronic hepatitis B"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hepatitis flare on discontinuation, lactic acidosis (rare); TAF less renal/bone than TDF",
+          "[LBL] Entecavir resistance if prior lamivudine"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AASLD HBV"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-474",
+      "name_inn": "Letermovir",
+      "name_ru": "Летермовир",
+      "name_brand": "Prevymis",
+      "status": "METACOD-RF",
+      "batch": "15-CMV",
+      "molecular": {
+        "chemical_class": "CMV terminase inhibitor",
+        "mechanism_primary": [
+          "[LBL] Novel-mechanism CMV prophylaxis (no marrow toxicity)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] CMV prophylaxis in allogeneic HSCT (CMV-seropositive)"
+        ]
+      },
+      "dosing": {
+        "dose": "480 mg daily (240 with cyclosporine)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anti-CMV prophylaxis [RF]",
+          "best_match": [
+            "HSCT CMV prophylaxis"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic (prophylaxis)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Well tolerated (no myelosuppression); CYP3A4/P-gp interactions (cyclosporine, statins)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AST/transplant CMV"
       ],
       "status_flags": {
         "mark_validated": false

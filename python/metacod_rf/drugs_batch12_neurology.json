@@ -6,7 +6,7 @@
     "status": "METACOD-RF — Research Framework, not clinical guidance",
     "group": "Неврология — antiepileptics / migraine / Parkinson / dementia / MS (15 препаратов, 5 подгрупп)",
     "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0 + KCTS awareness",
-    "preparations_count": 15,
+    "preparations_count": 32,
     "author": "Mark Litvak (с AI-assistance)",
     "date": "2026-06",
     "ready_for_clinical_use": false,
@@ -23,223 +23,1908 @@
       "RF": "METACOD research framework (theoretical)"
     },
     "class_notes": {
-      "energy_perspective": ["Antiepileptics = stabilize neuronal Wind (electrical instability)", "Migraine preventives = stabilize vascular Wind + reduce Heat triggers", "Parkinson's drugs = replace deficient dopaminergic Yang in motor systems", "MS drugs = immune Heat-pathway modulation", "Dementia drugs = Yin neurotransmitter support (limited efficacy)", "Neuropathic pain = multi-axis pathway modulation"],
-      "membrane": ["Active MS = M-D2 trajectory + inflammatory", "Stable epilepsy = often M-0 maintenance", "Migraine = autonomic-vascular instability, M-0 baseline + triggered exacerbations", "Parkinson's = progressive M-D drift (dopaminergic depletion)", "Dementia = progressive M-D, multifactorial"],
-      "class_warnings": ["Antiepileptics: suicidal ideation signal (all)", "Triptans: CV pre-screening mandatory", "Dopamine agonists: impulse control disorders screening", "Anti-CD20 biologics: HBV + infection screening + vaccinations"],
-      "obs_mark_to_fill": ["Antiepileptic selection algorithm", "Triptan CV screening protocols", "Dopamine agonist impulse control screening", "Anti-CGRP biologic positioning", "Dementia drug discontinuation criteria", "MS therapy escalation patterns", "KCTS detection в chronic neurology patients"]
-    }
+      "energy_perspective": [
+        "Antiepileptics = stabilize neuronal Wind (electrical instability)",
+        "Migraine preventives = stabilize vascular Wind + reduce Heat triggers",
+        "Parkinson's drugs = replace deficient dopaminergic Yang in motor systems",
+        "MS drugs = immune Heat-pathway modulation",
+        "Dementia drugs = Yin neurotransmitter support (limited efficacy)",
+        "Neuropathic pain = multi-axis pathway modulation"
+      ],
+      "membrane": [
+        "Active MS = M-D2 trajectory + inflammatory",
+        "Stable epilepsy = often M-0 maintenance",
+        "Migraine = autonomic-vascular instability, M-0 baseline + triggered exacerbations",
+        "Parkinson's = progressive M-D drift (dopaminergic depletion)",
+        "Dementia = progressive M-D, multifactorial"
+      ],
+      "class_warnings": [
+        "Antiepileptics: suicidal ideation signal (all)",
+        "Triptans: CV pre-screening mandatory",
+        "Dopamine agonists: impulse control disorders screening",
+        "Anti-CD20 biologics: HBV + infection screening + vaccinations"
+      ],
+      "obs_mark_to_fill": [
+        "Antiepileptic selection algorithm",
+        "Triptan CV screening protocols",
+        "Dopamine agonist impulse control screening",
+        "Anti-CGRP biologic positioning",
+        "Dementia drug discontinuation criteria",
+        "MS therapy escalation patterns",
+        "KCTS detection в chronic neurology patients"
+      ]
+    },
+    "expansion_note": "[2026-06 EXPANSION-2] +DRG-442-458 (17) Claude-authored standard-evidence class-completion (expansion block)."
   },
   "drugs": [
     {
-      "drug_id": "DRG-202", "name_inn": "Levetiracetam", "name_ru": "Леветирацетам", "name_brand": "Keppra",
-      "status": "METACOD-RF", "batch": "12-Antiepileptics",
-      "molecular": {"chemical_class": "SV2A modulator (unique mechanism)", "mechanism_primary": ["[LBL] Binds synaptic vesicle protein SV2A → modulates neurotransmitter release", "[LBL] Broad-spectrum antiepileptic"], "mechanism_distinct": ["[LBL] Minimal hepatic metabolism (advantage в polypharmacy)", "[LBL] Renal excretion primarily"], "half_life": "~7 hours", "metabolism": "minimal — primarily unchanged renal"},
-      "indications": {"approved": ["[LBL] Focal seizures (mono или adjunctive)", "[LBL] Generalized tonic-clonic", "[LBL] Myoclonic seizures", "[LBL] Pediatric ≥1 month focal"]},
-      "dosing": {"dose": "500-3000 mg/day divided BID", "administration": ["[LBL] IV formulation available"]},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Stabilizes neuronal Wind (electrical instability); translation: modulates synaptic neurotransmitter release", "best_match": ["Active epilepsy any constitution", "Yin-Wood с seizure tendency"], "caution": ["Behavioral side effects significant — irritability, depression, suicidal ideation", "Yin-Earth с pre-existing depression", "Mark canonical: psychiatric monitoring required"]},
-        "membrane": {"impact": "Minimal direct effect, generally neutral; well-tolerated long-term"},
-        "phase": {"match": "Chronic maintenance (Phase 5 stabilization); prevents Phase 3 (autonomic paroxysm) seizure events"}
+      "drug_id": "DRG-202",
+      "name_inn": "Levetiracetam",
+      "name_ru": "Леветирацетам",
+      "name_brand": "Keppra",
+      "status": "METACOD-RF",
+      "batch": "12-Antiepileptics",
+      "molecular": {
+        "chemical_class": "SV2A modulator (unique mechanism)",
+        "mechanism_primary": [
+          "[LBL] Binds synaptic vesicle protein SV2A → modulates neurotransmitter release",
+          "[LBL] Broad-spectrum antiepileptic"
+        ],
+        "mechanism_distinct": [
+          "[LBL] Minimal hepatic metabolism (advantage в polypharmacy)",
+          "[LBL] Renal excretion primarily"
+        ],
+        "half_life": "~7 hours",
+        "metabolism": "minimal — primarily unchanged renal"
       },
-      "safety": {"ddi_critical_1_star": ["[LBL] Minimal — major advantage в polypharmacy"], "contraindications": ["[LBL] Hypersensitivity"], "pregnancy": ["[LBL] Relatively safe (data accumulating); preferred over valproate"], "breastfeeding": "present in milk, generally acceptable", "pediatric": "≥1 month approved", "geriatric": "dose reduction renal", "renal": ["[LBL] eGFR adjustments significant"]},
-      "adverse_events": {"common": ["[LBL] Somnolence", "[LBL] Behavioral changes (irritability, agitation, depression)", "[LBL] Asthenia", "[LBL] Headache"], "serious": ["[LBL] Suicidal ideation (class warning all antiepileptics)", "[LBL] Severe psychiatric symptoms (rare)", "[LBL] DRESS (rare)", "[LBL] SJS/TEN (very rare)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "levetiracetam_psychiatric_monitoring": "[OBS-Mark] [Mark, screening для psychiatric AE — protocol?]"},
-      "references": ["FDA label Keppra", "SANAD trial"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-203", "name_inn": "Lacosamide", "name_ru": "Лакосамид", "name_brand": "Vimpat",
-      "status": "METACOD-RF", "batch": "12-Antiepileptics",
-      "molecular": {"chemical_class": "Slow inactivation sodium channel modulator", "mechanism_primary": ["[LBL] Selective enhancement of slow inactivation of sodium channels (unique)"], "half_life": "~13 hours"},
-      "indications": {"approved": ["[LBL] Focal seizures (mono и adjunctive)"]},
-      "dosing": {"dose": "200-400 mg/day divided BID"},
-      "three_axis_profile": {"constitutional": {"energy": "Similar к levetiracetam (Wind stabilization)", "best_match": ["Focal epilepsy any constitution"]}, "membrane": {"impact": "Minimal"}, "phase": {"match": "Chronic maintenance"}},
-      "distinct_clinical": ["[LBL] PR prolongation possible — ECG before initiation", "[LBL] IV formulation available", "[LBL] Generally well-tolerated cognitive profile; less behavioral AE than levetiracetam"],
-      "safety": {"contraindications": ["[LBL] Hypersensitivity"], "monitoring": ["[LBL] ECG pre-initiation (PR prolongation)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "lacosamide_vs_levetiracetam": "[OBS-Mark] [Lacosamide vs levetiracetam selection?]"},
-      "references": ["FDA label Vimpat"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-204", "name_inn": "Carbamazepine", "name_ru": "Карбамазепин", "name_brand": "Tegretol",
-      "status": "METACOD-RF", "batch": "12-Antiepileptics",
-      "molecular": {"chemical_class": "Voltage-gated sodium channel blocker", "mechanism_primary": ["[LBL] Stabilizes inactive state of voltage-gated sodium channels"], "half_life": "25-65 hours initially, 12-17 hours после autoinduction", "metabolism": "CYP3A4 (substrate AND inducer — autoinduces); strong CYP3A4 inducer — major DDI source"},
-      "indications": {"approved": ["[LBL] Focal seizures", "[LBL] Generalized tonic-clonic", "[LBL] Trigeminal neuralgia (gold standard)", "[LBL] Bipolar disorder (less common now)"]},
-      "dosing": {"dose": "400-1600 mg/day divided BID-TID, level-targeted (4-12 µg/mL)"},
-      "three_axis_profile": {"constitutional": {"energy": "Wind stabilization (neuronal)", "best_match": ["Trigeminal neuralgia", "Focal epilepsy"]}, "membrane": {"impact": "Chronic — enzyme induction systemic effects"}, "phase": {"match": "Chronic maintenance"}},
-      "safety": {"critical": ["[LBL] HLA-B*1502 testing в Asian populations (Han Chinese, Thai) — SJS/TEN risk", "[LBL] CBC monitoring — agranulocytosis, aplastic anemia", "[LBL] Hyponatremia (SIADH-like)", "[LBL] Strong enzyme inducer — reduces effectiveness of OCs, warfarin, statins, etc.", "[LBL] Cognitive side effects"], "pregnancy": ["[LBL] Neural tube defects + craniofacial defects"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "trigeminal_neuralgia_first_line": "[OBS-Mark] [Trigeminal neuralgia — carbamazepine first-line still?]"},
-      "references": ["FDA label Tegretol", "HLA-B*1502 screening guidelines"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-205", "name_inn": "Gabapentin", "name_ru": "Габапентин", "name_brand": "Neurontin, Gralise",
-      "status": "METACOD-RF", "batch": "12-Antiepileptics",
-      "molecular": {"chemical_class": "GABA analog (не действует на GABA receptors directly)", "mechanism_primary": ["[LBL] Binds α2δ subunit of voltage-gated calcium channels → reduced excitatory neurotransmitter release"], "half_life": "5-7 hours", "metabolism": "renal excretion unchanged; saturable absorption — higher doses less proportional"},
-      "indications": {"approved": ["[LBL] Postherpetic neuralgia", "[LBL] Focal seizures (adjunctive)", "[LBL] Restless legs syndrome (Gralise)"], "off_label_common": ["[GL] Neuropathic pain (diabetic neuropathy)", "[GL] Fibromyalgia", "[GL] Anxiety", "[GL] Alcohol withdrawal", "[GL] Hot flashes"]},
-      "dosing": {"dose": "300-3600 mg/day divided TID", "administration": ["[LBL] Saturable absorption — divide doses при high total"]},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Reduces neuronal Wind (excitatory neurotransmission); translation: α2δ modulation → reduced glutamate release", "best_match": ["Neuropathic pain (any constitution)", "Anxiety с somatic component", "T3 Yin-Fire с chronic pain", "Diabetic neuropathy (T1/T2 Earth)"]},
-        "membrane": {"impact": "Minimal direct; long-term well-tolerated"},
-        "phase": {"match": "Chronic management (Phase 5); reduces frequency of CA pain flares"}
+      "indications": {
+        "approved": [
+          "[LBL] Focal seizures (mono или adjunctive)",
+          "[LBL] Generalized tonic-clonic",
+          "[LBL] Myoclonic seizures",
+          "[LBL] Pediatric ≥1 month focal"
+        ]
       },
-      "safety": {"renal": ["[LBL] Significant dose adjustment CKD"], "serious": ["[LBL] Respiratory depression especially с opioids (FDA warning 2019)", "[LBL] Suicidal ideation (class)"]},
-      "adverse_events": {"common": ["[LBL] Somnolence, fatigue", "[LBL] Dizziness", "[LBL] Peripheral edema", "[LBL] Weight gain (mild)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "gabapentin_diabetic_neuropathy": "[OBS-Mark] [Gabapentin в diabetic neuropathy — first-line?]", "off_label_anxiety": "[OBS-Mark] [Off-label anxiety use — clinical position?]"},
-      "references": ["FDA label Neurontin"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-206", "name_inn": "Pregabalin", "name_ru": "Прегабалин", "name_brand": "Lyrica",
-      "status": "METACOD-RF", "batch": "12-Antiepileptics",
-      "molecular": {"chemical_class": "GABA analog (similar к gabapentin)", "mechanism_primary": ["[LBL] Same α2δ binding но higher affinity, predictable absorption"], "half_life": "6 hours", "metabolism": "renal excretion unchanged"},
-      "distinct_clinical": ["[LBL] Linear pharmacokinetics (vs gabapentin saturable)", "[LBL] Twice-daily dosing", "[LBL] Faster onset (days vs weeks)", "[LBL] More predictable response"],
-      "indications": {"approved": ["[LBL] Diabetic peripheral neuropathy", "[LBL] Postherpetic neuralgia", "[LBL] Focal seizures (adjunctive)", "[LBL] Fibromyalgia", "[LBL] Generalized anxiety disorder (EU only)", "[LBL] Spinal cord injury pain"]},
-      "dosing": {"dose": "150-600 mg/day divided BID-TID"},
-      "three_axis_profile": {"constitutional": {"energy": "Reduces neuronal Wind (α2δ)", "best_match": ["Neuropathic pain", "Fibromyalgia", "GAD"]}, "membrane": {"impact": "Minimal"}, "phase": {"match": "Chronic management"}},
-      "safety": {"critical": ["[LBL] Controlled substance Schedule V в US (abuse potential)", "[LBL] Same class warnings as gabapentin", "[LBL] Withdrawal syndrome — taper required", "[LBL] Respiratory depression с opioids (FDA warning)"], "renal": ["[LBL] Significant dose adjustment; eGFR <30 significant reduction"]},
-      "adverse_events": {"common": ["[LBL] Peripheral edema, weight gain", "[LBL] Cognitive slowing", "[LBL] Somnolence"], "serious": ["[LBL] Suicidal ideation (class)", "[LBL] Respiratory depression с opioids", "[LBL] DRESS (rare)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "pregabalin_vs_gabapentin": "[OBS-Mark] [Pregabalin vs gabapentin selection criteria?]"},
-      "references": ["FDA label Lyrica"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-207", "name_inn": "Sumatriptan", "name_ru": "Суматриптан", "name_brand": "Imitrex, Imigran",
-      "status": "METACOD-RF", "batch": "12-Migraine-Acute",
-      "molecular": {"chemical_class": "5-HT1B/1D agonist (triptan)", "mechanism_primary": ["[LBL] Cranial vessel vasoconstriction (5-HT1B)", "[LBL] Inhibition of inflammatory neuropeptide release (5-HT1D)"], "half_life": "2-2.5 hours", "formulations": "oral, nasal spray, SC injection"},
-      "indications": {"approved": ["[LBL] Acute migraine", "[LBL] Cluster headache (SC)"]},
-      "dosing": {"dose": "25-100 mg PO (max 200 mg/day); 6 mg SC"},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Acute Heat reduction в cranial vasculature + Wind stabilization; translation: 5-HT1B/D cranial vasoconstriction", "best_match": ["Acute migraine any constitution", "Yang-Wood с migraine history (T7)"], "caution": ["Cardiovascular disease — vasoconstriction risk", "Yin-Water с cold extremities (additive)"]},
-        "membrane": {"impact": "Acute use only, minimal"},
-        "phase": {"match": "Acute Phase 1/2 (sympathicotonia + early inflammation); abortive only, not preventive"}
+      "dosing": {
+        "dose": "500-3000 mg/day divided BID",
+        "administration": [
+          "[LBL] IV formulation available"
+        ]
       },
-      "safety": {"contraindications": ["[LBL] Ischemic heart disease", "[LBL] Uncontrolled hypertension", "[LBL] Stroke/TIA history", "[LBL] Peripheral vascular disease", "[LBL] Hemiplegic/basilar migraine (controversial)", "[LBL] Within 24h of ergotamine", "[LBL] MAOI use"], "ddi_critical_1_star": ["[LBL] SSRIs — serotonin syndrome risk", "[LBL] MAOI — contraindicated", "[LBL] Other triptans — 24h separation"]},
-      "adverse_events": {"common": ["[LBL] Chest tightness/pressure (often non-cardiac)", "[LBL] Paresthesias", "[LBL] Flushing", "[LBL] Drowsiness"], "serious": ["[LBL] MI, stroke (rare, в pre-disposed)", "[LBL] Coronary vasospasm"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "triptan_cv_screening": "[OBS-Mark] [Triptan CV screening pre-prescription?]"},
-      "references": ["FDA label Imitrex", "Multiple migraine trials"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-208", "name_inn": "Rizatriptan", "name_ru": "Ризатриптан", "name_brand": "Maxalt, Maxalt-MLT (ODT)",
-      "status": "METACOD-RF", "batch": "12-Migraine-Acute",
-      "molecular": {"chemical_class": "Triptan (5-HT1B/1D agonist)", "mechanism_distinct": ["[LBL] Faster onset than sumatriptan, ODT formulation для nausea"]},
-      "indications": {"approved": ["[LBL] Acute migraine"]},
-      "dosing": {"dose": "5-10 mg, max 30 mg/day"},
-      "three_axis_profile": {"constitutional": {"energy": "Acute Heat reduction + Wind stabilization (triptan class)", "best_match": ["Acute migraine, faster onset preference / nausea (ODT)"]}, "membrane": {"impact": "Acute only"}, "phase": {"match": "Acute Phase 1/2, abortive"}},
-      "safety": {"critical": ["[LBL] Same class warnings as sumatriptan (CV contraindications)", "[LBL] Propranolol interaction — reduces rizatriptan to 5 mg max"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "triptan_selection": "[OBS-Mark] [Triptan selection by patient characteristics?]"},
-      "references": ["FDA label Maxalt"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-209", "name_inn": "Erenumab", "name_ru": "Эренумаб", "name_brand": "Aimovig",
-      "status": "METACOD-RF", "batch": "12-Migraine-Prevention",
-      "molecular": {"chemical_class": "Anti-CGRP receptor monoclonal antibody", "mechanism_primary": ["[LBL] Blocks calcitonin gene-related peptide receptor (key migraine pathway)"], "half_life": "~28 days"},
-      "indications": {"approved": ["[LBL] Migraine prevention (episodic и chronic)"]},
-      "dosing": {"dose": "70-140 mg SC monthly"},
       "three_axis_profile": {
-        "constitutional": {"energy": "Chronic Wind/Heat pathway suppression; translation: targeted CGRP biological therapy", "best_match": ["Refractory migraine any constitution"], "advantage": "No daily pill, no systemic immunosuppression"},
-        "membrane": {"impact": "Reduces inflammation burden chronic; minimal long-term membrane effect"},
-        "phase": {"match": "Chronic prevention (reduces frequency Phase 1/2 events); ~50% responder rate в trials"}
+        "constitutional": {
+          "energy": "Stabilizes neuronal Wind (electrical instability); translation: modulates synaptic neurotransmitter release",
+          "best_match": [
+            "Active epilepsy any constitution",
+            "Yin-Wood с seizure tendency"
+          ],
+          "caution": [
+            "Behavioral side effects significant — irritability, depression, suicidal ideation",
+            "Yin-Earth с pre-existing depression",
+            "Mark canonical: psychiatric monitoring required"
+          ]
+        },
+        "membrane": {
+          "impact": "Minimal direct effect, generally neutral; well-tolerated long-term"
+        },
+        "phase": {
+          "match": "Chronic maintenance (Phase 5 stabilization); prevents Phase 3 (autonomic paroxysm) seizure events"
+        }
       },
-      "safety": {"common": ["[LBL] Constipation common (CGRP role в gut motility)", "[LBL] Injection site reactions"], "serious": ["[LBL] CV signal debated — caution в established CAD"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "anti_cgrp_practice": "[OBS-Mark] [Anti-CGRP biologics в practice?]"},
-      "references": ["FDA label Aimovig", "STRIVE trial"],
-      "status_flags": {"mark_validated": false}
+      "safety": {
+        "ddi_critical_1_star": [
+          "[LBL] Minimal — major advantage в polypharmacy"
+        ],
+        "contraindications": [
+          "[LBL] Hypersensitivity"
+        ],
+        "pregnancy": [
+          "[LBL] Relatively safe (data accumulating); preferred over valproate"
+        ],
+        "breastfeeding": "present in milk, generally acceptable",
+        "pediatric": "≥1 month approved",
+        "geriatric": "dose reduction renal",
+        "renal": [
+          "[LBL] eGFR adjustments significant"
+        ]
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Somnolence",
+          "[LBL] Behavioral changes (irritability, agitation, depression)",
+          "[LBL] Asthenia",
+          "[LBL] Headache"
+        ],
+        "serious": [
+          "[LBL] Suicidal ideation (class warning all antiepileptics)",
+          "[LBL] Severe psychiatric symptoms (rare)",
+          "[LBL] DRESS (rare)",
+          "[LBL] SJS/TEN (very rare)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "levetiracetam_psychiatric_monitoring": "[OBS-Mark] [Mark, screening для psychiatric AE — protocol?]"
+      },
+      "references": [
+        "FDA label Keppra",
+        "SANAD trial"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-210", "name_inn": "Levodopa + carbidopa", "name_ru": "Леводопа + карбидопа", "name_brand": "Sinemet, Madopar",
-      "status": "METACOD-RF", "batch": "12-Parkinson",
-      "molecular": {"chemical_class": "Dopamine precursor + peripheral decarboxylase inhibitor", "mechanism_primary": ["[LBL] Levodopa crosses BBB → converted to dopamine in CNS", "[LBL] Carbidopa blocks peripheral conversion → reduces peripheral side effects, increases CNS availability"], "half_life": "1-2 hours (levodopa)"},
-      "indications": {"approved": ["[LBL] Parkinson's disease (motor symptoms)", "[LBL] Parkinsonism (various causes)"]},
-      "dosing": {"dose": "highly individualized — start low (carbidopa 25/levodopa 100 TID), titrate"},
+      "drug_id": "DRG-203",
+      "name_inn": "Lacosamide",
+      "name_ru": "Лакосамид",
+      "name_brand": "Vimpat",
+      "status": "METACOD-RF",
+      "batch": "12-Antiepileptics",
+      "molecular": {
+        "chemical_class": "Slow inactivation sodium channel modulator",
+        "mechanism_primary": [
+          "[LBL] Selective enhancement of slow inactivation of sodium channels (unique)"
+        ],
+        "half_life": "~13 hours"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Focal seizures (mono и adjunctive)"
+        ]
+      },
+      "dosing": {
+        "dose": "200-400 mg/day divided BID"
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Restores dopaminergic Yang в motor system; translation: dopamine precursor replacement", "impact": ["Motor symptoms improvement dramatic при right dose", "Long-term: motor fluctuations, dyskinesias develop"]},
-        "membrane": {"impact": "Long-term cellular changes (neuronal adaptation, postsynaptic receptor changes); wearing-off over years"},
-        "phase": {"match": "Chronic replacement; manages chronic Phase pattern of PD"}
+        "constitutional": {
+          "energy": "Similar к levetiracetam (Wind stabilization)",
+          "best_match": [
+            "Focal epilepsy any constitution"
+          ]
+        },
+        "membrane": {
+          "impact": "Minimal"
+        },
+        "phase": {
+          "match": "Chronic maintenance"
+        }
       },
-      "safety": {"contraindications": ["[LBL] Narrow-angle glaucoma", "[LBL] Melanoma (history)", "[LBL] MAOI (non-selective)"]},
-      "adverse_events": {"common": ["[LBL] Nausea (initial — carbidopa helps)", "[LBL] Orthostatic hypotension", "[LBL] Hallucinations", "[LBL] Dyskinesias (long-term)", "[LBL] Motor fluctuations (long-term)", "[LBL] Impulse control disorders", "[LBL] Sleep attacks"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "levodopa_initiation_timing": "[OBS-Mark] [Levodopa initiation timing — early vs delayed?]"},
-      "references": ["FDA label Sinemet", "ESDC PD Guidelines"],
-      "status_flags": {"mark_validated": false}
+      "distinct_clinical": [
+        "[LBL] PR prolongation possible — ECG before initiation",
+        "[LBL] IV formulation available",
+        "[LBL] Generally well-tolerated cognitive profile; less behavioral AE than levetiracetam"
+      ],
+      "safety": {
+        "contraindications": [
+          "[LBL] Hypersensitivity"
+        ],
+        "monitoring": [
+          "[LBL] ECG pre-initiation (PR prolongation)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "lacosamide_vs_levetiracetam": "[OBS-Mark] [Lacosamide vs levetiracetam selection?]"
+      },
+      "references": [
+        "FDA label Vimpat"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-211", "name_inn": "Pramipexole", "name_ru": "Прамипексол", "name_brand": "Mirapex, Mirapex ER",
-      "status": "METACOD-RF", "batch": "12-Parkinson",
-      "molecular": {"chemical_class": "Dopamine agonist (D2/D3 receptor agonist)", "mechanism_primary": ["[LBL] Direct dopamine receptor activation"], "half_life": "8-12 hours (IR); 24h (ER)"},
-      "indications": {"approved": ["[LBL] Parkinson's disease (early monotherapy or adjunctive)", "[LBL] Restless legs syndrome"]},
-      "dosing": {"dose": "PD 0.375-4.5 mg/day; RLS 0.125-0.5 mg PM"},
-      "three_axis_profile": {"constitutional": {"energy": "Dopaminergic Yang restoration (direct agonist)", "best_match": ["Early PD monotherapy", "RLS"]}, "membrane": {"impact": "Chronic"}, "phase": {"match": "Chronic"}},
-      "safety": {"distinct": ["[LBL] Impulse control disorders — gambling, hypersexuality, compulsive shopping (significant)", "[LBL] Sleep attacks (warn re driving)", "[LBL] Orthostatic hypotension", "[LBL] Withdrawal syndrome при discontinuation"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "impulse_control_screening": "[OBS-Mark] [Impulse control disorder screening для dopamine agonists?]"},
-      "references": ["FDA label Mirapex"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-212", "name_inn": "Rasagiline", "name_ru": "Разагилин", "name_brand": "Azilect",
-      "status": "METACOD-RF", "batch": "12-Parkinson",
-      "molecular": {"chemical_class": "Selective MAO-B inhibitor", "mechanism_primary": ["[LBL] Blocks MAO-B → reduces dopamine breakdown в CNS"], "mechanism_distinct": ["[LBL] Once-daily dosing", "[RF] Neuroprotective signal (debated)"]},
-      "indications": {"approved": ["[LBL] Parkinson's disease (early monotherapy or adjunctive)"]},
-      "dosing": {"dose": "0.5-1 mg AM"},
-      "three_axis_profile": {"constitutional": {"energy": "Dopaminergic Yang preservation (reduced breakdown)", "best_match": ["Early-stage PD"]}, "membrane": {"impact": "Chronic"}, "phase": {"match": "Chronic"}},
-      "safety": {"distinct": ["[LBL] Tyramine restriction NOT required at therapeutic doses (selective MAO-B)", "[LBL] Avoid с meperidine, tramadol, SSRIs (serotonin syndrome)", "[LBL] Generally well-tolerated"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "rasagiline_positioning": "[OBS-Mark] [Rasagiline early-stage PD positioning?]"},
-      "references": ["FDA label Azilect"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-213", "name_inn": "Donepezil", "name_ru": "Донепезил", "name_brand": "Aricept",
-      "status": "METACOD-RF", "batch": "12-Dementia",
-      "molecular": {"chemical_class": "Acetylcholinesterase inhibitor (centrally acting)", "mechanism_primary": ["[LBL] Increases CNS acetylcholine availability"], "half_life": "70 hours (once daily)"},
-      "indications": {"approved": ["[LBL] Alzheimer's disease (mild, moderate, severe)", "[LBL] Off-label other dementias"]},
-      "dosing": {"dose": "5-10-23 mg PM"},
+      "drug_id": "DRG-204",
+      "name_inn": "Carbamazepine",
+      "name_ru": "Карбамазепин",
+      "name_brand": "Tegretol",
+      "status": "METACOD-RF",
+      "batch": "12-Antiepileptics",
+      "molecular": {
+        "chemical_class": "Voltage-gated sodium channel blocker",
+        "mechanism_primary": [
+          "[LBL] Stabilizes inactive state of voltage-gated sodium channels"
+        ],
+        "half_life": "25-65 hours initially, 12-17 hours после autoinduction",
+        "metabolism": "CYP3A4 (substrate AND inducer — autoinduces); strong CYP3A4 inducer — major DDI source"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Focal seizures",
+          "[LBL] Generalized tonic-clonic",
+          "[LBL] Trigeminal neuralgia (gold standard)",
+          "[LBL] Bipolar disorder (less common now)"
+        ]
+      },
+      "dosing": {
+        "dose": "400-1600 mg/day divided BID-TID, level-targeted (4-12 µg/mL)"
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Cholinergic Yin support; translation: acetylcholine enhancement в CNS", "best_match": ["Alzheimer's any constitution", "T5 Yin-Water frail elderly (most common population)"]},
-        "membrane": {"impact": "Limited disease modification — slows progression slightly; cannot reverse M-D trajectory"},
-        "phase": {"match": "Chronic management; modest cognitive benefit"}
+        "constitutional": {
+          "energy": "Wind stabilization (neuronal)",
+          "best_match": [
+            "Trigeminal neuralgia",
+            "Focal epilepsy"
+          ]
+        },
+        "membrane": {
+          "impact": "Chronic — enzyme induction systemic effects"
+        },
+        "phase": {
+          "match": "Chronic maintenance"
+        }
       },
-      "adverse_events": {"common": ["[LBL] Nausea, diarrhea, vomiting (cholinergic GI)", "[LBL] Weight loss (concern в frail elderly)", "[LBL] Bradycardia", "[LBL] Vivid dreams (PM dosing)", "[LBL] Urinary incontinence"], "serious": ["[LBL] Syncope", "[LBL] Severe bradycardia", "[LBL] Cholinergic crisis при overdose"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "donepezil_discontinuation": "[OBS-Mark] [Donepezil discontinuation в advanced dementia?]"},
-      "references": ["FDA label Aricept"],
-      "status_flags": {"mark_validated": false}
+      "safety": {
+        "critical": [
+          "[LBL] HLA-B*1502 testing в Asian populations (Han Chinese, Thai) — SJS/TEN risk",
+          "[LBL] CBC monitoring — agranulocytosis, aplastic anemia",
+          "[LBL] Hyponatremia (SIADH-like)",
+          "[LBL] Strong enzyme inducer — reduces effectiveness of OCs, warfarin, statins, etc.",
+          "[LBL] Cognitive side effects"
+        ],
+        "pregnancy": [
+          "[LBL] Neural tube defects + craniofacial defects"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "trigeminal_neuralgia_first_line": "[OBS-Mark] [Trigeminal neuralgia — carbamazepine first-line still?]"
+      },
+      "references": [
+        "FDA label Tegretol",
+        "HLA-B*1502 screening guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-214", "name_inn": "Memantine", "name_ru": "Мемантин", "name_brand": "Namenda",
-      "status": "METACOD-RF", "batch": "12-Dementia",
-      "molecular": {"chemical_class": "NMDA receptor antagonist (uncompetitive)", "mechanism_primary": ["[LBL] Reduces glutamate-mediated excitotoxicity"], "half_life": "60-80 hours"},
-      "indications": {"approved": ["[LBL] Moderate-severe Alzheimer's disease", "[LBL] Often combined с donepezil (Namzaric)"]},
-      "dosing": {"dose": "5-20 mg/day (titrate slowly)"},
-      "three_axis_profile": {"constitutional": {"energy": "Glutamate (Wind) excitotoxicity reduction", "best_match": ["Moderate-severe Alzheimer's"]}, "membrane": {"impact": "Chronic, modest"}, "phase": {"match": "Chronic"}},
-      "safety": {"common": ["[LBL] Generally well-tolerated", "[LBL] Dizziness, confusion (initial)", "[LBL] Headache", "[LBL] Constipation"], "renal": ["[LBL] Dose adjustment severe CKD"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "memantine_donepezil_combination": "[OBS-Mark] [Combination memantine + donepezil strategy?]"},
-      "references": ["FDA label Namenda"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-205",
+      "name_inn": "Gabapentin",
+      "name_ru": "Габапентин",
+      "name_brand": "Neurontin, Gralise",
+      "status": "METACOD-RF",
+      "batch": "12-Antiepileptics",
+      "molecular": {
+        "chemical_class": "GABA analog (не действует на GABA receptors directly)",
+        "mechanism_primary": [
+          "[LBL] Binds α2δ subunit of voltage-gated calcium channels → reduced excitatory neurotransmitter release"
+        ],
+        "half_life": "5-7 hours",
+        "metabolism": "renal excretion unchanged; saturable absorption — higher doses less proportional"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Postherpetic neuralgia",
+          "[LBL] Focal seizures (adjunctive)",
+          "[LBL] Restless legs syndrome (Gralise)"
+        ],
+        "off_label_common": [
+          "[GL] Neuropathic pain (diabetic neuropathy)",
+          "[GL] Fibromyalgia",
+          "[GL] Anxiety",
+          "[GL] Alcohol withdrawal",
+          "[GL] Hot flashes"
+        ]
+      },
+      "dosing": {
+        "dose": "300-3600 mg/day divided TID",
+        "administration": [
+          "[LBL] Saturable absorption — divide doses при high total"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Reduces neuronal Wind (excitatory neurotransmission); translation: α2δ modulation → reduced glutamate release",
+          "best_match": [
+            "Neuropathic pain (any constitution)",
+            "Anxiety с somatic component",
+            "T3 Yin-Fire с chronic pain",
+            "Diabetic neuropathy (T1/T2 Earth)"
+          ]
+        },
+        "membrane": {
+          "impact": "Minimal direct; long-term well-tolerated"
+        },
+        "phase": {
+          "match": "Chronic management (Phase 5); reduces frequency of CA pain flares"
+        }
+      },
+      "safety": {
+        "renal": [
+          "[LBL] Significant dose adjustment CKD"
+        ],
+        "serious": [
+          "[LBL] Respiratory depression especially с opioids (FDA warning 2019)",
+          "[LBL] Suicidal ideation (class)"
+        ]
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Somnolence, fatigue",
+          "[LBL] Dizziness",
+          "[LBL] Peripheral edema",
+          "[LBL] Weight gain (mild)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "gabapentin_diabetic_neuropathy": "[OBS-Mark] [Gabapentin в diabetic neuropathy — first-line?]",
+        "off_label_anxiety": "[OBS-Mark] [Off-label anxiety use — clinical position?]"
+      },
+      "references": [
+        "FDA label Neurontin"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-215", "name_inn": "Glatiramer acetate", "name_ru": "Глатирамера ацетат", "name_brand": "Copaxone",
-      "status": "METACOD-RF", "batch": "12-MS",
-      "molecular": {"chemical_class": "Synthetic polypeptide (myelin basic protein analog)", "mechanism_primary": ["[LBL] Multiple proposed — T-cell modulation, neuroprotective effects"]},
-      "indications": {"approved": ["[LBL] Relapsing-remitting multiple sclerosis (RRMS)"]},
-      "dosing": {"dose": "20 mg SC daily или 40 mg SC 3x/week"},
-      "three_axis_profile": {"constitutional": {"energy": "Immune modulation reducing Heat in CNS; translation: T-cell immunomodulation, glia neuroprotection", "best_match": ["RRMS"]}, "membrane": {"impact": "Reduces CNS inflammatory burden"}, "phase": {"match": "Chronic disease modification"}},
-      "safety": {"common": ["[LBL] Injection site reactions", "[LBL] Immediate post-injection reaction (flushing, chest tightness, palpitations — transient, idiosyncratic)", "[LBL] Lipoatrophy at injection sites", "[LBL] Generally well-tolerated long-term"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "ms_therapy_escalation": "[OBS-Mark] [MS therapy escalation strategy?]"},
-      "references": ["FDA label Copaxone"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-206",
+      "name_inn": "Pregabalin",
+      "name_ru": "Прегабалин",
+      "name_brand": "Lyrica",
+      "status": "METACOD-RF",
+      "batch": "12-Antiepileptics",
+      "molecular": {
+        "chemical_class": "GABA analog (similar к gabapentin)",
+        "mechanism_primary": [
+          "[LBL] Same α2δ binding но higher affinity, predictable absorption"
+        ],
+        "half_life": "6 hours",
+        "metabolism": "renal excretion unchanged"
+      },
+      "distinct_clinical": [
+        "[LBL] Linear pharmacokinetics (vs gabapentin saturable)",
+        "[LBL] Twice-daily dosing",
+        "[LBL] Faster onset (days vs weeks)",
+        "[LBL] More predictable response"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] Diabetic peripheral neuropathy",
+          "[LBL] Postherpetic neuralgia",
+          "[LBL] Focal seizures (adjunctive)",
+          "[LBL] Fibromyalgia",
+          "[LBL] Generalized anxiety disorder (EU only)",
+          "[LBL] Spinal cord injury pain"
+        ]
+      },
+      "dosing": {
+        "dose": "150-600 mg/day divided BID-TID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Reduces neuronal Wind (α2δ)",
+          "best_match": [
+            "Neuropathic pain",
+            "Fibromyalgia",
+            "GAD"
+          ]
+        },
+        "membrane": {
+          "impact": "Minimal"
+        },
+        "phase": {
+          "match": "Chronic management"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Controlled substance Schedule V в US (abuse potential)",
+          "[LBL] Same class warnings as gabapentin",
+          "[LBL] Withdrawal syndrome — taper required",
+          "[LBL] Respiratory depression с opioids (FDA warning)"
+        ],
+        "renal": [
+          "[LBL] Significant dose adjustment; eGFR <30 significant reduction"
+        ]
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Peripheral edema, weight gain",
+          "[LBL] Cognitive slowing",
+          "[LBL] Somnolence"
+        ],
+        "serious": [
+          "[LBL] Suicidal ideation (class)",
+          "[LBL] Respiratory depression с opioids",
+          "[LBL] DRESS (rare)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "pregabalin_vs_gabapentin": "[OBS-Mark] [Pregabalin vs gabapentin selection criteria?]"
+      },
+      "references": [
+        "FDA label Lyrica"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-216", "name_inn": "Ocrelizumab", "name_ru": "Окрелизумаб", "name_brand": "Ocrevus",
-      "status": "METACOD-RF", "batch": "12-MS",
-      "molecular": {"chemical_class": "Anti-CD20 monoclonal antibody (B-cell depletion)", "mechanism_primary": ["[LBL] Selective B-cell depletion"]},
-      "indications": {"approved": ["[LBL] First drug approved для primary progressive MS (PPMS)", "[LBL] Relapsing-remitting MS (RRMS)"]},
-      "dosing": {"dose": "600 mg IV q6 months (initial split dose 300 mg × 2)"},
-      "three_axis_profile": {"constitutional": {"energy": "Immune Heat modulation (B-cell depletion)", "best_match": ["PPMS", "RRMS"]}, "membrane": {"impact": "Active MS = M-D2 trajectory; slows progression"}, "phase": {"match": "Chronic disease modification"}},
-      "safety": {"critical": ["[LBL] Infusion reactions (premedication required)", "[LBL] Infection risk — sustained B-cell depletion", "[LBL] PML risk (rare — class concern)", "[LBL] Malignancy signal (breast cancer in some studies)", "[LBL] HBV screening required pre-treatment", "[LBL] Vaccinations before initiation"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "ocrelizumab_ppms": "[OBS-Mark] [Ocrelizumab в PPMS — clinical experience?]"},
-      "references": ["FDA label Ocrevus", "ORATORIO trial (PPMS)"],
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-207",
+      "name_inn": "Sumatriptan",
+      "name_ru": "Суматриптан",
+      "name_brand": "Imitrex, Imigran",
+      "status": "METACOD-RF",
+      "batch": "12-Migraine-Acute",
+      "molecular": {
+        "chemical_class": "5-HT1B/1D agonist (triptan)",
+        "mechanism_primary": [
+          "[LBL] Cranial vessel vasoconstriction (5-HT1B)",
+          "[LBL] Inhibition of inflammatory neuropeptide release (5-HT1D)"
+        ],
+        "half_life": "2-2.5 hours",
+        "formulations": "oral, nasal spray, SC injection"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acute migraine",
+          "[LBL] Cluster headache (SC)"
+        ]
+      },
+      "dosing": {
+        "dose": "25-100 mg PO (max 200 mg/day); 6 mg SC"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute Heat reduction в cranial vasculature + Wind stabilization; translation: 5-HT1B/D cranial vasoconstriction",
+          "best_match": [
+            "Acute migraine any constitution",
+            "Yang-Wood с migraine history (T7)"
+          ],
+          "caution": [
+            "Cardiovascular disease — vasoconstriction risk",
+            "Yin-Water с cold extremities (additive)"
+          ]
+        },
+        "membrane": {
+          "impact": "Acute use only, minimal"
+        },
+        "phase": {
+          "match": "Acute Phase 1/2 (sympathicotonia + early inflammation); abortive only, not preventive"
+        }
+      },
+      "safety": {
+        "contraindications": [
+          "[LBL] Ischemic heart disease",
+          "[LBL] Uncontrolled hypertension",
+          "[LBL] Stroke/TIA history",
+          "[LBL] Peripheral vascular disease",
+          "[LBL] Hemiplegic/basilar migraine (controversial)",
+          "[LBL] Within 24h of ergotamine",
+          "[LBL] MAOI use"
+        ],
+        "ddi_critical_1_star": [
+          "[LBL] SSRIs — serotonin syndrome risk",
+          "[LBL] MAOI — contraindicated",
+          "[LBL] Other triptans — 24h separation"
+        ]
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Chest tightness/pressure (often non-cardiac)",
+          "[LBL] Paresthesias",
+          "[LBL] Flushing",
+          "[LBL] Drowsiness"
+        ],
+        "serious": [
+          "[LBL] MI, stroke (rare, в pre-disposed)",
+          "[LBL] Coronary vasospasm"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "triptan_cv_screening": "[OBS-Mark] [Triptan CV screening pre-prescription?]"
+      },
+      "references": [
+        "FDA label Imitrex",
+        "Multiple migraine trials"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-208",
+      "name_inn": "Rizatriptan",
+      "name_ru": "Ризатриптан",
+      "name_brand": "Maxalt, Maxalt-MLT (ODT)",
+      "status": "METACOD-RF",
+      "batch": "12-Migraine-Acute",
+      "molecular": {
+        "chemical_class": "Triptan (5-HT1B/1D agonist)",
+        "mechanism_distinct": [
+          "[LBL] Faster onset than sumatriptan, ODT formulation для nausea"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acute migraine"
+        ]
+      },
+      "dosing": {
+        "dose": "5-10 mg, max 30 mg/day"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute Heat reduction + Wind stabilization (triptan class)",
+          "best_match": [
+            "Acute migraine, faster onset preference / nausea (ODT)"
+          ]
+        },
+        "membrane": {
+          "impact": "Acute only"
+        },
+        "phase": {
+          "match": "Acute Phase 1/2, abortive"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Same class warnings as sumatriptan (CV contraindications)",
+          "[LBL] Propranolol interaction — reduces rizatriptan to 5 mg max"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "triptan_selection": "[OBS-Mark] [Triptan selection by patient characteristics?]"
+      },
+      "references": [
+        "FDA label Maxalt"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-209",
+      "name_inn": "Erenumab",
+      "name_ru": "Эренумаб",
+      "name_brand": "Aimovig",
+      "status": "METACOD-RF",
+      "batch": "12-Migraine-Prevention",
+      "molecular": {
+        "chemical_class": "Anti-CGRP receptor monoclonal antibody",
+        "mechanism_primary": [
+          "[LBL] Blocks calcitonin gene-related peptide receptor (key migraine pathway)"
+        ],
+        "half_life": "~28 days"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Migraine prevention (episodic и chronic)"
+        ]
+      },
+      "dosing": {
+        "dose": "70-140 mg SC monthly"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Chronic Wind/Heat pathway suppression; translation: targeted CGRP biological therapy",
+          "best_match": [
+            "Refractory migraine any constitution"
+          ],
+          "advantage": "No daily pill, no systemic immunosuppression"
+        },
+        "membrane": {
+          "impact": "Reduces inflammation burden chronic; minimal long-term membrane effect"
+        },
+        "phase": {
+          "match": "Chronic prevention (reduces frequency Phase 1/2 events); ~50% responder rate в trials"
+        }
+      },
+      "safety": {
+        "common": [
+          "[LBL] Constipation common (CGRP role в gut motility)",
+          "[LBL] Injection site reactions"
+        ],
+        "serious": [
+          "[LBL] CV signal debated — caution в established CAD"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "anti_cgrp_practice": "[OBS-Mark] [Anti-CGRP biologics в practice?]"
+      },
+      "references": [
+        "FDA label Aimovig",
+        "STRIVE trial"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-210",
+      "name_inn": "Levodopa + carbidopa",
+      "name_ru": "Леводопа + карбидопа",
+      "name_brand": "Sinemet, Madopar",
+      "status": "METACOD-RF",
+      "batch": "12-Parkinson",
+      "molecular": {
+        "chemical_class": "Dopamine precursor + peripheral decarboxylase inhibitor",
+        "mechanism_primary": [
+          "[LBL] Levodopa crosses BBB → converted to dopamine in CNS",
+          "[LBL] Carbidopa blocks peripheral conversion → reduces peripheral side effects, increases CNS availability"
+        ],
+        "half_life": "1-2 hours (levodopa)"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Parkinson's disease (motor symptoms)",
+          "[LBL] Parkinsonism (various causes)"
+        ]
+      },
+      "dosing": {
+        "dose": "highly individualized — start low (carbidopa 25/levodopa 100 TID), titrate"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Restores dopaminergic Yang в motor system; translation: dopamine precursor replacement",
+          "impact": [
+            "Motor symptoms improvement dramatic при right dose",
+            "Long-term: motor fluctuations, dyskinesias develop"
+          ]
+        },
+        "membrane": {
+          "impact": "Long-term cellular changes (neuronal adaptation, postsynaptic receptor changes); wearing-off over years"
+        },
+        "phase": {
+          "match": "Chronic replacement; manages chronic Phase pattern of PD"
+        }
+      },
+      "safety": {
+        "contraindications": [
+          "[LBL] Narrow-angle glaucoma",
+          "[LBL] Melanoma (history)",
+          "[LBL] MAOI (non-selective)"
+        ]
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Nausea (initial — carbidopa helps)",
+          "[LBL] Orthostatic hypotension",
+          "[LBL] Hallucinations",
+          "[LBL] Dyskinesias (long-term)",
+          "[LBL] Motor fluctuations (long-term)",
+          "[LBL] Impulse control disorders",
+          "[LBL] Sleep attacks"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "levodopa_initiation_timing": "[OBS-Mark] [Levodopa initiation timing — early vs delayed?]"
+      },
+      "references": [
+        "FDA label Sinemet",
+        "ESDC PD Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-211",
+      "name_inn": "Pramipexole",
+      "name_ru": "Прамипексол",
+      "name_brand": "Mirapex, Mirapex ER",
+      "status": "METACOD-RF",
+      "batch": "12-Parkinson",
+      "molecular": {
+        "chemical_class": "Dopamine agonist (D2/D3 receptor agonist)",
+        "mechanism_primary": [
+          "[LBL] Direct dopamine receptor activation"
+        ],
+        "half_life": "8-12 hours (IR); 24h (ER)"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Parkinson's disease (early monotherapy or adjunctive)",
+          "[LBL] Restless legs syndrome"
+        ]
+      },
+      "dosing": {
+        "dose": "PD 0.375-4.5 mg/day; RLS 0.125-0.5 mg PM"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Dopaminergic Yang restoration (direct agonist)",
+          "best_match": [
+            "Early PD monotherapy",
+            "RLS"
+          ]
+        },
+        "membrane": {
+          "impact": "Chronic"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "distinct": [
+          "[LBL] Impulse control disorders — gambling, hypersexuality, compulsive shopping (significant)",
+          "[LBL] Sleep attacks (warn re driving)",
+          "[LBL] Orthostatic hypotension",
+          "[LBL] Withdrawal syndrome при discontinuation"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "impulse_control_screening": "[OBS-Mark] [Impulse control disorder screening для dopamine agonists?]"
+      },
+      "references": [
+        "FDA label Mirapex"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-212",
+      "name_inn": "Rasagiline",
+      "name_ru": "Разагилин",
+      "name_brand": "Azilect",
+      "status": "METACOD-RF",
+      "batch": "12-Parkinson",
+      "molecular": {
+        "chemical_class": "Selective MAO-B inhibitor",
+        "mechanism_primary": [
+          "[LBL] Blocks MAO-B → reduces dopamine breakdown в CNS"
+        ],
+        "mechanism_distinct": [
+          "[LBL] Once-daily dosing",
+          "[RF] Neuroprotective signal (debated)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Parkinson's disease (early monotherapy or adjunctive)"
+        ]
+      },
+      "dosing": {
+        "dose": "0.5-1 mg AM"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Dopaminergic Yang preservation (reduced breakdown)",
+          "best_match": [
+            "Early-stage PD"
+          ]
+        },
+        "membrane": {
+          "impact": "Chronic"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "distinct": [
+          "[LBL] Tyramine restriction NOT required at therapeutic doses (selective MAO-B)",
+          "[LBL] Avoid с meperidine, tramadol, SSRIs (serotonin syndrome)",
+          "[LBL] Generally well-tolerated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "rasagiline_positioning": "[OBS-Mark] [Rasagiline early-stage PD positioning?]"
+      },
+      "references": [
+        "FDA label Azilect"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-213",
+      "name_inn": "Donepezil",
+      "name_ru": "Донепезил",
+      "name_brand": "Aricept",
+      "status": "METACOD-RF",
+      "batch": "12-Dementia",
+      "molecular": {
+        "chemical_class": "Acetylcholinesterase inhibitor (centrally acting)",
+        "mechanism_primary": [
+          "[LBL] Increases CNS acetylcholine availability"
+        ],
+        "half_life": "70 hours (once daily)"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Alzheimer's disease (mild, moderate, severe)",
+          "[LBL] Off-label other dementias"
+        ]
+      },
+      "dosing": {
+        "dose": "5-10-23 mg PM"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Cholinergic Yin support; translation: acetylcholine enhancement в CNS",
+          "best_match": [
+            "Alzheimer's any constitution",
+            "T5 Yin-Water frail elderly (most common population)"
+          ]
+        },
+        "membrane": {
+          "impact": "Limited disease modification — slows progression slightly; cannot reverse M-D trajectory"
+        },
+        "phase": {
+          "match": "Chronic management; modest cognitive benefit"
+        }
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Nausea, diarrhea, vomiting (cholinergic GI)",
+          "[LBL] Weight loss (concern в frail elderly)",
+          "[LBL] Bradycardia",
+          "[LBL] Vivid dreams (PM dosing)",
+          "[LBL] Urinary incontinence"
+        ],
+        "serious": [
+          "[LBL] Syncope",
+          "[LBL] Severe bradycardia",
+          "[LBL] Cholinergic crisis при overdose"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "donepezil_discontinuation": "[OBS-Mark] [Donepezil discontinuation в advanced dementia?]"
+      },
+      "references": [
+        "FDA label Aricept"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-214",
+      "name_inn": "Memantine",
+      "name_ru": "Мемантин",
+      "name_brand": "Namenda",
+      "status": "METACOD-RF",
+      "batch": "12-Dementia",
+      "molecular": {
+        "chemical_class": "NMDA receptor antagonist (uncompetitive)",
+        "mechanism_primary": [
+          "[LBL] Reduces glutamate-mediated excitotoxicity"
+        ],
+        "half_life": "60-80 hours"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Moderate-severe Alzheimer's disease",
+          "[LBL] Often combined с donepezil (Namzaric)"
+        ]
+      },
+      "dosing": {
+        "dose": "5-20 mg/day (titrate slowly)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Glutamate (Wind) excitotoxicity reduction",
+          "best_match": [
+            "Moderate-severe Alzheimer's"
+          ]
+        },
+        "membrane": {
+          "impact": "Chronic, modest"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "common": [
+          "[LBL] Generally well-tolerated",
+          "[LBL] Dizziness, confusion (initial)",
+          "[LBL] Headache",
+          "[LBL] Constipation"
+        ],
+        "renal": [
+          "[LBL] Dose adjustment severe CKD"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "memantine_donepezil_combination": "[OBS-Mark] [Combination memantine + donepezil strategy?]"
+      },
+      "references": [
+        "FDA label Namenda"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-215",
+      "name_inn": "Glatiramer acetate",
+      "name_ru": "Глатирамера ацетат",
+      "name_brand": "Copaxone",
+      "status": "METACOD-RF",
+      "batch": "12-MS",
+      "molecular": {
+        "chemical_class": "Synthetic polypeptide (myelin basic protein analog)",
+        "mechanism_primary": [
+          "[LBL] Multiple proposed — T-cell modulation, neuroprotective effects"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Relapsing-remitting multiple sclerosis (RRMS)"
+        ]
+      },
+      "dosing": {
+        "dose": "20 mg SC daily или 40 mg SC 3x/week"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Immune modulation reducing Heat in CNS; translation: T-cell immunomodulation, glia neuroprotection",
+          "best_match": [
+            "RRMS"
+          ]
+        },
+        "membrane": {
+          "impact": "Reduces CNS inflammatory burden"
+        },
+        "phase": {
+          "match": "Chronic disease modification"
+        }
+      },
+      "safety": {
+        "common": [
+          "[LBL] Injection site reactions",
+          "[LBL] Immediate post-injection reaction (flushing, chest tightness, palpitations — transient, idiosyncratic)",
+          "[LBL] Lipoatrophy at injection sites",
+          "[LBL] Generally well-tolerated long-term"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "ms_therapy_escalation": "[OBS-Mark] [MS therapy escalation strategy?]"
+      },
+      "references": [
+        "FDA label Copaxone"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-216",
+      "name_inn": "Ocrelizumab",
+      "name_ru": "Окрелизумаб",
+      "name_brand": "Ocrevus",
+      "status": "METACOD-RF",
+      "batch": "12-MS",
+      "molecular": {
+        "chemical_class": "Anti-CD20 monoclonal antibody (B-cell depletion)",
+        "mechanism_primary": [
+          "[LBL] Selective B-cell depletion"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] First drug approved для primary progressive MS (PPMS)",
+          "[LBL] Relapsing-remitting MS (RRMS)"
+        ]
+      },
+      "dosing": {
+        "dose": "600 mg IV q6 months (initial split dose 300 mg × 2)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Immune Heat modulation (B-cell depletion)",
+          "best_match": [
+            "PPMS",
+            "RRMS"
+          ]
+        },
+        "membrane": {
+          "impact": "Active MS = M-D2 trajectory; slows progression"
+        },
+        "phase": {
+          "match": "Chronic disease modification"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Infusion reactions (premedication required)",
+          "[LBL] Infection risk — sustained B-cell depletion",
+          "[LBL] PML risk (rare — class concern)",
+          "[LBL] Malignancy signal (breast cancer in some studies)",
+          "[LBL] HBV screening required pre-treatment",
+          "[LBL] Vaccinations before initiation"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "ocrelizumab_ppms": "[OBS-Mark] [Ocrelizumab в PPMS — clinical experience?]"
+      },
+      "references": [
+        "FDA label Ocrevus",
+        "ORATORIO trial (PPMS)"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-442",
+      "name_inn": "Topiramate",
+      "name_ru": "Топирамат",
+      "name_brand": "Topamax",
+      "status": "METACOD-RF",
+      "batch": "12-Antiepileptic",
+      "molecular": {
+        "chemical_class": "Broad-spectrum antiepileptic",
+        "mechanism_primary": [
+          "[LBL] Multiple (Na-channel, GABA, glutamate, carbonic anhydrase)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Epilepsy (focal/generalized)",
+          "[LBL] Migraine prophylaxis",
+          "[GL] Weight/alcohol use (off-label)"
+        ]
+      },
+      "dosing": {
+        "dose": "Titrate 25→100-200 mg BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Broad neural stabilization [RF]",
+          "best_match": [
+            "Epilepsy, migraine prophylaxis"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Cognitive slowing/word-finding, paresthesia, weight loss",
+          "[LBL] Kidney stones, glaucoma, metabolic acidosis, teratogen (cleft)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAN epilepsy/migraine"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-443",
+      "name_inn": "Oxcarbazepine",
+      "name_ru": "Окскарбазепин",
+      "name_brand": "Trileptal",
+      "status": "METACOD-RF",
+      "batch": "12-Antiepileptic",
+      "molecular": {
+        "chemical_class": "Na-channel blocker (carbamazepine analog)",
+        "mechanism_primary": [
+          "[LBL] Voltage-gated Na blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Focal epilepsy",
+          "[GL] Trigeminal neuralgia"
+        ]
+      },
+      "dosing": {
+        "dose": "Titrate to 600-1200 mg BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Neural stabilization [RF]",
+          "best_match": [
+            "Focal epilepsy, trigeminal neuralgia"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hyponatremia (more than carbamazepine), HLA-B*1502 SJS risk (Asian)",
+          "[LBL] Fewer DDIs than carbamazepine"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAN epilepsy"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-444",
+      "name_inn": "Phenytoin",
+      "name_ru": "Фенитоин",
+      "name_brand": "Dilantin",
+      "status": "METACOD-RF",
+      "batch": "12-Antiepileptic",
+      "molecular": {
+        "chemical_class": "Na-channel blocker (narrow TI)",
+        "mechanism_primary": [
+          "[LBL] Na-channel stabilization"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Focal/generalized epilepsy, status epilepticus (fosphenytoin)"
+        ]
+      },
+      "dosing": {
+        "dose": "Level-guided (10-20 mcg/mL); zero-order kinetics"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Neural stabilization [RF]",
+          "best_match": [
+            "Status epilepticus, focal epilepsy"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute / chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Nonlinear kinetics/toxicity (nystagmus→ataxia), gingival hyperplasia, hirsutism",
+          "[LBL] SJS (HLA-B*1502), many DDIs (CYP inducer), purple glove (IV)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAN/NCS status"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-445",
+      "name_inn": "Brivaracetam",
+      "name_ru": "Бриварацетам",
+      "name_brand": "Briviact",
+      "status": "METACOD-RF",
+      "batch": "12-Antiepileptic",
+      "molecular": {
+        "chemical_class": "SV2A ligand (levetiracetam analog)",
+        "mechanism_primary": [
+          "[LBL] High-affinity SV2A binding"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Focal epilepsy"
+        ]
+      },
+      "dosing": {
+        "dose": "25-100 mg BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Neural stabilization (fewer behavioral AEs) [RF]",
+          "best_match": [
+            "Focal epilepsy (levetiracetam-intolerant behavior)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Fewer psychiatric AEs than levetiracetam; somnolence, dizziness"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAN epilepsy"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-446",
+      "name_inn": "Cannabidiol",
+      "name_ru": "Каннабидиол",
+      "name_brand": "Epidiolex",
+      "status": "METACOD-RF",
+      "batch": "12-Antiepileptic",
+      "molecular": {
+        "chemical_class": "Plant-derived cannabinoid (non-psychoactive)",
+        "mechanism_primary": [
+          "[LBL] Multiple anticonvulsant mechanisms"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Dravet, Lennox-Gastaut, tuberous sclerosis seizures"
+        ]
+      },
+      "dosing": {
+        "dose": "Titrate 5→10-20 mg/kg/day"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Refractory seizure modulation [RF]",
+          "best_match": [
+            "Specific epileptic encephalopathies"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hepatotoxicity (with valproate/clobazam), somnolence, diarrhea",
+          "[LBL] Clobazam level ↑ (DDI)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "FDA label Epidiolex"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-447",
+      "name_inn": "Ubrogepant / Rimegepant (gepants)",
+      "name_ru": "Уброгепант / Римегепант",
+      "name_brand": "Ubrelvy / Nurtec",
+      "status": "METACOD-RF",
+      "batch": "12-Migraine-Acute",
+      "molecular": {
+        "chemical_class": "Oral CGRP receptor antagonist",
+        "mechanism_primary": [
+          "[LBL] Blocks CGRP receptor (acute ± prevention)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acute migraine",
+          "[LBL] Migraine prevention (rimegepant)"
+        ]
+      },
+      "dosing": {
+        "dose": "Ubrogepant PRN; rimegepant PRN/QOD"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Migraine pathway blockade [RF]",
+          "best_match": [
+            "Acute migraine (triptan-contraindicated CVD)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute / preventive"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Well tolerated; no vasoconstriction (unlike triptans); CYP3A4 interactions"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AHS migraine"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-448",
+      "name_inn": "Galcanezumab / Fremanezumab / Eptinezumab (anti-CGRP mAb)",
+      "name_ru": "Галканезумаб / Фреманезумаб / Эптинезумаб",
+      "name_brand": "Emgality / Ajovy / Vyepti",
+      "status": "METACOD-RF",
+      "batch": "12-Migraine-Preventive",
+      "molecular": {
+        "chemical_class": "Anti-CGRP (ligand) monoclonal antibody",
+        "mechanism_primary": [
+          "[LBL] CGRP pathway blockade for prevention"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Migraine prevention (episodic/chronic)",
+          "[LBL] Cluster headache (galcanezumab episodic)"
+        ]
+      },
+      "dosing": {
+        "dose": "SC monthly/quarterly; eptinezumab IV q3mo"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Migraine prevention [RF]",
+          "best_match": [
+            "Chronic/episodic migraine prevention"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Injection reactions, constipation (erenumab class); well tolerated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AHS migraine"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-449",
+      "name_inn": "OnabotulinumtoxinA",
+      "name_ru": "Онаботулотоксин A",
+      "name_brand": "Botox",
+      "status": "METACOD-RF",
+      "batch": "12-Migraine-Preventive",
+      "molecular": {
+        "chemical_class": "Botulinum neurotoxin (chemodenervation)",
+        "mechanism_primary": [
+          "[LBL] Inhibits acetylcholine/CGRP release"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Chronic migraine (≥15 days/mo)",
+          "[LBL] Spasticity, dystonia, blepharospasm, hyperhidrosis"
+        ]
+      },
+      "dosing": {
+        "dose": "PREEMPT protocol q12 weeks"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Neuromuscular/pain modulation [RF]",
+          "best_match": [
+            "Chronic migraine, spasticity/dystonia"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic (q3mo)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Local weakness, ptosis; rare distant spread (black box)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAN/AHS"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-450",
+      "name_inn": "Entacapone / Opicapone (COMT inhibitors)",
+      "name_ru": "Энтакапон / Опикапон",
+      "name_brand": "Comtan / Ongentys",
+      "status": "METACOD-RF",
+      "batch": "12-Parkinson",
+      "molecular": {
+        "chemical_class": "COMT inhibitor",
+        "mechanism_primary": [
+          "[LBL] Prolongs levodopa effect (↓peripheral metabolism)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Parkinson's motor fluctuations (with levodopa)"
+        ]
+      },
+      "dosing": {
+        "dose": "Entacapone with each levodopa dose; opicapone daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Dopaminergic extension [RF]",
+          "best_match": [
+            "Parkinson wearing-off"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Dyskinesia, orange urine, diarrhea; tolcapone hepatotoxic (not this pair)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "MDS Parkinson"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-451",
+      "name_inn": "Amantadine",
+      "name_ru": "Амантадин",
+      "name_brand": "Gocovri, Symmetrel",
+      "status": "METACOD-RF",
+      "batch": "12-Parkinson",
+      "molecular": {
+        "chemical_class": "NMDA antagonist / dopaminergic",
+        "mechanism_primary": [
+          "[LBL] Antiglutamatergic + dopaminergic"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Parkinson dyskinesia (ER), parkinsonism",
+          "[GL] Influenza A (historical)"
+        ]
+      },
+      "dosing": {
+        "dose": "ER bedtime / IR BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Dyskinesia reduction [RF]",
+          "best_match": [
+            "Levodopa-induced dyskinesia"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Livedo reticularis, ankle edema, hallucinations/confusion (elderly), abrupt-stop NMS"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "MDS Parkinson"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-452",
+      "name_inn": "Ropinirole / Rotigotine / Apomorphine",
+      "name_ru": "Ропинирол / Ротиготин / Апоморфин",
+      "name_brand": "Requip / Neupro / Apokyn",
+      "status": "METACOD-RF",
+      "batch": "12-Parkinson",
+      "molecular": {
+        "chemical_class": "Dopamine agonists (non-ergot)",
+        "mechanism_primary": [
+          "[LBL] Direct dopamine receptor agonism"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Parkinson's, restless legs (ropinirole/rotigotine)",
+          "[LBL] Parkinson off-episodes (apomorphine rescue)"
+        ]
+      },
+      "dosing": {
+        "dose": "Oral/patch/SC by agent"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Dopaminergic stimulation [RF]",
+          "best_match": [
+            "Early Parkinson, RLS, off-rescue"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / rescue"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Impulse-control disorders, sleep attacks, orthostasis, hallucinations",
+          "[LBL] Apomorphine severe N/V (antiemetic pretreat — NOT ondansetron)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "MDS Parkinson"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-453",
+      "name_inn": "Rivastigmine / Galantamine",
+      "name_ru": "Ривастигмин / Галантамин",
+      "name_brand": "Exelon / Razadyne",
+      "status": "METACOD-RF",
+      "batch": "12-Dementia",
+      "molecular": {
+        "chemical_class": "Cholinesterase inhibitors",
+        "mechanism_primary": [
+          "[LBL] ↑acetylcholine (AChE ± BuChE)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Alzheimer's dementia",
+          "[LBL] Parkinson's disease dementia (rivastigmine)"
+        ]
+      },
+      "dosing": {
+        "dose": "Rivastigmine patch/PO; galantamine PO"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Cholinergic support [RF]",
+          "best_match": [
+            "Mild-moderate dementia"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] GI (nausea/vomiting/weight loss), bradycardia/syncope, vivid dreams",
+          "[LBL] Patch application-site reactions"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAN dementia"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-454",
+      "name_inn": "Lecanemab",
+      "name_ru": "Леканемаб",
+      "name_brand": "Leqembi",
+      "status": "METACOD-RF",
+      "batch": "12-Dementia-DMT",
+      "molecular": {
+        "chemical_class": "Anti-amyloid-β monoclonal antibody",
+        "mechanism_primary": [
+          "[RCT] Removes amyloid plaques; slows early-AD decline (CLARITY-AD)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Early Alzheimer's (MCI/mild dementia, amyloid-confirmed)"
+        ]
+      },
+      "dosing": {
+        "dose": "IV q2 weeks"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Disease-modifying (amyloid clearance) [RF]",
+          "best_match": [
+            "Early biomarker-confirmed Alzheimer's"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] ARIA-E/H (edema/microhemorrhage — MRI monitoring), infusion reactions",
+          "[LBL] APOE4 homozygotes higher ARIA; anticoagulation caution"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "CLARITY-AD"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-455",
+      "name_inn": "Dimethyl fumarate / Fingolimod / Teriflunomide (oral MS DMTs)",
+      "name_ru": "Диметилфумарат / Финголимод / Терифлуномид",
+      "name_brand": "Tecfidera / Gilenya / Aubagio",
+      "status": "METACOD-RF",
+      "batch": "12-MS",
+      "molecular": {
+        "chemical_class": "Oral disease-modifying therapies (MS)",
+        "mechanism_primary": [
+          "[LBL] Immunomodulation (Nrf2 / S1P-receptor / pyrimidine synthesis)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Relapsing MS (reduces relapses/lesions)"
+        ]
+      },
+      "dosing": {
+        "dose": "Oral (agent-specific)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Immunomodulation (MS) [RF]",
+          "best_match": [
+            "Relapsing-remitting MS"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] DMF: flushing/GI, lymphopenia, PML; fingolimod: first-dose bradycardia, macular edema, PML",
+          "[LBL] Teriflunomide: hepatotoxicity, teratogen (washout)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAN MS"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-456",
+      "name_inn": "Natalizumab",
+      "name_ru": "Натализумаб",
+      "name_brand": "Tysabri",
+      "status": "METACOD-RF",
+      "batch": "12-MS",
+      "molecular": {
+        "chemical_class": "Anti-α4-integrin monoclonal antibody (MS)",
+        "mechanism_primary": [
+          "[LBL] Blocks leukocyte CNS entry"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Highly active relapsing MS",
+          "[LBL] Crohn's disease"
+        ]
+      },
+      "dosing": {
+        "dose": "IV q4 weeks"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Potent MS immunomodulation [RF]",
+          "best_match": [
+            "Highly active RRMS"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] PML risk (JCV antibody stratification — black box)",
+          "[LBL] Infusion reactions, hepatotoxicity"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAN MS"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-457",
+      "name_inn": "Riluzole / Edaravone (ALS)",
+      "name_ru": "Рилузол / Эдаравон",
+      "name_brand": "Rilutek / Radicava",
+      "status": "METACOD-RF",
+      "batch": "12-ALS",
+      "molecular": {
+        "chemical_class": "ALS disease-modifying agents",
+        "mechanism_primary": [
+          "[LBL] Glutamate modulation (riluzole) / antioxidant (edaravone)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Amyotrophic lateral sclerosis (modest survival/function benefit)"
+        ]
+      },
+      "dosing": {
+        "dose": "Riluzole 50 mg BID; edaravone IV/PO cycles"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Neuroprotection (ALS) [RF]",
+          "best_match": [
+            "ALS"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Riluzole: hepatotoxicity, neutropenia; edaravone: infusion/sulfite allergy"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAN ALS"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-458",
+      "name_inn": "Ethosuximide",
+      "name_ru": "Этосуксимид",
+      "name_brand": "Zarontin",
+      "status": "METACOD-RF",
+      "batch": "12-Antiepileptic",
+      "molecular": {
+        "chemical_class": "T-type calcium channel blocker",
+        "mechanism_primary": [
+          "[LBL] Thalamic T-type Ca blockade"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Absence (petit mal) seizures (first-line)"
+        ]
+      },
+      "dosing": {
+        "dose": "Titrate to level"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Absence-seizure control [RF]",
+          "best_match": [
+            "Childhood absence epilepsy"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] GI upset, hiccups; rare SJS/blood dyscrasias",
+          "[LBL] Ineffective/worsens generalized tonic-clonic"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAN epilepsy"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     }
   ]
 }

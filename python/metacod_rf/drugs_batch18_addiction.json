@@ -7,7 +7,7 @@
     "status": "METACOD-RF — Research Framework, not clinical guidance",
     "group": "Addiction medicine — OUD / AUD / smoking cessation / overdose reversal (8 препаратов, 4 подгруппы)",
     "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0 + KCTS awareness HIGH",
-    "preparations_count": 8,
+    "preparations_count": 10,
     "author": "Mark Litvak (с AI-assistance)",
     "date": "2026-06",
     "ready_for_clinical_use": false,
@@ -56,7 +56,8 @@
         "issue_3_bupropion_crossref": "[RF] Bupropion (smoking, Zyban) — полный профиль в batch 07. Здесь cross-reference. Q: adequate или повторить?",
         "issue_4_public_health": "[RF] Naloxone дан с public-health акцентом (harm reduction, take-home). Q: включать policy-level контекст или чисто клинически?"
       }
-    }
+    },
+    "expansion_note": "[2026-06 EXPANSION-2] +DRG-483-484 (2) Claude-authored standard-evidence class-completion (expansion block)."
   },
   "drugs": [
     {
@@ -610,6 +611,108 @@
       "references": [
         "FDA label Narcan",
         "SAMHSA Overdose Prevention Toolkit"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-483",
+      "name_inn": "Lofexidine",
+      "name_ru": "Лофексидин",
+      "name_brand": "Lucemyra",
+      "status": "METACOD-RF",
+      "batch": "18-Withdrawal",
+      "molecular": {
+        "chemical_class": "α2 agonist (opioid withdrawal)",
+        "mechanism_primary": [
+          "[LBL] Reduces noradrenergic withdrawal symptoms"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Opioid withdrawal symptom mitigation"
+        ]
+      },
+      "dosing": {
+        "dose": "Titrated, ≤14 days"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Withdrawal symptom modulation [RF]",
+          "best_match": [
+            "Opioid withdrawal (non-opioid)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hypotension, bradycardia, QT; rebound on stop",
+          "[GL] Adjunct, not a substitute for MOUD"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ASAM"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-484",
+      "name_inn": "Nalmefene",
+      "name_ru": "Налмефен",
+      "name_brand": "Selincro / Revex",
+      "status": "METACOD-RF",
+      "batch": "18-AUD",
+      "molecular": {
+        "chemical_class": "Opioid receptor modulator",
+        "mechanism_primary": [
+          "[LBL] μ-antagonist/κ-partial — reduces heavy drinking; opioid overdose reversal (IV)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Alcohol use disorder (as-needed, EU)",
+          "[LBL] Opioid overdose reversal (longer-acting than naloxone)"
+        ]
+      },
+      "dosing": {
+        "dose": "As-needed (AUD) / IV (overdose)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Reward/craving modulation [RF]",
+          "best_match": [
+            "AUD reduction; overdose reversal"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute / chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Nausea, insomnia, dizziness; precipitates withdrawal in opioid-dependent"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "ASAM AUD"
       ],
       "status_flags": {
         "mark_validated": false

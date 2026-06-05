@@ -6,106 +6,903 @@
     "status": "METACOD-RF — Research Framework, not clinical guidance",
     "group": "Офтальмология — glaucoma (PGA/BB/α2/CAI) / dry eye / anti-VEGF / topical antibiotics-steroids (5 подгрупп)",
     "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0 + KCTS awareness",
-    "preparations_count": 10,
+    "preparations_count": 15,
     "author": "Mark Litvak (с AI-assistance)",
     "date": "2026-06",
     "ready_for_clinical_use": false,
     "ready_for_mark_review": true,
     "id_range_note": "DRG-311..320. Batch 20 dermatology заняла 296..310.",
     "rf_framing_note": "[GOVERNANCE] 'Eye = Liver-Wood axis', energy-маппинг glaucoma/dry-eye, KCTS-связь с chronic ophthalmology — RF/TCM/Mark гипотезы поверх стандартной фармакологии ([LBL]). Research-only; не операционализировано; не patient-facing.",
-    "source_tag_legend": {"LBL": "FDA/EMA label", "GL": "Clinical guideline (AAO etc)", "RCT": "конкретное RCT (CATT/IVAN)", "CLASS": "class extrapolation", "OBS-Mark": "наблюдение Mark (требует заполнения)", "RF": "research framework (theoretical)"},
+    "source_tag_legend": {
+      "LBL": "FDA/EMA label",
+      "GL": "Clinical guideline (AAO etc)",
+      "RCT": "конкретное RCT (CATT/IVAN)",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "наблюдение Mark (требует заполнения)",
+      "RF": "research framework (theoretical)"
+    },
     "class_notes": {
-      "energy_perspective": ["Eye = Liver-Wood axis (Wind) [RF/TCM]", "Glaucoma = pressure dysregulation (Wind + Liver-Wood) [RF]", "Dry eye = local Dry + systemic Yin deficiency [RF]", "AMD = M-D drift в retinal tissue [RF]", "Cataracts = M-S pattern в lens [RF]"],
+      "energy_perspective": [
+        "Eye = Liver-Wood axis (Wind) [RF/TCM]",
+        "Glaucoma = pressure dysregulation (Wind + Liver-Wood) [RF]",
+        "Dry eye = local Dry + systemic Yin deficiency [RF]",
+        "AMD = M-D drift в retinal tissue [RF]",
+        "Cataracts = M-S pattern в lens [RF]"
+      ],
       "systemic_absorption_warning": "[LBL] Topical eye drops могут иметь significant systemic absorption через nasolacrimal duct — timolol = oral beta-blocker effects; brimonidine = systemic α2; ОБЯЗАТЕЛЬНО включать eye drops в polypharmacy review (часто упускается).",
-      "obs_mark_to_fill": ["Glaucoma practice approaches", "Anti-VEGF protocols в Israel", "Topical steroid eye drops — PC vs ophthalmology", "Dry eye comprehensive approach", "KCTS screening в chronic ophthalmology"],
-      "logic_review_flags_for_mark": {"issue_1_topical_systemic": "[LBL/RF] topical→systemic absorption emphasized. Q: practical PC/ophthalmology coordination?", "issue_2_eye_liver_wood": "[RF/TCM] Eye=Liver-Wood. Q: more development или brief mention adequate?", "issue_3_antivegf_lesion_systemic": "[RF] anti-VEGF = local intervention не addressing systemic disease. Q: comprehensive-care emphasis adequate?"}
-    }
+      "obs_mark_to_fill": [
+        "Glaucoma practice approaches",
+        "Anti-VEGF protocols в Israel",
+        "Topical steroid eye drops — PC vs ophthalmology",
+        "Dry eye comprehensive approach",
+        "KCTS screening в chronic ophthalmology"
+      ],
+      "logic_review_flags_for_mark": {
+        "issue_1_topical_systemic": "[LBL/RF] topical→systemic absorption emphasized. Q: practical PC/ophthalmology coordination?",
+        "issue_2_eye_liver_wood": "[RF/TCM] Eye=Liver-Wood. Q: more development или brief mention adequate?",
+        "issue_3_antivegf_lesion_systemic": "[RF] anti-VEGF = local intervention не addressing systemic disease. Q: comprehensive-care emphasis adequate?"
+      }
+    },
+    "expansion_note": "[2026-06 EXPANSION-2] +DRG-494-498 (5) Claude-authored standard-evidence class-completion (expansion block)."
   },
   "drugs": [
-    {"drug_id": "DRG-311", "name_inn": "Latanoprost", "name_ru": "Латанопрост", "name_brand": "Xalatan", "status": "METACOD-RF", "batch": "21-Glaucoma-PGA",
-     "molecular": {"chemical_class": "Prostaglandin F2α analogue", "mechanism_primary": ["[LBL] Enhances uveoscleral outflow of aqueous humor", "[LBL] IOP reduction ~25-30%", "[LBL] Once-daily PM dosing (chronobiological optimization)"], "half_life_aqueous": "2-4 hours", "formulation": "0.005% ophthalmic solution"},
-     "indications": {"approved": ["[LBL] Open-angle glaucoma (first-line)", "[LBL] Ocular hypertension"]},
-     "dosing": {"dose": "1 drop affected eye(s) once daily PM", "note": ["[LBL] PM dosing aligns с overnight physiological IOP peak", "[LBL] Twice-daily paradoxically less effective (receptor desensitization)"]},
-     "three_axis_profile": {"constitutional": {"energy": "Local Wind regulation (pressure normalization); translation: enhanced aqueous outflow", "best_match": ["Open-angle glaucoma any constitution", "T7 Yang-Wood с Liver-Wood disturbance"]}, "membrane": {"impact": "Chronic local, minimal systemic; prevents progressive optic nerve M-D drift"}, "phase": {"match": "Chronic maintenance; prevents Phase 4 (irreversible vision loss)"}},
-     "adverse_events": {"common": ["[LBL] Iris pigmentation increase (heterochromia в heterochromic patients)", "[LBL] Eyelash growth (bimatoprost = Latisse)", "[LBL] Periorbital pigmentation", "[LBL] Conjunctival hyperemia", "[LBL] Mild burning"], "serious": ["[LBL] Cystoid macular edema (rare — caution post-cataract surgery)", "[LBL] Reactivation of herpetic keratitis", "[LBL] Iritis/uveitis (rare)"]},
-     "contraindications": {"absolute": ["[LBL] Hypersensitivity"], "relative": ["[GL] Active uveitis", "[GL] Active herpes simplex keratitis", "[GL] Aphakia/pseudophakia с posterior capsule disruption (CME risk)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "pga_first_line": "[OBS-Mark] [PGA selection criteria в glaucoma practice?]"},
-     "references": ["FDA label Xalatan", "AAO Glaucoma Guidelines"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-312", "name_inn": "Bimatoprost", "name_ru": "Биматопрост", "name_brand": "Lumigan (glaucoma), Latisse (eyelash)", "status": "METACOD-RF", "batch": "21-Glaucoma-PGA",
-     "molecular": {"chemical_class": "Prostamide (PGA-like)"},
-     "distinct_clinical": ["[LBL] Slightly higher IOP reduction than latanoprost", "[LBL] Eyelash growth pronounced — Latisse formulation marketed cosmetically", "[LBL] More periorbital pigmentation typically"],
-     "indications": {"approved": ["[LBL] Open-angle glaucoma", "[LBL] Ocular hypertension"]},
-     "dosing": {"dose": "1 drop once daily PM"},
-     "three_axis_profile": {"constitutional": {"energy": "Local Wind regulation (PGA-class)", "best_match": ["Glaucoma; patient preference (lash growth desired/avoided)"]}, "membrane": {"impact": "Local"}, "phase": {"match": "Chronic maintenance"}},
-     "safety": {"note": ["[LBL] Same class profile as latanoprost; more pigmentation/lash effects"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "pga_selection": "[OBS-Mark] [PGA agent selection — patient preference based?]"},
-     "references": ["FDA label Lumigan"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-313", "name_inn": "Timolol (topical)", "name_ru": "Тимолол (наружно)", "name_brand": "Timoptic", "status": "METACOD-RF", "batch": "21-Glaucoma-BB",
-     "molecular": {"chemical_class": "Non-selective beta-blocker (topical)", "mechanism_primary": ["[LBL] Reduces aqueous humor production", "[LBL] IOP reduction ~20-25%", "[LBL] Significant systemic absorption через nasolacrimal duct — same systemic effects as oral BB"]},
-     "indications": {"approved": ["[LBL] Open-angle glaucoma (adjunctive/alternative к PGA)", "[LBL] Ocular hypertension"]},
-     "dosing": {"dose": "0.25-0.5% solution, 1 drop BID (gel OD)", "note": ["[LBL] Nasolacrimal occlusion (finger pressure inner canthus × 2 min) reduces systemic absorption"]},
-     "three_axis_profile": {"constitutional": {"energy": "Reduced aqueous production (BB)", "best_match": ["Glaucoma adjunct"], "caution": ["systemic BB effects often forgotten"]}, "membrane": {"impact": "Systemic absorption non-trivial"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Systemic beta-blocker effects: bradycardia, bronchospasm (caution asthma/COPD), HF exacerbation, hypoglycemia masking в DM, erectile dysfunction", "[LBL] Often forgotten as systemic medication — important polypharmacy review", "[LBL] Less commonly prescribed now (PGA superiority + systemic concerns)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "timolol_systemic": "[OBS-Mark] [Timolol awareness — systemic medication recognition?]"},
-     "references": ["FDA label Timoptic"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-314", "name_inn": "Brimonidine", "name_ru": "Бримонидин", "name_brand": "Alphagan P", "status": "METACOD-RF", "batch": "21-Glaucoma-Alpha",
-     "molecular": {"chemical_class": "α2-adrenergic agonist (topical)", "mechanism_primary": ["[LBL] Reduces aqueous production + enhances uveoscleral outflow"], "iop_reduction": "18-25%"},
-     "indications": {"approved": ["[LBL] Glaucoma adjunctive therapy"]},
-     "dosing": {"dose": "0.1-0.2% TID"},
-     "three_axis_profile": {"constitutional": {"energy": "α2-mediated aqueous reduction", "best_match": ["Glaucoma adjunct"]}, "membrane": {"impact": "Systemic absorption possible"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Allergic conjunctivitis common (cumulative — может develop months/years in)", "[LBL] Systemic absorption — fatigue, hypotension, dry mouth", "[LBL] Pediatric contraindication — CNS depression risk (<2 years)", "[LBL] Less ocular allergy с newer formulation (Alphagan P — purite preservative)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "brimonidine_allergy": "[OBS-Mark] [Brimonidine ocular allergy management?]"},
-     "references": ["FDA label Alphagan P"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-315", "name_inn": "Dorzolamide", "name_ru": "Дорзоламид", "name_brand": "Trusopt", "status": "METACOD-RF", "batch": "21-Glaucoma-CAI",
-     "molecular": {"chemical_class": "Topical carbonic anhydrase inhibitor", "mechanism_primary": ["[LBL] Inhibits ciliary body CA isoenzymes → reduced aqueous production"], "iop_reduction": "15-22%"},
-     "indications": {"approved": ["[LBL] Glaucoma adjunctive therapy"]},
-     "dosing": {"dose": "2% TID"},
-     "combinations": "Dorzolamide-Timolol (Cosopt) — common combination drop, reduces dosing burden.",
-     "three_axis_profile": {"constitutional": {"energy": "CAI-mediated aqueous reduction", "best_match": ["Glaucoma adjunct"]}, "membrane": {"impact": "Local"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Sulfonamide derivative — sulfa allergy contraindication", "[LBL] Bitter taste after instillation (distinctive)", "[LBL] Ocular burning, stinging", "[LBL] Corneal edema в Fuchs dystrophy", "[LBL] Generally well-tolerated"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "combo_drops": "[OBS-Mark] [Glaucoma combination drops — selection criteria?]"},
-     "references": ["FDA label Trusopt"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-316", "name_inn": "Cyclosporine ophthalmic", "name_ru": "Циклоспорин (офтальмологический)", "name_brand": "Restasis, Cequa", "status": "METACOD-RF", "batch": "21-Dry-Eye",
-     "molecular": {"chemical_class": "Topical immunomodulator (calcineurin inhibitor)", "mechanism_primary": ["[LBL] Reduces ocular surface inflammation", "[LBL] Increases tear production gradually (3-6 months for full effect)", "[LBL] Disease-modifying vs symptomatic"]},
-     "indications": {"approved": ["[LBL] Dry eye disease (moderate-severe)", "[LBL] Improves tear production"]},
-     "dosing": {"dose": "1 drop BID", "note": ["[LBL] Slow onset — patient education re patience (3-6 months)"]},
-     "three_axis_profile": {"constitutional": {"energy": "Local Heat reduction (anti-inflammatory) → restores Yin (tear production)", "best_match": ["Yin-deficient elderly с DED", "Sjögren", "Post-menopausal DED"]}, "membrane": {"impact": "Local restorative; improves M-D pattern в ocular surface gradually"}, "phase": {"match": "Chronic; disease-modifying"}},
-     "safety": {"note": ["[LBL] Burning sensation initial (most patients)", "[LBL] Generally well-tolerated long-term", "[LBL] Minimal systemic absorption"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "cyclosporine_ded": "[OBS-Mark] [Cyclosporine ophthalmic в DED management?]"},
-     "references": ["FDA label Restasis"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-317", "name_inn": "Lifitegrast", "name_ru": "Лифитеграст", "name_brand": "Xiidra", "status": "METACOD-RF", "batch": "21-Dry-Eye",
-     "molecular": {"chemical_class": "LFA-1 antagonist", "mechanism_primary": ["[LBL] Blocks LFA-1/ICAM-1 interaction → reduces T-cell-mediated ocular inflammation"]},
-     "distinct_clinical": ["[LBL] Faster onset than cyclosporine (weeks vs months)"],
-     "indications": {"approved": ["[LBL] Dry eye disease"]},
-     "dosing": {"dose": "1 drop BID"},
-     "three_axis_profile": {"constitutional": {"energy": "T-cell inflammation blockade → Yin restoration", "best_match": ["DED preferring faster onset"]}, "membrane": {"impact": "Local"}, "phase": {"match": "Chronic"}},
-     "safety": {"note": ["[LBL] Bitter/metallic taste (distinctive AE)", "[LBL] Initial burning", "[LBL] Generally well-tolerated"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "lifitegrast_vs_cyclosporine": "[OBS-Mark] [Lifitegrast vs cyclosporine selection?]"},
-     "references": ["FDA label Xiidra"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-318", "name_inn": "Ranibizumab / Aflibercept / Bevacizumab (off-label)", "name_ru": "Ранибизумаб / Афлиберсепт / Бевацизумаб", "name_brand": "Lucentis (rani), Eylea (afli), Avastin off-label", "status": "METACOD-RF", "batch": "21-Anti-VEGF",
-     "molecular": {"chemical_classes": ["Ranibizumab: anti-VEGF Fab fragment", "Aflibercept: VEGF trap fusion protein", "Bevacizumab: full anti-VEGF antibody (batch 16 oncology) — off-label ophthalmic use widespread"]},
-     "distinct_clinical": ["[LBL] Lucentis: FDA-approved ophthalmic, expensive", "[LBL] Eylea: longer dosing intervals possible, FDA-approved", "[LBL] Avastin off-label: ~$50 vs $2000 per injection — major cost-effectiveness debate", "[RCT] CATT trial (NIH): comparable efficacy Avastin vs Lucentis"],
-     "indications": {"approved": ["[LBL] Wet/exudative AMD (primary use)", "[LBL] Diabetic macular edema", "[LBL] Retinal vein occlusion macular edema", "[LBL] Myopic CNV", "[LBL] Retinopathy of prematurity (Lucentis approved)"]},
-     "dosing": {"dose": "Intravitreal injection; schedule varies by drug+protocol. Standard: monthly initial 3 doses, then maintenance (variable)"},
-     "three_axis_profile": {"constitutional": {"energy": "Local anti-angiogenesis (specific Heat-Damp pathway blockade в retinal vasculature); translation: VEGF neutralization", "best_match": ["AMD elderly (T5-T8)", "Diabetic retinopathy = metabolic syndrome (Yin-Earth/Yang-Earth)"]}, "membrane": {"impact": "Local intravitreal; stabilizes/reverses M-S в retinal tissue; minimal systemic absorption"}, "phase": {"match": "Chronic; frequent treatment (monthly initial)"}},
-     "safety": {"injection_risks": ["[LBL] Endophthalmitis (~1:1000-3000) — emergency", "[LBL] Retinal detachment (rare)", "[LBL] Cataract formation", "[LBL] Vitreous hemorrhage"], "systemic_rare": ["[LBL] Stroke signal (Lucentis vs Eylea — controversial)", "[LBL] MI signal (theoretical)"], "burden": ["[LBL] Treatment burden significant — monthly visits"]},
-     "kcts_awareness": "[RF] Diabetic retinopathy + AMD often: длительная chronic disease, multiple parallel conditions, older cohort, sometimes attended alone. Comprehensive care important — anti-VEGF treats local manifestation не systemic metabolic disease.",
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "antivegf_protocols": "[OBS-Mark] [Anti-VEGF protocols в Israeli ophthalmology?]"},
-     "references": ["FDA labels Lucentis, Eylea", "CATT trial", "IVAN trial"], "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-319", "name_inn": "Moxifloxacin / Ciprofloxacin topical", "name_ru": "Моксифлоксацин / Ципрофлоксацин (наружно)", "name_brand": "Vigamox (moxi), Ciloxan (cipro)", "status": "METACOD-RF", "batch": "21-Topical-Antibiotics", "entry_type": "cross_reference",
-     "cross_reference": "Full FQ profiles в batch 14 (DRG-239/241; batch 14 не в репозитории). Topical eye use much safer than systemic.",
-     "indications": {"approved": ["[LBL] Bacterial conjunctivitis (broad-spectrum)", "[LBL] Bacterial keratitis (corneal ulcers)", "[LBL] Pre/post-operative prophylaxis", "[LBL] Endophthalmitis prophylaxis"]},
-     "distinct_safety": ["[LBL] No systemic FQ toxicity concerns с topical use (insufficient absorption)", "[LBL] Local irritation possible", "[LBL] White corneal deposits (cipro — distinctive)", "[LBL] Generally very safe topically"],
-     "three_axis_profile": {"constitutional": {"energy": "Local bacterial reduction", "best_match": ["Bacterial conjunctivitis/keratitis"]}, "membrane": {"impact": "Local"}, "phase": {"match": "Acute"}},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "conjunctivitis_abx": "[OBS-Mark] [Conjunctivitis antibiotic approach — selective?]"},
-     "references": ["см. batch 14"], "status_flags": {"mark_validated": false, "note": "cross-reference entry — full FQ profiles batch 14 (not in repo)"}},
-    {"drug_id": "DRG-320", "name_inn": "Prednisolone acetate ophthalmic", "name_ru": "Преднизолона ацетат (офтальмологический)", "name_brand": "Pred Forte, Omnipred", "status": "METACOD-RF", "batch": "21-Topical-Steroid-Ophthalmic", "entry_type": "cross_reference",
-     "cross_reference": "Full prednisolone profile в batch 08 (DRG-125; batch 08 не в репозитории). Here ophthalmic-specific.",
-     "indications": {"approved": ["[LBL] Post-cataract surgery", "[LBL] Uveitis (anterior)", "[LBL] Allergic conjunctivitis severe", "[LBL] Corneal grafts", "[LBL] Various inflammatory conditions"]},
-     "dosing": {"dose": "1 drop QID typically, taper over weeks"},
-     "three_axis_profile": {"constitutional": {"energy": "Local Heat reduction (с significant local risks)", "best_match": ["Ocular inflammation (specialist-guided)"]}, "membrane": {"impact": "Local; IOP/cataract risk"}, "phase": {"match": "Acute/subacute, tapered"}},
-     "safety": {"critical": ["[LBL] Steroid-induced glaucoma — IOP rise в 25-40% ('steroid responders')", "[LBL] Cataract formation (posterior subcapsular)", "[LBL] Reactivation HSV keratitis — never if active HSV", "[LBL] Wound healing impairment (caution post-op timing)", "[LBL] Infection masking/progression — steroid eye drops в active infection = disaster"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "eye_steroid_duration": "[OBS-Mark] [Topical eye steroid duration management?]"},
-     "references": ["см. batch 08"], "status_flags": {"mark_validated": false, "note": "cross-reference entry — full profile batch 08 (not in repo)"}}
+    {
+      "drug_id": "DRG-311",
+      "name_inn": "Latanoprost",
+      "name_ru": "Латанопрост",
+      "name_brand": "Xalatan",
+      "status": "METACOD-RF",
+      "batch": "21-Glaucoma-PGA",
+      "molecular": {
+        "chemical_class": "Prostaglandin F2α analogue",
+        "mechanism_primary": [
+          "[LBL] Enhances uveoscleral outflow of aqueous humor",
+          "[LBL] IOP reduction ~25-30%",
+          "[LBL] Once-daily PM dosing (chronobiological optimization)"
+        ],
+        "half_life_aqueous": "2-4 hours",
+        "formulation": "0.005% ophthalmic solution"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Open-angle glaucoma (first-line)",
+          "[LBL] Ocular hypertension"
+        ]
+      },
+      "dosing": {
+        "dose": "1 drop affected eye(s) once daily PM",
+        "note": [
+          "[LBL] PM dosing aligns с overnight physiological IOP peak",
+          "[LBL] Twice-daily paradoxically less effective (receptor desensitization)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local Wind regulation (pressure normalization); translation: enhanced aqueous outflow",
+          "best_match": [
+            "Open-angle glaucoma any constitution",
+            "T7 Yang-Wood с Liver-Wood disturbance"
+          ]
+        },
+        "membrane": {
+          "impact": "Chronic local, minimal systemic; prevents progressive optic nerve M-D drift"
+        },
+        "phase": {
+          "match": "Chronic maintenance; prevents Phase 4 (irreversible vision loss)"
+        }
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Iris pigmentation increase (heterochromia в heterochromic patients)",
+          "[LBL] Eyelash growth (bimatoprost = Latisse)",
+          "[LBL] Periorbital pigmentation",
+          "[LBL] Conjunctival hyperemia",
+          "[LBL] Mild burning"
+        ],
+        "serious": [
+          "[LBL] Cystoid macular edema (rare — caution post-cataract surgery)",
+          "[LBL] Reactivation of herpetic keratitis",
+          "[LBL] Iritis/uveitis (rare)"
+        ]
+      },
+      "contraindications": {
+        "absolute": [
+          "[LBL] Hypersensitivity"
+        ],
+        "relative": [
+          "[GL] Active uveitis",
+          "[GL] Active herpes simplex keratitis",
+          "[GL] Aphakia/pseudophakia с posterior capsule disruption (CME risk)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "pga_first_line": "[OBS-Mark] [PGA selection criteria в glaucoma practice?]"
+      },
+      "references": [
+        "FDA label Xalatan",
+        "AAO Glaucoma Guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-312",
+      "name_inn": "Bimatoprost",
+      "name_ru": "Биматопрост",
+      "name_brand": "Lumigan (glaucoma), Latisse (eyelash)",
+      "status": "METACOD-RF",
+      "batch": "21-Glaucoma-PGA",
+      "molecular": {
+        "chemical_class": "Prostamide (PGA-like)"
+      },
+      "distinct_clinical": [
+        "[LBL] Slightly higher IOP reduction than latanoprost",
+        "[LBL] Eyelash growth pronounced — Latisse formulation marketed cosmetically",
+        "[LBL] More periorbital pigmentation typically"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] Open-angle glaucoma",
+          "[LBL] Ocular hypertension"
+        ]
+      },
+      "dosing": {
+        "dose": "1 drop once daily PM"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local Wind regulation (PGA-class)",
+          "best_match": [
+            "Glaucoma; patient preference (lash growth desired/avoided)"
+          ]
+        },
+        "membrane": {
+          "impact": "Local"
+        },
+        "phase": {
+          "match": "Chronic maintenance"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Same class profile as latanoprost; more pigmentation/lash effects"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "pga_selection": "[OBS-Mark] [PGA agent selection — patient preference based?]"
+      },
+      "references": [
+        "FDA label Lumigan"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-313",
+      "name_inn": "Timolol (topical)",
+      "name_ru": "Тимолол (наружно)",
+      "name_brand": "Timoptic",
+      "status": "METACOD-RF",
+      "batch": "21-Glaucoma-BB",
+      "molecular": {
+        "chemical_class": "Non-selective beta-blocker (topical)",
+        "mechanism_primary": [
+          "[LBL] Reduces aqueous humor production",
+          "[LBL] IOP reduction ~20-25%",
+          "[LBL] Significant systemic absorption через nasolacrimal duct — same systemic effects as oral BB"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Open-angle glaucoma (adjunctive/alternative к PGA)",
+          "[LBL] Ocular hypertension"
+        ]
+      },
+      "dosing": {
+        "dose": "0.25-0.5% solution, 1 drop BID (gel OD)",
+        "note": [
+          "[LBL] Nasolacrimal occlusion (finger pressure inner canthus × 2 min) reduces systemic absorption"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Reduced aqueous production (BB)",
+          "best_match": [
+            "Glaucoma adjunct"
+          ],
+          "caution": [
+            "systemic BB effects often forgotten"
+          ]
+        },
+        "membrane": {
+          "impact": "Systemic absorption non-trivial"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Systemic beta-blocker effects: bradycardia, bronchospasm (caution asthma/COPD), HF exacerbation, hypoglycemia masking в DM, erectile dysfunction",
+          "[LBL] Often forgotten as systemic medication — important polypharmacy review",
+          "[LBL] Less commonly prescribed now (PGA superiority + systemic concerns)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "timolol_systemic": "[OBS-Mark] [Timolol awareness — systemic medication recognition?]"
+      },
+      "references": [
+        "FDA label Timoptic"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-314",
+      "name_inn": "Brimonidine",
+      "name_ru": "Бримонидин",
+      "name_brand": "Alphagan P",
+      "status": "METACOD-RF",
+      "batch": "21-Glaucoma-Alpha",
+      "molecular": {
+        "chemical_class": "α2-adrenergic agonist (topical)",
+        "mechanism_primary": [
+          "[LBL] Reduces aqueous production + enhances uveoscleral outflow"
+        ],
+        "iop_reduction": "18-25%"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Glaucoma adjunctive therapy"
+        ]
+      },
+      "dosing": {
+        "dose": "0.1-0.2% TID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "α2-mediated aqueous reduction",
+          "best_match": [
+            "Glaucoma adjunct"
+          ]
+        },
+        "membrane": {
+          "impact": "Systemic absorption possible"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Allergic conjunctivitis common (cumulative — может develop months/years in)",
+          "[LBL] Systemic absorption — fatigue, hypotension, dry mouth",
+          "[LBL] Pediatric contraindication — CNS depression risk (<2 years)",
+          "[LBL] Less ocular allergy с newer formulation (Alphagan P — purite preservative)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "brimonidine_allergy": "[OBS-Mark] [Brimonidine ocular allergy management?]"
+      },
+      "references": [
+        "FDA label Alphagan P"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-315",
+      "name_inn": "Dorzolamide",
+      "name_ru": "Дорзоламид",
+      "name_brand": "Trusopt",
+      "status": "METACOD-RF",
+      "batch": "21-Glaucoma-CAI",
+      "molecular": {
+        "chemical_class": "Topical carbonic anhydrase inhibitor",
+        "mechanism_primary": [
+          "[LBL] Inhibits ciliary body CA isoenzymes → reduced aqueous production"
+        ],
+        "iop_reduction": "15-22%"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Glaucoma adjunctive therapy"
+        ]
+      },
+      "dosing": {
+        "dose": "2% TID"
+      },
+      "combinations": "Dorzolamide-Timolol (Cosopt) — common combination drop, reduces dosing burden.",
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "CAI-mediated aqueous reduction",
+          "best_match": [
+            "Glaucoma adjunct"
+          ]
+        },
+        "membrane": {
+          "impact": "Local"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Sulfonamide derivative — sulfa allergy contraindication",
+          "[LBL] Bitter taste after instillation (distinctive)",
+          "[LBL] Ocular burning, stinging",
+          "[LBL] Corneal edema в Fuchs dystrophy",
+          "[LBL] Generally well-tolerated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "combo_drops": "[OBS-Mark] [Glaucoma combination drops — selection criteria?]"
+      },
+      "references": [
+        "FDA label Trusopt"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-316",
+      "name_inn": "Cyclosporine ophthalmic",
+      "name_ru": "Циклоспорин (офтальмологический)",
+      "name_brand": "Restasis, Cequa",
+      "status": "METACOD-RF",
+      "batch": "21-Dry-Eye",
+      "molecular": {
+        "chemical_class": "Topical immunomodulator (calcineurin inhibitor)",
+        "mechanism_primary": [
+          "[LBL] Reduces ocular surface inflammation",
+          "[LBL] Increases tear production gradually (3-6 months for full effect)",
+          "[LBL] Disease-modifying vs symptomatic"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Dry eye disease (moderate-severe)",
+          "[LBL] Improves tear production"
+        ]
+      },
+      "dosing": {
+        "dose": "1 drop BID",
+        "note": [
+          "[LBL] Slow onset — patient education re patience (3-6 months)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local Heat reduction (anti-inflammatory) → restores Yin (tear production)",
+          "best_match": [
+            "Yin-deficient elderly с DED",
+            "Sjögren",
+            "Post-menopausal DED"
+          ]
+        },
+        "membrane": {
+          "impact": "Local restorative; improves M-D pattern в ocular surface gradually"
+        },
+        "phase": {
+          "match": "Chronic; disease-modifying"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Burning sensation initial (most patients)",
+          "[LBL] Generally well-tolerated long-term",
+          "[LBL] Minimal systemic absorption"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "cyclosporine_ded": "[OBS-Mark] [Cyclosporine ophthalmic в DED management?]"
+      },
+      "references": [
+        "FDA label Restasis"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-317",
+      "name_inn": "Lifitegrast",
+      "name_ru": "Лифитеграст",
+      "name_brand": "Xiidra",
+      "status": "METACOD-RF",
+      "batch": "21-Dry-Eye",
+      "molecular": {
+        "chemical_class": "LFA-1 antagonist",
+        "mechanism_primary": [
+          "[LBL] Blocks LFA-1/ICAM-1 interaction → reduces T-cell-mediated ocular inflammation"
+        ]
+      },
+      "distinct_clinical": [
+        "[LBL] Faster onset than cyclosporine (weeks vs months)"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] Dry eye disease"
+        ]
+      },
+      "dosing": {
+        "dose": "1 drop BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "T-cell inflammation blockade → Yin restoration",
+          "best_match": [
+            "DED preferring faster onset"
+          ]
+        },
+        "membrane": {
+          "impact": "Local"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Bitter/metallic taste (distinctive AE)",
+          "[LBL] Initial burning",
+          "[LBL] Generally well-tolerated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "lifitegrast_vs_cyclosporine": "[OBS-Mark] [Lifitegrast vs cyclosporine selection?]"
+      },
+      "references": [
+        "FDA label Xiidra"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-318",
+      "name_inn": "Ranibizumab / Aflibercept / Bevacizumab (off-label)",
+      "name_ru": "Ранибизумаб / Афлиберсепт / Бевацизумаб",
+      "name_brand": "Lucentis (rani), Eylea (afli), Avastin off-label",
+      "status": "METACOD-RF",
+      "batch": "21-Anti-VEGF",
+      "molecular": {
+        "chemical_classes": [
+          "Ranibizumab: anti-VEGF Fab fragment",
+          "Aflibercept: VEGF trap fusion protein",
+          "Bevacizumab: full anti-VEGF antibody (batch 16 oncology) — off-label ophthalmic use widespread"
+        ]
+      },
+      "distinct_clinical": [
+        "[LBL] Lucentis: FDA-approved ophthalmic, expensive",
+        "[LBL] Eylea: longer dosing intervals possible, FDA-approved",
+        "[LBL] Avastin off-label: ~$50 vs $2000 per injection — major cost-effectiveness debate",
+        "[RCT] CATT trial (NIH): comparable efficacy Avastin vs Lucentis"
+      ],
+      "indications": {
+        "approved": [
+          "[LBL] Wet/exudative AMD (primary use)",
+          "[LBL] Diabetic macular edema",
+          "[LBL] Retinal vein occlusion macular edema",
+          "[LBL] Myopic CNV",
+          "[LBL] Retinopathy of prematurity (Lucentis approved)"
+        ]
+      },
+      "dosing": {
+        "dose": "Intravitreal injection; schedule varies by drug+protocol. Standard: monthly initial 3 doses, then maintenance (variable)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local anti-angiogenesis (specific Heat-Damp pathway blockade в retinal vasculature); translation: VEGF neutralization",
+          "best_match": [
+            "AMD elderly (T5-T8)",
+            "Diabetic retinopathy = metabolic syndrome (Yin-Earth/Yang-Earth)"
+          ]
+        },
+        "membrane": {
+          "impact": "Local intravitreal; stabilizes/reverses M-S в retinal tissue; minimal systemic absorption"
+        },
+        "phase": {
+          "match": "Chronic; frequent treatment (monthly initial)"
+        }
+      },
+      "safety": {
+        "injection_risks": [
+          "[LBL] Endophthalmitis (~1:1000-3000) — emergency",
+          "[LBL] Retinal detachment (rare)",
+          "[LBL] Cataract formation",
+          "[LBL] Vitreous hemorrhage"
+        ],
+        "systemic_rare": [
+          "[LBL] Stroke signal (Lucentis vs Eylea — controversial)",
+          "[LBL] MI signal (theoretical)"
+        ],
+        "burden": [
+          "[LBL] Treatment burden significant — monthly visits"
+        ]
+      },
+      "kcts_awareness": "[RF] Diabetic retinopathy + AMD often: длительная chronic disease, multiple parallel conditions, older cohort, sometimes attended alone. Comprehensive care important — anti-VEGF treats local manifestation не systemic metabolic disease.",
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "antivegf_protocols": "[OBS-Mark] [Anti-VEGF protocols в Israeli ophthalmology?]"
+      },
+      "references": [
+        "FDA labels Lucentis, Eylea",
+        "CATT trial",
+        "IVAN trial"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-319",
+      "name_inn": "Moxifloxacin / Ciprofloxacin topical",
+      "name_ru": "Моксифлоксацин / Ципрофлоксацин (наружно)",
+      "name_brand": "Vigamox (moxi), Ciloxan (cipro)",
+      "status": "METACOD-RF",
+      "batch": "21-Topical-Antibiotics",
+      "entry_type": "cross_reference",
+      "cross_reference": "Full FQ profiles в batch 14 (DRG-239/241; batch 14 не в репозитории). Topical eye use much safer than systemic.",
+      "indications": {
+        "approved": [
+          "[LBL] Bacterial conjunctivitis (broad-spectrum)",
+          "[LBL] Bacterial keratitis (corneal ulcers)",
+          "[LBL] Pre/post-operative prophylaxis",
+          "[LBL] Endophthalmitis prophylaxis"
+        ]
+      },
+      "distinct_safety": [
+        "[LBL] No systemic FQ toxicity concerns с topical use (insufficient absorption)",
+        "[LBL] Local irritation possible",
+        "[LBL] White corneal deposits (cipro — distinctive)",
+        "[LBL] Generally very safe topically"
+      ],
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local bacterial reduction",
+          "best_match": [
+            "Bacterial conjunctivitis/keratitis"
+          ]
+        },
+        "membrane": {
+          "impact": "Local"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "conjunctivitis_abx": "[OBS-Mark] [Conjunctivitis antibiotic approach — selective?]"
+      },
+      "references": [
+        "см. batch 14"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "cross-reference entry — full FQ profiles batch 14 (not in repo)"
+      }
+    },
+    {
+      "drug_id": "DRG-320",
+      "name_inn": "Prednisolone acetate ophthalmic",
+      "name_ru": "Преднизолона ацетат (офтальмологический)",
+      "name_brand": "Pred Forte, Omnipred",
+      "status": "METACOD-RF",
+      "batch": "21-Topical-Steroid-Ophthalmic",
+      "entry_type": "cross_reference",
+      "cross_reference": "Full prednisolone profile в batch 08 (DRG-125; batch 08 не в репозитории). Here ophthalmic-specific.",
+      "indications": {
+        "approved": [
+          "[LBL] Post-cataract surgery",
+          "[LBL] Uveitis (anterior)",
+          "[LBL] Allergic conjunctivitis severe",
+          "[LBL] Corneal grafts",
+          "[LBL] Various inflammatory conditions"
+        ]
+      },
+      "dosing": {
+        "dose": "1 drop QID typically, taper over weeks"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local Heat reduction (с significant local risks)",
+          "best_match": [
+            "Ocular inflammation (specialist-guided)"
+          ]
+        },
+        "membrane": {
+          "impact": "Local; IOP/cataract risk"
+        },
+        "phase": {
+          "match": "Acute/subacute, tapered"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Steroid-induced glaucoma — IOP rise в 25-40% ('steroid responders')",
+          "[LBL] Cataract formation (posterior subcapsular)",
+          "[LBL] Reactivation HSV keratitis — never if active HSV",
+          "[LBL] Wound healing impairment (caution post-op timing)",
+          "[LBL] Infection masking/progression — steroid eye drops в active infection = disaster"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "eye_steroid_duration": "[OBS-Mark] [Topical eye steroid duration management?]"
+      },
+      "references": [
+        "см. batch 08"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "cross-reference entry — full profile batch 08 (not in repo)"
+      }
+    },
+    {
+      "drug_id": "DRG-494",
+      "name_inn": "Netarsudil",
+      "name_ru": "Нетарсудил",
+      "name_brand": "Rhopressa",
+      "status": "METACOD-RF",
+      "batch": "21-Glaucoma-ROCK",
+      "molecular": {
+        "chemical_class": "Rho kinase inhibitor (ophthalmic)",
+        "mechanism_primary": [
+          "[LBL] Increases trabecular outflow + ↓episcleral venous pressure"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Open-angle glaucoma / ocular hypertension"
+        ]
+      },
+      "dosing": {
+        "dose": "1 drop daily PM"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Trabecular outflow enhancement [RF]",
+          "best_match": [
+            "Glaucoma (novel-mechanism add-on)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Conjunctival hyperemia (common), corneal verticillata, subconjunctival hemorrhage"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAO glaucoma"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-495",
+      "name_inn": "Pilocarpine",
+      "name_ru": "Пилокарпин",
+      "name_brand": "Isopto Carpine, Vuity",
+      "status": "METACOD-RF",
+      "batch": "21-Glaucoma-Miotic",
+      "molecular": {
+        "chemical_class": "Muscarinic agonist (miotic)",
+        "mechanism_primary": [
+          "[LBL] Ciliary muscle contraction → ↑outflow; miosis"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acute angle-closure glaucoma, presbyopia (Vuity)"
+        ]
+      },
+      "dosing": {
+        "dose": "Topical (acute closure: frequent)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Outflow via miosis [RF]",
+          "best_match": [
+            "Acute angle-closure, presbyopia"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute / chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Brow ache, miosis/dim vision, retinal detachment risk, bronchospasm"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAO"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-496",
+      "name_inn": "Olopatadine / Ketotifen (ophthalmic antihistamine)",
+      "name_ru": "Олопатадин / Кетотифен (глазные)",
+      "name_brand": "Pataday / Zaditor",
+      "status": "METACOD-RF",
+      "batch": "21-Allergic-Conjunctivitis",
+      "molecular": {
+        "chemical_class": "Topical antihistamine/mast-cell stabilizer",
+        "mechanism_primary": [
+          "[LBL] H1 antagonism + mast-cell stabilization"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Allergic conjunctivitis (itch/redness)"
+        ]
+      },
+      "dosing": {
+        "dose": "1 drop daily-BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Local Wind-Heat (allergy) control [RF]",
+          "best_match": [
+            "Allergic conjunctivitis"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / seasonal"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Mild stinging, headache; well tolerated"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAO"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-497",
+      "name_inn": "Brinzolamide",
+      "name_ru": "Бринзоламид",
+      "name_brand": "Azopt",
+      "status": "METACOD-RF",
+      "batch": "21-Glaucoma-CAI",
+      "molecular": {
+        "chemical_class": "Topical carbonic anhydrase inhibitor",
+        "mechanism_primary": [
+          "[LBL] ↓aqueous production"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Open-angle glaucoma / ocular hypertension"
+        ]
+      },
+      "dosing": {
+        "dose": "1 drop BID-TID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Aqueous reduction (CAI) [RF]",
+          "best_match": [
+            "Glaucoma adjunct"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Sulfonamide allergy, blurred vision, bitter taste; suspension (shake)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAO glaucoma"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-498",
+      "name_inn": "Acetazolamide (oral CAI)",
+      "name_ru": "Ацетазоламид (системно)",
+      "name_brand": "Diamox",
+      "status": "METACOD-RF",
+      "batch": "21-Systemic-CAI",
+      "molecular": {
+        "chemical_class": "Systemic carbonic anhydrase inhibitor",
+        "mechanism_primary": [
+          "[LBL] ↓aqueous humor; diuretic; CSF reduction"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Acute glaucoma (IV/PO), idiopathic intracranial hypertension",
+          "[GL] Altitude sickness, certain epilepsies"
+        ]
+      },
+      "dosing": {
+        "dose": "PO/IV by indication"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Systemic CAI [RF]",
+          "best_match": [
+            "Acute glaucoma, IIH, altitude"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute / chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Paresthesia, metabolic acidosis, hypokalemia, kidney stones, sulfonamide allergy"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AAO; neuro-ophthalmology"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    }
   ]
 }

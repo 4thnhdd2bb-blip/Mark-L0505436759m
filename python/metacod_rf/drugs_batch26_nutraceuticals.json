@@ -6,7 +6,7 @@
     "status": "METACOD-RF — Research Framework, not clinical guidance",
     "group": "Нутрицевтики и добавки (FINAL batch) — alkalinization minerals / anabolic / omega-3 / vitamins / adaptogens / microbiome / specific / melatonin (8 подгрупп)",
     "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0 + KCTS awareness + Mark canonical observations integrated прямо в каждый препарат",
-    "preparations_count": 18,
+    "preparations_count": 24,
     "source_count_claim": 17,
     "repo_gap_note": "Источник в header заявляет 17, но предоставил 18 пронумерованных DRG-блоков (352..369 inclusive = 18). Обратное расхождение vs батчей 11/13/23/24/25 (где источник over-counted). Материализованы все 18 enumerable entries. ID-сборка: batch 25 закончилась на DRG-351, batch 26 → 352, коллизии нет.",
     "author": "Mark Litvak (с AI-assistance)",
@@ -17,7 +17,14 @@
     "mark_validated_mapping_note": "[GOVERNANCE — DECISION] Источник пометил ~11 записей как mark_validated 'CONFIRMED'/'PARTIAL' (alkalinization 3:2:1, ADT support stack, Zuo formula, Mariana n=1 — это Mark-канонические протоколы). РЕШЕНИЕ: ни одна запись НЕ повышена до full (True). И 'CONFIRMED', и 'PARTIAL' замаплены в validation_state='partial' (строка 'PARTIAL (...)'), потому что: (1) full-валидация по governance требует формального sign-off, а не правки в батче (см. test_no_drug_is_fully_validated); (2) 'Mark подтверждает, что это его протокол' ≠ 'внешне EBM-валидировано'. Если Mark хочет реальный full sign-off на конкретные записи — он скажет это явно. ready_for_clinical_use остаётся false.",
     "alkalinization_governance_note": "[GOVERNANCE] Mark-канонический протокол алкалинизации 3:2:1 (NaHCO3:KHCO3:Mg) как 'universal Layer 1' и 'maintains blood pH 7.4' — Mark/Revici-derived гипотеза, НЕ внешне валидированная как универсальная терапия. Физиологически pH крови регулируется организмом; УНИВЕРСАЛЬНАЯ алкалинизация всех пациентов не доказательна и несёт реальные риски (Na-нагрузка при HF/HTN; гиперкалиемия от KHCO3 при CKD/RAAS-блокаде; метаболический алкалоз при передозе) — все они отражены в safety. Research-only.",
     "adt_stack_note": "[GOVERNANCE] ADT support stack (креатин/лейцин/Vit D/EPA + resistance training + мониторинг) — это наиболее ДОКАЗАТЕЛЬНО-обоснованный из Mark-канонических элементов: профилактика саркопении при андроген-депривации поддержана mainstream-литературой ([RCT]). Это самый сильный кандидат для будущей операционализации.",
-    "source_tag_legend": {"LBL": "FDA/EMA label", "GL": "Clinical guideline", "RCT": "конкретное trial / trial-body of evidence (REDUCE-IT, creatine trials, etc.)", "CLASS": "class extrapolation", "OBS-Mark": "клиническое наблюдение Mark (canonical, частично подтверждённые)", "RF": "research framework (theoretical)"},
+    "source_tag_legend": {
+      "LBL": "FDA/EMA label",
+      "GL": "Clinical guideline",
+      "RCT": "конкретное trial / trial-body of evidence (REDUCE-IT, creatine trials, etc.)",
+      "CLASS": "class extrapolation",
+      "OBS-Mark": "клиническое наблюдение Mark (canonical, частично подтверждённые)",
+      "RF": "research framework (theoretical)"
+    },
     "class_notes": {
       "mark_canonical_protocols": {
         "alkalinization_3_2_1": "[OBS-Mark CANONICAL] NaHCO3 (3) : KHCO3 (2) : Mg (1); Layer 1 universal foundation. [GOVERNANCE: research-only, см. alkalinization_governance_note]",
@@ -25,187 +32,1420 @@
         "zuo_formula": "[OBS-Mark CANONICAL] 'Zuo (Помощник)' compensatory-protection concept: B12+metformin, folate+MTX, omega-3+statin — protective additions while primary drug works.",
         "mariana_regimen": "[OBS-Mark] n=1 flagship case (bronchiectasis): NAC 1200mg + serratiopeptidase + ectoin + pharmacotherapy. Serratiopeptidase/ectoin limited Western evidence."
       },
-      "energy_perspective": ["Minerals = electrolyte/membrane support (alkalinization) [RF]", "Amino acids = anabolic building blocks (anti-sarcopenia) [evidence-based]", "Omega-3 = anti-inflammatory + membrane [RCT]", "Adaptogens = HPA modulation [RF/limited]", "Probiotics = microbiome support [GL-limited]"],
-      "obs_mark_to_fill": ["Alkalinization protocol patient education", "Urinary pH targeting precise details", "Magnesium form selection", "Omega-3 pure-EPA vs combination", "Whey vs isolated leucine", "Adaptogens place в framework", "Microbiome practical use", "Mariana regimen — applied to other bronchiectasis pts?"],
+      "energy_perspective": [
+        "Minerals = electrolyte/membrane support (alkalinization) [RF]",
+        "Amino acids = anabolic building blocks (anti-sarcopenia) [evidence-based]",
+        "Omega-3 = anti-inflammatory + membrane [RCT]",
+        "Adaptogens = HPA modulation [RF/limited]",
+        "Probiotics = microbiome support [GL-limited]"
+      ],
+      "obs_mark_to_fill": [
+        "Alkalinization protocol patient education",
+        "Urinary pH targeting precise details",
+        "Magnesium form selection",
+        "Omega-3 pure-EPA vs combination",
+        "Whey vs isolated leucine",
+        "Adaptogens place в framework",
+        "Microbiome practical use",
+        "Mariana regimen — applied to other bronchiectasis pts?"
+      ],
       "logic_review_flags_for_mark": {
         "issue_1_canonical_confirmed": "[OBS-Mark] Several entries source-marked CONFIRMED. [GOVERNANCE: mapped to 'partial' not full — see mark_validated_mapping_note. Q: confirm these reflect your practice; do any warrant formal full sign-off?]",
         "issue_2_yin_fire_personal": "[RF] Magnesium tied to Mark personal Yin-Fire phenotype. Q: specific clinical markers for generalization?",
         "issue_3_mariana_case": "[OBS-Mark] NAC/serratiopeptidase/ectoin = n=1 case. Q: teaching-case expansion useful? [GOVERNANCE: n=1 anecdote, not generalizable evidence.]",
         "issue_4_microbiome_kcts": "[RF] Speculative KCTS-microbiome link. Q: acceptable или speculative?"
       }
-    }
+    },
+    "expansion_note": "[2026-06 EXPANSION-2] +DRG-502-507 (6) Claude-authored standard-evidence class-completion (expansion block)."
   },
   "drugs": [
-    {"drug_id": "DRG-352", "name_inn": "Sodium bicarbonate", "name_ru": "Натрия бикарбонат", "name_brand": "Generic + medical-grade", "status": "METACOD-RF", "batch": "26-Alkalinization",
-     "molecular": {"chemical": "NaHCO3", "mechanism_primary": ["[LBL] Direct alkalinizing agent (acid buffer)", "[LBL] Maintains plasma pH в metabolic acidosis", "[RF] Increases urine pH (Revici M-A/M-D assessment relevance)"]},
-     "mark_canonical": "[OBS-Mark CANONICAL] 3 parts of '3:2:1' alkalinization protocol; Layer 1 universal foundation. [GOVERNANCE: research-only; universal alkalinization not externally validated]",
-     "indications": {"approved": ["[LBL] Metabolic acidosis (CKD especially)", "[LBL] Alkalinization of urine (uric acid/cystine stones; tumor lysis prophylaxis)", "[GL] CKD bicarbonate target >22", "[OBS-Mark CANONICAL] Mark alkalinization protocol — Layer 1 universal", "[LBL] Antacid (occasional)"]},
-     "dosing": {"dose": "Standard medical 650 mg PO BID-QID; CKD titrated к serum bicarbonate >22; Mark protocol titrated к urinary pH; acute IV emergencies"},
-     "three_axis_profile": {"constitutional": {"energy": "Maintains pH balance — foundational; translation: direct acid-base buffering", "best_match": ["Universal (Mark framework)", "Yin-Fire phenotype (acidic tendency)", "T2 Yin-Earth metabolic"]}, "membrane": {"impact": "[RF] Alkalinization shifts toward M-A long-term high dose; 3:2:1 ratio balances; avoid pushing all pts into M-A2 — careful balance"}, "phase": {"match": "Chronic foundational; acute metabolic acidosis emergencies"}},
-     "safety": {"critical": ["[LBL] Sodium load — significant concern в HTN, HF", "[LBL] Hypokalemia — monitor", "[LBL] Hypocalcemia — paradoxical", "[LBL] Metabolic alkalosis if over-dosed", "[LBL] CO2 release — bloating, belching", "[LBL] Reduces absorption of many drugs (iron, levothyroxine, some antibiotics) — separate dosing 2h"]},
-     "mark_observations": {"alkalinization_role": "[OBS-Mark CANONICAL] 3 parts; Layer 1 universal foundation", "implementation": "[OBS-Mark] [алкалинизация protocol — patient education?]", "urinary_ph": "[OBS-Mark] [Urinary pH targeting precise protocol?]"},
-     "references": ["CKD guidelines (sodium bicarbonate)", "Mark canonical alkalinization protocol"],
-     "status_flags": {"mark_validated": "PARTIAL (Mark canonical alkalinization role confirmed as own protocol; NOT external EBM validation; full sign-off pending)", "priority_for_mark_review": "HIGHEST (Mark canonical foundation)"}},
-    {"drug_id": "DRG-353", "name_inn": "Potassium bicarbonate", "name_ru": "Калия бикарбонат", "name_brand": "Various", "status": "METACOD-RF", "batch": "26-Alkalinization",
-     "molecular": {"chemical": "KHCO3"},
-     "mark_canonical": "[OBS-Mark CANONICAL] 2 parts of '3:2:1' protocol; avoids excessive sodium load (beneficial HTN/HF).",
-     "indications": {"approved": ["[OBS-Mark CANONICAL] Mark alkalinization protocol", "[LBL] Hypokalemia + need for alkalinization", "[LBL] Hypocitraturia (kidney stones)"]},
-     "dosing": {"dose": "20-40 mEq divided doses, titrated"},
-     "three_axis_profile": {"constitutional": {"energy": "Alkalinization без sodium load", "best_match": ["Mark protocol, HTN/HF patients"]}, "membrane": {"impact": "[RF] part of balanced 3:2:1 shift"}, "phase": {"match": "Chronic foundational"}},
-     "safety": {"critical": ["[LBL] Hyperkalemia — major concern (RAAS blockers, K-sparing diuretics, CKD)", "[LBL] GI ulceration с tablet form (liquid preferred)", "[LBL] CKD caution — может precipitate hyperkalemia"]},
-     "mark_observations": {"alkalinization_role": "[OBS-Mark CANONICAL] 2 parts", "monitoring": "[OBS-Mark] [Potassium monitoring в protocol patients?]"},
-     "references": ["Mark canonical protocol"],
-     "status_flags": {"mark_validated": "PARTIAL (Mark canonical alkalinization role; NOT external EBM validation)"}},
-    {"drug_id": "DRG-354", "name_inn": "Magnesium (various forms)", "name_ru": "Магний (различные формы)", "name_brand": "Citrate, oxide, glycinate, malate, threonate, sulfate", "status": "METACOD-RF", "batch": "26-Alkalinization-Plus",
-     "molecular": {"forms": ["oxide (cheap, poorly absorbed, laxative)", "citrate (well-absorbed, laxative)", "glycinate (well-absorbed, less laxative, calming)", "malate", "threonate (claimed CNS penetration)", "sulfate (Epsom/IV)", "lactate", "chloride (IV/topical)"]},
-     "mark_canonical": "[OBS-Mark CANONICAL] 1 part of '3:2:1' protocol. [OBS-Mark PERSONAL] Mark Yin-Fire phenotype — calming effect, gout management.",
-     "indications": {"approved": ["[LBL] Magnesium deficiency", "[OBS-Mark CANONICAL] Mark alkalinization protocol", "[LBL] Constipation (laxative)", "[RCT] Migraine prevention", "[GL] Cramps, restless legs", "[OBS-Mark] Gout adjunctive (Yin-Fire context)"]},
-     "dosing": {"dose": "200-400 mg elemental daily; divided doses improve absorption; form selection matters"},
-     "three_axis_profile": {"constitutional": {"energy": "Calming Yin support (Yin-Fire phenotype, Mark personal); translation: multi-enzymatic cofactor (300+ enzymes)", "best_match": ["Yin-Fire phenotype (Mark)", "T2 Yin-Earth metabolic", "T5 Yin-Water elderly с cramps"]}, "membrane": {"impact": "[RF] Phase-angle BIA improvement signal; supports cellular function"}, "phase": {"match": "Chronic / Phase 5 maintenance"}},
-     "safety": {"critical": ["[LBL] Diarrhea at high doses", "[LBL] Renal failure caution — accumulation", "[LBL] DDI: quinolones, tetracyclines absorption ↓", "[LBL] Hypermagnesemia rare without renal disease"]},
-     "mark_observations": {"alkalinization_role": "[OBS-Mark CANONICAL] 1 part", "yin_fire": "[OBS-Mark PERSONAL] Mark Yin-Fire management", "form_selection": "[OBS-Mark] [Magnesium form selection criteria?]"},
-     "references": ["Supplement literature", "Mark canonical alkalinization protocol"],
-     "status_flags": {"mark_validated": "PARTIAL (Mark canonical alkalinization + personal use; NOT external EBM validation)"}},
-    {"drug_id": "DRG-355", "name_inn": "Creatine monohydrate", "name_ru": "Креатин моногидрат", "name_brand": "Various supplemental", "status": "METACOD-RF", "batch": "26-Anabolic-Support",
-     "molecular": {"chemical": "Creatine — non-protein amino acid", "mechanism_primary": ["[RCT] Increases muscle phosphocreatine stores", "[RCT] Improves ATP regeneration in high-intensity activity", "[RCT] Anti-catabolic effect", "[RCT] Some CNS/cognitive benefits"]},
-     "mark_canonical": "[OBS-Mark CANONICAL] Creatine 5g/day = MANDATORY ADT support stack (anti M-D drift). Also: female hormonal cancer therapy support, sarcopenia prevention, long-term steroid/GLP-1 patients.",
-     "indications": {"approved": ["[OBS-Mark CANONICAL] ADT support stack (mandatory)", "[RCT] Sarcopenia prevention elderly", "[RCT] Athletic performance", "[OBS-Mark CANONICAL] Long-term catabolic therapy support", "[RCT] Some neurological conditions (research)"]},
-     "dosing": {"dose": "5 g/day; optional loading 20 g/day × 5-7 days", "note": ["[RCT] Most evidence-based supplement для muscle function"]},
-     "three_axis_profile": {"constitutional": {"energy": "Direct Yang restoration в musculature; translation: phosphocreatine system enhancement", "best_match": ["ADT patients (Mark canonical)", "All catabolic therapy patients", "T5 Yin-Water frail elderly", "Long-term GLP-1 users"]}, "membrane": {"impact": "[RF] Anti M-D drift — preserves muscle mass; phase-angle BIA + ASMI preservation; key intervention against M-D trajectory"}, "phase": {"match": "Chronic foundational; prevents Phase 3 events (falls)"}},
-     "safety": {"critical": ["[RCT] Very safe — most studied supplement", "[LBL] Minor weight gain (intracellular water — desired)", "[LBL] Mild GI upset (rare)", "[RCT] Renal safety — no harm в healthy kidneys", "[LBL] CKD caution — limited data advanced CKD"]},
-     "mark_observations": {"adt_role": "[OBS-Mark CANONICAL] Creatine 5g/day ADT mandatory", "female_extension": "[OBS-Mark CANONICAL] Female ADT-analog (long-term hormonal cancer therapy)", "anti_md_drift": "[OBS-Mark CANONICAL] Anti M-D drift intervention universal"},
-     "references": ["Sports/clinical nutrition literature", "Mark canonical ADT support protocol", "Elderly creatine trials"],
-     "status_flags": {"mark_validated": "PARTIAL (Mark canonical multiple refs — strong; full external EBM for sarcopenia exists, but METACOD-specific full sign-off pending)", "priority_for_mark_review": "HIGHEST (canonical anti M-D drift intervention)"}},
-    {"drug_id": "DRG-356", "name_inn": "Leucine (BCAA, isolated)", "name_ru": "Лейцин", "name_brand": "Various supplemental", "status": "METACOD-RF", "batch": "26-Anabolic-Support",
-     "molecular": {"chemical": "Leucine — branched-chain amino acid (BCAA)", "mechanism_primary": ["[RCT] mTOR pathway activation", "[RCT] Stimulates muscle protein synthesis", "[RCT] Threshold effect (2-3g per meal for activation)", "[RCT] Anti-catabolic"]},
-     "mark_canonical": "[OBS-Mark CANONICAL] Leucine 3g/meal (per meal, not daily total) = mandatory ADT support stack.",
-     "indications": {"approved": ["[OBS-Mark CANONICAL] ADT support stack", "[OBS-Mark CANONICAL] Female hormonal cancer therapy support", "[RCT] Sarcopenia prevention", "[RCT] Post-exercise recovery", "[GL] Cachexia/malnutrition adjunct"]},
-     "dosing": {"dose": "3g per meal (Mark canonical), distributed; total 6-12 g/day", "note": ["[RCT] Per-meal threshold critical — single large dose не equivalent"]},
-     "three_axis_profile": {"constitutional": {"energy": "Anabolic Yang amplification; translation: mTOR signaling activation", "best_match": ["ADT patients especially (same as creatine)"]}, "membrane": {"impact": "[RF] Anti M-D drift через muscle preservation; ASMI maintenance"}, "phase": {"match": "Chronic support"}},
-     "safety": {"critical": ["[RCT] Very safe in normal doses", "[RF] mTOR activation theoretical cancer concern — debated (clinical data reassuring)", "[LBL] Maple syrup urine disease — contraindicated", "[LBL] Renal/hepatic disease — caution"]},
-     "mark_observations": {"adt_role": "[OBS-Mark CANONICAL] Leucine 3g/meal ADT mandatory", "threshold": "[OBS-Mark CANONICAL] Per-meal threshold critical, не total daily"},
-     "references": ["Sarcopenia/sports nutrition literature", "Mark canonical ADT support protocol"],
-     "status_flags": {"mark_validated": "PARTIAL (Mark canonical; NOT METACOD-specific full sign-off)"}},
-    {"drug_id": "DRG-357", "name_inn": "Whey protein", "name_ru": "Сывороточный белок", "name_brand": "Various", "status": "METACOD-RF", "batch": "26-Protein-Support",
-     "molecular": {"chemical": "Complete protein from dairy", "distinct": ["[RCT] Highest leucine content of common proteins", "[RCT] Fast absorption", "[OBS-Mark] Practical anabolic support — easier than separate leucine"]},
-     "indications": {"approved": ["[RCT] Sarcopenia prevention", "[RCT] Post-exercise recovery", "[OBS-Mark] ADT support (alternative к isolated leucine)", "[GL] Elderly nutritional support"]},
-     "dosing": {"dose": "20-40g protein per dose"},
-     "three_axis_profile": {"constitutional": {"energy": "Anabolic support (complete protein)", "best_match": ["ADT/sarcopenia, practical"]}, "membrane": {"impact": "[RF] Anti M-D drift (muscle)"}, "phase": {"match": "Chronic"}},
-     "safety": {"note": ["[LBL] Generally safe", "[LBL] Lactose-intolerance (whey concentrate)", "[LBL] Renal caution в advanced CKD"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "whey_vs_leucine": "[OBS-Mark] [Whey vs isolated leucine в ADT support — preferences?]"},
-     "references": ["Sports nutrition literature", "Mark canonical anti M-D drift framework"],
-     "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-358", "name_inn": "Omega-3 fatty acids (EPA + DHA)", "name_ru": "Омега-3 (ЭПК + ДГК)", "name_brand": "Lovaza/Vascepa (Rx), multiple OTC", "status": "METACOD-RF", "batch": "26-Omega-3",
-     "molecular": {"chemical": "Marine omega-3 polyunsaturated fatty acids", "mechanism_primary": ["[LBL] Substrate for anti-inflammatory eicosanoids", "[RF] Membrane fluidity/function", "[RCT] Resolvins/protectins (specialized pro-resolving mediators)", "[LBL] Triglyceride reduction"]},
-     "mark_canonical": "[OBS-Mark CANONICAL] EPA 2-4g/day = mandatory ADT support stack (anti-inflammatory, membrane integrity, catabolic states).",
-     "indications": {"approved": ["[LBL] Hypertriglyceridemia (Vascepa — CV outcome benefit)", "[OBS-Mark CANONICAL] ADT support stack", "[RCT] CV prevention (REDUCE-IT positive с Vascepa)", "[GL] Anti-inflammatory adjunct", "[RCT] Some psychiatric (mood, ADHD adjunct)"]},
-     "dosing": {"dose": "General 1-2g EPA+DHA daily; Mark canonical 2-4g EPA daily; triglyceride 4g daily", "note": ["[RCT] Vascepa (pure EPA) — best CV evidence"]},
-     "three_axis_profile": {"constitutional": {"energy": "Anti-inflammatory + membrane support; translation: eicosanoid pathway modulation + membrane phospholipid integration", "best_match": ["Universal", "Yin-Fire phenotype (Mark — anti-inflammatory)", "ADT patients", "CV risk"]}, "membrane": {"impact": "[RF] Direct membrane integrity support; reduces oxidative stress; anti M-A2 inflammatory pattern"}, "phase": {"match": "Chronic; may reduce Phase 2 inflammatory events"}},
-     "safety": {"critical": ["[LBL] Bleeding risk — significant с anticoagulants", "[LBL] Fishy aftertaste (take с meals)", "[LBL] GI burping (enteric-coated reduces)", "[RCT] Atrial fibrillation signal — higher doses", "[LBL] Mercury contamination в low-quality products"]},
-     "mark_observations": {"adt_role": "[OBS-Mark CANONICAL] EPA 2-4g/day ADT mandatory", "catabolic": "[OBS-Mark CANONICAL] Multiple system benefits в catabolic states", "selection": "[OBS-Mark] [pure EPA vs combination?]"},
-     "references": ["REDUCE-IT trial (Vascepa)", "Multiple CV trials", "Mark canonical ADT support protocol"],
-     "status_flags": {"mark_validated": "PARTIAL (Mark canonical; external RCT base strong for CV/TG, METACOD-specific full sign-off pending)"}},
-    {"drug_id": "DRG-359", "name_inn": "Vitamin D3 (cholecalciferol, ADT context)", "name_ru": "Витамин D3 (ADT контекст)", "name_brand": "Multiple (cross-ref DRG-288 batch 19)", "status": "METACOD-RF", "batch": "26-Vitamins", "entry_type": "cross_reference",
-     "cross_reference": "Full Vit D profile в batch 19 (DRG-288). Here higher ADT doses noted.",
-     "mark_canonical": "[OBS-Mark CANONICAL] Vit D 4000-5000 IU/day = mandatory ADT support stack (higher than general elderly; bone protection mandate; multi-system Yang support).",
-     "indications": {"approved": ["[OBS-Mark CANONICAL] ADT support stack (mandatory)", "[LBL] Osteoporosis/deficiency (см. batch 19)"]},
-     "dosing": {"dose": "ADT context 4000-5000 IU/day"},
-     "three_axis_profile": {"constitutional": {"energy": "Multi-system Yang support (см. batch 19)", "best_match": ["ADT patients"]}, "membrane": {"impact": "[RF] Bone/muscle support, anti M-D"}, "phase": {"match": "Chronic"}},
-     "safety": {"note": ["[LBL] Hypercalcemia monitor at high chronic doses (см. batch 19)"]},
-     "mark_observations": {"adt_role": "[OBS-Mark CANONICAL] Vit D 4000-5000 IU/day ADT mandatory", "monitoring": "[OBS-Mark] [Vit D monitoring frequency в catabolic therapy?]"},
-     "references": ["см. batch 19 DRG-288", "Mark canonical ADT support protocol"],
-     "status_flags": {"mark_validated": "PARTIAL (Mark canonical ADT dose; cross-ref batch 19)", "note": "cross-reference — full profile batch 19"}},
-    {"drug_id": "DRG-360", "name_inn": "B-vitamins (B12, folate, B6)", "name_ru": "B-витамины (B12, фолат, B6)", "name_brand": "Multiple supplemental", "status": "METACOD-RF", "batch": "26-Vitamins",
-     "context": {"b12_deficiency_causes": ["[LBL] Long-term PPI (batch 11)", "[LBL] Metformin long-term (batch 03)", "Vegan/vegetarian", "Atrophic gastritis", "Bariatric surgery", "H2-blockers chronic"], "folate": ["[LBL] Methotrexate users (batch 10) — Zuo formula", "[GL] Pregnancy (700-800 mcg)", "[RCT] Some psychiatric (depression adjunct)"], "b6": ["[LBL] INH therapy mandatory", "[LBL] Peripheral neuropathy от B6 excess possible"]},
-     "mark_canonical": "[OBS-Mark CANONICAL] Zuo (Помощник) formula concept: protective additions к base treatment (B12+metformin, folate+MTX, omega-3+statin); compensatory protection while primary drug works; integral METACOD treatment architecture.",
-     "dosing": {"dose": "B12 1000 mcg/day if deficient; Folate 400-800 mcg/day (5 mg weekly с MTX); B6 25-50 mg/day (mandatory с INH)"},
-     "three_axis_profile": {"constitutional": {"energy": "Enzymatic cofactors + specific protection", "best_match": ["Polypharmacy elderly, Zuo-formula contexts"]}, "membrane": {"impact": "[RF] Supports cellular function"}, "phase": {"match": "Chronic"}},
-     "safety": {"note": ["[LBL] B6 excess → peripheral neuropathy", "[LBL] Folate can mask B12 deficiency hematology"]},
-     "mark_observations": {"zuo_formula": "[OBS-Mark CANONICAL] Zuo formula — B12+metformin, folate+MTX paradigm", "testing": "[OBS-Mark] [B-vitamin testing в polypharmacy elderly?]"},
-     "references": ["Supplement literature", "Mark canonical Zuo formula framework"],
-     "status_flags": {"mark_validated": "PARTIAL (Zuo formula canonical concept; NOT external EBM validation of full concept)"}},
-    {"drug_id": "DRG-361", "name_inn": "Ashwagandha (Withania somnifera)", "name_ru": "Ашваганда", "name_brand": "KSM-66 standardized extract common", "status": "METACOD-RF", "batch": "26-Adaptogens",
-     "molecular": {"chemical": "Withanolides (active compounds)", "mechanism_primary": ["[RCT] HPA axis modulation", "[RCT] Cortisol reduction (mild)", "[RF] Possibly nitric oxide effects"]},
-     "indications": {"approved": ["[RCT] Stress reduction", "[RCT] Anxiety mild-moderate", "[RCT] Sleep support (some evidence)", "[RF] Athletic performance / cognition / thyroid mild stimulation"]},
-     "dosing": {"dose": "300-600 mg standardized extract BID"},
-     "three_axis_profile": {"constitutional": {"energy": "HPA/stress modulation (adaptogen)", "best_match": ["Stress/anxiety; possibly KCTS-related stress (research)"]}, "membrane": {"impact": "[RF] indirect"}, "phase": {"match": "Chronic"}},
-     "safety": {"critical": ["[LBL] Hepatotoxicity — rare cases reported (FDA monitoring)", "[LBL] Thyroid effects — caution в hyperthyroidism", "[LBL] Pregnancy — generally avoid", "[RF] Autoimmune conditions — caution (immune-modulatory)", "[LBL] Quality variability significant"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "adaptogens_place": "[OBS-Mark] [Adaptogenic herbs в METACOD framework — place?]"},
-     "references": ["Herbal/adaptogen literature"],
-     "status_flags": {"mark_validated": false, "note": "potentially useful KCTS-related stress, careful selection"}},
-    {"drug_id": "DRG-362", "name_inn": "Rhodiola rosea", "name_ru": "Родиола розовая", "name_brand": "Multiple supplemental", "status": "METACOD-RF", "batch": "26-Adaptogens",
-     "molecular": {"chemical": "Rosavins + salidroside", "mechanism_primary": ["[RCT] Adaptogenic — modulates stress response"]},
-     "indications": {"approved": ["[RCT] Stress, fatigue, mild depression", "[RCT] Cognitive performance"]},
-     "dosing": {"dose": "200-600 mg standardized extract"},
-     "three_axis_profile": {"constitutional": {"energy": "Stress/fatigue modulation (adaptogen)", "best_match": ["Fatigue; possibly KCTS-related (research)"]}, "membrane": {"impact": "[RF] indirect"}, "phase": {"match": "Chronic"}},
-     "safety": {"note": ["[LBL] Generally well-tolerated", "[LBL] Insomnia при PM dosing (energizing)", "[RF] Bipolar disorder — caution (mood elevation)", "[LBL] Quality variability"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "rhodiola_fatigue": "[OBS-Mark] [Rhodiola — KCTS-related fatigue management?]"},
-     "references": ["Adaptogen literature"],
-     "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-363", "name_inn": "Probiotics", "name_ru": "Пробиотики", "name_brand": "Lactobacillus/Bifidobacterium spp., S. boulardii (Florastor)", "status": "METACOD-RF", "batch": "26-Microbiome", "entry_type": "framework",
-     "concept": "[GL] Probiotic categories: Lactobacillus (acidophilus, casei, plantarum, rhamnosus GG), Bifidobacterium (infantis, lactis, longum), Saccharomyces boulardii (yeast).",
-     "established_uses": ["[GL] Antibiotic-associated diarrhea prevention (S. boulardii, LGG)", "[GL] C. difficile recurrence prevention (S. boulardii)", "[GL] Travelers' diarrhea (S. boulardii)", "[RCT] IBS (mixed evidence)", "[RCT] Infant colic (L. reuteri Protectis)"],
-     "limited_no_evidence": ["[RF] General 'immune support'", "[RF] Most chronic conditions", "[RF] Specific autoimmune"],
-     "energy_translation_rf": "[RF] Microbiome = part of constitutional foundation; M-A2 inflammatory pts often dysbiotic; long-term antibiotics/PPIs disrupt; restoration supportive не curative.",
-     "kcts_awareness": "[RF, SPECULATIVE] Microbiome links к mood/inflammation/metabolism/stress response; KCTS-active pts могут have altered microbiome. Speculative — probiotics potentially supportive.",
-     "dosing": {"dose": "Varies by strain/product — quality variable"},
-     "three_axis_profile": {"constitutional": {"energy": "Microbiome support", "best_match": ["Post-antibiotic, AAD/CDI prevention"]}, "membrane": {"impact": "[RF] indirect"}, "phase": {"match": "Acute (AAD) / chronic"}},
-     "safety": {"critical": ["[LBL] Generally safe в immunocompetent", "[LBL] Immunocompromised caution — bloodstream infections rare reports", "[LBL] Quality variability significant — pharmaceutical-grade preferred"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "microbiome": "[OBS-Mark] [Microbiome considerations в METACOD — practical use?]"},
-     "references": ["Probiotic literature", "AGA probiotic guidelines"],
-     "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-364", "name_inn": "Prebiotics (FOS, inulin, GOS)", "name_ru": "Пребиотики", "name_brand": "Inulin, FOS, GOS", "status": "METACOD-RF", "batch": "26-Microbiome",
-     "molecular": {"distinct": ["Substrates feeding beneficial bacteria — different from probiotics (living organisms)", "Sources: Jerusalem artichoke, chicory, garlic, onion, banana, or supplements"]},
-     "indications": {"approved": ["[GL] Microbiome support (substrate)"]},
-     "three_axis_profile": {"constitutional": {"energy": "Microbiome substrate support", "best_match": ["Microbiome optimization"]}, "membrane": {"impact": "[RF] indirect"}, "phase": {"match": "Chronic"}},
-     "safety": {"note": ["[LBL] GI symptoms — gas, bloating common (initial)", "[GL] FODMAP-intolerant patients — avoid"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "prebiotic_vs_probiotic": "[OBS-Mark] [Prebiotic vs probiotic — practical guidance?]"},
-     "references": ["Microbiome literature"],
-     "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-365", "name_inn": "N-acetylcysteine (NAC)", "name_ru": "Ацетилцистеин", "name_brand": "Acetadote (IV), OTC oral", "status": "METACOD-RF", "batch": "26-Specific",
-     "molecular": {"chemical": "N-acetyl-L-cysteine", "mechanism_primary": ["[LBL] Mucolytic (breaks disulfide bonds в mucus)", "[LBL] Glutathione precursor (antioxidant)", "[RF] Anti-inflammatory", "[LBL] Acetaminophen overdose antidote (replenishes glutathione)"]},
-     "mark_canonical": "[OBS-Mark] NAC 1200 mg часть Mariana bronchiectasis regimen (mucolytic, antioxidant, biofilm-disrupting, glutathione precursor). n=1 case.",
-     "indications": {"approved": ["[LBL] Acetaminophen overdose (FDA approved, life-saving)", "[GL] Mucolytic в COPD, bronchiectasis (Mariana case)", "[RCT] Contrast nephropathy prophylaxis (debated)", "[RCT] Psychiatric (OCD, addictions — emerging)", "[RCT] Some autoimmune (PCOS, NAFLD)"]},
-     "dosing": {"dose": "Acetaminophen overdose: specific IV protocol; mucolytic 600-1200 mg/day PO; Mariana canonical 1200 mg/day"},
-     "three_axis_profile": {"constitutional": {"energy": "Antioxidant support + local mucolytic; translation: glutathione system support + mucus disulfide cleavage", "best_match": ["Bronchiectasis (Mariana), overdose"]}, "membrane": {"impact": "[RF] M-S pattern в lungs improved (Mariana case); long-term antioxidant support"}, "phase": {"match": "Acute (overdose) / chronic (bronchiectasis)"}},
-     "safety": {"critical": ["[LBL] Sulfur smell unpleasant (oral)", "[LBL] GI upset", "[LBL] Anaphylactoid reactions (IV — slow infusion)", "[LBL] Generally well-tolerated chronic"]},
-     "mark_observations": {"mariana_role": "[OBS-Mark] NAC 1200 mg в Mariana bronchiectasis regimen (n=1)", "psychiatric": "[OBS-Mark] [NAC psychiatric uses — practice integration?]"},
-     "references": ["FDA label Acetadote", "Mariana flagship case Mark canonical (n=1)"],
-     "status_flags": {"mark_validated": "PARTIAL (Mariana n=1 case canonical; not generalizable evidence)"}},
-    {"drug_id": "DRG-366", "name_inn": "Serratiopeptidase", "name_ru": "Серратиопептидаза", "name_brand": "Various supplemental", "status": "METACOD-RF", "batch": "26-Specific",
-     "molecular": {"chemical": "Bacterial proteolytic enzyme", "mechanism_primary": ["[RF] Proteolytic, anti-inflammatory, biofilm disruption"], "distinct": ["[RF] Limited Western evidence base", "Widespread Japanese/Asian use", "[OBS-Mark] Mark canonical inclusion в bronchiectasis regimen (n=1)"]},
-     "mark_canonical": "[OBS-Mark] Часть Mariana bronchiectasis regimen (mucus thinning, anti-inflammatory, biofilm disruption). Limited Western evidence — n=1.",
-     "indications": {"approved": ["[RF] Mucus/biofilm (limited evidence)", "[OBS-Mark] Mariana regimen"]},
-     "three_axis_profile": {"constitutional": {"energy": "Proteolytic/anti-inflammatory (Mariana context)", "best_match": ["Bronchiectasis (Mariana n=1)"]}, "membrane": {"impact": "[RF] aims at M-S lung pattern"}, "phase": {"match": "Chronic"}},
-     "safety": {"note": ["[RF] GI upset; limited safety data Western use"]},
-     "mark_observations": {"mariana_role": "[OBS-Mark] Mariana bronchiectasis regimen inclusion (n=1)"},
-     "references": ["Mariana case Mark canonical (n=1)"],
-     "status_flags": {"mark_validated": "PARTIAL (Mariana n=1; limited Western evidence — NOT generalizable)"}},
-    {"drug_id": "DRG-367", "name_inn": "Ectoin", "name_ru": "Эктоин", "name_brand": "Various (cosmetic + medical)", "status": "METACOD-RF", "batch": "26-Specific",
-     "molecular": {"chemical": "Natural cellular protectant compatible solute (extremophile-derived)", "mechanism_primary": ["[RF] Cellular protection, anti-inflammatory, membrane stabilization"], "distinct": ["[RF] Less common Western use — increasingly recognized", "[OBS-Mark] Mark canonical inclusion в bronchiectasis approach (n=1)", "Available nasal sprays, eye drops, inhalation"]},
-     "mark_canonical": "[OBS-Mark] Часть Mariana bronchiectasis regimen (cellular protection, anti-inflammatory, membrane stabilization). n=1.",
-     "indications": {"approved": ["[LBL] Allergic rhinitis/eye (nasal sprays, drops — device-registered)", "[OBS-Mark] Mariana regimen"]},
-     "three_axis_profile": {"constitutional": {"energy": "Membrane stabilization (Mariana context)", "best_match": ["Bronchiectasis (Mariana n=1)"]}, "membrane": {"impact": "[RF] membrane stabilization"}, "phase": {"match": "Chronic"}},
-     "safety": {"note": ["[LBL] Generally well-tolerated (topical/inhaled)"]},
-     "mark_observations": {"mariana_role": "[OBS-Mark] Mariana bronchiectasis regimen inclusion (n=1)", "broader": "[OBS-Mark] [Ectoin broader METACOD applications?]"},
-     "references": ["Mariana case Mark canonical (n=1)"],
-     "status_flags": {"mark_validated": "PARTIAL (Mariana n=1; limited evidence — NOT generalizable)"}},
-    {"drug_id": "DRG-368", "name_inn": "Curcumin (turmeric extract)", "name_ru": "Куркумин", "name_brand": "Multiple — bioavailability formulations vary", "status": "METACOD-RF", "batch": "26-Specific",
-     "molecular": {"chemical": "Curcuminoids от Curcuma longa", "mechanism_primary": ["[RCT] Anti-inflammatory, antioxidant"], "distinct": ["[RCT] Bioavailability critical — plain curcumin poorly absorbed", "[RCT] Piperine enhances absorption ~2000%", "Liposomal/phytosome formulations improve absorption", "Quality variability significant"]},
-     "indications": {"approved": ["[RCT] Inflammatory conditions adjunct", "[RCT] OA pain (some evidence)", "[RCT] IBD adjunct (some evidence)"]},
-     "dosing": {"dose": "500-1500 mg standardized с absorption enhancement"},
-     "three_axis_profile": {"constitutional": {"energy": "Anti-inflammatory/antioxidant (Heat reduction [RF])", "best_match": ["Inflammatory conditions adjunct"]}, "membrane": {"impact": "[RF] anti M-A2 inflammatory"}, "phase": {"match": "Chronic"}},
-     "safety": {"note": ["[LBL] Generally well-tolerated", "[LBL] GI upset possible", "[LBL] Anticoagulant interaction (mild)", "[LBL] Iron absorption reduction", "Quality variability significant"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "curcumin_framework": "[OBS-Mark] [Curcumin в anti-inflammatory framework?]"},
-     "references": ["Curcumin literature"],
-     "status_flags": {"mark_validated": false}},
-    {"drug_id": "DRG-369", "name_inn": "Melatonin (expanded context)", "name_ru": "Мелатонин (расширенный контекст)", "name_brand": "OTC (US) / Circadin Rx (EU) (cross-ref DRG-289 batch 19)", "status": "METACOD-RF", "batch": "26-Melatonin", "entry_type": "cross_reference",
-     "cross_reference": "Full melatonin profile в batch 19 (DRG-289). Here broader applications.",
-     "indications": {"approved": ["[GL] Delirium prevention (ICU, post-op)", "[RCT] Migraine prevention (some evidence)", "[RCT] GERD adjunct (small evidence)", "[RF] Antioxidant properties claimed", "[RF] Some cancer adjunct claims (controversial)"]},
-     "three_axis_profile": {"constitutional": {"energy": "Circadian/antioxidant (см. batch 19)", "best_match": ["Sleep, delirium prevention"]}, "membrane": {"impact": "[RF] antioxidant"}, "phase": {"match": "Chronic / perioperative"}},
-     "safety": {"note": ["[LBL] Very safe (см. batch 19)"]},
-     "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "broader": "[OBS-Mark] [Melatonin broader applications в METACOD?]"},
-     "references": ["см. batch 19 DRG-289"],
-     "status_flags": {"mark_validated": false, "note": "cross-reference — full profile batch 19"}}
+    {
+      "drug_id": "DRG-352",
+      "name_inn": "Sodium bicarbonate",
+      "name_ru": "Натрия бикарбонат",
+      "name_brand": "Generic + medical-grade",
+      "status": "METACOD-RF",
+      "batch": "26-Alkalinization",
+      "molecular": {
+        "chemical": "NaHCO3",
+        "mechanism_primary": [
+          "[LBL] Direct alkalinizing agent (acid buffer)",
+          "[LBL] Maintains plasma pH в metabolic acidosis",
+          "[RF] Increases urine pH (Revici M-A/M-D assessment relevance)"
+        ]
+      },
+      "mark_canonical": "[OBS-Mark CANONICAL] 3 parts of '3:2:1' alkalinization protocol; Layer 1 universal foundation. [GOVERNANCE: research-only; universal alkalinization not externally validated]",
+      "indications": {
+        "approved": [
+          "[LBL] Metabolic acidosis (CKD especially)",
+          "[LBL] Alkalinization of urine (uric acid/cystine stones; tumor lysis prophylaxis)",
+          "[GL] CKD bicarbonate target >22",
+          "[OBS-Mark CANONICAL] Mark alkalinization protocol — Layer 1 universal",
+          "[LBL] Antacid (occasional)"
+        ]
+      },
+      "dosing": {
+        "dose": "Standard medical 650 mg PO BID-QID; CKD titrated к serum bicarbonate >22; Mark protocol titrated к urinary pH; acute IV emergencies"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Maintains pH balance — foundational; translation: direct acid-base buffering",
+          "best_match": [
+            "Universal (Mark framework)",
+            "Yin-Fire phenotype (acidic tendency)",
+            "T2 Yin-Earth metabolic"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] Alkalinization shifts toward M-A long-term high dose; 3:2:1 ratio balances; avoid pushing all pts into M-A2 — careful balance"
+        },
+        "phase": {
+          "match": "Chronic foundational; acute metabolic acidosis emergencies"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Sodium load — significant concern в HTN, HF",
+          "[LBL] Hypokalemia — monitor",
+          "[LBL] Hypocalcemia — paradoxical",
+          "[LBL] Metabolic alkalosis if over-dosed",
+          "[LBL] CO2 release — bloating, belching",
+          "[LBL] Reduces absorption of many drugs (iron, levothyroxine, some antibiotics) — separate dosing 2h"
+        ]
+      },
+      "mark_observations": {
+        "alkalinization_role": "[OBS-Mark CANONICAL] 3 parts; Layer 1 universal foundation",
+        "implementation": "[OBS-Mark] [алкалинизация protocol — patient education?]",
+        "urinary_ph": "[OBS-Mark] [Urinary pH targeting precise protocol?]"
+      },
+      "references": [
+        "CKD guidelines (sodium bicarbonate)",
+        "Mark canonical alkalinization protocol"
+      ],
+      "status_flags": {
+        "mark_validated": "PARTIAL (Mark canonical alkalinization role confirmed as own protocol; NOT external EBM validation; full sign-off pending)",
+        "priority_for_mark_review": "HIGHEST (Mark canonical foundation)"
+      }
+    },
+    {
+      "drug_id": "DRG-353",
+      "name_inn": "Potassium bicarbonate",
+      "name_ru": "Калия бикарбонат",
+      "name_brand": "Various",
+      "status": "METACOD-RF",
+      "batch": "26-Alkalinization",
+      "molecular": {
+        "chemical": "KHCO3"
+      },
+      "mark_canonical": "[OBS-Mark CANONICAL] 2 parts of '3:2:1' protocol; avoids excessive sodium load (beneficial HTN/HF).",
+      "indications": {
+        "approved": [
+          "[OBS-Mark CANONICAL] Mark alkalinization protocol",
+          "[LBL] Hypokalemia + need for alkalinization",
+          "[LBL] Hypocitraturia (kidney stones)"
+        ]
+      },
+      "dosing": {
+        "dose": "20-40 mEq divided doses, titrated"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Alkalinization без sodium load",
+          "best_match": [
+            "Mark protocol, HTN/HF patients"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] part of balanced 3:2:1 shift"
+        },
+        "phase": {
+          "match": "Chronic foundational"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hyperkalemia — major concern (RAAS blockers, K-sparing diuretics, CKD)",
+          "[LBL] GI ulceration с tablet form (liquid preferred)",
+          "[LBL] CKD caution — может precipitate hyperkalemia"
+        ]
+      },
+      "mark_observations": {
+        "alkalinization_role": "[OBS-Mark CANONICAL] 2 parts",
+        "monitoring": "[OBS-Mark] [Potassium monitoring в protocol patients?]"
+      },
+      "references": [
+        "Mark canonical protocol"
+      ],
+      "status_flags": {
+        "mark_validated": "PARTIAL (Mark canonical alkalinization role; NOT external EBM validation)"
+      }
+    },
+    {
+      "drug_id": "DRG-354",
+      "name_inn": "Magnesium (various forms)",
+      "name_ru": "Магний (различные формы)",
+      "name_brand": "Citrate, oxide, glycinate, malate, threonate, sulfate",
+      "status": "METACOD-RF",
+      "batch": "26-Alkalinization-Plus",
+      "molecular": {
+        "forms": [
+          "oxide (cheap, poorly absorbed, laxative)",
+          "citrate (well-absorbed, laxative)",
+          "glycinate (well-absorbed, less laxative, calming)",
+          "malate",
+          "threonate (claimed CNS penetration)",
+          "sulfate (Epsom/IV)",
+          "lactate",
+          "chloride (IV/topical)"
+        ]
+      },
+      "mark_canonical": "[OBS-Mark CANONICAL] 1 part of '3:2:1' protocol. [OBS-Mark PERSONAL] Mark Yin-Fire phenotype — calming effect, gout management.",
+      "indications": {
+        "approved": [
+          "[LBL] Magnesium deficiency",
+          "[OBS-Mark CANONICAL] Mark alkalinization protocol",
+          "[LBL] Constipation (laxative)",
+          "[RCT] Migraine prevention",
+          "[GL] Cramps, restless legs",
+          "[OBS-Mark] Gout adjunctive (Yin-Fire context)"
+        ]
+      },
+      "dosing": {
+        "dose": "200-400 mg elemental daily; divided doses improve absorption; form selection matters"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Calming Yin support (Yin-Fire phenotype, Mark personal); translation: multi-enzymatic cofactor (300+ enzymes)",
+          "best_match": [
+            "Yin-Fire phenotype (Mark)",
+            "T2 Yin-Earth metabolic",
+            "T5 Yin-Water elderly с cramps"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] Phase-angle BIA improvement signal; supports cellular function"
+        },
+        "phase": {
+          "match": "Chronic / Phase 5 maintenance"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Diarrhea at high doses",
+          "[LBL] Renal failure caution — accumulation",
+          "[LBL] DDI: quinolones, tetracyclines absorption ↓",
+          "[LBL] Hypermagnesemia rare without renal disease"
+        ]
+      },
+      "mark_observations": {
+        "alkalinization_role": "[OBS-Mark CANONICAL] 1 part",
+        "yin_fire": "[OBS-Mark PERSONAL] Mark Yin-Fire management",
+        "form_selection": "[OBS-Mark] [Magnesium form selection criteria?]"
+      },
+      "references": [
+        "Supplement literature",
+        "Mark canonical alkalinization protocol"
+      ],
+      "status_flags": {
+        "mark_validated": "PARTIAL (Mark canonical alkalinization + personal use; NOT external EBM validation)"
+      }
+    },
+    {
+      "drug_id": "DRG-355",
+      "name_inn": "Creatine monohydrate",
+      "name_ru": "Креатин моногидрат",
+      "name_brand": "Various supplemental",
+      "status": "METACOD-RF",
+      "batch": "26-Anabolic-Support",
+      "molecular": {
+        "chemical": "Creatine — non-protein amino acid",
+        "mechanism_primary": [
+          "[RCT] Increases muscle phosphocreatine stores",
+          "[RCT] Improves ATP regeneration in high-intensity activity",
+          "[RCT] Anti-catabolic effect",
+          "[RCT] Some CNS/cognitive benefits"
+        ]
+      },
+      "mark_canonical": "[OBS-Mark CANONICAL] Creatine 5g/day = MANDATORY ADT support stack (anti M-D drift). Also: female hormonal cancer therapy support, sarcopenia prevention, long-term steroid/GLP-1 patients.",
+      "indications": {
+        "approved": [
+          "[OBS-Mark CANONICAL] ADT support stack (mandatory)",
+          "[RCT] Sarcopenia prevention elderly",
+          "[RCT] Athletic performance",
+          "[OBS-Mark CANONICAL] Long-term catabolic therapy support",
+          "[RCT] Some neurological conditions (research)"
+        ]
+      },
+      "dosing": {
+        "dose": "5 g/day; optional loading 20 g/day × 5-7 days",
+        "note": [
+          "[RCT] Most evidence-based supplement для muscle function"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Direct Yang restoration в musculature; translation: phosphocreatine system enhancement",
+          "best_match": [
+            "ADT patients (Mark canonical)",
+            "All catabolic therapy patients",
+            "T5 Yin-Water frail elderly",
+            "Long-term GLP-1 users"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] Anti M-D drift — preserves muscle mass; phase-angle BIA + ASMI preservation; key intervention against M-D trajectory"
+        },
+        "phase": {
+          "match": "Chronic foundational; prevents Phase 3 events (falls)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[RCT] Very safe — most studied supplement",
+          "[LBL] Minor weight gain (intracellular water — desired)",
+          "[LBL] Mild GI upset (rare)",
+          "[RCT] Renal safety — no harm в healthy kidneys",
+          "[LBL] CKD caution — limited data advanced CKD"
+        ]
+      },
+      "mark_observations": {
+        "adt_role": "[OBS-Mark CANONICAL] Creatine 5g/day ADT mandatory",
+        "female_extension": "[OBS-Mark CANONICAL] Female ADT-analog (long-term hormonal cancer therapy)",
+        "anti_md_drift": "[OBS-Mark CANONICAL] Anti M-D drift intervention universal"
+      },
+      "references": [
+        "Sports/clinical nutrition literature",
+        "Mark canonical ADT support protocol",
+        "Elderly creatine trials"
+      ],
+      "status_flags": {
+        "mark_validated": "PARTIAL (Mark canonical multiple refs — strong; full external EBM for sarcopenia exists, but METACOD-specific full sign-off pending)",
+        "priority_for_mark_review": "HIGHEST (canonical anti M-D drift intervention)"
+      }
+    },
+    {
+      "drug_id": "DRG-356",
+      "name_inn": "Leucine (BCAA, isolated)",
+      "name_ru": "Лейцин",
+      "name_brand": "Various supplemental",
+      "status": "METACOD-RF",
+      "batch": "26-Anabolic-Support",
+      "molecular": {
+        "chemical": "Leucine — branched-chain amino acid (BCAA)",
+        "mechanism_primary": [
+          "[RCT] mTOR pathway activation",
+          "[RCT] Stimulates muscle protein synthesis",
+          "[RCT] Threshold effect (2-3g per meal for activation)",
+          "[RCT] Anti-catabolic"
+        ]
+      },
+      "mark_canonical": "[OBS-Mark CANONICAL] Leucine 3g/meal (per meal, not daily total) = mandatory ADT support stack.",
+      "indications": {
+        "approved": [
+          "[OBS-Mark CANONICAL] ADT support stack",
+          "[OBS-Mark CANONICAL] Female hormonal cancer therapy support",
+          "[RCT] Sarcopenia prevention",
+          "[RCT] Post-exercise recovery",
+          "[GL] Cachexia/malnutrition adjunct"
+        ]
+      },
+      "dosing": {
+        "dose": "3g per meal (Mark canonical), distributed; total 6-12 g/day",
+        "note": [
+          "[RCT] Per-meal threshold critical — single large dose не equivalent"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anabolic Yang amplification; translation: mTOR signaling activation",
+          "best_match": [
+            "ADT patients especially (same as creatine)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] Anti M-D drift через muscle preservation; ASMI maintenance"
+        },
+        "phase": {
+          "match": "Chronic support"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[RCT] Very safe in normal doses",
+          "[RF] mTOR activation theoretical cancer concern — debated (clinical data reassuring)",
+          "[LBL] Maple syrup urine disease — contraindicated",
+          "[LBL] Renal/hepatic disease — caution"
+        ]
+      },
+      "mark_observations": {
+        "adt_role": "[OBS-Mark CANONICAL] Leucine 3g/meal ADT mandatory",
+        "threshold": "[OBS-Mark CANONICAL] Per-meal threshold critical, не total daily"
+      },
+      "references": [
+        "Sarcopenia/sports nutrition literature",
+        "Mark canonical ADT support protocol"
+      ],
+      "status_flags": {
+        "mark_validated": "PARTIAL (Mark canonical; NOT METACOD-specific full sign-off)"
+      }
+    },
+    {
+      "drug_id": "DRG-357",
+      "name_inn": "Whey protein",
+      "name_ru": "Сывороточный белок",
+      "name_brand": "Various",
+      "status": "METACOD-RF",
+      "batch": "26-Protein-Support",
+      "molecular": {
+        "chemical": "Complete protein from dairy",
+        "distinct": [
+          "[RCT] Highest leucine content of common proteins",
+          "[RCT] Fast absorption",
+          "[OBS-Mark] Practical anabolic support — easier than separate leucine"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Sarcopenia prevention",
+          "[RCT] Post-exercise recovery",
+          "[OBS-Mark] ADT support (alternative к isolated leucine)",
+          "[GL] Elderly nutritional support"
+        ]
+      },
+      "dosing": {
+        "dose": "20-40g protein per dose"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anabolic support (complete protein)",
+          "best_match": [
+            "ADT/sarcopenia, practical"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] Anti M-D drift (muscle)"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Generally safe",
+          "[LBL] Lactose-intolerance (whey concentrate)",
+          "[LBL] Renal caution в advanced CKD"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "whey_vs_leucine": "[OBS-Mark] [Whey vs isolated leucine в ADT support — preferences?]"
+      },
+      "references": [
+        "Sports nutrition literature",
+        "Mark canonical anti M-D drift framework"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-358",
+      "name_inn": "Omega-3 fatty acids (EPA + DHA)",
+      "name_ru": "Омега-3 (ЭПК + ДГК)",
+      "name_brand": "Lovaza/Vascepa (Rx), multiple OTC",
+      "status": "METACOD-RF",
+      "batch": "26-Omega-3",
+      "molecular": {
+        "chemical": "Marine omega-3 polyunsaturated fatty acids",
+        "mechanism_primary": [
+          "[LBL] Substrate for anti-inflammatory eicosanoids",
+          "[RF] Membrane fluidity/function",
+          "[RCT] Resolvins/protectins (specialized pro-resolving mediators)",
+          "[LBL] Triglyceride reduction"
+        ]
+      },
+      "mark_canonical": "[OBS-Mark CANONICAL] EPA 2-4g/day = mandatory ADT support stack (anti-inflammatory, membrane integrity, catabolic states).",
+      "indications": {
+        "approved": [
+          "[LBL] Hypertriglyceridemia (Vascepa — CV outcome benefit)",
+          "[OBS-Mark CANONICAL] ADT support stack",
+          "[RCT] CV prevention (REDUCE-IT positive с Vascepa)",
+          "[GL] Anti-inflammatory adjunct",
+          "[RCT] Some psychiatric (mood, ADHD adjunct)"
+        ]
+      },
+      "dosing": {
+        "dose": "General 1-2g EPA+DHA daily; Mark canonical 2-4g EPA daily; triglyceride 4g daily",
+        "note": [
+          "[RCT] Vascepa (pure EPA) — best CV evidence"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anti-inflammatory + membrane support; translation: eicosanoid pathway modulation + membrane phospholipid integration",
+          "best_match": [
+            "Universal",
+            "Yin-Fire phenotype (Mark — anti-inflammatory)",
+            "ADT patients",
+            "CV risk"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] Direct membrane integrity support; reduces oxidative stress; anti M-A2 inflammatory pattern"
+        },
+        "phase": {
+          "match": "Chronic; may reduce Phase 2 inflammatory events"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Bleeding risk — significant с anticoagulants",
+          "[LBL] Fishy aftertaste (take с meals)",
+          "[LBL] GI burping (enteric-coated reduces)",
+          "[RCT] Atrial fibrillation signal — higher doses",
+          "[LBL] Mercury contamination в low-quality products"
+        ]
+      },
+      "mark_observations": {
+        "adt_role": "[OBS-Mark CANONICAL] EPA 2-4g/day ADT mandatory",
+        "catabolic": "[OBS-Mark CANONICAL] Multiple system benefits в catabolic states",
+        "selection": "[OBS-Mark] [pure EPA vs combination?]"
+      },
+      "references": [
+        "REDUCE-IT trial (Vascepa)",
+        "Multiple CV trials",
+        "Mark canonical ADT support protocol"
+      ],
+      "status_flags": {
+        "mark_validated": "PARTIAL (Mark canonical; external RCT base strong for CV/TG, METACOD-specific full sign-off pending)"
+      }
+    },
+    {
+      "drug_id": "DRG-359",
+      "name_inn": "Vitamin D3 (cholecalciferol, ADT context)",
+      "name_ru": "Витамин D3 (ADT контекст)",
+      "name_brand": "Multiple (cross-ref DRG-288 batch 19)",
+      "status": "METACOD-RF",
+      "batch": "26-Vitamins",
+      "entry_type": "cross_reference",
+      "cross_reference": "Full Vit D profile в batch 19 (DRG-288). Here higher ADT doses noted.",
+      "mark_canonical": "[OBS-Mark CANONICAL] Vit D 4000-5000 IU/day = mandatory ADT support stack (higher than general elderly; bone protection mandate; multi-system Yang support).",
+      "indications": {
+        "approved": [
+          "[OBS-Mark CANONICAL] ADT support stack (mandatory)",
+          "[LBL] Osteoporosis/deficiency (см. batch 19)"
+        ]
+      },
+      "dosing": {
+        "dose": "ADT context 4000-5000 IU/day"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Multi-system Yang support (см. batch 19)",
+          "best_match": [
+            "ADT patients"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] Bone/muscle support, anti M-D"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Hypercalcemia monitor at high chronic doses (см. batch 19)"
+        ]
+      },
+      "mark_observations": {
+        "adt_role": "[OBS-Mark CANONICAL] Vit D 4000-5000 IU/day ADT mandatory",
+        "monitoring": "[OBS-Mark] [Vit D monitoring frequency в catabolic therapy?]"
+      },
+      "references": [
+        "см. batch 19 DRG-288",
+        "Mark canonical ADT support protocol"
+      ],
+      "status_flags": {
+        "mark_validated": "PARTIAL (Mark canonical ADT dose; cross-ref batch 19)",
+        "note": "cross-reference — full profile batch 19"
+      }
+    },
+    {
+      "drug_id": "DRG-360",
+      "name_inn": "B-vitamins (B12, folate, B6)",
+      "name_ru": "B-витамины (B12, фолат, B6)",
+      "name_brand": "Multiple supplemental",
+      "status": "METACOD-RF",
+      "batch": "26-Vitamins",
+      "context": {
+        "b12_deficiency_causes": [
+          "[LBL] Long-term PPI (batch 11)",
+          "[LBL] Metformin long-term (batch 03)",
+          "Vegan/vegetarian",
+          "Atrophic gastritis",
+          "Bariatric surgery",
+          "H2-blockers chronic"
+        ],
+        "folate": [
+          "[LBL] Methotrexate users (batch 10) — Zuo formula",
+          "[GL] Pregnancy (700-800 mcg)",
+          "[RCT] Some psychiatric (depression adjunct)"
+        ],
+        "b6": [
+          "[LBL] INH therapy mandatory",
+          "[LBL] Peripheral neuropathy от B6 excess possible"
+        ]
+      },
+      "mark_canonical": "[OBS-Mark CANONICAL] Zuo (Помощник) formula concept: protective additions к base treatment (B12+metformin, folate+MTX, omega-3+statin); compensatory protection while primary drug works; integral METACOD treatment architecture.",
+      "dosing": {
+        "dose": "B12 1000 mcg/day if deficient; Folate 400-800 mcg/day (5 mg weekly с MTX); B6 25-50 mg/day (mandatory с INH)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Enzymatic cofactors + specific protection",
+          "best_match": [
+            "Polypharmacy elderly, Zuo-formula contexts"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] Supports cellular function"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] B6 excess → peripheral neuropathy",
+          "[LBL] Folate can mask B12 deficiency hematology"
+        ]
+      },
+      "mark_observations": {
+        "zuo_formula": "[OBS-Mark CANONICAL] Zuo formula — B12+metformin, folate+MTX paradigm",
+        "testing": "[OBS-Mark] [B-vitamin testing в polypharmacy elderly?]"
+      },
+      "references": [
+        "Supplement literature",
+        "Mark canonical Zuo formula framework"
+      ],
+      "status_flags": {
+        "mark_validated": "PARTIAL (Zuo formula canonical concept; NOT external EBM validation of full concept)"
+      }
+    },
+    {
+      "drug_id": "DRG-361",
+      "name_inn": "Ashwagandha (Withania somnifera)",
+      "name_ru": "Ашваганда",
+      "name_brand": "KSM-66 standardized extract common",
+      "status": "METACOD-RF",
+      "batch": "26-Adaptogens",
+      "molecular": {
+        "chemical": "Withanolides (active compounds)",
+        "mechanism_primary": [
+          "[RCT] HPA axis modulation",
+          "[RCT] Cortisol reduction (mild)",
+          "[RF] Possibly nitric oxide effects"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Stress reduction",
+          "[RCT] Anxiety mild-moderate",
+          "[RCT] Sleep support (some evidence)",
+          "[RF] Athletic performance / cognition / thyroid mild stimulation"
+        ]
+      },
+      "dosing": {
+        "dose": "300-600 mg standardized extract BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "HPA/stress modulation (adaptogen)",
+          "best_match": [
+            "Stress/anxiety; possibly KCTS-related stress (research)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] indirect"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hepatotoxicity — rare cases reported (FDA monitoring)",
+          "[LBL] Thyroid effects — caution в hyperthyroidism",
+          "[LBL] Pregnancy — generally avoid",
+          "[RF] Autoimmune conditions — caution (immune-modulatory)",
+          "[LBL] Quality variability significant"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "adaptogens_place": "[OBS-Mark] [Adaptogenic herbs в METACOD framework — place?]"
+      },
+      "references": [
+        "Herbal/adaptogen literature"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "potentially useful KCTS-related stress, careful selection"
+      }
+    },
+    {
+      "drug_id": "DRG-362",
+      "name_inn": "Rhodiola rosea",
+      "name_ru": "Родиола розовая",
+      "name_brand": "Multiple supplemental",
+      "status": "METACOD-RF",
+      "batch": "26-Adaptogens",
+      "molecular": {
+        "chemical": "Rosavins + salidroside",
+        "mechanism_primary": [
+          "[RCT] Adaptogenic — modulates stress response"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Stress, fatigue, mild depression",
+          "[RCT] Cognitive performance"
+        ]
+      },
+      "dosing": {
+        "dose": "200-600 mg standardized extract"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Stress/fatigue modulation (adaptogen)",
+          "best_match": [
+            "Fatigue; possibly KCTS-related (research)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] indirect"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Generally well-tolerated",
+          "[LBL] Insomnia при PM dosing (energizing)",
+          "[RF] Bipolar disorder — caution (mood elevation)",
+          "[LBL] Quality variability"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "rhodiola_fatigue": "[OBS-Mark] [Rhodiola — KCTS-related fatigue management?]"
+      },
+      "references": [
+        "Adaptogen literature"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-363",
+      "name_inn": "Probiotics",
+      "name_ru": "Пробиотики",
+      "name_brand": "Lactobacillus/Bifidobacterium spp., S. boulardii (Florastor)",
+      "status": "METACOD-RF",
+      "batch": "26-Microbiome",
+      "entry_type": "framework",
+      "concept": "[GL] Probiotic categories: Lactobacillus (acidophilus, casei, plantarum, rhamnosus GG), Bifidobacterium (infantis, lactis, longum), Saccharomyces boulardii (yeast).",
+      "established_uses": [
+        "[GL] Antibiotic-associated diarrhea prevention (S. boulardii, LGG)",
+        "[GL] C. difficile recurrence prevention (S. boulardii)",
+        "[GL] Travelers' diarrhea (S. boulardii)",
+        "[RCT] IBS (mixed evidence)",
+        "[RCT] Infant colic (L. reuteri Protectis)"
+      ],
+      "limited_no_evidence": [
+        "[RF] General 'immune support'",
+        "[RF] Most chronic conditions",
+        "[RF] Specific autoimmune"
+      ],
+      "energy_translation_rf": "[RF] Microbiome = part of constitutional foundation; M-A2 inflammatory pts often dysbiotic; long-term antibiotics/PPIs disrupt; restoration supportive не curative.",
+      "kcts_awareness": "[RF, SPECULATIVE] Microbiome links к mood/inflammation/metabolism/stress response; KCTS-active pts могут have altered microbiome. Speculative — probiotics potentially supportive.",
+      "dosing": {
+        "dose": "Varies by strain/product — quality variable"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Microbiome support",
+          "best_match": [
+            "Post-antibiotic, AAD/CDI prevention"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] indirect"
+        },
+        "phase": {
+          "match": "Acute (AAD) / chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Generally safe в immunocompetent",
+          "[LBL] Immunocompromised caution — bloodstream infections rare reports",
+          "[LBL] Quality variability significant — pharmaceutical-grade preferred"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "microbiome": "[OBS-Mark] [Microbiome considerations в METACOD — practical use?]"
+      },
+      "references": [
+        "Probiotic literature",
+        "AGA probiotic guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-364",
+      "name_inn": "Prebiotics (FOS, inulin, GOS)",
+      "name_ru": "Пребиотики",
+      "name_brand": "Inulin, FOS, GOS",
+      "status": "METACOD-RF",
+      "batch": "26-Microbiome",
+      "molecular": {
+        "distinct": [
+          "Substrates feeding beneficial bacteria — different from probiotics (living organisms)",
+          "Sources: Jerusalem artichoke, chicory, garlic, onion, banana, or supplements"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Microbiome support (substrate)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Microbiome substrate support",
+          "best_match": [
+            "Microbiome optimization"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] indirect"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] GI symptoms — gas, bloating common (initial)",
+          "[GL] FODMAP-intolerant patients — avoid"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "prebiotic_vs_probiotic": "[OBS-Mark] [Prebiotic vs probiotic — practical guidance?]"
+      },
+      "references": [
+        "Microbiome literature"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-365",
+      "name_inn": "N-acetylcysteine (NAC)",
+      "name_ru": "Ацетилцистеин",
+      "name_brand": "Acetadote (IV), OTC oral",
+      "status": "METACOD-RF",
+      "batch": "26-Specific",
+      "molecular": {
+        "chemical": "N-acetyl-L-cysteine",
+        "mechanism_primary": [
+          "[LBL] Mucolytic (breaks disulfide bonds в mucus)",
+          "[LBL] Glutathione precursor (antioxidant)",
+          "[RF] Anti-inflammatory",
+          "[LBL] Acetaminophen overdose antidote (replenishes glutathione)"
+        ]
+      },
+      "mark_canonical": "[OBS-Mark] NAC 1200 mg часть Mariana bronchiectasis regimen (mucolytic, antioxidant, biofilm-disrupting, glutathione precursor). n=1 case.",
+      "indications": {
+        "approved": [
+          "[LBL] Acetaminophen overdose (FDA approved, life-saving)",
+          "[GL] Mucolytic в COPD, bronchiectasis (Mariana case)",
+          "[RCT] Contrast nephropathy prophylaxis (debated)",
+          "[RCT] Psychiatric (OCD, addictions — emerging)",
+          "[RCT] Some autoimmune (PCOS, NAFLD)"
+        ]
+      },
+      "dosing": {
+        "dose": "Acetaminophen overdose: specific IV protocol; mucolytic 600-1200 mg/day PO; Mariana canonical 1200 mg/day"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Antioxidant support + local mucolytic; translation: glutathione system support + mucus disulfide cleavage",
+          "best_match": [
+            "Bronchiectasis (Mariana), overdose"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] M-S pattern в lungs improved (Mariana case); long-term antioxidant support"
+        },
+        "phase": {
+          "match": "Acute (overdose) / chronic (bronchiectasis)"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Sulfur smell unpleasant (oral)",
+          "[LBL] GI upset",
+          "[LBL] Anaphylactoid reactions (IV — slow infusion)",
+          "[LBL] Generally well-tolerated chronic"
+        ]
+      },
+      "mark_observations": {
+        "mariana_role": "[OBS-Mark] NAC 1200 mg в Mariana bronchiectasis regimen (n=1)",
+        "psychiatric": "[OBS-Mark] [NAC psychiatric uses — practice integration?]"
+      },
+      "references": [
+        "FDA label Acetadote",
+        "Mariana flagship case Mark canonical (n=1)"
+      ],
+      "status_flags": {
+        "mark_validated": "PARTIAL (Mariana n=1 case canonical; not generalizable evidence)"
+      }
+    },
+    {
+      "drug_id": "DRG-366",
+      "name_inn": "Serratiopeptidase",
+      "name_ru": "Серратиопептидаза",
+      "name_brand": "Various supplemental",
+      "status": "METACOD-RF",
+      "batch": "26-Specific",
+      "molecular": {
+        "chemical": "Bacterial proteolytic enzyme",
+        "mechanism_primary": [
+          "[RF] Proteolytic, anti-inflammatory, biofilm disruption"
+        ],
+        "distinct": [
+          "[RF] Limited Western evidence base",
+          "Widespread Japanese/Asian use",
+          "[OBS-Mark] Mark canonical inclusion в bronchiectasis regimen (n=1)"
+        ]
+      },
+      "mark_canonical": "[OBS-Mark] Часть Mariana bronchiectasis regimen (mucus thinning, anti-inflammatory, biofilm disruption). Limited Western evidence — n=1.",
+      "indications": {
+        "approved": [
+          "[RF] Mucus/biofilm (limited evidence)",
+          "[OBS-Mark] Mariana regimen"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Proteolytic/anti-inflammatory (Mariana context)",
+          "best_match": [
+            "Bronchiectasis (Mariana n=1)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] aims at M-S lung pattern"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "note": [
+          "[RF] GI upset; limited safety data Western use"
+        ]
+      },
+      "mark_observations": {
+        "mariana_role": "[OBS-Mark] Mariana bronchiectasis regimen inclusion (n=1)"
+      },
+      "references": [
+        "Mariana case Mark canonical (n=1)"
+      ],
+      "status_flags": {
+        "mark_validated": "PARTIAL (Mariana n=1; limited Western evidence — NOT generalizable)"
+      }
+    },
+    {
+      "drug_id": "DRG-367",
+      "name_inn": "Ectoin",
+      "name_ru": "Эктоин",
+      "name_brand": "Various (cosmetic + medical)",
+      "status": "METACOD-RF",
+      "batch": "26-Specific",
+      "molecular": {
+        "chemical": "Natural cellular protectant compatible solute (extremophile-derived)",
+        "mechanism_primary": [
+          "[RF] Cellular protection, anti-inflammatory, membrane stabilization"
+        ],
+        "distinct": [
+          "[RF] Less common Western use — increasingly recognized",
+          "[OBS-Mark] Mark canonical inclusion в bronchiectasis approach (n=1)",
+          "Available nasal sprays, eye drops, inhalation"
+        ]
+      },
+      "mark_canonical": "[OBS-Mark] Часть Mariana bronchiectasis regimen (cellular protection, anti-inflammatory, membrane stabilization). n=1.",
+      "indications": {
+        "approved": [
+          "[LBL] Allergic rhinitis/eye (nasal sprays, drops — device-registered)",
+          "[OBS-Mark] Mariana regimen"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Membrane stabilization (Mariana context)",
+          "best_match": [
+            "Bronchiectasis (Mariana n=1)"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] membrane stabilization"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Generally well-tolerated (topical/inhaled)"
+        ]
+      },
+      "mark_observations": {
+        "mariana_role": "[OBS-Mark] Mariana bronchiectasis regimen inclusion (n=1)",
+        "broader": "[OBS-Mark] [Ectoin broader METACOD applications?]"
+      },
+      "references": [
+        "Mariana case Mark canonical (n=1)"
+      ],
+      "status_flags": {
+        "mark_validated": "PARTIAL (Mariana n=1; limited evidence — NOT generalizable)"
+      }
+    },
+    {
+      "drug_id": "DRG-368",
+      "name_inn": "Curcumin (turmeric extract)",
+      "name_ru": "Куркумин",
+      "name_brand": "Multiple — bioavailability formulations vary",
+      "status": "METACOD-RF",
+      "batch": "26-Specific",
+      "molecular": {
+        "chemical": "Curcuminoids от Curcuma longa",
+        "mechanism_primary": [
+          "[RCT] Anti-inflammatory, antioxidant"
+        ],
+        "distinct": [
+          "[RCT] Bioavailability critical — plain curcumin poorly absorbed",
+          "[RCT] Piperine enhances absorption ~2000%",
+          "Liposomal/phytosome formulations improve absorption",
+          "Quality variability significant"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Inflammatory conditions adjunct",
+          "[RCT] OA pain (some evidence)",
+          "[RCT] IBD adjunct (some evidence)"
+        ]
+      },
+      "dosing": {
+        "dose": "500-1500 mg standardized с absorption enhancement"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anti-inflammatory/antioxidant (Heat reduction [RF])",
+          "best_match": [
+            "Inflammatory conditions adjunct"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] anti M-A2 inflammatory"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Generally well-tolerated",
+          "[LBL] GI upset possible",
+          "[LBL] Anticoagulant interaction (mild)",
+          "[LBL] Iron absorption reduction",
+          "Quality variability significant"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "curcumin_framework": "[OBS-Mark] [Curcumin в anti-inflammatory framework?]"
+      },
+      "references": [
+        "Curcumin literature"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-369",
+      "name_inn": "Melatonin (expanded context)",
+      "name_ru": "Мелатонин (расширенный контекст)",
+      "name_brand": "OTC (US) / Circadin Rx (EU) (cross-ref DRG-289 batch 19)",
+      "status": "METACOD-RF",
+      "batch": "26-Melatonin",
+      "entry_type": "cross_reference",
+      "cross_reference": "Full melatonin profile в batch 19 (DRG-289). Here broader applications.",
+      "indications": {
+        "approved": [
+          "[GL] Delirium prevention (ICU, post-op)",
+          "[RCT] Migraine prevention (some evidence)",
+          "[RCT] GERD adjunct (small evidence)",
+          "[RF] Antioxidant properties claimed",
+          "[RF] Some cancer adjunct claims (controversial)"
+        ]
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Circadian/antioxidant (см. batch 19)",
+          "best_match": [
+            "Sleep, delirium prevention"
+          ]
+        },
+        "membrane": {
+          "impact": "[RF] antioxidant"
+        },
+        "phase": {
+          "match": "Chronic / perioperative"
+        }
+      },
+      "safety": {
+        "note": [
+          "[LBL] Very safe (см. batch 19)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "broader": "[OBS-Mark] [Melatonin broader applications в METACOD?]"
+      },
+      "references": [
+        "см. batch 19 DRG-289"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "cross-reference — full profile batch 19"
+      }
+    },
+    {
+      "drug_id": "DRG-502",
+      "name_inn": "Coenzyme Q10 (ubiquinol)",
+      "name_ru": "Коэнзим Q10",
+      "name_brand": "CoQ10",
+      "status": "METACOD-RF",
+      "batch": "26-Specific",
+      "molecular": {
+        "chemical_class": "Mitochondrial cofactor / antioxidant",
+        "mechanism_primary": [
+          "[RCT] Electron-transport cofactor; some HF/statin-myalgia evidence"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Heart failure adjunct (Q-SYMBIO)",
+          "[GL] Statin-associated myalgia (mixed), migraine prophylaxis, mitochondrial disease"
+        ]
+      },
+      "dosing": {
+        "dose": "100-300 mg/day"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Mitochondrial Yang support [RF]",
+          "best_match": [
+            "HF adjunct, statin myalgia, migraine"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Very safe; mild GI; may lower INR (warfarin)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Q-SYMBIO"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-503",
+      "name_inn": "Zinc",
+      "name_ru": "Цинк",
+      "name_brand": "—",
+      "status": "METACOD-RF",
+      "batch": "26-Mineral",
+      "molecular": {
+        "chemical_class": "Essential trace mineral",
+        "mechanism_primary": [
+          "[RCT] Cofactor for immune/wound/taste; reduces cold duration"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Zinc deficiency, common cold duration",
+          "[GL] Wilson disease, AMD (AREDS), acrodermatitis"
+        ]
+      },
+      "dosing": {
+        "dose": "15-40 mg elemental/day"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Immune/repair cofactor (Yang) [RF]",
+          "best_match": [
+            "Deficiency, cold, AMD"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Copper deficiency (chronic high dose), GI upset, anosmia (intranasal — avoid)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "AREDS2"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-504",
+      "name_inn": "Vitamin C (ascorbic acid)",
+      "name_ru": "Витамин C (аскорбиновая кислота)",
+      "name_brand": "—",
+      "status": "METACOD-RF",
+      "batch": "26-Vitamin",
+      "molecular": {
+        "chemical_class": "Water-soluble antioxidant vitamin",
+        "mechanism_primary": [
+          "[LBL] Collagen synthesis, antioxidant, iron absorption"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Scurvy / deficiency",
+          "[GL] Wound healing adjunct, enhances iron absorption"
+        ]
+      },
+      "dosing": {
+        "dose": "Diet/supplement; deficiency repletion"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Antioxidant/repair support [RF]",
+          "best_match": [
+            "Deficiency, iron-absorption adjunct"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] High-dose: GI/osmotic diarrhea, oxalate kidney stones (predisposed)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Dietary guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-505",
+      "name_inn": "Calcium (carbonate / citrate)",
+      "name_ru": "Кальций (карбонат / цитрат)",
+      "name_brand": "—",
+      "status": "METACOD-RF",
+      "batch": "26-Mineral",
+      "molecular": {
+        "chemical_class": "Mineral supplement",
+        "mechanism_primary": [
+          "[GL] Bone mineralization substrate; phosphate binding"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[GL] Osteoporosis (with vit D), hypocalcemia, dietary insufficiency",
+          "[LBL] Phosphate binder (CKD — calcium-based)"
+        ]
+      },
+      "dosing": {
+        "dose": "Citrate (absorbed without acid/PPI) / carbonate with food"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Bone/mineral support [RF]",
+          "best_match": [
+            "Osteoporosis adjunct, hypocalcemia"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Constipation, kidney stones, possible CV signal (excess); hypercalcemia with vit D"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Endocrine Society"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-506",
+      "name_inn": "Berberine",
+      "name_ru": "Берберин",
+      "name_brand": "—",
+      "status": "METACOD-RF",
+      "batch": "26-Specific",
+      "molecular": {
+        "chemical_class": "Plant alkaloid (metabolic)",
+        "mechanism_primary": [
+          "[RCT] AMPK activation; modest glucose/lipid lowering"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Glycemic/lipid support (adjunct, not replacement for metformin/statin)",
+          "[GL] Functional dyslipidemia"
+        ]
+      },
+      "dosing": {
+        "dose": "500 mg BID-TID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Metabolic support (Damp-Heat) [RF]",
+          "best_match": [
+            "Metabolic syndrome adjunct"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] GI upset; potent CYP3A4/P-gp inhibitor (DDIs — e.g. cyclosporine, statins), avoid pregnancy/neonates (kernicterus)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Supplement literature"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-507",
+      "name_inn": "Alpha-lipoic acid",
+      "name_ru": "Альфа-липоевая кислота",
+      "name_brand": "—",
+      "status": "METACOD-RF",
+      "batch": "26-Specific",
+      "molecular": {
+        "chemical_class": "Antioxidant cofactor",
+        "mechanism_primary": [
+          "[RCT] Antioxidant; diabetic neuropathy symptom benefit"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Diabetic peripheral neuropathy (symptomatic)",
+          "[GL] Metabolic antioxidant support"
+        ]
+      },
+      "dosing": {
+        "dose": "600 mg/day"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Antioxidant/neural support [RF]",
+          "best_match": [
+            "Diabetic neuropathy symptoms"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hypoglycemia potentiation, GI; insulin-autoimmune syndrome (rare)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "NEUROLOGY ALA trials"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    }
   ]
 }

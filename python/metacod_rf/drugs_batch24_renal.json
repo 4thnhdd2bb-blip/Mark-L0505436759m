@@ -7,7 +7,7 @@
     "status": "METACOD-RF — Research Framework, not clinical guidance",
     "group": "Renal-specific — phosphate binders / ESAs / active Vit D + calcimimetic / newer CKD agents (4 подгруппы)",
     "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0 + KCTS awareness HIGH",
-    "preparations_count": 7,
+    "preparations_count": 10,
     "source_count_claim": 8,
     "repo_gap_note": "Источник заявляет 8 entries и 'total после batch 24 = 344', но предоставлено только 7 пронумерованных DRG-блоков (336..342). Восьмой пункт ('CKD-KCTS canonical integration framework') — это заметка в обсуждении, НЕ отдельный профилированный DRG-entry. Материализованы 7 enumerable entries; CKD-KCTS overlay сохранён как [RF]-аннотация. ID-сборка: batch 23 в репо закончилась на DRG-335 (фантомный '336' не был реальным блоком), поэтому DRG-336 свободен — коллизии нет.",
     "author": "Mark Litvak (с AI-assistance)",
@@ -45,7 +45,8 @@
         "issue_2_practice_ignores_aire": "[RF] Claim что standard CKD practice ignores AIRE/KCTS 'could change practice significantly'. Q: confirmed observation или overstatement? [GOVERNANCE: RF-assertion, не доказательная критика нефрологии.]",
         "issue_3_finerenone_disease_modifying": "[RCT] Finerenone 'disease-modifying' в DM2+CKD — это backed by FIDELIO/FIGARO (slowed progression + CV reduction). Acceptable evidence-based use."
       }
-    }
+    },
+    "expansion_note": "[2026-06 EXPANSION-2] +DRG-499-501 (3) Claude-authored standard-evidence class-completion (expansion block)."
   },
   "drugs": [
     {
@@ -484,6 +485,157 @@
       "references": [
         "FDA label Jynarque",
         "TEMPO 3:4 trial"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-499",
+      "name_inn": "Patiromer / Sodium zirconium cyclosilicate (K binders)",
+      "name_ru": "Патиромер / Натрия цирконий циклосиликат",
+      "name_brand": "Veltassa / Lokelma",
+      "status": "METACOD-RF",
+      "batch": "24-Hyperkalemia",
+      "molecular": {
+        "chemical_class": "Oral potassium binder",
+        "mechanism_primary": [
+          "[LBL] Binds gut potassium → ↓serum K (enables RAAS therapy)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Hyperkalemia (chronic, incl. enabling RAASi/MRA continuation)"
+        ]
+      },
+      "dosing": {
+        "dose": "Daily (SZC faster onset)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Potassium homeostasis [RF]",
+          "best_match": [
+            "Hyperkalemia (CKD/HF on RAASi)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic / acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] GI effects, hypomagnesemia (patiromer), edema/Na load (SZC), binds other drugs (separate dosing)",
+          "[LBL] Not for life-threatening hyperkalemia emergency alone"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "KDIGO"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-500",
+      "name_inn": "Roxadustat / Daprodustat (HIF-PHI)",
+      "name_ru": "Роксадустат / Дапродустат",
+      "name_brand": "Evrenzo / Jesduvroq",
+      "status": "METACOD-RF",
+      "batch": "24-Anemia",
+      "molecular": {
+        "chemical_class": "Hypoxia-inducible factor prolyl-hydroxylase inhibitor (oral)",
+        "mechanism_primary": [
+          "[LBL] ↑endogenous erythropoietin + iron mobilization"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Anemia of CKD (oral alternative to ESA)"
+        ]
+      },
+      "dosing": {
+        "dose": "Oral (dialysis/non-dialysis)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Yang/oxygen-carrying restoration (oral) [RF]",
+          "best_match": [
+            "CKD anemia (oral)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Thrombosis/CV signal (regulatory caution), hypertension; long-term safety maturing"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "KDIGO anemia"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-501",
+      "name_inn": "Ferric citrate / Sucroferric oxyhydroxide (iron-based binders)",
+      "name_ru": "Феррацитрат / Сукроферрик оксигидроксид",
+      "name_brand": "Auryxia / Velphoro",
+      "status": "METACOD-RF",
+      "batch": "24-Phosphate-Binders",
+      "molecular": {
+        "chemical_class": "Iron-based phosphate binder",
+        "mechanism_primary": [
+          "[LBL] Binds dietary phosphate + provides absorbable iron (ferric citrate)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Hyperphosphatemia in CKD; ferric citrate also iron-deficiency anemia in CKD"
+        ]
+      },
+      "dosing": {
+        "dose": "With meals"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Mineral homeostasis + iron [RF]",
+          "best_match": [
+            "CKD-MBD (dual phosphate+iron benefit)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Discolored (dark) stools, GI effects; iron overload monitoring (ferric citrate)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "KDIGO CKD-MBD"
       ],
       "status_flags": {
         "mark_validated": false

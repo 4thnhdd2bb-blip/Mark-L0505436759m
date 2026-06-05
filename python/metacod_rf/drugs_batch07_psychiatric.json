@@ -6,7 +6,7 @@
     "status": "METACOD-RF — Research Framework, not clinical guidance",
     "group": "Психиатрические препараты — SSRIs (5) + SNRIs (3) + Atypical (3) + Mood stabilizers (3) + Antipsychotics (4) + Benzodiazepines (4)",
     "architecture": "Three-Axis Diagnostic Framework v1.0 (constitution + membrane + phase)",
-    "preparations_count": 22,
+    "preparations_count": 34,
     "author": "Mark Litvak (с AI-assistance)",
     "date": "2026-06",
     "ready_for_clinical_use": false,
@@ -21,380 +21,2168 @@
     },
     "repo_gap_note": "Batch 06 (cardiovascular, DRG-034..096 per Mark's tracker) was NOT supplied to this repo; those drug_ids are absent here. ID numbering jumps 033 → 097.",
     "class_notes": {
-      "why_complex": ["Полипатологии overlap (depression/anxiety/sleep/cognitive coexist с физическими conditions)", "Strong energy signatures (SSRI cooling+drying, benzo cold+heavy, antipsychotics suppressive)", "Длительные курсы → усиленный constitutional impact", "PGx significance (CYP2D6, CYP2C19)"],
-      "five_spirits_energy": ["Shen (дух) — Heart-Fire (Heat)", "Hun (etheral soul) — Liver-Wood (Wind)", "Po (corporal soul) — Lung-Metal (Dry)", "Yi (intellect) — Spleen-Earth (Damp)", "Zhi (will) — Kidney-Water (Cold)"],
+      "why_complex": [
+        "Полипатологии overlap (depression/anxiety/sleep/cognitive coexist с физическими conditions)",
+        "Strong energy signatures (SSRI cooling+drying, benzo cold+heavy, antipsychotics suppressive)",
+        "Длительные курсы → усиленный constitutional impact",
+        "PGx significance (CYP2D6, CYP2C19)"
+      ],
+      "five_spirits_energy": [
+        "Shen (дух) — Heart-Fire (Heat)",
+        "Hun (etheral soul) — Liver-Wood (Wind)",
+        "Po (corporal soul) — Lung-Metal (Dry)",
+        "Yi (intellect) — Spleen-Earth (Damp)",
+        "Zhi (will) — Kidney-Water (Cold)"
+      ],
       "membrane_considerations": "Хроническая depression часто = M-D drift (особенно melancholic). Anxiety = CA-like sympathetic activation. Bipolar — phase swings между анаболическим (mania) и катаболическим (depression).",
       "phase_considerations": "Major depression often = stuck PCL-A. Anxiety = chronic CA. PTSD = repeated CA triggers.",
       "three_axis_summary": {
-        "constitution_axis": ["SSRIs cooling+drying — careful в Yin-Water/Yin-Metal", "SNRIs cooling+activating — careful в hypertensive/anxious", "Mirtazapine heavy+appetite — great в frail elderly, terrible в metabolic syndrome", "Bupropion activating — great в atypical depression, dangerous в anxiety/eating disorders", "Antipsychotics heavy suppressive — metabolic burden", "Benzos cooling/sedating — short-term ok, chronic problematic"],
-        "membrane_axis": ["SSRIs/SNRIs mild M-D drift long-term (drying)", "Mirtazapine significant M-A drift", "Antipsychotics significant M-A drift (metabolic syndrome)", "Lithium complex — renal M-D drift, thyroid suppression", "Valproate M-A drift", "Lamotrigine weight neutral", "Aripiprazole weight neutral (advantage in class)"],
-        "phase_axis": ["Acute CA (panic/mania/psychosis): benzos, antipsychotics", "Stuck PCL-A (chronic depression): SSRIs, SNRIs, atypicals", "Stuck PCL-B (chronic fibrotic depression): activating agents (bupropion)", "Normotonia maintenance: minimal effective doses"]
+        "constitution_axis": [
+          "SSRIs cooling+drying — careful в Yin-Water/Yin-Metal",
+          "SNRIs cooling+activating — careful в hypertensive/anxious",
+          "Mirtazapine heavy+appetite — great в frail elderly, terrible в metabolic syndrome",
+          "Bupropion activating — great в atypical depression, dangerous в anxiety/eating disorders",
+          "Antipsychotics heavy suppressive — metabolic burden",
+          "Benzos cooling/sedating — short-term ok, chronic problematic"
+        ],
+        "membrane_axis": [
+          "SSRIs/SNRIs mild M-D drift long-term (drying)",
+          "Mirtazapine significant M-A drift",
+          "Antipsychotics significant M-A drift (metabolic syndrome)",
+          "Lithium complex — renal M-D drift, thyroid suppression",
+          "Valproate M-A drift",
+          "Lamotrigine weight neutral",
+          "Aripiprazole weight neutral (advantage in class)"
+        ],
+        "phase_axis": [
+          "Acute CA (panic/mania/psychosis): benzos, antipsychotics",
+          "Stuck PCL-A (chronic depression): SSRIs, SNRIs, atypicals",
+          "Stuck PCL-B (chronic fibrotic depression): activating agents (bupropion)",
+          "Normotonia maintenance: minimal effective doses"
+        ]
       },
-      "critical_safety": ["Suicide risk: first 2-4 weeks antidepressant initiation = highest window", "Hyponatremia: SSRIs/SNRIs esp. elderly — check Na 2-4 weeks", "Metabolic syndrome: antipsychotics (olanzapine, quetiapine) — baseline + quarterly lipids/glucose/weight", "QT prolongation: citalopram >40mg, escitalopram, antipsychotics — ECG in susceptible", "Lithium: level + thyroid + renal + calcium q3-6mo", "CYP2D6 inhibitors (fluoxetine, paroxetine, bupropion) — major DDI esp. tamoxifen, codeine"],
-      "obs_mark_to_fill": ["First-line: sertraline или escitalopram?", "Mirtazapine в cancer/elderly — position?", "Bupropion augmentation strategies?", "Lithium в TRD augmentation — when?", "Aripiprazole preference vs other atypicals для metabolic protection?", "Long-term benzo approach в anxiety?", "Switching: failed SSRI → SNRI vs class switch?"]
+      "critical_safety": [
+        "Suicide risk: first 2-4 weeks antidepressant initiation = highest window",
+        "Hyponatremia: SSRIs/SNRIs esp. elderly — check Na 2-4 weeks",
+        "Metabolic syndrome: antipsychotics (olanzapine, quetiapine) — baseline + quarterly lipids/glucose/weight",
+        "QT prolongation: citalopram >40mg, escitalopram, antipsychotics — ECG in susceptible",
+        "Lithium: level + thyroid + renal + calcium q3-6mo",
+        "CYP2D6 inhibitors (fluoxetine, paroxetine, bupropion) — major DDI esp. tamoxifen, codeine"
+      ],
+      "obs_mark_to_fill": [
+        "First-line: sertraline или escitalopram?",
+        "Mirtazapine в cancer/elderly — position?",
+        "Bupropion augmentation strategies?",
+        "Lithium в TRD augmentation — when?",
+        "Aripiprazole preference vs other atypicals для metabolic protection?",
+        "Long-term benzo approach в anxiety?",
+        "Switching: failed SSRI → SNRI vs class switch?"
+      ]
     },
-    "project_progress_note": "METACOD-RF after batch 07: 118 drugs (~30%). NB: batch 06 cardiovascular not present in this repo."
+    "project_progress_note": "METACOD-RF after batch 07: 118 drugs (~30%). NB: batch 06 cardiovascular not present in this repo.",
+    "expansion_note": "[2026-06 EXPANSION-2] +DRG-417-428 (12) Claude-authored standard-evidence class-completion (expansion block)."
   },
   "drugs": [
     {
-      "drug_id": "DRG-097", "name_inn": "Sertraline", "name_ru": "Сертралин",
-      "name_brand": "Zoloft (US), Asentra, Stimuloton (EU/Israel)", "status": "METACOD-RF", "batch": "07-SSRI",
+      "drug_id": "DRG-097",
+      "name_inn": "Sertraline",
+      "name_ru": "Сертралин",
+      "name_brand": "Zoloft (US), Asentra, Stimuloton (EU/Israel)",
+      "status": "METACOD-RF",
+      "batch": "07-SSRI",
       "molecular": {
         "chemical_class": "SSRI (selective serotonin reuptake inhibitor)",
-        "mechanism_primary": ["[LBL] Selective inhibition of 5-HT reuptake → increased synaptic serotonin", "[LBL] Mild dopamine reuptake inhibition (unique among SSRIs)"],
-        "mechanism_distinct": ["[LBL] DAT mild action distinguishes от paroxetine/fluoxetine", "[LBL] May have slight activating effect at low doses"],
-        "half_life": "26 hours", "excretion": "~40% renal, 60% biliary",
+        "mechanism_primary": [
+          "[LBL] Selective inhibition of 5-HT reuptake → increased synaptic serotonin",
+          "[LBL] Mild dopamine reuptake inhibition (unique among SSRIs)"
+        ],
+        "mechanism_distinct": [
+          "[LBL] DAT mild action distinguishes от paroxetine/fluoxetine",
+          "[LBL] May have slight activating effect at low doses"
+        ],
+        "half_life": "26 hours",
+        "excretion": "~40% renal, 60% biliary",
         "metabolism": "CYP3A4, CYP2C19, CYP2B6, CYP2D6 (multiple — less PGx-vulnerable)"
       },
       "indications": {
-        "approved": ["[LBL] Major depressive disorder (MDD)", "[LBL] OCD (pediatric ≥6y)", "[LBL] Panic disorder", "[LBL] PTSD", "[LBL] Social anxiety disorder", "[LBL] Premenstrual dysphoric disorder (PMDD)"],
-        "off_label_common": ["[GL] Generalized anxiety disorder", "[GL] IBS symptom management", "[GL] Hot flashes (menopause, ADT)"]
+        "approved": [
+          "[LBL] Major depressive disorder (MDD)",
+          "[LBL] OCD (pediatric ≥6y)",
+          "[LBL] Panic disorder",
+          "[LBL] PTSD",
+          "[LBL] Social anxiety disorder",
+          "[LBL] Premenstrual dysphoric disorder (PMDD)"
+        ],
+        "off_label_common": [
+          "[GL] Generalized anxiety disorder",
+          "[GL] IBS symptom management",
+          "[GL] Hot flashes (menopause, ADT)"
+        ]
       },
-      "dosing": {"dose": "25-200 mg AM", "administration": ["[LBL] Once daily AM (mild activation)", "[LBL] Can take PM if sedation", "[LBL] With food для GI tolerance"]},
+      "dosing": {
+        "dose": "25-200 mg AM",
+        "administration": [
+          "[LBL] Once daily AM (mild activation)",
+          "[LBL] Can take PM if sedation",
+          "[LBL] With food для GI tolerance"
+        ]
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Mild cooling (clearing irritability/heat), gentle activation; mild drying long-term", "best_match": ["Yin-Fire dominant с anxiety + depression overlay", "Yang-Wood с liver qi stagnation (PMDD, irritability)", "T8 mixed с mood lability"], "caution": ["Yin-Water (additive cold + drying long-term)", "Yin-Metal (additive dryness, sexual side)"], "neutral": ["Yang-Earth, Yin-Earth — generally well-tolerated"]},
-        "membrane": {"direction": ["Depression often M-D drift; sertraline restores energy via NT modulation", "Long-term drying = mild M-D risk if not compensated", "Anxiety (CA-like) → cooling may shift back toward M-0"], "caution": ["Already M-D patients: monitor compound drying", "Sexual dysfunction = kidney-water dryness manifesting"]},
-        "phase": {"match": "Useful в stuck PCL-A (chronic unresolved depression)", "caution": ["Active CA — sertraline takes 4-6 weeks, не acute", "Undiagnosed bipolar: may precipitate mania (CA induction)"]}
+        "constitutional": {
+          "energy": "Mild cooling (clearing irritability/heat), gentle activation; mild drying long-term",
+          "best_match": [
+            "Yin-Fire dominant с anxiety + depression overlay",
+            "Yang-Wood с liver qi stagnation (PMDD, irritability)",
+            "T8 mixed с mood lability"
+          ],
+          "caution": [
+            "Yin-Water (additive cold + drying long-term)",
+            "Yin-Metal (additive dryness, sexual side)"
+          ],
+          "neutral": [
+            "Yang-Earth, Yin-Earth — generally well-tolerated"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Depression often M-D drift; sertraline restores energy via NT modulation",
+            "Long-term drying = mild M-D risk if not compensated",
+            "Anxiety (CA-like) → cooling may shift back toward M-0"
+          ],
+          "caution": [
+            "Already M-D patients: monitor compound drying",
+            "Sexual dysfunction = kidney-water dryness manifesting"
+          ]
+        },
+        "phase": {
+          "match": "Useful в stuck PCL-A (chronic unresolved depression)",
+          "caution": [
+            "Active CA — sertraline takes 4-6 weeks, не acute",
+            "Undiagnosed bipolar: may precipitate mania (CA induction)"
+          ]
+        }
       },
       "safety": {
-        "ddi_critical_2_star": ["[LBL] MAOI — serotonin syndrome (lethal); 14-day washout", "[LBL] Other serotonergic (tramadol, fentanyl, triptans, linezolid) — serotonin syndrome", "[LBL] NSAIDs — increased bleeding (platelet 5-HT depletion)", "[LBL] Warfarin — increased bleeding"],
-        "ddi_critical_1_star": ["[LBL] CYP3A4 strong inhibitors — elevated levels", "[LBL] Pimozide — QT; contraindicated", "[LBL] Lithium — serotonin syndrome risk"],
-        "contraindications": ["[LBL] Concurrent MAOI", "[LBL] Pimozide combination", "[LBL] Hypersensitivity"],
-        "relative_contraindications": ["[GL] Bipolar без mood stabilizer cover", "[GL] Active GI bleeding history", "[GL] QT prolongation existing"],
-        "pregnancy": ["[LBL] Category C", "[GL] Relatively safe — preferred SSRI в pregnancy if needed", "[GL] Late pregnancy: PPHN small risk, neonatal withdrawal possible"],
+        "ddi_critical_2_star": [
+          "[LBL] MAOI — serotonin syndrome (lethal); 14-day washout",
+          "[LBL] Other serotonergic (tramadol, fentanyl, triptans, linezolid) — serotonin syndrome",
+          "[LBL] NSAIDs — increased bleeding (platelet 5-HT depletion)",
+          "[LBL] Warfarin — increased bleeding"
+        ],
+        "ddi_critical_1_star": [
+          "[LBL] CYP3A4 strong inhibitors — elevated levels",
+          "[LBL] Pimozide — QT; contraindicated",
+          "[LBL] Lithium — serotonin syndrome risk"
+        ],
+        "contraindications": [
+          "[LBL] Concurrent MAOI",
+          "[LBL] Pimozide combination",
+          "[LBL] Hypersensitivity"
+        ],
+        "relative_contraindications": [
+          "[GL] Bipolar без mood stabilizer cover",
+          "[GL] Active GI bleeding history",
+          "[GL] QT prolongation existing"
+        ],
+        "pregnancy": [
+          "[LBL] Category C",
+          "[GL] Relatively safe — preferred SSRI в pregnancy if needed",
+          "[GL] Late pregnancy: PPHN small risk, neonatal withdrawal possible"
+        ],
         "breastfeeding": "low excretion, generally compatible",
-        "pediatric": ["[LBL] ≥6y OCD approved", "[LBL] MDD: FDA black box suicidality <25y"],
-        "geriatric": ["[GL] Generally well-tolerated", "[GL] Hyponatremia (SIADH) risk esp. elderly"],
-        "renal": "no specific adjustment moderate; caution severe", "hepatic": "caution moderate; reduce 50% severe"
+        "pediatric": [
+          "[LBL] ≥6y OCD approved",
+          "[LBL] MDD: FDA black box suicidality <25y"
+        ],
+        "geriatric": [
+          "[GL] Generally well-tolerated",
+          "[GL] Hyponatremia (SIADH) risk esp. elderly"
+        ],
+        "renal": "no specific adjustment moderate; caution severe",
+        "hepatic": "caution moderate; reduce 50% severe"
       },
       "adverse_events": {
-        "common": ["[LBL] GI: nausea, diarrhea (initial, often transient)", "[LBL] Sexual dysfunction", "[LBL] Insomnia или drowsiness", "[LBL] Sweating", "[LBL] Weight neutral to mild gain long-term"],
-        "serious": ["[LBL] Suicidality (black box <25y)", "[LBL] Hyponatremia (SIADH) — esp elderly/women/low weight", "[LBL] Serotonin syndrome (if combined)", "[LBL] QT prolongation (high dose)", "[LBL] Bleeding risk"],
-        "rare_critical": ["[LBL] Severe hepatotoxicity", "[LBL] Severe hyponatremia → seizures", "[LBL] Mania induction в undiagnosed bipolar"]
+        "common": [
+          "[LBL] GI: nausea, diarrhea (initial, often transient)",
+          "[LBL] Sexual dysfunction",
+          "[LBL] Insomnia или drowsiness",
+          "[LBL] Sweating",
+          "[LBL] Weight neutral to mild gain long-term"
+        ],
+        "serious": [
+          "[LBL] Suicidality (black box <25y)",
+          "[LBL] Hyponatremia (SIADH) — esp elderly/women/low weight",
+          "[LBL] Serotonin syndrome (if combined)",
+          "[LBL] QT prolongation (high dose)",
+          "[LBL] Bleeding risk"
+        ],
+        "rare_critical": [
+          "[LBL] Severe hepatotoxicity",
+          "[LBL] Severe hyponatremia → seizures",
+          "[LBL] Mania induction в undiagnosed bipolar"
+        ]
       },
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "sertraline_position": "[OBS-Mark] [Mark, sertraline first-line в anxiety + depression overlap?]"},
-      "references": ["FDA label Zoloft", "STAR*D trial", "NICE depression guidelines", "CANMAT depression guidelines"],
-      "status_flags": {"mark_validated": false, "class_extrapolation_used": "limited", "priority_for_mark_review": "HIGH (most-prescribed antidepressant globally)"}
-    },
-    {
-      "drug_id": "DRG-098", "name_inn": "Escitalopram", "name_ru": "Эсциталопрам",
-      "name_brand": "Lexapro (US), Cipralex (EU/Israel)", "status": "METACOD-RF", "batch": "07-SSRI",
-      "molecular": {"chemical_class": "SSRI (S-enantiomer of citalopram)", "mechanism": "[LBL] Most selective SSRI (least off-target activity)", "half_life": "27-32 hours", "metabolism": "CYP2C19 (major), CYP3A4 (minor) — PGx significant"},
-      "indications": {"approved": ["MDD", "GAD", "panic", "OCD (off-label)"]},
-      "dosing": {"dose": "5-20 mg AM (sometimes 30 mg в refractory anxiety)", "administration": "[LBL] QT prolongation warning at doses >20 mg — strict limit elderly"},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Cooling + mild drying (similar to sertraline but cleaner)", "best_match": ["Yin-Fire с anxiety (cleaner cooling)", "Yang-Wood с GAD pattern"], "caution": ["QT-prolonged constitutions (Yin-Water с CV concerns)"]},
-        "membrane": {"direction": ["Similar to sertraline", "Slightly less drying long-term in some patients"]},
-        "phase": {"match": "Same as class; especially useful в chronic GAD (stuck CA pattern)"}
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "sertraline_position": "[OBS-Mark] [Mark, sertraline first-line в anxiety + depression overlap?]"
       },
-      "pgx_critical": ["[LBL] CYP2C19 PM: elevated escitalopram levels, increased QT risk", "[GL] PGx-guided dosing recommended"],
-      "safety": {"qt": "max 20 mg в most, 10 mg в elderly + CYP2C19 PM", "note": "Other ddi/AE similar to sertraline class"},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Escitalopram vs sertraline — preference patterns?]"},
-      "references": ["FDA label Lexapro", "CYP2C19 PGx CPIC guidelines (escitalopram)"],
-      "status_flags": {"mark_validated": false}
+      "references": [
+        "FDA label Zoloft",
+        "STAR*D trial",
+        "NICE depression guidelines",
+        "CANMAT depression guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": "limited",
+        "priority_for_mark_review": "HIGH (most-prescribed antidepressant globally)"
+      }
     },
     {
-      "drug_id": "DRG-099", "name_inn": "Fluoxetine", "name_ru": "Флуоксетин",
-      "name_brand": "Prozac", "status": "METACOD-RF", "batch": "07-SSRI",
-      "molecular": {"chemical_class": "SSRI", "half_life": "1-4 days parent + 4-16 days active metabolite (norfluoxetine)", "distinct_clinical": ["[LBL] Longest half-life of SSRIs — no abrupt withdrawal syndrome", "[LBL] Activating effect (vs sedating sertraline/paroxetine)", "[LBL] CYP2D6 inhibitor (strong) — major DDI source"], "metabolism": "CYP2D6, CYP2C9, CYP3A4"},
-      "indications": {"approved": ["MDD", "OCD", "bulimia", "panic", "PMDD (Sarafem brand)"], "pediatric": "≥7y MDD, OCD"},
-      "dosing": {"dose": "20-80 mg AM"},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Cooling + activating (more energizing than sertraline AM activation)", "best_match": ["Atypical depression (oversleeping, low energy)", "Bulimia (binge eating)", "PMDD (cyclic mood)"], "caution": ["Anxiety-dominant (activating may worsen)", "Insomnia history"]},
-        "membrane": {"direction": ["Activating = mild Yang stimulation", "Less drying long-term than sertraline in some patients"]},
-        "phase": {"match": "Useful PCL-A stuck with low energy; activation may help phase progression to Normotonia"}
+      "drug_id": "DRG-098",
+      "name_inn": "Escitalopram",
+      "name_ru": "Эсциталопрам",
+      "name_brand": "Lexapro (US), Cipralex (EU/Israel)",
+      "status": "METACOD-RF",
+      "batch": "07-SSRI",
+      "molecular": {
+        "chemical_class": "SSRI (S-enantiomer of citalopram)",
+        "mechanism": "[LBL] Most selective SSRI (least off-target activity)",
+        "half_life": "27-32 hours",
+        "metabolism": "CYP2C19 (major), CYP3A4 (minor) — PGx significant"
       },
-      "safety": {"ddi_critical_1_star": ["[LBL] CYP2D6 substrates (tamoxifen, codeine, metoprolol, many antipsychotics) — elevated levels", "[LBL] Tamoxifen — reduced efficacy via CYP2D6 inhibition (concern в breast cancer)", "[LBL] Long half-life — MAOI switch needs 5-week washout"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Fluoxetine — activating profile useful niche?]"},
-      "references": ["FDA label Prozac", "CYP2D6 PGx guidance"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-100", "name_inn": "Paroxetine", "name_ru": "Пароксетин",
-      "name_brand": "Paxil (US), Seroxat (EU/Israel), Brisdelle (low-dose menopause)", "status": "METACOD-RF", "batch": "07-SSRI",
-      "molecular": {"chemical_class": "SSRI", "half_life": "~24 hours", "distinct_clinical": ["[LBL] Most anticholinergic SSRI — most sedating, most weight gain", "[LBL] Strong CYP2D6 inhibitor", "[LBL] Severe withdrawal syndrome", "[LBL] Black box warning для pregnancy (cardiac malformations)"]},
-      "indications": {"approved": ["MDD", "OCD", "panic", "social anxiety", "GAD", "PTSD", "PMDD"]},
-      "dosing": {"dose": "10-60 mg AM или PM (depending sedation)"},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Cooling + heavy/dampening (most sedating SSRI)", "best_match": ["Anxiety с insomnia (heavy/sedating helpful)", "Yang-Wood с liver yang rising (mood lability + irritability)"], "caution": ["Yin-Earth, Yin-Water — heavy effect amplifies cold/sluggish patterns", "Sexual dysfunction profile worst of class", "Weight gain worst (3-7 kg average)"]},
-        "membrane": {"direction": ["Anticholinergic = mild damp accumulation", "Weight gain = M-A2 drift potential", "Caution в already M-A patients (compound damp)"]},
-        "phase": {"match": "Useful acute anxiety reduction (sedating)", "caution": "Withdrawal syndrome → difficult phase transitions when discontinuing"}
+      "indications": {
+        "approved": [
+          "MDD",
+          "GAD",
+          "panic",
+          "OCD (off-label)"
+        ]
       },
-      "safety": {"critical": ["[LBL] PREGNANCY: avoid (cardiac malformations — FDA Category D/X depending on source)", "[LBL] Withdrawal: severe — flu-like, electric «zaps», vertigo", "[LBL] CYP2D6 inhibition — major DDI с tamoxifen (avoid в breast cancer)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Paroxetine — declining use due to side effect profile?]", "rf_note": "[RF note] Modern preference: avoid paroxetine if alternatives available"},
-      "references": ["FDA label Paxil"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-101", "name_inn": "Fluvoxamine", "name_ru": "Флувоксамин",
-      "name_brand": "Luvox", "status": "METACOD-RF", "batch": "07-SSRI",
-      "molecular": {"chemical_class": "SSRI", "half_life": "~15 hours", "distinct_clinical": ["[LBL] Strongest CYP1A2 inhibitor — major DDI source", "[LBL] BID dosing usually", "[LBL] Often used в OCD primarily"]},
-      "indications": {"approved": ["OCD primarily", "social anxiety"]},
-      "dosing": {"dose": "50-300 mg/day (BID usually)"},
-      "three_axis_profile": {"constitutional": {"energy": "Similar to class, somewhat more sedating than fluoxetine"}, "membrane": {"direction": ["Class pattern"]}, "phase": {"match": "OCD-specific niche"}},
-      "safety": {"ddi": ["[LBL] CYP1A2 substrates (theophylline, clozapine, olanzapine, ramelteon) — major elevations", "[LBL] Caffeine effects amplified"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Fluvoxamine — OCD niche only or wider use?]"},
-      "status_flags": {"mark_validated": false, "note": "Less commonly used than other SSRIs except OCD specifically."}
-    },
-    {
-      "drug_id": "DRG-102", "name_inn": "Venlafaxine", "name_ru": "Венлафаксин",
-      "name_brand": "Effexor XR, Venlafaxine ER", "status": "METACOD-RF", "batch": "07-SNRI",
-      "molecular": {"chemical_class": "SNRI", "mechanism": ["[LBL] Dose-dependent — низкие dose primarily 5-HT, higher doses NE", "[LBL] At <150 mg = predominantly SSRI; >225 mg = significant NE"], "half_life": "5h parent + 11h active metabolite", "metabolism": "CYP2D6 → desvenlafaxine"},
-      "indications": {"approved": ["MDD", "GAD", "panic", "social anxiety"]},
-      "dosing": {"dose": "37.5-225 mg XR daily (sometimes 300-375 в refractory)"},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Cooling at low dose, cooling + activating at higher dose", "best_match": ["Atypical depression с fatigue", "Yin-Earth с low energy"], "caution": ["Hypertensive patients — NE raises BP at higher doses", "Yang-Wood с already elevated BP"]},
-        "membrane": {"direction": ["Activating = mild Yang support", "Long-term: similar drying as SSRI"]},
-        "phase": {"match": "Useful PCL-A с low energy; may help phase progression via Yang support"}
+      "dosing": {
+        "dose": "5-20 mg AM (sometimes 30 mg в refractory anxiety)",
+        "administration": "[LBL] QT prolongation warning at doses >20 mg — strict limit elderly"
       },
-      "safety": {"critical": ["[LBL] BP monitoring required esp. >225 mg", "[LBL] Severe withdrawal syndrome (short half-life)", "[LBL] Highest cardiac mortality in SSRI/SNRI overdose", "[LBL] Hyponatremia like SSRIs"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Venlafaxine vs duloxetine selection criteria?]"},
-      "references": ["FDA label Effexor XR"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-103", "name_inn": "Duloxetine", "name_ru": "Дулоксетин",
-      "name_brand": "Cymbalta", "status": "METACOD-RF", "batch": "07-SNRI",
-      "molecular": {"chemical_class": "SNRI (more balanced 5-HT/NE than venlafaxine)", "half_life": "12 hours", "metabolism": "CYP1A2, CYP2D6"},
-      "indications": {"approved": ["[LBL] MDD", "[LBL] GAD", "[LBL] Diabetic peripheral neuropathy pain", "[LBL] Fibromyalgia", "[LBL] Chronic musculoskeletal pain", "[LBL] Stress urinary incontinence (EU only)"]},
-      "dosing": {"dose": "30-120 mg daily", "administration": "с едой preferable для GI tolerance"},
       "three_axis_profile": {
-        "constitutional": {"energy": "Balanced cooling + activating", "best_match": ["Depression + chronic pain overlay", "Diabetic neuropathy = T1 Yang-Earth с metabolic + neuropathic", "Fibromyalgia = complex constitution often Yin-dominant"], "caution": ["Hepatic disease (CYP1A2 concern)"]},
-        "membrane": {"direction": ["Pain pathway modulation = anti-CA effect", "Useful в M-A2 metabolic с chronic pain"]},
-        "phase": {"match": "Useful chronic pain phases with stuck inflammation; multi-system therapeutic = good для phase complexity"}
+        "constitutional": {
+          "energy": "Cooling + mild drying (similar to sertraline but cleaner)",
+          "best_match": [
+            "Yin-Fire с anxiety (cleaner cooling)",
+            "Yang-Wood с GAD pattern"
+          ],
+          "caution": [
+            "QT-prolonged constitutions (Yin-Water с CV concerns)"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Similar to sertraline",
+            "Slightly less drying long-term in some patients"
+          ]
+        },
+        "phase": {
+          "match": "Same as class; especially useful в chronic GAD (stuck CA pattern)"
+        }
       },
-      "safety": {"ddi": "Strong CYP1A2 inhibitor (less bidirectional DDI than fluvoxamine)", "contraindications": "severe hepatic disease, severe renal disease", "hyponatremia": "like class", "withdrawal": "severe (short half-life)"},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Duloxetine в diabetic neuropathy + depression overlap — first-line?]"},
-      "references": ["FDA label Cymbalta", "Multiple pain syndrome studies"],
-      "status_flags": {"mark_validated": false}
+      "pgx_critical": [
+        "[LBL] CYP2C19 PM: elevated escitalopram levels, increased QT risk",
+        "[GL] PGx-guided dosing recommended"
+      ],
+      "safety": {
+        "qt": "max 20 mg в most, 10 mg в elderly + CYP2C19 PM",
+        "note": "Other ddi/AE similar to sertraline class"
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Escitalopram vs sertraline — preference patterns?]"
+      },
+      "references": [
+        "FDA label Lexapro",
+        "CYP2C19 PGx CPIC guidelines (escitalopram)"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-104", "name_inn": "Desvenlafaxine", "name_ru": "Десвенлафаксин",
-      "name_brand": "Pristiq", "status": "METACOD-RF", "batch": "07-SNRI",
-      "molecular": {"chemical_class": "SNRI (active metabolite of venlafaxine)", "half_life": "11 hours", "metabolism": "minimal (advantage — fewer DDI)"},
-      "indications": {"approved": ["MDD primarily"]},
-      "dosing": {"dose": "50-100 mg AM"},
-      "three_axis_profile": {"note": "Similar to venlafaxine but cleaner DDI profile; useful когда patient already CYP2D6-poor metabolizer (skips active metabolite generation)"},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Desvenlafaxine niche?]", "rf_note": "[RF note] Less commonly used than venlafaxine due to similar effects + cost"},
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-105", "name_inn": "Bupropion", "name_ru": "Бупропион",
-      "name_brand": "Wellbutrin (US), Wellbutrin XL/SR, Zyban (smoking cessation), Contrave (+naltrexone, obesity)", "status": "METACOD-RF", "batch": "07-Atypical",
-      "molecular": {"chemical_class": "Norepinephrine-Dopamine Reuptake Inhibitor (NDRI)", "mechanism": ["[LBL] Inhibits NE and DA reuptake — NO serotonergic effect", "[LBL] Unique mechanism — different side effect profile"], "half_life": "~21 hours", "metabolism": "CYP2B6 (major), 2D6 inhibitor"},
-      "indications": {"approved": ["[LBL] MDD", "[LBL] Seasonal affective disorder", "[LBL] Smoking cessation (Zyban)", "[LBL] Weight management (Contrave combination)", "[LBL] Off-label ADHD adjunct"]},
-      "dosing": {"dose": "150-450 mg/day (SR BID, XL once daily)", "administration": "AM preferred (activating)"},
+      "drug_id": "DRG-099",
+      "name_inn": "Fluoxetine",
+      "name_ru": "Флуоксетин",
+      "name_brand": "Prozac",
+      "status": "METACOD-RF",
+      "batch": "07-SSRI",
+      "molecular": {
+        "chemical_class": "SSRI",
+        "half_life": "1-4 days parent + 4-16 days active metabolite (norfluoxetine)",
+        "distinct_clinical": [
+          "[LBL] Longest half-life of SSRIs — no abrupt withdrawal syndrome",
+          "[LBL] Activating effect (vs sedating sertraline/paroxetine)",
+          "[LBL] CYP2D6 inhibitor (strong) — major DDI source"
+        ],
+        "metabolism": "CYP2D6, CYP2C9, CYP3A4"
+      },
+      "indications": {
+        "approved": [
+          "MDD",
+          "OCD",
+          "bulimia",
+          "panic",
+          "PMDD (Sarafem brand)"
+        ],
+        "pediatric": "≥7y MDD, OCD"
+      },
+      "dosing": {
+        "dose": "20-80 mg AM"
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Strong activation (Yang surge); NOT cooling like SSRIs; dopaminergic — enhances motivation/energy", "best_match": ["Atypical depression с low energy, oversleeping", "ADHD overlap с depression", "Smoking cessation (any constitution)", "Weight management (Contrave)", "Sexual dysfunction concerns (no sexual side effects)"], "caution": ["Anxiety-dominant: activating may worsen", "Seizure-prone: contraindicated (lowers threshold)", "Eating disorders (bulimia/anorexia): contraindicated", "Yang-Wood с irritability: may amplify"]},
-        "membrane": {"direction": ["Activating = M-D ⇆ M-0 (anti-catabolic energy support)", "Weight loss tendency = mild M-A reduction", "Useful в sarcopenic depression (preserves muscle through activation)"]},
-        "phase": {"match": "Useful PCL-B stuck (low energy chronic) — push toward Normotonia", "caution": "AVOID acute CA с panic — additive activation dangerous"}
+        "constitutional": {
+          "energy": "Cooling + activating (more energizing than sertraline AM activation)",
+          "best_match": [
+            "Atypical depression (oversleeping, low energy)",
+            "Bulimia (binge eating)",
+            "PMDD (cyclic mood)"
+          ],
+          "caution": [
+            "Anxiety-dominant (activating may worsen)",
+            "Insomnia history"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Activating = mild Yang stimulation",
+            "Less drying long-term than sertraline in some patients"
+          ]
+        },
+        "phase": {
+          "match": "Useful PCL-A stuck with low energy; activation may help phase progression to Normotonia"
+        }
       },
       "safety": {
-        "contraindications": ["[LBL] Seizure disorder", "[LBL] Bulimia, anorexia nervosa (seizure risk)", "[LBL] Concurrent MAOI", "[LBL] Active alcohol withdrawal", "[LBL] Recent abrupt benzo withdrawal"],
+        "ddi_critical_1_star": [
+          "[LBL] CYP2D6 substrates (tamoxifen, codeine, metoprolol, many antipsychotics) — elevated levels",
+          "[LBL] Tamoxifen — reduced efficacy via CYP2D6 inhibition (concern в breast cancer)",
+          "[LBL] Long half-life — MAOI switch needs 5-week washout"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Fluoxetine — activating profile useful niche?]"
+      },
+      "references": [
+        "FDA label Prozac",
+        "CYP2D6 PGx guidance"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-100",
+      "name_inn": "Paroxetine",
+      "name_ru": "Пароксетин",
+      "name_brand": "Paxil (US), Seroxat (EU/Israel), Brisdelle (low-dose menopause)",
+      "status": "METACOD-RF",
+      "batch": "07-SSRI",
+      "molecular": {
+        "chemical_class": "SSRI",
+        "half_life": "~24 hours",
+        "distinct_clinical": [
+          "[LBL] Most anticholinergic SSRI — most sedating, most weight gain",
+          "[LBL] Strong CYP2D6 inhibitor",
+          "[LBL] Severe withdrawal syndrome",
+          "[LBL] Black box warning для pregnancy (cardiac malformations)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "MDD",
+          "OCD",
+          "panic",
+          "social anxiety",
+          "GAD",
+          "PTSD",
+          "PMDD"
+        ]
+      },
+      "dosing": {
+        "dose": "10-60 mg AM или PM (depending sedation)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Cooling + heavy/dampening (most sedating SSRI)",
+          "best_match": [
+            "Anxiety с insomnia (heavy/sedating helpful)",
+            "Yang-Wood с liver yang rising (mood lability + irritability)"
+          ],
+          "caution": [
+            "Yin-Earth, Yin-Water — heavy effect amplifies cold/sluggish patterns",
+            "Sexual dysfunction profile worst of class",
+            "Weight gain worst (3-7 kg average)"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Anticholinergic = mild damp accumulation",
+            "Weight gain = M-A2 drift potential",
+            "Caution в already M-A patients (compound damp)"
+          ]
+        },
+        "phase": {
+          "match": "Useful acute anxiety reduction (sedating)",
+          "caution": "Withdrawal syndrome → difficult phase transitions when discontinuing"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] PREGNANCY: avoid (cardiac malformations — FDA Category D/X depending on source)",
+          "[LBL] Withdrawal: severe — flu-like, electric «zaps», vertigo",
+          "[LBL] CYP2D6 inhibition — major DDI с tamoxifen (avoid в breast cancer)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Paroxetine — declining use due to side effect profile?]",
+        "rf_note": "[RF note] Modern preference: avoid paroxetine if alternatives available"
+      },
+      "references": [
+        "FDA label Paxil"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-101",
+      "name_inn": "Fluvoxamine",
+      "name_ru": "Флувоксамин",
+      "name_brand": "Luvox",
+      "status": "METACOD-RF",
+      "batch": "07-SSRI",
+      "molecular": {
+        "chemical_class": "SSRI",
+        "half_life": "~15 hours",
+        "distinct_clinical": [
+          "[LBL] Strongest CYP1A2 inhibitor — major DDI source",
+          "[LBL] BID dosing usually",
+          "[LBL] Often used в OCD primarily"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "OCD primarily",
+          "social anxiety"
+        ]
+      },
+      "dosing": {
+        "dose": "50-300 mg/day (BID usually)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Similar to class, somewhat more sedating than fluoxetine"
+        },
+        "membrane": {
+          "direction": [
+            "Class pattern"
+          ]
+        },
+        "phase": {
+          "match": "OCD-specific niche"
+        }
+      },
+      "safety": {
+        "ddi": [
+          "[LBL] CYP1A2 substrates (theophylline, clozapine, olanzapine, ramelteon) — major elevations",
+          "[LBL] Caffeine effects amplified"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Fluvoxamine — OCD niche only or wider use?]"
+      },
+      "status_flags": {
+        "mark_validated": false,
+        "note": "Less commonly used than other SSRIs except OCD specifically."
+      }
+    },
+    {
+      "drug_id": "DRG-102",
+      "name_inn": "Venlafaxine",
+      "name_ru": "Венлафаксин",
+      "name_brand": "Effexor XR, Venlafaxine ER",
+      "status": "METACOD-RF",
+      "batch": "07-SNRI",
+      "molecular": {
+        "chemical_class": "SNRI",
+        "mechanism": [
+          "[LBL] Dose-dependent — низкие dose primarily 5-HT, higher doses NE",
+          "[LBL] At <150 mg = predominantly SSRI; >225 mg = significant NE"
+        ],
+        "half_life": "5h parent + 11h active metabolite",
+        "metabolism": "CYP2D6 → desvenlafaxine"
+      },
+      "indications": {
+        "approved": [
+          "MDD",
+          "GAD",
+          "panic",
+          "social anxiety"
+        ]
+      },
+      "dosing": {
+        "dose": "37.5-225 mg XR daily (sometimes 300-375 в refractory)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Cooling at low dose, cooling + activating at higher dose",
+          "best_match": [
+            "Atypical depression с fatigue",
+            "Yin-Earth с low energy"
+          ],
+          "caution": [
+            "Hypertensive patients — NE raises BP at higher doses",
+            "Yang-Wood с already elevated BP"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Activating = mild Yang support",
+            "Long-term: similar drying as SSRI"
+          ]
+        },
+        "phase": {
+          "match": "Useful PCL-A с low energy; may help phase progression via Yang support"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] BP monitoring required esp. >225 mg",
+          "[LBL] Severe withdrawal syndrome (short half-life)",
+          "[LBL] Highest cardiac mortality in SSRI/SNRI overdose",
+          "[LBL] Hyponatremia like SSRIs"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Venlafaxine vs duloxetine selection criteria?]"
+      },
+      "references": [
+        "FDA label Effexor XR"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-103",
+      "name_inn": "Duloxetine",
+      "name_ru": "Дулоксетин",
+      "name_brand": "Cymbalta",
+      "status": "METACOD-RF",
+      "batch": "07-SNRI",
+      "molecular": {
+        "chemical_class": "SNRI (more balanced 5-HT/NE than venlafaxine)",
+        "half_life": "12 hours",
+        "metabolism": "CYP1A2, CYP2D6"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] MDD",
+          "[LBL] GAD",
+          "[LBL] Diabetic peripheral neuropathy pain",
+          "[LBL] Fibromyalgia",
+          "[LBL] Chronic musculoskeletal pain",
+          "[LBL] Stress urinary incontinence (EU only)"
+        ]
+      },
+      "dosing": {
+        "dose": "30-120 mg daily",
+        "administration": "с едой preferable для GI tolerance"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Balanced cooling + activating",
+          "best_match": [
+            "Depression + chronic pain overlay",
+            "Diabetic neuropathy = T1 Yang-Earth с metabolic + neuropathic",
+            "Fibromyalgia = complex constitution often Yin-dominant"
+          ],
+          "caution": [
+            "Hepatic disease (CYP1A2 concern)"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Pain pathway modulation = anti-CA effect",
+            "Useful в M-A2 metabolic с chronic pain"
+          ]
+        },
+        "phase": {
+          "match": "Useful chronic pain phases with stuck inflammation; multi-system therapeutic = good для phase complexity"
+        }
+      },
+      "safety": {
+        "ddi": "Strong CYP1A2 inhibitor (less bidirectional DDI than fluvoxamine)",
+        "contraindications": "severe hepatic disease, severe renal disease",
+        "hyponatremia": "like class",
+        "withdrawal": "severe (short half-life)"
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Duloxetine в diabetic neuropathy + depression overlap — first-line?]"
+      },
+      "references": [
+        "FDA label Cymbalta",
+        "Multiple pain syndrome studies"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-104",
+      "name_inn": "Desvenlafaxine",
+      "name_ru": "Десвенлафаксин",
+      "name_brand": "Pristiq",
+      "status": "METACOD-RF",
+      "batch": "07-SNRI",
+      "molecular": {
+        "chemical_class": "SNRI (active metabolite of venlafaxine)",
+        "half_life": "11 hours",
+        "metabolism": "minimal (advantage — fewer DDI)"
+      },
+      "indications": {
+        "approved": [
+          "MDD primarily"
+        ]
+      },
+      "dosing": {
+        "dose": "50-100 mg AM"
+      },
+      "three_axis_profile": {
+        "note": "Similar to venlafaxine but cleaner DDI profile; useful когда patient already CYP2D6-poor metabolizer (skips active metabolite generation)"
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Desvenlafaxine niche?]",
+        "rf_note": "[RF note] Less commonly used than venlafaxine due to similar effects + cost"
+      },
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-105",
+      "name_inn": "Bupropion",
+      "name_ru": "Бупропион",
+      "name_brand": "Wellbutrin (US), Wellbutrin XL/SR, Zyban (smoking cessation), Contrave (+naltrexone, obesity)",
+      "status": "METACOD-RF",
+      "batch": "07-Atypical",
+      "molecular": {
+        "chemical_class": "Norepinephrine-Dopamine Reuptake Inhibitor (NDRI)",
+        "mechanism": [
+          "[LBL] Inhibits NE and DA reuptake — NO serotonergic effect",
+          "[LBL] Unique mechanism — different side effect profile"
+        ],
+        "half_life": "~21 hours",
+        "metabolism": "CYP2B6 (major), 2D6 inhibitor"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] MDD",
+          "[LBL] Seasonal affective disorder",
+          "[LBL] Smoking cessation (Zyban)",
+          "[LBL] Weight management (Contrave combination)",
+          "[LBL] Off-label ADHD adjunct"
+        ]
+      },
+      "dosing": {
+        "dose": "150-450 mg/day (SR BID, XL once daily)",
+        "administration": "AM preferred (activating)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Strong activation (Yang surge); NOT cooling like SSRIs; dopaminergic — enhances motivation/energy",
+          "best_match": [
+            "Atypical depression с low energy, oversleeping",
+            "ADHD overlap с depression",
+            "Smoking cessation (any constitution)",
+            "Weight management (Contrave)",
+            "Sexual dysfunction concerns (no sexual side effects)"
+          ],
+          "caution": [
+            "Anxiety-dominant: activating may worsen",
+            "Seizure-prone: contraindicated (lowers threshold)",
+            "Eating disorders (bulimia/anorexia): contraindicated",
+            "Yang-Wood с irritability: may amplify"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Activating = M-D ⇆ M-0 (anti-catabolic energy support)",
+            "Weight loss tendency = mild M-A reduction",
+            "Useful в sarcopenic depression (preserves muscle through activation)"
+          ]
+        },
+        "phase": {
+          "match": "Useful PCL-B stuck (low energy chronic) — push toward Normotonia",
+          "caution": "AVOID acute CA с panic — additive activation dangerous"
+        }
+      },
+      "safety": {
+        "contraindications": [
+          "[LBL] Seizure disorder",
+          "[LBL] Bulimia, anorexia nervosa (seizure risk)",
+          "[LBL] Concurrent MAOI",
+          "[LBL] Active alcohol withdrawal",
+          "[LBL] Recent abrupt benzo withdrawal"
+        ],
         "dose_seizure": "[LBL] Dose-dependent seizure: <300mg ~0.1%; 400+ mg ~0.4%",
         "monitoring": "[LBL] Hypertension monitoring needed"
       },
-      "adverse_events": {"common": ["[LBL] Insomnia (avoid PM dosing)", "[LBL] Dry mouth", "[LBL] Headache", "[LBL] Agitation/anxiety при start", "[LBL] Weight loss (often desirable)"], "serious": ["[LBL] Seizures (dose-dependent)", "[LBL] Hypertension", "[LBL] Psychosis (rare, в predisposed)"]},
-      "mark_observations": {"bupropion_ssri_combo": "[OBS-Mark] [Bupropion + SSRI для sexual dysfunction reversal — used?]", "contrave": "[OBS-Mark] [Contrave (bupropion+naltrexone) для weight management — clinical position?]"},
-      "references": ["FDA label Wellbutrin", "COMPASS trial — добавление к SSRI"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-106", "name_inn": "Mirtazapine", "name_ru": "Миртазапин",
-      "name_brand": "Remeron, Remeron SolTab", "status": "METACOD-RF", "batch": "07-Atypical",
-      "molecular": {"chemical_class": "Tetracyclic antidepressant (NaSSA)", "mechanism": ["[LBL] α2-adrenergic antagonist → increases NE and 5-HT release", "[LBL] 5-HT2A/2C/3 antagonist → no sexual dysfunction, anti-nausea", "[LBL] Strong H1 antagonism → sedation, weight gain"], "half_life": "20-40 hours", "metabolism": "CYP2D6, 1A2, 3A4"},
-      "indications": {"approved": ["MDD primarily"], "off_label": ["insomnia", "anxiety с depression", "appetite stimulant в cancer/elderly"]},
-      "dosing": {"dose": "15-45 mg PM", "administration": "PM (heavy sedation), with food OK"},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Heavy/dampening + cooling (anti-irritability) + appetite stimulating", "best_match": ["Yin-Water frail elderly with poor sleep + appetite + depression", "Cancer patients with poor appetite", "Insomnia с depression overlap", "Sexual dysfunction concerns (unique among antidepressants)"], "caution": ["Obese patients (weight gain 3-10 kg)", "Metabolic syndrome (worsens HbA1c, lipids)", "Yin-Earth (compound damp accumulation)"]},
-        "membrane": {"direction": ["M-A drift (weight gain, sedation, fluid retention)", "USEFUL в M-D states (anabolic support for frail elderly cancer)", "AVOID в pre-existing M-A2 (compound effect)"]},
-        "phase": {"match": "Useful insomnia + depression (sleep restoration helps PCL-A progression); useful acute distress (sedation calms CA-like states)"}
+      "adverse_events": {
+        "common": [
+          "[LBL] Insomnia (avoid PM dosing)",
+          "[LBL] Dry mouth",
+          "[LBL] Headache",
+          "[LBL] Agitation/anxiety при start",
+          "[LBL] Weight loss (often desirable)"
+        ],
+        "serious": [
+          "[LBL] Seizures (dose-dependent)",
+          "[LBL] Hypertension",
+          "[LBL] Psychosis (rare, в predisposed)"
+        ]
       },
-      "adverse_events": {"common": ["[LBL] Sedation (heavy, esp first weeks)", "[LBL] Weight gain (significant)", "[LBL] Increased appetite", "[LBL] Dry mouth", "[LBL] Constipation"], "serious": ["[LBL] Agranulocytosis (rare)", "[LBL] Hepatotoxicity (rare)", "[LBL] Hyponatremia (less than SSRI)", "[LBL] Restless legs syndrome"], "withdrawal": "[LBL] less severe than SSRI/SNRI"},
-      "safety": {"pregnancy": "limited data, generally avoid", "breastfeeding": "avoid", "elderly": "caution falls (sedation); but often used specifically for appetite/sleep"},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Mirtazapine в frail elderly cancer для appetite + sleep + depression triad?]"},
-      "references": ["FDA label Remeron", "Geriatric depression studies"],
-      "status_flags": {"mark_validated": false}
-    },
-    {
-      "drug_id": "DRG-107", "name_inn": "Trazodone", "name_ru": "Тразодон",
-      "name_brand": "Desyrel (older), Oleptro (ER)", "status": "METACOD-RF", "batch": "07-Atypical",
-      "molecular": {"chemical_class": "Serotonin modulator (5-HT2A antagonist, mild 5-HT reuptake inhibition)", "mechanism": ["[LBL] At low doses: primarily H1 antagonism + 5-HT2A → sleep effect", "[LBL] At high doses: antidepressant effects (rarely used)"], "half_life": "7-10 hours", "metabolism": "CYP3A4"},
-      "indications": {"approved": ["[LBL] MDD (at antidepressant doses 150-600 mg — rarely used)", "[LBL] Insomnia (off-label но widely used at 25-100 mg PM) — primary modern use"], "off_label_anxiety": "yes"},
-      "dosing": {"dose": "For insomnia: 25-100 mg PM (most common); for depression: 150-600 mg (rarely current practice)"},
-      "three_axis_profile": {
-        "constitutional": {"energy": "Heavy/sedating (low dose), mild cooling (higher doses)", "best_match": ["Insomnia в any constitution (low dose)", "Sleep disturbance с anxiety overlay", "Elderly с sleep concerns (less anticholinergic)"], "caution": ["Orthostatic hypotension prone (α1 antagonism)", "Priapism risk (rare but serious)"]},
-        "membrane": {"direction": ["Low dose: minimal effect (just sedation)", "High dose: similar to SSRI patterns"]},
-        "phase": {"match": "Useful когда sleep disruption blocking phase progression; sleep restoration helps PCL-A complete"}
+      "mark_observations": {
+        "bupropion_ssri_combo": "[OBS-Mark] [Bupropion + SSRI для sexual dysfunction reversal — used?]",
+        "contrave": "[OBS-Mark] [Contrave (bupropion+naltrexone) для weight management — clinical position?]"
       },
-      "adverse_events": {"common": ["sedation, dry mouth, orthostatic"], "serious": ["[LBL] Priapism (men — requires immediate evaluation)", "[LBL] QT prolongation (high dose)", "[LBL] Hyponatremia (high dose)", "[LBL] Severe orthostatic hypotension"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Trazodone low-dose для insomnia — preferred в which patients?]"},
-      "references": ["FDA label Desyrel", "Sleep medicine guidelines (off-label widely supported)"],
-      "status_flags": {"mark_validated": false}
+      "references": [
+        "FDA label Wellbutrin",
+        "COMPASS trial — добавление к SSRI"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-108", "name_inn": "Lithium carbonate / Lithium citrate", "name_ru": "Литий карбонат / Литий цитрат",
-      "name_brand": "Eskalith, Lithobid, Camcolit", "status": "METACOD-RF", "batch": "07-MoodStabilizer",
-      "molecular": {"chemical_class": "Monovalent cation, mood stabilizer", "mechanism": ["[LBL] Multiple proposed: inositol monophosphatase inhibition, GSK-3 inhibition, glutamate modulation", "[LBL] Mechanism not fully understood despite decades of use"], "half_life": "18-24 hours (varies с renal function)", "excretion": "95% renal (unchanged)", "metabolism": "None"},
-      "indications": {"approved": ["[LBL] Bipolar disorder (mania, maintenance)", "[LBL] Adjunct в treatment-resistant depression", "[LBL] Anti-suicide effect (only psychiatric med с established mortality reduction)"]},
-      "dosing": {"dose": "600-1800 mg/day (BID-TID); LEVEL-TARGETED, NOT dose-titrated", "levels": "Acute mania 0.8-1.2 mEq/L; maintenance 0.6-0.8; elderly 0.4-0.6; toxicity >1.5 caution, >2.0 serious, >2.5 emergency"},
+      "drug_id": "DRG-106",
+      "name_inn": "Mirtazapine",
+      "name_ru": "Миртазапин",
+      "name_brand": "Remeron, Remeron SolTab",
+      "status": "METACOD-RF",
+      "batch": "07-Atypical",
+      "molecular": {
+        "chemical_class": "Tetracyclic antidepressant (NaSSA)",
+        "mechanism": [
+          "[LBL] α2-adrenergic antagonist → increases NE and 5-HT release",
+          "[LBL] 5-HT2A/2C/3 antagonist → no sexual dysfunction, anti-nausea",
+          "[LBL] Strong H1 antagonism → sedation, weight gain"
+        ],
+        "half_life": "20-40 hours",
+        "metabolism": "CYP2D6, 1A2, 3A4"
+      },
+      "indications": {
+        "approved": [
+          "MDD primarily"
+        ],
+        "off_label": [
+          "insomnia",
+          "anxiety с depression",
+          "appetite stimulant в cancer/elderly"
+        ]
+      },
+      "dosing": {
+        "dose": "15-45 mg PM",
+        "administration": "PM (heavy sedation), with food OK"
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Stabilizing — reduces oscillations; mild cooling; mineral support (Yin-Water component reinforcement?)", "best_match": ["Bipolar I с classic mania/depression cycling", "Yang-Wood с extreme mood lability", "Family history of bipolar"], "caution": ["Renal function compromise (renal excretion)", "Thyroid disease (lithium suppresses thyroid)", "Dehydration risk (concentrates в kidney)", "Yin-Water (already cold + drug Cold = compound)"]},
-        "membrane": {"direction": ["Long-term: renal damage (M-D drift in kidney specifically)", "Thyroid suppression (Cold energy amplification)", "Long-term monitoring essential"]},
-        "phase": {"match": "Acute mania (extreme CA) — primary; maintenance prevents both CA (mania) and PCL stuck (depression); long-term phase stabilization"}
+        "constitutional": {
+          "energy": "Heavy/dampening + cooling (anti-irritability) + appetite stimulating",
+          "best_match": [
+            "Yin-Water frail elderly with poor sleep + appetite + depression",
+            "Cancer patients with poor appetite",
+            "Insomnia с depression overlap",
+            "Sexual dysfunction concerns (unique among antidepressants)"
+          ],
+          "caution": [
+            "Obese patients (weight gain 3-10 kg)",
+            "Metabolic syndrome (worsens HbA1c, lipids)",
+            "Yin-Earth (compound damp accumulation)"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "M-A drift (weight gain, sedation, fluid retention)",
+            "USEFUL в M-D states (anabolic support for frail elderly cancer)",
+            "AVOID в pre-existing M-A2 (compound effect)"
+          ]
+        },
+        "phase": {
+          "match": "Useful insomnia + depression (sleep restoration helps PCL-A progression); useful acute distress (sedation calms CA-like states)"
+        }
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Sedation (heavy, esp first weeks)",
+          "[LBL] Weight gain (significant)",
+          "[LBL] Increased appetite",
+          "[LBL] Dry mouth",
+          "[LBL] Constipation"
+        ],
+        "serious": [
+          "[LBL] Agranulocytosis (rare)",
+          "[LBL] Hepatotoxicity (rare)",
+          "[LBL] Hyponatremia (less than SSRI)",
+          "[LBL] Restless legs syndrome"
+        ],
+        "withdrawal": "[LBL] less severe than SSRI/SNRI"
       },
       "safety": {
-        "contraindications": ["[LBL] Severe renal disease (eGFR <30)", "[LBL] Severe CV disease (sodium depletion)", "[LBL] Pregnancy (Ebstein anomaly — historical concern, recent data more reassuring)", "[LBL] Hyponatremia"],
-        "narrow_therapeutic_index": ["[LBL] Level monitoring mandatory — every 3-6 months stable, more often начале", "[LBL] Dehydration, salt restriction, NSAIDs, diuretics → toxicity risk"],
-        "ddi_critical_2_star": ["[LBL] NSAIDs — reduce renal clearance, level rises", "[LBL] Thiazide diuretics — major level rise", "[LBL] ACE-i / ARB — level rise", "[LBL] Loop diuretics — variable effect"]
+        "pregnancy": "limited data, generally avoid",
+        "breastfeeding": "avoid",
+        "elderly": "caution falls (sedation); but often used specifically for appetite/sleep"
       },
-      "adverse_events": {"common": ["tremor, polydipsia/polyuria, weight gain, GI upset, cognitive blunting"], "serious": ["[LBL] Thyroid dysfunction (often hypothyroid — monitor TSH)", "[LBL] Renal damage (long-term interstitial nephropathy)", "[LBL] Hyperparathyroidism", "[LBL] Cardiac arrhythmias (T-wave changes, sinus node dysfunction)", "[LBL] Diabetes insipidus (nephrogenic)"], "toxicity_signs": "level >1.5: coarse tremor, ataxia, confusion, slurred speech → emergency"},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Lithium — bipolar primarily или augmentation в TRD?]"},
-      "references": ["FDA label Lithobid", "Decades of bipolar evidence", "Anti-suicide meta-analyses"],
-      "status_flags": {"mark_validated": false, "priority_for_mark_review": "HIGH (narrow therapeutic index, complex monitoring)"}
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Mirtazapine в frail elderly cancer для appetite + sleep + depression triad?]"
+      },
+      "references": [
+        "FDA label Remeron",
+        "Geriatric depression studies"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-109", "name_inn": "Valproate / Valproic acid / Divalproex", "name_ru": "Вальпроат / Вальпроевая кислота",
-      "name_brand": "Depakote, Depakene, Convulex", "status": "METACOD-RF", "batch": "07-MoodStabilizer",
-      "molecular": {"chemical_class": "Branched-chain fatty acid derivative, mood stabilizer + anticonvulsant", "mechanism": "Multiple — GABA enhancement, sodium channel block, others", "half_life": "~16 hours", "metabolism": "hepatic, glucuronidation + CYP2C9; STRONG CYP enzyme inhibitor — major DDI source"},
-      "indications": {"approved": ["[LBL] Bipolar disorder mania (acute, maintenance)", "[LBL] Epilepsy", "[LBL] Migraine prophylaxis", "[LBL] Off-label borderline personality disorder, impulsivity"]},
-      "dosing": {"dose": "500-3000 mg/day, level-targeted (50-125 μg/mL bipolar; 50-100 epilepsy)"},
+      "drug_id": "DRG-107",
+      "name_inn": "Trazodone",
+      "name_ru": "Тразодон",
+      "name_brand": "Desyrel (older), Oleptro (ER)",
+      "status": "METACOD-RF",
+      "batch": "07-Atypical",
+      "molecular": {
+        "chemical_class": "Serotonin modulator (5-HT2A antagonist, mild 5-HT reuptake inhibition)",
+        "mechanism": [
+          "[LBL] At low doses: primarily H1 antagonism + 5-HT2A → sleep effect",
+          "[LBL] At high doses: antidepressant effects (rarely used)"
+        ],
+        "half_life": "7-10 hours",
+        "metabolism": "CYP3A4"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] MDD (at antidepressant doses 150-600 mg — rarely used)",
+          "[LBL] Insomnia (off-label но widely used at 25-100 mg PM) — primary modern use"
+        ],
+        "off_label_anxiety": "yes"
+      },
+      "dosing": {
+        "dose": "For insomnia: 25-100 mg PM (most common); for depression: 150-600 mg (rarely current practice)"
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Sedating + dampening", "best_match": ["Bipolar с predominant mania", "Migraine + mood lability", "Yang-Wood с impulsivity"], "caution": ["PREGNANCY ABSOLUTE CONTRAINDICATION (highest teratogenicity — neural tube defects, autism, cognitive impairment)", "Women of childbearing potential require strict contraception", "Children/adolescents — limited use, alternatives preferred"]},
-        "membrane": {"direction": ["Weight gain pattern (M-A drift)", "Hepatic monitoring required", "Pancreatic monitoring (pancreatitis risk)"]},
-        "phase": {"match": "Acute mania (CA extreme) — primary; maintenance prevents both poles"}
+        "constitutional": {
+          "energy": "Heavy/sedating (low dose), mild cooling (higher doses)",
+          "best_match": [
+            "Insomnia в any constitution (low dose)",
+            "Sleep disturbance с anxiety overlay",
+            "Elderly с sleep concerns (less anticholinergic)"
+          ],
+          "caution": [
+            "Orthostatic hypotension prone (α1 antagonism)",
+            "Priapism risk (rare but serious)"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Low dose: minimal effect (just sedation)",
+            "High dose: similar to SSRI patterns"
+          ]
+        },
+        "phase": {
+          "match": "Useful когда sleep disruption blocking phase progression; sleep restoration helps PCL-A complete"
+        }
       },
-      "safety": {"contraindications": ["[LBL] PREGNANCY (absolute — most teratogenic anticonvulsant)", "[LBL] Hepatic disease", "[LBL] Urea cycle disorders", "[LBL] Mitochondrial disease (POLG mutations — fatal hepatic failure)"], "black_box": "[LBL] hepatotoxicity, pancreatitis, teratogenicity"},
-      "adverse_events": {"common": ["tremor, weight gain, hair loss, GI upset, sedation"], "serious": ["[LBL] Hepatotoxicity (children esp — sometimes fatal)", "[LBL] Pancreatitis (sometimes fatal)", "[LBL] Teratogenicity (NTD 1-2%, lower IQ, autism)", "[LBL] Thrombocytopenia", "[LBL] Hyperammonemia (encephalopathy)", "[LBL] PCOS (women)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Valproate — limited use given safety concerns?]"},
-      "references": ["FDA label Depakote", "Multiple teratogenicity studies"],
-      "status_flags": {"mark_validated": false}
+      "adverse_events": {
+        "common": [
+          "sedation, dry mouth, orthostatic"
+        ],
+        "serious": [
+          "[LBL] Priapism (men — requires immediate evaluation)",
+          "[LBL] QT prolongation (high dose)",
+          "[LBL] Hyponatremia (high dose)",
+          "[LBL] Severe orthostatic hypotension"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Trazodone low-dose для insomnia — preferred в which patients?]"
+      },
+      "references": [
+        "FDA label Desyrel",
+        "Sleep medicine guidelines (off-label widely supported)"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-110", "name_inn": "Lamotrigine", "name_ru": "Ламотриджин",
-      "name_brand": "Lamictal", "status": "METACOD-RF", "batch": "07-MoodStabilizer",
-      "molecular": {"chemical_class": "Phenyltriazine, sodium channel modulator", "mechanism": "Sodium channel blockade + glutamate release inhibition", "half_life": "25 hours (varies с DDI)", "metabolism": "glucuronidation (UGT1A4)"},
-      "indications": {"approved": ["[LBL] Bipolar maintenance (especially depression-predominant)", "[LBL] Epilepsy (focal, generalized)"]},
-      "dosing": {"dose": "SLOW TITRATION MANDATORY — SJS risk if rapid", "schedule": ["[LBL] 25 mg daily × 2 weeks → 50 mg × 2w → 100 mg × 1w → up to 200 mg", "[LBL] If on valproate: slower (12.5 mg start, halve all steps)", "[LBL] If on enzyme inducers: faster but careful"]},
+      "drug_id": "DRG-108",
+      "name_inn": "Lithium carbonate / Lithium citrate",
+      "name_ru": "Литий карбонат / Литий цитрат",
+      "name_brand": "Eskalith, Lithobid, Camcolit",
+      "status": "METACOD-RF",
+      "batch": "07-MoodStabilizer",
+      "molecular": {
+        "chemical_class": "Monovalent cation, mood stabilizer",
+        "mechanism": [
+          "[LBL] Multiple proposed: inositol monophosphatase inhibition, GSK-3 inhibition, glutamate modulation",
+          "[LBL] Mechanism not fully understood despite decades of use"
+        ],
+        "half_life": "18-24 hours (varies с renal function)",
+        "excretion": "95% renal (unchanged)",
+        "metabolism": "None"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Bipolar disorder (mania, maintenance)",
+          "[LBL] Adjunct в treatment-resistant depression",
+          "[LBL] Anti-suicide effect (only psychiatric med с established mortality reduction)"
+        ]
+      },
+      "dosing": {
+        "dose": "600-1800 mg/day (BID-TID); LEVEL-TARGETED, NOT dose-titrated",
+        "levels": "Acute mania 0.8-1.2 mEq/L; maintenance 0.6-0.8; elderly 0.4-0.6; toxicity >1.5 caution, >2.0 serious, >2.5 emergency"
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Stabilizing, mild activating", "best_match": ["Bipolar II с depressive predominance (lamotrigine prefer for depression pole)", "Less weight gain than valproate, lithium", "Better cognitive tolerability"]},
-        "membrane": {"direction": ["Weight neutral (advantage)", "Long-term tolerability good"]},
-        "phase": {"match": "Anti-depression in bipolar (M-D drift counteraction); less effective acute mania"}
+        "constitutional": {
+          "energy": "Stabilizing — reduces oscillations; mild cooling; mineral support (Yin-Water component reinforcement?)",
+          "best_match": [
+            "Bipolar I с classic mania/depression cycling",
+            "Yang-Wood с extreme mood lability",
+            "Family history of bipolar"
+          ],
+          "caution": [
+            "Renal function compromise (renal excretion)",
+            "Thyroid disease (lithium suppresses thyroid)",
+            "Dehydration risk (concentrates в kidney)",
+            "Yin-Water (already cold + drug Cold = compound)"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Long-term: renal damage (M-D drift in kidney specifically)",
+            "Thyroid suppression (Cold energy amplification)",
+            "Long-term monitoring essential"
+          ]
+        },
+        "phase": {
+          "match": "Acute mania (extreme CA) — primary; maintenance prevents both CA (mania) and PCL stuck (depression); long-term phase stabilization"
+        }
       },
-      "safety": {"critical": ["[LBL] Stevens-Johnson syndrome / TEN — rare but life-threatening", "[LBL] Rash rate ~10%, serious rash ~0.1% adults, higher children", "[LBL] Slow titration MANDATORY", "[LBL] If rash develops — discontinue immediately, evaluate", "[LBL] DRESS syndrome (rare)"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Lamotrigine в bipolar depression — first-line preference?]"},
-      "references": ["FDA label Lamictal"],
-      "status_flags": {"mark_validated": false}
+      "safety": {
+        "contraindications": [
+          "[LBL] Severe renal disease (eGFR <30)",
+          "[LBL] Severe CV disease (sodium depletion)",
+          "[LBL] Pregnancy (Ebstein anomaly — historical concern, recent data more reassuring)",
+          "[LBL] Hyponatremia"
+        ],
+        "narrow_therapeutic_index": [
+          "[LBL] Level monitoring mandatory — every 3-6 months stable, more often начале",
+          "[LBL] Dehydration, salt restriction, NSAIDs, diuretics → toxicity risk"
+        ],
+        "ddi_critical_2_star": [
+          "[LBL] NSAIDs — reduce renal clearance, level rises",
+          "[LBL] Thiazide diuretics — major level rise",
+          "[LBL] ACE-i / ARB — level rise",
+          "[LBL] Loop diuretics — variable effect"
+        ]
+      },
+      "adverse_events": {
+        "common": [
+          "tremor, polydipsia/polyuria, weight gain, GI upset, cognitive blunting"
+        ],
+        "serious": [
+          "[LBL] Thyroid dysfunction (often hypothyroid — monitor TSH)",
+          "[LBL] Renal damage (long-term interstitial nephropathy)",
+          "[LBL] Hyperparathyroidism",
+          "[LBL] Cardiac arrhythmias (T-wave changes, sinus node dysfunction)",
+          "[LBL] Diabetes insipidus (nephrogenic)"
+        ],
+        "toxicity_signs": "level >1.5: coarse tremor, ataxia, confusion, slurred speech → emergency"
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Lithium — bipolar primarily или augmentation в TRD?]"
+      },
+      "references": [
+        "FDA label Lithobid",
+        "Decades of bipolar evidence",
+        "Anti-suicide meta-analyses"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "priority_for_mark_review": "HIGH (narrow therapeutic index, complex monitoring)"
+      }
     },
     {
-      "drug_id": "DRG-111", "name_inn": "Quetiapine", "name_ru": "Кветиапин",
-      "name_brand": "Seroquel, Seroquel XR", "status": "METACOD-RF", "batch": "07-Antipsychotic",
-      "molecular": {"chemical_class": "Atypical antipsychotic, multi-receptor (D2, 5-HT2A, H1, α1, M1)", "half_life": "~6 hours (IR), 7 hours (XR but more sustained)", "metabolism": "CYP3A4 primarily"},
-      "indications": {"approved": ["[LBL] Schizophrenia", "[LBL] Bipolar mania, depression, maintenance", "[LBL] MDD adjunct", "[LBL] Off-label widely для insomnia (low dose 25-100 mg PM) — controversial"]},
-      "dosing": {"dose": "Schizophrenia 400-800 mg/day; bipolar mania 400-800; depression 150-300; insomnia off-label 25-100 mg PM (use carefully)"},
+      "drug_id": "DRG-109",
+      "name_inn": "Valproate / Valproic acid / Divalproex",
+      "name_ru": "Вальпроат / Вальпроевая кислота",
+      "name_brand": "Depakote, Depakene, Convulex",
+      "status": "METACOD-RF",
+      "batch": "07-MoodStabilizer",
+      "molecular": {
+        "chemical_class": "Branched-chain fatty acid derivative, mood stabilizer + anticonvulsant",
+        "mechanism": "Multiple — GABA enhancement, sodium channel block, others",
+        "half_life": "~16 hours",
+        "metabolism": "hepatic, glucuronidation + CYP2C9; STRONG CYP enzyme inhibitor — major DDI source"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Bipolar disorder mania (acute, maintenance)",
+          "[LBL] Epilepsy",
+          "[LBL] Migraine prophylaxis",
+          "[LBL] Off-label borderline personality disorder, impulsivity"
+        ]
+      },
+      "dosing": {
+        "dose": "500-3000 mg/day, level-targeted (50-125 μg/mL bipolar; 50-100 epilepsy)"
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Heavy sedating + cooling + dampening (strongly suppressive)", "best_match": ["Acute psychotic states (CA extreme)", "Bipolar mania (acute)", "Severe insomnia (off-label, controversial)"], "caution": ["Metabolic syndrome at risk — weight gain, diabetes risk", "Elderly (orthostatic, sedation)", "Off-label insomnia use overprescribed — significant metabolic burden для simple sleep issue"]},
-        "membrane": {"direction": ["Strong M-A drift — weight gain 5-15 kg common long-term", "Diabetes induction (class effect)", "Pre-diabetic / metabolic syndrome patients at high risk"]},
-        "phase": {"match": "Acute CA (psychosis, mania) — primary", "caveat": "Chronic maintenance: balance benefit vs metabolic harm"}
+        "constitutional": {
+          "energy": "Sedating + dampening",
+          "best_match": [
+            "Bipolar с predominant mania",
+            "Migraine + mood lability",
+            "Yang-Wood с impulsivity"
+          ],
+          "caution": [
+            "PREGNANCY ABSOLUTE CONTRAINDICATION (highest teratogenicity — neural tube defects, autism, cognitive impairment)",
+            "Women of childbearing potential require strict contraception",
+            "Children/adolescents — limited use, alternatives preferred"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Weight gain pattern (M-A drift)",
+            "Hepatic monitoring required",
+            "Pancreatic monitoring (pancreatitis risk)"
+          ]
+        },
+        "phase": {
+          "match": "Acute mania (CA extreme) — primary; maintenance prevents both poles"
+        }
       },
-      "safety": {"critical": ["[LBL] Metabolic syndrome — weight gain, diabetes, hyperlipidemia", "[LBL] Sedation can be profound", "[LBL] Orthostatic hypotension", "[LBL] QT prolongation (some risk)", "[LBL] Tardive dyskinesia (less than typical, but still)", "[LBL] Black box: elderly с dementia mortality"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Quetiapine off-label для sleep — твой подход?]"},
-      "status_flags": {"mark_validated": false, "note": "Off-label insomnia use — modern psychiatry concern. Heavy metabolic burden for sleep issue."}
+      "safety": {
+        "contraindications": [
+          "[LBL] PREGNANCY (absolute — most teratogenic anticonvulsant)",
+          "[LBL] Hepatic disease",
+          "[LBL] Urea cycle disorders",
+          "[LBL] Mitochondrial disease (POLG mutations — fatal hepatic failure)"
+        ],
+        "black_box": "[LBL] hepatotoxicity, pancreatitis, teratogenicity"
+      },
+      "adverse_events": {
+        "common": [
+          "tremor, weight gain, hair loss, GI upset, sedation"
+        ],
+        "serious": [
+          "[LBL] Hepatotoxicity (children esp — sometimes fatal)",
+          "[LBL] Pancreatitis (sometimes fatal)",
+          "[LBL] Teratogenicity (NTD 1-2%, lower IQ, autism)",
+          "[LBL] Thrombocytopenia",
+          "[LBL] Hyperammonemia (encephalopathy)",
+          "[LBL] PCOS (women)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Valproate — limited use given safety concerns?]"
+      },
+      "references": [
+        "FDA label Depakote",
+        "Multiple teratogenicity studies"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-112", "name_inn": "Olanzapine", "name_ru": "Оланзапин",
-      "name_brand": "Zyprexa", "status": "METACOD-RF", "batch": "07-Antipsychotic",
-      "molecular": {"chemical_class": "Atypical antipsychotic", "mechanism": "Multi-receptor like quetiapine", "half_life": "30 hours", "metabolism": "CYP1A2"},
-      "indications": {"approved": ["Schizophrenia", "bipolar mania", "treatment-resistant depression (с fluoxetine = Symbyax)"]},
-      "dosing": {"dose": "5-20 mg PM"},
+      "drug_id": "DRG-110",
+      "name_inn": "Lamotrigine",
+      "name_ru": "Ламотриджин",
+      "name_brand": "Lamictal",
+      "status": "METACOD-RF",
+      "batch": "07-MoodStabilizer",
+      "molecular": {
+        "chemical_class": "Phenyltriazine, sodium channel modulator",
+        "mechanism": "Sodium channel blockade + glutamate release inhibition",
+        "half_life": "25 hours (varies с DDI)",
+        "metabolism": "glucuronidation (UGT1A4)"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Bipolar maintenance (especially depression-predominant)",
+          "[LBL] Epilepsy (focal, generalized)"
+        ]
+      },
+      "dosing": {
+        "dose": "SLOW TITRATION MANDATORY — SJS risk if rapid",
+        "schedule": [
+          "[LBL] 25 mg daily × 2 weeks → 50 mg × 2w → 100 mg × 1w → up to 200 mg",
+          "[LBL] If on valproate: slower (12.5 mg start, halve all steps)",
+          "[LBL] If on enzyme inducers: faster but careful"
+        ]
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Heavy dampening + cooling, highest weight gain of antipsychotics (often 10-15+ kg); significant metabolic burden"},
-        "membrane": {"direction": ["Worst M-A drift in antipsychotic class", "Diabetes induction high rate", "Lipid changes significant"]},
-        "phase": {"match": "Effective acute mania, psychosis; chronic use: weighing metabolic burden critical"}
+        "constitutional": {
+          "energy": "Stabilizing, mild activating",
+          "best_match": [
+            "Bipolar II с depressive predominance (lamotrigine prefer for depression pole)",
+            "Less weight gain than valproate, lithium",
+            "Better cognitive tolerability"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Weight neutral (advantage)",
+            "Long-term tolerability good"
+          ]
+        },
+        "phase": {
+          "match": "Anti-depression in bipolar (M-D drift counteraction); less effective acute mania"
+        }
       },
-      "safety": {"critical": ["[LBL] Metabolic syndrome — worst in class", "[LBL] DRESS syndrome (rare)", "[LBL] Black box: elderly dementia mortality", "[LBL] Olanzapine LAI: post-injection delirium/sedation syndrome"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Olanzapine — reserved для refractory cases?]"},
-      "references": ["FDA label Zyprexa", "Multiple metabolic side effect studies"],
-      "status_flags": {"mark_validated": false}
+      "safety": {
+        "critical": [
+          "[LBL] Stevens-Johnson syndrome / TEN — rare but life-threatening",
+          "[LBL] Rash rate ~10%, serious rash ~0.1% adults, higher children",
+          "[LBL] Slow titration MANDATORY",
+          "[LBL] If rash develops — discontinue immediately, evaluate",
+          "[LBL] DRESS syndrome (rare)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Lamotrigine в bipolar depression — first-line preference?]"
+      },
+      "references": [
+        "FDA label Lamictal"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-113", "name_inn": "Aripiprazole", "name_ru": "Арипипразол",
-      "name_brand": "Abilify, Abilify Maintena (LAI)", "status": "METACOD-RF", "batch": "07-Antipsychotic",
-      "molecular": {"chemical_class": "Atypical antipsychotic (partial D2 agonist — unique mechanism)", "mechanism": "Partial agonism at D2 + 5-HT1A; antagonism at 5-HT2A", "half_life": "75 hours", "metabolism": "CYP3A4, CYP2D6"},
-      "indications": {"approved": ["[LBL] Schizophrenia", "[LBL] Bipolar mania", "[LBL] MDD adjunct (low dose 2-15 mg)", "[LBL] Pediatric autism-associated irritability", "[LBL] Tourette syndrome"]},
-      "dosing": {"dose": "Schizophrenia/Bipolar 10-30 mg; MDD adjunct 2-15 mg (low dose)"},
+      "drug_id": "DRG-111",
+      "name_inn": "Quetiapine",
+      "name_ru": "Кветиапин",
+      "name_brand": "Seroquel, Seroquel XR",
+      "status": "METACOD-RF",
+      "batch": "07-Antipsychotic",
+      "molecular": {
+        "chemical_class": "Atypical antipsychotic, multi-receptor (D2, 5-HT2A, H1, α1, M1)",
+        "half_life": "~6 hours (IR), 7 hours (XR but more sustained)",
+        "metabolism": "CYP3A4 primarily"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Schizophrenia",
+          "[LBL] Bipolar mania, depression, maintenance",
+          "[LBL] MDD adjunct",
+          "[LBL] Off-label widely для insomnia (low dose 25-100 mg PM) — controversial"
+        ]
+      },
+      "dosing": {
+        "dose": "Schizophrenia 400-800 mg/day; bipolar mania 400-800; depression 150-300; insomnia off-label 25-100 mg PM (use carefully)"
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Activating (unique — partial D2 agonism); NOT sedating like other antipsychotics; less metabolic effect", "best_match": ["Schizophrenia с negative symptoms (activation helps)", "MDD adjunct без sedation burden", "Patients где metabolic concern prohibits olanzapine/quetiapine"]},
-        "membrane": {"direction": ["Lowest M-A drift in class (significant advantage)", "Weight neutral or only mild gain", "Minimal metabolic syndrome induction"]},
-        "phase": {"match": "Useful chronic maintenance (less metabolic burden = sustainable long-term)"}
+        "constitutional": {
+          "energy": "Heavy sedating + cooling + dampening (strongly suppressive)",
+          "best_match": [
+            "Acute psychotic states (CA extreme)",
+            "Bipolar mania (acute)",
+            "Severe insomnia (off-label, controversial)"
+          ],
+          "caution": [
+            "Metabolic syndrome at risk — weight gain, diabetes risk",
+            "Elderly (orthostatic, sedation)",
+            "Off-label insomnia use overprescribed — significant metabolic burden для simple sleep issue"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Strong M-A drift — weight gain 5-15 kg common long-term",
+            "Diabetes induction (class effect)",
+            "Pre-diabetic / metabolic syndrome patients at high risk"
+          ]
+        },
+        "phase": {
+          "match": "Acute CA (psychosis, mania) — primary",
+          "caveat": "Chronic maintenance: balance benefit vs metabolic harm"
+        }
       },
-      "safety": {"notes": ["[LBL] Akathisia common (restless movement disorder)", "[LBL] Less metabolic syndrome than other atypicals", "[LBL] Impulse control disorders (gambling, hypersexuality — rare but documented)", "[LBL] Black box: elderly dementia mortality"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Aripiprazole в MDD augmentation — preferred over quetiapine due to metabolic profile?]"},
-      "references": ["FDA label Abilify", "CALYPSO trial — TRD augmentation"],
-      "status_flags": {"mark_validated": false}
+      "safety": {
+        "critical": [
+          "[LBL] Metabolic syndrome — weight gain, diabetes, hyperlipidemia",
+          "[LBL] Sedation can be profound",
+          "[LBL] Orthostatic hypotension",
+          "[LBL] QT prolongation (some risk)",
+          "[LBL] Tardive dyskinesia (less than typical, but still)",
+          "[LBL] Black box: elderly с dementia mortality"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Quetiapine off-label для sleep — твой подход?]"
+      },
+      "status_flags": {
+        "mark_validated": false,
+        "note": "Off-label insomnia use — modern psychiatry concern. Heavy metabolic burden for sleep issue."
+      }
     },
     {
-      "drug_id": "DRG-114", "name_inn": "Risperidone", "name_ru": "Рисперидон",
-      "name_brand": "Risperdal, Risperdal Consta (LAI)", "status": "METACOD-RF", "batch": "07-Antipsychotic",
-      "molecular": {"chemical_class": "Atypical antipsychotic", "half_life": "3-20h (varies с CYP2D6 status; metabolite paliperidone significant)", "metabolism": "CYP2D6 → 9-OH-risperidone (paliperidone, also active)"},
-      "indications": {"approved": ["Schizophrenia", "bipolar mania", "autism-associated irritability (pediatric)"]},
-      "dosing": {"dose": "1-8 mg/day"},
+      "drug_id": "DRG-112",
+      "name_inn": "Olanzapine",
+      "name_ru": "Оланзапин",
+      "name_brand": "Zyprexa",
+      "status": "METACOD-RF",
+      "batch": "07-Antipsychotic",
+      "molecular": {
+        "chemical_class": "Atypical antipsychotic",
+        "mechanism": "Multi-receptor like quetiapine",
+        "half_life": "30 hours",
+        "metabolism": "CYP1A2"
+      },
+      "indications": {
+        "approved": [
+          "Schizophrenia",
+          "bipolar mania",
+          "treatment-resistant depression (с fluoxetine = Symbyax)"
+        ]
+      },
+      "dosing": {
+        "dose": "5-20 mg PM"
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Cooling + moderately sedating", "match": "Schizophrenia spectrum; less metabolic than olanzapine but more than aripiprazole"},
-        "membrane": {"direction": ["Moderate M-A drift (weight gain, but less than olanzapine)", "Hyperprolactinemia significant (more than other atypicals) → sexual dysfunction, gynecomastia, osteoporosis long-term"]},
-        "phase": {"match": "Acute and maintenance use; LAI form для adherence concerns"}
+        "constitutional": {
+          "energy": "Heavy dampening + cooling, highest weight gain of antipsychotics (often 10-15+ kg); significant metabolic burden"
+        },
+        "membrane": {
+          "direction": [
+            "Worst M-A drift in antipsychotic class",
+            "Diabetes induction high rate",
+            "Lipid changes significant"
+          ]
+        },
+        "phase": {
+          "match": "Effective acute mania, psychosis; chronic use: weighing metabolic burden critical"
+        }
       },
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Risperidone hyperprolactinemia management — switch trigger?]"},
-      "status_flags": {"mark_validated": false}
+      "safety": {
+        "critical": [
+          "[LBL] Metabolic syndrome — worst in class",
+          "[LBL] DRESS syndrome (rare)",
+          "[LBL] Black box: elderly dementia mortality",
+          "[LBL] Olanzapine LAI: post-injection delirium/sedation syndrome"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Olanzapine — reserved для refractory cases?]"
+      },
+      "references": [
+        "FDA label Zyprexa",
+        "Multiple metabolic side effect studies"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-115", "name_inn": "Alprazolam", "name_ru": "Алпразолам",
-      "name_brand": "Xanax", "status": "METACOD-RF", "batch": "07-Benzo",
-      "molecular": {"chemical_class": "Short-acting benzodiazepine", "half_life": "12 hours", "metabolism": "CYP3A4"},
-      "indications": {"approved": ["Panic disorder", "GAD (short-term)"]},
-      "dosing": {"dose": "0.25-3 mg/day in divided doses"},
+      "drug_id": "DRG-113",
+      "name_inn": "Aripiprazole",
+      "name_ru": "Арипипразол",
+      "name_brand": "Abilify, Abilify Maintena (LAI)",
+      "status": "METACOD-RF",
+      "batch": "07-Antipsychotic",
+      "molecular": {
+        "chemical_class": "Atypical antipsychotic (partial D2 agonist — unique mechanism)",
+        "mechanism": "Partial agonism at D2 + 5-HT1A; antagonism at 5-HT2A",
+        "half_life": "75 hours",
+        "metabolism": "CYP3A4, CYP2D6"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Schizophrenia",
+          "[LBL] Bipolar mania",
+          "[LBL] MDD adjunct (low dose 2-15 mg)",
+          "[LBL] Pediatric autism-associated irritability",
+          "[LBL] Tourette syndrome"
+        ]
+      },
+      "dosing": {
+        "dose": "Schizophrenia/Bipolar 10-30 mg; MDD adjunct 2-15 mg (low dose)"
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Heavy cooling + sedating", "best_match": ["Acute panic attacks (CA extreme)", "Phobic anxiety"], "caution": ["Elderly — sedation, falls, cognitive issues", "Substance use history — high addiction potential", "Yin-Water (compound cold/sedating)"]},
-        "membrane": {"direction": ["Short-term: minimal", "Long-term: cognitive blunting может precipitate frailty in elderly"]},
-        "phase": {"match": "Acute CA (panic) — primary", "caution": "AVOID chronic use — leads to dependency, tolerance, withdrawal"}
+        "constitutional": {
+          "energy": "Activating (unique — partial D2 agonism); NOT sedating like other antipsychotics; less metabolic effect",
+          "best_match": [
+            "Schizophrenia с negative symptoms (activation helps)",
+            "MDD adjunct без sedation burden",
+            "Patients где metabolic concern prohibits olanzapine/quetiapine"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Lowest M-A drift in class (significant advantage)",
+            "Weight neutral or only mild gain",
+            "Minimal metabolic syndrome induction"
+          ]
+        },
+        "phase": {
+          "match": "Useful chronic maintenance (less metabolic burden = sustainable long-term)"
+        }
       },
-      "safety": {"critical": ["[LBL] High abuse potential (Schedule IV)", "[LBL] Severe withdrawal — seizures possible", "[LBL] Cognitive impairment, anterograde amnesia", "[LBL] Falls в elderly", "[LBL] Combined с opioids: respiratory depression / death (Black box)", "[LBL] Beers criteria — AVOID в elderly"]},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Alprazolam — short course только, или chronic anxiety management?]", "rf_mark_canonical": "[RF mark canonical] Chronic benzo use в elderly = high concern"},
-      "status_flags": {"mark_validated": false}
+      "safety": {
+        "notes": [
+          "[LBL] Akathisia common (restless movement disorder)",
+          "[LBL] Less metabolic syndrome than other atypicals",
+          "[LBL] Impulse control disorders (gambling, hypersexuality — rare but documented)",
+          "[LBL] Black box: elderly dementia mortality"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Aripiprazole в MDD augmentation — preferred over quetiapine due to metabolic profile?]"
+      },
+      "references": [
+        "FDA label Abilify",
+        "CALYPSO trial — TRD augmentation"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-116", "name_inn": "Lorazepam", "name_ru": "Лоразепам",
-      "name_brand": "Ativan", "status": "METACOD-RF", "batch": "07-Benzo",
-      "molecular": {"chemical_class": "Intermediate-acting benzodiazepine", "half_life": "12 hours", "metabolism": "glucuronidation (NOT CYP — advantage в liver disease)", "note": "Preferred benzo в hepatic disease and elderly"},
-      "indications": {"approved": ["Anxiety", "sedation", "status epilepticus (IV)", "alcohol withdrawal"]},
-      "dosing": {"dose": "0.5-2 mg q6-8h"},
+      "drug_id": "DRG-114",
+      "name_inn": "Risperidone",
+      "name_ru": "Рисперидон",
+      "name_brand": "Risperdal, Risperdal Consta (LAI)",
+      "status": "METACOD-RF",
+      "batch": "07-Antipsychotic",
+      "molecular": {
+        "chemical_class": "Atypical antipsychotic",
+        "half_life": "3-20h (varies с CYP2D6 status; metabolite paliperidone significant)",
+        "metabolism": "CYP2D6 → 9-OH-risperidone (paliperidone, also active)"
+      },
+      "indications": {
+        "approved": [
+          "Schizophrenia",
+          "bipolar mania",
+          "autism-associated irritability (pediatric)"
+        ]
+      },
+      "dosing": {
+        "dose": "1-8 mg/day"
+      },
       "three_axis_profile": {
-        "constitutional": {"energy": "Same class profile", "distinct_clinical": "Hepatic disease tolerance, alcohol withdrawal use"},
-        "membrane": {"direction": ["Class pattern"]},
-        "phase": {"match": "Acute CA management; status epilepticus (severe CA); alcohol withdrawal (CA from physiological dependence)"}
+        "constitutional": {
+          "energy": "Cooling + moderately sedating",
+          "match": "Schizophrenia spectrum; less metabolic than olanzapine but more than aripiprazole"
+        },
+        "membrane": {
+          "direction": [
+            "Moderate M-A drift (weight gain, but less than olanzapine)",
+            "Hyperprolactinemia significant (more than other atypicals) → sexual dysfunction, gynecomastia, osteoporosis long-term"
+          ]
+        },
+        "phase": {
+          "match": "Acute and maintenance use; LAI form для adherence concerns"
+        }
       },
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Lorazepam в hepatic disease — preferred benzo?]"},
-      "status_flags": {"mark_validated": false}
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Risperidone hyperprolactinemia management — switch trigger?]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-117", "name_inn": "Diazepam", "name_ru": "Диазепам",
-      "name_brand": "Valium", "status": "METACOD-RF", "batch": "07-Benzo",
-      "molecular": {"chemical_class": "Long-acting benzodiazepine", "half_life": "20-100 hours (with active metabolites very long)"},
-      "indications": {"approved": ["Anxiety", "muscle spasm", "alcohol withdrawal", "status epilepticus", "seizures"]},
-      "dosing": {"dose": "2-10 mg q6-8h"},
-      "three_axis_profile": {"note": "Class pattern; long half-life = problematic в elderly (accumulation); AVOID elderly (Beers); useful в alcohol withdrawal (long-acting smooths taper)"},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Diazepam — limited use в modern practice?]"},
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-115",
+      "name_inn": "Alprazolam",
+      "name_ru": "Алпразолам",
+      "name_brand": "Xanax",
+      "status": "METACOD-RF",
+      "batch": "07-Benzo",
+      "molecular": {
+        "chemical_class": "Short-acting benzodiazepine",
+        "half_life": "12 hours",
+        "metabolism": "CYP3A4"
+      },
+      "indications": {
+        "approved": [
+          "Panic disorder",
+          "GAD (short-term)"
+        ]
+      },
+      "dosing": {
+        "dose": "0.25-3 mg/day in divided doses"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Heavy cooling + sedating",
+          "best_match": [
+            "Acute panic attacks (CA extreme)",
+            "Phobic anxiety"
+          ],
+          "caution": [
+            "Elderly — sedation, falls, cognitive issues",
+            "Substance use history — high addiction potential",
+            "Yin-Water (compound cold/sedating)"
+          ]
+        },
+        "membrane": {
+          "direction": [
+            "Short-term: minimal",
+            "Long-term: cognitive blunting может precipitate frailty in elderly"
+          ]
+        },
+        "phase": {
+          "match": "Acute CA (panic) — primary",
+          "caution": "AVOID chronic use — leads to dependency, tolerance, withdrawal"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] High abuse potential (Schedule IV)",
+          "[LBL] Severe withdrawal — seizures possible",
+          "[LBL] Cognitive impairment, anterograde amnesia",
+          "[LBL] Falls в elderly",
+          "[LBL] Combined с opioids: respiratory depression / death (Black box)",
+          "[LBL] Beers criteria — AVOID в elderly"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Alprazolam — short course только, или chronic anxiety management?]",
+        "rf_mark_canonical": "[RF mark canonical] Chronic benzo use в elderly = high concern"
+      },
+      "status_flags": {
+        "mark_validated": false
+      }
     },
     {
-      "drug_id": "DRG-118", "name_inn": "Clonazepam", "name_ru": "Клоназепам",
-      "name_brand": "Klonopin, Rivotril", "status": "METACOD-RF", "batch": "07-Benzo",
-      "molecular": {"chemical_class": "Long-acting benzodiazepine", "half_life": "18-50 hours", "metabolism": "CYP3A4"},
-      "indications": {"approved": ["Panic disorder", "epilepsy (myoclonic, absence)", "restless legs syndrome (off-label)"]},
-      "dosing": {"dose": "0.5-4 mg/day"},
-      "three_axis_profile": {"note": "Useful panic disorder maintenance (longer half-life = smoother coverage); long-term concerns same as class"},
-      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Clonazepam в panic disorder — preferred over alprazolam due to smoother profile?]"},
-      "status_flags": {"mark_validated": false}
+      "drug_id": "DRG-116",
+      "name_inn": "Lorazepam",
+      "name_ru": "Лоразепам",
+      "name_brand": "Ativan",
+      "status": "METACOD-RF",
+      "batch": "07-Benzo",
+      "molecular": {
+        "chemical_class": "Intermediate-acting benzodiazepine",
+        "half_life": "12 hours",
+        "metabolism": "glucuronidation (NOT CYP — advantage в liver disease)",
+        "note": "Preferred benzo в hepatic disease and elderly"
+      },
+      "indications": {
+        "approved": [
+          "Anxiety",
+          "sedation",
+          "status epilepticus (IV)",
+          "alcohol withdrawal"
+        ]
+      },
+      "dosing": {
+        "dose": "0.5-2 mg q6-8h"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Same class profile",
+          "distinct_clinical": "Hepatic disease tolerance, alcohol withdrawal use"
+        },
+        "membrane": {
+          "direction": [
+            "Class pattern"
+          ]
+        },
+        "phase": {
+          "match": "Acute CA management; status epilepticus (severe CA); alcohol withdrawal (CA from physiological dependence)"
+        }
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Lorazepam в hepatic disease — preferred benzo?]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-117",
+      "name_inn": "Diazepam",
+      "name_ru": "Диазепам",
+      "name_brand": "Valium",
+      "status": "METACOD-RF",
+      "batch": "07-Benzo",
+      "molecular": {
+        "chemical_class": "Long-acting benzodiazepine",
+        "half_life": "20-100 hours (with active metabolites very long)"
+      },
+      "indications": {
+        "approved": [
+          "Anxiety",
+          "muscle spasm",
+          "alcohol withdrawal",
+          "status epilepticus",
+          "seizures"
+        ]
+      },
+      "dosing": {
+        "dose": "2-10 mg q6-8h"
+      },
+      "three_axis_profile": {
+        "note": "Class pattern; long half-life = problematic в elderly (accumulation); AVOID elderly (Beers); useful в alcohol withdrawal (long-acting smooths taper)"
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Diazepam — limited use в modern practice?]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-118",
+      "name_inn": "Clonazepam",
+      "name_ru": "Клоназепам",
+      "name_brand": "Klonopin, Rivotril",
+      "status": "METACOD-RF",
+      "batch": "07-Benzo",
+      "molecular": {
+        "chemical_class": "Long-acting benzodiazepine",
+        "half_life": "18-50 hours",
+        "metabolism": "CYP3A4"
+      },
+      "indications": {
+        "approved": [
+          "Panic disorder",
+          "epilepsy (myoclonic, absence)",
+          "restless legs syndrome (off-label)"
+        ]
+      },
+      "dosing": {
+        "dose": "0.5-4 mg/day"
+      },
+      "three_axis_profile": {
+        "note": "Useful panic disorder maintenance (longer half-life = smoother coverage); long-term concerns same as class"
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [Clonazepam в panic disorder — preferred over alprazolam due to smoother profile?]"
+      },
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-417",
+      "name_inn": "Citalopram",
+      "name_ru": "Циталопрам",
+      "name_brand": "Celexa",
+      "status": "METACOD-RF",
+      "batch": "07-SSRI",
+      "molecular": {
+        "chemical_class": "SSRI",
+        "mechanism_primary": [
+          "[LBL] Serotonin reuptake inhibition"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Depression, anxiety"
+        ]
+      },
+      "dosing": {
+        "dose": "20-40 mg daily (max 20 if >60y/CYP2C19)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Serotonergic modulation [RF]",
+          "best_match": [
+            "Depression/anxiety"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Dose-dependent QT prolongation (dose cap)",
+          "[LBL] Hyponatremia, serotonin syndrome, discontinuation"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "APA depression"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-418",
+      "name_inn": "Vortioxetine",
+      "name_ru": "Вортиоксетин",
+      "name_brand": "Trintellix",
+      "status": "METACOD-RF",
+      "batch": "07-Antidepressant",
+      "molecular": {
+        "chemical_class": "Multimodal serotonergic antidepressant",
+        "mechanism_primary": [
+          "[LBL] SERT inhibition + 5-HT receptor modulation"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Major depression (cognitive symptoms)"
+        ]
+      },
+      "dosing": {
+        "dose": "5-20 mg daily"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Serotonergic multimodal [RF]",
+          "best_match": [
+            "Depression with cognitive complaints"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Nausea (dose-related), sexual dysfunction (less), serotonin syndrome"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "FDA label Trintellix"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-419",
+      "name_inn": "Clozapine",
+      "name_ru": "Клозапин",
+      "name_brand": "Clozaril",
+      "status": "METACOD-RF",
+      "batch": "07-Antipsychotic",
+      "molecular": {
+        "chemical_class": "Atypical antipsychotic (treatment-resistant)",
+        "mechanism_primary": [
+          "[LBL] D2/5-HT2A (loose D2 binding); uniquely effective TRS"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Treatment-resistant schizophrenia",
+          "[LBL] Reduces suicidality in schizophrenia"
+        ]
+      },
+      "dosing": {
+        "dose": "Titrate slowly; ANC-guided"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Refractory psychosis (Heat) [RF]",
+          "best_match": [
+            "Treatment-resistant schizophrenia"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] AGRANULOCYTOSIS (REMS, ANC monitoring), myocarditis, seizures",
+          "[LBL] Severe constipation/ileus, metabolic syndrome, sedation, sialorrhea"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "TRS guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-420",
+      "name_inn": "Haloperidol",
+      "name_ru": "Галоперидол",
+      "name_brand": "Haldol",
+      "status": "METACOD-RF",
+      "batch": "07-Antipsychotic",
+      "molecular": {
+        "chemical_class": "Typical (high-potency) antipsychotic",
+        "mechanism_primary": [
+          "[LBL] Strong D2 antagonism"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Schizophrenia, acute agitation/psychosis, delirium (cautious)",
+          "[LBL] Tourette, severe N/V"
+        ]
+      },
+      "dosing": {
+        "dose": "PO/IM; LAI decanoate"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Acute psychosis/agitation (Heat) [RF]",
+          "best_match": [
+            "Acute agitation, psychosis"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute / chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] EPS/dystonia, akathisia, tardive dyskinesia, NMS",
+          "[LBL] QT prolongation; dementia mortality (black box)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Schizophrenia guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-421",
+      "name_inn": "Lurasidone",
+      "name_ru": "Луразидон",
+      "name_brand": "Latuda",
+      "status": "METACOD-RF",
+      "batch": "07-Antipsychotic",
+      "molecular": {
+        "chemical_class": "Atypical antipsychotic",
+        "mechanism_primary": [
+          "[LBL] D2/5-HT2A antagonism (metabolically favorable)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Schizophrenia",
+          "[LBL] Bipolar depression"
+        ]
+      },
+      "dosing": {
+        "dose": "40-160 mg daily WITH FOOD (≥350 kcal)"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Mood/psychosis modulation [RF]",
+          "best_match": [
+            "Bipolar depression, schizophrenia"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Akathisia, EPS; food requirement for absorption",
+          "[LBL] Less weight/metabolic effect; CYP3A4 interactions"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Bipolar guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-422",
+      "name_inn": "Ziprasidone",
+      "name_ru": "Зипрасидон",
+      "name_brand": "Geodon",
+      "status": "METACOD-RF",
+      "batch": "07-Antipsychotic",
+      "molecular": {
+        "chemical_class": "Atypical antipsychotic",
+        "mechanism_primary": [
+          "[LBL] D2/5-HT2A; minimal weight gain"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Schizophrenia, bipolar mania, acute agitation (IM)"
+        ]
+      },
+      "dosing": {
+        "dose": "40-80 mg BID with food"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Psychosis modulation [RF]",
+          "best_match": [
+            "Schizophrenia (metabolic concern)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] QT prolongation (most in class), needs food for absorption",
+          "[LBL] Akathisia"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Schizophrenia guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-423",
+      "name_inn": "Paliperidone (+ LAI)",
+      "name_ru": "Палиперидон",
+      "name_brand": "Invega, Invega Sustenna",
+      "status": "METACOD-RF",
+      "batch": "07-Antipsychotic",
+      "molecular": {
+        "chemical_class": "Atypical antipsychotic (risperidone metabolite; LAI)",
+        "mechanism_primary": [
+          "[LBL] D2/5-HT2A; long-acting injectable options (monthly→6-monthly)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Schizophrenia, schizoaffective"
+        ]
+      },
+      "dosing": {
+        "dose": "Oral daily; LAI 1/3/6-monthly"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Psychosis modulation (adherence) [RF]",
+          "best_match": [
+            "Schizophrenia (adherence-challenged)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Hyperprolactinemia, EPS, metabolic, QT",
+          "[LBL] Renal dosing"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Schizophrenia guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-424",
+      "name_inn": "Buspirone",
+      "name_ru": "Буспирон",
+      "name_brand": "Buspar",
+      "status": "METACOD-RF",
+      "batch": "07-Anxiolytic",
+      "molecular": {
+        "chemical_class": "5-HT1A partial agonist",
+        "mechanism_primary": [
+          "[LBL] Non-sedating anxiolysis (no dependence)"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Generalized anxiety disorder",
+          "[GL] SSRI augmentation"
+        ]
+      },
+      "dosing": {
+        "dose": "7.5-30 mg BID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Anxiety modulation (non-sedating) [RF]",
+          "best_match": [
+            "GAD (avoid benzodiazepine dependence)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Delayed onset (weeks), dizziness; serotonin syndrome with MAOI",
+          "[LBL] Grapefruit/CYP3A4"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "GAD guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-425",
+      "name_inn": "Esketamine / Ketamine (TRD)",
+      "name_ru": "Эскетамин / Кетамин (ТРД)",
+      "name_brand": "Spravato",
+      "status": "METACOD-RF",
+      "batch": "07-Antidepressant-Rapid",
+      "molecular": {
+        "chemical_class": "NMDA receptor antagonist (rapid-acting)",
+        "mechanism_primary": [
+          "[LBL] Glutamatergic rapid antidepressant effect"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[RCT] Treatment-resistant depression (intranasal esketamine, with oral AD)",
+          "[GL] Depression with acute suicidality"
+        ]
+      },
+      "dosing": {
+        "dose": "Intranasal in-clinic (REMS) / IV ketamine off-label"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Rapid mood restoration [RF]",
+          "best_match": [
+            "Treatment-resistant depression"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute → maintenance"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Dissociation, sedation, ↑BP — REMS monitored administration",
+          "[LBL] Abuse potential; bladder toxicity (chronic ketamine)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "TRD guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-426",
+      "name_inn": "Amitriptyline / Nortriptyline (TCA)",
+      "name_ru": "Амитриптилин / Нортриптилин",
+      "name_brand": "Elavil / Pamelor",
+      "status": "METACOD-RF",
+      "batch": "07-TCA",
+      "molecular": {
+        "chemical_class": "Tricyclic antidepressant",
+        "mechanism_primary": [
+          "[LBL] Serotonin/norepinephrine reuptake inhibition"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Depression (less used)",
+          "[GL] Neuropathic pain, migraine prophylaxis, insomnia (low-dose)"
+        ]
+      },
+      "dosing": {
+        "dose": "Low-dose for pain; higher for depression"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Serotonergic/noradrenergic + anticholinergic [RF]",
+          "best_match": [
+            "Neuropathic pain/migraine; depression (2nd-line)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] FATAL in overdose (cardiotoxic — QRS widening)",
+          "[LBL] Anticholinergic (Beers elderly), orthostasis, weight gain"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Neuropathic pain guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-427",
+      "name_inn": "Phenelzine / Tranylcypromine (MAOI)",
+      "name_ru": "Фенелзин / Транилципромин",
+      "name_brand": "Nardil / Parnate",
+      "status": "METACOD-RF",
+      "batch": "07-MAOI",
+      "molecular": {
+        "chemical_class": "Monoamine oxidase inhibitor",
+        "mechanism_primary": [
+          "[LBL] Irreversible MAO inhibition → ↑monoamines"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Atypical/refractory depression (specialist)"
+        ]
+      },
+      "dosing": {
+        "dose": "Specialist titration"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Broad monoamine elevation [RF]",
+          "best_match": [
+            "Refractory/atypical depression"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Chronic"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] HYPERTENSIVE CRISIS with tyramine foods/sympathomimetics",
+          "[LBL] SEROTONIN SYNDROME (2-week washout from SSRIs; 5 wk fluoxetine); many DDIs"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "Depression guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
+    },
+    {
+      "drug_id": "DRG-428",
+      "name_inn": "Hydroxyzine",
+      "name_ru": "Гидроксизин",
+      "name_brand": "Atarax, Vistaril",
+      "status": "METACOD-RF",
+      "batch": "07-Anxiolytic",
+      "molecular": {
+        "chemical_class": "H1 antihistamine anxiolytic",
+        "mechanism_primary": [
+          "[LBL] Sedating antihistamine; PRN anxiety/pruritus"
+        ]
+      },
+      "indications": {
+        "approved": [
+          "[LBL] Anxiety (short-term), pruritus, insomnia"
+        ]
+      },
+      "dosing": {
+        "dose": "25-50 mg PRN/QID"
+      },
+      "three_axis_profile": {
+        "constitutional": {
+          "energy": "Sedating anxiolysis [RF]",
+          "best_match": [
+            "Acute anxiety (non-dependence)"
+          ]
+        },
+        "membrane": {
+          "impact": "—"
+        },
+        "phase": {
+          "match": "Acute"
+        }
+      },
+      "safety": {
+        "critical": [
+          "[LBL] Sedation, anticholinergic (Beers elderly), QT at high dose"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]"
+      },
+      "references": [
+        "GAD guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false
+      }
     }
   ]
 }
