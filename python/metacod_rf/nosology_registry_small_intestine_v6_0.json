@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_nosology_registry",
+    "title": "Топографический регистр реактивности тканей: тонкий кишечник",
+    "version": "v6_0-small-intestine",
+    "source_document": "engine/small_intestine_core.py (METACOD v6.0)",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "author": "Mark Litvak (formalization with AI-assistance)",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "mark_validated": "pending review",
+    "energy_model": "6 Ki с парными осями: Ось1 Холод-Влажность; Ось2 Сухость-Тепло; Ось3 Ветер-Сухость.",
+    "canon_discrepancy_note": "6 Ki (Тепло/Жар раздельно) — НЕ 5-энергетический канон; энергии не приравниваются к services.metacod_bridge.ENERGY_AXES. Коды мембран согласованы с 8-канонными.",
+    "sym_readout_note": "sym_readout ссылается на коды реестра (SYM-NNN) и описательные псевдо-коды (SYM-cachexia, SYM-edema).",
+    "lab_panel": [
+      {"test": "Фекальный кальпротектин", "optimal_M0": "< 50 мкг/г", "yang_pole": "Взлёт > 250-1200 мкг/г (острое экссудативное воспаление, прорыв барьера ворсинок)", "yin_pole": "Норма/пограничные 55-90 мкг/г при атрофич./застойных процессах", "membrane_code": "Ян: M-D2 (язвенный энтерит/илеит)"},
+      {"test": "Альфа-1-антитрипсин (кал)", "optimal_M0": "< 54 мг/дл", "yang_pole": "В пределах референса", "yin_pole": "Взлёт > 150-400 мг/дл (потеря белка через мембраны при экссудативной энтеропатии)", "membrane_code": "Инь: M-A2 / M-A3 (потеря белка)"},
+      {"test": "MDA", "optimal_M0": "< 1.0 мкмоль/л", "yang_pole": "Взлёт > 2.5-4.2 мкмоль/л (активное ПОЛ тонкой кишки)", "yin_pole": "Падение < 0.7 мкмоль/л (блок липолиза при СИБР)", "membrane_code": "Ян: M-D2 / Инь: M-A2"},
+      {"test": "TGF-β1", "optimal_M0": "< 2.5 нг/мл", "yang_pole": "В пределах нормы", "yin_pole": "Взлёт > 6.5-14.0 нг/мл (склероз стенки, фиброзные стриктуры)", "membrane_code": "Инь: M-S (фиброз/стеноз)"},
+      {"test": "Сывороточный альбумин", "optimal_M0": "40-48 г/л", "yang_pole": "Падение < 30 г/л (потеря белоксинтез. функции, сквозной сброс белка через стенку)", "yin_pole": "Оптимум или ложно повышен (гемоконцентрация)", "membrane_code": "Ян: M-D3 (критический краш)"}
+    ],
+    "code_snippet": {
+      "note": "Псевдокод из источника (engine/small_intestine_core.py, evaluate_small_intestine_matrix). Physician-owned терапевтические протоколы. Сохранён ВЕРБАТИМ как документация, НЕ importable-модуль, НЕ операционализируется.",
+      "runnable": false,
+      "code_verbatim": "def evaluate_small_intestine_matrix(bia_data, lab_data, input_sym):\n    if lab_data['potassium_leak'] > 5.2 and lab_data['calprotectin'] > 200:\n        if 'SYM-031' in input_sym or 'SYM-cachexia' in input_sym:\n            return {'membrane_status': 'CRITICAL_MITOCHONDRIAL_CRASH_MD3', 'prohibited_interventions': ['Zalmanov_Yellow_Baths', 'Mechanical_Vibration_KiVI', 'H2O2_Oxidative_Protocol', 'High_Dose_Aggressive_Purgatives'], 'mandatory_protocol': ['Compounded_Cholesterol_2.5_IM', 'NAC_2400mg_Daily', 'Low_Dose_Prednisone_07AM', 'Liposomal_Vitamin_E_800IE']}\n    if lab_data['mda_level'] < 0.8 and lab_data['homa_ir'] > 2.5:\n        if 'SYM-035' in input_sym or 'SYM-obesity-visc' in input_sym:\n            return {'membrane_status': 'STAGNANT_STEROL_OVERLOAD_MA2', 'prohibited_interventions': ['Zalmanov_White_Emulsion', 'IF_Prolonged_Fasting', 'Calcium_Carbonate_Without_K2'], 'mandatory_protocol': ['Zalmanov_Yellow_Baths_41C', 'KiVI_Vibration_7Hz_Umbilical_Zone', 'Phosphatidylcholine_2.4g_Daily', 'Magnesium_Citrate_600mg_PM']}\n    if lab_data['tgf_beta1'] > 6.5 and 'SYM-172' in input_sym:\n        return {'membrane_status': 'SCLEROTIC_MATRIX_FIBROSIS_MS', 'prohibited_interventions': ['Aggressive_Catalytic_Oxidants', 'High_Dose_Ascorbic_Acid_IV'], 'mandatory_protocol': ['Serratiopeptidase_120000SU_Fasting', 'Nattokinase_4000FU_PM', 'KiVI_Piezoelectric_Fibrolysis_40Hz_Abdominal', 'Mixed_Zalmanov_Baths_1to1']}\n    return {'membrane_status': 'PHYSIOLOGICAL_OPTIMUM_M0'}"
+    },
+    "hard_stops_physician_owned": [
+      "Деструкция (M-D2/M-D3, язвенный еюноилеит/глютеновая атрофия): высокий кальпротектин + взлёт MDA + K-leak + SYM-031/SYM-cachexia → блок окислительных (H2O2/озон) и KiVI-вибраций (перфорация истончённой стенки → перитонит). Коррекция: холестериновый буфер, NAC, низкодозовые ГКС.",
+      "Застойный СИБР/экссудативная энтеропатия (M-A2): MDA < 0.8 + щелочное плато pH + HOMA-IR + SYM-obesity-visc → стероловая ригидность. ТАБУ: IF. Жёлтые ванны Залманова (41.0°C) + KiVI 6-7 Гц на околопупочную область.",
+      "Фиброз/стриктуры (M-S, терминальный илеит/Крона): TGF-β1 > 6.5 + SYM-172 → системные энзимы, KiVI 40 Гц на мезогастрий."
+    ],
+    "hard_stops_note": "Physician-owned клинический контент; сохранено как данные, НЕ операционализируется автоматически; research-only.",
+    "source_readiness_claim": "Источник: «развёрнут в Clinical Workbench». В репозитории governance не меняется — research-only, ready_for_clinical_use=false."
+  },
+  "contours": [
+    {
+      "contour": "small_intestine",
+      "label": "Тотальная нозологическая матрица тонкого кишечника",
+      "regulation": "Барьерная изоляция эпителия ворсинок, мембранный гидролиз и пристеночное всасывание, местный иммунитет (бляшки Пейера), моторно-эвакуаторная кинетика.",
+      "patterns": [
+        {"nosology": "Функциональная гиперкинезия тонкой кишки / СРК-Д еюнальный", "icd10": "K58.0", "energy_6ki": "А-Ветер (Ян-Ветер)", "redox_equivalent": "Кинетическая лабильность мышечного пласта, спонтанное открытие Ca2+-каналов, хаотичный пассаж химуса.", "sym_readout": ["Приступообразные блуждающие боли вокруг пупка, вздутие, императивные позывы сразу после еды"], "lab_markers": ["Пассаж бария: ускоренная моторика петель", "Нормальный MDA"], "membrane_drift": "M-D1"},
+        {"nosology": "Синдром мальабсорбции лабильный / Эрратическая энтеропатия", "icd10": "K90.9", "energy_6ki": "УМ-Ветер (Инь-Ветер)", "redox_equivalent": "Лабильность мембранных рецепторов энтероцитов ворсинок, волнообразный ионный дрейф деполяризации.", "sym_readout": ["Нестабильный стул (чередование нормы и пенистой диареи), летучий кожный зуд, метеоризм"], "lab_markers": ["Флуктуации электролитов крови", "Копрограмма: капли нейтрального жира"], "membrane_drift": "M-D1"},
+        {"nosology": "Острый дуоденит / Еюнит", "icd10": "K52.9", "energy_6ki": "А-Тепло (Ян-Тепло)", "redox_equivalent": "Острое экссудативное воспаление слизистой, цитокиновая инфильтрация, ПОЛ мембран энтероцитов.", "sym_readout": ["SYM-035 (острые жгучие боли в эпигастрии и околопупочной зоне после еды, тошнота)"], "lab_markers": ["MDA > 2.2 мкмоль/л; рост СРБ", "Эндоскопия: гиперемия"], "membrane_drift": "M-A2"},
+        {"nosology": "Язвенный энтерит / Терминальный илеит в фазе деструкции", "icd10": "K50.0", "energy_6ki": "УМ-Жар (Инь-Жар)", "redox_equivalent": "Деструктивное воспаление, NLRP3-инфламмасомный взрыв, каспазный цитолиз, разрушение базальных мембран.", "sym_readout": ["SYM-157 (яркая экзантема / системное воспаление)", "Режущие боли в правой подвздошной области, диарея с кровью"], "lab_markers": ["GSH < 35", "Скачок ферритина и фекального кальпротектина"], "membrane_drift": "M-D2"},
+        {"nosology": "Синдром избыточного бактериального роста / СИБР", "icd10": "K63.8", "energy_6ki": "А-Влажность (Ян-Влажность)", "redox_equivalent": "Внутрикишечный липидный оверлоад, анаболическое накопление субстрата, снижение текучести мембран, блок липолиза.", "sym_readout": ["Маслянистое распирание через 1-2 часа после углеводной пищи, обильное отхождение газов"], "lab_markers": ["HOMA-IR > 2.5", "Водородный дыхательный тест с лактулозой (+)"], "membrane_drift": "M-A1"},
+        {"nosology": "Экссудативная энтеропатия / Отёк ворсинок", "icd10": "K63.5", "energy_6ki": "УМ-Влажность (Инь-Влажность)", "redox_equivalent": "Интерстициальный отёк подслизистого слоя, венозный парез, задержка жидкости (синдром «Изоляции»).", "sym_readout": ["SYM-edema (плотные интерстициальные отёки конечностей, пастозность лица)"], "lab_markers": ["ECW/TBW ≥ 0.440", "Провал общего белка крови"], "membrane_drift": "M-A2"},
+        {"nosology": "Хронический ишемический энтерит / Брюшная жаба", "icd10": "K55.1", "energy_6ki": "А-Сухость (Ян-Сухость)", "redox_equivalent": "Дегидратация полярных головок фосфолипидов, спастический барьерный блок, ксероз энтероцитов, ригидность бислоя.", "sym_readout": ["Жёсткие схваткообразные боли через 30-40 минут после еды, заставляющие отказываться от пищи"], "lab_markers": ["ECW/TBW < 0.350", "УЗДГ чревного ствола: стенозирующий процесс"], "membrane_drift": "M-A2"},
+        {"nosology": "Стриктуры и стенозы тонкой кишки / Фиброзирующая болезнь Крона", "icd10": "K50.0", "energy_6ki": "УМ-Сухость (Инь-Сухость)", "redox_equivalent": "Тканевый фиброз, трансмуральное замещение стромы кишки жёсткими сшивками коллагена через TGF-β1.", "sym_readout": ["SYM-172 (склеродермическое уплотнение матрикса)", "Симптомы частичной кишечной непроходимости"], "lab_markers": ["TGF-β1 > 7.0 нг/мл", "Падение Cole-Cole"], "membrane_drift": "M-S"},
+        {"nosology": "Холодовой энтеральный ангиоспазм", "icd10": "K55.8", "energy_6ki": "А-Холод (Ян-Холод)", "redox_equivalent": "Острая спастическая вазоконстрикция брыжеечных артериол, спастический ишемический блок перфузии.", "sym_readout": ["Внезапная ломящая боль вокруг пупка и позыв на жидкий стул после ледяной воды/мороженого"], "lab_markers": ["K+ > 5.2 ммоль/л (спастический калиевый сдвиг)"], "membrane_drift": "M-D1"},
+        {"nosology": "Атрофическая энтеропатия / Терминальная стадия целиакии", "icd10": "K90.0", "energy_6ki": "УМ-Холод (Инь-Холод)", "redox_equivalent": "Митохондриальный краш энтероцитов, тотальный паралич Na+/K+-АТФ-аз, энергодефицит АТФ.", "sym_readout": ["SYM-cachexia (терминальная кахексия, мышечный распад, синдром мальабсорбции, полифекалия)"], "lab_markers": ["PA50 < 4.0°", "Падение сывороточного альбумина"], "membrane_drift": "M-D3"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,719 @@
+{
+  "rule_pack_version": "2.0.0",
+  "last_updated": "2026-06-03",
+  "description": "METACOD GLP-1 Complication Prevention — priority rules v2. 31 rules total (15 carried over from v1, 16 new). New rules exploit derived patient.med_summary fields for drug-drug combinations (lithium+loop diuretic, ≥2 QT-prolonging drugs, CYP3A strong inducer/inhibitor present, oral contraceptive in medication list, bile sequestrant in medication list). Compatible with pharmacist_agent v2.1+.",
+  "dsl_documentation": {
+    "logical_operators": "and, or, not — each takes an array (or single condition for 'not') of sub-conditions",
+    "leaf_operators": "eq, neq, lt, lte, gt, gte, in (value-in-expected-list), contains (expected-in-field-list), any_in (any-of-expected-in-field-list)",
+    "evidence_grade": "A=regulatory label or RCT, B=multiple observational + mechanistic, C=mechanistic / expert consensus",
+    "severity": "high|moderate|low — surface priority in UI",
+    "med_summary_fields": "patient.med_summary.{classes, profile_ids, qt_prolonging_med_count, bile_dependent_med_count, has_acid_suppression, has_cation_perpetrator, has_loop_diuretic, has_oral_contraceptive, has_lithium, has_levothyroxine, has_glp1, has_bile_sequestrant, has_cyp3a_strong_inducer, has_cyp3a_strong_inhibitor, has_hypoglycemic_secretagogue, has_insulin}"
+  },
+  "rules": [
+    {
+      "rule_id": "LT4_TABLET_PPI",
+      "name": "Levothyroxine tablet underexposure with PPI/H2RA",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Elevated gastric pH impairs LT4 tablet dissolution → reduced bioavailability → TSH rises despite stable dose",
+      "when": {"and": [
+        {"field": "drug.profile_id", "eq": "levothyroxine_tablet"},
+        {"field": "patient.ppi_or_h2_blocker", "eq": true}
+      ]},
+      "risk": {"underexposure_risk": "high", "net_pk_variability": "moderate"},
+      "physician_actions": [
+        {"i18n_key": "action.lt4_check_tsh_4w", "evidence_grade": "A"},
+        {"i18n_key": "action.lt4_consider_liquid_formulation", "evidence_grade": "A"},
+        {"i18n_key": "action.lt4_review_cation_spacing", "evidence_grade": "A"}
+      ],
+      "patient_actions": [
+        {"i18n_key": "patient.lt4_separate_from_ppi", "evidence_grade": "A"},
+        {"i18n_key": "patient.lt4_fasting_30min_morning", "evidence_grade": "A"}
+      ],
+      "lab_plan": [
+        {"test": "TSH", "interval_weeks": 4, "i18n_key": "lab.tsh_4w"},
+        {"test": "free_T4", "interval_weeks": 4, "i18n_key": "lab.ft4_4w"}
+      ],
+      "admin_layer": {"pattern": "pH_dependent_dissolution_failure", "i18n_key_internal": "admin.lt4_tablet_ph_dissolution_failure"},
+      "sources": ["Centanni M et al. NEJM 2017", "Virili C et al. 2023", "Singh & Hershman 2024"]
+    },
+    {
+      "rule_id": "LT4_TABLET_CATION",
+      "name": "Levothyroxine tablet underexposure with calcium/iron/sevelamer/sucralfate",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "LT4 forms non-absorbable chelates with multivalent cations in lumen → reduced bioavailability",
+      "when": {"and": [
+        {"field": "drug.profile_id", "eq": "levothyroxine_tablet"},
+        {"or": [
+          {"field": "patient.calcium_iron_magnesium_aluminum_products", "eq": true},
+          {"field": "patient.bile_acid_sequestrants", "eq": true},
+          {"field": "patient.sucralfate", "eq": true}
+        ]}
+      ]},
+      "risk": {"underexposure_risk": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.lt4_check_tsh_4w", "evidence_grade": "A"},
+        {"i18n_key": "action.lt4_enforce_4h_separation", "evidence_grade": "A"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.lt4_separate_from_minerals_4h", "evidence_grade": "A"}],
+      "lab_plan": [{"test": "TSH", "interval_weeks": 4, "i18n_key": "lab.tsh_4w"}],
+      "admin_layer": {"pattern": "luminal_cation_chelation", "i18n_key_internal": "admin.lt4_cation_chelation"},
+      "sources": ["Virili C et al. 2023", "Liwanpo L & Hershman JM"]
+    },
+    {
+      "rule_id": "ORAL_IRON_PPI",
+      "name": "Oral iron underexposure with PPI/H2RA",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Elevated gastric pH impairs ferric→ferrous conversion and release from food/drug matrices → reduced iron absorption",
+      "when": {"and": [
+        {"field": "drug.class", "eq": "iron_oral"},
+        {"field": "patient.ppi_or_h2_blocker", "eq": true}
+      ]},
+      "risk": {"underexposure_risk": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.iron_check_ferritin_tsat_crp", "evidence_grade": "A"},
+        {"i18n_key": "action.iron_consider_iv_if_poor_response", "evidence_grade": "A"},
+        {"i18n_key": "action.iron_consider_bisglycinate", "evidence_grade": "B"}
+      ],
+      "patient_actions": [
+        {"i18n_key": "patient.iron_with_vitamin_c", "evidence_grade": "B"},
+        {"i18n_key": "patient.iron_separate_from_calcium_dairy", "evidence_grade": "A"}
+      ],
+      "lab_plan": [
+        {"test": "hemoglobin", "interval_weeks": 8, "i18n_key": "lab.hb_8w"},
+        {"test": "ferritin", "interval_weeks": 8, "i18n_key": "lab.ferritin_8w"},
+        {"test": "transferrin_saturation", "interval_weeks": 8, "i18n_key": "lab.tsat_8w"},
+        {"test": "CRP", "interval_weeks": 8, "i18n_key": "lab.crp_8w"}
+      ],
+      "admin_layer": {"pattern": "pH_dependent_iron_solubilization_failure", "i18n_key_internal": "admin.iron_ph_failure"},
+      "sources": ["Stoffel NU et al. Haematologica 2024", "Lopes M et al."]
+    },
+    {
+      "rule_id": "GLP1_TIRZEPATIDE_OC_EARLY",
+      "name": "Tirzepatide reduces oral contraceptive reliability — first 4 weeks of start and each escalation",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Tirzepatide-induced delayed gastric emptying reduces OC absorption; effect strongest first 4w after start and each escalation, attenuates with chronic use",
+      "when": {"and": [
+        {"field": "patient.glp1_agent", "eq": "tirzepatide_sc"},
+        {"field": "drug.oral_contraceptive", "eq": true},
+        {"or": [
+          {"field": "patient.glp1_weeks_since_start", "lt": 4},
+          {"field": "patient.glp1_weeks_since_last_dose_increase", "lt": 4}
+        ]}
+      ]},
+      "risk": {"underexposure_risk": "high", "delayed_onset_risk": "high"},
+      "physician_actions": [{"i18n_key": "action.oc_recommend_nonoral_or_barrier_4w", "evidence_grade": "A"}],
+      "patient_actions": [{"i18n_key": "patient.oc_use_backup_4w_after_start_and_each_escalation", "evidence_grade": "A"}],
+      "lab_plan": [],
+      "admin_layer": {"pattern": "gastric_emptying_delay_oral_hormone", "i18n_key_internal": "admin.glp1_oc_absorption_drop"},
+      "sources": ["FDA Mounjaro prescribing information", "FDA Zepbound prescribing information"]
+    },
+    {
+      "rule_id": "FUROSEMIDE_GUT_EDEMA",
+      "name": "Oral furosemide unreliability in HF congestion / gut edema",
+      "severity": "high",
+      "evidence_grade": "B",
+      "mechanism": "Gut wall edema and splanchnic hypoperfusion in decompensated HF further reduce already-variable oral furosemide bioavailability",
+      "when": {"and": [
+        {"field": "drug.profile_id", "eq": "furosemide_oral"},
+        {"or": [
+          {"field": "patient.heart_failure_congestion", "eq": true},
+          {"field": "patient.gut_edema_suspected", "eq": true}
+        ]}
+      ]},
+      "risk": {"underexposure_risk": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.furosemide_consider_iv_or_switch", "evidence_grade": "B"},
+        {"i18n_key": "action.furosemide_assess_congestion_objectively", "evidence_grade": "A"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.daily_weight_log", "evidence_grade": "A"}],
+      "lab_plan": [
+        {"test": "creatinine", "interval_weeks": 1, "i18n_key": "lab.creat_1w"},
+        {"test": "Na", "interval_weeks": 1, "i18n_key": "lab.na_1w"},
+        {"test": "K", "interval_weeks": 1, "i18n_key": "lab.k_1w"}
+      ],
+      "admin_layer": {"pattern": "gut_edema_bioavailability_loss", "i18n_key_internal": "admin.furosemide_gut_edema"},
+      "sources": ["Mentz RJ et al. TRANSFORM-HF 2023", "Buggey J et al."]
+    },
+    {
+      "rule_id": "EGFR_LOW_DOAC",
+      "name": "DOAC dose review at low eGFR",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Renal clearance of DOAC drops with eGFR; accumulation increases bleeding risk; specific cutoffs are drug-dependent",
+      "when": {"and": [
+        {"field": "drug.class", "eq": "DOAC"},
+        {"field": "patient.labs.egfr_ml_min", "lt": 50}
+      ]},
+      "risk": {"overexposure_risk": "high", "net_pk_variability": "moderate"},
+      "physician_actions": [
+        {"i18n_key": "action.doac_check_label_renal_dose", "evidence_grade": "A"},
+        {"i18n_key": "action.doac_consider_vka_if_egfr_below_30", "evidence_grade": "B"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.bleeding_signs_education", "evidence_grade": "A"}],
+      "lab_plan": [{"test": "eGFR", "interval_weeks": 4, "i18n_key": "lab.egfr_4w"}],
+      "admin_layer": {"pattern": "renal_accumulation_DOAC", "i18n_key_internal": "admin.doac_renal_accumulation"},
+      "sources": ["FDA prescribing information — apixaban/rivaroxaban/dabigatran/edoxaban", "ESC/AHA AF guidelines"]
+    },
+    {
+      "rule_id": "CIRRHOSIS_HIGH_FIRST_PASS",
+      "name": "Cirrhosis Child-Pugh B/C with high-first-pass drug",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Reduced hepatic extraction and portosystemic shunting in cirrhosis raise oral bioavailability and prolong t½",
+      "when": {"and": [
+        {"field": "drug.high_first_pass", "eq": true},
+        {"field": "patient.child_pugh", "in": ["B", "C"]}
+      ]},
+      "risk": {"overexposure_risk": "high", "net_pk_variability": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.cirrhosis_consider_dose_reduction", "evidence_grade": "A"},
+        {"i18n_key": "action.cirrhosis_check_label_hepatic_section", "evidence_grade": "A"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.report_sedation_confusion_immediately", "evidence_grade": "A"}],
+      "lab_plan": [
+        {"test": "ALT", "interval_weeks": 4, "i18n_key": "lab.alt_4w"},
+        {"test": "AST", "interval_weeks": 4, "i18n_key": "lab.ast_4w"},
+        {"test": "INR", "interval_weeks": 4, "i18n_key": "lab.inr_4w"},
+        {"test": "albumin", "interval_weeks": 4, "i18n_key": "lab.albumin_4w"}
+      ],
+      "admin_layer": {"pattern": "first_pass_collapse_cirrhosis", "i18n_key_internal": "admin.cirrhosis_first_pass"},
+      "sources": ["FDA Guidance for Industry — Hepatic Impairment PK Studies", "EMA Guideline"]
+    },
+    {
+      "rule_id": "INFLAMMATION_CYP_SUBSTRATE",
+      "name": "Systemic inflammation reduces clearance of CYP-sensitive substrates",
+      "severity": "moderate",
+      "evidence_grade": "B",
+      "mechanism": "IL-6 and pro-inflammatory cytokines suppress CYP3A4 and other isoforms → CYP substrate accumulation",
+      "when": {"and": [
+        {"field": "drug.inflammation_sensitive_clearance", "eq": true},
+        {"or": [
+          {"field": "patient.systemic_inflammation", "in": ["moderate", "severe"]},
+          {"field": "patient.acute_infection", "eq": true},
+          {"field": "patient.labs.crp_mg_l", "gte": 50}
+        ]}
+      ]},
+      "risk": {"overexposure_risk": "moderate"},
+      "physician_actions": [
+        {"i18n_key": "action.inflammation_watch_for_toxicity", "evidence_grade": "B"},
+        {"i18n_key": "action.inflammation_reassess_after_resolution", "evidence_grade": "B"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.report_unusual_drowsiness_or_side_effects", "evidence_grade": "B"}],
+      "lab_plan": [{"test": "CRP", "interval_weeks": 2, "i18n_key": "lab.crp_2w"}],
+      "admin_layer": {"pattern": "cytokine_cyp_suppression", "i18n_key_internal": "admin.inflammation_cyp_suppression"},
+      "sources": ["Stanke-Labesque F et al.", "Lenoir C et al."]
+    },
+    {
+      "rule_id": "CATION_CHELATION_FLUOROQUINOLONE",
+      "name": "Fluoroquinolone chelation with calcium/iron/magnesium/aluminum",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Fluoroquinolones form non-absorbable chelates with multivalent cations → reduced absorption → therapy failure",
+      "when": {"and": [
+        {"field": "drug.class", "eq": "fluoroquinolone"},
+        {"field": "patient.calcium_iron_magnesium_aluminum_products", "eq": true}
+      ]},
+      "risk": {"underexposure_risk": "high"},
+      "physician_actions": [{"i18n_key": "action.fq_enforce_2_to_6h_separation", "evidence_grade": "A"}],
+      "patient_actions": [{"i18n_key": "patient.fq_separate_from_minerals_4h", "evidence_grade": "A"}],
+      "lab_plan": [],
+      "admin_layer": {"pattern": "luminal_cation_chelation", "i18n_key_internal": "admin.fq_cation_chelation"},
+      "sources": ["Polk RE et al.", "FDA Ciprofloxacin / Levofloxacin labels"]
+    },
+    {
+      "rule_id": "CATION_CHELATION_TETRACYCLINE",
+      "name": "Tetracycline chelation with calcium/iron/magnesium/aluminum",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Tetracyclines form non-absorbable chelates with multivalent cations → reduced absorption",
+      "when": {"and": [
+        {"field": "drug.class", "eq": "tetracycline"},
+        {"field": "patient.calcium_iron_magnesium_aluminum_products", "eq": true}
+      ]},
+      "risk": {"underexposure_risk": "high"},
+      "physician_actions": [{"i18n_key": "action.tetra_enforce_separation", "evidence_grade": "A"}],
+      "patient_actions": [{"i18n_key": "patient.tetra_separate_from_minerals_dairy", "evidence_grade": "A"}],
+      "lab_plan": [],
+      "admin_layer": {"pattern": "luminal_cation_chelation", "i18n_key_internal": "admin.tetra_cation_chelation"},
+      "sources": ["Neuvonen PJ", "FDA Doxycycline label"]
+    },
+    {
+      "rule_id": "PPI_AZOLE_PH_SENSITIVE",
+      "name": "Azole antifungal underexposure with PPI (itraconazole capsule, posaconazole suspension)",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Azole formulations dependent on acidic pH have markedly reduced dissolution and absorption with PPI",
+      "when": {"and": [
+        {"field": "drug.class", "eq": "azole_antifungal"},
+        {"field": "drug.requires_acidic_pH", "in": ["moderate", "high"]},
+        {"field": "patient.ppi_or_h2_blocker", "eq": true}
+      ]},
+      "risk": {"underexposure_risk": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.azole_consider_solution_or_iv", "evidence_grade": "A"},
+        {"i18n_key": "action.azole_check_trough_level", "evidence_grade": "A"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.azole_take_with_acidic_drink", "evidence_grade": "B"}],
+      "lab_plan": [{"test": "itraconazole_trough_level", "interval_weeks": 2, "i18n_key": "lab.itra_trough_2w"}],
+      "admin_layer": {"pattern": "pH_dependent_dissolution_failure", "i18n_key_internal": "admin.azole_ph_failure"},
+      "sources": ["FDA Itraconazole capsule label", "FDA Noxafil label", "Lim SG et al."]
+    },
+    {
+      "rule_id": "GLP1_GASTROPARESIS_TMAX_SENSITIVE",
+      "name": "GLP-1-induced delayed gastric emptying impairs Tmax-sensitive drugs",
+      "severity": "moderate",
+      "evidence_grade": "C",
+      "mechanism": "GLP-1 agonists slow gastric emptying; for drugs requiring rapid peak, Tmax delays and Cmax variability rise",
+      "when": {"and": [
+        {"field": "drug.tmax_sensitive", "eq": true},
+        {"field": "patient.glp1_agent", "neq": "none"}
+      ]},
+      "risk": {"delayed_onset_risk": "moderate", "net_pk_variability": "moderate"},
+      "physician_actions": [{"i18n_key": "action.tmax_warn_delayed_onset", "evidence_grade": "C"}],
+      "patient_actions": [{"i18n_key": "patient.tmax_drug_may_act_later", "evidence_grade": "C"}],
+      "lab_plan": [],
+      "admin_layer": {"pattern": "gastric_emptying_delay_tmax_shift", "i18n_key_internal": "admin.glp1_tmax_shift"},
+      "sources": ["Ozempic / Mounjaro prescribing information", "Camilleri M"]
+    },
+    {
+      "rule_id": "EGFR_LOW_DIGOXIN",
+      "name": "Digoxin accumulation at low eGFR",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Digoxin is renally cleared with narrow therapeutic index; falling eGFR predictably raises levels",
+      "when": {"and": [
+        {"field": "drug.profile_id", "eq": "digoxin"},
+        {"field": "patient.labs.egfr_ml_min", "lt": 50}
+      ]},
+      "risk": {"overexposure_risk": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.digoxin_check_level", "evidence_grade": "A"},
+        {"i18n_key": "action.digoxin_consider_dose_reduction", "evidence_grade": "A"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.digoxin_toxicity_signs_education", "evidence_grade": "A"}],
+      "lab_plan": [
+        {"test": "digoxin_level", "interval_weeks": 2, "i18n_key": "lab.dig_level_2w"},
+        {"test": "eGFR", "interval_weeks": 2, "i18n_key": "lab.egfr_2w"},
+        {"test": "K", "interval_weeks": 2, "i18n_key": "lab.k_2w"}
+      ],
+      "admin_layer": {"pattern": "renal_accumulation_NTI", "i18n_key_internal": "admin.digoxin_renal_accumulation"},
+      "sources": ["FDA Digoxin prescribing information"]
+    },
+    {
+      "rule_id": "BARIATRIC_EARLY_DOAC",
+      "name": "Early post-bariatric DOAC unreliability",
+      "severity": "high",
+      "evidence_grade": "B",
+      "mechanism": "Altered proximal GI anatomy, reduced gastric volume, altered transit make DOAC absorption unpredictable in first months after bariatric surgery",
+      "when": {"and": [
+        {"field": "drug.class", "eq": "DOAC"},
+        {"field": "patient.bariatric_type", "neq": "none"},
+        {"field": "patient.months_since_bariatric", "lt": 6}
+      ]},
+      "risk": {"underexposure_risk": "high", "net_pk_variability": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.bariatric_doac_specialist_review", "evidence_grade": "B"},
+        {"i18n_key": "action.bariatric_doac_consider_lmwh_vka", "evidence_grade": "B"}
+      ],
+      "patient_actions": [
+        {"i18n_key": "patient.bleeding_signs_education", "evidence_grade": "A"},
+        {"i18n_key": "patient.thrombosis_signs_education", "evidence_grade": "A"}
+      ],
+      "lab_plan": [{"test": "anti_Xa_level_if_available", "interval_weeks": 2, "i18n_key": "lab.anti_xa_2w"}],
+      "admin_layer": {"pattern": "altered_anatomy_unpredictable_exposure", "i18n_key_internal": "admin.bariatric_doac_unpredictable"},
+      "sources": ["ISTH 2021 anticoagulation post-bariatric", "Anticoagulation Forum 2025"]
+    },
+    {
+      "rule_id": "HYPOALBUMINEMIA_HIGH_PROTEIN_BINDING",
+      "name": "Hypoalbuminemia raises free fraction of highly protein-bound drugs",
+      "severity": "moderate",
+      "evidence_grade": "B",
+      "mechanism": "Highly protein-bound drugs (warfarin, phenytoin, valproate) have elevated free (active) fraction when albumin is low; total levels can be misleading",
+      "when": {"and": [
+        {"field": "drug.protein_binding", "eq": "high"},
+        {"field": "patient.labs.albumin_g_dl", "lt": 3.0}
+      ]},
+      "risk": {"overexposure_risk": "moderate", "net_pk_variability": "moderate"},
+      "physician_actions": [
+        {"i18n_key": "action.protein_binding_consider_free_level", "evidence_grade": "B"},
+        {"i18n_key": "action.protein_binding_clinical_response_priority", "evidence_grade": "B"}
+      ],
+      "patient_actions": [],
+      "lab_plan": [{"test": "albumin", "interval_weeks": 4, "i18n_key": "lab.albumin_4w"}],
+      "admin_layer": {"pattern": "free_fraction_misleading_total", "i18n_key_internal": "admin.hypoalbuminemia_free_fraction"},
+      "sources": ["Roberts JA et al.", "Ulldemolins M et al."]
+    },
+    {
+      "rule_id": "PPI_TKI_PH_SENSITIVE",
+      "name": "TKI underexposure with PPI/H2RA — pH-dependent dissolution failure",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "EGFR/BCR-ABL/VEGFR TKI tablets require acidic pH for adequate dissolution; PPI reduces AUC by 30–60% → subtherapeutic exposure → therapy failure or resistance",
+      "when": {"and": [
+        {"field": "drug.class", "in": ["tki_egfr", "tki_bcr_abl", "tki_vegfr"]},
+        {"field": "drug.requires_acidic_pH", "in": ["moderate", "high"]},
+        {"field": "patient.ppi_or_h2_blocker", "eq": true}
+      ]},
+      "risk": {"underexposure_risk": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.tki_check_label_ppi_section", "evidence_grade": "A"},
+        {"i18n_key": "action.tki_consider_pH_independent_alternative", "evidence_grade": "A"},
+        {"i18n_key": "action.tki_h2ra_2h_after_only_if_unavoidable", "evidence_grade": "B"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.tki_avoid_antacids_unless_advised", "evidence_grade": "A"}],
+      "lab_plan": [{"test": "tki_response_imaging_or_marker", "interval_weeks": 12, "i18n_key": "lab.tki_response_12w"}],
+      "admin_layer": {"pattern": "pH_dependent_dissolution_failure_TKI", "i18n_key_internal": "admin.tki_ph_failure"},
+      "sources": ["FDA Tarceva label", "FDA Sprycel label", "FDA Votrient label", "Hilberg O et al."]
+    },
+    {
+      "rule_id": "LITHIUM_LOOP_DIURETIC_TOXICITY",
+      "name": "Lithium toxicity with loop diuretic — increased renal Li reabsorption",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Loop diuretic-induced volume contraction increases proximal tubular Li reabsorption → rising serum Li → toxicity (tremor, ataxia, confusion, arrhythmia)",
+      "when": {"and": [
+        {"field": "drug.profile_id", "eq": "lithium_carbonate"},
+        {"field": "patient.med_summary.has_loop_diuretic", "eq": true}
+      ]},
+      "risk": {"overexposure_risk": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.lithium_check_level_within_1w", "evidence_grade": "A"},
+        {"i18n_key": "action.lithium_consider_dose_reduction_25_50", "evidence_grade": "A"},
+        {"i18n_key": "action.lithium_review_diuretic_alternatives", "evidence_grade": "A"}
+      ],
+      "patient_actions": [
+        {"i18n_key": "patient.lithium_toxicity_signs_education", "evidence_grade": "A"},
+        {"i18n_key": "patient.maintain_hydration_salt", "evidence_grade": "A"}
+      ],
+      "lab_plan": [
+        {"test": "lithium_level", "interval_weeks": 1, "i18n_key": "lab.lithium_level_1w"},
+        {"test": "eGFR", "interval_weeks": 1, "i18n_key": "lab.egfr_1w"},
+        {"test": "Na", "interval_weeks": 1, "i18n_key": "lab.na_1w"}
+      ],
+      "admin_layer": {"pattern": "volume_contraction_lithium_reabsorption", "i18n_key_internal": "admin.lithium_loop_toxicity"},
+      "sources": ["FDA Lithium prescribing information", "Finley PR et al."]
+    },
+    {
+      "rule_id": "INSULIN_SU_GLP1_HYPOGLYCEMIA",
+      "name": "Hypoglycemia risk: insulin/sulfonylurea/meglitinide concurrent with GLP-1",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "GLP-1 agonists lower glucose by glucose-dependent insulin secretion and weight loss; combination with insulin or insulin secretagogues amplifies hypoglycemia risk",
+      "when": {"and": [
+        {"field": "drug.class", "in": ["sulfonylurea", "meglitinide", "insulin_basal", "insulin_rapid"]},
+        {"field": "patient.glp1_agent", "neq": "none"}
+      ]},
+      "risk": {"overexposure_risk": "moderate"},
+      "physician_actions": [
+        {"i18n_key": "action.antidiabetic_proactive_dose_reduction", "evidence_grade": "A"},
+        {"i18n_key": "action.antidiabetic_intensify_glucose_monitoring", "evidence_grade": "A"}
+      ],
+      "patient_actions": [
+        {"i18n_key": "patient.hypoglycemia_signs_education", "evidence_grade": "A"},
+        {"i18n_key": "patient.cgm_or_sbgm_increase_frequency", "evidence_grade": "A"}
+      ],
+      "lab_plan": [
+        {"test": "HbA1c", "interval_weeks": 8, "i18n_key": "lab.hba1c_8w"},
+        {"test": "glucose_diary", "interval_weeks": 2, "i18n_key": "lab.glucose_diary_2w"}
+      ],
+      "admin_layer": {"pattern": "additive_glucose_lowering", "i18n_key_internal": "admin.insulin_glp1_hypo"},
+      "sources": ["FDA GLP-1 labels — hypoglycemia warnings with insulin/SU"]
+    },
+    {
+      "rule_id": "QT_PROLONGATION_COMBO",
+      "name": "≥2 concurrent QT-prolonging drugs — additive QT risk",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Combinations of QT-prolonging agents produce additive (sometimes more-than-additive) QT prolongation → torsades de pointes risk, especially with hypokalemia or hypomagnesemia",
+      "when": {"and": [
+        {"field": "drug.qt_prolongation_risk", "eq": true},
+        {"field": "patient.med_summary.qt_prolonging_med_count", "gte": 2}
+      ]},
+      "risk": {"overexposure_risk": "moderate"},
+      "physician_actions": [
+        {"i18n_key": "action.qt_baseline_ecg", "evidence_grade": "A"},
+        {"i18n_key": "action.qt_correct_k_mg", "evidence_grade": "A"},
+        {"i18n_key": "action.qt_review_alternatives", "evidence_grade": "A"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.qt_syncope_palpitations_report", "evidence_grade": "A"}],
+      "lab_plan": [
+        {"test": "ECG_QTc", "interval_weeks": 1, "i18n_key": "lab.ecg_qtc_1w"},
+        {"test": "K", "interval_weeks": 1, "i18n_key": "lab.k_1w"},
+        {"test": "Mg", "interval_weeks": 1, "i18n_key": "lab.mg_1w"}
+      ],
+      "admin_layer": {"pattern": "additive_qt_prolongation", "i18n_key_internal": "admin.qt_combo"},
+      "sources": ["CredibleMeds QT drug lists", "AHA/ACC scientific statement on drug-induced QT"]
+    },
+    {
+      "rule_id": "TACROLIMUS_CYP3A_PERTURBATION",
+      "name": "Tacrolimus / cyclosporine — CYP3A perturbation by strong inhibitor or inflammation",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Tacrolimus and cyclosporine are narrow-TI CYP3A4 substrates; strong CYP3A4 inhibitors (azole antifungals) or cytokine-driven CYP3A suppression during infection cause toxicity (nephrotoxicity, neurotoxicity, glucose dysregulation)",
+      "when": {"and": [
+        {"field": "drug.class", "eq": "calcineurin_inhibitor"},
+        {"or": [
+          {"field": "patient.med_summary.has_cyp3a_strong_inhibitor", "eq": true},
+          {"field": "patient.systemic_inflammation", "in": ["moderate", "severe"]},
+          {"field": "patient.acute_infection", "eq": true}
+        ]}
+      ]},
+      "risk": {"overexposure_risk": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.cni_accelerated_trough_monitoring", "evidence_grade": "A"},
+        {"i18n_key": "action.cni_anticipate_dose_reduction", "evidence_grade": "A"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.cni_report_tremor_confusion", "evidence_grade": "A"}],
+      "lab_plan": [
+        {"test": "tacrolimus_or_cyclosporine_trough", "interval_weeks": 1, "i18n_key": "lab.cni_trough_1w"},
+        {"test": "eGFR", "interval_weeks": 1, "i18n_key": "lab.egfr_1w"},
+        {"test": "K", "interval_weeks": 1, "i18n_key": "lab.k_1w"},
+        {"test": "Mg", "interval_weeks": 1, "i18n_key": "lab.mg_1w"}
+      ],
+      "admin_layer": {"pattern": "cyp3a_substrate_perturbation", "i18n_key_internal": "admin.cni_cyp3a"},
+      "sources": ["FDA Prograf label", "FDA Sandimmune label", "Brunet M et al."]
+    },
+    {
+      "rule_id": "PHENYTOIN_HYPOALBUMINEMIA",
+      "name": "Phenytoin — free fraction rises with low albumin (saturable PK + NTI)",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Phenytoin is ~90% albumin-bound with saturable elimination; hypoalbuminemia raises free phenytoin while total may be falsely reassuring → toxicity at 'therapeutic' total levels",
+      "when": {"and": [
+        {"field": "drug.profile_id", "eq": "phenytoin"},
+        {"field": "patient.labs.albumin_g_dl", "lt": 3.5}
+      ]},
+      "risk": {"overexposure_risk": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.phenytoin_measure_free_level", "evidence_grade": "A"},
+        {"i18n_key": "action.phenytoin_apply_sheiner_tozer_correction", "evidence_grade": "A"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.phenytoin_ataxia_nystagmus_report", "evidence_grade": "A"}],
+      "lab_plan": [
+        {"test": "phenytoin_free_and_total_level", "interval_weeks": 2, "i18n_key": "lab.phenytoin_free_2w"},
+        {"test": "albumin", "interval_weeks": 4, "i18n_key": "lab.albumin_4w"}
+      ],
+      "admin_layer": {"pattern": "free_fraction_NTI_saturable", "i18n_key_internal": "admin.phenytoin_free_fraction"},
+      "sources": ["FDA Dilantin prescribing information", "Patsalos PN et al."]
+    },
+    {
+      "rule_id": "VALPROATE_HYPOALBUMINEMIA",
+      "name": "Valproate — free fraction rises with low albumin",
+      "severity": "moderate",
+      "evidence_grade": "B",
+      "mechanism": "Valproate is ~90% albumin-bound; hypoalbuminemia raises free valproate; total level may underestimate exposure",
+      "when": {"and": [
+        {"field": "drug.profile_id", "eq": "valproate_sodium"},
+        {"field": "patient.labs.albumin_g_dl", "lt": 3.5}
+      ]},
+      "risk": {"overexposure_risk": "moderate"},
+      "physician_actions": [
+        {"i18n_key": "action.valproate_measure_free_level", "evidence_grade": "B"},
+        {"i18n_key": "action.valproate_clinical_response_priority", "evidence_grade": "B"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.valproate_drowsiness_tremor_report", "evidence_grade": "B"}],
+      "lab_plan": [
+        {"test": "valproate_free_and_total_level", "interval_weeks": 4, "i18n_key": "lab.valproate_free_4w"},
+        {"test": "albumin", "interval_weeks": 4, "i18n_key": "lab.albumin_4w"}
+      ],
+      "admin_layer": {"pattern": "free_fraction_NTI", "i18n_key_internal": "admin.valproate_free_fraction"},
+      "sources": ["FDA Depakote prescribing information"]
+    },
+    {
+      "rule_id": "MMF_BILE_SEQUESTRANT",
+      "name": "Mycophenolate mofetil + bile acid sequestrant — enterohepatic recirculation broken",
+      "severity": "moderate",
+      "evidence_grade": "B",
+      "mechanism": "MPA undergoes enterohepatic recirculation contributing significantly to exposure; cholestyramine / sevelamer interrupts this loop → reduced AUC → reduced immunosuppression",
+      "when": {"and": [
+        {"field": "drug.profile_id", "eq": "mycophenolate_mofetil"},
+        {"field": "patient.med_summary.has_bile_sequestrant", "eq": true}
+      ]},
+      "risk": {"underexposure_risk": "moderate"},
+      "physician_actions": [
+        {"i18n_key": "action.mmf_separate_from_sequestrant", "evidence_grade": "B"},
+        {"i18n_key": "action.mmf_consider_mpa_AUC_monitoring", "evidence_grade": "B"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.mmf_separate_from_phosphate_binder_2h", "evidence_grade": "B"}],
+      "lab_plan": [{"test": "MPA_AUC_if_TDM", "interval_weeks": 4, "i18n_key": "lab.mpa_auc_4w"}],
+      "admin_layer": {"pattern": "enterohepatic_recirculation_break", "i18n_key_internal": "admin.mmf_ehc_break"},
+      "sources": ["FDA CellCept prescribing information"]
+    },
+    {
+      "rule_id": "CARBAMAZEPINE_CYP3A_INDUCER",
+      "name": "Strong CYP3A4 inducer in regimen — accelerated clearance of CYP3A substrates",
+      "severity": "high",
+      "evidence_grade": "A",
+      "mechanism": "Carbamazepine / phenytoin / rifampin are strong CYP3A4 inducers that markedly increase clearance of CYP3A substrates (DOAC, calcineurin inhibitors, OC, some TKI) → subtherapeutic exposure",
+      "when": {"and": [
+        {"field": "drug.class", "in": ["DOAC", "calcineurin_inhibitor", "hormonal_contraceptive", "tki_egfr", "tki_bcr_abl", "tki_vegfr", "cdk46_inhibitor"]},
+        {"field": "patient.med_summary.has_cyp3a_strong_inducer", "eq": true}
+      ]},
+      "risk": {"underexposure_risk": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.cyp3a_inducer_review_alternative_anticonvulsant", "evidence_grade": "A"},
+        {"i18n_key": "action.cyp3a_inducer_anticipate_dose_increase_or_switch", "evidence_grade": "A"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.cyp3a_inducer_warning_breakthrough", "evidence_grade": "A"}],
+      "lab_plan": [{"test": "trough_or_response_marker", "interval_weeks": 2, "i18n_key": "lab.trough_response_2w"}],
+      "admin_layer": {"pattern": "cyp3a_induction_substrate_loss", "i18n_key_internal": "admin.cyp3a_inducer_substrate"},
+      "sources": ["FDA Tegretol prescribing information — DDI section"]
+    },
+    {
+      "rule_id": "CLOZAPINE_INFLAMMATION_TOXICITY",
+      "name": "Clozapine toxicity during inflammation / infection",
+      "severity": "high",
+      "evidence_grade": "B",
+      "mechanism": "Acute inflammation / infection suppresses CYP1A2 (the main clozapine clearing enzyme) → clozapine levels can double within days → sedation, hypotension, seizures, ileus, hypersalivation",
+      "when": {"and": [
+        {"field": "drug.profile_id", "eq": "clozapine"},
+        {"or": [
+          {"field": "patient.acute_infection", "eq": true},
+          {"field": "patient.systemic_inflammation", "in": ["moderate", "severe"]},
+          {"field": "patient.labs.crp_mg_l", "gte": 50}
+        ]}
+      ]},
+      "risk": {"overexposure_risk": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.clozapine_check_level_now", "evidence_grade": "B"},
+        {"i18n_key": "action.clozapine_consider_dose_reduction_during_inflammation", "evidence_grade": "B"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.clozapine_sedation_drooling_report", "evidence_grade": "B"}],
+      "lab_plan": [
+        {"test": "clozapine_level", "interval_weeks": 1, "i18n_key": "lab.clozapine_level_1w"},
+        {"test": "CRP", "interval_weeks": 1, "i18n_key": "lab.crp_1w"}
+      ],
+      "admin_layer": {"pattern": "cyp1a2_suppression_inflammation", "i18n_key_internal": "admin.clozapine_inflammation"},
+      "sources": ["Ruan CJ et al. clozapine inflammation toxicity", "de Leon J et al."]
+    },
+    {
+      "rule_id": "LAMOTRIGINE_OC_CLEARANCE",
+      "name": "Lamotrigine clearance acceleration by oral contraceptive",
+      "severity": "moderate",
+      "evidence_grade": "A",
+      "mechanism": "Estrogen induces UGT1A4 → lamotrigine clearance increases ~50%, falling levels on active OC days, rebound during pill-free week → breakthrough seizures or mood instability",
+      "when": {"and": [
+        {"field": "drug.profile_id", "eq": "lamotrigine"},
+        {"field": "patient.med_summary.has_oral_contraceptive", "eq": true}
+      ]},
+      "risk": {"underexposure_risk": "moderate", "net_pk_variability": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.lamotrigine_anticipate_dose_increase_with_oc", "evidence_grade": "A"},
+        {"i18n_key": "action.lamotrigine_warn_pill_free_week_rebound", "evidence_grade": "A"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.lamotrigine_oc_breakthrough_warning", "evidence_grade": "A"}],
+      "lab_plan": [{"test": "lamotrigine_level_if_TDM", "interval_weeks": 4, "i18n_key": "lab.lamotrigine_level_4w"}],
+      "admin_layer": {"pattern": "ugt_induction_estrogen", "i18n_key_internal": "admin.lamotrigine_oc"},
+      "sources": ["FDA Lamictal prescribing information", "Sabers A et al."]
+    },
+    {
+      "rule_id": "BARIATRIC_MODIFIED_RELEASE",
+      "name": "Modified-release drug after recent bariatric surgery — unpredictable release",
+      "severity": "moderate",
+      "evidence_grade": "B",
+      "mechanism": "Altered transit time and reduced absorptive surface after bariatric surgery degrade the carefully tuned release profile of ER/MR/enteric-coated formulations → erratic levels",
+      "when": {"and": [
+        {"field": "drug.modified_release", "eq": true},
+        {"field": "patient.bariatric_type", "neq": "none"},
+        {"field": "patient.months_since_bariatric", "lt": 6}
+      ]},
+      "risk": {"net_pk_variability": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.bariatric_switch_to_ir_or_alternative_route", "evidence_grade": "B"},
+        {"i18n_key": "action.bariatric_consider_specialist_pharmacist", "evidence_grade": "B"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.bariatric_report_drug_effect_changes", "evidence_grade": "B"}],
+      "lab_plan": [{"test": "drug_specific_marker", "interval_weeks": 4, "i18n_key": "lab.drug_marker_4w"}],
+      "admin_layer": {"pattern": "altered_anatomy_MR_release_failure", "i18n_key_internal": "admin.bariatric_modified_release"},
+      "sources": ["Yska JP et al. pharmacokinetics post-bariatric review"]
+    },
+    {
+      "rule_id": "GLP1_WEIGHT_LOSS_ANTIHYPERTENSIVE_TAPER",
+      "name": "Anticipated antihypertensive dose reduction with sustained GLP-1 weight loss",
+      "severity": "moderate",
+      "evidence_grade": "B",
+      "mechanism": "GLP-1-induced weight loss lowers BP by 5–10 mmHg systolic typically by week 8–12; without proactive antihypertensive taper, orthostatic hypotension and falls become common",
+      "when": {"and": [
+        {"field": "drug.class", "in": ["beta_blocker", "ace_inhibitor", "arb", "ccb"]},
+        {"field": "patient.glp1_agent", "neq": "none"},
+        {"field": "patient.glp1_weeks_since_start", "gte": 8}
+      ]},
+      "risk": {"overexposure_risk": "moderate"},
+      "physician_actions": [
+        {"i18n_key": "action.antihypertensive_review_taper_25_50", "evidence_grade": "B"},
+        {"i18n_key": "action.antihypertensive_check_orthostatic_bp", "evidence_grade": "B"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.report_dizziness_on_standing", "evidence_grade": "A"}],
+      "lab_plan": [],
+      "admin_layer": {"pattern": "weight_loss_BP_drop", "i18n_key_internal": "admin.glp1_antihypertensive_taper"},
+      "sources": ["FDA Wegovy / Mounjaro / Zepbound labels — BP reduction"]
+    },
+    {
+      "rule_id": "PSYCHOTROPIC_GASTROPARESIS_TMAX",
+      "name": "Psychotropic Tmax-sensitive drug under GLP-1 delayed gastric emptying",
+      "severity": "moderate",
+      "evidence_grade": "C",
+      "mechanism": "SSRI / SNRI / meglitinide rapid-action drugs lose predictable Tmax under GLP-1-induced gastric emptying delay → uneven plasma profile, irregular clinical effect (mood swings, postprandial hypoglycemia)",
+      "when": {"and": [
+        {"field": "drug.class", "in": ["ssri", "snri", "meglitinide"]},
+        {"field": "drug.tmax_sensitive", "eq": true},
+        {"field": "patient.glp1_agent", "neq": "none"}
+      ]},
+      "risk": {"delayed_onset_risk": "moderate", "net_pk_variability": "moderate"},
+      "physician_actions": [
+        {"i18n_key": "action.tmax_warn_delayed_onset", "evidence_grade": "C"},
+        {"i18n_key": "action.psychotropic_consider_sustained_release_alternative", "evidence_grade": "C"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.tmax_drug_may_act_later", "evidence_grade": "C"}],
+      "lab_plan": [],
+      "admin_layer": {"pattern": "gastric_emptying_tmax_psychotropic", "i18n_key_internal": "admin.psychotropic_tmax"},
+      "sources": ["FDA GLP-1 labels — gastric emptying", "Camilleri M"]
+    },
+    {
+      "rule_id": "SHORT_BOWEL_BILE_DEPENDENT",
+      "name": "Bile-dependent drug in short bowel syndrome",
+      "severity": "high",
+      "evidence_grade": "B",
+      "mechanism": "Short bowel syndrome reduces bile acid pool and ileal reabsorption; bile-dependent lipophilic drugs (tacrolimus, cyclosporine, MMF, posaconazole suspension, amiodarone) absorb erratically and at reduced extent",
+      "when": {"and": [
+        {"field": "drug.bile_dependent", "eq": true},
+        {"field": "patient.short_bowel", "eq": true}
+      ]},
+      "risk": {"underexposure_risk": "high", "net_pk_variability": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.short_bowel_consider_iv_or_pH_independent", "evidence_grade": "B"},
+        {"i18n_key": "action.short_bowel_specialist_pharmacist_consultation", "evidence_grade": "B"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.short_bowel_report_drug_effects", "evidence_grade": "B"}],
+      "lab_plan": [{"test": "drug_trough_if_TDM", "interval_weeks": 2, "i18n_key": "lab.drug_trough_2w"}],
+      "admin_layer": {"pattern": "bile_dependent_absorption_failure", "i18n_key_internal": "admin.short_bowel_bile"},
+      "sources": ["Mendes-Braz M et al. PK in short bowel", "Brunet M et al."]
+    },
+    {
+      "rule_id": "BARIATRIC_PROTEIN_BINDING_NTI",
+      "name": "NTI + high protein-bound drug after recent bariatric surgery — vigilance window",
+      "severity": "moderate",
+      "evidence_grade": "C",
+      "mechanism": "Post-bariatric malabsorption + low albumin + altered transit converge to destabilize narrow-TI highly protein-bound drugs (warfarin, phenytoin, tacrolimus) — exposure variance is mechanistically high even before symptoms appear",
+      "when": {"and": [
+        {"field": "drug.protein_binding", "eq": "high"},
+        {"field": "drug.narrow_therapeutic_index", "eq": true},
+        {"field": "patient.bariatric_type", "neq": "none"},
+        {"field": "patient.months_since_bariatric", "lt": 12}
+      ]},
+      "risk": {"net_pk_variability": "high"},
+      "physician_actions": [
+        {"i18n_key": "action.bariatric_nti_intensify_monitoring", "evidence_grade": "C"},
+        {"i18n_key": "action.bariatric_nti_consider_alternative_route", "evidence_grade": "C"}
+      ],
+      "patient_actions": [{"i18n_key": "patient.bariatric_nti_unusual_effects_report", "evidence_grade": "C"}],
+      "lab_plan": [{"test": "drug_specific_TDM_or_marker", "interval_weeks": 2, "i18n_key": "lab.drug_tdm_2w"}],
+      "admin_layer": {"pattern": "bariatric_NTI_PK_destabilization", "i18n_key_internal": "admin.bariatric_nti"},
+      "sources": ["Yska JP et al.", "ISTH 2021 anticoagulation post-bariatric"]
+    }
+  ]
+}

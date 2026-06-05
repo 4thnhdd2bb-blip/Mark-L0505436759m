@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>METACOD GLP-1 — Complication Prevention</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   Design tokens — editorial clinical
+   ============================================================ */
+:root {
+  --cream: #FAF8F4;
+  --cream-deep: #F1ECE0;
+  --paper-edge: #E5DFD3;
+  --ink: #1A1815;
+  --ink-soft: #4A4540;
+  --ink-quiet: #807A72;
+  --petrol: #1F4A4D;
+  --petrol-soft: #5D8385;
+  --triage-green: #2D6E4F;
+  --triage-green-bg: #E8F0E9;
+  --triage-yellow: #946A12;
+  --triage-yellow-bg: #FAF1D9;
+  --triage-red: #A8281B;
+  --triage-red-bg: #FBE7E2;
+  --grade-a: #2D6E4F;
+  --grade-b: #946A12;
+  --grade-c: #807A72;
+  --admin-ink: #4A2E8A;
+  --admin-bg: #F4F0FF;
+  --admin-edge: #B59FE0;
+  --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --sans: "Geist", "Helvetica Neue", system-ui, sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
+  --radius: 4px;
+  --shadow-paper: 0 1px 0 rgba(26, 24, 21, 0.04), 0 4px 14px -8px rgba(26, 24, 21, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+  font-feature-settings: "ss01", "ss02", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html[dir="rtl"] body { font-family: var(--sans); }
+
+#root { min-height: 100vh; }
+
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+}
+@media (max-width: 720px) { .app { padding: 28px 20px 60px; } }
+
+/* ============================================================
+   Header
+   ============================================================ */
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--paper-edge);
+  margin-bottom: 40px;
+}
+.brand-title {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  color: var(--ink);
+}
+.brand-sub {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-quiet);
+  margin-top: 6px;
+}
+@media (max-width: 720px) { .brand-title { font-size: 40px; } }
+
+.header-controls { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
+html[dir="rtl"] .header-controls { align-items: flex-start; }
+.control-row { display: flex; gap: 8px; align-items: center; font-size: 12px; }
+.control-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-quiet);
+  margin-inline-end: 8px;
+}
+
+.tab-group { display: inline-flex; border: 1px solid var(--paper-edge); border-radius: var(--radius); background: var(--cream); }
+.tab {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-family: var(--mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: transparent;
+  border: 0;
+  color: var(--ink-quiet);
+  cursor: pointer;
+  border-inline-end: 1px solid var(--paper-edge);
+  transition: background 120ms, color 120ms;
+}
+.tab:last-child { border-inline-end: 0; }
+.tab:hover { color: var(--ink); }
+.tab.active { background: var(--ink); color: var(--cream); }
+
+/* ============================================================
+   Section labels (editorial)
+   ============================================================ */
+.section { margin-top: 48px; }
+.section-label {
+  display: flex; align-items: baseline; gap: 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-quiet);
+  margin-bottom: 16px;
+}
+.section-label::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px dotted var(--paper-edge);
+  transform: translateY(-3px);
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin-bottom: 8px;
+}
+
+.lede {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  max-width: 60ch;
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   Patient form
+   ============================================================ */
+.form-grid { display: grid; gap: 28px; }
+.fieldset {
+  border: 1px solid var(--paper-edge);
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+}
+.fieldset-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.field-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 20px; }
+
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-quiet);
+  font-weight: 500;
+}
+.field-hint { font-size: 11px; color: var(--ink-quiet); font-style: italic; margin-top: 2px; }
+.input, .select, .textarea {
+  font-family: var(--sans);
+  font-size: 14px;
+  padding: 7px 10px;
+  background: var(--cream);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-weight: 400;
+  transition: border-color 120ms;
+}
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--petrol);
+  box-shadow: 0 0 0 3px rgba(31, 74, 77, 0.08);
+}
+.checkbox-row { display: flex; gap: 8px; align-items: center; padding: 6px 0; }
+.checkbox-row input[type="checkbox"] { accent-color: var(--petrol); width: 16px; height: 16px; }
+.checkbox-row label { font-size: 13px; cursor: pointer; user-select: none; }
+
+.meds-list { margin-top: 8px; display: flex; flex-direction: column; gap: 10px; }
+.med-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 0.8fr auto;
+  gap: 8px;
+  align-items: center;
+}
+.med-remove {
+  background: transparent;
+  border: 1px solid var(--paper-edge);
+  color: var(--ink-quiet);
+  width: 28px; height: 28px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-family: var(--mono);
+  transition: all 120ms;
+}
+.med-remove:hover { color: var(--triage-red); border-color: var(--triage-red); }
+.med-add {
+  background: transparent;
+  border: 1px dashed var(--paper-edge);
+  color: var(--petrol);
+  font-size: 12px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-top: 8px;
+  width: 100%;
+  transition: all 120ms;
+}
+.med-add:hover { border-color: var(--petrol); background: rgba(31, 74, 77, 0.04); }
+
+/* ============================================================
+   Action button (primary)
+   ============================================================ */
+.cta-row { display: flex; gap: 16px; align-items: center; margin-top: 32px; }
+.btn-primary {
+  background: var(--ink);
+  color: var(--cream);
+  border: 0;
+  padding: 14px 28px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 140ms;
+}
+.btn-primary:hover { background: var(--petrol); }
+.btn-primary:disabled { background: var(--ink-quiet); cursor: not-allowed; }
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--paper-edge);
+  padding: 12px 22px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 120ms;
+}
+.btn-secondary:hover { border-color: var(--ink); }
+
+/* ============================================================
+   Triage banner
+   ============================================================ */
+.triage {
+  display: flex; align-items: baseline; gap: 20px;
+  padding: 28px 32px;
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+}
+.triage-color {
+  font-family: var(--serif);
+  font-size: 44px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.9;
+}
+.triage-text { font-size: 15px; line-height: 1.45; max-width: 60ch; }
+.triage-green { background: var(--triage-green-bg); color: var(--triage-green); border-left: 4px solid var(--triage-green); }
+.triage-yellow { background: var(--triage-yellow-bg); color: var(--triage-yellow); border-left: 4px solid var(--triage-yellow); }
+.triage-red { background: var(--triage-red-bg); color: var(--triage-red); border-left: 4px solid var(--triage-red); }
+html[dir="rtl"] .triage { border-left: 0; border-right: 4px solid; }
+html[dir="rtl"] .triage-green { border-right-color: var(--triage-green); }
+html[dir="rtl"] .triage-yellow { border-right-color: var(--triage-yellow); }
+html[dir="rtl"] .triage-red { border-right-color: var(--triage-red); }
+
+/* ============================================================
+   Interaction cards
+   ============================================================ */
+.interactions { display: flex; flex-direction: column; gap: 16px; }
+.rule-card {
+  background: var(--cream);
+  border: 1px solid var(--paper-edge);
+  border-left: 3px solid var(--paper-edge);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  box-shadow: var(--shadow-paper);
+}
+html[dir="rtl"] .rule-card { border-left: 1px solid var(--paper-edge); border-right: 3px solid var(--paper-edge); }
+.rule-card.severity-high { border-left-color: var(--triage-red); }
+.rule-card.severity-moderate { border-left-color: var(--triage-yellow); }
+.rule-card.severity-low { border-left-color: var(--triage-green); }
+html[dir="rtl"] .rule-card.severity-high { border-right-color: var(--triage-red); border-left-color: var(--paper-edge); }
+html[dir="rtl"] .rule-card.severity-moderate { border-right-color: var(--triage-yellow); border-left-color: var(--paper-edge); }
+html[dir="rtl"] .rule-card.severity-low { border-right-color: var(--triage-green); border-left-color: var(--paper-edge); }
+
+.rule-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 4px; }
+.rule-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.rule-med { font-size: 12px; color: var(--ink-quiet); margin-top: 2px; font-family: var(--mono); letter-spacing: 0.04em; }
+.grade-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.grade-A { background: var(--grade-a); color: var(--cream); }
+.grade-B { background: var(--grade-b); color: var(--cream); }
+.grade-C { background: var(--grade-c); color: var(--cream); }
+
+.sub-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-quiet);
+  margin: 14px 0 6px;
+  font-weight: 500;
+}
+.action-list { list-style: none; padding: 0; }
+.action-list li {
+  padding: 4px 0 4px 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  position: relative;
+}
+html[dir="rtl"] .action-list li { padding: 4px 18px 4px 0; }
+.action-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--ink-quiet);
+}
+html[dir="rtl"] .action-list li::before { left: auto; right: 0; }
+.action-list li .grade-badge { transform: translateY(-1px); margin-inline-start: 8px; }
+
+.admin-block {
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: var(--admin-bg);
+  border: 1px dashed var(--admin-edge);
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--admin-ink);
+  line-height: 1.55;
+}
+.admin-label {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 10px;
+  margin-inline-end: 8px;
+}
+.admin-mech {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--admin-ink);
+  margin-top: 6px;
+  line-height: 1.45;
+}
+.admin-sources { margin-top: 6px; font-size: 10px; opacity: 0.8; }
+
+/* ============================================================
+   Forecast
+   ============================================================ */
+.forecast-grid { display: grid; gap: 18px; }
+.decision-card {
+  background: var(--cream);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+}
+.decision-value {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 2px;
+  line-height: 1;
+}
+.decision-value.HOLD { color: var(--triage-red); }
+.decision-value.REVIEW { color: var(--triage-yellow); }
+.decision-value.CONTINUE { color: var(--triage-green); }
+.decision-desc { font-size: 14px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
+.rationale { margin-top: 8px; font-style: italic; color: var(--ink-quiet); font-size: 13px; }
+.rationale ul { list-style: none; padding: 0; }
+.rationale li { padding: 2px 0; }
+
+.risk-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px dotted var(--paper-edge);
+  align-items: baseline;
+}
+.risk-row:last-child { border-bottom: 0; }
+.risk-tf {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--petrol);
+  white-space: nowrap;
+  font-weight: 500;
+}
+.risk-text { font-size: 14px; line-height: 1.4; }
+
+/* ============================================================
+   Sign-off panel
+   ============================================================ */
+.signoff-panel {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-top: 8px;
+}
+.signoff-title { font-family: var(--serif); font-size: 24px; font-weight: 400; margin-bottom: 4px; }
+.signoff-sub { font-size: 12px; color: var(--ink-quiet); margin-bottom: 16px; font-style: italic; }
+.signoff-status {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-inline-start: 8px;
+}
+.signoff-status.pending { background: var(--triage-yellow-bg); color: var(--triage-yellow); }
+.signoff-status.signed { background: var(--triage-green-bg); color: var(--triage-green); }
+.signoff-status.rejected { background: var(--triage-red-bg); color: var(--triage-red); }
+
+/* ============================================================
+   Misc
+   ============================================================ */
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid var(--paper-edge);
+  border-top-color: var(--ink);
+  border-radius: 50%;
+  animation: spin 600ms linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--cream);
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  z-index: 100;
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.mode-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 2px 6px;
+  border-radius: 2px;
+  background: var(--paper-edge);
+  color: var(--ink-quiet);
+}
+.mode-badge.live { background: var(--triage-green-bg); color: var(--triage-green); }
+
+footer {
+  margin-top: 64px;
+  padding-top: 20px;
+  border-top: 1px solid var(--paper-edge);
+  font-size: 11px;
+  color: var(--ink-quiet);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+footer span { font-family: var(--mono); letter-spacing: 0.04em; }
+
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- ============================================================
+     UI i18n (chrome only — assessment texts come from backend already-resolved)
+     ============================================================ -->
+<script id="ui-i18n" type="application/json">
+{
+  "ru": {
+    "brand_sub": "Профилактика осложнений GLP-1",
+    "locale_label": "Язык",
+    "layer_label": "Вид",
+    "layer_clinical": "Клин.",
+    "layer_admin": "Админ.",
+    "mode_mock": "Демо",
+    "mode_live": "Live",
+    "section_input": "Ввод",
+    "section_input_lede": "Введите данные пациента. Все поля необязательны кроме базовой демографии и хотя бы одного препарата.",
+    "fs_demographics": "Демография",
+    "fs_glp1": "GLP-1 терапия",
+    "fs_concomitant": "Сопутствующие препараты / факторы",
+    "fs_organ": "Функция органов",
+    "fs_inflammation": "Воспаление",
+    "fs_symptoms": "Симптомы",
+    "fs_labs": "Лаборатория",
+    "fs_meds": "Препараты",
+    "f_patient_id": "ID пациента",
+    "f_age": "Возраст",
+    "f_sex": "Пол",
+    "f_weight": "Вес (кг)",
+    "f_glp1_agent": "GLP-1 препарат",
+    "f_glp1_weeks_start": "Недель с начала",
+    "f_glp1_weeks_esc": "Недель с последней эскалации",
+    "f_ppi": "ИПП / H2-блокатор",
+    "f_cation": "Ca / Fe / Mg / Al",
+    "f_bas": "Секвестранты желчных кислот",
+    "f_sucralfate": "Сукральфат",
+    "f_child_pugh": "Child-Pugh",
+    "f_aki": "Острое почечное повреждение",
+    "f_hf": "Декомпенсация СН / застой",
+    "f_gut_edema": "Подозрение на отёк ЖКТ",
+    "f_inflam": "Системное воспаление",
+    "f_acute_inf": "Острая инфекция",
+    "f_bariatric": "Тип бариатрии",
+    "f_months_bar": "Месяцев с операции",
+    "f_short_bowel": "Синдром короткой кишки",
+    "f_nausea": "Тошнота (0–10)",
+    "f_vomit": "Эпизоды рвоты / 24 ч",
+    "f_pain": "Боль в животе (0–10)",
+    "f_constipation": "Запор (дней)",
+    "f_diarrhea": "Эпизоды диареи / 24 ч",
+    "f_early_satiety": "Раннее насыщение",
+    "f_unable_fluids": "Не удерживает жидкость",
+    "f_unable_meds": "Не удерживает препараты",
+    "f_dizziness": "Ортостаз / головокружение",
+    "f_reduced_urine": "Снижение диуреза",
+    "f_black_stool": "Чёрный стул / кровь",
+    "f_fever": "Лихорадка",
+    "f_weaker_meds": "Препараты стали слабее работать",
+    "f_egfr": "СКФ (мл/мин)",
+    "f_crp": "СРБ (мг/л)",
+    "f_tsh": "ТТГ (мМЕ/л)",
+    "f_albumin": "Альбумин (г/дл)",
+    "f_ferritin": "Ферритин (нг/мл)",
+    "f_inr": "МНО",
+    "f_med_name": "Название препарата",
+    "f_med_profile": "Молекулярный профиль",
+    "f_med_essential": "Важен",
+    "btn_assess": "Запустить оценку",
+    "btn_reset": "Сбросить",
+    "btn_sign": "Подписать",
+    "section_triage": "Триаж",
+    "section_interactions": "Взаимодействия",
+    "section_forecast": "Прогноз",
+    "subsection_glp1_decision": "Решение по GLP-1",
+    "subsection_future_risks": "Будущие риски",
+    "subsection_chronic_adj": "Коррекции хронической терапии",
+    "subsection_phys_actions": "Действия врача",
+    "subsection_pat_actions": "Обучение пациента",
+    "subsection_lab_plan": "Лабораторный план",
+    "no_rules_fired": "Ни одно правило не сработало — стабильный профиль.",
+    "section_signoff": "Подпись (White Coat Rule)",
+    "signoff_sub": "Каждое решение требует явной подписи врача перед попаданием в EHR.",
+    "f_physician_id": "ID врача",
+    "f_physician_name": "Имя врача",
+    "f_signoff_status": "Статус",
+    "f_signoff_notes": "Комментарий",
+    "status_signed": "Подписано",
+    "status_rejected": "Отклонено",
+    "status_amended": "С правками",
+    "status_pending": "Ожидает подписи",
+    "submitting": "Расчёт…",
+    "signing": "Подпись…",
+    "toast_signed": "Подписано — visit передан в EHR",
+    "toast_assessed": "Оценка завершена",
+    "btn_new_visit": "Новый визит",
+    "footer_version": "rule_pack {rp} · drug_db {dd}",
+    "footer_disclaimer": "Decision support; клиническое суждение врача имеет приоритет."
+  },
+  "en": {
+    "brand_sub": "Complication Prevention",
+    "locale_label": "Lang",
+    "layer_label": "View",
+    "layer_clinical": "Clin.",
+    "layer_admin": "Admin",
+    "mode_mock": "Demo",
+    "mode_live": "Live",
+    "section_input": "Input",
+    "section_input_lede": "Enter the patient context. All fields are optional except basic demographics and at least one medication.",
+    "fs_demographics": "Demographics",
+    "fs_glp1": "GLP-1 therapy",
+    "fs_concomitant": "Concomitant therapy / factors",
+    "fs_organ": "Organ function",
+    "fs_inflammation": "Inflammation",
+    "fs_symptoms": "Symptoms",
+    "fs_labs": "Labs",
+    "fs_meds": "Medications",
+    "f_patient_id": "Patient ID",
+    "f_age": "Age",
+    "f_sex": "Sex",
+    "f_weight": "Weight (kg)",
+    "f_glp1_agent": "GLP-1 agent",
+    "f_glp1_weeks_start": "Weeks since start",
+    "f_glp1_weeks_esc": "Weeks since last escalation",
+    "f_ppi": "PPI / H2-blocker",
+    "f_cation": "Ca / Fe / Mg / Al",
+    "f_bas": "Bile acid sequestrants",
+    "f_sucralfate": "Sucralfate",
+    "f_child_pugh": "Child-Pugh",
+    "f_aki": "Acute kidney injury",
+    "f_hf": "HF decompensation / congestion",
+    "f_gut_edema": "Suspected gut edema",
+    "f_inflam": "Systemic inflammation",
+    "f_acute_inf": "Acute infection",
+    "f_bariatric": "Bariatric type",
+    "f_months_bar": "Months since surgery",
+    "f_short_bowel": "Short bowel syndrome",
+    "f_nausea": "Nausea (0–10)",
+    "f_vomit": "Vomiting episodes / 24h",
+    "f_pain": "Abdominal pain (0–10)",
+    "f_constipation": "Constipation (days)",
+    "f_diarrhea": "Diarrhea episodes / 24h",
+    "f_early_satiety": "Early satiety",
+    "f_unable_fluids": "Cannot keep fluids",
+    "f_unable_meds": "Cannot keep meds",
+    "f_dizziness": "Orthostasis / dizziness",
+    "f_reduced_urine": "Reduced urine output",
+    "f_black_stool": "Black stool / blood",
+    "f_fever": "Fever",
+    "f_weaker_meds": "Regular meds feel weaker",
+    "f_egfr": "eGFR (mL/min)",
+    "f_crp": "CRP (mg/L)",
+    "f_tsh": "TSH (mIU/L)",
+    "f_albumin": "Albumin (g/dL)",
+    "f_ferritin": "Ferritin (ng/mL)",
+    "f_inr": "INR",
+    "f_med_name": "Medication name",
+    "f_med_profile": "Molecular profile",
+    "f_med_essential": "Essential",
+    "btn_assess": "Run assessment",
+    "btn_reset": "Reset",
+    "btn_sign": "Sign",
+    "section_triage": "Triage",
+    "section_interactions": "Interactions",
+    "section_forecast": "Forecast",
+    "subsection_glp1_decision": "GLP-1 decision",
+    "subsection_future_risks": "Future risks",
+    "subsection_chronic_adj": "Chronic medication adjustments",
+    "subsection_phys_actions": "Physician actions",
+    "subsection_pat_actions": "Patient education",
+    "subsection_lab_plan": "Lab plan",
+    "no_rules_fired": "No rules fired — stable profile.",
+    "section_signoff": "Sign-off (White Coat Rule)",
+    "signoff_sub": "Every decision requires explicit physician sign-off before entering the EHR.",
+    "f_physician_id": "Physician ID",
+    "f_physician_name": "Physician name",
+    "f_signoff_status": "Status",
+    "f_signoff_notes": "Notes",
+    "status_signed": "Signed",
+    "status_rejected": "Rejected",
+    "status_amended": "Amended",
+    "status_pending": "Pending sign-off",
+    "submitting": "Computing…",
+    "signing": "Signing…",
+    "toast_signed": "Signed — visit released to EHR",
+    "toast_assessed": "Assessment complete",
+    "btn_new_visit": "New visit",
+    "footer_version": "rule_pack {rp} · drug_db {dd}",
+    "footer_disclaimer": "Decision support; treating physician clinical judgment prevails."
+  },
+  "he": {
+    "brand_sub": "מניעת סיבוכי GLP-1",
+    "locale_label": "שפה",
+    "layer_label": "תצוגה",
+    "layer_clinical": "קלין.",
+    "layer_admin": "אדמין",
+    "mode_mock": "דמו",
+    "mode_live": "Live",
+    "section_input": "קלט",
+    "section_input_lede": "הזן את נתוני המטופל. כל השדות אופציונליים פרט לדמוגרפיה בסיסית ולפחות תרופה אחת.",
+    "fs_demographics": "דמוגרפיה",
+    "fs_glp1": "טיפול GLP-1",
+    "fs_concomitant": "תרופות / גורמים נלווים",
+    "fs_organ": "תפקוד איברים",
+    "fs_inflammation": "דלקת",
+    "fs_symptoms": "סימפטומים",
+    "fs_labs": "מעבדה",
+    "fs_meds": "תרופות",
+    "f_patient_id": "מזהה מטופל",
+    "f_age": "גיל",
+    "f_sex": "מין",
+    "f_weight": "משקל (ק\"ג)",
+    "f_glp1_agent": "תרופת GLP-1",
+    "f_glp1_weeks_start": "שבועות מההתחלה",
+    "f_glp1_weeks_esc": "שבועות מהעלאה אחרונה",
+    "f_ppi": "PPI / חוסם H2",
+    "f_cation": "Ca / Fe / Mg / Al",
+    "f_bas": "סופחי מלחי מרה",
+    "f_sucralfate": "סוקרלפט",
+    "f_child_pugh": "Child-Pugh",
+    "f_aki": "פגיעה כלייתית חריפה",
+    "f_hf": "אי-ספיקת לב / גודש",
+    "f_gut_edema": "חשד לבצקת מעי",
+    "f_inflam": "דלקת סיסטמית",
+    "f_acute_inf": "זיהום חריף",
+    "f_bariatric": "סוג ניתוח בריאטרי",
+    "f_months_bar": "חודשים מהניתוח",
+    "f_short_bowel": "תסמונת מעי קצר",
+    "f_nausea": "בחילה (0–10)",
+    "f_vomit": "אירועי הקאה / 24 שעות",
+    "f_pain": "כאב בטן (0–10)",
+    "f_constipation": "עצירות (ימים)",
+    "f_diarrhea": "אירועי שלשול / 24 שעות",
+    "f_early_satiety": "שובע מוקדם",
+    "f_unable_fluids": "לא שומר על נוזלים",
+    "f_unable_meds": "לא שומר על תרופות",
+    "f_dizziness": "סחרחורת / אורתוסטטיקה",
+    "f_reduced_urine": "ירידה בתפוקת שתן",
+    "f_black_stool": "צואה שחורה / דם",
+    "f_fever": "חום",
+    "f_weaker_meds": "תרופות שגרתיות חלשות יותר",
+    "f_egfr": "eGFR (מ\"ל/דקה)",
+    "f_crp": "CRP (מ\"ג/ל)",
+    "f_tsh": "TSH (מיחיד\"ב/ל)",
+    "f_albumin": "אלבומין (ג'/ד\"ל)",
+    "f_ferritin": "פריטין (ננ\"ג/מ\"ל)",
+    "f_inr": "INR",
+    "f_med_name": "שם התרופה",
+    "f_med_profile": "פרופיל מולקולרי",
+    "f_med_essential": "חיוני",
+    "btn_assess": "הפעל הערכה",
+    "btn_reset": "אפס",
+    "btn_sign": "חתום",
+    "section_triage": "טריאז'",
+    "section_interactions": "אינטראקציות",
+    "section_forecast": "תחזית",
+    "subsection_glp1_decision": "החלטה על GLP-1",
+    "subsection_future_risks": "סיכונים עתידיים",
+    "subsection_chronic_adj": "התאמות לתרופות כרוניות",
+    "subsection_phys_actions": "פעולות הרופא",
+    "subsection_pat_actions": "הדרכת המטופל",
+    "subsection_lab_plan": "תוכנית מעבדה",
+    "no_rules_fired": "לא הופעלו חוקים — פרופיל יציב.",
+    "section_signoff": "חתימה (White Coat Rule)",
+    "signoff_sub": "כל החלטה דורשת חתימה מפורשת של הרופא לפני הכנסה ל-EHR.",
+    "f_physician_id": "מזהה רופא",
+    "f_physician_name": "שם הרופא",
+    "f_signoff_status": "סטטוס",
+    "f_signoff_notes": "הערות",
+    "status_signed": "חתום",
+    "status_rejected": "נדחה",
+    "status_amended": "תוקן",
+    "status_pending": "ממתין לחתימה",
+    "submitting": "מחשב…",
+    "signing": "חותם…",
+    "toast_signed": "נחתם — ביקור הועבר ל-EHR",
+    "toast_assessed": "ההערכה הושלמה",
+    "btn_new_visit": "ביקור חדש",
+    "footer_version": "rule_pack {rp} · drug_db {dd}",
+    "footer_disclaimer": "תמיכה בקבלת החלטות; שיקול הדעת של הרופא המטפל גובר."
+  }
+}
+</script>
+
+<!-- Mock assessment for offline mode (mirrors a real backend response) -->
+<script id="mock-assessment" type="application/json">
+{
+  "visit_id": "VIS-demo-mock-001",
+  "locale": "ru",
+  "direction": "ltr",
+  "rule_pack_version": "1.0.0",
+  "drug_db_version": "1.0.0",
+  "sign_off_status": "pending_sign_off",
+  "assessment": {
+    "patient_id": "P-DEMO-001",
+    "triage_color": "yellow",
+    "triage_summary_i18n_key": "triage.yellow.hold_and_reassess",
+    "triage_summary_i18n_text": "Жёлтый — приостановить эскалацию GLP-1 и пересмотреть пероральную терапию",
+    "rule_pack_version": "1.0.0",
+    "drug_db_version": "1.0.0",
+    "sign_off_status": "pending_sign_off",
+    "interactions": [
+      {
+        "rule_id": "LT4_TABLET_PPI",
+        "rule_name": "Levothyroxine tablet underexposure with PPI/H2RA",
+        "medication_name": "Levothyroxine 100 mcg",
+        "severity": "high",
+        "underexposure_risk": "high",
+        "overexposure_risk": "low",
+        "delayed_onset_risk": "low",
+        "net_pk_variability": "moderate",
+        "evidence_grade": "A",
+        "sources": ["Centanni M et al. NEJM 2017", "Virili C et al. 2023"],
+        "physician_actions": [
+          {"i18n_key": "action.lt4_check_tsh_4w", "i18n_text": "Проверить ТТГ через 4 недели на фоне ИПП", "evidence_grade": "A", "rule_id": "LT4_TABLET_PPI"},
+          {"i18n_key": "action.lt4_consider_liquid_formulation", "i18n_text": "Рассмотреть переход на жидкую или softgel-форму левотироксина", "evidence_grade": "A", "rule_id": "LT4_TABLET_PPI"}
+        ],
+        "patient_actions": [
+          {"i18n_key": "patient.lt4_separate_from_ppi", "i18n_text": "Принимать левотироксин строго натощак за 30–60 минут до ИПП и завтрака", "evidence_grade": "A", "rule_id": "LT4_TABLET_PPI"}
+        ],
+        "lab_plan": [
+          {"test": "TSH", "interval_weeks": 4, "i18n_key": "lab.tsh_4w", "i18n_text": "ТТГ через 4 недели", "rule_id": "LT4_TABLET_PPI"}
+        ],
+        "admin_trace": {
+          "rule_id": "LT4_TABLET_PPI",
+          "pattern": "pH_dependent_dissolution_failure",
+          "i18n_key_internal": "admin.lt4_tablet_ph_dissolution_failure",
+          "i18n_text_internal": "[admin] Срыв растворения таблетированного LT4 при повышенном желудочном pH",
+          "mechanism": "Elevated gastric pH impairs LT4 tablet dissolution → reduced bioavailability → TSH rises despite stable dose"
+        }
+      }
+    ],
+    "forecast": {
+      "glp1_dosing": {
+        "decision": "HOLD",
+        "i18n_key": "forecast.glp1.hold_no_escalation",
+        "i18n_text": "GLP-1: ПРИОСТАНОВИТЬ повышение дозы до разрешения GI-симптомов",
+        "rationale_i18n_keys": ["forecast.glp1.rationale.gi_intolerance"],
+        "rationale_i18n_texts": ["GI-непереносимость (тошнота/рвота/невозможность удерживать препараты или жидкость)"],
+        "evidence_grade": "A"
+      },
+      "future_risks": [
+        {"i18n_key": "forecast.risk.aki_dehydration", "i18n_text": "Риск ОПП от обезвоживания при сохраняющихся потерях", "timeframe_weeks": 2, "evidence_grade": "A", "rule_id": null},
+        {"i18n_key": "forecast.risk.lt4_drift_ppi", "i18n_text": "Риск дрейфа TSH на фоне ИПП", "timeframe_weeks": 6, "evidence_grade": "A", "rule_id": null}
+      ],
+      "chronic_med_adjustments": []
+    }
+  }
+}
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js" crossorigin></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.24.7/babel.min.js"></script>
+
+<script type="text/babel" data-presets="env,react">
+const { useState, useEffect, useMemo, useCallback } = React;
+
+// ----- Config -----
+const UI_I18N = JSON.parse(document.getElementById('ui-i18n').textContent);
+const MOCK_ASSESSMENT = JSON.parse(document.getElementById('mock-assessment').textContent);
+
+const queryParams = new URLSearchParams(window.location.search);
+const API_BASE = queryParams.get('api') || ''; // empty = mock mode
+const IS_LIVE = Boolean(API_BASE);
+
+const DRUG_PROFILES = [
+  "levothyroxine_tablet", "levothyroxine_liquid",
+  "oral_iron_ferrous_sulfate", "oral_iron_ferrous_bisglycinate",
+  "apixaban", "rivaroxaban", "dabigatran", "edoxaban", "warfarin",
+  "furosemide_oral", "torsemide_oral", "bumetanide_oral",
+  "omeprazole", "pantoprazole",
+  "ciprofloxacin", "doxycycline",
+  "itraconazole_capsule", "fluconazole",
+  "combined_oral_contraceptive",
+  "digoxin", "metformin"
+];
+
+const GLP1_AGENTS = ["none", "semaglutide_sc", "semaglutide_oral", "tirzepatide_sc", "liraglutide_sc", "dulaglutide_sc"];
+
+// ----- Utilities -----
+function t(locale, key, params = {}) {
+  let val = (UI_I18N[locale] && UI_I18N[locale][key]) || UI_I18N.ru[key] || key;
+  Object.entries(params).forEach(([k, v]) => { val = val.replace(`{${k}}`, v); });
+  return val;
+}
+
+function directionFor(locale) {
+  return locale === 'he' ? 'rtl' : 'ltr';
+}
+
+function emptyPatient() {
+  return {
+    patient_id: "P-" + Math.random().toString(36).slice(2, 8).toUpperCase(),
+    age_years: 58,
+    sex: "female",
+    weight_kg: 80,
+    glp1_agent: "tirzepatide_sc",
+    glp1_weeks_since_start: 2,
+    glp1_weeks_since_last_dose_increase: 2,
+    ppi_or_h2_blocker: true,
+    calcium_iron_magnesium_aluminum_products: false,
+    bile_acid_sequestrants: false,
+    sucralfate: false,
+    child_pugh: "none",
+    aki_present: false,
+    dialysis: "none",
+    heart_failure_congestion: false,
+    gut_edema_suspected: false,
+    systemic_inflammation: "none",
+    acute_infection: false,
+    bariatric_type: "none",
+    months_since_bariatric: null,
+    short_bowel: false,
+    symptoms: {
+      nausea_score: 7,
+      vomiting_episodes_24h: 1,
+      abdominal_pain_score: 0,
+      bloating_score: 0,
+      early_satiety: true,
+      constipation_days_without_stool: 3,
+      diarrhea_episodes_24h: 0,
+      unable_to_keep_fluids: false,
+      unable_to_keep_meds: false,
+      dizziness_or_orthostasis: false,
+      reduced_urine_output: false,
+      black_stool_or_visible_blood: false,
+      fever: false,
+      weaker_effect_of_regular_meds: true,
+      delayed_effect_of_regular_meds: false
+    },
+    labs: { egfr_ml_min: 52, crp_mg_l: 8, tsh_miu_l: 6.4, albumin_g_dl: 3.6 },
+    medications: [
+      { name: "Levothyroxine 100 mcg", profile_id: "levothyroxine_tablet", route: "oral", is_essential: true },
+      { name: "Omeprazole 20 mg", profile_id: "omeprazole", route: "oral", is_essential: false }
+    ]
+  };
+}
+
+// ============================================================
+// API
+// ============================================================
+async function callAssess(patient, locale) {
+  if (!IS_LIVE) {
+    await new Promise(r => setTimeout(r, 500));
+    return MOCK_ASSESSMENT;
+  }
+  const resp = await fetch(`${API_BASE}/glp1/assess`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ locale, patient })
+  });
+  if (!resp.ok) throw new Error("Assess failed: " + resp.status);
+  return resp.json();
+}
+
+async function callSignOff(visit_id, payload) {
+  if (!IS_LIVE) {
+    await new Promise(r => setTimeout(r, 350));
+    return { sign_off_id: 1, visit_id, status: payload.status, signed_at: new Date().toISOString() };
+  }
+  const resp = await fetch(`${API_BASE}/glp1/sign-off`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ visit_id, ...payload })
+  });
+  if (!resp.ok) throw new Error("Sign-off failed: " + resp.status);
+  return resp.json();
+}
+
+// ============================================================
+// Header
+// ============================================================
+function Header({ locale, setLocale, layer, setLayer }) {
+  return (
+    <header className="header">
+      <div>
+        <h1 className="brand-title">Metacod</h1>
+        <div className="brand-sub">{t(locale, 'brand_sub')} &nbsp;·&nbsp; <span className={`mode-badge ${IS_LIVE ? 'live' : ''}`}>{IS_LIVE ? t(locale, 'mode_live') : t(locale, 'mode_mock')}</span></div>
+      </div>
+      <div className="header-controls">
+        <div className="control-row">
+          <span className="control-label">{t(locale, 'locale_label')}</span>
+          <div className="tab-group">
+            {['ru', 'en', 'he'].map(loc => (
+              <button key={loc} className={`tab ${locale === loc ? 'active' : ''}`} onClick={() => setLocale(loc)}>
+                {loc}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="control-row">
+          <span className="control-label">{t(locale, 'layer_label')}</span>
+          <div className="tab-group">
+            <button className={`tab ${layer === 'clinical' ? 'active' : ''}`} onClick={() => setLayer('clinical')}>{t(locale, 'layer_clinical')}</button>
+            <button className={`tab ${layer === 'admin' ? 'active' : ''}`} onClick={() => setLayer('admin')}>{t(locale, 'layer_admin')}</button>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+// ============================================================
+// Patient form
+// ============================================================
+function PatientForm({ locale, patient, setPatient, onSubmit, submitting }) {
+  const upd = (path, value) => {
+    setPatient(prev => {
+      const next = JSON.parse(JSON.stringify(prev));
+      const parts = path.split('.');
+      let obj = next;
+      for (let i = 0; i < parts.length - 1; i++) obj = obj[parts[i]];
+      obj[parts[parts.length - 1]] = value;
+      return next;
+    });
+  };
+  const numOrNull = (v) => v === "" || v === null ? null : Number(v);
+
+  return (
+    <div>
+      <div className="section">
+        <div className="section-label">{t(locale, 'section_input')}</div>
+        <div className="section-title">{t(locale, 'section_input')}</div>
+        <div className="lede">{t(locale, 'section_input_lede')}</div>
+      </div>
+
+      <div className="form-grid" style={{ marginTop: 32 }}>
+        {/* Demographics + GLP-1 */}
+        <div className="fieldset">
+          <div className="fieldset-title">{t(locale, 'fs_demographics')} · {t(locale, 'fs_glp1')}</div>
+          <div className="field-grid">
+            <Field label={t(locale, 'f_patient_id')}><input className="input" value={patient.patient_id} onChange={e => upd('patient_id', e.target.value)} /></Field>
+            <Field label={t(locale, 'f_age')}><input type="number" className="input" value={patient.age_years} onChange={e => upd('age_years', Number(e.target.value))} /></Field>
+            <Field label={t(locale, 'f_sex')}>
+              <select className="select" value={patient.sex} onChange={e => upd('sex', e.target.value)}>
+                <option value="female">female</option>
+                <option value="male">male</option>
+                <option value="other">other</option>
+              </select>
+            </Field>
+            <Field label={t(locale, 'f_weight')}><input type="number" className="input" value={patient.weight_kg ?? ''} onChange={e => upd('weight_kg', numOrNull(e.target.value))} /></Field>
+            <Field label={t(locale, 'f_glp1_agent')}>
+              <select className="select" value={patient.glp1_agent} onChange={e => upd('glp1_agent', e.target.value)}>
+                {GLP1_AGENTS.map(a => <option key={a} value={a}>{a}</option>)}
+              </select>
+            </Field>
+            <Field label={t(locale, 'f_glp1_weeks_start')}><input type="number" className="input" value={patient.glp1_weeks_since_start ?? ''} onChange={e => upd('glp1_weeks_since_start', numOrNull(e.target.value))} /></Field>
+            <Field label={t(locale, 'f_glp1_weeks_esc')}><input type="number" className="input" value={patient.glp1_weeks_since_last_dose_increase ?? ''} onChange={e => upd('glp1_weeks_since_last_dose_increase', numOrNull(e.target.value))} /></Field>
+          </div>
+        </div>
+
+        {/* Concomitant + organ + inflammation */}
+        <div className="fieldset">
+          <div className="fieldset-title">{t(locale, 'fs_concomitant')} · {t(locale, 'fs_organ')}</div>
+          <div className="field-grid">
+            <Checkbox label={t(locale, 'f_ppi')} checked={patient.ppi_or_h2_blocker} onChange={v => upd('ppi_or_h2_blocker', v)} />
+            <Checkbox label={t(locale, 'f_cation')} checked={patient.calcium_iron_magnesium_aluminum_products} onChange={v => upd('calcium_iron_magnesium_aluminum_products', v)} />
+            <Checkbox label={t(locale, 'f_bas')} checked={patient.bile_acid_sequestrants} onChange={v => upd('bile_acid_sequestrants', v)} />
+            <Checkbox label={t(locale, 'f_sucralfate')} checked={patient.sucralfate} onChange={v => upd('sucralfate', v)} />
+            <Field label={t(locale, 'f_child_pugh')}>
+              <select className="select" value={patient.child_pugh} onChange={e => upd('child_pugh', e.target.value)}>
+                <option value="none">none</option><option value="A">A</option><option value="B">B</option><option value="C">C</option>
+              </select>
+            </Field>
+            <Checkbox label={t(locale, 'f_aki')} checked={patient.aki_present} onChange={v => upd('aki_present', v)} />
+            <Checkbox label={t(locale, 'f_hf')} checked={patient.heart_failure_congestion} onChange={v => upd('heart_failure_congestion', v)} />
+            <Checkbox label={t(locale, 'f_gut_edema')} checked={patient.gut_edema_suspected} onChange={v => upd('gut_edema_suspected', v)} />
+            <Field label={t(locale, 'f_inflam')}>
+              <select className="select" value={patient.systemic_inflammation} onChange={e => upd('systemic_inflammation', e.target.value)}>
+                <option value="none">none</option><option value="mild">mild</option><option value="moderate">moderate</option><option value="severe">severe</option>
+              </select>
+            </Field>
+            <Checkbox label={t(locale, 'f_acute_inf')} checked={patient.acute_infection} onChange={v => upd('acute_infection', v)} />
+            <Field label={t(locale, 'f_bariatric')}>
+              <select className="select" value={patient.bariatric_type} onChange={e => upd('bariatric_type', e.target.value)}>
+                <option value="none">none</option><option value="RYGB">RYGB</option><option value="sleeve">sleeve</option><option value="duodenal_switch">duodenal switch</option>
+              </select>
+            </Field>
+            <Field label={t(locale, 'f_months_bar')}><input type="number" className="input" value={patient.months_since_bariatric ?? ''} onChange={e => upd('months_since_bariatric', numOrNull(e.target.value))} /></Field>
+          </div>
+        </div>
+
+        {/* Symptoms */}
+        <div className="fieldset">
+          <div className="fieldset-title">{t(locale, 'fs_symptoms')}</div>
+          <div className="field-grid">
+            <Field label={t(locale, 'f_nausea')}><input type="number" min="0" max="10" className="input" value={patient.symptoms.nausea_score} onChange={e => upd('symptoms.nausea_score', Number(e.target.value))} /></Field>
+            <Field label={t(locale, 'f_vomit')}><input type="number" min="0" className="input" value={patient.symptoms.vomiting_episodes_24h} onChange={e => upd('symptoms.vomiting_episodes_24h', Number(e.target.value))} /></Field>
+            <Field label={t(locale, 'f_pain')}><input type="number" min="0" max="10" className="input" value={patient.symptoms.abdominal_pain_score} onChange={e => upd('symptoms.abdominal_pain_score', Number(e.target.value))} /></Field>
+            <Field label={t(locale, 'f_constipation')}><input type="number" min="0" className="input" value={patient.symptoms.constipation_days_without_stool} onChange={e => upd('symptoms.constipation_days_without_stool', Number(e.target.value))} /></Field>
+            <Field label={t(locale, 'f_diarrhea')}><input type="number" min="0" className="input" value={patient.symptoms.diarrhea_episodes_24h} onChange={e => upd('symptoms.diarrhea_episodes_24h', Number(e.target.value))} /></Field>
+            <Checkbox label={t(locale, 'f_early_satiety')} checked={patient.symptoms.early_satiety} onChange={v => upd('symptoms.early_satiety', v)} />
+            <Checkbox label={t(locale, 'f_unable_fluids')} checked={patient.symptoms.unable_to_keep_fluids} onChange={v => upd('symptoms.unable_to_keep_fluids', v)} />
+            <Checkbox label={t(locale, 'f_unable_meds')} checked={patient.symptoms.unable_to_keep_meds} onChange={v => upd('symptoms.unable_to_keep_meds', v)} />
+            <Checkbox label={t(locale, 'f_dizziness')} checked={patient.symptoms.dizziness_or_orthostasis} onChange={v => upd('symptoms.dizziness_or_orthostasis', v)} />
+            <Checkbox label={t(locale, 'f_reduced_urine')} checked={patient.symptoms.reduced_urine_output} onChange={v => upd('symptoms.reduced_urine_output', v)} />
+            <Checkbox label={t(locale, 'f_black_stool')} checked={patient.symptoms.black_stool_or_visible_blood} onChange={v => upd('symptoms.black_stool_or_visible_blood', v)} />
+            <Checkbox label={t(locale, 'f_fever')} checked={patient.symptoms.fever} onChange={v => upd('symptoms.fever', v)} />
+            <Checkbox label={t(locale, 'f_weaker_meds')} checked={patient.symptoms.weaker_effect_of_regular_meds} onChange={v => upd('symptoms.weaker_effect_of_regular_meds', v)} />
+          </div>
+        </div>
+
+        {/* Labs */}
+        <div className="fieldset">
+          <div className="fieldset-title">{t(locale, 'fs_labs')}</div>
+          <div className="field-grid">
+            <Field label={t(locale, 'f_egfr')}><input type="number" step="any" className="input" value={patient.labs.egfr_ml_min ?? ''} onChange={e => upd('labs.egfr_ml_min', numOrNull(e.target.value))} /></Field>
+            <Field label={t(locale, 'f_crp')}><input type="number" step="any" className="input" value={patient.labs.crp_mg_l ?? ''} onChange={e => upd('labs.crp_mg_l', numOrNull(e.target.value))} /></Field>
+            <Field label={t(locale, 'f_tsh')}><input type="number" step="any" className="input" value={patient.labs.tsh_miu_l ?? ''} onChange={e => upd('labs.tsh_miu_l', numOrNull(e.target.value))} /></Field>
+            <Field label={t(locale, 'f_albumin')}><input type="number" step="any" className="input" value={patient.labs.albumin_g_dl ?? ''} onChange={e => upd('labs.albumin_g_dl', numOrNull(e.target.value))} /></Field>
+            <Field label={t(locale, 'f_ferritin')}><input type="number" step="any" className="input" value={patient.labs.ferritin_ng_ml ?? ''} onChange={e => upd('labs.ferritin_ng_ml', numOrNull(e.target.value))} /></Field>
+            <Field label={t(locale, 'f_inr')}><input type="number" step="any" className="input" value={patient.labs.inr ?? ''} onChange={e => upd('labs.inr', numOrNull(e.target.value))} /></Field>
+          </div>
+        </div>
+
+        {/* Medications */}
+        <div className="fieldset">
+          <div className="fieldset-title">{t(locale, 'fs_meds')}</div>
+          <div className="meds-list">
+            {patient.medications.map((m, idx) => (
+              <div className="med-row" key={idx}>
+                <input className="input" placeholder={t(locale, 'f_med_name')} value={m.name} onChange={e => {
+                  const next = [...patient.medications];
+                  next[idx] = { ...next[idx], name: e.target.value };
+                  upd('medications', next);
+                }} />
+                <select className="select" value={m.profile_id} onChange={e => {
+                  const next = [...patient.medications];
+                  next[idx] = { ...next[idx], profile_id: e.target.value };
+                  upd('medications', next);
+                }}>
+                  <option value="">— {t(locale, 'f_med_profile')} —</option>
+                  {DRUG_PROFILES.map(p => <option key={p} value={p}>{p}</option>)}
+                </select>
+                <label className="checkbox-row">
+                  <input type="checkbox" checked={m.is_essential} onChange={e => {
+                    const next = [...patient.medications];
+                    next[idx] = { ...next[idx], is_essential: e.target.checked };
+                    upd('medications', next);
+                  }} />
+                  <span style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-quiet)' }}>{t(locale, 'f_med_essential')}</span>
+                </label>
+                <button className="med-remove" onClick={() => {
+                  upd('medications', patient.medications.filter((_, i) => i !== idx));
+                }} aria-label="remove">×</button>
+              </div>
+            ))}
+          </div>
+          <button className="med-add" onClick={() => {
+            upd('medications', [...patient.medications, { name: '', profile_id: '', route: 'oral', is_essential: false }]);
+          }}>+ {t(locale, 'fs_meds')}</button>
+        </div>
+      </div>
+
+      <div className="cta-row">
+        <button className="btn-primary" onClick={onSubmit} disabled={submitting}>
+          {submitting ? <><span className="spinner"></span> &nbsp; {t(locale, 'submitting')}</> : t(locale, 'btn_assess')}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function Field({ label, children }) {
+  return <div className="field"><span className="field-label">{label}</span>{children}</div>;
+}
+function Checkbox({ label, checked, onChange }) {
+  return (
+    <label className="checkbox-row">
+      <input type="checkbox" checked={!!checked} onChange={e => onChange(e.target.checked)} />
+      <span>{label}</span>
+    </label>
+  );
+}
+
+// ============================================================
+// Assessment result
+// ============================================================
+function AssessmentResult({ locale, layer, result, onSignOff, onNewVisit, signing }) {
+  const a = result.assessment;
+  const triageClass = `triage triage-${a.triage_color}`;
+
+  return (
+    <div>
+      <div className="section">
+        <div className="section-label">{t(locale, 'section_triage')}</div>
+        <div className={triageClass}>
+          <div className="triage-color">{a.triage_color.toUpperCase()}</div>
+          <div className="triage-text">{a.triage_summary_i18n_text}</div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="section-label">{t(locale, 'section_interactions')}</div>
+        {a.interactions.length === 0 ? (
+          <div style={{ color: 'var(--ink-quiet)', fontStyle: 'italic' }}>{t(locale, 'no_rules_fired')}</div>
+        ) : (
+          <div className="interactions">
+            {a.interactions.map((f, i) => (
+              <RuleCard key={i} finding={f} locale={locale} layer={layer} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="section">
+        <div className="section-label">{t(locale, 'section_forecast')}</div>
+        <ForecastSection forecast={a.forecast} locale={locale} layer={layer} />
+      </div>
+
+      <div className="section">
+        <div className="section-label">{t(locale, 'section_signoff')}</div>
+        <SignOffPanel
+          locale={locale}
+          status={result.sign_off_status}
+          onSign={onSignOff}
+          signing={signing}
+          onNewVisit={onNewVisit}
+        />
+      </div>
+    </div>
+  );
+}
+
+function RuleCard({ finding, locale, layer }) {
+  return (
+    <div className={`rule-card severity-${finding.severity}`}>
+      <div className="rule-head">
+        <div>
+          <div className="rule-name">{finding.rule_name}</div>
+          <div className="rule-med">{finding.medication_name}</div>
+        </div>
+        <span className={`grade-badge grade-${finding.evidence_grade}`}>{finding.evidence_grade}</span>
+      </div>
+
+      {finding.physician_actions?.length > 0 && (
+        <>
+          <div className="sub-label">{t(locale, 'subsection_phys_actions')}</div>
+          <ul className="action-list">
+            {finding.physician_actions.map((a, i) => (
+              <li key={i}>{a.i18n_text}<span className={`grade-badge grade-${a.evidence_grade}`}>{a.evidence_grade}</span></li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {finding.patient_actions?.length > 0 && (
+        <>
+          <div className="sub-label">{t(locale, 'subsection_pat_actions')}</div>
+          <ul className="action-list">
+            {finding.patient_actions.map((a, i) => <li key={i}>{a.i18n_text}</li>)}
+          </ul>
+        </>
+      )}
+
+      {finding.lab_plan?.length > 0 && (
+        <>
+          <div className="sub-label">{t(locale, 'subsection_lab_plan')}</div>
+          <ul className="action-list">
+            {finding.lab_plan.map((l, i) => <li key={i}>{l.i18n_text}</li>)}
+          </ul>
+        </>
+      )}
+
+      {layer === 'admin' && finding.admin_trace && (
+        <div className="admin-block">
+          <div>
+            <span className="admin-label">admin</span>
+            rule_id: <code>{finding.admin_trace.rule_id}</code> &nbsp;|&nbsp;
+            pattern: <code>{finding.admin_trace.pattern}</code>
+          </div>
+          {finding.admin_trace.i18n_text_internal && (
+            <div style={{ marginTop: 4 }}>{finding.admin_trace.i18n_text_internal}</div>
+          )}
+          {finding.admin_trace.mechanism && (
+            <div className="admin-mech">{finding.admin_trace.mechanism}</div>
+          )}
+          {finding.sources?.length > 0 && (
+            <div className="admin-sources">Sources: {finding.sources.join(' · ')}</div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ForecastSection({ forecast, locale, layer }) {
+  const g = forecast.glp1_dosing;
+  return (
+    <div className="forecast-grid">
+      <div className="decision-card">
+        <div className="sub-label" style={{ marginTop: 0 }}>{t(locale, 'subsection_glp1_decision')} <span className={`grade-badge grade-${g.evidence_grade}`} style={{ marginInlineStart: 8 }}>{g.evidence_grade}</span></div>
+        <div className={`decision-value ${g.decision}`}>{g.decision}</div>
+        <div className="decision-desc">{g.i18n_text}</div>
+        {g.rationale_i18n_texts?.length > 0 && (
+          <div className="rationale">
+            <ul>
+              {g.rationale_i18n_texts.map((r, i) => <li key={i}>— {r}</li>)}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      {forecast.future_risks?.length > 0 && (
+        <div className="decision-card">
+          <div className="sub-label" style={{ marginTop: 0 }}>{t(locale, 'subsection_future_risks')}</div>
+          {forecast.future_risks.map((r, i) => (
+            <div className="risk-row" key={i}>
+              <div className="risk-tf">+{r.timeframe_weeks}w</div>
+              <div className="risk-text">{r.i18n_text}</div>
+              <span className={`grade-badge grade-${r.evidence_grade}`}>{r.evidence_grade}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {forecast.chronic_med_adjustments?.length > 0 && (
+        <div className="decision-card">
+          <div className="sub-label" style={{ marginTop: 0 }}>{t(locale, 'subsection_chronic_adj')}</div>
+          {forecast.chronic_med_adjustments.map((c, i) => (
+            <div className="risk-row" key={i}>
+              <div className="risk-tf">+{c.timeframe_weeks}w</div>
+              <div className="risk-text">
+                <strong>{c.medication_name}</strong> · {c.adjustment_i18n_text}
+                <div style={{ fontSize: 12, color: 'var(--ink-quiet)', fontStyle: 'italic', marginTop: 2 }}>
+                  {c.trigger_i18n_text}
+                </div>
+              </div>
+              <span className={`grade-badge grade-${c.evidence_grade}`}>{c.evidence_grade}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SignOffPanel({ locale, status, onSign, signing, onNewVisit }) {
+  const [phyId, setPhyId] = useState("");
+  const [phyName, setPhyName] = useState("");
+  const [signStatus, setSignStatus] = useState("signed");
+  const [notes, setNotes] = useState("");
+
+  const isSigned = status !== 'pending_sign_off';
+
+  return (
+    <div className="signoff-panel">
+      <div className="signoff-title">
+        {t(locale, 'section_signoff')}
+        <span className={`signoff-status ${isSigned ? status : 'pending'}`}>
+          {t(locale, 'status_' + (isSigned ? status : 'pending'))}
+        </span>
+      </div>
+      <div className="signoff-sub">{t(locale, 'signoff_sub')}</div>
+
+      {!isSigned && (
+        <>
+          <div className="field-grid">
+            <Field label={t(locale, 'f_physician_id')}><input className="input" value={phyId} onChange={e => setPhyId(e.target.value)} placeholder="DR-001" /></Field>
+            <Field label={t(locale, 'f_physician_name')}><input className="input" value={phyName} onChange={e => setPhyName(e.target.value)} placeholder="Dr. ..." /></Field>
+            <Field label={t(locale, 'f_signoff_status')}>
+              <select className="select" value={signStatus} onChange={e => setSignStatus(e.target.value)}>
+                <option value="signed">{t(locale, 'status_signed')}</option>
+                <option value="rejected">{t(locale, 'status_rejected')}</option>
+                <option value="amended">{t(locale, 'status_amended')}</option>
+              </select>
+            </Field>
+          </div>
+          <div className="field" style={{ marginTop: 12 }}>
+            <span className="field-label">{t(locale, 'f_signoff_notes')}</span>
+            <textarea className="textarea" rows="3" value={notes} onChange={e => setNotes(e.target.value)} />
+          </div>
+          <div className="cta-row">
+            <button className="btn-primary" disabled={signing || !phyId || !phyName}
+              onClick={() => onSign({ physician_id: phyId, physician_name: phyName, status: signStatus, notes })}>
+              {signing ? <><span className="spinner"></span> &nbsp; {t(locale, 'signing')}</> : t(locale, 'btn_sign')}
+            </button>
+          </div>
+        </>
+      )}
+
+      {isSigned && (
+        <div className="cta-row">
+          <button className="btn-secondary" onClick={onNewVisit}>{t(locale, 'btn_new_visit')}</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ============================================================
+// App
+// ============================================================
+function App() {
+  const [locale, setLocale] = useState('ru');
+  const [layer, setLayer] = useState('clinical');
+  const [patient, setPatient] = useState(emptyPatient());
+  const [result, setResult] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [signing, setSigning] = useState(false);
+  const [toast, setToast] = useState(null);
+
+  // Sync document direction with locale
+  useEffect(() => {
+    document.documentElement.dir = directionFor(locale);
+    document.documentElement.lang = locale;
+  }, [locale]);
+
+  const showToast = useCallback((msg) => {
+    setToast(msg);
+    setTimeout(() => setToast(null), 2400);
+  }, []);
+
+  const handleAssess = useCallback(async () => {
+    setSubmitting(true);
+    try {
+      const r = await callAssess(patient, locale);
+      setResult(r);
+      showToast(t(locale, 'toast_assessed'));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (e) {
+      showToast(String(e));
+    } finally {
+      setSubmitting(false);
+    }
+  }, [patient, locale, showToast]);
+
+  const handleSignOff = useCallback(async (payload) => {
+    if (!result) return;
+    setSigning(true);
+    try {
+      const r = await callSignOff(result.visit_id, payload);
+      setResult(prev => ({ ...prev, sign_off_status: r.status }));
+      showToast(t(locale, 'toast_signed'));
+    } catch (e) {
+      showToast(String(e));
+    } finally {
+      setSigning(false);
+    }
+  }, [result, locale, showToast]);
+
+  const handleNewVisit = useCallback(() => {
+    setResult(null);
+    setPatient(emptyPatient());
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  return (
+    <div className="app">
+      <Header locale={locale} setLocale={setLocale} layer={layer} setLayer={setLayer} />
+
+      {!result && (
+        <PatientForm
+          locale={locale}
+          patient={patient}
+          setPatient={setPatient}
+          onSubmit={handleAssess}
+          submitting={submitting}
+        />
+      )}
+
+      {result && (
+        <AssessmentResult
+          locale={locale}
+          layer={layer}
+          result={result}
+          onSignOff={handleSignOff}
+          onNewVisit={handleNewVisit}
+          signing={signing}
+        />
+      )}
+
+      <footer>
+        <span>{t(locale, 'footer_version', { rp: result?.rule_pack_version || '1.0.0', dd: result?.drug_db_version || '1.0.0' })}</span>
+        <span style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 12 }}>{t(locale, 'footer_disclaimer')}</span>
+      </footer>
+
+      {toast && <div className="toast">{toast}</div>}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

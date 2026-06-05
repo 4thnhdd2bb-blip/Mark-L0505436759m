@@ -1,0 +1,276 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_drug_db",
+    "batch_id": "11-Gastroenterology",
+    "version": "RF-2026-06-batch11",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Гастроэнтерология (Mark's primary specialty) — PPI/H2/antacid/sucralfate/prokinetic/antiemetic/5-ASA/IBD-biologic/antidiarrheal/laxative",
+    "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0",
+    "preparations_count": 20,
+    "source_count_claim": "Источник указал preparations_count: 22, но фактически перечислено 20 препаратов (DRG-180..199); расхождение, вероятно, из-за overlap-препаратов (sulfasalazine в rheumatology и т.п.), которым здесь DRG не присвоен. Сохранён фактический count = 20.",
+    "author": "Mark Litvak (с AI-assistance)",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "special_note": "Primary specialty Mark Litvak — [OBS-Mark] поля здесь наиболее ценный personal clinical input. Источник: «Это пример как тебе надо переработать всю базу данных» — формат (three-axis + translation + deprescribing + rich OBS-Mark) предложен как шаблон для переработки всей drug DB (pending Mark's go-ahead).",
+    "repo_gap_note": "Batch 06 (cardio), 08 (endocrine non-DM), 09 (pulmonology), 10 (rheumatology) — per Mark's tracker done, но в этот репозиторий НЕ присланы; DRG-034..096 и DRG-119..179 здесь отсутствуют. ID-нумерация прыгает 118 → 180.",
+    "source_tag_legend": {
+      "LBL": "FDA / EMA label",
+      "GL": "Clinical guideline (ESC/ADA/AACE/etc)",
+      "RCT": "конкретное RCT",
+      "CLASS": "class pattern extrapolation",
+      "OBS-Mark": "клиническое наблюдение Mark (требует заполнения)",
+      "RF": "METACOD research framework (theoretical)"
+    },
+    "class_notes": {
+      "gi_framework_fit": ["GI tract = primary Spleen-Earth + Stomach-Earth (central Damp regulation)", "Acid-base (pH) пересекается с energy axis (Mark canonical: pH = energy axis)", "Motility = Wind axis (autonomic) + Cold axis (hypoperfusion)", "IBD = chronic autoimmune = M-D2 trajectory", "GERD = local Heat + retrograde Wind", "Liver-Gallbladder = Wood axis"],
+      "energy_actions": ["Acid suppression = Heat reduction в gastric mucosa (PPI, H2)", "Motility modulation = Wind regulation (prokinetics, antidiarrheals)", "Mucosal protection = M-A direction (sucralfate)", "Inflammation control = Heat reduction (5-ASA, biologics)", "Anti-emetics = autonomic Wind stabilization"],
+      "class_energy_summary": "PPI profound gastric Heat suppression (over-prescribed); H2 gentler; antacids acute Heat neutralization; sucralfate local M-A protection; prokinetics Wind/motility restoration; antiemetics nausea-pathway Wind suppression; 5-ASA local Heat reduction; IBD biologics targeted Heat blockade; antidiarrheals motility slowing; laxatives Damp restoration/motility stimulation.",
+      "ppi_deprescribing_priority": "Patients on chronic PPI без clear indication → deprescription attempt; multiple nutrient depletions long-term; particular vigilance в elderly (Mark first-specialty observation area).",
+      "obs_mark_to_fill": ["PPI deprescription protocols (elderly polypharmacy)", "Long-term PPI complications most-seen clinically", "Gastroparesis management pre vs post GLP-1 era", "GLP-1 constipation pattern confirmation (late-phase)", "IBD biologic selection algorithm", "Bile reflux management — sucralfate role", "Hepatic encephalopathy — lactulose dose", "OTC laxative abuse patterns"]
+    },
+    "project_progress_note": "METACOD-RF after batch 11: source claims 201/~388 (~52%, halfway). NB: in this repo only batches 01-05, 07, 11 are present (75 drugs); 06/08/09/10 not supplied."
+  },
+  "drugs": [
+    {
+      "drug_id": "DRG-180", "name_inn": "Omeprazole", "name_ru": "Омепразол",
+      "name_brand": "Prilosec (US), Losec (EU/Israel), OTC widely", "status": "METACOD-RF", "batch": "11-PPI",
+      "molecular": {
+        "chemical_class": "Proton pump inhibitor (PPI)",
+        "mechanism_primary": ["[LBL] Irreversible binding to H+/K+ ATPase (gastric parietal cells)", "[LBL] Reduces basal and stimulated acid secretion"],
+        "half_life": "1-2 hours (drug); effect lasts 24+ hours (covalent binding)",
+        "metabolism": "CYP2C19 (major), CYP3A4 — PGx significant. CYP2C19 inhibitor itself — major DDI source"
+      },
+      "indications": {"approved": ["[LBL] GERD", "[LBL] Peptic ulcer disease (PUD)", "[LBL] H. pylori eradication (combination)", "[LBL] Zollinger-Ellison syndrome", "[LBL] NSAID gastropathy prevention", "[LBL] Stress ulcer prophylaxis (ICU)", "[LBL] Eosinophilic esophagitis", "[LBL] Barrett's esophagus surveillance management"]},
+      "dosing": {"dose": "10-40 mg AM (some indications BID/higher)", "administration": ["[LBL] 30-60 minutes before first meal", "[LBL] Once-daily preferred AM"]},
+      "three_axis_profile": {
+        "constitutional": {"energy": "Strong gastric Heat suppression (acid reduction); translation: profound acid secretion blockade", "best_match": ["Yang-Fire с acid hypersecretion (GERD-dominant)", "Active PUD any constitution"], "caution_long_term": ["Yin-Water (frail elderly) — multiple micronutrient depletions accelerate sarcopenia/cognitive decline", "Yin-Metal (fragile mucosae)", "Mark personal: long-term PPI avoid в own Yin-Fire phenotype (other tools preferred)"]},
+        "membrane": {"acute_use_impact": "Minimal direct effect — symptom relief", "long_term_impact": ["Multiple nutrient depletions can drive Yin-side M-D trajectory в elderly", "Magnesium, B12, calcium, iron all affected", "Phase angle BIA decline в long-term users (M-D drift signal)"]},
+        "phase": {"match": "Acute CA (acute GERD, PUD) — primary use", "concern": "Chronic use без deprescription strategy = sustained physiological alteration"}
+      },
+      "safety": {
+        "ddi_critical_2_star": ["[LBL] Clopidogrel — major CYP2C19 competition, reduced antiplatelet activity (esp. omeprazole, esomeprazole)", "[LBL] Methotrexate — increased levels", "[LBL] Antiretrovirals (rilpivirine, atazanavir) — reduced absorption (pH-dependent)", "[LBL] Mycophenolate — reduced absorption"],
+        "ddi_critical_1_star": ["[LBL] Warfarin — variable interaction", "[LBL] Digoxin — increased absorption (alkaline gastric)", "[LBL] Iron supplements — reduced absorption", "[LBL] Itraconazole, ketoconazole — reduced absorption (pH-dependent)", "[LBL] Levothyroxine — reduced absorption"],
+        "ddi_chrono": "AM dosing before meals",
+        "contraindications": ["[LBL] Hypersensitivity"],
+        "relative_contraindications": ["[GL] Long-term use без clear indication"],
+        "pregnancy": "Category C — generally avoid if possible, compatible if needed",
+        "breastfeeding": "limited data", "pediatric": "yes, age-appropriate dosing",
+        "geriatric": ["[GL] Higher risks all long-term concerns", "[GL] Beers criteria — caution chronic use elderly", "[GL] Deprescribing after acute indication resolved"],
+        "renal": ["[LBL] No specific dose adjustment", "[LBL] AKI signal (interstitial nephritis) — discontinue if AKI develops"],
+        "hepatic": "[LBL] Reduce dose severe hepatic disease"
+      },
+      "adverse_events": {
+        "acute": ["[LBL] Headache, abdominal pain, nausea, diarrhea (uncommon)", "[LBL] Generally very well-tolerated acute"],
+        "long_term_concerns": ["[LBL] B12 deficiency (4-12 months chronic)", "[LBL] Magnesium deficiency (severe — seizures, arrhythmias)", "[LBL] Calcium absorption reduction → osteoporosis/fracture risk", "[LBL] Iron deficiency", "[LBL] C. difficile infection risk", "[LBL] Pneumonia risk signal", "[LBL] Acute interstitial nephritis", "[LBL] CKD progression signal (debated)", "[LBL] Dementia signal (heavily debated, recent data more reassuring)", "[LBL] CV signal в clopidogrel-treated", "[LBL] Rebound acid hypersecretion при discontinuation", "[LBL] Possible increased fundic gland polyps"]
+      },
+      "deprescribing_approach": ["Assess need (symptoms, original indication, duration)", "Patient education re rebound", "Taper: half dose × 2-4 weeks, then EOD × 2-4 weeks, then stop", "PRN H2 blocker during taper", "Lifestyle (head elevation, weight loss, diet, alcohol/caffeine reduction)", "Reassess at 3 months", "Some require chronic PPI (severe GERD, Barrett's) — conscious decision"],
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "PPI_deprescribing_protocols": "[OBS-Mark] [Mark, your deprescribing protocol — particularly elderly? Long-term PPI concerns most-seen clinically?]", "mark_first_specialty_insight": "[OBS-Mark] [Mark, from GI primary specialty — PPI revolution и concerns over time?]"},
+      "references": ["FDA label Prilosec", "ACG GERD guidelines", "AGA deprescribing guidance", "Multiple long-term outcomes studies"],
+      "status_flags": {"mark_validated": false, "priority_for_mark_review": "HIGHEST (primary specialty, most-prescribed class)"}
+    },
+    {
+      "drug_id": "DRG-181", "name_inn": "Pantoprazole", "name_ru": "Пантопразол",
+      "name_brand": "Protonix (US), Pantoloc, Controloc", "status": "METACOD-RF", "batch": "11-PPI",
+      "molecular": {"chemical_class": "PPI", "metabolism": "CYP2C19 (major), but lesser CYP2C19 inhibition than omeprazole", "distinct_advantage": ["[LBL] Lower clopidogrel interaction — preferred PPI when concurrent clopidogrel needed", "[LBL] IV formulation available (acute upper GI bleed)"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Pantoprazole preference в CV polypharmacy?]"},
+      "references": ["FDA label Protonix"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-182", "name_inn": "Esomeprazole", "name_ru": "Эзомепразол",
+      "name_brand": "Nexium (US), Esonex", "status": "METACOD-RF", "batch": "11-PPI",
+      "molecular": {"chemical_class": "PPI (S-isomer of omeprazole)", "distinct_clinical": ["[LBL] Slightly higher acid suppression efficacy", "[LBL] Less variable plasma levels (single isomer)", "[LBL] Marketing-driven differentiation — clinical advantages modest", "[LBL] Higher cost vs generic omeprazole"], "metabolism": "CYP2C19 (similar to omeprazole)", "clopidogrel_interaction": "similar to omeprazole"},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Esomeprazole vs omeprazole — clinical preference rationale?]"},
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-183", "name_inn": "Lansoprazole", "name_ru": "Лансопразол",
+      "name_brand": "Prevacid", "status": "METACOD-RF", "batch": "11-PPI",
+      "molecular": {"chemical_class": "PPI", "clinical_position": "Equivalent to other PPIs", "indication": "GERD, PUD, NSAID gastropathy prevention", "distinct": "ODT (orally disintegrating tablets) available — useful pediatric, swallowing issues"},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Lansoprazole niche use?]"},
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-184", "name_inn": "Rabeprazole", "name_ru": "Рабепразол",
+      "name_brand": "Aciphex, Pariet", "status": "METACOD-RF", "batch": "11-PPI",
+      "molecular": {"chemical_class": "PPI", "metabolism": "Less CYP2C19-dependent — more consistent effect across CYP2C19 genotypes", "distinct_advantage": ["[LBL] PGx-independent dosing (advantage over omeprazole в Asian populations с CYP2C19 PM common)", "[LBL] Faster onset of action"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Rabeprazole в CYP2C19 PM patients?]"},
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-185", "name_inn": "Famotidine", "name_ru": "Фамотидин",
+      "name_brand": "Pepcid, Quamatel", "status": "METACOD-RF", "batch": "11-H2",
+      "molecular": {"chemical_class": "H2-receptor antagonist", "mechanism": "Selective H2-receptor blockade → reduced histamine-mediated acid secretion", "half_life": "2.5-3.5 hours", "metabolism": "hepatic, ~70% renal excretion unchanged"},
+      "indications": {"approved": ["[LBL] GERD (mild-moderate)", "[LBL] PUD", "[LBL] PRN heartburn", "[LBL] Stress ulcer prophylaxis (alternative to PPI)", "[LBL] Mast cell disorders adjunct (H1+H2)"]},
+      "dosing": {"dose": "10-40 mg BID или PRN; [LBL] Renal dose adjustment in CKD"},
+      "three_axis_profile": {
+        "constitutional": {"energy": "Gentler Heat suppression than PPI; translation: selective H2 receptor blockade — milder than PPI", "match": ["Mild-moderate GERD", "PRN acid suppression", "PPI intolerant patients"]},
+        "membrane": {"direction": ["Less long-term concerns than PPI", "Better long-term profile for chronic use"]},
+        "phase": {"match": "Acute relief; tolerance development (within weeks) — partial reason less effective long-term"}
+      },
+      "safety": {"notes": ["[LBL] Very well-tolerated", "[LBL] Less long-term concerns than PPI", "[LBL] CNS effects rare (cimetidine had more)", "[LBL] Tolerance development limits long-term efficacy"], "renal": ["[LBL] eGFR 30-60: 50% dose reduction", "[LBL] eGFR <30: 25% dose"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [H2 vs PPI selection — clinical decision criteria?]"},
+      "references": ["FDA label Pepcid"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-186", "name_inn": "Ranitidine", "name_ru": "Ранитидин",
+      "name_brand": "Zantac (formerly)", "status": "METACOD-RF", "batch": "11-H2",
+      "note": "WITHDRAWN большинство markets 2020+ из-за NDMA contamination",
+      "withdrawal_context": ["[LBL] 2019-2020: NDMA (probable human carcinogen) contamination found", "[LBL] Most markets withdrew product", "[LBL] Famotidine became default H2 alternative", "[LBL] Included для completeness и historical reference"],
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Patients still on ranitidine — switch to famotidine standard?]"},
+      "status_flags": {"mark_validated": false, "note": "Mostly withdrawn product, replaced by famotidine."}
+    },
+    {
+      "drug_id": "DRG-187", "name_inn": "Aluminum hydroxide + magnesium hydroxide", "name_ru": "Алюминия гидроксид + магния гидроксид",
+      "name_brand": "Maalox, Mylanta, Almagel", "status": "METACOD-RF", "batch": "11-Antacid",
+      "molecular": {"chemical_class": "Combination antacid", "mechanism": "Neutralization of gastric acid (immediate but transient)"},
+      "three_axis_profile": {"constitutional": {"energy": "Acute local Heat (acid) neutralization; translation: direct acid buffering"}, "niche": ["PRN symptomatic relief", "Pregnancy first-line (safe profile)", "Bridge therapy"]},
+      "safety": {"notes": ["[LBL] Aluminum: constipation tendency, neurotoxicity in CKD", "[LBL] Magnesium: diarrhea tendency, accumulation в CKD", "[LBL] Combination balances stool effects", "[LBL] Multiple DDI through binding (separate 2 hours from other meds)", "[LBL] Avoid в CKD (aluminum accumulation)"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Antacid в pregnancy preference?]"},
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-188", "name_inn": "Sucralfate", "name_ru": "Сукральфат",
+      "name_brand": "Carafate, Venter", "status": "METACOD-RF", "batch": "11-Mucosal-Protectant",
+      "molecular": {"chemical_class": "Aluminum sucrose sulfate", "mechanism": "Forms protective coating on ulcer surface (mechanical barrier), stimulates mucus production, prostaglandin release"},
+      "three_axis_profile": {
+        "constitutional": {"energy": "Mucosal protection через barrier formation; translation: topical ulcer protection, не acid suppression", "match": ["Active ulcer with bleeding concerns", "Stress ulcer prophylaxis ICU (some prefer sucralfate over PPI)", "NSAID-induced gastric injury healing", "Bile reflux gastritis (effective vs PPI which doesn't help)"]},
+        "membrane": {"direction": ["Local M-A (mucosal protective) direction", "Doesn't affect systemic acid balance"]},
+        "phase": {"match": "Acute healing phase support; не chronic maintenance"}
+      },
+      "advantages": ["[LBL] Bile reflux gastritis (PPI doesn't help)", "[LBL] Less systemic effects than PPI", "[LBL] Some ICU stress ulcer protocols prefer (less pneumonia risk than PPI)"],
+      "safety": {"notes": ["[LBL] Multiple DDI through binding (separate 2 hours from other meds)", "[LBL] Constipation common", "[LBL] Aluminum content — caution CKD", "[LBL] QID dosing somewhat inconvenient"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Sucralfate в bile reflux gastritis vs PPI alone — clinical experience?]"},
+      "references": ["FDA label Carafate"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-189", "name_inn": "Metoclopramide", "name_ru": "Метоклопрамид",
+      "name_brand": "Reglan, Cerucal", "status": "METACOD-RF", "batch": "11-Prokinetic",
+      "molecular": {"chemical_class": "D2 antagonist + 5-HT4 agonist", "mechanism": ["[LBL] D2 blockade — increases gastric/upper GI motility, anti-emetic central", "[LBL] 5-HT4 agonism — additional prokinetic effect"], "half_life": "5-6 hours", "metabolism": "hepatic, some renal"},
+      "indications": {"approved": ["[LBL] Gastroparesis (diabetic, idiopathic)", "[LBL] Acute migraine с nausea", "[LBL] Chemotherapy-induced nausea (older, mostly replaced by 5-HT3 antagonists)", "[LBL] Pre-procedural gastric emptying", "[LBL] GERD with delayed gastric emptying"]},
+      "dosing": {"dose": "Gastroparesis 5-10 mg AC tid + bedtime; acute migraine 10 mg IV", "limit": "[LBL] MAX 12 weeks therapy (tardive dyskinesia risk) — FDA boxed warning"},
+      "three_axis_profile": {
+        "constitutional": {"energy": "Restores Wind movement в GI tract (anti-Cold motility activation); translation: prokinetic via D2 antagonism + 5-HT4 agonism", "match": ["Gastroparesis any constitution", "T4 Yang-Water (Anna phenotype) с gastroparesis", "Diabetic gastroparesis", "Post-GLP-1 gastroparesis (challenging)"]},
+        "membrane": {"direction": ["Acute: addresses local M-D pattern в stomach (hypomotility)", "Chronic: tardive dyskinesia risk overrides benefit usually"]},
+        "phase": {"match": "Acute symptomatic relief; not for chronic use (12 weeks max FDA)"}
+      },
+      "safety": {"critical": ["[LBL] BOXED WARNING: Tardive dyskinesia — irreversible, dose-/duration-related", "[LBL] 12 weeks max recommended duration", "[LBL] Extrapyramidal symptoms (acute dystonia, parkinsonism)", "[LBL] NMS (rare)", "[LBL] Avoid в Parkinson disease", "[LBL] Avoid в seizure disorders", "[LBL] Hyperprolactinemia (D2 blockade)"], "renal": ["[LBL] eGFR 40-50: reduce 50%", "[LBL] eGFR <40: 50% reduction or avoid"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Metoclopramide в gastroparesis management? Tardive dyskinesia incidence в твоей practice?]"},
+      "references": ["FDA label Reglan"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-190", "name_inn": "Domperidone", "name_ru": "Домперидон",
+      "name_brand": "Motilium", "status": "METACOD-RF", "batch": "11-Prokinetic",
+      "note": "Not FDA-approved (US); available в most other markets (EU, Israel, Canada, Asia)",
+      "molecular": {"chemical_class": "D2 antagonist (peripheral only — doesn't cross BBB significantly)", "distinct_advantages": ["[LBL] No tardive dyskinesia risk (peripheral D2 only)", "[LBL] No extrapyramidal symptoms", "[LBL] Better long-term safety profile для prokinetic use"], "distinct_concerns": ["[LBL] QT prolongation (esp. high dose, drug interactions)", "[LBL] Cardiac arrhythmia signal — restricted dose в EU (10 mg TID max)", "[LBL] Hyperprolactinemia (galactorrhea, gynecomastia)"]},
+      "indications": {"approved": ["gastroparesis", "refractory nausea (where available)"]},
+      "dosing": {"dose": "10 mg TID/QID (max 30-40 mg/day per recent EU guidance)"},
+      "three_axis_profile": {"note": "Same constitutional indication as metoclopramide, better long-term safety profile."},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Domperidone preferred over metoclopramide в Israeli practice? QT monitoring approach?]"},
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-191", "name_inn": "Ondansetron", "name_ru": "Ондансетрон",
+      "name_brand": "Zofran", "status": "METACOD-RF", "batch": "11-Antiemetic",
+      "molecular": {"chemical_class": "5-HT3 receptor antagonist", "mechanism": "Blocks serotonin-mediated nausea pathway (chemotherapy, post-op, etc.)", "half_life": "3-5 hours"},
+      "indications": {"approved": ["[LBL] Chemotherapy-induced nausea/vomiting (CINV)", "[LBL] Radiation-induced nausea/vomiting", "[LBL] Post-operative nausea/vomiting (PONV)", "[LBL] Off-label: hyperemesis gravidarum (controversial — cardiac signal)", "[LBL] Off-label: gastroenteritis в children (effective, FDA cautions)"]},
+      "dosing": {"dose": "4-8 mg q8h (oral); 4-16 mg IV", "limit": "[LBL] Doses >16 mg IV — significant QT risk (FDA warning, max 16 mg)"},
+      "three_axis_profile": {"constitutional": {"energy": "Specific Wind suppression в nausea pathway (serotonin-mediated); translation: selective 5-HT3 receptor blockade"}},
+      "safety": {"critical": ["[LBL] QT prolongation — dose-related, careful с other QT drugs", "[LBL] Constipation (significant — sometimes severe)", "[LBL] Headache", "[LBL] Pregnancy: cardiac malformation signal в large studies — controversial use"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Ondansetron constipation management? Pregnancy use approach?]"},
+      "references": ["FDA label Zofran"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-192", "name_inn": "Granisetron", "name_ru": "Гранисетрон",
+      "name_brand": "Kytril (oral), Sancuso (transdermal patch)", "status": "METACOD-RF", "batch": "11-Antiemetic",
+      "molecular": {"chemical_class": "5-HT3 antagonist", "half_life": "8-10 hours (longer than ondansetron)", "distinct": "Transdermal formulation (Sancuso) — 7-day patch для CINV"},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Transdermal granisetron в CINV?]"},
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-193", "name_inn": "Prochlorperazine", "name_ru": "Прохлорперазин",
+      "name_brand": "Compazine, Stemetil", "status": "METACOD-RF", "batch": "11-Antiemetic",
+      "molecular": {"chemical_class": "Phenothiazine (D2 antagonist)", "mechanism": "D2 blockade в chemoreceptor trigger zone", "distinct": "Anti-vertigo и migraine adjunct"},
+      "indications": {"approved": ["Migraine acute (often IV in ER)", "Vertigo", "Nausea (non-chemotherapy)"]},
+      "safety": {"notes": ["[LBL] Extrapyramidal symptoms (acute dystonia common)", "[LBL] Hypotension", "[LBL] Sedation", "[LBL] Tardive dyskinesia chronic use"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Prochlorperazine в acute migraine?]"},
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-194", "name_inn": "Mesalamine / Mesalazine (5-aminosalicylic acid)", "name_ru": "Месалазин / 5-АСК",
+      "name_brand": "Asacol, Pentasa, Lialda, Apriso, Salofalk", "status": "METACOD-RF", "batch": "11-IBD",
+      "molecular": {"chemical_class": "5-ASA derivative", "mechanism": "Topical anti-inflammatory в colonic mucosa (PG inhibition, free radical scavenging, etc.)", "formulations": "Multiple — designed для drug delivery к specific colon regions"},
+      "indications": {"approved": ["[LBL] Ulcerative colitis (cornerstone therapy)", "[LBL] Crohn's disease (limited utility, esp. colonic involvement)"]},
+      "dosing": {"dose": "highly variable by formulation: Pentasa 4 g/day; Asacol 4.8 g/day; Lialda 4.8 g/day (once daily)"},
+      "three_axis_profile": {
+        "constitutional": {"energy": "Local Heat reduction в colonic mucosa; translation: topical anti-inflammatory", "match": "UC patients any constitution; neutral для most (minimal systemic effects)"},
+        "membrane": {"direction": ["Local M-D improvement в mucosa", "Maintenance therapy reduces flare frequency"]},
+        "phase": {"match": "Maintenance (chronic PCL-A control); acute mild-moderate UC flare"}
+      },
+      "safety": {"notes": ["[LBL] Generally well-tolerated", "[LBL] Rare: interstitial nephritis — monitor renal function", "[LBL] Sulfa-free (advantage over sulfasalazine для sulfa-allergic)"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [5-ASA formulation selection — colon location-based?]"},
+      "references": ["FDA label Asacol", "ACG UC Guidelines"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-195", "name_inn": "Vedolizumab", "name_ru": "Ведолизумаб",
+      "name_brand": "Entyvio", "status": "METACOD-RF", "batch": "11-IBD-Biologic",
+      "molecular": {"chemical_class": "Gut-selective integrin antagonist (α4β7 specifically)", "mechanism": "Blocks lymphocyte trafficking к gut (selective vs other biologics)"},
+      "indications": {"approved": ["[LBL] Moderate-severe UC", "[LBL] Moderate-severe Crohn's disease"]},
+      "distinct_advantages": ["[LBL] Gut-selective — less systemic immunosuppression", "[LBL] No TB activation risk (advantage)", "[LBL] No PML (initially feared due to α4 connection с natalizumab, не materialized)", "[LBL] Good safety profile"],
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Vedolizumab selection в IBD?]"},
+      "references": ["FDA label Entyvio"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-196", "name_inn": "Ustekinumab", "name_ru": "Устекинумаб",
+      "name_brand": "Stelara", "status": "METACOD-RF", "batch": "11-IBD-Biologic",
+      "molecular": {"chemical_class": "Anti-IL-12/IL-23 monoclonal antibody (p40 subunit shared)", "mechanism": "Blocks IL-12/IL-23 pathway"},
+      "indications": {"approved": ["[LBL] Plaque psoriasis", "[LBL] Psoriatic arthritis", "[LBL] Crohn's disease", "[LBL] Ulcerative colitis"]},
+      "safety": {"notes": ["[LBL] Generally well-tolerated", "[LBL] Class biologic concerns (infections, malignancy theoretical)"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Ustekinumab patient selection?]"},
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-197", "name_inn": "Loperamide", "name_ru": "Лоперамид",
+      "name_brand": "Imodium", "status": "METACOD-RF", "batch": "11-Antidiarrheal",
+      "molecular": {"chemical_class": "μ-opioid receptor agonist (peripheral only — minimal CNS penetration)", "mechanism": "Slows GI motility through opioid receptor activation в gut"},
+      "indications": {"approved": ["[LBL] Acute non-infectious diarrhea", "[LBL] Chronic functional diarrhea (IBS-D)", "[LBL] Postoperative diarrhea", "[LBL] Ileostomy/colostomy output management"]},
+      "dosing": {"dose": "4 mg loading + 2 mg after each loose stool, max 16 mg/day"},
+      "safety": {"critical": ["[LBL] Avoid в bloody diarrhea, severe infectious diarrhea, severe IBD flare — may prolong/worsen", "[LBL] High-dose abuse — opioid-like effects, cardiotoxicity (QT prolongation, arrhythmia)", "[LBL] OTC-related deaths реально documented (loperamide abuse trend)", "[LBL] Toxicity at high doses: respiratory depression possible"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Loperamide use limits — IBS-D management?]"},
+      "references": ["FDA label Imodium"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-198", "name_inn": "Polyethylene glycol 3350", "name_ru": "Полиэтиленгликоль 3350 (PEG 3350)",
+      "name_brand": "MiraLAX (US), Forlax, Macrogol", "status": "METACOD-RF", "batch": "11-Laxative",
+      "molecular": {"chemical_class": "Osmotic laxative", "mechanism": "Non-absorbed osmotic effect → retains water в colon → softens stool", "half_life": "not applicable (not absorbed)"},
+      "indications": {"approved": ["[LBL] Chronic constipation", "[LBL] Bowel preparation (colonoscopy)", "[LBL] Fecal impaction", "[LBL] Opioid-induced constipation", "[LBL] GLP-1-induced constipation"]},
+      "dosing": {"dose": "17 g/day (1 scoop)", "note": "[LBL] Может dose to effect (some patients need больше)"},
+      "three_axis_profile": {
+        "constitutional": {"energy": "Mild Damp restoration в colon (water retention); translation: osmotic stool softening", "match": ["Any constitution с constipation", "Dry-Metal phenotype с stool dryness", "Yin-Water frail elderly (gentle, no DDI, predictable)", "Mark personal: useful in semaglutide-induced constipation late phase"]},
+        "membrane": {"direction": ["No systemic effects", "Local hydration restoration"]},
+        "phase": {"match": "Symptomatic management; chronic safe"}
+      },
+      "safety": {"notes": ["[LBL] Very safe — minimal absorption, no DDI", "[LBL] Suitable long-term use", "[LBL] Pregnancy compatible", "[LBL] Elderly safe", "[LBL] Renal/hepatic safe"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "PEG_in_semaglutide_constipation": "[OBS-Mark] [Mark, PEG в late-phase GLP-1 constipation — your standard adjunct? Cross-reference Mark's wax-wane observation (OBS-Mark-001) — constipation как dominant late AE]"},
+      "references": ["FDA label MiraLAX"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-199", "name_inn": "Lactulose", "name_ru": "Лактулоза",
+      "name_brand": "Cephulac, Duphalac", "status": "METACOD-RF", "batch": "11-Laxative",
+      "molecular": {"chemical_class": "Non-absorbable disaccharide (synthetic)", "mechanism": "Osmotic effect + colonic bacterial metabolism → SCFA production → acidification → ammonia trapping"},
+      "indications": {"approved": ["[LBL] Chronic constipation", "[LBL] Hepatic encephalopathy (primary use — ammonia reduction)", "[LBL] Bowel preparation"]},
+      "distinct": ["Sweet taste (some dislike)", "Significant flatulence early", "Multiple effects beyond laxation"],
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [Lactulose в hepatic encephalopathy management?]"},
+      "status_flags": {"mark_validated": false}
+    }
+  ]
+}

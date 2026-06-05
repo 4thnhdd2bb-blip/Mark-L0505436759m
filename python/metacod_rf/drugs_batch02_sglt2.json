@@ -1,0 +1,487 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_drug_db",
+    "batch_id": "02-SGLT2",
+    "version": "RF-2026-06-batch02",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Антидиабетические — SGLT2 inhibitors (Sodium-Glucose Cotransporter-2 inhibitors)",
+    "preparations_count": 4,
+    "author": "Mark Litvak (с AI-assistance)",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "source_tag_legend": {
+      "LBL": "FDA / EMA label",
+      "GL": "Clinical guideline (ESC/ADA/AACE/etc)",
+      "RCT": "конкретное RCT",
+      "CLASS": "class pattern extrapolation",
+      "OBS-Mark": "клиническое наблюдение Mark (требует заполнения)",
+      "RF": "METACOD research framework (theoretical)"
+    },
+    "class_notes": {
+      "class_intro": [
+        "SGLT2 ингибиторы — наряду с GLP-1 — один из двух классов, перевернувших современную терапию T2DM и за её пределами.",
+        "Показания вне диабета: HFrEF и HFpEF, CKD (с альбуминурией), NASH (emerging).",
+        "Energy pattern принципиально отличается от GLP-1: SGLT2 действует через глюкозурию + натрийурез + лёгкую осмотическую диурезу — прямое выведение влаги через почки."
+      ],
+      "obs_mark_to_fill": [
+        "Empagliflozin — твой основной workhorse класса?",
+        "Empa vs Dapa — клиническая разница в твоей практике?",
+        "Constitution-response patterns — какие пациенты best responders?",
+        "Long-term observations — особенно по weight, blood pressure, и phase angle"
+      ],
+      "sarcopenia_signal": [
+        "SGLT2 теряет ~2-3 кг weight, часть — fat mass; нет выраженного muscle mass loss signal (в отличие от GLP-1).",
+        "Это делает SGLT2 более предпочтительным у пожилых и frail пациентов при показаниях для обоих классов."
+      ],
+      "volume_status_monitoring_mark_canonical": [
+        "Baseline volume status assessment",
+        "Watch для orthostatic symptoms первые 2-4 недели",
+        "Hold при острых заболеваниях с volume risk (gastroenteritis, fever, surgery)"
+      ],
+      "euglycemic_dka": [
+        "Редкое но critical, особенно при: sudden carbohydrate restriction, acute illness, surgery (hold 3-4 days before), слишком быстрая insulin reduction.",
+        "Mandatory patient education point для каждого initiation."
+      ],
+      "class_energy_pattern": [
+        "SGLT2 как класс — cooling damp-reducer через diuresis (отличается от GLP-1 — damp-reducer через appetite/gastric mechanism).",
+        "SGLT2 более подходит для Yang excess с heat (метаболический синдром + воспаление).",
+        "GLP-1 более подходит для Yang-Earth accumulation без strong heat component.",
+        "SGLT2 имеет менее risk на muscle mass — better для пожилых.",
+        "GLP-1 имеет больший weight effect — better для obesity primary.",
+        "Эти различения — [RF] hypotheses, не валидированы RCT."
+      ],
+      "combinatorial_considerations": {
+        "sglt2_plus_glp1": [
+          "[GL] Современные guidelines поддерживают combination в T2DM с CV/renal risk",
+          "[RF] Combined energy effect: сильное damp-reducing + cooling + appetite suppression",
+          "[RF mark canonical] Monitor для compound dehydration и для sarcopenia development"
+        ],
+        "sglt2_plus_acei_arb": [
+          "[GL] Synergistic для renal protection",
+          "[LBL] Monitor для hypotension первые недели",
+          "[GL] Особенно эффективно в CKD с альбуминурией"
+        ],
+        "sglt2_plus_loop_diuretic": [
+          "[LBL] Volume depletion risk — careful monitoring",
+          "[GL] Часто можно reduce loop dose когда SGLT2 added (если heart failure stable)"
+        ]
+      }
+    },
+    "project_progress_note": "Antidiabetic group after batch 02: GLP-1 RA 6/6, SGLT2i 4/4 — total 10/32 (31%)."
+  },
+  "drugs": [
+    {
+      "drug_id": "DRG-007",
+      "name_inn": "Empagliflozin",
+      "name_ru": "Эмпаглифлозин",
+      "name_brand": "Jardiance",
+      "combinations": "Synjardy (+metformin), Trijardy XR (+linagliptin+metformin)",
+      "status": "METACOD-RF",
+      "batch": "02-SGLT2",
+      "molecular": {
+        "chemical_class": "SGLT2 inhibitor (selective, ~2500x SGLT2 vs SGLT1)",
+        "mechanism_primary": [
+          "[LBL] Селективное ингибирование SGLT2 в проксимальном канальце почки → блокирует реабсорбцию глюкозы → глюкозурия (50-80 г/сут) → сопутствующий натрийурез и слабая осмотическая диуреза"
+        ],
+        "mechanism_secondary": [
+          "[RCT] Reduction of hyperfiltration (renoprotection)",
+          "[RCT] Mild ketogenic shift (background ketone bodies слабо повышены)",
+          "[RCT] Anti-inflammatory effects (механизм debated)",
+          "[RCT] Cardioprotection через несколько predicted mechanisms: preload reduction, sympathetic modulation, fatty acid oxidation shift"
+        ],
+        "half_life": "12.4 hours",
+        "excretion": "~50% urine, ~50% feces",
+        "metabolism": "Минимальное CYP участие (UGT2B7 minor)"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults",
+          "[LBL] CV risk reduction в T2DM с established CVD (EMPA-REG OUTCOME, 2015)",
+          "[LBL] HFrEF (with or without diabetes) (EMPEROR-Reduced, 2020)",
+          "[LBL] HFpEF (EMPEROR-Preserved, 2021) — historic first class to show benefit",
+          "[LBL] CKD (with or without diabetes, with appropriate proteinuria) (EMPA-KIDNEY, 2022)",
+          "[LBL] Pediatric T2DM ≥10y (2023)"
+        ],
+        "emerging": [
+          "[RCT] NASH/MASH",
+          "[RCT] Heart failure with mid-range EF (HFmrEF)"
+        ]
+      },
+      "dosing": {
+        "dose": "T2DM: 10 mg AM start → 25 mg if needed; HF/CKD: 10 mg AM (no titration needed for these indications)",
+        "administration": [
+          "[LBL] AM, с едой или без",
+          "[RF chrono] AM timing предпочтителен — diuretic effect не должен прерывать сон"
+        ]
+      },
+      "energy_vectors_rf": {
+        "energy_primary": [
+          "[RF] Damp-reducing через осмотическую diuresis + glycosuria"
+        ],
+        "energy_secondary": [
+          "[RF] Cooling effect (clearing heat через diuresis)",
+          "[RF] Mild yang-clearing (выведение excess yang через мочу)"
+        ],
+        "energy_tertiary": [
+          "[RF] Drying tendency при длительном применении — может усугубить yin-deficient pattern"
+        ],
+        "constitution_best_match": [
+          "[RF] Yang-Earth (metabolic damp accumulation)",
+          "[RF] Yang-Fire с metabolic component (heat + excess accumulation)",
+          "[RF] Yin-Earth — с осторожностью к dehydration"
+        ],
+        "constitution_caution": [
+          "[RF] Yin-Water (cold + yang deficit) — diuretic effect может усугубить yang depletion",
+          "[RF] Elderly Yin-Metal (existing dryness) — drying potentiation"
+        ],
+        "constitution_neutral": [
+          "[RF] Yin-Fire — обычно tolerable, но monitoring needed"
+        ],
+        "phase_match": [
+          "[RF] PCL-A (damp resolution) — основная phase",
+          "[RF] Normotonia maintenance",
+          "[RF] CHF любой phase — damp clearance benefit перевешивает risks"
+        ],
+        "phase_caution": [
+          "[RF] CA с low volume status — dehydration risk",
+          "[RF] PCL-B с fibrotic dryness — drying усугубление"
+        ]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": [
+          "[RF] M-A → M-0 (anabolic correction toward balance)",
+          "[RF] Особенно эффективен в M-A2 (moderate anabolic с visible damp signs)"
+        ],
+        "membrane_caution": [
+          "[RF] Risk of overshoot to M-D при aggressive diuresis в frail/elderly",
+          "[RF] AVOID в M-D2/M-D3 — может усилить катаболизм",
+          "[RF] M-S (stagnant) — теоретически благоприятен через mobilization, требует наблюдения"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "n_cases_observed": "[TBD]",
+        "typical_response_window": {
+          "glycemic": "2-4 weeks начало, full effect 12 weeks",
+          "weight": "-2 to -3 kg over 6 months (mild, less than GLP-1)",
+          "renal_protection": "visible at 24+ weeks",
+          "obs_mark": "[OBS-Mark] [Mark's timeline observations]"
+        },
+        "empagliflozin_distinct_features": "[OBS-Mark] [Mark, что отличает empa от dapa в твоей практике?]"
+      },
+      "safety": {
+        "ddi_critical_2_star": [
+          "[LBL] Loop diuretics — volume depletion synergy, AKI risk",
+          "[LBL] Insulin/sulfonylureas — hypoglycemia (less risk чем GLP-1 combinations, но реальный)"
+        ],
+        "ddi_critical_1_star": [
+          "[LBL] Other diuretics — additive volume effect",
+          "[LBL] ACE/ARB — hypotension synergy (хотя обычно желательная)"
+        ],
+        "ddi_chrono": [
+          "[RF] AM timing для diuretic effect — не interferes со сном"
+        ],
+        "ddi_synergy_beneficial": [
+          "[GL] SGLT2 + ACE/ARB + GLP-1 — triple therapy в T2DM с CV risk (с careful monitoring)"
+        ],
+        "contraindications": [
+          "[LBL] eGFR <20 (varies by label — EMPA-KIDNEY показал benefit даже до eGFR 20)",
+          "[LBL] Active DKA",
+          "[LBL] Type 1 DM (relative — euglycemic DKA risk)",
+          "[LBL] Recurrent UTI/genital infection",
+          "[LBL] Pregnancy (D, not recommended)"
+        ],
+        "relative_contraindications": [
+          "[GL] Frequent low-volume states (hypotension, syncope history)",
+          "[GL] Critical illness (perioperative — hold 3-4 days before surgery)",
+          "[GL] Eating disorder с risk of starvation ketosis"
+        ],
+        "pregnancy": "[LBL] D — avoid; ограниченные данные, animal data concerning",
+        "breastfeeding": "[LBL] Avoid — no data",
+        "pediatric": "[LBL] ≥10y T2DM approved",
+        "geriatric": [
+          "[GL] Caution — dehydration, falls risk",
+          "[RF Mark canonical] Phase angle BIA pre-treatment если frail"
+        ],
+        "renal": [
+          "[LBL] eGFR ≥20: дозирование без изменений (по EMPA-KIDNEY)",
+          "[LBL] eGFR <20: avoid в большинстве labels"
+        ],
+        "hepatic": "[LBL] No specific dose adjustment"
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Genital mycotic infections (very common, ~5-10%)",
+          "[LBL] UTI (more in women)",
+          "[LBL] Polyuria, increased urination",
+          "[LBL] Volume depletion symptoms (especially при concurrent loop diuretics)",
+          "[RF energy interpretation] для genital infections — local damp shift (paradoxical при системном damp-reducing)"
+        ],
+        "serious": [
+          "[LBL] Diabetic ketoacidosis — including euglycemic DKA (uncommon but serious)",
+          "[LBL] AKI (especially при volume depletion)",
+          "[LBL] Fournier's gangrene (rare but life-threatening)",
+          "[LBL] Lower limb amputation signal (initially seen with canagliflozin, less with empa, но class caution)",
+          "[LBL] Bone fracture risk slight increase"
+        ],
+        "rare_critical": [
+          "[LBL] Severe hypersensitivity reactions",
+          "[LBL] Fournier's gangrene"
+        ]
+      },
+      "references": [
+        "FDA label Jardiance",
+        "EMPA-REG OUTCOME (Zinman et al, NEJM 2015) — first CV outcomes trial",
+        "EMPEROR-Reduced (Packer et al, NEJM 2020) — HFrEF",
+        "EMPEROR-Preserved (Anker et al, NEJM 2021) — HFpEF historic first",
+        "EMPA-KIDNEY (Herrington et al, NEJM 2022) — CKD broad population",
+        "ESC 2023 Diabetes Guidelines",
+        "KDIGO 2024 CKD guidelines"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true,
+        "external_sources_complete": true,
+        "ready_for_clinical_research_use": "pending Mark validation"
+      }
+    },
+    {
+      "drug_id": "DRG-008",
+      "name_inn": "Dapagliflozin",
+      "name_ru": "Дапаглифлозин",
+      "name_brand": "Farxiga (US), Forxiga (EU)",
+      "combinations": "Xigduo (+metformin), Qtern (+saxagliptin)",
+      "status": "METACOD-RF",
+      "batch": "02-SGLT2",
+      "molecular": {
+        "chemical_class": "SGLT2 inhibitor (selective, ~1200x SGLT2 vs SGLT1)",
+        "mechanism_primary": ["[LBL] Class SGLT2 mechanism — see empagliflozin"],
+        "mechanism_distinct": [
+          "[CLASS] First-in-class approved (2012 EU, 2014 US)",
+          "[RCT] Similar CV/HF/CKD benefits as empagliflozin"
+        ],
+        "half_life": "12.9 hours",
+        "excretion": "~75% urine, ~21% feces",
+        "metabolism": "UGT1A9 primary, минимальное CYP"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults",
+          "[LBL] HFrEF (DAPA-HF, 2019)",
+          "[LBL] HFpEF (DELIVER, 2022)",
+          "[LBL] CKD (DAPA-CKD, 2020)",
+          "[LBL] CV risk reduction в T2DM",
+          "[LBL] Pediatric T2DM ≥10y"
+        ],
+        "emerging": [
+          "[RCT] T1DM as adjunct (approved EU/Japan, withdrawn US — DKA risk concern)",
+          "[RCT] NASH"
+        ]
+      },
+      "dosing": {
+        "dose": "T2DM: 5 mg AM start → 10 mg AM; HF/CKD: 10 mg AM",
+        "administration": "AM, с едой или без, [RF chrono] AM предпочтителен"
+      },
+      "energy_vectors_rf": {
+        "energy_primary": ["[RF] Damp-reducing (class)"],
+        "energy_secondary": ["[RF] Cooling (class)"],
+        "energy_tertiary": ["[RF] Mild drying tendency (class)"],
+        "constitution_best_match": ["[RF] Yang-Earth, Yang-Fire с metabolic component (class)"],
+        "constitution_caution": ["[RF] Yin-Water, elderly Yin-Metal (class)"],
+        "phase_match": ["[RF] PCL-A, Normotonia, CHF any phase (class)"]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": ["[RF] M-A → M-0 (class)"],
+        "membrane_caution": ["[RF] AVOID M-D2/M-D3 (class)"]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "dapagliflozin_vs_empagliflozin": [
+          "[OBS-Mark] [Mark, есть ли клиническая разница в твоей практике?]",
+          "[RF note] Head-to-head data limited; class-effects largely equivalent в large outcomes trials"
+        ]
+      },
+      "safety": {
+        "ddi": "similar to empagliflozin (class)",
+        "contraindications": "similar (class)",
+        "pregnancy": "D, avoid",
+        "pediatric": "≥10y T2DM",
+        "geriatric": "caution, dehydration risk",
+        "renal": [
+          "[LBL] eGFR ≥25: standard dose (DAPA-CKD extended use)",
+          "[LBL] eGFR <25: avoid initiation (можно continue if already on)"
+        ],
+        "hepatic": "caution severe"
+      },
+      "adverse_events": {
+        "common": ["similar to empagliflozin (class)"],
+        "distinct_signal": [
+          "[LBL] Bladder cancer signal в early trials (имбаланс численностей в первых исследованиях, не подтверждён в large outcomes trials — но historical caveat)"
+        ]
+      },
+      "references": [
+        "FDA label Farxiga",
+        "DAPA-HF (McMurray et al, NEJM 2019)",
+        "DELIVER (Solomon et al, NEJM 2022)",
+        "DAPA-CKD (Heerspink et al, NEJM 2020)",
+        "DECLARE-TIMI 58 (Wiviott et al, NEJM 2019) — CV outcomes"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true
+      }
+    },
+    {
+      "drug_id": "DRG-009",
+      "name_inn": "Canagliflozin",
+      "name_ru": "Канаглифлозин",
+      "name_brand": "Invokana",
+      "combinations": "Invokamet (+metformin)",
+      "status": "METACOD-RF",
+      "batch": "02-SGLT2",
+      "molecular": {
+        "chemical_class": "SGLT2 inhibitor (less selective — also weak SGLT1 inhibition at higher doses)",
+        "mechanism_primary": ["[LBL] Class SGLT2 mechanism"],
+        "mechanism_distinct": [
+          "[LBL] Some intestinal SGLT1 inhibition at 300 mg dose → slight intestinal glucose absorption delay",
+          "[RCT] CANVAS, CREDENCE trials — CV/renal benefits established"
+        ],
+        "half_life": "10.6 hours (100 mg) to 13.1 hours (300 mg)",
+        "excretion": "~50% urine, ~50% feces",
+        "metabolism": "UGT1A9, UGT2B4"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults",
+          "[LBL] CV risk reduction в T2DM с established CVD (CANVAS, 2017)",
+          "[LBL] Diabetic kidney disease (CREDENCE, 2019) — historic first SGLT2 для CKD specifically"
+        ],
+        "not_approved": [
+          "No HF-specific indication (unlike empa/dapa)",
+          "No pediatric approval"
+        ]
+      },
+      "dosing": {
+        "dose": "100 mg AM → 300 mg AM if needed and eGFR allows",
+        "administration": "AM, before first meal of day, [LBL] preferably before breakfast"
+      },
+      "energy_vectors_rf": {
+        "energy_primary": ["[RF] Damp-reducing (class, плюс mild intestinal effect)"],
+        "energy_secondary": ["[RF] Cooling (class)"],
+        "energy_distinct": [
+          "[RF] Intestinal SGLT1 effect добавляет slight GI dampening effect — может быть useful в Yang-Earth с GI accumulation"
+        ],
+        "constitution_best_match": ["[RF] Yang-Earth (class + GI nuance)"],
+        "constitution_caution": ["[RF] Yin-Water, elderly (class)"]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": ["[RF] M-A → M-0 (class)"]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "canagliflozin_vs_empa_dapa": "[OBS-Mark] [Mark, в современной практике canagliflozin используется реже чем empa/dapa из-за amputation signal — твой опыт?]"
+      },
+      "safety": {
+        "ddi": "similar to class",
+        "contraindications": "similar to class",
+        "pregnancy": "D, avoid",
+        "pediatric": "not approved",
+        "geriatric": "caution",
+        "renal": [
+          "[LBL] eGFR ≥30: standard",
+          "[LBL] eGFR <30: avoid initiation"
+        ],
+        "hepatic": "caution severe"
+      },
+      "adverse_events": {
+        "common": ["similar to class"],
+        "serious_distinct_signal": [
+          "[LBL] Lower limb amputation risk (CANVAS — RR ~2x для toe/metatarsal amputations) — initial concern, less prominent in later trials",
+          "[LBL] Bone fracture risk (some trials suggested increased)",
+          "[LBL] Hyperkalemia signal в CREDENCE"
+        ],
+        "rare_critical": ["Fournier's gangrene (class)"]
+      },
+      "references": [
+        "FDA label Invokana",
+        "CANVAS (Neal et al, NEJM 2017)",
+        "CREDENCE (Perkovic et al, NEJM 2019) — historic first SGLT2 в CKD trial"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true,
+        "note": "В современной практике canagliflozin часто заменяется empagliflozin или dapagliflozin из-за historical amputation signal — хотя later data более reassuring."
+      }
+    },
+    {
+      "drug_id": "DRG-010",
+      "name_inn": "Ertugliflozin",
+      "name_ru": "Эртуглифлозин",
+      "name_brand": "Steglatro",
+      "combinations": "Segluromet (+metformin), Steglujan (+sitagliptin)",
+      "status": "METACOD-RF",
+      "batch": "02-SGLT2",
+      "molecular": {
+        "chemical_class": "SGLT2 inhibitor (selective)",
+        "mechanism_primary": ["[LBL] Class SGLT2 mechanism"],
+        "half_life": "16.6 hours",
+        "excretion": "~50% urine, ~40% feces",
+        "metabolism": "UGT1A9, UGT2B7"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults"
+        ],
+        "not_approved": [
+          "No CV/HF/CKD specific indication (VERTIS CV trial — neutral on primary CV endpoint)",
+          "No pediatric approval"
+        ]
+      },
+      "dosing": {
+        "dose": "5 mg AM → 15 mg AM",
+        "administration": "AM, с едой или без"
+      },
+      "energy_vectors_rf": {
+        "energy_primary": ["[RF] Damp-reducing (class)"],
+        "energy_secondary": ["[RF] Cooling (class)"],
+        "constitution_best_match": ["[RF] Yang-Earth (class)"],
+        "constitution_caution": ["[RF] Yin-Water (class)"]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": ["[RF] M-A → M-0 (class)"]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "ertugliflozin_clinical_position": [
+          "[OBS-Mark] [Mark, ertugliflozin клинически менее prominent чем empa/dapa — используется ли в твоей практике?]",
+          "[RF note] VERTIS CV trial был neutral, что снизило enthusiasm; обычно второй выбор после empa/dapa"
+        ]
+      },
+      "safety": {
+        "ddi": "class",
+        "contraindications": "class",
+        "pregnancy": "D, avoid",
+        "renal": [
+          "[LBL] eGFR <60: avoid initiation",
+          "[LBL] eGFR <45: discontinue",
+          "(Более restrictive чем empa/dapa)"
+        ],
+        "hepatic": "caution severe"
+      },
+      "adverse_events": {
+        "common": ["similar to class"],
+        "note": "no distinct amputation signal как в canagliflozin"
+      },
+      "references": [
+        "FDA label Steglatro",
+        "VERTIS CV (Cannon et al, NEJM 2020) — neutral CV primary"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "class_extrapolation_used": true,
+        "note": "Менее используется в современной практике из-за neutral CV outcomes и более restrictive renal cutoff. Включён для completeness класса."
+      }
+    }
+  ]
+}

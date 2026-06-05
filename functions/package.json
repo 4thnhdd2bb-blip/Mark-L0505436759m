@@ -1,0 +1,19 @@
+{
+  "name": "@metacod/functions",
+  "version": "5.0.0-part1",
+  "private": true,
+  "description": "Firebase Cloud Functions — the server API surface for the GLP-1 module. Thin transport + persistence around @metacod/engine.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "serve": "firebase emulators:start --only functions,firestore"
+  },
+  "dependencies": {
+    "@metacod/engine": "5.0.0-part1",
+    "@metacod/shared": "5.0.0-part1",
+    "firebase-admin": "^12.3.0",
+    "firebase-functions": "^5.0.1",
+    "zod": "^3.23.8"
+  }
+}

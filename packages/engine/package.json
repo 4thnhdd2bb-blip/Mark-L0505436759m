@@ -1,0 +1,16 @@
+{
+  "name": "@metacod/engine",
+  "version": "5.0.0-part1",
+  "private": true,
+  "description": "Pure-TS clinical engine: triage, rule evaluation, Pharmacist Agent, dual-layer projection. No I/O — runs identically on Firebase functions and (for preview) on the client.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@metacod/shared": "5.0.0-part1",
+    "zod": "^3.23.8"
+  }
+}

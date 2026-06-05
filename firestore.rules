@@ -1,0 +1,22 @@
+rules_version = '2';
+// Part 2 baseline. All clinical writes go through Cloud Functions (Admin SDK,
+// which bypasses these rules), so client access is read-mostly and role-gated.
+// Hardened field-level rules are finalised alongside the admin app.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() { return request.auth != null; }
+    function role() { return request.auth.token.role; }
+
+    // Visits: never written from the client; reads are server-mediated (getReport).
+    match /visits/{id} {
+      allow read, write: if false; // server-only (Admin SDK)
+    }
+
+    // Audit log is append-only and server-only; readable by admin for review.
+    match /audit_log/{id} {
+      allow read: if isSignedIn() && role() == 'admin';
+      allow write: if false; // server-only
+    }
+  }
+}

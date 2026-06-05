@@ -1,0 +1,24 @@
+{
+  "name": "metacod-glp1",
+  "version": "5.0.0-part1",
+  "private": true,
+  "description": "METACOD — GLP-1 Complication Prevention module (v5). Clinical decision support for patients on GLP-1 therapy taking oral medications.",
+  "license": "UNLICENSED",
+  "workspaces": [
+    "packages/*",
+    "functions",
+    "apps/*"
+  ],
+  "scripts": {
+    "typecheck": "tsc -b packages/shared packages/engine functions",
+    "build": "tsc -b packages/shared packages/engine functions",
+    "clean": "tsc -b --clean packages/shared packages/engine functions",
+    "test": "npm run build && node --test packages/engine/test/*.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

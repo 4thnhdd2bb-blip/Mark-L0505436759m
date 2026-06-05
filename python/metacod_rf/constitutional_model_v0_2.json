@@ -1,0 +1,228 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_constitutional_model",
+    "document": "METACOD Constitutional Model",
+    "version": "0.2",
+    "previous_version": "0.1",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "subtitle": "Biomarker panels for quality assessment of the 5 energies",
+    "author": "Mark Litvak (formalization with AI-assistance)",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "changes_from_v0_1": "Added Part F (Biomarker Panels for Quality Assessment) and Part G (Quality Markers Cross-Reference); multi-energy markers section.",
+    "parts_not_included": "Parts A-E (constitutional axis / process-phase axis / clinical scenarios / limitations / open research questions) live in v0.1 — now materialized in this repo as constitutional_model_v0_1.json (gap closed Jun-2026). v0.2 only adds Parts F-G; A-E are not re-transcribed here.",
+    "validation_status": {
+      "conceptual_framework": "agreed in discussion (Mark + AI assistant)",
+      "biomarker_selections": "HYPOTHESES, not validated correlations",
+      "optimal_ranges": "based on standard clinical references + Mark canonical adjustments",
+      "cross_pattern_interpretations": "theoretical, awaiting case validation"
+    },
+    "general_principle": {
+      "two_zonal_structure": [
+        "Optimal range (good quality)",
+        "Above optimal = excess quality (часто pathology — например polycythemia)",
+        "Below optimal = deficient quality (часто pathology — например anemia)"
+      ],
+      "quality_not_monotonic": "Quality не равно «выше/ниже = лучше/хуже». Quality имеет optimal point, и отклонения в обе стороны — pathological."
+    },
+    "next_steps_v0_3": [
+      "Validate biomarker selections against case documentation",
+      "Refine optimal ranges по age/gender stratification",
+      "Add temporal patterns (how markers change через phases CA→PCL-A→Epicrisis→PCL-B→Normotonia)",
+      "Build quality score algorithms"
+    ],
+    "interpretation_note": [
+      "Part F не является diagnostic algorithm. Это structured hypothesis space для оценки quality каждой энергии через clinically routine biomarkers.",
+      "Применение требует: clinical correlation; multiple marker patterns (not single value); age/gender adjustment; medication context; validation across documented cases."
+    ]
+  },
+  "energy_biomarker_panels": {
+    "heat": {
+      "label": "HEAT (Огонь / Fire)",
+      "wu_xing_associations": [
+        "Циркуляция крови (cardiovascular system)",
+        "Heart-mind (shen в TCM)",
+        "Thermal regulation",
+        "Cellular metabolism / aerobic energy production"
+      ],
+      "markers": [
+        {"marker": "Гемоглобин M", "deficient_quality": "<13 g/dL", "optimal_range": "13-16 g/dL", "excess_quality": ">17 g/dL"},
+        {"marker": "Гемоглобин F", "deficient_quality": "<12 g/dL", "optimal_range": "12-15 g/dL", "excess_quality": ">16 g/dL"},
+        {"marker": "Hematocrit M", "deficient_quality": "<40%", "optimal_range": "40-50%", "excess_quality": ">52%"},
+        {"marker": "Ferritin", "deficient_quality": "<30 ng/mL (low storage)", "optimal_range": "30-200", "excess_quality": ">300 (inflammation/overload)"},
+        {"marker": "hsCRP", "deficient_quality": "<0.5 mg/L (very low — может быть subclinical immune suppression)", "optimal_range": "0.5-3 (normal-low)", "excess_quality": ">3 (active inflammation)"},
+        {"marker": "Erythrocytes M", "deficient_quality": "<4.5 M/μL", "optimal_range": "4.5-5.5", "excess_quality": ">6.0"},
+        {"marker": "Resting HR", "deficient_quality": "<50 bpm (athletes ok, otherwise marker of bradyarrhythmia)", "optimal_range": "50-75", "excess_quality": ">85 (sympathetic excess)"},
+        {"marker": "Body temperature", "deficient_quality": "<36.4°C chronic (hypometabolic)", "optimal_range": "36.5-37.0°C", "excess_quality": ">37.2°C chronic (low-grade inflammation)"},
+        {"marker": "Vit B12", "deficient_quality": "<300 pmol/L", "optimal_range": "400-700", "excess_quality": ">1000 (rare; methylation issue)"},
+        {"marker": "Methylmalonic acid", "deficient_quality": "—", "optimal_range": "<0.4 μmol/L", "excess_quality": ">0.4 (B12 functional deficiency)"},
+        {"marker": "LDH", "deficient_quality": "—", "optimal_range": "140-280 U/L", "excess_quality": ">300 (cellular turnover, malignancy, hemolysis)"}
+      ],
+      "clinical_interpretation_patterns": {
+        "high_quantity_low_quality": "Выраженные thermal symptoms (warmth, sweating, irritability) + functional markers ниже optimal. Пример: chronic inflammation pattern, hsCRP up, гемоглобин low (anemia of chronic disease).",
+        "low_quantity_low_quality": "Тихий thermal pattern + функционально страдает. Пример: severe anemia, hypothyroid, frail elderly. Heat в дефиците по обоим axes.",
+        "high_quantity_high_quality": "Strong thermal output + хороший CV/inflammation status. Это pathological excess — острая heat, инфекция, или гиперметаболизм.",
+        "low_quantity_high_quality": "Тихая, но clean heat. Часто normal healthy aging — снижение overall energy без inflammatory/anemic patterns. Не требует intervention."
+      }
+    },
+    "wind": {
+      "label": "WIND (Ветер / Wood)",
+      "wu_xing_associations": [
+        "Гепатобилиарная система (Liver-Gallbladder)",
+        "Neurological excitation/tremor patterns",
+        "Vascular tone и tension",
+        "Migrating/shifting patterns"
+      ],
+      "markers": [
+        {"marker": "ALT", "deficient_quality": "<10 U/L (low cellular turnover)", "optimal_range": "10-35", "excess_quality": ">40 (active hepatocellular damage)"},
+        {"marker": "AST", "deficient_quality": "<10 U/L", "optimal_range": "10-35", "excess_quality": ">40"},
+        {"marker": "GGT", "deficient_quality": "<10 U/L", "optimal_range": "10-50", "excess_quality": ">70 (biliary obstruction or alcohol-related)"},
+        {"marker": "AST/ALT ratio", "deficient_quality": "—", "optimal_range": "0.8-1.2", "excess_quality": ">2 (chronic alcohol), <0.5 (fatty liver)"},
+        {"marker": "Bilirubin direct", "deficient_quality": "<0.05 (rare clinical concern)", "optimal_range": "0.05-0.3 mg/dL", "excess_quality": ">0.4 (cholestasis)"},
+        {"marker": "Bilirubin total", "deficient_quality": "<0.3", "optimal_range": "0.3-1.2", "excess_quality": ">1.5 (Gilbert если indirect, pathology если direct)"},
+        {"marker": "SBP variability", "deficient_quality": "minimal variation chronic", "optimal_range": "<10 mmHg variation", "excess_quality": ">20 mmHg variation (Wind instability)"},
+        {"marker": "Migraine frequency", "deficient_quality": "rare", "optimal_range": "rare/none", "excess_quality": ">2/month (Wind excess)"},
+        {"marker": "Tremor (essential)", "deficient_quality": "—", "optimal_range": "absent", "excess_quality": "present (Wind manifest)"},
+        {"marker": "Anti-mitochondrial Ab", "deficient_quality": "—", "optimal_range": "negative", "excess_quality": "positive (PBC — Wind chronic Yin-Metal overlap)"}
+      ],
+      "clinical_interpretation_patterns": {
+        "high_quality_excess_quantity": "Active hepatobiliary process — hepatitis acute, biliary colic, severe migraine. Часто manifest patterns of Wood-Earth disharmony (irritability + digestive symptoms).",
+        "deficient_wind_quality": "Clinically rare — обычно проявляется как pseudonormal labs при actual functional liver insufficiency (CYP underperformance, conjugation problems). Не all liver dysfunction рефлектируется в standard panel."
+      }
+    },
+    "damp": {
+      "label": "DAMP (Влажность / Earth)",
+      "wu_xing_associations": [
+        "Spleen-Pancreas system (digestion, metabolic)",
+        "Fluid accumulation",
+        "Adipose tissue",
+        "Insulin/metabolic axis"
+      ],
+      "markers": [
+        {"marker": "HbA1c", "deficient_quality": "<4.8% (rare, hemolysis)", "optimal_range": "4.9-5.6%", "excess_quality": ">5.7% (prediabetes), >6.5% (T2DM)"},
+        {"marker": "Fasting glucose", "deficient_quality": "<70 (hypoglycemia tendency)", "optimal_range": "70-100 mg/dL", "excess_quality": ">100 (IGT), >126 (T2DM)"},
+        {"marker": "HOMA-IR", "deficient_quality": "<1.0 (good sensitivity)", "optimal_range": "1.0-2.5", "excess_quality": ">2.5 (insulin resistance)"},
+        {"marker": "Fasting insulin", "deficient_quality": "<5 mU/L", "optimal_range": "5-10", "excess_quality": ">15 (resistance)"},
+        {"marker": "Triglycerides", "deficient_quality": "<50 (very low — может быть marker hypothyroid или malabsorption)", "optimal_range": "50-150 mg/dL", "excess_quality": ">200 (metabolic dysregulation)"},
+        {"marker": "Waist circumference M", "deficient_quality": "—", "optimal_range": "<94 cm", "excess_quality": ">102 cm"},
+        {"marker": "Waist circumference F", "deficient_quality": "—", "optimal_range": "<80 cm", "excess_quality": ">88 cm"},
+        {"marker": "ALT (NAFLD context)", "deficient_quality": "—", "optimal_range": "<30", "excess_quality": ">30 + sonographic steatosis = MASH/NAFLD"},
+        {"marker": "Adiponectin", "deficient_quality": "<5 (resistance pattern)", "optimal_range": "5-15 μg/mL", "excess_quality": ">15 (good metabolic status)"},
+        {"marker": "Leptin (interp by BMI)", "deficient_quality": "—", "optimal_range": "proportional to fat mass", "excess_quality": "leptin resistance в obesity"},
+        {"marker": "Phase angle BIA", "deficient_quality": "<5° (sarcopenic/cachexia)", "optimal_range": "5-7°", "excess_quality": ">7° (athletic / good cellular health)"},
+        {"marker": "Body water %", "deficient_quality": "—", "optimal_range": "50-65%", "excess_quality": ">70% (overhydration / edema), <45% (dehydration)"}
+      ],
+      "clinical_interpretation_patterns": {
+        "high_quantity_dirty_quality": "Classic metabolic syndrome — high glucose, high insulin, high TG, large waist, fatty liver. Это Yang-Earth excess accumulation pattern.",
+        "low_quantity_clean_quality": "Lean, metabolically healthy. Идеальный pattern.",
+        "low_damp_dirty_quality": "Paradoxical — thin but metabolically dysfunctional (TOFI — «thin outside, fat inside»). Asian phenotype с visceral fat без overt obesity."
+      }
+    },
+    "dry": {
+      "label": "DRY (Сухость / Metal)",
+      "wu_xing_associations": [
+        "Lung-Large Intestine system",
+        "Skin barrier и hydration",
+        "Mucosal integrity",
+        "Connective tissue tone"
+      ],
+      "markers": [
+        {"marker": "Серум osmolality", "deficient_quality": "<275 (overhydration/SIADH)", "optimal_range": "275-295 mOsm/kg", "excess_quality": ">300 (dehydration)"},
+        {"marker": "Urine specific gravity", "deficient_quality": "<1.010 (M-A pattern)", "optimal_range": "1.015-1.025", "excess_quality": ">1.030 (dehydration/M-D pattern)"},
+        {"marker": "Урea", "deficient_quality": "<2.5 mmol/L (low protein turnover)", "optimal_range": "2.5-6.5", "excess_quality": ">7 (catabolic, renal)"},
+        {"marker": "Креатинин M", "deficient_quality": "<60 (low muscle mass)", "optimal_range": "60-100 μmol/L", "excess_quality": ">110 (renal impairment)"},
+        {"marker": "eGFR", "deficient_quality": "—", "optimal_range": ">90", "excess_quality": "<60 (CKD) — drying tendency renal"},
+        {"marker": "Skin turgor", "deficient_quality": "—", "optimal_range": "normal", "excess_quality": "reduced (clinical sign Dry)"},
+        {"marker": "Hyaluronic acid serum", "deficient_quality": "—", "optimal_range": "optimal range varies", "excess_quality": "elevated (fibrosis marker)"},
+        {"marker": "Procollagen III peptide", "deficient_quality": "—", "optimal_range": "—", "excess_quality": "elevated в active fibrogenesis"},
+        {"marker": "FEV1/FVC", "deficient_quality": "—", "optimal_range": ">75% (>0.75)", "excess_quality": "<70% (COPD obstruction = Dry-Metal pattern)"},
+        {"marker": "KL-6 (Krebs von den Lungen-6)", "deficient_quality": "—", "optimal_range": "<500 U/mL", "excess_quality": "elevated в interstitial lung disease/fibrosis"}
+      ],
+      "clinical_interpretation_patterns": {
+        "high_dry_quality_excess_quantity": "Paradoxical — usually означает Excess Dry — это fibrotic process. PBC, IPF, scleroderma, chronic glomerulopathy. Это PCL-B phase patterns.",
+        "low_dry_quality": "Часто manifests как mucosal symptoms — dry mouth, dry eyes (Sjogren overlap), constipation. Это often combined deficient Lung-Metal pattern."
+      }
+    },
+    "cold": {
+      "label": "COLD (Холод / Water)",
+      "wu_xing_associations": [
+        "Kidney-Bladder system",
+        "Thermoregulation (basal metabolic rate)",
+        "Reproductive function",
+        "Bone homeostasis"
+      ],
+      "markers": [
+        {"marker": "TSH", "deficient_quality": "<0.4 (hyperthyroid = Heat excess via Cold deficiency)", "optimal_range": "0.5-2.5 (optimal narrow) или 0.5-4.5 (lab norm)", "excess_quality": ">4.0 (subclin hypothyroid)"},
+        {"marker": "Free T4", "deficient_quality": "<0.9 ng/dL", "optimal_range": "0.9-1.7", "excess_quality": ">1.8"},
+        {"marker": "Free T3", "deficient_quality": "<2.3 pg/mL", "optimal_range": "2.3-4.2", "excess_quality": ">4.2"},
+        {"marker": "Базальная температура тела", "deficient_quality": "<36.4°C chronic", "optimal_range": "36.5-36.9°C", "excess_quality": ">37.0°C (other than infection)"},
+        {"marker": "Cortisol AM", "deficient_quality": "<5 (adrenal insufficiency)", "optimal_range": "5-20 μg/dL", "excess_quality": ">25 (chronic stress, Cushing)"},
+        {"marker": "DHEA-S (по возрасту)", "deficient_quality": "low for age", "optimal_range": "age-appropriate", "excess_quality": "high (adrenal hyperfunction)"},
+        {"marker": "Total testosterone M", "deficient_quality": "<8 nmol/L (hypogonadism)", "optimal_range": "12-30 nmol/L", "excess_quality": ">35"},
+        {"marker": "Estradiol F (premenopausal)", "deficient_quality": "<100 pg/mL", "optimal_range": "cycle-dependent", "excess_quality": "inappropriate (PCOS, tumor)"},
+        {"marker": "Vit D 25-OH", "deficient_quality": "<30 ng/mL (deficient)", "optimal_range": "40-60 (optimal)", "excess_quality": ">100 (toxicity, rare)"},
+        {"marker": "Phosphate", "deficient_quality": "<2.5 mg/dL", "optimal_range": "2.5-4.5", "excess_quality": ">5.0 (CKD related)"},
+        {"marker": "Calcium", "deficient_quality": "<8.5", "optimal_range": "8.5-10.5", "excess_quality": ">10.5 (PTH excess, malignancy)"},
+        {"marker": "iPTH", "deficient_quality": "<15 pg/mL", "optimal_range": "15-65", "excess_quality": ">70 (secondary/tertiary hyperparathyroidism)"},
+        {"marker": "DEXA T-score", "deficient_quality": "<-2.5 (osteoporosis)", "optimal_range": ">-1.0 (normal)", "excess_quality": "—"},
+        {"marker": "Bone turnover markers (CTX, P1NP)", "deficient_quality": "—", "optimal_range": "balanced", "excess_quality": "imbalanced в osteoporosis"}
+      ],
+      "clinical_interpretation_patterns": {
+        "high_quantity_low_quality": "Severe Yang deficit — frail elderly, hypothyroid pattern, osteoporosis, low energy, cold intolerance. Это Yin-Water dominant constitution в pathology.",
+        "deficient_cold": "Hyperthyroid pattern, hot flashes, irritability, weight loss. Может быть Yang-Fire excess, но через Cold deficiency mechanism."
+      }
+    }
+  },
+  "multi_energy_markers": [
+    {"marker": "Phase angle BIA", "interpretation": "Heat × Damp interaction (cellular vitality)"},
+    {"marker": "Albumin", "interpretation": "Heat × Damp × Cold (overall functional status)"},
+    {"marker": "24h urine pH 4-point", "interpretation": "Energy axis (acid = Heat, alkaline = Cold/Dry, per Mark canonical)"},
+    {"marker": "Lymphocyte count", "interpretation": "Wind × Cold (immune system, Kidney-jing related в TCM)"},
+    {"marker": "Eosinophil count", "interpretation": "Wind × Heat (allergic/inflammatory)"},
+    {"marker": "Lipid panel ratios (LDL/HDL, TG/HDL)", "interpretation": "Damp × Wind (hepato-metabolic disharmony)"},
+    {"marker": "Uric acid", "interpretation": "Heat × Damp + Mark canonical Yin-Fire phenotype marker"},
+    {"marker": "Homocysteine", "interpretation": "Wind × Heat (methylation, B-vitamin status)"}
+  ],
+  "cross_reference": {
+    "clinical_navigation": {
+      "cardiovascular_metabolic": [
+        "Heat markers (CBC, ferritin, hsCRP)",
+        "Damp markers (HbA1c, lipids, HOMA-IR)",
+        "Cold markers (TSH, cortisol, testosterone у M)",
+        "cross-reference: phase angle BIA, uric acid"
+      ],
+      "autoimmune_inflammatory": [
+        "Heat markers (hsCRP, ferritin)",
+        "Wind markers (ALT/AST, autoantibodies)",
+        "Dry markers (если fibrotic component — KL-6, procollagen III)",
+        "cross-reference: ANA, complement levels"
+      ],
+      "energy_fatigue": [
+        "Cold markers (TSH, cortisol, vit D, testosterone)",
+        "Heat markers (CBC, ferritin, B12)",
+        "cross-reference: ferritin, B12, methylmalonic acid"
+      ],
+      "pre_oncology_screening_mark_phenotype": [
+        "Wind markers (LFTs)",
+        "Heat markers (CBC, hsCRP, LDH)",
+        "Damp markers (metabolic panel)",
+        "cross-reference: uric acid (gout / metabolic / Yin-Fire phenotype)"
+      ]
+    },
+    "limitations": [
+      "Single biomarker — never diagnostic. Quality assessment требует pattern across multiple markers.",
+      "Reference ranges vary по lab — использовать local lab references, not absolute numbers.",
+      "Optimal ≠ normal. Optimal range narrower чем «lab normal» range (например TSH «normal» 0.5-4.5, но optimal часто 0.5-2.5).",
+      "Age и gender adjustment критичны для multiple markers (testosterone, DHEA, hemoglobin).",
+      "Acute vs chronic elevation/depression — clinical correlation always needed.",
+      "Medication effects — many биомаркеры влияют от текущих препаратов. Документировать medication list при оценке.",
+      "Quality assessment ≠ diagnosis. Это один из контекстов в clinical reasoning, не замена ICD-based dx."
+    ],
+    "open_questions": [
+      "Какие markers лучше всего predict drug response patterns?",
+      "Существуют ли pattern signatures, которые предсказывают titration tolerance (как в semaglutide наблюдении Mark)?",
+      "Можно ли построить «quality score» для каждой энергии на основе weighted combination biomarkers?",
+      "Inter-rater reliability — будут ли два METACOD-trained клинициста соглашаться в quality assessment одного пациента based on identical lab panel?"
+    ]
+  }
+}

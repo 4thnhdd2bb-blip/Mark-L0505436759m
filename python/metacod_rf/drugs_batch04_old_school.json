@@ -1,0 +1,754 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_drug_db",
+    "batch_id": "04-Old_School_Antidiabetics",
+    "version": "RF-2026-06-batch04",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Антидиабетические — Sulfonylureas (3) + TZD (1) + Glinides (2) + α-Glucosidase inhibitors (1)",
+    "preparations_count": 7,
+    "author": "Mark Litvak (с AI-assistance)",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "source_tag_legend": {
+      "LBL": "FDA / EMA label",
+      "GL": "Clinical guideline (ESC/ADA/AACE/etc)",
+      "RCT": "конкретное RCT",
+      "CLASS": "class pattern extrapolation",
+      "OBS-Mark": "клиническое наблюдение Mark (требует заполнения)",
+      "RF": "METACOD research framework (theoretical)"
+    },
+    "class_notes": {
+      "batch_intro": [
+        "«Старая школа» антидиабетической терапии (до эры GLP-1/SGLT2/DPP-4, ~2005-2010).",
+        "Периферийные ниши сегодня, но активно в гайдлайнах: отступили из первой линии, остаются в 3-4 линии / как combination components.",
+        "Энергетически — более directional, чем новые: толкают сильнее в одну сторону (особенно СМ — strong yang exhaustion of pancreas); быстрый эффект, но больший risk overshoot в M-D у frail."
+      ],
+      "sulfonylureas_intro": [
+        "Старейший класс orally-active (1950s). Mechanism — прямое закрытие K+ ATP каналов β-клеток → форсированная инсулиновая секреция независимо от глюкозы.",
+        "Glucose-INDEPENDENT (постоянная стимуляция → significant hypoglycemia risk), в отличие от GLP-1/DPP-4 (glucose-dependent).",
+        "[RF] force-yang класс: истощает β-cell function over time (Yang depletion). Объясняет initial efficacy, secondary failure 5-10 лет, hypoglycemia risk especially elderly.",
+        "ADA/EASD: не first-line. Cost: очень дешёвые. Beers: glimepiride и glyburide AVOID в elderly."
+      ],
+      "tzd_intro": [
+        "Единственный класс через PPAR-γ activation (nuclear receptor, transcription-level).",
+        "Эффекты: improved insulin sensitivity, adipocyte redistribution (visceral→subcutaneous), anti-inflammatory, NAFLD/MASH benefit (единственный oral antidiabetic с этим).",
+        "Concerns: weight gain (fluid+adipogenesis), HF risk, fracture risk (women), bladder cancer signal (pioglitazone, controversial).",
+        "Современная позиция: largely fallen out of first-line; renaissance для NAFLD/MASH."
+      ],
+      "glinides_intro": [
+        "Prandial insulin secretagogues — K+ ATP channel closure как СМ, но very short duration (stimulation сразу после meal).",
+        "Niche: irregular meal patterns, late-phase pancreatic function, renal impairment.",
+        "[RF] yang surge с каждым meal, не sustained — менее истощают pancreas, но efficacy modest."
+      ],
+      "alpha_glucosidase_intro": [
+        "Inhibition of intestinal α-glucosidase → delayed carb absorption → reduced postprandial spike.",
+        "НЕ stimulates insulin → essentially zero hypoglycemia risk в monotherapy.",
+        "Niche: postprandial hyperglycemia, hypoglycemia-avoidance, Asian high-carb diets. Limitations: modest HbA1c, significant GI side effects, poor adherence."
+      ],
+      "beers_2023_highlights": [
+        "Glimepiride, glyburide: AVOID elderly (long-acting sulfonylureas, severe hypoglycemia).",
+        "Glipizide: caution elderly (shorter half-life, less concerning но still hypoglycemia risk).",
+        "Pioglitazone: AVOID в HF (any class), caution fracture risk women."
+      ],
+      "obs_mark_to_fill": [
+        "Gliclazide vs glipizide preference в Israeli/EU context",
+        "Pioglitazone в NAFLD — clinical experience pattern",
+        "Repaglinide elderly safety — твой canonical caution",
+        "Acarbose — used или nearly никогда?"
+      ]
+    },
+    "project_progress_note": "Antidiabetic after batch 04: 23/32 (72%). Insulins (8) + pramlintide (1) remain."
+  },
+  "drugs": [
+    {
+      "drug_id": "DRG-017",
+      "name_inn": "Glipizide",
+      "name_ru": "Глипизид",
+      "name_brand": "Glucotrol, Glucotrol XL",
+      "status": "METACOD-RF",
+      "batch": "04-Sulfonylureas",
+      "molecular": {
+        "chemical_class": "Second-generation sulfonylurea",
+        "mechanism_primary": [
+          "[LBL] Closure of ATP-sensitive K+ channels в β-cells → depolarization → Ca2+ influx → forced insulin secretion (glucose-independent)"
+        ],
+        "mechanism_secondary": [
+          "[CLASS] Mild peripheral insulin sensitivity effect (slight)"
+        ],
+        "half_life": {"IR": "2-4 hours (BID dosing)", "XL": "10 hours (once daily)"},
+        "excretion": "~80% renal, 20% hepatic",
+        "metabolism": "CYP2C9, CYP3A4"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults — adjunct to diet/exercise",
+          "[GL] Second/third line после metformin, GLP-1/SGLT2, DPP-4"
+        ],
+        "not_approved": [
+          "No CV indication",
+          "No HF, renal protection"
+        ]
+      },
+      "dosing": {
+        "dose": "IR: 5 mg AM start → titrate to 20 mg/day (often BID); XL: 5 mg AM → 20 mg AM max",
+        "administration": [
+          "[LBL] IR: 30 минут до еды (важно — pre-meal timing)",
+          "[LBL] XL: с завтраком"
+        ]
+      },
+      "energy_vectors_rf": {
+        "energy_primary": [
+          "[RF] Force-yang stimulation of pancreatic β-cells",
+          "[RF] Anabolic shift (через increased insulin signaling)"
+        ],
+        "energy_secondary": [
+          "[RF] Damp-accumulating tendency через weight gain",
+          "[RF] Risk of yang exhaustion long-term"
+        ],
+        "constitution_best_match": [
+          "[RF] Short-term in Yang-Earth с robust pancreatic function",
+          "[RF] Cost-constrained patient без access к новым классам"
+        ],
+        "constitution_caution": [
+          "[RF] Yin-Water (frail elderly) — hypoglycemia risk катастрофичен",
+          "[RF] Any sarcopenic pattern — weight gain нежелательна"
+        ],
+        "constitution_avoid": [
+          "[RF] Established β-cell failure pattern (long-standing T2DM с low C-peptide)",
+          "[RF] Elderly с cognitive concerns (hypoglycemia unawareness)"
+        ],
+        "phase_match": [
+          "[RF] PCL-A acute (short-term glycemic emergency)"
+        ],
+        "phase_caution": [
+          "[RF] CA active — sympathetic stress already, добавление force-yang может precipitate crisis",
+          "[RF] PCL-B (chronic) — exhaustion pattern, нежелательно"
+        ]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": [
+          "[RF] M-A pushing (anabolic — through insulin-mediated storage)",
+          "[RF] May worsen existing M-A2 → M-A3 progression в obesity"
+        ],
+        "membrane_caution": [
+          "[RF] AVOID в frail M-D (hypoglycemia + already depleted pattern)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "n_cases_observed": "[TBD]",
+        "glipizide_vs_other_sulfonylureas": [
+          "[OBS-Mark] [Mark, glipizide vs glimepiride — preference в твоей практике?]",
+          "[RF note] Glipizide имеет shorter half-life → considered safer для elderly чем glimepiride/glyburide"
+        ]
+      },
+      "safety": {
+        "ddi_critical_2_star": [
+          "[LBL] GLP-1 agonists — severe hypoglycemia (см. batch 01)",
+          "[LBL] DPP-4 — additive hypoglycemia",
+          "[LBL] Insulin — severe hypoglycemia"
+        ],
+        "ddi_critical_1_star": [
+          "[LBL] Beta-blockers — mask hypoglycemia symptoms + prolong recovery",
+          "[LBL] Fluoroquinolones (especially gatifloxacin, levofloxacin) — severe hypoglycemia signal",
+          "[LBL] CYP2C9 inhibitors (fluconazole, miconazole) — elevated glipizide levels",
+          "[LBL] CYP2C9 inducers (rifampin) — reduced efficacy"
+        ],
+        "contraindications": [
+          "[LBL] T1DM, DKA",
+          "[LBL] Severe hepatic disease",
+          "[LBL] Severe renal disease (eGFR <30 — caution; <15 avoid)",
+          "[LBL] Sulfa allergy (некоторая cross-reactivity)"
+        ],
+        "relative_contraindications": [
+          "[GL] Elderly >75 (Beers signal, though glipizide лучше чем glimepiride/glyburide)",
+          "[GL] Hypoglycemia unawareness",
+          "[GL] Frail elderly с irregular meals"
+        ],
+        "pregnancy": "[LBL] Category C — обычно avoid; switch к insulin или metformin",
+        "breastfeeding": "limited data, avoid",
+        "pediatric": "not routinely indicated",
+        "geriatric": [
+          "[GL] Beers criteria — glipizide LESS dangerous чем glyburide/glimepiride, но всё равно caution",
+          "[RF Mark canonical] Start very low, monitor closely, prefer alternatives if possible"
+        ],
+        "renal": [
+          "[LBL] eGFR <30: caution, lower dose",
+          "[LBL] eGFR <15: avoid"
+        ],
+        "hepatic": "avoid severe"
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Hypoglycemia (very common, often severe в elderly)",
+          "[LBL] Weight gain (~2-3 kg)",
+          "[LBL] GI symptoms (mild)"
+        ],
+        "serious": [
+          "[LBL] Severe hypoglycemia → coma, falls, fractures",
+          "[LBL] Cardiovascular concern — historical UGDP signal (controversial, modern data более reassuring)",
+          "[LBL] Hepatotoxicity (rare)"
+        ],
+        "rare_critical": [
+          "[LBL] Severe hypoglycemia в elderly — major cause of fall-related fractures, ED visits",
+          "[LBL] Hyponatremia / SIADH (rare)",
+          "[LBL] Hemolytic anemia в G6PD deficiency"
+        ]
+      },
+      "mandatory_considerations": [
+        "Patient education on hypoglycemia recognition critical",
+        "Glucose tablets/sugar available at all times",
+        "Family/caregiver education",
+        "Regular meal timing essential",
+        "Driving safety considerations"
+      ],
+      "references": [
+        "FDA label Glucotrol",
+        "ADA Standards of Medical Care (annual)",
+        "Beers Criteria 2023",
+        "UGDP study (historical CV concerns)",
+        "CAROLINA trial (linagliptin vs glimepiride — CV equivalent)"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "priority_for_mark_review": "HIGH (elderly safety considerations)"
+      }
+    },
+    {
+      "drug_id": "DRG-018",
+      "name_inn": "Glimepiride",
+      "name_ru": "Глимепирид",
+      "name_brand": "Amaryl",
+      "status": "METACOD-RF",
+      "batch": "04-Sulfonylureas",
+      "molecular": {
+        "chemical_class": "Second-generation (sometimes called \"third-generation\") sulfonylurea",
+        "mechanism_primary": ["[LBL] Same as glipizide — closure of K+ ATP channels"],
+        "mechanism_distinct": [
+          "[LBL] Slightly different binding site claims (clinical significance debated)",
+          "[LBL] Once-daily dosing convenient"
+        ],
+        "half_life": "~9 hours",
+        "excretion": "~60% renal, 40% biliary",
+        "metabolism": "CYP2C9"
+      },
+      "indications": {
+        "approved": ["[LBL] T2DM adults"]
+      },
+      "dosing": {
+        "dose": "1 mg AM start → titrate to 8 mg AM max",
+        "administration": "AM с завтраком"
+      },
+      "energy_vectors_rf": {
+        "energy_pattern": "same as class (force-yang)",
+        "distinct_concerns": [
+          "[RF] Longer half-life → prolonged hypoglycemia risk",
+          "[RF] Especially dangerous в elderly"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "glimepiride_vs_glipizide_preference": "[OBS-Mark] [Mark, current evidence (CAROLINA) suggests glimepiride CV-equivalent to linagliptin. Твой опыт?]"
+      },
+      "safety": {
+        "ddi": "similar to class",
+        "contraindications": "similar to class",
+        "geriatric": [
+          "[GL] Beers criteria — AVOID в elderly (long-acting → severe hypoglycemia)",
+          "[RF Mark canonical] AVOID в age >75 if possible"
+        ],
+        "renal": [
+          "[LBL] eGFR <30: caution или avoid",
+          "[LBL] Reduced clearance → higher hypoglycemia risk"
+        ]
+      },
+      "adverse_events": {
+        "common": ["similar to class, with higher hypoglycemia severity из-за longer half-life"]
+      },
+      "references": [
+        "FDA label Amaryl",
+        "CAROLINA (Rosenstock et al, JAMA 2019)",
+        "Beers Criteria 2023 (AVOID in elderly)"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "Beers-flagged для elderly. Prefer alternatives."
+      }
+    },
+    {
+      "drug_id": "DRG-019",
+      "name_inn": "Gliclazide",
+      "name_ru": "Гликлазид",
+      "name_brand": "Diamicron, Diamicron MR (modified-release)",
+      "status": "METACOD-RF",
+      "batch": "04-Sulfonylureas",
+      "note": "Available EU/Asia/Israel; NOT FDA-approved (only some other sulfonylureas approved in US)",
+      "molecular": {
+        "chemical_class": "Sulfonylurea",
+        "mechanism_primary": ["[LBL] Class mechanism"],
+        "mechanism_distinct": [
+          "[GL] Some evidence of additional antioxidant/cardioprotective effects (ADVANCE trial showed less CV concern)",
+          "[GL] May have slightly lower hypoglycemia risk чем glyburide/glimepiride"
+        ],
+        "half_life": {"standard": "10-12 hours", "MR": "~16 hours effective"},
+        "excretion": "~70% renal, 30% fecal",
+        "metabolism": "CYP2C9, CYP2C19"
+      },
+      "indications": {
+        "approved_non_us": ["[LBL] T2DM adults"]
+      },
+      "dosing": {
+        "dose": "Standard: 80 mg AM → titrate to 320 mg/day (often BID); MR: 30 mg AM start → 120 mg AM max (modified-release)"
+      },
+      "energy_vectors_rf": {
+        "energy_pattern": "same as class",
+        "distinct_clinical_position": [
+          "[RF] Considered safer choice среди sulfonylureas в EU/Asia",
+          "[RF] ADVANCE trial (2008) reassuring on CV outcomes",
+          "[RF mark canonical] In Israeli/EU practice — first-choice sulfonylurea if class needed"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "gliclazide_vs_other_sulfonylureas": "[OBS-Mark] [Mark, gliclazide часто preferred sulfonylurea в EU/Israel. Твоя practice?]"
+      },
+      "safety": {
+        "ddi": "similar to class",
+        "contraindications": "similar to class",
+        "geriatric": "[GL] Caution but better tolerated than glimepiride/glyburide",
+        "renal": [
+          "[LBL] eGFR <30: caution",
+          "[LBL] Lower dose в moderate impairment"
+        ]
+      },
+      "adverse_events": {
+        "common": ["similar to class, with potentially lower hypoglycemia severity"]
+      },
+      "references": [
+        "EMA label Diamicron",
+        "ADVANCE (2008) — reassuring CV data в context of intensive glycemic control",
+        "UK NICE guidelines (gliclazide as preferred sulfonylurea)"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "Не FDA-approved (US-only consideration), но широко используется в EU/Israel/Asia. Если sulfonylurea needed — gliclazide MR often best choice."
+      }
+    },
+    {
+      "drug_id": "DRG-020",
+      "name_inn": "Pioglitazone",
+      "name_ru": "Пиоглитазон",
+      "name_brand": "Actos",
+      "combinations": "ActoplusMet (+metformin), Duetact (+glimepiride)",
+      "status": "METACOD-RF",
+      "batch": "04-TZD",
+      "note": "Rosiglitazone (Avandia) withdrawn в большинстве markets из-за CV concerns. Pioglitazone — remaining TZD.",
+      "molecular": {
+        "chemical_class": "Thiazolidinedione (PPAR-γ agonist)",
+        "mechanism_primary": [
+          "[LBL] PPAR-γ activation → transcription changes → improved insulin sensitivity в muscle/fat/liver; adipocyte differentiation/redistribution (visceral→subcutaneous); decreased hepatic gluconeogenesis"
+        ],
+        "mechanism_secondary": [
+          "[RCT] Anti-inflammatory effects (decreased cytokines)",
+          "[RCT] NAFLD/MASH benefit — histologic improvement (только oral antidiabetic с этим signal)",
+          "[RCT] Potential CV benefit в secondary prevention (PROactive trial — mixed)"
+        ],
+        "half_life": "3-7 hours (active metabolites longer)",
+        "excretion": "~85% biliary/fecal",
+        "metabolism": "CYP2C8, CYP3A4"
+      },
+      "indications": {
+        "approved": ["[LBL] T2DM adults"],
+        "emerging": [
+          "[RCT] NAFLD/MASH (off-label но evidence-based — пиоглитазон рекомендован в hepatology guidelines)",
+          "[RCT] Stroke secondary prevention в insulin-resistant patients (IRIS trial)"
+        ]
+      },
+      "dosing": {
+        "dose": "15 mg AM start → 30 mg AM → 45 mg AM max",
+        "administration": "AM, с едой или без"
+      },
+      "energy_vectors_rf": {
+        "energy_primary": [
+          "[RF] Tissue-level sensitivity restoration — unique mechanism, отличается от других классов",
+          "[RF] Anti-inflammatory cooling effect (через PPAR-γ → cytokine reduction)"
+        ],
+        "energy_secondary": [
+          "[RF] Damp-accumulating через fluid retention — significant concern",
+          "[RF] Weight-gaining (fluid + fat redistribution)"
+        ],
+        "energy_paradox": [
+          "[RF] Improves liver damp (NAFLD) at the cost of systemic damp accumulation"
+        ],
+        "constitution_best_match": [
+          "[RF] Yang-Earth с insulin resistance + NAFLD/MASH (target population)",
+          "[RF] Yang-Fire с metabolic component + chronic inflammation"
+        ],
+        "constitution_caution": [
+          "[RF] Yin-Water (cold edema tendency) — fluid retention dangerous",
+          "[RF] Established HF — даже class CI",
+          "[RF] Postmenopausal women — fracture risk"
+        ],
+        "constitution_avoid": [
+          "[RF] Active or history of HF",
+          "[RF] Active bladder cancer (controversial signal)"
+        ],
+        "phase_match": [
+          "[RF] PCL-A (long-term, gradual sensitivity restoration)",
+          "[RF] NAFLD anywhere в metabolic continuum"
+        ],
+        "phase_caution": [
+          "[RF] CA с fluid issues — exacerbates"
+        ]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": [
+          "[RF] M-A → M-0 в liver/muscle level (sensitivity restoration)",
+          "[RF] BUT может worsen overall body M-A через fluid retention",
+          "[RF] Paradoxical: helps target tissues but adds to systemic damp"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "pioglitazone_niche_in_practice": "[OBS-Mark] [Mark, pioglitazone в NAFLD context — your experience? It's making comeback в hepatology.]",
+        "fluid_retention_management": "[OBS-Mark] [Mark, fluid retention management when pioglitazone needed?]"
+      },
+      "safety": {
+        "ddi_critical_2_star": [
+          "[LBL] Gemfibrozil — significantly increased pioglitazone levels (CYP2C8 inhibition)"
+        ],
+        "ddi_critical_1_star": [
+          "[LBL] Insulin — fluid retention synergy, HF risk",
+          "[LBL] CYP2C8 inhibitors/inducers"
+        ],
+        "contraindications": [
+          "[LBL] Active HF (NYHA III-IV) — CONTRAINDICATED",
+          "[LBL] Active bladder cancer",
+          "[LBL] T1DM, DKA",
+          "[LBL] Severe hepatic impairment"
+        ],
+        "relative_contraindications": [
+          "[GL] HF history (any class) — avoid or careful monitoring",
+          "[GL] Postmenopausal women — fracture risk",
+          "[GL] Macular edema",
+          "[GL] Pregnancy"
+        ],
+        "pregnancy": "avoid",
+        "breastfeeding": "avoid",
+        "pediatric": "not approved",
+        "geriatric": "caution — fluid retention, fractures",
+        "renal": "no specific adjustment, но caution в severe",
+        "hepatic": "avoid severe"
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Fluid retention, edema (5-15%)",
+          "[LBL] Weight gain (often 3-5 kg)",
+          "[LBL] Worsening or precipitating HF",
+          "[LBL] Headache, myalgia"
+        ],
+        "serious": [
+          "[LBL] HF exacerbation",
+          "[LBL] Bone fractures (especially women) — significant ~ 2x risk",
+          "[LBL] Macular edema (rare)",
+          "[LBL] Bladder cancer signal — controversial, some studies positive, some negative"
+        ],
+        "rare_critical": [
+          "[LBL] Severe hepatotoxicity (rare)",
+          "[LBL] Acute fluid overload precipitating HF"
+        ]
+      },
+      "references": [
+        "FDA label Actos",
+        "PROactive (Dormandy et al, Lancet 2005) — mixed CV outcomes",
+        "IRIS trial (Kernan et al, NEJM 2016) — stroke prevention в insulin-resistant",
+        "AASLD/EASL NAFLD guidelines — pioglitazone recommended"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "Pioglitazone в renaissance period — особенно для NAFLD/MASH. Safety profile remains complex; careful patient selection critical."
+      }
+    },
+    {
+      "drug_id": "DRG-021",
+      "name_inn": "Repaglinide",
+      "name_ru": "Репаглинид",
+      "name_brand": "Prandin (US), NovoNorm (EU/Israel)",
+      "status": "METACOD-RF",
+      "batch": "04-Glinides",
+      "molecular": {
+        "chemical_class": "Meglitinide (non-sulfonylurea insulin secretagogue)",
+        "mechanism_primary": [
+          "[LBL] Closes K+ ATP channels в β-cells (similar to sulfonylureas)",
+          "[LBL] But very short duration of action → tied to meals"
+        ],
+        "mechanism_distinct": [
+          "[CLASS] \"Take with meal, skip with meal\" pattern"
+        ],
+        "half_life": "~1 hour",
+        "excretion": "~90% biliary",
+        "metabolism": "CYP3A4, CYP2C8"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults",
+          "[GL] Particularly useful в irregular meal patterns, renal impairment"
+        ]
+      },
+      "dosing": {
+        "dose": "0.5-4 mg before each meal (max 16 mg/day)",
+        "administration": [
+          "[LBL] 15-30 минут before each meal",
+          "[LBL] Skip dose if meal skipped (critical patient education)"
+        ]
+      },
+      "energy_vectors_rf": {
+        "energy_primary": [
+          "[RF] Pulsed yang stimulation (с каждым meal)",
+          "[RF] Less sustained yang exhaustion vs sulfonylureas"
+        ],
+        "constitution_best_match": [
+          "[RF] Elderly с irregular meal patterns",
+          "[RF] Mild-moderate T2DM с some residual β-cell function",
+          "[RF] Renal impairment patients (biliary excretion — advantage)"
+        ],
+        "constitution_caution": [
+          "[RF] Same as sulfonylureas — hypoglycemia risk, especially elderly"
+        ],
+        "constitution_avoid": [
+          "[RF] Same как sulfonylureas в severe cases"
+        ]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": [
+          "[RF] Mild M-A push, pulsed not sustained",
+          "[RF] Less concern of M-A2 → M-A3 progression vs sulfonylureas"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "repaglinide_niche": [
+          "[OBS-Mark] [Mark, repaglinide в твоей practice — elderly с irregular meals?]",
+          "[RF mark canonical concern from prior session] Repaglinide в 93-летнем pacient с CKD = direct path to hypoglycemic coma overnight. Class-level Beers concern applies."
+        ]
+      },
+      "safety": {
+        "ddi_critical_2_star": [
+          "[LBL] Strong CYP3A4/2C8 inhibitors (gemfibrozil!, clarithromycin, itraconazole) — significantly elevated repaglinide → severe hypoglycemia",
+          "[LBL] Insulin, sulfonylureas — additive hypoglycemia",
+          "[LBL] Gemfibrozil — CONTRAINDICATED combination (8x AUC increase)"
+        ],
+        "ddi_critical_1_star": [
+          "[LBL] Beta-blockers — mask hypoglycemia"
+        ],
+        "ddi_chrono": [
+          "[LBL] Take 15-30 min before each meal; skip with skipped meals"
+        ],
+        "contraindications": [
+          "[LBL] T1DM, DKA",
+          "[LBL] Severe hepatic disease",
+          "[LBL] Gemfibrozil concurrent use (absolute)"
+        ],
+        "relative_contraindications": [
+          "[GL] Elderly frail — hypoglycemia concern",
+          "[GL] Erratic eating patterns severely"
+        ],
+        "pregnancy": "avoid",
+        "breastfeeding": "avoid",
+        "pediatric": "not approved",
+        "geriatric": "caution — hypoglycemia (though less than long-acting sulfonylureas)",
+        "renal": [
+          "[LBL] No specific dose adjustment (biliary excretion advantage)",
+          "[LBL] But hypoglycemia risk in severe CKD remains"
+        ],
+        "hepatic": "caution moderate, avoid severe"
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Hypoglycemia (especially pre-meal или с skipped meals)",
+          "[LBL] Weight gain (mild)",
+          "[LBL] URI symptoms"
+        ],
+        "serious": [
+          "[LBL] Severe hypoglycemia, especially с CYP3A4 inhibitors",
+          "[LBL] Hepatotoxicity (rare)"
+        ],
+        "rare_critical": [
+          "[LBL] Severe hypoglycemic coma — particularly elderly с erratic meals"
+        ]
+      },
+      "references": [
+        "FDA label Prandin",
+        "Beers Criteria 2023 (caution in elderly)"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "priority_for_mark_review": "HIGH (elderly safety, related to recent canonical case)",
+        "note": "Mark canonical observation: Repaglinide в 93-летнем пациенте — recipe for nighttime hypoglycemic coma. Strongly caution в frail elderly даже если \"preferred\" for irregular meals."
+      }
+    },
+    {
+      "drug_id": "DRG-022",
+      "name_inn": "Nateglinide",
+      "name_ru": "Натеглинид",
+      "name_brand": "Starlix",
+      "status": "METACOD-RF",
+      "batch": "04-Glinides",
+      "molecular": {
+        "chemical_class": "Meglitinide (D-phenylalanine derivative)",
+        "mechanism_primary": ["[LBL] Same as repaglinide — short-acting K+ ATP channel closure"],
+        "mechanism_distinct": [
+          "[LBL] Faster onset than repaglinide, slightly different binding site"
+        ],
+        "half_life": "~1.5 hours",
+        "excretion": "~80% renal",
+        "metabolism": "CYP2C9 primarily, CYP3A4 minor"
+      },
+      "indications": {
+        "approved": ["[LBL] T2DM adults"]
+      },
+      "dosing": {
+        "dose": "120 mg 1-30 min before each meal (max 360 mg/day)"
+      },
+      "energy_vectors_rf": {
+        "energy_pattern": "same as class",
+        "distinct_clinical_position": [
+          "[RF] Slightly less hypoglycemia risk чем repaglinide",
+          "[RF] Used less в practice (overshadowed by repaglinide и newer classes)"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "nateglinide_clinical_position": "[OBS-Mark] [Mark, nateglinide rarely first choice. Используешь когда?]"
+      },
+      "safety": {
+        "ddi": "similar to class",
+        "contraindications": "similar",
+        "renal": "[LBL] Use with caution moderate/severe CKD (renal excretion concern)",
+        "geriatric": "caution"
+      },
+      "adverse_events": {
+        "common": ["similar to repaglinide, with potentially lower severity"]
+      },
+      "references": [
+        "FDA label Starlix",
+        "NAVIGATOR trial (CV neutral)"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "Clinical use limited; включён для completeness."
+      }
+    },
+    {
+      "drug_id": "DRG-023",
+      "name_inn": "Acarbose",
+      "name_ru": "Акарбоза",
+      "name_brand": "Glucobay, Precose",
+      "status": "METACOD-RF",
+      "batch": "04-AlphaGlucosidase",
+      "molecular": {
+        "chemical_class": "α-Glucosidase inhibitor (pseudo-tetrasaccharide)",
+        "mechanism_primary": [
+          "[LBL] Reversible inhibition of α-glucosidase в малом кишечнике",
+          "[LBL] Delayed carbohydrate digestion → blunted postprandial glucose"
+        ],
+        "mechanism_secondary": [
+          "[RCT] STOP-NIDDM trial — prevention of T2DM progression",
+          "[RCT] Some CV signal в insulin-resistant patients"
+        ],
+        "half_life": "~2 hours (drug poorly absorbed)",
+        "excretion": "~50% fecal (mostly unabsorbed)",
+        "metabolism": "Intestinal bacterial metabolism"
+      },
+      "indications": {
+        "approved": [
+          "[LBL] T2DM adults",
+          "[GL] Pre-diabetes (some markets approved)"
+        ]
+      },
+      "dosing": {
+        "dose": "25 mg TID with first bite of each meal → titrate slowly to 100 mg TID",
+        "administration": [
+          "[LBL] WITH first bite — timing critical",
+          "[LBL] Slow titration essential для GI tolerance"
+        ]
+      },
+      "energy_vectors_rf": {
+        "energy_primary": [
+          "[RF] Carb-absorption blocking — unique mechanism",
+          "[RF] No insulin manipulation → no yang exhaustion"
+        ],
+        "energy_secondary": [
+          "[RF] GI side effects (flatulence, bloating) — reflect intestinal damp clearing process",
+          "[RF] Initial damp accumulation в intestines (undigested carbs)"
+        ],
+        "constitution_best_match": [
+          "[RF] Postprandial-dominant hyperglycemia",
+          "[RF] Patient avoiding hypoglycemia at all costs",
+          "[RF] Asian high-carb diet pattern"
+        ],
+        "constitution_caution": [
+          "[RF] IBS, IBD — GI side effects significant",
+          "[RF] Already loose stool patterns"
+        ]
+      },
+      "membrane_axis_rf": {
+        "membrane_direction": [
+          "[RF] Minimal M-A push (no insulin stimulation)",
+          "[RF] Может slightly improve M-A via reduced postprandial glucose spikes"
+        ]
+      },
+      "mark_observations": {
+        "mark_clinical_observations": "[OBS-Mark] [TBD]",
+        "acarbose_practice_position": "[OBS-Mark] [Mark, acarbose in your practice? Часто used in Israel?]"
+      },
+      "safety": {
+        "ddi_critical_2_star": "minimal (poorly absorbed drug)",
+        "ddi_critical_1_star": [
+          "[LBL] If hypoglycemia occurs (only с combination), patient must use glucose (NOT sucrose) — α-glucosidase blocks sucrose breakdown"
+        ],
+        "ddi_chrono": "must take with first bite of meal",
+        "contraindications": [
+          "[LBL] Inflammatory bowel disease",
+          "[LBL] Intestinal obstruction",
+          "[LBL] Severe hepatic disease (rare hepatic AE)",
+          "[LBL] Chronic intestinal malabsorption"
+        ],
+        "relative_contraindications": [
+          "[GL] Severe renal impairment (eGFR <25)"
+        ],
+        "pregnancy": "avoid",
+        "breastfeeding": "limited data",
+        "pediatric": "not approved <18",
+        "geriatric": "tolerable, GI symptoms common",
+        "renal": "eGFR <25: avoid",
+        "hepatic": "avoid severe"
+      },
+      "adverse_events": {
+        "common": [
+          "[LBL] Flatulence (very common, 30-70%)",
+          "[LBL] Diarrhea",
+          "[LBL] Abdominal pain/bloating",
+          "[LBL] Often dose-limiting"
+        ],
+        "serious": [
+          "[LBL] Hepatotoxicity (rare, dose-related, mostly с high doses)"
+        ],
+        "rare_critical": [
+          "[LBL] Severe liver injury (rare)",
+          "[LBL] Ileus (rare)"
+        ]
+      },
+      "references": [
+        "FDA label Precose",
+        "STOP-NIDDM (Chiasson et al, Lancet 2002) — diabetes prevention",
+        "Asian diabetes guidelines (more prominent role)"
+      ],
+      "status_flags": {
+        "mark_validated": false,
+        "note": "Limited use в EU/US practice. Common в Asia. GI side effects часто preventing adherence."
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@metacod/shared",
+  "version": "5.0.0-part1",
+  "private": true,
+  "description": "Shared schemas, types and i18n keys for the GLP-1 module. Used by both the Expo client and Firebase functions.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}

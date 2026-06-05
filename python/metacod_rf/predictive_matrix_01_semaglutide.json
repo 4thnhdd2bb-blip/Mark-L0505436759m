@@ -1,0 +1,150 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_predictive_matrix",
+    "matrix_id": "PM-01",
+    "title": "Predictive Matrix #1 — Semaglutide × Constitutional Triads",
+    "version": "1.0",
+    "date": "2026-06",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "drug_id": "DRG-001",
+    "drug_inn": "Semaglutide",
+    "ready_for_clinical_use": false,
+    "all_predictions_are_hypotheses": true,
+    "hypothesis_statement": "Если знаем энергетический профиль препарата и constitutional triad пациента, можно предсказать response pattern. Все прогнозы — HYPOTHESES, не validated predictions; подлежат проверке через retrospective documentation Mark's cases и prospective recording.",
+    "prediction_source": "energy profile семаглутида × Constitutional Model v0.2 + Mark's canonical observation (OBS-Mark-001: titration peak / wax-wane / efficacy decay).",
+    "predicted_parameters": [
+      "titration_tolerance — насколько хорошо пациент пройдёт dose titration",
+      "peak_adaptation_speed — как быстро снижаются AE после titration peak",
+      "late_phase_dominant_AE — какой AE будет доминировать в late phase",
+      "predicted_efficacy_magnitude — relative magnitude weight loss / glucose effect",
+      "predicted_efficacy_duration — насколько долго therapeutic effect сохраняется до attenuation"
+    ],
+    "energy_profile_recap": {
+      "primary": "Damp-reducing (strong) — appetite suppression + gastric emptying delay + weight loss",
+      "secondary": "Cool (mild) — anti-inflammatory",
+      "tertiary": "Drying tendency — при длительном применении возможна Yin depletion",
+      "membrane_direction": "M-A → M-0 (anabolic correction toward balance); risk overshoot to M-D при длительной therapy"
+    },
+    "mark_canonical_ae_pattern": [
+      "Titration peak: nausea, vomiting, GI discomfort при каждом dose increase",
+      "Wax/wane: AE снижаются за 2-4 недели, но efficacy тоже attenuates",
+      "Late phase: constipation становится dominant AE после resolution of nausea/diarrhea"
+    ]
+  },
+  "triads": [
+    {"id": "T1", "name": "Yang-Earth classic", "pattern": "Wind + Wood + Earth lead", "yin_yang_dominance": "Yang-dominant", "clinical_phenotype": "Abdominal obesity, metabolic syndrome, T2DM с накоплением, sluggish digestion, damp tongue; BMI 32+, HbA1c 7-9%, NAFLD common, strong appetite, coated tongue"},
+    {"id": "T2", "name": "Yin-Earth chronic", "pattern": "Damp + Cold + Earth lead", "yin_yang_dominance": "Yin-dominant", "clinical_phenotype": "Хроническое накопление, отёки, hypothyroid tendency, fatigue, ожирение медленное; BMI 30-35, cold extremities, slow digestion"},
+    {"id": "T3", "name": "Yin-Fire (Mark phenotype)", "pattern": "Cold + Wind + Fire lead", "yin_yang_dominance": "Yin-dominant", "clinical_phenotype": "Hidden chronic Heat (high uric acid, hsCRP, normal-borderline hemoglobin), gout episodes, metabolic syndrome + active inflammation, cognitive concerns possible, gout-related joint changes"},
+    {"id": "T4", "name": "Yang-Water (Anna phenotype)", "pattern": "Damp + Dry + Water lead", "yin_yang_dominance": "Yang-dominant", "clinical_phenotype": "Brittle vasculature, тенденция к hypotension, history of gastroparesis, respiratory/lung sensitivity, fluid balance issues, small/lean build often"},
+    {"id": "T5", "name": "Yin-Water frail elderly", "pattern": "Dry + Metal + Water lead", "yin_yang_dominance": "Yin-dominant", "clinical_phenotype": "80+, frail, sarcopenic, low BMI или normal weight with low muscle, hypothyroid pattern, cognitive decline possible, cold intolerance, low energy reserve"},
+    {"id": "T6", "name": "Yin-Metal chronic", "pattern": "Damp + Cold + Metal lead", "yin_yang_dominance": "Yin-dominant", "clinical_phenotype": "Chronic fibrotic processes (IPF history, PBC, scleroderma, autoimmune patterns), ригидность, dry mucosae, chronic cough, normal-to-low BMI"},
+    {"id": "T7", "name": "Yang-Wood active", "pattern": "Earth + Fire + Wood lead", "yin_yang_dominance": "Yang-dominant", "clinical_phenotype": "Hypertensive patterns, migraine history, hepatobiliary issues (NAFLD, gallstones, elevated LFTs), type A personality часто, irritability, sleep variable"},
+    {"id": "T8", "name": "Mixed/complex multi-pattern", "pattern": "Variable, often no clear dominant pattern", "yin_yang_dominance": "Either", "clinical_phenotype": "Elderly с polypathology, multiple chronic conditions, polypharmacy, pattern recognition difficult, often complex frailty"}
+  ],
+  "predictions": [
+    {
+      "triad_id": "T1",
+      "titration_tolerance": {"rating": "GOOD-MODERATE", "notes": ["Strong baseline yang позволяет absorb перепады energy от titration peaks", "Damp accumulation сильна — препарат natural fit, body \"accepts\" damp-clearing", "Peak nausea: expected but transient"]},
+      "peak_adaptation_speed": {"rating": "FAST (1-2 weeks per dose step)", "notes": ["Robust system быстро адаптируется"]},
+      "late_phase_dominant_AE": {"rating": "Constipation с возможным fluctuation", "notes": ["Damp clearing создаёт relative dryness, transient constipation", "Часто manageable с magnesium / fiber adjustments"]},
+      "predicted_efficacy_magnitude": {"rating": "STRONG", "notes": ["Best-match phenotype для GLP-1 class", "Weight loss 12-18% over year (above class average)", "HbA1c reduction 1.5-2.5%", "Visible inflammation reduction (hsCRP drops)"]},
+      "predicted_efficacy_duration": {"rating": "MODERATE", "notes": ["Adaptation на receptor level expected at 12-18 months", "Plateau likely, но maintained benefit reasonable", "May need switch to tirzepatide for sustained progress"]},
+      "confidence": "MEDIUM-HIGH (classic class-matched phenotype)",
+      "recommend": "YES — class-matched",
+      "special_consideration": null
+    },
+    {
+      "triad_id": "T2",
+      "titration_tolerance": {"rating": "MODERATE", "notes": ["Yin-dominant constitution менее robust к yang surge от GLP-1 receptor activation", "Cold component → может усугубить gastric stasis", "Nausea более persistent, slower resolution"]},
+      "peak_adaptation_speed": {"rating": "SLOW (3-4 weeks per dose step)", "notes": ["Recommendation: SLOWER titration schedule (skip month between steps)", "Patient education on managing slow adaptation"]},
+      "late_phase_dominant_AE": {"rating": "PROFOUND CONSTIPATION", "notes": ["Pre-existing slow digestion + drug-induced gastric emptying delay = compound effect", "May require active management (magnesium 400 mg PM as standard adjunct)", "Risk of fecal impaction в severe cases"]},
+      "predicted_efficacy_magnitude": {"rating": "MODERATE", "notes": ["Cold component могла buffer метаболический effect", "Weight loss 8-12% over year", "HbA1c reduction 1.0-1.5%"]},
+      "predicted_efficacy_duration": {"rating": "GOOD", "notes": ["Slow physiology means receptor adaptation also slower", "Sustained benefit более likely чем в T1"]},
+      "confidence": "MEDIUM",
+      "recommend": "YES with slow titration",
+      "special_consideration": "Consider concurrent thyroid optimization first"
+    },
+    {
+      "triad_id": "T3",
+      "titration_tolerance": {"rating": "GOOD", "notes": ["Yin-Fire pattern has hidden Heat which welcomes cooling effect", "Drying tendency может temporarily relief Damp component", "Titration peaks tolerable"]},
+      "peak_adaptation_speed": {"rating": "FAST-MODERATE (2-3 weeks)", "notes": ["Active inflammation system adapts быстро"]},
+      "late_phase_dominant_AE": {"rating": "COMPLEX; gout flare risk", "notes": ["Constipation possible", "Risk of gout flare during initial weight loss period — uric acid mobilization", "Critical: maintain allopurinol/febuxostat through weight loss phase", "Drying tendency может усугубить any pre-existing arthritic pattern"]},
+      "predicted_efficacy_magnitude": {"rating": "STRONG, with caveats", "notes": ["Weight loss 10-15%", "HbA1c reduction 1.5-2%", "hsCRP reduction expected — significant secondary benefit", "Uric acid reduction expected as metabolic improves"]},
+      "predicted_efficacy_duration": {"rating": "MODERATE", "notes": ["Hidden Heat may push receptor adaptation faster than cool patterns", "Plateau expected at 12-15 months"]},
+      "confidence": "MEDIUM",
+      "recommend": "YES with gout management",
+      "special_consideration": "Pre-treatment uric acid optimization. Consider losartan (uric acid lowering) если concurrent HTN. Personal relevance: this is Mark's own phenotype if considering self-treatment hypothetically."
+    },
+    {
+      "triad_id": "T4",
+      "titration_tolerance": {"rating": "POOR (CONCERN)", "notes": ["Gastroparesis history is relative contraindication for GLP-1", "Pre-existing gastric emptying issues + GLP-1 gastric emptying delay = serious risk", "Anna phenotype specifically caution against this class"]},
+      "peak_adaptation_speed": {"rating": "N/A", "notes": ["Likely cannot tolerate beyond 0.25-0.5 mg dose"]},
+      "late_phase_dominant_AE": {"rating": "SEVERE GI DYSFUNCTION", "notes": ["Vomiting risk significant", "Severe constipation likely", "Risk of nutritional deficiency", "Potential ileus risk in severe cases"]},
+      "predicted_efficacy_magnitude": {"rating": "NOT TESTABLE", "notes": ["Discontinuation likely before therapeutic effect achieved"]},
+      "predicted_efficacy_duration": {"rating": "N/A", "notes": []},
+      "confidence": "HIGH (clinical history of gastroparesis)",
+      "recommend": "NO — gastroparesis CI",
+      "special_consideration": "AVOID semaglutide в этом phenotype. Alternative: SGLT2 inhibitors, metformin XR, DPP-4 might be safer. Если diabetes management critical — basal insulin может быть лучшим choice."
+    },
+    {
+      "triad_id": "T5",
+      "titration_tolerance": {"rating": "POOR", "notes": ["Yang reserve too low to tolerate cooling/drying effects", "Nausea может precipitate dehydration → fall risk", "Любая титрация exceeds physiological reserve"]},
+      "peak_adaptation_speed": {"rating": "VERY SLOW or absent", "notes": ["Aging physiology not adaptive"]},
+      "late_phase_dominant_AE": {"rating": "SARCOPENIA ACCELERATION", "notes": ["GLP-1-induced weight loss в этом phenotype = primarily muscle loss", "Catastrophic outcome documented in case literature", "Dehydration, falls, fractures secondary"]},
+      "predicted_efficacy_magnitude": {"rating": "Negative net", "notes": ["May achieve glucose reduction", "But at cost of accelerated frailty", "Net clinical benefit: NEGATIVE"]},
+      "predicted_efficacy_duration": {"rating": "N/A", "notes": ["Not relevant — should not be initiated"]},
+      "confidence": "VERY HIGH (well-documented class concern)",
+      "recommend": "NO — class contraindication",
+      "special_consideration": "CONTRAINDICATION (Mark canonical) — sarcopenia + frailty. HbA1c target 7.5-8.5% adequate, не tight control. Better choices: metformin XR (eGFR permitting), DPP-4 (linagliptin), careful basal insulin if needed. Always pair with resistance training + protein supplementation regardless of antidiabetic choice."
+    },
+    {
+      "triad_id": "T6",
+      "titration_tolerance": {"rating": "POOR-MODERATE", "notes": ["Drying tendency препарата усугубляет существующую dryness", "GI symptoms may be severe due to mucosal sensitivity", "Mucosal dryness side effects amplified"]},
+      "peak_adaptation_speed": {"rating": "SLOW", "notes": ["Fibrotic tendency мешает adaptive remodeling"]},
+      "late_phase_dominant_AE": {"rating": "Dryness amplification", "notes": ["Severe constipation (already chronic in this phenotype)", "Worsening dry mouth/dry eyes", "Possible acceleration of fibrotic processes — hypothesis based on drying energy"]},
+      "predicted_efficacy_magnitude": {"rating": "WEAK-MODERATE", "notes": ["Constitutional phenotype not metabolically driven", "GLP-1 efficacy limited because target system (Damp accumulation) not primary issue"]},
+      "predicted_efficacy_duration": {"rating": "SHORT", "notes": ["Drug-constitution mismatch leads to early attenuation"]},
+      "confidence": "MEDIUM (limited specific evidence)",
+      "recommend": "NOT first-line",
+      "special_consideration": "Если diabetes present, prefer SGLT2 (which doesn't have drying signature) or metformin."
+    },
+    {
+      "triad_id": "T7",
+      "titration_tolerance": {"rating": "MODERATE", "notes": ["Yang reserve sufficient для перепадов", "But \"irritable\" temperament может amplify subjective AE experience", "Patient experience может быть worse than objective findings"]},
+      "peak_adaptation_speed": {"rating": "MODERATE (2-3 weeks)", "notes": ["Adaptive but not as fast as T1 Yang-Earth"]},
+      "late_phase_dominant_AE": {"rating": "Constipation + biliary risk", "notes": ["Risk of hepatobiliary AE amplification — gallstones, biliary issues are GLP-1 class concern", "Pre-existing Yang-Wood hepatobiliary tendency increases this risk"]},
+      "predicted_efficacy_magnitude": {"rating": "STRONG", "notes": ["NAFLD component особенно benefits", "Weight loss 10-15%", "HbA1c reduction good"]},
+      "predicted_efficacy_duration": {"rating": "MODERATE", "notes": ["Wood adaptability supports sustained response"]},
+      "confidence": "MEDIUM",
+      "recommend": "YES with monitoring",
+      "special_consideration": "Pre-treatment biliary imaging если симптомы present. Monitor LFTs more frequently. Migraine status — semaglutide не typically affects migraine."
+    },
+    {
+      "triad_id": "T8",
+      "titration_tolerance": {"rating": "UNPREDICTABLE", "notes": ["Multi-pattern complexity defeats simple prediction", "Individual case assessment required"]},
+      "peak_adaptation_speed": {"rating": "VARIABLE", "notes": []},
+      "late_phase_dominant_AE": {"rating": "Variable", "notes": ["Polypharmacy interactions add variability", "Concurrent medications often modify pattern", "Sarcopenia risk if any frailty component"]},
+      "predicted_efficacy_magnitude": {"rating": "LIKELY MODERATE-WEAK", "notes": ["Polypathology dilutes specific GLP-1 benefit"]},
+      "predicted_efficacy_duration": {"rating": "Highly variable", "notes": []},
+      "confidence": "LOW",
+      "recommend": "CAUTIOUS individual assessment",
+      "special_consideration": "Individual clinical judgment more reliable than matrix. Sarcopenia screening mandatory (phase angle BIA). Conservative dosing. Reassess at 3 months — продолжать только if clear benefit."
+    }
+  ],
+  "clinical_navigation": {
+    "best_candidates": [
+      "T1 Yang-Earth classic — primary target population",
+      "T3 Yin-Fire с careful gout management",
+      "T7 Yang-Wood с biliary monitoring",
+      "T2 Yin-Earth с slow titration protocol"
+    ],
+    "avoid": [
+      "T4 Yang-Water (gastroparesis)",
+      "T5 Yin-Water frail elderly (sarcopenia)",
+      "T6 Yin-Metal chronic (drying amplification + drug-constitution mismatch)"
+    ],
+    "individual_assessment_required": [
+      "T8 Mixed multi-pattern"
+    ]
+  }
+}
