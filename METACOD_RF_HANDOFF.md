@@ -88,7 +88,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 > (~201 drugs, batches 01–11, 26 output files). **This repo differs.** Below is
 > the actual git content.
 
-### Drug batches present (19 files, **194 drugs**)
+### Drug batches present (20 files, **212 drugs**)
 | batch_id | n | notes |
 |---|---|---|
 | 01-GLP1 | 6 | DRG-001..006; DRG-001 semaglutide PARTIAL (OBS-Mark-001 wax-wane) + RF literature scan |
@@ -110,6 +110,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 | 23-Pediatric | 7 | DRG-329..335; framework-heavy; source claimed 8, 7 enumerable (no DRG-336 block); ACEs↔AIRE overlap flagged speculative |
 | 24-Renal | 7 | DRG-336..342; phosphate binders/ESA/active-VitD+calcimimetic/finerenone/tolvaptan; source claimed 8, 7 enumerable; STRONGEST KCTS push ("CKD=textbook KCTS / AIRE-screening should be standard") — hard-walled, standard-care primacy |
 | 25-Rare-Diseases | 9 | DRG-343..351; CFTR-modulators/HAE/lysosomal-ERT-SRT/PAH/SMA/gene-therapy/DMD; source claimed 10, 9 enumerable; framework Qs (post-cure state, gene-therapy=constitutional, KCTS-rare-disease model) flagged [RF] for Mark |
+| 26-Nutraceuticals (FINAL) | 18 | DRG-352..369; alkalinization 3:2:1 / ADT-stack / Zuo formula / Mariana n=1 / adaptogens / microbiome; source claimed 17, 18 enumerable (reverse under-count); HEAVIEST Mark-canonical — 11 source-"CONFIRMED/PARTIAL" deliberately mapped to validation_state=partial (NOT full; sign-off pending); [RCT] added as valid majority-anchor; alkalinization+ADT governance-noted |
 
 ### Conceptual / registry artifacts present
 - `constitutional_model_v0_1.json` (Parts A–E conceptual) + `v0_2.json` (5-energy
@@ -121,7 +122,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 - 9 nosology registries: metabolic_cv_renal, respiratory, nephro_urinal,
   hepatobiliary, cardiology, spleen_pancreas, gallbladder, small_intestine,
   gastroduodenal
-- Loaders in `python/services/`, tests in `python/tests/unit/`. **540 tests, 0 skipped.**
+- Loaders in `python/services/`, tests in `python/tests/unit/`. **549 tests, 0 skipped.**
 
 ### NOT supplied to this repo (exist only in Mark's project outputs / never pasted here)
 - **Drug batches: 06 (cardio ~63), 08 (endocrine), 09 (pulmo), 10 (rheum),
@@ -158,10 +159,16 @@ energies/phases cross-guarded against the bridge, provenance tags
   physician-owned DATA, research-only, not operationalized, not patient-facing.
 - **"Immature Wind" (Незрелый ветер)** — concept not yet developed; placeholder
   only. Await Mark's precise indications before any document.
-- **[OBS-Mark] fields** — empty across all batches; most valuable in
-  gastroenterology (batch 11, Mark's specialty). Lift `mark_validated` only on
-  explicit Mark sign-off (semaglutide is the one PARTIAL example).
+- **[OBS-Mark] fields** — empty across most batches; most valuable in
+  gastroenterology (batch 11, Mark's specialty). `validation_state` is now
+  `partial` on: semaglutide (DRG-001) + 11 batch-26 nutraceutical entries
+  (alkalinization 3:2:1, ADT stack, Zuo formula, Mariana n=1). NO entry is
+  `full` — full sign-off requires an explicit Mark statement, not a pasted-doc
+  "CONFIRMED" (deliberate governance mapping, see batch-26 `_meta`).
 - **Retrospective validation** — 5–10 cases for the semaglutide predictive matrix.
+- **Mariana case** — flagship n=1 (bronchiectasis: NAC/serratiopeptidase/ectoin
+  + AIRE/KCTS hypothesis). Referenced in kcts_integration + batch 26; potential
+  teaching-case writeup pending Mark.
 
 ---
 

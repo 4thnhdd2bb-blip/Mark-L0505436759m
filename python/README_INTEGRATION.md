@@ -58,6 +58,7 @@ python/
 │   ├── drugs_batch23_pediatric.json        # METACOD-RF research drug DB — batch 23 (7 peds, framework-heavy: prescribing/antibiotic/asthma/emergency frameworks + palivizumab/surfactant/ADHD-stimulants; DRG-329..335; source claimed 8, 7 enumerable; ACEs↔AIRE overlap flagged speculative)
 │   ├── drugs_batch24_renal.json            # METACOD-RF research drug DB — batch 24 (7 renal: phosphate binders/ESA/active-VitD+calcimimetic/finerenone/tolvaptan; DRG-336..342; source claimed 8, 7 enumerable; STRONGEST KCTS operationalization push — 'CKD=textbook KCTS' hard-walled governance, standard-care primacy)
 │   ├── drugs_batch25_rare_diseases.json    # METACOD-RF research drug DB — batch 25 (9 orphan: CFTR-modulators/HAE/lysosomal-ERT-SRT/PAH/SMA/gene-therapy/DMD; DRG-343..351; source claimed 10, 9 enumerable; 'post-cure'/gene-therapy=constitutional + KCTS-rare-disease framework Qs flagged for Mark)
+│   ├── drugs_batch26_nutraceuticals.json   # METACOD-RF research drug DB — batch 26 FINAL (18 nutraceuticals: alkalinization 3:2:1/anabolic/omega-3/vitamins/adaptogens/microbiome/specific/melatonin; DRG-352..369; source claimed 17, 18 enumerable; HEAVIEST Mark-canonical content — 11 'CONFIRMED'/'PARTIAL' mapped to validation_state=partial (NOT full — sign-off pending); [RCT] now a valid majority-anchor; alkalinization+ADT-stack governance-noted)
 │   ├── constitutional_model_v0_1.json     # METACOD-RF constitutional model v0.1: conceptual two-axis framework (Parts A-E; constitution × process/phase)
 │   ├── constitutional_model_v0_2.json     # METACOD-RF constitutional model: 5-energy biomarker quality panels (research, hypotheses)
 │   ├── predictive_matrix_01_semaglutide.json # METACOD-RF predictive matrix #1: semaglutide × 8 constitutional triads (hypotheses)
@@ -78,7 +79,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (540 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (549 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -169,7 +170,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 540 tests
+pytest                 # all 549 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)

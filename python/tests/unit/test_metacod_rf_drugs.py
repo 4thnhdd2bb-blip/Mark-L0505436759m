@@ -269,6 +269,26 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-350": "Onasemnogene abeparvovec",
         "DRG-351": "Ataluren",
     },
+    "26-Nutraceuticals": {
+        "DRG-352": "Sodium bicarbonate",
+        "DRG-353": "Potassium bicarbonate",
+        "DRG-354": "Magnesium (various forms)",
+        "DRG-355": "Creatine monohydrate",
+        "DRG-356": "Leucine (BCAA, isolated)",
+        "DRG-357": "Whey protein",
+        "DRG-358": "Omega-3 fatty acids (EPA + DHA)",
+        "DRG-359": "Vitamin D3 (cholecalciferol, ADT context)",
+        "DRG-360": "B-vitamins (B12, folate, B6)",
+        "DRG-361": "Ashwagandha (Withania somnifera)",
+        "DRG-362": "Rhodiola rosea",
+        "DRG-363": "Probiotics",
+        "DRG-364": "Prebiotics (FOS, inulin, GOS)",
+        "DRG-365": "N-acetylcysteine (NAC)",
+        "DRG-366": "Serratiopeptidase",
+        "DRG-367": "Ectoin",
+        "DRG-368": "Curcumin (turmeric extract)",
+        "DRG-369": "Melatonin (expanded context)",
+    },
 }
 
 
@@ -395,14 +415,16 @@ def test_all_tagged_statements_use_known_tags(catalog):
 
 
 def test_batch_is_majority_label_sourced(catalog):
-    # Most drugs must carry an EXTERNAL-EVIDENCE anchor — [LBL] (FDA/EMA) or
-    # [GL] (clinical guideline) — so a batch can't be mostly theoretical [RF]
-    # fabrication. Framework-heavy batches (e.g. 19-Geriatric: Beers / STOPP-START
-    # / CGA / deprescribing / ACB) are legitimately guideline-sourced rather than
-    # label-sourced, so [GL] counts equally. Individual abbreviated / class-
-    # interchangeable entries may defer; the batch-level majority is the guard.
+    # Most drugs must carry an EXTERNAL-EVIDENCE anchor — [LBL] (FDA/EMA),
+    # [GL] (clinical guideline), or [RCT] (named randomized trial) — so a batch
+    # can't be mostly theoretical [RF] fabrication. Framework-heavy batches
+    # (e.g. 19-Geriatric: Beers / STOPP-START / CGA) are legitimately guideline-
+    # sourced; nutraceutical batches (26) are legitimately RCT-sourced rather than
+    # FDA-label-sourced (many supplements have trial evidence but no drug label).
+    # All three are real external evidence, not fabrication. Individual abbreviated
+    # / class-interchangeable entries may defer; the batch-level majority is the guard.
     drugs = list(catalog)
-    external_anchor = {"LBL", "GL"}
+    external_anchor = {"LBL", "GL", "RCT"}
     with_anchor = [
         d for d in drugs
         if external_anchor & {first_tag(s) for s in d.tagged_statements()}
@@ -410,7 +432,7 @@ def test_batch_is_majority_label_sourced(catalog):
     threshold = (len(drugs) + 1) // 2  # at least half
     assert len(with_anchor) >= threshold, (
         f"[{catalog.meta['batch_id']}] only {len(with_anchor)}/{len(drugs)} drugs "
-        f"have an [LBL]/[GL] external-evidence anchor (need >= {threshold})"
+        f"have an [LBL]/[GL]/[RCT] external-evidence anchor (need >= {threshold})"
     )
 
 
