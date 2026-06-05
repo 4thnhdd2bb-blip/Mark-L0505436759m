@@ -25,6 +25,22 @@ extraction v0.2–v0.9 FINAL (`METACOD_Park_Symptoms_Consolidated` v1.0), suppli
 **Conclusion:** the catalogs sent earlier are **correct and faithful** to the Park source.
 The only reconciliation point is structural, not an error — see §2.
 
+### 1a. Constitutional Model v0.2 (biomarker quality panels) — checked against Mark's pasted source
+
+| Item | Source (v0.2) | Repo `constitutional_model_v0_2.json` | Result |
+|---|---|---|---|
+| Energy panels | 5 (Heat/Wind/Damp/Dry/Cold) | 5 | ✅ |
+| Markers per panel | Heat 11 · Wind 10 · Damp 12 · Dry 10 · Cold 14 (**57**) | identical, 57 total | ✅ verbatim |
+| `clinical_interpretation_patterns` | per panel | present for all 5 | ✅ |
+| Multi-energy markers | 8 (incl. uric acid, homocysteine) | 8 | ✅ |
+| Cross-reference | 4 navigation contexts · 7 limitations · 4 open Qs | identical | ✅ |
+| Preface / F.1 two-zonal principle / status | — | in `_meta` (general_principle, validation_status, next_steps_v0_3) | ✅ |
+
+**No content gaps.** Note: v0.2 keys quality biomarkers to **5 energies** (Fire folded into Heat),
+which matches the engine canon and the six→five crosswalk. Each of the 6 energy cards in the
+unified catalog now carries a `quality_panel_ref` to its panel — **Тепло AND Жар both → the
+single `heat` panel** (since the quality layer is 5-energy).
+
 ---
 
 ## 2. The one reconciliation: six energies vs five
