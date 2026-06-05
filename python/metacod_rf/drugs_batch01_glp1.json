@@ -181,6 +181,48 @@
         "Существуют ли validated strategies для пролонгирования GLP-1 efficacy?",
         "Различается ли pattern между semaglutide / liraglutide / tirzepatide?"
       ],
+      "literature_check_rf": {
+        "_note": "[RF] Literature scan (Jun-2026) in response to Mark's 4 questions. Research evidence only — does NOT change mark_validated (stays PARTIAL), does NOT operationalize any hypothesis into clinical guidance, does NOT lift any flag. Hypotheses remain physician-owned.",
+        "q1_wax_wane_pattern_confirmed": {
+          "verdict": "[RF] PARTIALLY CONFIRMED — but axis-specific.",
+          "gastric_emptying_satiety_axis": "[RCT/preclinical] Tachyphylaxis of GLP-1-induced gastric-emptying delay is documented (Nauck). Rat study: long-acting liraglutide gastric-emptying delay diminished within ~14 days, short-acting exenatide sustained (Diabetes 2014). Human: liraglutide 3 mg gastric half-emptying markedly prolonged at 5 weeks but significantly less at 16 weeks (Halawi, Lancet Gastroenterol Hepatol 2017). → Mark's wax-wane of GI effect is literature-backed for the gastric-emptying/satiety-signal axis.",
+          "weight_axis_caveat": "[GL] Weight-loss efficacy does NOT classically show early receptor-tachyphylaxis plateau — STEP/SUSTAIN trials show ongoing loss to ~60-68 weeks. Late weight plateau is attributed mainly to metabolic adaptation + appetite-circuit re-equilibration, not receptor desensitization. → The 'efficacy decays as side-effects wane' coupling is real for the GI/satiety signal but should not be conflated wholesale with weight-loss attenuation."
+        },
+        "q2_cholestyramine_for_constipation": {
+          "verdict": "[RF] NO published support; mechanistically questionable for constipation.",
+          "findings": [
+            "[CLASS] Cholestyramine (bile acid sequestrant) itself commonly CAUSES constipation — using it to treat GLP-1-induced constipation is mechanistically backwards.",
+            "[RCT] The published GLP-1↔bile-acid data runs the opposite direction: GLP-1RAs are used/studied to TREAT bile-acid DIARRHEA (liraglutide; JCEM Case Reports luac004 2023; once-weekly sema vs once-daily lira on BAD, PMC10578406) — consistent with GLP-1 reducing bile-acid-driven colonic secretion/transit, i.e. contributing to constipation, not relieving it.",
+            "[GL] Evidence-based management of GLP-1 constipation = osmotic laxative (PEG 3350), fiber, hydration, slower titration."
+          ],
+          "status_for_mark": "Hypothesis remains UNTESTED and now flagged as mechanistically counter-indicated by the bile-acid literature. Physician decision — recorded, not endorsed."
+        },
+        "q3_prolongation_strategies": {
+          "verdict": "[RF] NO validated cyclical-dosing / drug-holiday protocols.",
+          "findings": [
+            "[GL] Drug holidays / cyclical dosing: no validated protocol; cessation → weight regain in systematic review + nonlinear meta-regression (ScienceDirect 2026), arguing AGAINST holidays.",
+            "[GL] Evidence-based plateau responses: dose escalation to max (sema 2.4 mg; Wegovy HD 7.2 mg FDA-approved Mar 2026); switch to dual GIP/GLP-1 tirzepatide; resistance training + protein for lean mass; sleep/stress optimization.",
+            "[RF] G-protein-biased agonism (less β-arrestin recruitment/desensitization) — preclinical/experimental only."
+          ]
+        },
+        "q4_agent_differences": {
+          "verdict": "[RF] YES — half-life / dosing frequency drives the GI-tachyphylaxis differential.",
+          "findings": [
+            "[RCT] GI-effect tachyphylaxis is contingent on sustained ~24h receptor exposure → long-acting once-weekly semaglutide shows MORE gastric-emptying tachyphylaxis (faster GI wax-wane) than shorter-acting agents (daily liraglutide, BID exenatide) — consistent with Mark observing it specifically on semaglutide.",
+            "[RCT] Constipation signal: semaglutide highest among GLP-1RAs in FAERS disproportionality (ROR ~6.17, PMC9770009).",
+            "[CLASS] Tirzepatide (GIP/GLP-1): greater weight efficacy; GI AE profile broadly class-similar; dedicated wax-wane comparison data limited."
+          ]
+        },
+        "references_rf": [
+          "Nauck MA et al — tachyphylaxis of GLP-1 gastric-emptying effect (long-acting analogues)",
+          "Comparative Effects of Prolonged vs Intermittent GLP-1R Stimulation on Gastric Emptying, Diabetes 2014;63(2):785 (PMC3900552)",
+          "Halawi H et al, liraglutide gastric emptying 5 vs 16 weeks, Lancet Gastroenterol Hepatol 2017",
+          "Once-weekly sema vs once-daily lira on bile acid diarrhea (PMC10578406; JCEM Case Reports luac004 2023)",
+          "GLP-1RA GI adverse reactions FAERS disproportionality (PMC9770009)",
+          "Trajectory of weight regain after GLP-1RA cessation — systematic review + meta-regression (ScienceDirect 2026)",
+          "Clinical Consequences of Delayed Gastric Emptying with GLP-1RA/tirzepatide, JCEM 2025;110(1):1 (PMC11651700)"
+        ]
+      },
       "safety": {
         "ddi_critical_2_star": [
           "[LBL] Sulfonylurea — severe hypoglycemia, требует ↓ dose сульфонилмочевины 50%",
