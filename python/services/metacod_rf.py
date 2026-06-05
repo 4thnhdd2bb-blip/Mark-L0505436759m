@@ -32,9 +32,11 @@ from typing import Any, Iterator, Optional
 # still resolve to the RF tag). Anything else is flagged by validation.
 KNOWN_SOURCE_TAGS = ("LBL", "GL", "RCT", "CLASS", "OBS-Mark", "RF")
 
-# Non-source bracketed placeholders that legitimately appear in unfilled
-# fields (e.g. n_cases_observed = "[TBD]"). Not a provenance violation.
-PLACEHOLDER_TAGS = ("TBD",)
+# Non-source bracketed prefixes that legitimately appear but are NOT provenance
+# claims: "[TBD]" in unfilled fields, and "[GOVERNANCE]" on METACOD-RF safety
+# annotations (e.g. standard-care-primacy notes on KCTS-derived content). Not a
+# provenance violation.
+PLACEHOLDER_TAGS = ("TBD", "GOVERNANCE")
 
 # Matches a leading provenance tag such as "[LBL]" / "[OBS-Mark]" /
 # "[RF energy interpretation]" / "[RF note: ...]".

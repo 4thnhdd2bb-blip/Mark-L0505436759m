@@ -1,0 +1,231 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_drug_db",
+    "batch_id": "13-Urology_Gyn",
+    "version": "RF-2026-06-batch13",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Урология / гинекология — BPH α1-blockers / PDE5 / OAB / fertility-PCOS / gynecology (5 подгрупп)",
+    "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0 + KCTS awareness",
+    "preparations_count": 15,
+    "source_count_claim": "Источник указал preparations_count: 16 (включая 3 cross-references). Фактически перечислено 15 distinct DRG id (DRG-217..231); в группе E источник заявил 5 препаратов, но enumerable только 4 (tranexamic/ulipristal/IUD/leuprolide-crossref) + '+ miscellaneous' — один gynecology-препарат, по-видимому, выпал/слит при выгрузке PDF. Сохранён фактический count = 15.",
+    "author": "Mark Litvak (с AI-assistance)",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "cross_reference_note": "DRG-227 (metformin) = full profile в batch 03 (DRG-011); DRG-231 (leuprolide) = full profile в batch 08 (DRG-137, batch 08 не в репозитории). Здесь — only the urology/gyn-specific use. Finasteride/dutasteride (5α-reductase, batch 08) упомянуты но без собственного DRG-2xx.",
+    "repo_gap_note": "Batch 06/08/09/10 и batch 14 не присланы; нумерация продолжается. DRG-217..231.",
+    "kcts_awareness_governance_note": "[GOVERNANCE] 'KCTS-awareness / screen KCTS markers' — research-only (см. kcts_integration_v1_0.json), не операционализирован, не patient-facing, не откладывает доказательную урологическую/гинекологическую терапию.",
+    "source_tag_legend": {
+      "LBL": "FDA / EMA label",
+      "GL": "Clinical guideline",
+      "RCT": "конкретное RCT",
+      "CLASS": "class pattern extrapolation",
+      "OBS-Mark": "клиническое наблюдение Mark (требует заполнения)",
+      "RF": "METACOD research framework (theoretical)"
+    },
+    "class_notes": {
+      "energy_perspective": ["BPH = local Yin-Water accumulation в prostate", "ED = Yang reserve depletion (especially older men)", "OAB = Wind (autonomic instability) + Cold (Water dysregulation)", "PCOS = Wood + Damp + Cold pattern", "Endometriosis = Damp + Heat (chronic inflammation)"],
+      "class_warnings": ["α1-blockers: orthostatic hypotension (first dose); IFIS — alert ophthalmologists; retrograde ejaculation (counseling)", "PDE5 inhibitors: nitrate concurrence absolute CI; CV screening; NAION risk", "Anticholinergic OAB: Beers — avoid elderly; prefer mirabegron", "GnRH agonists: same caution as ADT; add-back therapy mandatory >6 months"],
+      "obs_mark_to_fill": ["α1-blocker selection в elderly с CV concerns", "PDE5i pre-screening CV protocols", "OAB management в elderly без anticholinergics", "Letrozole первая линия PCOS — adoption", "EC counseling approach", "Hormonal IUD positioning", "GnRH agonist add-back strategies"]
+    }
+  },
+  "drugs": [
+    {
+      "drug_id": "DRG-217", "name_inn": "Tamsulosin", "name_ru": "Тамсулозин", "name_brand": "Flomax, Omnic",
+      "status": "METACOD-RF", "batch": "13-BPH",
+      "molecular": {"chemical_class": "Selective α1A-adrenergic receptor antagonist", "mechanism_primary": ["[LBL] α1A blockade в prostate smooth muscle и bladder neck", "[LBL] Reduces dynamic component of BPH obstruction", "[LBL] Minimal systemic α1 effects (selective)"], "half_life": "10-13 hours", "metabolism": "CYP3A4, CYP2D6"},
+      "indications": {"approved": ["[LBL] BPH symptoms", "[LBL] Ureteral stone passage (off-label, evidence-supported)"]},
+      "dosing": {"dose": "0.4-0.8 mg PM (consistent timing)", "administration": ["[LBL] PM dose (orthostatic risk)", "[LBL] Consistent с meal vs fasting (food affects absorption)"]},
+      "three_axis_profile": {
+        "constitutional": {"energy": "Local Wind relaxation (smooth muscle); translation: selective α1A antagonism в genitourinary tract", "best_match": ["BPH any constitution", "T5 Yin-Water elderly с BPH"], "caution": ["Pre-existing orthostatic hypotension", "T4 Yang-Water (Anna phenotype) — hypotension amplified"]},
+        "membrane": {"impact": "Minimal — symptomatic relief only, not disease-modifying"},
+        "phase": {"match": "Chronic symptomatic management; quick onset (days), steady state weeks"}
+      },
+      "safety": {"ddi_critical_2_star": ["[LBL] Strong CYP3A4 inhibitors (ketoconazole, ritonavir) — significantly elevated", "[LBL] Strong CYP2D6 inhibitors (paroxetine, fluoxetine) — moderate elevation", "[LBL] Other α-blockers — additive hypotension"], "ddi_critical_1_star": ["[LBL] PDE5 inhibitors (sildenafil) — additive hypotension", "[LBL] Diuretics — additive orthostatic"], "contraindications": ["[LBL] Hypersensitivity", "[LBL] Severe hepatic impairment"], "relative_contraindications": ["[GL] Orthostatic hypotension history", "[GL] Recent cataract surgery — IFIS — warn ophthalmologist"]},
+      "adverse_events": {"common": ["[LBL] Orthostatic hypotension (first dose effect)", "[LBL] Retrograde ejaculation (counsel patient)", "[LBL] Dizziness", "[LBL] Nasal congestion", "[LBL] Rhinitis"], "serious": ["[LBL] IFIS (Intraoperative Floppy Iris Syndrome) — cataract surgery complication", "[LBL] Syncope (rare)", "[LBL] Priapism (rare)", "[LBL] Severe hypotension с PDE5 inhibitor"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "tamsulosin_orthostatic_management": "[OBS-Mark] [orthostatic management в elderly initiation?]", "IFIS_pre_cataract": "[OBS-Mark] [Pre-cataract surgery — discontinue или just notify ophthalmologist?]"},
+      "references": ["FDA label Flomax", "AUA BPH Guidelines"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-218", "name_inn": "Alfuzosin", "name_ru": "Альфузозин", "name_brand": "Uroxatral, Xatral",
+      "status": "METACOD-RF", "batch": "13-BPH",
+      "molecular": {"chemical_class": "α1-blocker (less subtype-selective)"},
+      "distinct_clinical": ["[LBL] Less retrograde ejaculation than tamsulosin", "[LBL] Once-daily dosing с food", "[LBL] QT prolongation possible"],
+      "indications": {"approved": ["[LBL] BPH symptoms"]},
+      "dosing": {"dose": "10 mg AM с food"},
+      "three_axis_profile": {"constitutional": {"energy": "Local Wind relaxation (α1 blockade)", "best_match": ["BPH, fertility/sexual-function preference (less retrograde ejaculation)"]}, "membrane": {"impact": "Minimal"}, "phase": {"match": "Chronic symptomatic"}},
+      "safety": {"critical": ["[LBL] QT prolongation possible", "[LBL] Orthostatic hypotension", "[LBL] IFIS — alert ophthalmologist"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "alfuzosin_vs_tamsulosin": "[OBS-Mark] [Alfuzosin vs tamsulosin selection?]"},
+      "references": ["FDA label Uroxatral"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-219", "name_inn": "Silodosin", "name_ru": "Силодозин", "name_brand": "Rapaflo, Urorec",
+      "status": "METACOD-RF", "batch": "13-BPH",
+      "molecular": {"chemical_class": "Highly selective α1A-blocker (most selective in class)"},
+      "distinct_clinical": ["[LBL] Lowest orthostatic hypotension в class (advantage в elderly)", "[LBL] Highest retrograde ejaculation rate (~28% — significant for fertility/sexual concerns)", "[LBL] No QT prolongation", "[LBL] No CV effect"],
+      "indications": {"approved": ["[LBL] BPH symptoms"]},
+      "dosing": {"dose": "8 mg AM с food"},
+      "three_axis_profile": {"constitutional": {"energy": "Local Wind relaxation (highly selective α1A)", "best_match": ["BPH в frail elderly (less orthostatic)"], "caution": ["significant sexual side effect (retrograde ejaculation)"]}, "membrane": {"impact": "Minimal"}, "phase": {"match": "Chronic symptomatic"}},
+      "safety": {"distinct": ["[LBL] Lowest orthostatic в class", "[LBL] Highest retrograde ejaculation"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "silodosin_elderly": "[OBS-Mark] [Silodosin elderly preference?]"},
+      "references": ["FDA label Rapaflo"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-220", "name_inn": "Sildenafil", "name_ru": "Силденафил", "name_brand": "Viagra (ED), Revatio (PAH)",
+      "status": "METACOD-RF", "batch": "13-PDE5",
+      "molecular": {"chemical_class": "PDE5 inhibitor (selective)", "mechanism_primary": ["[LBL] Inhibits cGMP breakdown by PDE5", "[LBL] In penis — enhances NO-mediated vasodilation", "[LBL] In pulmonary vessels — reduces pulmonary pressure"], "half_life": "4 hours", "metabolism": "CYP3A4 (major)"},
+      "indications": {"approved": ["[LBL] Erectile dysfunction", "[LBL] Pulmonary arterial hypertension (Revatio, 20 mg TID)"]},
+      "dosing": {"dose": "ED: 25-100 mg PRN (1h before activity); PAH: 20 mg TID (Revatio)"},
+      "three_axis_profile": {
+        "constitutional": {"energy": "Local Yang amplification through vasodilation; translation: local genital vasodilation via NO/cGMP. NB: PDE5i не replace Yang — amplify existing signal; profound Yang deficiency не fully responds", "best_match": ["ED any constitution (maximal benefit с baseline Yang)", "T7 Yang-Wood с ED (vascular component)"], "caution": ["Severe Yin-Water (depleted Yang baseline) — limited efficacy", "T5 Yin-Water frail elderly — careful CV"]},
+        "membrane": {"impact": "Acute use only, minimal; chronic daily tadalafil — different consideration"},
+        "phase": {"match": "Phase-independent symptomatic relief, not phase-modifying"}
+      },
+      "safety": {"contraindications": ["[LBL] Concurrent nitrates — severe hypotension (absolute CI)", "[LBL] Concurrent guanylate cyclase stimulators (riociguat) — absolute CI", "[LBL] Severe HF unstable", "[LBL] Severe hypotension", "[LBL] Recent MI/stroke (within 6 months)", "[LBL] Severe hepatic impairment"], "ddi_critical_2_star": ["[LBL] Nitrates — absolute CI", "[LBL] α1-blockers (BPH drugs) — additive hypotension", "[LBL] Strong CYP3A4 inhibitors (ritonavir, ketoconazole) — significantly elevated", "[LBL] Riociguat — absolute CI"]},
+      "adverse_events": {"common": ["[LBL] Headache", "[LBL] Flushing", "[LBL] Dyspepsia", "[LBL] Nasal congestion", "[LBL] Visual changes (blue tint)"], "serious": ["[LBL] NAION (Non-arteritic Ischemic Optic Neuropathy) — rare but devastating", "[LBL] Sudden hearing loss (rare)", "[LBL] Priapism (>4h emergency)", "[LBL] MI, stroke (rare, в predisposed)"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "pde5i_cv_screening": "[OBS-Mark] [PDE5i CV screening pre-prescription elderly?]"},
+      "references": ["FDA label Viagra, Revatio"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-221", "name_inn": "Tadalafil", "name_ru": "Тадалафил", "name_brand": "Cialis (ED, BPH), Adcirca (PAH)",
+      "status": "METACOD-RF", "batch": "13-PDE5",
+      "molecular": {"chemical_class": "PDE5 inhibitor (longer half-life)", "half_life": "17.5 hours (much longer than sildenafil)"},
+      "distinct_clinical": ["[LBL] Daily low-dose (2.5-5 mg) — chronic ED + BPH dual benefit", "[LBL] 36-hour window for sexual activity — flexibility advantage", "[LBL] Less affected by food"],
+      "indications": {"approved": ["[LBL] ED (PRN 10-20 mg или daily 2.5-5 mg)", "[LBL] BPH (daily 5 mg)", "[LBL] PAH (Adcirca 40 mg/day)"]},
+      "dosing": {"dose": "ED PRN 10-20 mg или daily 2.5-5 mg; BPH 5 mg daily; PAH 40 mg/day"},
+      "three_axis_profile": {"constitutional": {"energy": "Local Yang amplification (PDE5), sustained (long half-life)", "best_match": ["ED + BPH combination patients (daily low-dose)"]}, "membrane": {"impact": "Daily use — chronic consideration"}, "phase": {"match": "Symptomatic"}},
+      "safety": {"critical": ["[LBL] Same class CI as sildenafil (nitrates absolute CI, riociguat, α1-blocker additive hypotension)"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "daily_tadalafil_bph_ed": "[OBS-Mark] [Daily tadalafil для BPH + ED combination?]"},
+      "references": ["FDA label Cialis"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-222", "name_inn": "Vardenafil", "name_ru": "Варденафил", "name_brand": "Levitra, Staxyn (ODT)",
+      "status": "METACOD-RF", "batch": "13-PDE5",
+      "molecular": {"chemical_class": "PDE5 inhibitor", "half_life": "4-5 hours", "mechanism_distinct": ["Similar к sildenafil duration; ODT formulation available"]},
+      "indications": {"approved": ["[LBL] Erectile dysfunction"]},
+      "dosing": {"dose": "Similar к sildenafil"},
+      "three_axis_profile": {"constitutional": {"energy": "Local Yang amplification (PDE5)", "best_match": ["ED, ODT preference"]}, "membrane": {"impact": "Acute"}, "phase": {"match": "Symptomatic"}},
+      "safety": {"distinct": ["[LBL] More QT prolongation than other PDE5i (caution с QT-prolonging drugs)", "[LBL] Same class nitrate CI"]},
+      "note": "Less commonly used than sildenafil/tadalafil — similar efficacy без clear advantage.",
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "vardenafil_niche": "[OBS-Mark] [Vardenafil niche use?]"},
+      "references": ["FDA label Levitra"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-223", "name_inn": "Oxybutynin", "name_ru": "Оксибутинин", "name_brand": "Ditropan, Ditropan XL",
+      "status": "METACOD-RF", "batch": "13-OAB",
+      "molecular": {"chemical_class": "Anticholinergic (M3 selective)", "mechanism_primary": ["[LBL] Blocks muscarinic receptors в detrusor → reduces involuntary contractions"]},
+      "indications": {"approved": ["[LBL] Overactive bladder", "[LBL] Urge incontinence", "[LBL] Neurogenic bladder"]},
+      "dosing": {"dose": "5-20 mg/day (IR BID-TID, XL once daily)"},
+      "three_axis_profile": {"constitutional": {"energy": "Wind suppression (anticholinergic detrusor)", "best_match": ["OAB"], "caution": ["elderly — Beers criteria"]}, "membrane": {"impact": "Symptomatic"}, "phase": {"match": "Chronic symptomatic"}},
+      "safety": {"critical": ["[LBL] Beers Criteria — AVOID elderly (high anticholinergic burden, falls, cognitive)", "[LBL] Dry mouth (significant)", "[LBL] Constipation (significant)", "[LBL] Cognitive impairment", "[LBL] Urinary retention paradoxical", "[LBL] Tachycardia", "[LBL] Heat intolerance, decreased sweating"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "oab_elderly_alternatives": "[OBS-Mark] [OAB management в elderly — alternatives к oxybutynin?]"},
+      "references": ["FDA label Ditropan"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-224", "name_inn": "Mirabegron", "name_ru": "Мирабегрон", "name_brand": "Myrbetriq",
+      "status": "METACOD-RF", "batch": "13-OAB",
+      "molecular": {"chemical_class": "β3-adrenergic agonist", "mechanism_primary": ["[LBL] Activates β3 receptors в detrusor → relaxation during storage"]},
+      "indications": {"approved": ["[LBL] Overactive bladder"]},
+      "dosing": {"dose": "25-50 mg AM"},
+      "distinct_clinical": ["[LBL] No anticholinergic burden — preferred в elderly", "[LBL] No cognitive effects", "[LBL] Less dry mouth, constipation", "[LBL] HTN signal — monitor BP", "[LBL] More expensive"],
+      "three_axis_profile": {"constitutional": {"energy": "Direct detrusor relaxation (β3)", "best_match": ["OAB в frail elderly (no anticholinergic burden)"]}, "membrane": {"impact": "Minimal; KCTS-awareness: minimal exacerbation of water retention"}, "phase": {"match": "Chronic symptomatic"}},
+      "safety": {"distinct": ["[LBL] HTN signal — monitor BP", "[LBL] Preferred в frail elderly over anticholinergics"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "mirabegron_elderly_first_line": "[OBS-Mark] [Mirabegron в elderly OAB — first-line?]"},
+      "references": ["FDA label Myrbetriq"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-225", "name_inn": "Clomiphene citrate", "name_ru": "Кломифена цитрат", "name_brand": "Clomid, Serophene",
+      "status": "METACOD-RF", "batch": "13-Fertility",
+      "molecular": {"chemical_class": "SERM (Selective Estrogen Receptor Modulator)", "mechanism_primary": ["[LBL] Blocks estrogen receptors в hypothalamus → increased FSH/LH → ovulation induction"]},
+      "indications": {"approved": ["[LBL] Anovulatory infertility", "[LBL] PCOS ovulation induction (second-line после letrozole)"]},
+      "dosing": {"dose": "50-150 mg PO × 5 days starting day 3-5 of cycle; typically 3-6 cycle attempts"},
+      "three_axis_profile": {"constitutional": {"energy": "Hormonal axis modulation (HPG); PCOS = Wood+Damp+Cold pattern", "best_match": ["Anovulatory infertility, PCOS"]}, "membrane": {"impact": "Cyclic hormonal"}, "phase": {"match": "Cyclic ovulation induction"}},
+      "safety": {"critical": ["[LBL] Ovarian hyperstimulation syndrome (OHSS) rare", "[LBL] Multiple pregnancy risk (~10% twins)", "[LBL] Hot flashes, mood changes", "[LBL] Visual disturbances (rare — discontinue)", "[LBL] Limited to 6 cycles lifetime (theoretical ovarian cancer concern)"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "clomiphene_vs_letrozole": "[OBS-Mark] [Clomiphene vs letrozole в PCOS practice?]"},
+      "references": ["FDA label Clomid"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-226", "name_inn": "Letrozole", "name_ru": "Летрозол", "name_brand": "Femara",
+      "status": "METACOD-RF", "batch": "13-Fertility",
+      "molecular": {"chemical_class": "Aromatase inhibitor", "mechanism_primary": ["[LBL] Blocks estrogen synthesis → increased FSH → ovulation induction (off-label но widely used)"]},
+      "indications": {"oncology_approved": ["[LBL] Breast cancer (postmenopausal, hormone receptor positive)"], "fertility_off_label_widely_used": ["[LBL] PCOS ovulation induction — FIRST-LINE per ASRM (2017)", "[LBL] Superior к clomiphene в PCOS (higher live birth rate)"]},
+      "dosing": {"dose": "Fertility: 2.5-7.5 mg × 5 days; Oncology: 2.5 mg daily"},
+      "distinct_clinical": ["[LBL] Higher pregnancy rates (PCOS specifically)", "[LBL] Lower multiple pregnancy rate", "[LBL] Shorter half-life (less endometrial effect)"],
+      "three_axis_profile": {"constitutional": {"energy": "Estrogen synthesis blockade (aromatase); ovulation induction в PCOS", "best_match": ["PCOS ovulation induction (first-line)", "HR+ breast cancer (postmenopausal)"]}, "membrane": {"impact": "Cyclic (fertility) или chronic (oncology)"}, "phase": {"match": "Cyclic / chronic depending on indication"}},
+      "safety": {"note": "Oncology long-term: bone loss, arthralgia (class AI); fertility short-course generally well-tolerated"},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "letrozole_pcos_first_line_israel": "[OBS-Mark] [Letrozole первая линия PCOS — adoption в Israeli practice?]"},
+      "references": ["ASRM Guidelines", "PPCOS II trial (letrozole vs clomiphene)"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-227", "name_inn": "Metformin", "name_ru": "Метформин", "name_brand": "Glucophage (cross-ref DRG-011)",
+      "status": "METACOD-RF", "batch": "13-Fertility",
+      "cross_reference": "Full molecular/safety profile в batch 03 (DRG-011). Здесь — only PCOS-specific use.",
+      "molecular": {"chemical_class": "Biguanide (см. DRG-011 batch 03 для полного профиля)"},
+      "indications": {"PCOS": ["[LBL] Insulin resistance в PCOS (cornerstone)", "[LBL] Adjunct к ovulation induction", "[GL] Pregnancy maintenance в PCOS (controversial — some evidence)"]},
+      "dosing": {"dose": "PCOS: 1500-2000 mg/day divided"},
+      "three_axis_profile": {"constitutional": {"energy": "Damp-reduction (insulin sensitization); PCOS Damp component", "best_match": ["PCOS insulin resistance"]}, "membrane": {"impact": "см. batch 03"}, "phase": {"match": "Chronic"}},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "metformin_pcos_pregnancy": "[OBS-Mark] [Metformin в PCOS pregnancy continuation?]"},
+      "references": ["см. batch 03 DRG-011", "ASRM/Endocrine Society PCOS guidance"],
+      "status_flags": {"mark_validated": false, "note": "cross-reference entry — full profile DRG-011 batch 03"}
+    },
+    {
+      "drug_id": "DRG-228", "name_inn": "Tranexamic acid", "name_ru": "Транексамовая кислота", "name_brand": "Lysteda (oral), Cyklokapron (oral/IV)",
+      "status": "METACOD-RF", "batch": "13-Gynecology",
+      "molecular": {"chemical_class": "Antifibrinolytic (lysine analog)", "mechanism_primary": ["[LBL] Blocks plasminogen activation → reduces fibrin breakdown → reduces bleeding"]},
+      "indications": {"approved": ["[LBL] Heavy menstrual bleeding", "[LBL] Surgical bleeding (multiple specialties)", "[LBL] Trauma hemorrhage (CRASH-2 trial)", "[GL] Hereditary angioedema (off-label)"]},
+      "dosing": {"dose": "HMB 1300 mg TID × 5 days during menstruation"},
+      "three_axis_profile": {"constitutional": {"energy": "Antifibrinolytic — bleeding control (local Blood stabilization)", "best_match": ["Heavy menstrual bleeding"]}, "membrane": {"impact": "Acute/cyclic"}, "phase": {"match": "Acute/cyclic symptomatic"}},
+      "safety": {"critical": ["[LBL] Thrombosis risk — caution в personal/family VTE history", "[LBL] Renal dose adjustment", "[LBL] Contraindicated: active thromboembolic disease"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "hmb_first_line": "[OBS-Mark] [HMB management — tranexamic acid first-line?]"},
+      "references": ["FDA label Lysteda", "CRASH-2 trial (trauma)"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-229", "name_inn": "Ulipristal acetate", "name_ru": "Улипристала ацетат", "name_brand": "ellaOne (EC), Esmya (fibroids — withdrawn EU 2020)",
+      "status": "METACOD-RF", "batch": "13-Gynecology",
+      "molecular": {"chemical_class": "Selective progesterone receptor modulator (SPRM)", "mechanism_primary": ["[LBL] PR modulation — antagonist в pituitary, partial agonist в endometrium"]},
+      "indications": {"approved": ["[LBL] Emergency contraception (ellaOne 30 mg single dose) — superior к levonorgestrel", "[LBL] Uterine fibroids (Esmya — WITHDRAWN в EU 2020 из-за hepatotoxicity)"]},
+      "dosing": {"dose": "EC: 30 mg single dose"},
+      "three_axis_profile": {"constitutional": {"energy": "Progesterone receptor modulation (hormonal)", "best_match": ["Emergency contraception"]}, "membrane": {"impact": "Acute (EC)"}, "phase": {"match": "Acute"}},
+      "safety": {"critical": ["[LBL] EC use: generally safe", "[LBL] Fibroid use: hepatotoxicity severe — withdrawn"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "ec_counseling": "[OBS-Mark] [EC counseling practices?]"},
+      "references": ["EMA/FDA ellaOne label", "Esmya EU withdrawal notice 2020"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-230", "name_inn": "Levonorgestrel IUD", "name_ru": "Левоноргестрел ВМС", "name_brand": "Mirena, Liletta, Kyleena, Skyla",
+      "status": "METACOD-RF", "batch": "13-Gynecology",
+      "molecular": {"chemical_class": "Intrauterine device + progestin local release", "mechanism_primary": ["[LBL] Local progestin effect → endometrial thinning, cervical mucus thickening"]},
+      "indications": {"approved": ["[LBL] Long-acting reversible contraception (LARC)", "[LBL] Heavy menstrual bleeding", "[LBL] Endometriosis pain management", "[LBL] Endometrial protection в HRT"]},
+      "dosing": {"dose": "varies by product (Mirena 52 mg / 5 years; others smaller doses)"},
+      "three_axis_profile": {"constitutional": {"energy": "Local progestin effect, minimal systemic; translation: local hormonal intervention", "best_match": ["LARC, HMB, endometriosis pain"]}, "membrane": {"impact": "Local, minimal systemic"}, "phase": {"match": "Chronic local"}},
+      "distinct_advantages": ["LARC = high adherence", "Multiple indications combined", "Less systemic effect than oral contraceptives"],
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "hormonal_iud_endometriosis": "[OBS-Mark] [Hormonal IUD в endometriosis management?]"},
+      "references": ["FDA label Mirena"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-231", "name_inn": "Leuprolide for endometriosis", "name_ru": "Лейпрорелин (эндометриоз)", "name_brand": "Lupron (cross-ref DRG-137 batch 08)",
+      "status": "METACOD-RF", "batch": "13-Gynecology",
+      "cross_reference": "Full leuprolide profile в batch 08 (DRG-137, ADT class; batch 08 не в репозитории). Здесь — endometriosis-specific use.",
+      "molecular": {"chemical_class": "GnRH agonist (см. batch 08 для полного профиля)"},
+      "indications": {"endometriosis": ["[LBL] Severe endometriosis pain refractory к first-line therapy", "[LBL] Pre-operative reduction of disease"]},
+      "dosing": {"dose": "см. batch 08; max 6-12 months treatment"},
+      "distinct_from_adt": ["[LBL] Add-back hormonal therapy mandatory (bone protection)", "[LBL] Maximum 6-12 months treatment", "[RF] Different membrane impact than male ADT (но similar caution)"],
+      "three_axis_profile": {"constitutional": {"energy": "GnRH suppression → hypoestrogenic state; endometriosis = Damp+Heat", "best_match": ["Refractory endometriosis pain"], "caution": ["same caution as ADT class — M-A→M-D drift risk; add-back mandatory"]}, "membrane": {"impact": "M-D drift risk (per ADT class); add-back protective"}, "phase": {"match": "Time-limited (6-12 mo)"}},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "gnrh_endometriosis": "[OBS-Mark] [GnRH agonist в endometriosis management?]"},
+      "references": ["см. batch 08 DRG-137", "ESHRE Endometriosis Guideline"],
+      "status_flags": {"mark_validated": false, "note": "cross-reference entry — full profile DRG-137 batch 08 (not in repo)"}
+    }
+  ]
+}
