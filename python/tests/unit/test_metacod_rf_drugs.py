@@ -218,6 +218,37 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-309": "Minoxidil (topical)",
         "DRG-310": "Permethrin",
     },
+    "21-Ophthalmology": {
+        "DRG-311": "Latanoprost",
+        "DRG-312": "Bimatoprost",
+        "DRG-313": "Timolol (topical)",
+        "DRG-314": "Brimonidine",
+        "DRG-315": "Dorzolamide",
+        "DRG-316": "Cyclosporine ophthalmic",
+        "DRG-317": "Lifitegrast",
+        "DRG-318": "Ranibizumab / Aflibercept / Bevacizumab (off-label)",
+        "DRG-319": "Moxifloxacin / Ciprofloxacin topical",
+        "DRG-320": "Prednisolone acetate ophthalmic",
+    },
+    "22-ENT": {
+        "DRG-321": "Fluticasone propionate / furoate (nasal)",
+        "DRG-322": "Cetirizine / Loratadine / Fexofenadine (2nd-gen antihistamines)",
+        "DRG-323": "Montelukast (ENT use)",
+        "DRG-324": "Meclizine",
+        "DRG-325": "Betahistine",
+        "DRG-326": "Oxymetazoline / Xylometazoline (nasal)",
+        "DRG-327": "Pseudoephedrine",
+        "DRG-328": "Tinnitus pharmacotherapy framework",
+    },
+    "23-Pediatric": {
+        "DRG-329": "Pediatric prescribing principles framework",
+        "DRG-330": "Palivizumab",
+        "DRG-331": "Pediatric antibiotic selection framework",
+        "DRG-332": "Pediatric asthma pharmacotherapy framework",
+        "DRG-333": "Pediatric ADHD stimulants (methylphenidate / amphetamines)",
+        "DRG-334": "Pulmonary surfactant (beractant / poractant alfa / calfactant)",
+        "DRG-335": "Pediatric emergency drugs framework",
+    },
 }
 
 

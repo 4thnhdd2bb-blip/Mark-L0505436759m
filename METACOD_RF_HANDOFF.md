@@ -88,7 +88,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 > (~201 drugs, batches 01–11, 26 output files). **This repo differs.** Below is
 > the actual git content.
 
-### Drug batches present (14 files, **153 drugs**)
+### Drug batches present (17 files, **178 drugs**)
 | batch_id | n | notes |
 |---|---|---|
 | 01-GLP1 | 6 | DRG-001..006; DRG-001 semaglutide PARTIAL (OBS-Mark-001 wax-wane) + RF literature scan |
@@ -104,6 +104,10 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 | 17-Anesthesia | 10 | DRG-268..277; acute-use short profiles |
 | 18-Addiction | 8 | DRG-278..285; HIGH KCTS framing separated from evidence base |
 | 19-Geriatric | 10 | DRG-286..295; framework-heavy (Beers/STOPP-START/CGA/deprescribing/ACB, [GL]-anchored) + Vit D/melatonin + apixaban/donepezil cross-refs |
+| 20-Dermatology | 15 | DRG-296..310; topical steroids/retinoids/calcineurin/psoriasis-biologics/acne/specific; lesion-systemic paradox RF hypothesis |
+| 21-Ophthalmology | 10 | DRG-311..320; glaucoma/dry-eye/anti-VEGF + cross-refs; topical→systemic absorption warning |
+| 22-ENT | 8 | DRG-321..328; nasal steroid/antihistamine/vestibular/decongestant/tinnitus framework; rhinitis medicamentosa flag |
+| 23-Pediatric | 7 | DRG-329..335; framework-heavy; source claimed 8, 7 enumerable (no DRG-336 block); ACEs↔AIRE overlap flagged speculative |
 
 ### Conceptual / registry artifacts present
 - `constitutional_model_v0_1.json` (Parts A–E conceptual) + `v0_2.json` (5-energy
@@ -115,7 +119,7 @@ repository**. Update this file whenever the repo state or canonical decisions ch
 - 9 nosology registries: metabolic_cv_renal, respiratory, nephro_urinal,
   hepatobiliary, cardiology, spleen_pancreas, gallbladder, small_intestine,
   gastroduodenal
-- Loaders in `python/services/`, tests in `python/tests/unit/`. **495 tests, 0 skipped.**
+- Loaders in `python/services/`, tests in `python/tests/unit/`. **522 tests, 0 skipped.**
 
 ### NOT supplied to this repo (exist only in Mark's project outputs / never pasted here)
 - **Drug batches: 06 (cardio ~63), 08 (endocrine), 09 (pulmo), 10 (rheum),
