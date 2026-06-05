@@ -167,6 +167,18 @@ EXPECTED: dict[str, dict[str, str]] = {
         "DRG-254": "Tenofovir + emtricitabine",
         "DRG-255": "Sofosbuvir + combinations",
     },
+    "17-Anesthesia": {
+        "DRG-268": "Propofol",
+        "DRG-269": "Ketamine",
+        "DRG-270": "Etomidate",
+        "DRG-271": "Morphine",
+        "DRG-272": "Fentanyl",
+        "DRG-273": "Remifentanil",
+        "DRG-274": "Rocuronium",
+        "DRG-275": "Succinylcholine",
+        "DRG-276": "Sugammadex",
+        "DRG-277": "Neostigmine + glycopyrrolate",
+    },
 }
 
 

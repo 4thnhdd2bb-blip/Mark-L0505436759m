@@ -1,0 +1,182 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_drug_db",
+    "batch_id": "17-Anesthesia",
+    "version": "RF-2026-06-batch17",
+    "status": "METACOD-RF — Research Framework, not clinical guidance",
+    "group": "Анестезиология — IV induction / opioids / neuromuscular blockers / reversal (10 препаратов, 4 подгруппы)",
+    "architecture": "Three-Axis Framework v1.0 + Translation Layer v1.0 + KCTS awareness",
+    "preparations_count": 10,
+    "author": "Mark Litvak (с AI-assistance)",
+    "date": "2026-06",
+    "ready_for_clinical_use": false,
+    "ready_for_mark_review": true,
+    "id_range_note": "DRG-268..277. Batch 16 (targeted oncology, 12) — DRG-256..267 — НЕ присланы в репозиторий; IDs прыгают 255→268.",
+    "acute_use_note": "Большинство этих препаратов действуют минуты-часы (Phase 1/2 event management), specialist/hospital use. Three-axis профили намеренно короче чем у chronic-therapy батчей (см. logic_review_flags issue_1).",
+    "kcts_awareness_governance_note": "[GOVERNANCE] 'Pre-operative KCTS screening' / 'KCTS resolution improves recovery' — research-гипотеза источника (см. kcts_integration_v1_0.json), помечена самим источником как 'clinical hypothesis — would require validation'. НЕ операционализирована, НЕ patient-facing, и НЕ должна откладывать показанную анестезию/хирургию. Standard-care primacy.",
+    "source_tag_legend": {
+      "LBL": "FDA / EMA label",
+      "GL": "Clinical guideline",
+      "RCT": "конкретное RCT",
+      "CLASS": "class pattern extrapolation",
+      "OBS-Mark": "клиническое наблюдение Mark (требует заполнения)",
+      "RF": "METACOD research framework (theoretical)"
+    },
+    "class_notes": {
+      "energy_perspective": ["IV induction = rapid acute Wind silencing (CNS depression)", "Opioids = pain pathway suppression + Wind reduction", "Neuromuscular blockers = motor Yang suspension (skeletal muscle paralysis)", "Reversal agents = restoration of normal function", "Local anesthetics = selective Wind blockade в specific nerve territory"],
+      "class_warnings": ["Propofol: PRIS (prolonged high-dose infusion)", "Ketamine: emergence reactions, ↑ICP/IOP, abuse, bladder toxicity (chronic)", "Etomidate: adrenal suppression even single dose (sepsis mortality signal)", "Opioids: respiratory depression (esp. + benzodiazepines — FDA black box), constipation, dependence", "Succinylcholine: hyperkalemia, malignant hyperthermia trigger, pseudocholinesterase deficiency", "NMBs: anaphylaxis, awareness while paralyzed"],
+      "cross_discipline": ["Ketamine emerging в psychiatry (treatment-resistant depression, acute suicidality — Spravato esketamine FDA 2019)", "Opioid management cross-discipline (acute/chronic/palliative)", "ICU sedation overlap (propofol, ketamine, fentanyl)"],
+      "obs_mark_to_fill": ["Ketamine для depression — Israel position", "Acute pain management algorithm", "Chronic opioid use в cancer (compassionate vs cautious)", "Pre-operative KCTS screening — feasible?", "ICU sedation transitions"],
+      "logic_review_flags_for_mark": {
+        "_note": "Источник добавил Logic Review Flag секцию — перенесена как research-вопросы, без изменения governance.",
+        "issue_1_acute_short_profiles": "[RF] Anesthesia drugs работают минуты-часы (Phase 1/2), отличается от chronic-therapy. Three-axis профили менее детальны. Q for Mark: приемлемы короткие профили для acute-only?",
+        "issue_2_ketamine_multi_context": "[RF] Ketamine: anesthesia / TRD (chronic) / chronic pain / acute suicidality. Q: нужны ли отдельные three-axis профили per use-case?",
+        "issue_3_preop_kcts_screening": "[RF] Pre-operative KCTS screening для improved outcomes — novel hypothesis, не в существующем canon. Источник сам помечает как speculative/research hypothesis. [GOVERNANCE: research-only, не клинически.]",
+        "issue_4_specialty_scope": "[RF] Большинство physicians не назначают эти препараты. Q: продолжать specialty drugs для completeness или приоритизировать outpatient-relevant?"
+      }
+    }
+  },
+  "drugs": [
+    {
+      "drug_id": "DRG-268", "name_inn": "Propofol", "name_ru": "Пропофол", "name_brand": "Diprivan",
+      "status": "METACOD-RF", "batch": "17-Anesthesia",
+      "molecular": {"chemical_class": "GABA-A receptor potentiator (alkylphenol derivative)", "mechanism_primary": ["[LBL] Enhanced GABA-A receptor activity → CNS depression", "[LBL] Lipid-based formulation (egg lecithin + soybean oil)"], "half_life": "30-60 min (rapid redistribution)", "metabolism": "hepatic + extrahepatic"},
+      "indications": {"approved": ["[LBL] General anesthesia induction", "[LBL] Sedation для procedures (endoscopy, MRI, ICU)", "[LBL] Total intravenous anesthesia (TIVA)"], "off_label": ["[LBL] Status epilepticus refractory"]},
+      "dosing": {"dose": "Induction 1.5-2.5 mg/kg IV; Maintenance 100-200 μg/kg/min; Sedation 25-100 μg/kg/min"},
+      "three_axis_profile": {
+        "constitutional": {"energy": "Rapid Wind silencing (acute CNS depression); translation: GABA-A enhanced CNS depression", "best_match": ["Universal use в anesthesia"], "caution": ["Egg / soybean allergy = relative contraindication"]},
+        "membrane": {"impact": "Acute use, minimal direct; Propofol Infusion Syndrome (PRIS) — long ICU sedation = potentially catastrophic M-D-like event"},
+        "phase": {"match": "Acute Phase 1 (surgical stress); NOT chronic (PRIS risk)"}
+      },
+      "safety": {"critical": ["[LBL] Propofol Infusion Syndrome (PRIS) — prolonged high-dose: metabolic acidosis, rhabdomyolysis, hyperkalemia, cardiac failure, potentially fatal; risk doses >4 mg/kg/h, >48h, sepsis, low carb intake", "[LBL] Hypotension significant с induction", "[LBL] Apnea during induction (expected, managed by team)", "[LBL] Pain on injection (common)", "[LBL] Bradycardia", "[LBL] Hyperlipidemia в prolonged infusions"], "contraindications": ["[LBL] Egg allergy (true anaphylactic)", "[LBL] Soybean allergy (true anaphylactic)", "[LBL] Hypersensitivity"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "note": "Anesthesia management primarily anesthesiologist's domain"},
+      "references": ["FDA label Diprivan", "PRIS literature"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-269", "name_inn": "Ketamine", "name_ru": "Кетамин", "name_brand": "Ketalar (anesthesia), Spravato (esketamine, TRD)",
+      "status": "METACOD-RF", "batch": "17-Anesthesia",
+      "molecular": {"chemical_class": "NMDA receptor antagonist (dissociative)", "mechanism_primary": ["[LBL] NMDA blockade → dissociation (consciousness retained but disconnected from sensory input)", "[LBL] Preserves respiratory drive (unique advantage)", "[LBL] Maintains cardiovascular tone (sympathomimetic effect)"], "half_life": "2-3 hours"},
+      "indications": {"approved": ["[LBL] Anesthesia induction (especially trauma, shock — hemodynamic stability)", "[LBL] Procedural sedation", "[LBL] Pediatric procedures", "[LBL] Treatment-resistant depression (Spravato esketamine — FDA approved 2019)"], "off_label": ["[LBL] Acute suicidality (rapid onset)", "[LBL] Chronic pain (CRPS, neuropathic)", "[LBL] Status asthmaticus (occasional)"]},
+      "dosing": {"dose": "Anesthesia 1-2 mg/kg IV; Procedural sedation 0.5-1 mg/kg IV; Depression (Spravato) 56-84 mg intranasal twice weekly (initial)"},
+      "three_axis_profile": {
+        "constitutional": {"energy": "Unique pattern — Wind dissociation rather than suppression; translation: NMDA blockade with dissociative consciousness", "distinct": ["Yang-Wood с treatment-resistant depression — paradoxically activates while dissociating", "Trauma patients с hemodynamic instability — preferred for stability", "History of psychosis — relative contraindication (psychotomimetic)"]},
+        "membrane": {"impact": "Acute use minimal; repeated use в depression — long-term implications still being studied"},
+        "phase": {"match": "Acute Phase 1/2; novel: acute suicidality crisis (within hours); depression: rapid antidepressant effect (days vs weeks for SSRI)"}
+      },
+      "safety": {"critical": ["[LBL] Emergence reactions — vivid dreams, hallucinations (often unpleasant) — premedicate с benzo", "[LBL] Increased ICP — caution в head injury", "[LBL] Increased IOP — caution в glaucoma", "[LBL] Tachycardia, hypertension", "[LBL] Hypersalivation (premedicate с anticholinergic)", "[LBL] Bladder toxicity в chronic ketamine use (recreational)", "[LBL] Schedule III controlled substance", "[LBL] Abuse potential"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "ketamine_assisted_therapy": "[OBS-Mark] [Ketamine-assisted therapy для depression — твоя position?]"},
+      "references": ["FDA label Ketalar, Spravato", "Multiple TRD trials"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-270", "name_inn": "Etomidate", "name_ru": "Этомидат", "name_brand": "Amidate",
+      "status": "METACOD-RF", "batch": "17-Anesthesia",
+      "molecular": {"chemical_class": "Imidazole carboxylate (GABA potentiator)", "half_life": "2-4 hours"},
+      "distinct_clinical": ["[LBL] Hemodynamic stability — minimal cardiovascular effects (advantage в cardiac patients, trauma)"],
+      "indications": {"approved": ["[LBL] Anesthesia induction (hemodynamically unstable patients)"]},
+      "dosing": {"dose": "0.2-0.3 mg/kg IV induction"},
+      "three_axis_profile": {"constitutional": {"energy": "Rapid Wind silencing (GABA), hemodynamically stable", "best_match": ["Induction в cardiac/trauma patients (hemodynamic stability)"], "caution": ["Sepsis — adrenal suppression mortality signal"]}, "membrane": {"impact": "Acute"}, "phase": {"match": "Acute Phase 1"}},
+      "safety": {"critical": ["[LBL] Adrenal suppression — даже single induction dose suppresses cortisol synthesis (24-72h)", "[LBL] In ICU sepsis — single dose associated с increased mortality в some studies", "[LBL] Myoclonus during induction", "[LBL] Pain on injection", "[LBL] Nausea/vomiting higher than propofol"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "etomidate_restrictions": "[OBS-Mark] [Etomidate use restrictions в practice?]"},
+      "references": ["FDA label Amidate", "CORTICUS trial (etomidate в sepsis)"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-271", "name_inn": "Morphine", "name_ru": "Морфин", "name_brand": "MS Contin (ER), Roxanol (IR), Duramorph (preservative-free)",
+      "status": "METACOD-RF", "batch": "17-Opioids",
+      "molecular": {"chemical_class": "μ-opioid receptor agonist (gold standard)", "mechanism_primary": ["[LBL] μ-receptor activation → analgesia + sedation + euphoria + respiratory depression"], "half_life": "2-4 hours", "metabolism": "hepatic — morphine-6-glucuronide (active, accumulates в CKD)"},
+      "indications": {"approved": ["[LBL] Moderate-severe acute pain", "[LBL] Post-operative pain", "[LBL] Cancer pain", "[LBL] Acute MI (с dyspnea)", "[LBL] Acute pulmonary edema (legacy use, less common now)", "[LBL] End-of-life care"]},
+      "dosing": {"dose": "IV 2-10 mg q3-4h; PO IR 10-30 mg q3-4h; PO ER dose-titrated"},
+      "three_axis_profile": {
+        "constitutional": {"energy": "Acute pain Wind suppression + emotional Wind suppression; translation: comprehensive analgesia and sedation", "best_match": ["Acute severe pain any constitution", "Cancer pain (often KCTS-active populations)"], "caution": ["Yin-Water frail elderly — accumulation, severe respiratory depression", "Renal impairment — active metabolite accumulation", "Sleep apnea — respiratory depression amplified"]},
+        "membrane": {"impact": "Acute OK; chronic use: constipation, hypogonadism (long-term), depression"},
+        "phase": {"match": "Acute Phase 1/2 pain management; cancer pain chronic management (justified context)"}
+      },
+      "safety": {"critical": ["[LBL] Respiratory depression — particularly с benzodiazepines (FDA black box)", "[LBL] Renal impairment: avoid (active metabolite accumulates) — use fentanyl instead", "[LBL] Pruritus (histamine release)", "[LBL] Constipation (universal — chronic patients need prophylaxis)", "[LBL] Hypotension (histamine release)", "[LBL] Tolerance development с chronic use", "[LBL] Addiction potential", "[LBL] Neonatal abstinence syndrome if used late pregnancy"], "ddi_critical_2_star": ["[LBL] Benzodiazepines — respiratory depression / death (FDA black box)", "[LBL] Other CNS depressants — additive", "[LBL] MAO inhibitors — serotonin syndrome possible"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "acute_pain_opioid_selection": "[OBS-Mark] [Acute pain management opioid selection?]"},
+      "references": ["FDA label MS Contin"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-272", "name_inn": "Fentanyl", "name_ru": "Фентанил", "name_brand": "Sublimaze (IV), Duragesic (patch), Subsys (sublingual), Actiq (lozenge)",
+      "status": "METACOD-RF", "batch": "17-Opioids",
+      "molecular": {"chemical_class": "Synthetic μ-opioid agonist (~100x morphine potency)"},
+      "distinct_clinical": ["[LBL] Short half-life IV (~30 min) — useful surgical anesthesia", "[LBL] Long-acting transdermal — chronic cancer pain", "[LBL] No active metabolites — safer в renal impairment", "[LBL] Lipid-soluble — fast CNS penetration"],
+      "indications": {"approved": ["[LBL] Anesthesia adjunct (IV)", "[LBL] Chronic cancer pain (transdermal)", "[LBL] Procedural sedation", "[LBL] ICU sedation"]},
+      "dosing": {"dose": "IV bolus 25-100 mcg; Patch 12-100 mcg/h change q72h; Sublingual/buccal breakthrough cancer pain"},
+      "three_axis_profile": {"constitutional": {"energy": "Pain pathway + Wind suppression (potent μ-agonist)", "best_match": ["Surgical anesthesia adjunct", "Chronic cancer pain (patch); renal impairment (no active metabolites)"]}, "membrane": {"impact": "Acute (IV) / chronic (patch)"}, "phase": {"match": "Acute Phase 1/2 / chronic cancer pain"}},
+      "safety": {"critical": ["[LBL] Illicit fentanyl crisis — major US public health emergency", "[LBL] Patch: never применять к non-opioid-tolerant patients (overdose risk)", "[LBL] Patch: heat exposure (fever, heating pads) — increased absorption potentially fatal", "[LBL] Patch: damaged patches — accidental ingestion (children, pets)", "[LBL] Chest wall rigidity с rapid IV bolus (anesthesia concern)", "[LBL] Respiratory depression same class concern"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "fentanyl_patch_elderly_cancer": "[OBS-Mark] [Fentanyl patch elderly cancer patients — safety practices?]"},
+      "references": ["FDA label Duragesic"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-273", "name_inn": "Remifentanil", "name_ru": "Ремифентанил", "name_brand": "Ultiva",
+      "status": "METACOD-RF", "batch": "17-Opioids",
+      "molecular": {"chemical_class": "Ultra-short-acting μ-opioid", "half_life": "~3 minutes (rapid metabolism by plasma esterases)"},
+      "distinct_clinical": ["[LBL] Most rapid offset of any opioid — useful TIVA", "[LBL] No accumulation regardless of infusion duration", "[LBL] Recovery in minutes", "[LBL] No analgesic effect after discontinuation — must transition к longer-acting analgesic", "[LBL] Acute opioid-induced hyperalgesia signal — transition pain management critical"],
+      "indications": {"approved": ["[LBL] Anesthesia adjunct / TIVA", "[LBL] Procedural sedation"]},
+      "dosing": {"dose": "0.05-2 μg/kg/min infusion"},
+      "three_axis_profile": {"constitutional": {"energy": "Pain pathway + Wind suppression, ultra-short", "best_match": ["TIVA (rapid offset)"]}, "membrane": {"impact": "Acute, no accumulation"}, "phase": {"match": "Acute Phase 1; transition pain management critical post-discontinuation"}},
+      "safety": {"critical": ["[LBL] No analgesia after stopping — transition required", "[LBL] Acute opioid-induced hyperalgesia signal", "[LBL] Respiratory depression (class)"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "remifentanil_pain_transition": "[OBS-Mark] [Remifentanil TIVA — pain transition strategy?]"},
+      "references": ["FDA label Ultiva"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-274", "name_inn": "Rocuronium", "name_ru": "Рокуроний", "name_brand": "Zemuron",
+      "status": "METACOD-RF", "batch": "17-NMB",
+      "molecular": {"chemical_class": "Non-depolarizing aminosteroid NMB", "mechanism_primary": ["[LBL] Competitive acetylcholine receptor blockade"], "half_life": "1-2 hours (varies)"},
+      "indications": {"approved": ["[LBL] Rapid sequence intubation (RSI) — alternative к succinylcholine", "[LBL] Surgical muscle relaxation", "[LBL] ICU intubation", "[LBL] OR muscle relaxation maintenance"]},
+      "dosing": {"dose": "RSI 1.2 mg/kg IV; Standard induction 0.6-1 mg/kg"},
+      "distinct_clinical": ["[LBL] Reversible с sugammadex (specific antagonist)", "[LBL] Fast onset (60-90 sec) с high dose", "[LBL] No metabolite issues unlike vecuronium", "[LBL] Tachycardia common (vagolytic effect)"],
+      "three_axis_profile": {"constitutional": {"energy": "Motor Yang suspension (skeletal muscle paralysis); translation: ACh receptor blockade at NMJ", "best_match": ["RSI / surgical relaxation"]}, "membrane": {"impact": "Acute; prolonged paralysis в hepatic/renal failure"}, "phase": {"match": "Acute Phase 1"}},
+      "safety": {"critical": ["[LBL] Anaphylaxis — significant cause of anesthesia anaphylaxis (especially Europe)", "[LBL] Prolonged paralysis в hepatic/renal failure", "[LBL] Awareness while paralyzed — must ensure adequate anesthesia depth"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "nmb_rsi_preferences": "[OBS-Mark] [NMB selection — RSI preferences?]"},
+      "references": ["FDA label Zemuron"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-275", "name_inn": "Succinylcholine", "name_ru": "Сукцинилхолин", "name_brand": "Anectine",
+      "status": "METACOD-RF", "batch": "17-NMB",
+      "molecular": {"chemical_class": "Depolarizing NMB", "mechanism_primary": ["[LBL] Persistent ACh receptor activation → muscle depolarization → paralysis after initial fasciculations"]},
+      "distinct_clinical": ["[LBL] Fastest onset (30-60 sec) — gold standard RSI historically", "[LBL] Shortest duration (5-10 min)", "[LBL] No reversal agent — wait it out"],
+      "indications": {"approved": ["[LBL] Rapid sequence intubation"]},
+      "dosing": {"dose": "1-1.5 mg/kg IV"},
+      "three_axis_profile": {"constitutional": {"energy": "Motor Yang suspension (depolarizing)", "best_match": ["RSI (fastest onset)"], "caution": ["hyperkalemia-risk conditions"]}, "membrane": {"impact": "Acute"}, "phase": {"match": "Acute Phase 1"}},
+      "safety": {"critical": ["[LBL] Hyperkalemia — life-threatening: burns >24h old, crush injury/denervation, stroke >72h, severe sepsis, muscular dystrophy, renal failure", "[LBL] Malignant hyperthermia trigger (genetic susceptibility) — emergency", "[LBL] Bradycardia especially children, repeated doses", "[LBL] Fasciculations + post-op myalgia", "[LBL] Pseudocholinesterase deficiency — prolonged paralysis (hours)", "[LBL] Anaphylaxis"]},
+      "note": "Rocuronium + sugammadex combination увеличивает у many practices.",
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "succinylcholine_declining_use": "[OBS-Mark] [Succinylcholine — declining use?]"},
+      "references": ["FDA label Anectine"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-276", "name_inn": "Sugammadex", "name_ru": "Сугаммадекс", "name_brand": "Bridion",
+      "status": "METACOD-RF", "batch": "17-Reversal",
+      "molecular": {"chemical_class": "Modified γ-cyclodextrin (specific rocuronium/vecuronium binder)", "mechanism_primary": ["[LBL] Forms tight complex with rocuronium/vecuronium → rapid reversal of NMB"]},
+      "distinct_clinical": ["[LBL] Rapid reversal — works в minutes even from deep block", "[LBL] Specific for rocuronium/vecuronium — does not reverse other NMBs", "[LBL] Changed anesthesia practice significantly post-2015 approval"],
+      "indications": {"approved": ["[LBL] Reversal of rocuronium/vecuronium neuromuscular blockade"]},
+      "dosing": {"dose": "2-16 mg/kg depending on depth of block"},
+      "three_axis_profile": {"constitutional": {"energy": "Function restoration (NMB reversal)", "best_match": ["Reversal of rocuronium/vecuronium block"]}, "membrane": {"impact": "Acute"}, "phase": {"match": "Acute (recovery)"}},
+      "safety": {"critical": ["[LBL] Anaphylaxis signal — significant concern", "[LBL] Bradycardia (sometimes severe — atropine ready)", "[LBL] Hormonal contraceptive interaction — backup contraception 7 days", "[LBL] Generally well-tolerated otherwise"]},
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "sugammadex_practice_impact": "[OBS-Mark] [Sugammadex availability impact practice?]"},
+      "references": ["FDA label Bridion"],
+      "status_flags": {"mark_validated": false}
+    },
+    {
+      "drug_id": "DRG-277", "name_inn": "Neostigmine + glycopyrrolate", "name_ru": "Неостигмин + гликопирролат", "name_brand": "Generic",
+      "status": "METACOD-RF", "batch": "17-Reversal",
+      "molecular": {"chemical_class": "Acetylcholinesterase inhibitor (+ anticholinergic counter)", "mechanism_primary": ["[LBL] Inhibits AChE → increased ACh → competes with NMB at receptor"]},
+      "distinct_clinical": ["[LBL] Older approach to NMB reversal — pre-sugammadex era standard", "[LBL] Cannot reverse deep block (limit to moderate block depth)", "[LBL] Glycopyrrolate co-administered to block muscarinic effects (bradycardia, bronchospasm, secretions)"],
+      "indications": {"approved": ["[LBL] NMB reversal (moderate block)", "[LBL] Myasthenia gravis treatment", "[LBL] Postoperative ileus", "[LBL] Urinary retention"]},
+      "dosing": {"dose": "Neostigmine 0.03-0.07 mg/kg + glycopyrrolate"},
+      "three_axis_profile": {"constitutional": {"energy": "Function restoration (AChE inhibition); cholinergic", "best_match": ["NMB reversal (moderate block)", "Myasthenia gravis"]}, "membrane": {"impact": "Acute"}, "phase": {"match": "Acute (recovery)"}},
+      "safety": {"critical": ["[LBL] Bradycardia without glycopyrrolate — severe", "[LBL] Bronchospasm — caution в asthma", "[LBL] Cholinergic crisis with overdose"]},
+      "note": "Often persists due to cost difference (sugammadex expensive).",
+      "mark_observations": {"mark_clinical_observations": "[OBS-Mark] [TBD]", "neostigmine_vs_sugammadex": "[OBS-Mark] [Neostigmine vs sugammadex selection?]"},
+      "references": ["FDA label neostigmine"],
+      "status_flags": {"mark_validated": false}
+    }
+  ]
+}
