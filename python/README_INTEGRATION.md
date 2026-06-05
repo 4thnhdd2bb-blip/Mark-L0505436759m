@@ -37,7 +37,8 @@ python/
 │   ├── three_axis_framework.py  # METACOD-RF three-axis framework loader (Constitution × Membrane × Phase)
 │   ├── topographic_atlas.py     # METACOD-RF topographic atlas loader (tissue × 6-Ki × redox → ICD-10 + membrane code)
 │   ├── symptom_registry.py      # METACOD-RF symptom registry loader (SYM × histogenetic layer × 6-Ki × phase × membrane drift)
-│   └── nosology_registry.py     # METACOD-RF nosology registry loader (nosology/ICD-10 × 6-Ki × redox × SYM × membrane drift)
+│   ├── nosology_registry.py     # METACOD-RF nosology registry loader (nosology/ICD-10 × 6-Ki × redox × SYM × membrane drift)
+│   └── diagnostic_foundation.py # METACOD-RF diagnostics DB foundation loader (lab/imaging/functional/procedures architecture; ARCHITECTURE PROPOSAL, content not filled)
 ├── metacod_rf/
 │   ├── drugs_batch01_glp1.json  # METACOD-RF research drug DB — batch 01 (6 GLP-1 agents, pending Mark validation)
 │   ├── drugs_batch02_sglt2.json # METACOD-RF research drug DB — batch 02 (4 SGLT2 inhibitors, pending Mark validation)
@@ -70,6 +71,7 @@ python/
 │   ├── constitutional_model_v0_2.json     # METACOD-RF constitutional model: 5-energy biomarker quality panels (research, hypotheses)
 │   ├── predictive_matrix_01_semaglutide.json # METACOD-RF predictive matrix #1: semaglutide × 8 constitutional triads (hypotheses)
 │   ├── three_axis_framework_v1_0.json     # METACOD-RF three-axis diagnostic framework (Constitution × Membrane × Phase; research)
+│   ├── diagnostic_foundation_v1_0.json    # METACOD-RF Diagnostics DB foundation (parallel to drug DB: lab/imaging/functional/procedures; 4 categories, 20-batch plan, Mark-canonical tiers BIA/urine-pH/Bristol/membrane-panel flagged RF; KCTS EBM-reframed; content_filling_started=false — awaiting Mark Q1-Q6)
 │   ├── kcts_integration_v1_0.json         # METACOD-RF KCTS modifier — v1.1 EBM-REFORMULATED (Mark decision 2026-06): operative model = fluid-retention + chronic-stress physiology + psychosocial burden; Hamer/AIRE causality + collecting-tubule anatomy DISAVOWED (origin-only); governs all per-batch KCTS mentions; research-only, not operationalized, must not delay evidence-based care)
 │   ├── topographic_atlas_v6_0.json        # METACOD-RF topographic atlas: 10 systems / 14 organs / 140 tissue-reactivity patterns (6-Ki, research)
 │   ├── symptom_registry_v3_0.json         # METACOD-RF symptom registry: 35 detailed of 172 (histogenetic layer × 6-Ki × phase × membrane drift)
@@ -86,7 +88,7 @@ python/
 ├── reports/html_renderer.py     # HTML report (print-to-PDF)
 ├── requirements.txt
 ├── pytest.ini
-├── tests/                       # clinical / unit / integration (612 tests, 0 skipped)
+├── tests/                       # clinical / unit / integration (621 tests, 0 skipped)
 └── tests/unit/test_metacod_bridge.py  # METACOD TCM bridge: synthesis + layer-leakage guards + ordering
 ```
 
@@ -177,7 +179,7 @@ and the same assessment can be re-rendered in another language). The `_meta.dire
 cd python
 . .venv/bin/activate
 pip install -r requirements.txt
-pytest                 # all 612 tests
+pytest                 # all 621 tests
 pytest -m clinical     # SaMD reference cases only
 pytest -m unit         # rule DSL safety + correctness
 pytest -m integration  # full HTTP round-trip (TestClient + isolated SQLite)

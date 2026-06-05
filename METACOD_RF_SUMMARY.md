@@ -16,8 +16,8 @@
 | Total drug/concept entries | **507** (507 unique DRG IDs — no collisions) |
 | — authored from Mark's pasted source docs | **220** |
 | — Claude-authored (191 gap-fill batches + 133 expansion-block DRG-380..512) | **324** (flagged) |
-| Conceptual / registry files | **16** |
-| Test suite | **612 passing, 0 skipped** |
+| Conceptual / registry files | **17** (incl. diagnostics foundation) |
+| Test suite | **621 passing, 0 skipped** |
 | `ready_for_clinical_use` across **all** artifacts | **false** (verified) |
 
 DRG ID space is essentially contiguous **DRG-001..379** core + a **380..512 expansion block** (133 class-completion entries across all systems). Documented minor gaps only: 200-201, 250, 370-371.

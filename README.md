@@ -52,7 +52,7 @@ overexposure / free fraction misleading).
   rule_id → energy/quantity axes → three-layer output patient/physician/hidden_admin;
   baseline-маппинг 31 правила, pending Mark's review), **Patient-Facing Filter**
   (детектор утечки proprietary/internal-терминологии в пациентский слой —
-  Memory Rule #10 / §6.5), и тест-харнесс (**612 тестов, 0 skip**:
+  Memory Rule #10 / §6.5), и тест-харнесс (**621 тестов, 0 skip**:
   60 клинических SaMD-кейсов + 24 v3-subsystem + 24 metacod-bridge +
   34 patient-facing-filter + unit DSL + i18n-покрытие + integration HTTP + UI).
   Всё в [`python/`](python/README_INTEGRATION.md).

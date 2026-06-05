@@ -1,0 +1,155 @@
+{
+  "_meta": {
+    "schema": "metacod_rf_diagnostic_foundation",
+    "document_id": "METACOD_RF_Diagnostic_Foundation",
+    "title": "Diagnostic Tests & Imaging Database — Foundation",
+    "version": "1.0",
+    "date": "2026-06",
+    "status": "METACOD-RF — Research Framework, not clinical guidance (ARCHITECTURE PROPOSAL — awaiting Mark validation)",
+    "purpose": "Architecture/schema для параллельной БД диагностических тестов + imaging (по образцу drug DB). Контент НЕ наполнен — ждёт Mark validation (6 вопросов).",
+    "author": "Mark Litvak (proposal) — formalized with AI-assistance",
+    "ready_for_research_use": true,
+    "ready_for_clinical_use": false,
+    "content_filling_started": false,
+    "mark_validated": "pending review (6 open questions)",
+    "kcts_v1_1_alignment": "[KCTS v1.1 ALIGNMENT 2026-06] Этот новый артефакт АВТОРИЗОВАН СРАЗУ в EBM-стиле: KCTS-detection ниже = psychosocial burden + chronic-stress physiology (HPA/cortisol/HRV) + fluid-retention markers. Hamer/AIRE психоконфликт-каузальность и 'collecting tubule' ОТВЕРГНУТЫ как механизм (см. kcts_integration v1.1, которым этот документ управляется). Исходный текст foundation использовал 'AIRE markers' — здесь переформулировано в EBM.",
+    "governance_safety_annotation": {
+      "_authored_by": "METACOD-RF governance layer",
+      "tests_are_inputs_not_interventions": "Диагностические тесты генерируют данные, не воздействуют на пациента напрямую — но METACOD-ИНТЕРПРЕТАЦИЯ (three-axis/energy/membrane/KCTS overlay) поверх них — это RF-гипотеза, не валидированные диагностические критерии.",
+      "reference_ranges_vs_interpretation": "Reference ranges и стандартные показания тестов — [LBL/GL] (валидны независимо). Энергетическая/мембранная/фазовая ИНТЕРПРЕТАЦИЯ результатов — [RF].",
+      "revici_hypotheses_flagged": "urinary-pH 'catabolic/anabolic', Bristol-stool→energy mapping, membrane-biomarker-panel (sterol+MDA/4-HNE, Cole-Cole α), 'phase-angle<5=M-D2' — это Revici/Mark-канонические ГИПОТЕЗЫ, research-only, НЕ валидированные диагностические правила.",
+      "phase_angle_note": "BIA phase angle как prognostic/nutritional marker имеет реальную доказательную базу ([GL]/[RCT]); специфический METACOD-маппинг порогов на membrane-зоны — [RF].",
+      "not_operationalized": "Не интегрировано в движок; не patient-facing; не меняет drug DB / rule_pack / three_axis operational logic.",
+      "standard_care_primacy": "Диагностическая интерпретация через METACOD не должна задерживать/заменять стандартную диагностику и лечение."
+    },
+    "relationship": "Parallel к drug DB (DRG-*). Управляется three_axis_framework v1.0 + kcts_integration v1.1 + constitutional_model. Cross-references к drug DB (тесты, мониторящие конкретные препараты)."
+  },
+  "id_prefixes": {
+    "TST": "Laboratory test",
+    "IMG": "Imaging modality",
+    "FUN": "Functional test",
+    "PRO": "Procedure"
+  },
+  "categories": [
+    {"key": "A_laboratory", "type": "Laboratory", "id_prefix": "TST", "estimated": "120-150",
+     "subcategories": ["Hematology (CBC)", "Chemistry (BMP/CMP)", "Inflammatory markers", "Cardiac markers", "Hepatic panel", "Renal panel", "Lipid panel", "Endocrine (multi)", "Diabetes/metabolic", "Coagulation", "Iron studies", "Vitamins/minerals", "Tumor markers", "Autoimmune panels", "Hormonal panels", "Urinalysis + urine-specific", "Stool tests", "CSF analysis", "Toxicology/genetic"]},
+    {"key": "B_imaging", "type": "Imaging", "id_prefix": "IMG", "estimated": "80-100",
+     "subcategories": ["Plain X-ray", "Ultrasound", "CT", "MRI (+functional)", "PET/PET-CT", "Nuclear medicine", "Mammography", "DEXA", "Specialty (EUS, capsule)"]},
+    {"key": "C_functional", "type": "Functional", "id_prefix": "FUN", "estimated": "60-80",
+     "subcategories": ["Cardiology (ECG/Holter/stress/echo)", "Pulmonology (spirometry/DLCO/plethysmography)", "Neurology (EEG/EMG/EP)", "ENT (audiometry/balance)", "Ophthalmology (OCT/fields/ERG)", "GI (manometry/breath/motility)", "Urology (urodynamics)", "Body composition (BIA — Mark canonical CENTRAL)", "Sleep studies"]},
+    {"key": "D_procedures", "type": "Procedure", "id_prefix": "PRO", "estimated": "40-60",
+     "subcategories": ["Endoscopy (upper/lower/ERCP/EUS)", "Bronchoscopy", "Biopsies", "Bone marrow", "Lumbar puncture", "Tissue/cytology", "Aspiration", "Specialty procedures"]}
+  ],
+  "estimated_total_entries": "300-390",
+  "entry_template_keys": [
+    "test_id", "name_full", "name_ru", "name_alternative_codes", "status", "batch", "test_type",
+    "methodology", "specimen_type", "preparation_required", "turnaround_time", "typical_cost",
+    "reference_ranges", "critical_values", "units",
+    "indications_primary", "indications_screening", "indications_monitoring",
+    "three_axis_profile (constitutional/membrane/phase — what_it_reveals, RF-flagged interpretation)",
+    "mark_canonical_priority (HIGH/MEDIUM/LOW + canonical_role + KCTS_screening_role)",
+    "safety_limitations (contraindications, AEs, false+/-, limitations)",
+    "related_tests (complementary/confirmation/alternative)",
+    "mark_validated (false/PARTIAL/CONFIRMED)", "priority_for_mark_review", "references"
+  ],
+  "differences_from_drug_db": [
+    "Tests are INPUTS (generate data), not interventions (no direct patient effect)",
+    "Three-axis INTERPRETATION (tests reveal axis states) vs targeting (drugs act on axes)",
+    "Sensitivity/specificity/false+/- matter (vs drug efficacy/safety)",
+    "Cost/radiation/invasiveness/prep considerations differ",
+    "Mark-canonical priority varies sharply (BIA/urine-pH central; many peripheral)"
+  ],
+  "mark_canonical_priority_tiers": {
+    "_governance": "[GOVERNANCE] Tiers ниже — Mark-канонические ПРИОРИТЕТЫ. Стандартная фарм/лаб-база ([LBL/GL]) валидна независимо; METACOD-маппинг на energy/membrane/phase — [RF], research-only, не валидированные диагностические критерии.",
+    "tier_1_body_composition": {
+      "test": "BIA (Bioelectrical Impedance Analysis)",
+      "evidence": "[GL/RCT] phase angle = recognized prognostic/nutritional marker; [RF] METACOD membrane-zone mapping",
+      "mark_canonical": ["[OBS-Mark/RF] phase angle <5° = 'M-D2 zone alert'", "[OBS-Mark/RF] ECW/TBW >0.40 = fluid-retention pattern", "Monthly in ADT support stack; quarterly otherwise"],
+      "priority": "HIGHEST"
+    },
+    "tier_2_urinary_ph_revici": {
+      "tests": ["Urinary pH (4-point: morning + post-meal)", "Urine specific gravity"],
+      "evidence": "[RF/Revici] — Revici/Mark hypothesis, NOT a validated diagnostic rule",
+      "mark_canonical": ["[OBS-Mark/RF] urine pH <6 = catabolic; >6 = anabolic (per Hebrew monograph)", "[OBS-Mark/RF] SG>1.025 + K high + leukopenia = M-D; SG<1.015 + K low + AM-pain-worse = M-A"],
+      "priority": "HIGH"
+    },
+    "tier_3_inflammatory_kcts_ebm": {
+      "tests": ["hsCRP", "ESR", "ferritin (as inflammation marker)", "fibrinogen", "IL-6 (if available)", "HRV", "cortisol diurnal", "DHEA-S"],
+      "evidence": "[GL] inflammatory markers standard; [RF] KCTS-pattern overlay",
+      "kcts_ebm_note": "[EBM per v1.1] HRV↓ / blunted-cortisol / chronically-mild-↑inflammation = chronic-stress-physiology + psychosocial-burden pattern (EBM-reframed; NOT Hamer/AIRE causality)",
+      "priority": "HIGH"
+    },
+    "tier_4_membrane_biomarker_panel": {
+      "tests": ["paired Sterol + MDA/4-HNE (M-S)", "TGF-β1 (fibrosis)", "Galectin-3 (fibrosis)", "hydroxyproline (collagen turnover)", "Cole-Cole α (BIA-derived)"],
+      "evidence": "[RF] Mark-canonical membrane panel — research hypothesis, not validated panel",
+      "priority": "MEDIUM-HIGH (research)"
+    },
+    "tier_5_sex_endocrine_adt": {
+      "adt_patients": ["Testosterone (total+free)", "Estradiol", "LH/FSH", "phase-angle BIA monthly", "DEXA q2y (q12mo if ADT+enzalutamide)", "PHQ-9 quarterly", "ASMI/FFM"],
+      "evidence": "[GL] ADT sarcopenia/bone monitoring evidence-based (cross-ref drug DB ADT support stack batch 26 / DRG-265)",
+      "female_extension": "[OBS-Mark] same support-stack monitoring for long-term hormonal cancer therapy women",
+      "priority": "HIGH"
+    },
+    "tier_6_bristol_stool": {
+      "test": "Bristol Stool Scale → METACOD energy mapping",
+      "evidence": "[RF/Mark canonical revision] — NOT standard; Mark-specific energy mapping",
+      "mapping_rf": "[RF] Type1=Damp-excess (Mark revision, NOT Dry); Type2=Damp+Wind; Type3=Dry-excess; Type4=NORMA; Type5=Cold; Type6=Wind+Dry; Type7=Wind+Dry extreme",
+      "priority": "MEDIUM"
+    }
+  },
+  "three_axis_for_diagnostics": {
+    "principle": "Tests REVEAL axis states (vs drugs target axes). [RF] interpretation overlay.",
+    "constitutional": "Body habitus, fat distribution, calcification, atrophy/hypertrophy, skeletal patterns",
+    "membrane": "[RF] edema=M-A; sclerosis/fibrosis=M-S; atrophy/tissue-loss=M-D; calcification=M-S chronic",
+    "phase": "[RF] acute inflammation signal=Phase2; chronic changes=late/hanging; hemorrhage=Phase1/3; fibroproliferative=Phase4"
+  },
+  "kcts_detection_ebm": {
+    "_governance": "[GOVERNANCE — v1.1 EBM] Переформулировано из исходных 'AIRE markers' в EBM: psychosocial burden + chronic-stress physiology + fluid-retention. Hamer/AIRE-каузальность ОТВЕРГНУТА. Не диагностический алгоритм; не откладывает стандартную помощь.",
+    "psychosocial_clinical_markers": ["Attended clinic alone (social isolation)", "Chronic disease >5y treatment-refractory", "Isolation in major life events", "Sole-carer burden"],
+    "supportive_findings": ["BIA ECW/TBW elevated", "HRV reduced", "cortisol diurnal blunted", "borderline hyponatremia", "chronically mild ↑inflammatory markers", "mildly ↑ADH if measured"],
+    "note": "[RF] constellation of EBM-measurable associations; not a validated diagnosis; psychosocial support concurrent with (never instead of) evidence-based care."
+  },
+  "imaging_modality_heuristics": {
+    "lung": "CT > X-ray > MRI", "brain": "MRI > CT (CT for acute hemorrhage/trauma)",
+    "abdomen": "US first (cheap/no radiation) → CT for detail", "soft_tissue_joints": "MRI > US > CT",
+    "bone": "X-ray + CT (cortical); MRI (marrow/soft tissue)", "cardiac": "Echo > cardiac-MRI > cardiac-CT (by question)",
+    "cancer_staging": "PET-CT often comprehensive"
+  },
+  "proposed_batch_plan": [
+    {"batch": "DX-01", "title": "Foundation labs (CBC + chemistry)", "n": "12-15"},
+    {"batch": "DX-02", "title": "Inflammatory + cardiac markers", "n": "10-12"},
+    {"batch": "DX-03", "title": "Endocrine — general (thyroid/adrenal)", "n": "12-15"},
+    {"batch": "DX-04", "title": "Endocrine — sex hormones + ADT monitoring", "n": "10-12"},
+    {"batch": "DX-05", "title": "Diabetes + metabolic (+uric acid)", "n": "10-12"},
+    {"batch": "DX-06", "title": "Hepatic + renal + urinalysis (urine pH — Mark canonical)", "n": "12-15"},
+    {"batch": "DX-07", "title": "Iron, B-vitamins, micronutrients", "n": "12-15"},
+    {"batch": "DX-08", "title": "Autoimmune + coagulation", "n": "12-15"},
+    {"batch": "DX-09", "title": "Tumor markers", "n": "8-10"},
+    {"batch": "DX-10", "title": "Specialty labs (allergy/genetic/catecholamines)", "n": "10-15"},
+    {"batch": "DX-11", "title": "Membrane biomarker panel (Mark canonical, RF)", "n": "10-12"},
+    {"batch": "DX-12", "title": "Imaging — X-ray + ultrasound", "n": "12-15"},
+    {"batch": "DX-13", "title": "Imaging — CT", "n": "12-15"},
+    {"batch": "DX-14", "title": "Imaging — MRI", "n": "12-15"},
+    {"batch": "DX-15", "title": "Imaging — nuclear + PET", "n": "8-10"},
+    {"batch": "DX-16", "title": "Functional — cardiology (ECG/Holter/stress/echo)", "n": "10-12"},
+    {"batch": "DX-17", "title": "Functional — pulmonology + sleep", "n": "8-10"},
+    {"batch": "DX-18", "title": "Functional — body composition + Mark canonical (BIA/DEXA/HRV/urine-pH)", "n": "8-10"},
+    {"batch": "DX-19", "title": "Procedures — endoscopy + biopsy", "n": "10-12"},
+    {"batch": "DX-20", "title": "Specialty procedures (bone marrow/LP)", "n": "8-10"}
+  ],
+  "open_questions_for_mark": [
+    "Q1 — Overall scope (A~120-150 lab / B~80-100 imaging / C~60-80 functional / D~40-60 procedures; ~300-390 total): acceptable or modify?",
+    "Q2 — Mark canonical priority tiers (BIA phase-angle HIGHEST; urine-pH Revici; Bristol mapping; membrane biomarker panel; ADT monitoring): confirm; anything missing?",
+    "Q3 — 20-batch sequence: acceptable or reorder?",
+    "Q4 — Three-axis-for-diagnostics approach (tests REVEAL axis states vs drugs target axes): confirm framework approach?",
+    "Q5 — Entry template structure: acceptable basis or modify?",
+    "Q6 — Starting point for content filling: DX-01 (foundation labs) / DX-18 (BIA + Mark canonical) / DX-06 (renal + urine pH Revici) / other?"
+  ],
+  "status_block": {
+    "content_filling_started": false,
+    "estimated_total_entries": "300-390",
+    "estimated_batches": 20,
+    "mark_validation_needed": true,
+    "ready_to_proceed": "after Mark answers Q1-Q6"
+  }
+}
