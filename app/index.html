@@ -319,7 +319,7 @@ async function run(){
   out.innerHTML='<div class="ph"><span class="spin"></span><br>Провожу случай через фильтры METACOD…</div>';
   try{
     var resp=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,system:SYS,
+      body:JSON.stringify({model:"claude-opus-4-8",max_tokens:2500,system:SYS,
         messages:[{role:"user",content:"Проведи разбор METACOD по случаю:\n\n"+c}]})});
     var data=await resp.json();
     var text=(data.content||[]).map(i=>i.type==='text'?i.text:'').join('\n').trim();
