@@ -327,6 +327,13 @@
   shared/engine `reviewCase` = красные флаги + DDI + энергии-метки + Hard Stops; функции
   `reviewCaseFn`/`saveCaseFn`; Firestore-правила; i18n RU/EN/HE; ⚠️ граница — энергии = объясняющий
   слой, не генератор назначений; Hamer/GNM и Revici в онкоданных НЕ включены).
+- `docs/omer-treatment-patch.md` — спецификация патча лечебного слоя поверх монорепо Omer
+  (наложение, без смены архитектуры): данные (`treatment_database_350.json` +новые поля,
+  `drug_safety_kcts.json`, лог 44 исправлений кодов), модуль отёчного слоя Layer 0 (KCTS/PWRS —
+  research-modifier), справочная схема цзюнь-чэнь-цзо-ши; точка входа `metacodTreatment`
+  (`buildTreatment`/`screenEdema`/`edemaDrugWarnings`), 2 вставки в `reviewCase()`; граница та же
+  (энергии = объяснение, схема = справочный разбор; Hamer/GNM, Revici, энерго-подбор как предписание
+  НЕ включены).
 - Источники данных лечебного слоя: `master_bundle_v3_0_enriched.json` (350 болезней, 658 препаратов,
   450 симптомов, 320 анализов), `METACOD_Treatment_Engine_Spec_v1_0_6.md`.
 - Согласованные шаги: (1) абсолютные дозы к 350; (2) внедрить 350 в кабинет и движок Omer;
