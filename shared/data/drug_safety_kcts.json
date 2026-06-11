@@ -1,0 +1,421 @@
+{
+ "layer": "KCTS / отёчный слой (PWRS-HB)",
+ "generated": "2026-06-11",
+ "note": "матчинг по точным классам; исправлено: убраны ложные АПФ/АРБ (карбапенемы, заместительная терапия); финеренон/спиронолактон → MRA-helpful (не стероид-caution); кетоконазол и глазной стероид исключены из caution",
+ "items": [
+  {
+   "id": "DRG-001",
+   "name_ru": "Семаглутид",
+   "class": "GLP-1_RA",
+   "kcts_caution": [
+    "GLP-1 при активном слое — риск дегидратационного парадокса, контроль"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-002",
+   "name_ru": "Тирзепатид",
+   "class": "GIP_GLP-1_dual_agonist",
+   "kcts_caution": [
+    "GLP-1 при активном слое — риск дегидратационного парадокса, контроль"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-003",
+   "name_ru": "Мазудутид",
+   "class": "GLP-1_glucagon_dual_agonist",
+   "kcts_caution": [
+    "GLP-1 при активном слое — риск дегидратационного парадокса, контроль"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-004",
+   "name_ru": "Ретатрутид",
+   "class": "GLP-1_GIP_glucagon_triple_agonist",
+   "kcts_caution": [
+    "GLP-1 при активном слое — риск дегидратационного парадокса, контроль"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-005",
+   "name_ru": "Орфорглипрон",
+   "class": "non_peptide_oral_GLP-1_RA",
+   "kcts_caution": [
+    "GLP-1 при активном слое — риск дегидратационного парадокса, контроль"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-006",
+   "name_ru": "Лираглутид",
+   "class": "GLP-1_RA_short_acting_daily",
+   "kcts_caution": [
+    "GLP-1 при активном слое — риск дегидратационного парадокса, контроль"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-007",
+   "name_ru": "Дулаглутид",
+   "class": "GLP-1_RA_weekly",
+   "kcts_caution": [
+    "GLP-1 при активном слое — риск дегидратационного парадокса, контроль"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-009",
+   "name_ru": "Эмпаглифлозин",
+   "class": "SGLT-2_inhibitor",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "SGLT2 — диуретик+охлаждение, полезен при слое с метаболическим синдромом"
+   ]
+  },
+  {
+   "id": "DRG-010",
+   "name_ru": "Дапаглифлозин",
+   "class": "SGLT-2_inhibitor",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "SGLT2 — диуретик+охлаждение, полезен при слое с метаболическим синдромом"
+   ]
+  },
+  {
+   "id": "DRG-011",
+   "name_ru": "Канаглифлозин",
+   "class": "SGLT-2_inhibitor",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "SGLT2 — диуретик+охлаждение, полезен при слое с метаболическим синдромом"
+   ]
+  },
+  {
+   "id": "DRG-016",
+   "name_ru": "Финеренон",
+   "class": "non_steroidal_MRA",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "MRA (спиронолактон/эплеренон/финеренон) — калий-сберегающий, снижает отёк; контроль калия"
+   ]
+  },
+  {
+   "id": "DRG-019",
+   "name_ru": "Периндоприл",
+   "class": "ACE_inhibitor",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "АПФ/АРБ/АРНИ — модуляция РААС, особенно при гипертензии"
+   ]
+  },
+  {
+   "id": "DRG-020",
+   "name_ru": "Лозартан",
+   "class": "ARB",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "АПФ/АРБ/АРНИ — модуляция РААС, особенно при гипертензии"
+   ]
+  },
+  {
+   "id": "DRG-021",
+   "name_ru": "Валсартан",
+   "class": "ARB",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "АПФ/АРБ/АРНИ — модуляция РААС, особенно при гипертензии"
+   ]
+  },
+  {
+   "id": "DRG-021_022",
+   "name_ru": null,
+   "class": "ARB_or_ARNi",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "АПФ/АРБ/АРНИ — модуляция РААС, особенно при гипертензии"
+   ]
+  },
+  {
+   "id": "DRG-022",
+   "name_ru": "Сакубитрил/Валсартан",
+   "class": "ARNi",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "АПФ/АРБ/АРНИ — модуляция РААС, особенно при гипертензии"
+   ]
+  },
+  {
+   "id": "DRG-026",
+   "name_ru": "Амлодипин",
+   "class": "dihydropyridine_CCB",
+   "kcts_caution": [
+    "Амлодипин/дигидропиридин — периферический отёк добавляется к слою"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-027",
+   "name_ru": "Фуросемид",
+   "class": "loop_diuretic",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "Короткий курс диуретика (не хронически — электролиты)"
+   ]
+  },
+  {
+   "id": "DRG-028",
+   "name_ru": "Индапамид",
+   "class": "thiazide_like_diuretic",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "Короткий курс диуретика (не хронически — электролиты)"
+   ]
+  },
+  {
+   "id": "DRG-049",
+   "name_ru": "Спиронолактон",
+   "class": "steroidal_MRA_with_antiandrogen",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "MRA (спиронолактон/эплеренон/финеренон) — калий-сберегающий, снижает отёк; контроль калия"
+   ]
+  },
+  {
+   "id": "DRG-116",
+   "name_ru": "Гидрохлортиазид",
+   "class": "thiazide_diuretic",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "Короткий курс диуретика (не хронически — электролиты)"
+   ]
+  },
+  {
+   "id": "DRG-117",
+   "name_ru": "Эплеренон",
+   "class": "selective_MRA",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "MRA (спиронолактон/эплеренон/финеренон) — калий-сберегающий, снижает отёк; контроль калия"
+   ]
+  },
+  {
+   "id": "DRG-118",
+   "name_ru": "Рамиприл",
+   "class": "ACE_inhibitor",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "АПФ/АРБ/АРНИ — модуляция РААС, особенно при гипертензии"
+   ]
+  },
+  {
+   "id": "DRG-119",
+   "name_ru": "Эналаприл",
+   "class": "ACE_inhibitor",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "АПФ/АРБ/АРНИ — модуляция РААС, особенно при гипертензии"
+   ]
+  },
+  {
+   "id": "DRG-120",
+   "name_ru": "Телмисартан",
+   "class": "ARB_PPARgamma_partial",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "АПФ/АРБ/АРНИ — модуляция РААС, особенно при гипертензии"
+   ]
+  },
+  {
+   "id": "DRG-131",
+   "name_ru": "Гидрокортизон",
+   "class": "glucocorticoid_replacement",
+   "kcts_caution": [
+    "Системный кортикостероид/минералокортикоид хронически — задержка Na/воды, риск отёка"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-132",
+   "name_ru": "Флудрокортизон",
+   "class": "mineralocorticoid",
+   "kcts_caution": [
+    "Системный кортикостероид/минералокортикоид хронически — задержка Na/воды, риск отёка"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-133",
+   "name_ru": "Преднизолон",
+   "class": "glucocorticoid_systemic",
+   "kcts_caution": [
+    "Системный кортикостероид/минералокортикоид хронически — задержка Na/воды, риск отёка"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-134",
+   "name_ru": "Дексаметазон",
+   "class": "glucocorticoid_high_potency",
+   "kcts_caution": [
+    "Системный кортикостероид/минералокортикоид хронически — задержка Na/воды, риск отёка"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-176",
+   "name_ru": "Сертралин",
+   "class": "SSRI",
+   "kcts_caution": [
+    "СИОЗС длительно — повышен риск гипонатриемии при слое"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-177",
+   "name_ru": "Эсциталопрам",
+   "class": "SSRI",
+   "kcts_caution": [
+    "СИОЗС длительно — повышен риск гипонатриемии при слое"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-178",
+   "name_ru": "Флуоксетин",
+   "class": "SSRI_long_acting",
+   "kcts_caution": [
+    "СИОЗС длительно — повышен риск гипонатриемии при слое"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-179",
+   "name_ru": "Пароксетин",
+   "class": "SSRI",
+   "kcts_caution": [
+    "СИОЗС длительно — повышен риск гипонатриемии при слое"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-180",
+   "name_ru": "Циталопрам",
+   "class": "SSRI",
+   "kcts_caution": [
+    "СИОЗС длительно — повышен риск гипонатриемии при слое"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-252",
+   "name_ru": "Ибупрофен",
+   "class": "NSAID",
+   "kcts_caution": [
+    "NSAID хронически — задержка Na/воды, ухудшает отёчный слой"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-253",
+   "name_ru": "Напроксен",
+   "class": "NSAID_longer_acting",
+   "kcts_caution": [
+    "NSAID хронически — задержка Na/воды, ухудшает отёчный слой"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-254",
+   "name_ru": "Диклофенак",
+   "class": "NSAID",
+   "kcts_caution": [
+    "NSAID хронически — задержка Na/воды, ухудшает отёчный слой"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-255",
+   "name_ru": "Целекоксиб",
+   "class": "COX2_selective_NSAID",
+   "kcts_caution": [
+    "NSAID хронически — задержка Na/воды, ухудшает отёчный слой"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-256",
+   "name_ru": "Кеторолак",
+   "class": "NSAID_potent_parenteral",
+   "kcts_caution": [
+    "NSAID хронически — задержка Na/воды, ухудшает отёчный слой"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-257",
+   "name_ru": "Индометацин",
+   "class": "NSAID_potent",
+   "kcts_caution": [
+    "NSAID хронически — задержка Na/воды, ухудшает отёчный слой"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-481",
+   "name_ru": "Эртуглифлозин",
+   "class": "SGLT2_inhibitor",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "SGLT2 — диуретик+охлаждение, полезен при слое с метаболическим синдромом"
+   ]
+  },
+  {
+   "id": "DRG-482",
+   "name_ru": "Бексаглифлозин",
+   "class": "SGLT2_inhibitor",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "SGLT2 — диуретик+охлаждение, полезен при слое с метаболическим синдромом"
+   ]
+  },
+  {
+   "id": "DRG-483",
+   "name_ru": "Сотаглифлозин",
+   "class": "SGLT1_SGLT2_dual",
+   "kcts_caution": [],
+   "kcts_helpful": [
+    "SGLT2 — диуретик+охлаждение, полезен при слое с метаболическим синдромом"
+   ]
+  },
+  {
+   "id": "DRG-493",
+   "name_ru": "Лираглутид 3mg (Saxenda)",
+   "class": "GLP1_RA_obesity",
+   "kcts_caution": [
+    "GLP-1 при активном слое — риск дегидратационного парадокса, контроль"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-586",
+   "name_ru": "Ваморолон",
+   "class": "dissociative_steroid",
+   "kcts_caution": [
+    "Системный кортикостероид/минералокортикоид хронически — задержка Na/воды, риск отёка"
+   ],
+   "kcts_helpful": []
+  },
+  {
+   "id": "DRG-601",
+   "name_ru": "НПВС (класс)",
+   "class": "NSAID_class_pointer",
+   "kcts_caution": [
+    "NSAID хронически — задержка Na/воды, ухудшает отёчный слой"
+   ],
+   "kcts_helpful": []
+  }
+ ]
+}
