@@ -323,6 +323,10 @@
   цзюнь-чэнь-цзо-ши с долями дозы), трёхъязычный (RU/EN/HE) кабинет `metacod_cabinet.html`,
   опросник пациента (153 вопроса), PWA-сборки, TS Expo+Firebase монорепо Omer с движком
   дифдиагностики/лечения, клинические переводы на выверку.
+- `docs/omer-handover.md` — handover-спецификация сборки монорепо Omer (Expo RN + Firebase:
+  shared/engine `reviewCase` = красные флаги + DDI + энергии-метки + Hard Stops; функции
+  `reviewCaseFn`/`saveCaseFn`; Firestore-правила; i18n RU/EN/HE; ⚠️ граница — энергии = объясняющий
+  слой, не генератор назначений; Hamer/GNM и Revici в онкоданных НЕ включены).
 - Источники данных лечебного слоя: `master_bundle_v3_0_enriched.json` (350 болезней, 658 препаратов,
   450 симптомов, 320 анализов), `METACOD_Treatment_Engine_Spec_v1_0_6.md`.
 - Согласованные шаги: (1) абсолютные дозы к 350; (2) внедрить 350 в кабинет и движок Omer;
