@@ -2,6 +2,9 @@
 *.zip
 /dist/
 
+# Временная сборка кабинета из кусков (не хранится в git)
+/.cabinet_build/
+
 # Прочее
 .DS_Store
 METACOD-knowledge-base.zip
