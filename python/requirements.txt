@@ -6,6 +6,8 @@ SQLAlchemy>=2.0
 # Optional — server-side PDF rendering. If absent, /report.pdf returns 501 and
 # the client falls back to browser print-to-PDF of /report.html.
 # weasyprint>=61
+# Optional — native Word (.docx) reports via reports/docx_renderer.py.
+# python-docx>=1.1
 # Production DB driver (PostgreSQL). SQLite (stdlib) is used by default in dev.
 # psycopg[binary]>=3.1
 # Migrations (production). Dev can use database.py init_db().

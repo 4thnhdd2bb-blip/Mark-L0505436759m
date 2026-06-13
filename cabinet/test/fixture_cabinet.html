@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="utf-8"/><title>METACOD — Кабинет (тестовая фикстура)</title></head>
+<body>
+<!--
+  TEST FIXTURE ONLY — not the production cabinet.
+
+  Contains the same section markers and the real (verbatim) pure engine
+  functions from python/ui cabinet, but with a tiny SYNTHETIC differential /
+  treatment dataset (no real clinical dosing tables). Used to exercise
+  engine_loader.mjs + batch.mjs end-to-end. The production batch points
+  --cabinet at the real cabinet.html.
+-->
+<script>
+/* ===================== ДВИЖОК ДИФФЕРЕНЦИАЛА (встроен из проекта METACOD) ===================== */
+const DX_META = {
+  "cold": { evidence:[
+    {cat:"жалобы",text:"зябкость, плохо переносит холод",weight:3,match:["мёрзн","мерзн","зябк","холод"]},
+    {cat:"жалобы",text:"прибавка веса",weight:2,match:["вес","набир","поправ","прибав"]},
+    {cat:"жалобы",text:"утомляемость, слабость",weight:1,match:["нет сил","слабость","устал","утомля"],sym:["g3"]},
+    {cat:"клиника",text:"брадикардия (ЧСС < 60)",weight:3,match:["@hr_low"]},
+    {cat:"анализы",text:"ТТГ повышен, свободный Т4 снижен",weight:6,match:["ттг","t4","т4"],confirms:true}],
+    confirm:["ТТГ + свободный Т4"],
+    workup:{labs:["ТТГ, свободный Т4","антитела к ТПО"],imaging:["УЗИ щитовидной железы — при узлах/зобе"],procedures:["ЭКГ — при брадикардии перед стартом левотироксина"]},
+    treatmentToday:"Сегодня: НЕ начинать тиреоид до ТТГ; симптоматически. Заказать ТТГ/свТ4.",
+    treatmentFinal:"После подтверждения: левотироксин — старт 25–50 мкг/сут, титровать по ТТГ.",
+    followUp:"Контроль ТТГ через 6–8 недель после старта/смены дозы.",
+    cautions:["Левотироксин у пожилых/при ИБС — старт низкий (риск аритмии).","Дозу не менять без ТТГ."]},
+  "htn": { name:"Артериальная гипертензия", evidence:[
+    {cat:"жалобы",text:"головная боль, головокружение",weight:1,match:["голов"],sym:["n1"]},
+    {cat:"клиника",text:"повышенное АД (≥130/85)",weight:5,match:["@bp_high"],confirms:true}],
+    confirm:["повторные измерения АД (дом/офис)"],
+    workup:{labs:["креатинин + СКФ, калий"],imaging:["ЭхоКГ — при подозрении на ГЛЖ"],procedures:["ЭКГ","СМАД"]},
+    treatmentToday:"Сегодня (если АД стойко высокое): начать один класс антигипертензивного.",
+    treatmentFinal:"Комбинация (иАПФ/БРА + амлодипин ± тиазид).",
+    followUp:"Контроль АД через 2–4 недели после старта/титрации.",
+    cautions:["иАПФ/БРА ПРОТИВОПОКАЗАНЫ при беременности."]}
+};
+const DX_NAMES = {"cold":"Гипотиреоз (и гипоперфузия)","htn":"Артериальная гипертензия"};
+const DB350 = [
+  {name_ru:"Гипотиреоз",name_en:"Hypothyroidism",icd10:"E03",category:"endocrine_thyroid",symptoms:["Непереносимость холода","Прибавка веса"]},
+  {name_ru:"Артериальная гипертония",name_en:"Hypertension",icd10:"I10-I15",category:"cardiovascular",symptoms:["Головная боль"]}
+];
+const SYMKW = {"Непереносимость холода":["зябк","мерзн","переношу холод","холод"],"Прибавка веса":["вес","набрал","прибав"],"Головная боль":["голов бол","мигрен"]};
+var DB350_BLOB="";
+
+function matchDB350(blob){
+  blob=(blob||"").toLowerCase(); if(!blob) return [];
+  var res=[];
+  for(var i=0;i<DB350.length;i++){
+    var d=DB350[i], hits=[], score=0, syms=d.symptoms||[];
+    for(var k=0;k<syms.length;k++){
+      var kws=SYMKW[syms[k]]||[];
+      for(var jj=0;jj<kws.length;jj++){ if(kws[jj] && blob.indexOf(kws[jj])>=0){ hits.push(syms[k]); score++; break; } }
+    }
+    var nm=(d.name_ru||"").toLowerCase(); var nameHit = nm.length>5 && blob.indexOf(nm)>=0;
+    if(nameHit) score+=3;
+    if(score>=2 || nameHit) res.push({i:i,d:d,score:score,hits:hits,nameHit:nameHit});
+  }
+  res.sort(function(a,b){return b.score-a.score;});
+  return res.slice(0,6);
+}
+
+function tokenMatch(t,s){
+  switch(t){
+    case "@hr_low": return s.hr!=null && s.hr<60;
+    case "@hr_high": return s.hr!=null && s.hr>100;
+    case "@temp_low": return s.temp!=null && s.temp<36.3;
+    case "@bp_high": return ((s.sbp||0)>=130 || (s.dbp||0)>=85);
+    case "@age_old": return s.age!=null && s.age>=60;
+    default: return false;
+  }
+}
+function evMatched(it,s){
+  if(it.sym){ for(const id of it.sym) if((s.symIds||[]).indexOf(id)>=0) return true; }
+  for(const m of it.match){
+    if(m.charAt(0)==="@"){ if(tokenMatch(m,s)) return true; }
+    else if(s.blob.indexOf(m)>=0) return true;
+  }
+  return false;
+}
+function scoreDifferential(s){ DB350_BLOB=(s&&s.blob)||"";
+  const out=[];
+  for(const id in DX_META){
+    const meta=DX_META[id]; let total=0,got=0; const matched=[],missing=[];
+    for(const it of meta.evidence){ total+=it.weight;
+      if(evMatched(it,s)){ got+=it.weight; matched.push({cat:it.cat,text:it.text,confirms:it.confirms}); }
+      else missing.push({cat:it.cat,text:it.text,confirms:it.confirms}); }
+    if(!matched.length) continue;
+    out.push({id, name:DX_NAMES[id]||meta.name||id, matchPct: total? Math.round(got/total*100):0,
+      matched, missing, confirm:meta.confirm, workup:meta.workup,
+      treatmentToday:meta.treatmentToday, treatmentFinal:meta.treatmentFinal, followUp:meta.followUp, cautions:meta.cautions||[]});
+  }
+  out.sort((a,b)=>b.matchPct-a.matchPct);
+  return out;
+}
+const CLASSES=[
+  {key:"acei",label:"иАПФ",meds:["прил","лизиноприл","рамиприл","эналаприл","периндоприл","каптоприл","фозиноприл"]},
+  {key:"arb",label:"БРА (сартан)",meds:["сартан","лозартан","валсартан","кандесартан","телмисартан","ирбесартан"]},
+  {key:"ccb",label:"БКК",meds:["амлодипин","нифедипин","лерканидипин","фелодипин"]},
+  {key:"thiazide",label:"тиазид",meds:["гидрохлортиазид","гхтз","индапамид","хлорталидон"]},
+  {key:"bb",label:"β-блокатор",meds:["бисопролол","метопролол","карведилол","атенолол","небиволол"]},
+  {key:"statin",label:"статин",meds:["статин","аторвастатин","розувастатин","симвастатин"]},
+  {key:"nsaid",label:"НПВС",meds:["ибупрофен","диклофенак","напроксен","нимесулид","кеторолак"]},
+  {key:"metformin",label:"метформин",meds:["метформин","глюкофаж","сиофор"]},
+  {key:"sglt2",label:"SGLT2",meds:["глифлозин","эмпаглифлозин","дапаглифлозин"]},
+];
+function patientCautions(s){
+  const out=[]; const allergies=s.allergies||"", meds=s.medsText||"";
+  const taking=[]; for(const c of CLASSES) if(c.meds.some(m=>meds.indexOf(m)>=0)) taking.push(c.label);
+  if(taking.length) out.push("Уже в терапии: "+taking.join(", ")+" — не дублировать класс; оптимизировать дозу, а не добавлять тот же.");
+  if(s.pregnant) out.push("⚠ Беременность/кормление: НЕ назначать иАПФ, БРА, статины; НПВС избегать (особенно 3-й триместр).");
+  if(s.renalRisk) out.push("⚠ Почки: метформин стоп при СКФ<30; SGLT2 не для гликемии при eGFR<30; НПВС избегать.");
+  if(/нпвс|ибупрофен|аспирин|диклофенак|аналгин|метамизол|нимесулид/.test(allergies))
+    out.push("⚠ Аллергия на НПВС: исключить ибупрофен — для боли/жара парацетамол.");
+  if(/пеницилл|амоксицилл|ампицилл|цефалоспорин/.test(allergies))
+    out.push("⚠ Аллергия на β-лактамы: антибиотик — альтернативный класс.");
+  return out;
+}
+function buildSignalsFromPatient(p, extra){
+  extra=extra||{};
+  const parts=[];
+  if(extra.complaint) parts.push(extra.complaint);
+  (p.symptoms||[]).forEach(x=>parts.push(x.text));
+  (p.meds||[]).forEach(m=>parts.push(m.name+" "+(m.dose||"")));
+  if(p.allergies) parts.push(p.allergies);
+  const blob=parts.join(" ").toLowerCase();
+  const num=x=>{const n=parseFloat(x);return isFinite(n)?n:undefined;};
+  let age; if(p.dob){ const d=new Date(p.dob); if(!isNaN(d)) age=Math.floor((Date.now()-d.getTime())/(365.25*86400000)); }
+  if(age==null && extra.age!=null) age=num(extra.age);
+  const symIds = (extra.symIds && extra.symIds.length) ? extra.symIds : Object.keys(p.checklist||{}).filter(id=>p.checklist[id]);
+  return { blob, symIds, age, hr:num(extra.hr), temp:num(extra.temp), sbp:num(extra.sbp), dbp:num(extra.dbp),
+    allergies:String(p.allergies||"").toLowerCase(), medsText:(p.meds||[]).map(m=>m.name.toLowerCase()).join(" "),
+    pregnant: !!extra.pregnant, renalRisk: /почк|хбп|почечн|креатинин|диализ|скф|нефро/.test(blob) };
+}
+function parseAnketaCode(txt){
+  const m=txt.match(/\[METACOD-КОД\]([\s\S]*)$/); if(!m) return null;
+  const line=m[1];
+  const get=(k)=>{ const r=line.match(new RegExp(k+"=([^;]*)")); return r?r[1].trim():""; };
+  const num=x=>{const n=parseFloat(x);return isFinite(n)?n:undefined;};
+  const bp=get("bp").split("/");
+  let name=get("name");
+  if(!name){ const nm=txt.match(/(?:Имя|Name|שם)\s*:\s*([^\n]+)/i); if(nm) name=nm[1].trim(); }
+  return { name:name, symIds:get("sym").split(",").map(x=>x.trim()).filter(Boolean), age:num(get("age")),
+    sex:get("sex"), sbp:num(bp[0]), dbp:num(bp[1]), hr:num(get("hr")), pregnant:get("preg")==="1",
+    meds:get("meds"), allergies:get("alg"), complaint:get("c") };
+}
+function buildReportText(p,dx,pc,extra){
+  extra=extra||{};
+  const lines=["МЕДИЦИНСКОЕ ЗАКЛЮЧЕНИЕ — METACOD"];
+  let age=""; if(p.dob){const d=new Date(p.dob); if(!isNaN(d)) age=Math.floor((Date.now()-d.getTime())/(365.25*86400000));} if(age===""&&extra.age!=null) age=extra.age;
+  lines.push("Пациент: "+(p.name||"")+(age?(" · "+age):""));
+  var fqp=(extra.fqParts||[]); if(extra.complaint||fqp.length) lines.push("Жалобы и симптомы: "+[extra.complaint].concat(fqp).filter(Boolean).join("; "));
+  const meds=(p.meds||[]).map(m=>m.name+(m.dose?(" "+m.dose):"")).join("; "); if(meds) lines.push("Лекарства: "+meds);
+  if(p.allergies) lines.push("Аллергии: "+p.allergies);
+  if(pc.length) lines.push("Предостережения: "+pc.join(" | "));
+  lines.push(""); lines.push("Предполагаемые диагнозы:");
+  dx.slice(0,5).forEach(d=>{ lines.push("• "+d.matchPct+"% "+d.name);
+    if(d.workup){const w=[].concat(d.workup.labs,d.workup.imaging,d.workup.procedures); if(w.length) lines.push("   обследование: "+w.join("; "));}
+    lines.push("   сегодня: "+d.treatmentToday); lines.push("   после: "+d.treatmentFinal);
+  });
+  lines.push(""); lines.push("Это поддержка клинического решения, не окончательный диагноз. Препарат, доза и диагноз — решение лечащего врача.");
+  return lines.join("\n");
+}
+/* ===================== /движок ===================== */
+
+/* ===================== ОПРОСНИК СИМПТОМОВ (галочки) ===================== */
+const SYMPTOMS = [
+  {key:"general",ru:"ОБЩИЕ",en:"GENERAL",he:"כללי",items:[
+    {id:"g3",ru:"выраженная утомляемость",en:"marked fatigue",he:"עייפות ניכרת"}]},
+  {key:"cardio",ru:"СЕРДЦЕ И СОСУДЫ",en:"HEART & VESSELS",he:"לב וכלי דם",items:[
+    {id:"c1",ru:"боль в груди",en:"chest pain",he:"כאב בחזה"}]},
+  {key:"neuro",ru:"НЕРВНАЯ СИСТЕМА",en:"NERVOUS SYSTEM",he:"מערכת העצבים",items:[
+    {id:"n1",ru:"головная боль",en:"headache",he:"כאב ראש"}]}
+];
+function symLabel(it){ return it[LANG]||it.ru; }
+const FULLQ = [
+  {id:"about",title:{ru:"О вас",en:"About you",he:"עליך"},questions:[
+    {id:"age",type:"num",label:{ru:"Возраст",en:"Age",he:"גיל"}}]}
+];
+const FQ_ANS = {};
+/* ===================== /опросник ===================== */
+</script>
+</body>
+</html>

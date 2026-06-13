@@ -67,3 +67,23 @@ overexposure / free fraction misleading).
 | **TS / Expo-React-Native / Firebase** (целевая платформа) | `packages/`, `functions/` | ✅ Part 1–2 (движок + API), UI позже |
 
 Клиническое ядро (rule_pack, drug_master, i18n) **идентично** в обоих треках.
+
+## METACOD Cabinet — опросник, Word-заключение, ретро-batch
+
+Поверх **METACOD Cabinet** (`python/ui/cabinet.html` — одностраничный кабинет
+пациент/врач/админ: опросник на 153 вопроса, движок дифференциала `DX_META`,
+база лечения `DB350`, трёхъязычный RU/EN/HE) добавлены два инструмента
+(см. [`cabinet/`](cabinet/README.md)):
+
+- **Word-экспорт в кабинете** — подключаемый модуль `python/ui/metacod_word_export.js`
+  (одна строка `<script>`): кнопка «📝 Скачать Word (.docx)» у каждого заключения,
+  красивый Word-документ, RTL для иврита, без зависимостей.
+- **Ретроактивный batch** (`node cabinet/batch.mjs`) — для анализа 60 000 пациентов
+  Клалит: вход CSV/JSONL → движок **самого кабинета** → Word-заключение по каждому
+  пациенту + сводный `summary.csv` (топ-3 диагноза с % совпадения). Кабинет читается
+  как единственный источник истины — клинические дозы не дублируются.
+
+```bash
+node --test cabinet/test/smoke.mjs            # тесты (6/6 зелёные)
+node cabinet/batch.mjs --cabinet python/ui/cabinet.html --in patients.jsonl --out ./out
+```
